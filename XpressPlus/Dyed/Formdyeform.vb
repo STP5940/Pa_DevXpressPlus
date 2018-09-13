@@ -39,6 +39,8 @@ Public Class Formdyeform
         Mainbuttonaddedit()
     End Sub
     Private Sub Btmedit_Click(sender As Object, e As EventArgs) Handles Btmedit.Click
+        Ctdedit.Enabled = True
+        Ctddel.Enabled = True
         BindingNavigator1.Enabled = False
         Mainbuttonaddedit()
     End Sub
@@ -240,6 +242,8 @@ Public Class Formdyeform
         Btdbadd.Enabled = False
         Btdedit.Enabled = False
         Btddel.Enabled = False
+        Ctdedit.Enabled = False
+        Ctddel.Enabled = False
     End Sub
     Private Sub Btfirst_Click(sender As Object, e As EventArgs) Handles Btfirst.Click
         Befirst()
@@ -377,8 +381,20 @@ Public Class Formdyeform
         Btdcancel_Click(sender, e)
         GroupPanel2.Visible = True
         Tbaddedit.Text = "เพิ่ม"
+        Tbknitcomno.Text = ""
+        Tbclothid.Text = ""
+        Tbclothno.Text = ""
+        Tbclothtype.Text = ""
+        Tbqtyroll.Text = ""
+        Tbwgtkg.Text = ""
+        Tbfinwgt.Text = ""
+        Tbfinwidth.Text = ""
+        Tbshadeid.Text = ""
+        Tbshadename.Text = ""
+        Tbfabbill.Text = ""
     End Sub
     Private Sub Btdedit_Click(sender As Object, e As EventArgs) Handles Btdedit.Click
+        GroupPanel2.Visible = True
         If Dgvmas.RowCount = 0 Then
             Exit Sub
         End If
@@ -791,6 +807,8 @@ Public Class Formdyeform
         End If
         Return Valid
     End Function
+
+
     Private Sub Setauthorize()
         If Gscreau = False Then
             Btmnew.Visible = False
@@ -870,4 +888,5 @@ Public Class Formdyeform
         Btmreports.Enabled = False
         Disbaledbutton()
     End Sub
+
 End Class
