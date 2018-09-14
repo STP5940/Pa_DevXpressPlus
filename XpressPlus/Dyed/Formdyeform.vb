@@ -17,6 +17,10 @@ Public Class Formdyeform
         Btdbadd.Enabled = False
         Btdedit.Enabled = False
         Btddel.Enabled = False
+        Tbqtyroll.Enabled = False
+        Tbwgtkg.Enabled = False
+        Tbfinwgt.Enabled = False
+        Tbfinwidth.Enabled = False
         Controls.Add(Dtplistfm)
         Dtplistfm.Value = Now
         Dtplistfm.Width = 130
@@ -471,7 +475,7 @@ Public Class Formdyeform
             If Me.Dgvmas.Rows.Count < 1 Then Exit Sub
             If e.RowIndex < 0 Then Exit Sub
             Dgvmas.CurrentCell = Dgvmas(3, e.RowIndex)
-            Me.Dgvlist.Rows(e.RowIndex).Selected = True
+            Me.Dgvmas.Rows(e.RowIndex).Selected = True
             Editcontextdetmenu()
         End If
     End Sub
@@ -842,7 +846,6 @@ Public Class Formdyeform
         End If
         Return Valid
     End Function
-
 
     Private Sub Setauthorize()
         If Gscreau = False Then
