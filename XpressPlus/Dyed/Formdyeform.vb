@@ -7,6 +7,16 @@ Public Class Formdyeform
     Private WithEvents Dtplistto As New DateTimePicker
     Private Bs As BindingSource
     Private Sub Formdyeform_Load(sender As Object, e As EventArgs) Handles Me.Load
+        BindingNavigator1.Enabled = False
+        GroupPanel2.Visible = False
+        Tbfinddhid.Enabled = False
+        Tbpickup.Enabled = False
+        Tbremark.Enabled = False
+        Dtpdate.Enabled = False
+        Dgvmas.Enabled = False
+        Btdbadd.Enabled = False
+        Btdedit.Enabled = False
+        Btddel.Enabled = False
         Controls.Add(Dtplistfm)
         Dtplistfm.Value = Now
         Dtplistfm.Width = 130
@@ -36,11 +46,21 @@ Public Class Formdyeform
         Clrgridmaster()
         TabControl1.SelectedTabIndex = 1
         BindingNavigator1.Enabled = False
+        Tbfinddhid.Enabled = True
+        Tbpickup.Enabled = True
+        Tbremark.Enabled = True
+        Dtpdate.Enabled = True
+        Dgvmas.Enabled = True
         Mainbuttonaddedit()
     End Sub
     Private Sub Btmedit_Click(sender As Object, e As EventArgs) Handles Btmedit.Click
+        Tbfinddhid.Enabled = True
+        Tbpickup.Enabled = True
+        Tbremark.Enabled = True
+        Dtpdate.Enabled = True
         Ctdedit.Enabled = True
         Ctddel.Enabled = True
+        Btmnew.Enabled = False
         BindingNavigator1.Enabled = False
         Mainbuttonaddedit()
     End Sub
@@ -64,6 +84,12 @@ Public Class Formdyeform
         End If
     End Sub
     Private Sub Btmsave_Click(sender As Object, e As EventArgs) Handles Btmsave.Click
+        Tbfinddhid.Enabled = False
+        Tbremark.Enabled = False
+        Tbpickup.Enabled = False
+        Dtpdate.Enabled = False
+        Dgvmas.Enabled = False
+
         If Tstbdocpre.Text = "" Then
             Informmessage("กรุณาติดต่อ Admin เพื่อกำหนด Prefix ของเลขที่เอกสาร")
             Exit Sub
@@ -99,7 +125,13 @@ Public Class Formdyeform
         Clrgridmaster()
         TabControl1.SelectedTabIndex = 0
         BindingNavigator1.Enabled = False
+        Tbfinddhid.Enabled = False
+        Tbremark.Enabled = False
+        Tbpickup.Enabled = False
+        Dtpdate.Enabled = False
+        Dgvmas.Enabled = False
         Mainbuttoncancel()
+        'Bindmaster()
     End Sub
     Private Sub Btmreports_Click(sender As Object, e As EventArgs) Handles Btmreports.Click
         'If Dgvmas.RowCount = 0 Then
@@ -233,7 +265,7 @@ Public Class Formdyeform
         Tbdyedcomno.Enabled = False
         Bindmaster()
         BindingNavigator1.Enabled = True
-        Btmnew.Enabled = False
+        'Btmnew.Enabled = False
         Btmedit.Enabled = True
         Btmdel.Enabled = True
         Btmsave.Enabled = False
@@ -244,6 +276,7 @@ Public Class Formdyeform
         Btddel.Enabled = False
         Ctdedit.Enabled = False
         Ctddel.Enabled = False
+        Dgvmas.Enabled = True
     End Sub
     Private Sub Btfirst_Click(sender As Object, e As EventArgs) Handles Btfirst.Click
         Befirst()
@@ -260,7 +293,9 @@ Public Class Formdyeform
     Private Sub BindingNavigator1_RefreshItems(sender As Object, e As EventArgs) Handles BindingNavigator1.RefreshItems
         Tsbwsave.Visible = False
         Tbdyedcomno.Enabled = False
-        Bindmaster()
+        If Btmedit.Enabled = True Then
+            Bindmaster()
+        End If
     End Sub
     Private Sub Tbfinddhid_Click(sender As Object, e As EventArgs) Handles Tbfinddhid.Click
         Dim Frm As New Formdyedlist
@@ -831,6 +866,7 @@ Public Class Formdyeform
             Btrefresh.Visible = False
         End If
     End Sub
+
     Private Function Chkdupyarnidingrid() As Boolean
         Dim Dup As Boolean = False
         If Dgvmas.RowCount = 0 Then
@@ -888,5 +924,6 @@ Public Class Formdyeform
         Btmreports.Enabled = False
         Disbaledbutton()
     End Sub
+
 
 End Class
