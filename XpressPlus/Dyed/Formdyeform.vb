@@ -846,7 +846,6 @@ Public Class Formdyeform
         End If
         Return Valid
     End Function
-
     Private Sub Setauthorize()
         If Gscreau = False Then
             Btmnew.Visible = False

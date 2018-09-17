@@ -128,6 +128,60 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Salefabriccolors\Formaesalefabcolor.designer.vb">
+      <DependentUpon>Formaesalefabcolor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Salefabriccolors\Formaesalefabcolor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salefabriccolors\Formcustomerslist.designer.vb">
+      <DependentUpon>Formcustomerslist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Salefabriccolors\Formcustomerslist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salefabriccolors\Formcustshiplist.designer.vb">
+      <DependentUpon>Formcustshiplist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Salefabriccolors\Formcustshiplist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salefabriccolors\Formfabrictypelist.designer.vb">
+      <DependentUpon>Formfabrictypelist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Salefabriccolors\Formfabrictypelist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salefabriccolors\Formfabrolllist.designer.vb">
+      <DependentUpon>Formfabrolllist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Salefabriccolors\Formfabrolllist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salefabriccolors\Formsalebilllist.designer.vb">
+      <DependentUpon>Formsalebilllist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Salefabriccolors\Formsalebilllist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salefabriccolors\Formsalefabcolrpt.designer.vb">
+      <DependentUpon>Formsalefabcolrpt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Salefabriccolors\Formsalefabcolrpt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salefabriccolors\Formsalefablotnolist.designer.vb">
+      <DependentUpon>Formsalefablotnolist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Salefabriccolors\Formsalefablotnolist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salefabriccolors\Formsalefabric.designer.vb">
+      <DependentUpon>Formsalefabric.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Salefabriccolors\Formsalefabric.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Waitdialog\Formwaitdialoque.designer.vb">
       <DependentUpon>Formwaitdialoque.vb</DependentUpon>
     </Compile>
@@ -177,6 +231,33 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salefabriccolors\Formaesalefabcolor.resx">
+      <DependentUpon>Formaesalefabcolor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salefabriccolors\Formcustomerslist.resx">
+      <DependentUpon>Formcustomerslist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salefabriccolors\Formcustshiplist.resx">
+      <DependentUpon>Formcustshiplist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salefabriccolors\Formfabrictypelist.resx">
+      <DependentUpon>Formfabrictypelist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salefabriccolors\Formfabrolllist.resx">
+      <DependentUpon>Formfabrolllist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salefabriccolors\Formsalebilllist.resx">
+      <DependentUpon>Formsalebilllist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salefabriccolors\Formsalefabcolrpt.resx">
+      <DependentUpon>Formsalefabcolrpt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salefabriccolors\Formsalefablotnolist.resx">
+      <DependentUpon>Formsalefablotnolist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salefabriccolors\Formsalefabric.resx">
+      <DependentUpon>Formsalefabric.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Waitdialog\Formwaitdialoque.resx">
       <DependentUpon>Formwaitdialoque.vb</DependentUpon>
