@@ -42,6 +42,18 @@ Public Class Formsalefabric
         BindingNavigator1.Enabled = False
         'Tbfinddhid.Enabled = True
         'Tbpickup.Enabled = True
+        Btfindcustid.Enabled = True
+        Btfindcusship.Enabled = True
+        Btfindclothno.Enabled = True
+        Tbkgprice.Enabled = True
+        Btfindlotno.Enabled = True
+        'Btdadd.Enabled = True
+        Btdcancel.Enabled = True
+        Btdbadd.Enabled = True
+        Btdedit.Enabled = True
+        Btddel.Enabled = True
+
+        Tbkgprice.Enabled = True
         Tbremark.Enabled = True
         Dtpdate.Enabled = True
         Dgvmas.Enabled = True
@@ -719,13 +731,18 @@ Public Class Formsalefabric
         Ctdedit.Enabled = True
         Ctddel.Enabled = True
         Btmnew.Enabled = False
-        Btdadd.Enabled = True
+        'Btdadd.Enabled = True
         BindingNavigator1.Enabled = False
         Mainbuttonaddedit()
     End Sub
 
     Private Sub Btmcancel_Click(sender As Object, e As EventArgs) Handles Btmcancel.Click
-
+        Clrmaster()
+        Clrdetails()
+        Clrdgrid()
+        TabControl1.SelectedTabIndex = 0
+        BindingNavigator1.Enabled = False
+        Mainbuttoncancel()
     End Sub
 
     Private Sub ShowRecordDetail()
@@ -760,12 +777,12 @@ Public Class Formsalefabric
     Private Sub Setauthorize()
         If Gswriau = False Then
             Btmsave.Visible = False
-            Btdadd.Visible = False
+            'Btdadd.Visible = False
             Btdedit.Visible = False
             Ctdedit.Visible = False
         End If
         If Gscreau = False Then
-            Btdadd.Visible = False
+            'Btdadd.Visible = False
         End If
         If Gsdelau = False Then
             Btmdel.Visible = False
@@ -807,10 +824,31 @@ Public Class Formsalefabric
         If Frm.Tbcancel.Text = "C" Then
             Exit Sub
         End If
-        Tblotno.Text = Trim(Frm.Tbfabno.Text)
-        Tbkongno.Text = Trim(Frm.Normtextbox1.Text)
-        Btdadd.Focus()
+        'Tblotno.Text = Trim(Frm.Tbfabno.Text)
+        'Tbkongno.Text = Trim(Frm.Normtextbox1.Text)
+        'Btdadd.Focus()
     End Sub
+
+    Private Sub Clrmaster()
+        Tbdlvno.Text = ""
+        'Tbdlvno.Enabled = True
+        Dtpdate.Value = Now
+        Tbremark.Text = ""
+        Tsbwsave.Visible = False
+        Tbcustid.Text = ""
+        Tbcusadd.Text = ""
+        Tbclothid.Text = ""
+        Tbshadeid.Text = ""
+        Tbkgprice.Text = ""
+        Tbcustname.Text = ""
+        Tbcustship.Text = ""
+        Tbclothno.Text = ""
+        Tbshadename.Text = ""
+        Tbmycom.Text = ""
+        Tbwidth.Text = ""
+        Tbcolorno.Text = ""
+    End Sub
+
 
     Private Sub Btdcancel_Click_1(sender As Object, e As EventArgs) Handles Btdcancel.Click
         Clrdetails()
@@ -820,6 +858,9 @@ Public Class Formsalefabric
         'Tbyarnid.Text = ""
         'Tbyarnname.Text = ""
         Tblotno.Text = ""
+        Tbkongno.Text = ""
+        Tbsumwgt.Text = ""
+        Tbsummoney.Text = ""
         'Tbnwpcotkg.Text = ""
         'Tbnwpcotp.Text = ""
         'Tbgrwpcotkg.Text = ""
@@ -865,7 +906,7 @@ Public Class Formsalefabric
         GroupPanel2.Visible = False
     End Sub
     Private Sub Enabledbutton()
-        'Btdbadd.Enabled = True
+        Btdbadd.Enabled = True
         Btdedit.Enabled = True
         Btddel.Enabled = True
     End Sub
@@ -879,9 +920,10 @@ Public Class Formsalefabric
         Tbkgprice.Enabled = False
         Tbremark.Enabled = False
         Dtpdate.Enabled = False
-        Btdadd.Enabled = False
+        'Btdadd.Enabled = False
         Btdedit.Enabled = False
         Btddel.Enabled = False
+        Btdbadd.Enabled = False
         GroupPanel2.Visible = False
     End Sub
     Private Sub Mainbuttonaddedit()
