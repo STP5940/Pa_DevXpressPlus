@@ -6,6 +6,7 @@ Public Class Formsalefabric
     Private WithEvents Dtplistfm As New DateTimePicker
     Private WithEvents Dtplistto As New DateTimePicker
     Private Sub Formsalefabric_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Mainbuttoncancel()
         Controls.Add(Dtplistfm)
         Dtplistfm.Value = Now
         Dtplistfm.Width = 130
@@ -33,6 +34,18 @@ Public Class Formsalefabric
         Clrdgrid()
         Clrtxtbox()
         TabControl1.SelectedTabIndex = 1
+
+        Clrtextmaster()
+        Clrtextdetails()
+        Clrgridmaster()
+        TabControl1.SelectedTabIndex = 1
+        BindingNavigator1.Enabled = False
+        'Tbfinddhid.Enabled = True
+        'Tbpickup.Enabled = True
+        Tbremark.Enabled = True
+        Dtpdate.Enabled = True
+        Dgvmas.Enabled = True
+        Mainbuttonaddedit()
     End Sub
     Private Sub Btmsave_Click(sender As Object, e As EventArgs) Handles Btmsave.Click
         If Tstbdocpre.Text = "" Then
@@ -173,6 +186,20 @@ Public Class Formsalefabric
         TabControl1.SelectedTabIndex = 1
         Tbdlvno.Text = Trim(Dgvlist.CurrentRow.Cells("Dlvno").Value)
         Bindmaster()
+        BindingNavigator1.Enabled = True
+        'Btmnew.Enabled = False
+        Btmnew.Enabled = False
+        Btmedit.Enabled = True
+        Btmdel.Enabled = True
+        Btmsave.Enabled = False
+        Btmcancel.Enabled = False
+        Btmreports.Enabled = True
+        'Btdadd.Enabled = False
+        'Btdedit.Enabled = False
+        'Btddel.Enabled = False
+        'Ctdedit.Enabled = False
+        'Ctddel.Enabled = False
+        'Dgvmas.Enabled = True
     End Sub
     Private Sub Ctmldel_Click(sender As Object, e As EventArgs)
         Ctmledit_Click(sender, e)
@@ -679,6 +706,28 @@ Public Class Formsalefabric
     Private Sub DisplayPageInfo()
         Tbpage.Text = "หน้า " & Currentpage.ToString & "/" & Pagecount.ToString
     End Sub
+
+    Private Sub Btmedit_Click(sender As Object, e As EventArgs) Handles Btmedit.Click
+        'Tbfinddhid.Enabled = True
+        'Tbpickup.Enabled = True
+        Btdbadd.Enabled = True
+        Btfindlotno.Enabled = True
+        Tbkgprice.Enabled = True
+        Btdcancel.Enabled = True
+        Tbremark.Enabled = True
+        Dtpdate.Enabled = True
+        Ctdedit.Enabled = True
+        Ctddel.Enabled = True
+        Btmnew.Enabled = False
+        Btdadd.Enabled = True
+        BindingNavigator1.Enabled = False
+        Mainbuttonaddedit()
+    End Sub
+
+    Private Sub Btmcancel_Click(sender As Object, e As EventArgs) Handles Btmcancel.Click
+
+    End Sub
+
     Private Sub ShowRecordDetail()
         Tbrecord.Text = "แสดง " & (Dgvlist.RowCount) & " รายการ จาก " & Tlist.Rows.Count & " รายการ"
     End Sub
@@ -751,4 +800,108 @@ Public Class Formsalefabric
             Tbcolorno.Text = Tshdyedcol.Rows(0)("Dyedcolor")
         End If
     End Sub
+
+    Private Sub Btfindlotno_Click_1(sender As Object, e As EventArgs) Handles Btfindlotno.Click
+        Dim Frm As New Formaesalefabcolor
+        Showdiaformcenter(Frm, Me)
+        If Frm.Tbcancel.Text = "C" Then
+            Exit Sub
+        End If
+        Tblotno.Text = Trim(Frm.Tbfabno.Text)
+        Tbkongno.Text = Trim(Frm.Normtextbox1.Text)
+        Btdadd.Focus()
+    End Sub
+
+    Private Sub Btdcancel_Click_1(sender As Object, e As EventArgs) Handles Btdcancel.Click
+        Clrdetails()
+    End Sub
+
+    Private Sub Clrdetails()
+        'Tbyarnid.Text = ""
+        'Tbyarnname.Text = ""
+        Tblotno.Text = ""
+        'Tbnwpcotkg.Text = ""
+        'Tbnwpcotp.Text = ""
+        'Tbgrwpcotkg.Text = ""
+        'Tbgrwpcotp.Text = ""
+        'Tbamtcotton.Text = ""
+        GroupPanel2.Visible = False
+    End Sub
+
+    Private Sub Btdbadd_Click(sender As Object, e As EventArgs) Handles Btdbadd.Click
+        GroupPanel2.Visible = True
+    End Sub
+
+    Private Sub Clrgridmaster()
+        Dgvmas.AutoGenerateColumns = False
+        Dgvmas.DataSource = Nothing
+        Dgvmas.Rows.Clear()
+    End Sub
+
+    Private Sub Clrtextmaster()
+        'Tbdhid.Text = ""
+        'Tbdhname.Text = ""
+        'Tbdyedcomno.Text = "NEW"
+        Dtpdate.Value = Now
+        'Tbpickup.Text = ""
+        Tstbsumroll.Text = ""
+        Tstbsumkg.Text = ""
+        Tbremark.Text = ""
+        Tsbwsave.Visible = False
+    End Sub
+
+    Private Sub Clrtextdetails()
+        'Tbknitcomno.Text = ""
+        Tbclothid.Text = ""
+        Tbclothno.Text = ""
+        'Tbclothtype.Text = ""
+        'Tbqtyroll.Text = ""
+        'Tbwgtkg.Text = ""
+        'Tbfinwgt.Text = ""
+        'Tbfinwidth.Text = ""
+        Tbshadeid.Text = ""
+        Tbshadename.Text = ""
+        'Tbfabbill.Text = ""
+        GroupPanel2.Visible = False
+    End Sub
+    Private Sub Enabledbutton()
+        'Btdbadd.Enabled = True
+        Btdedit.Enabled = True
+        Btddel.Enabled = True
+    End Sub
+    Private Sub Disbaledbutton()
+        'Btdbadd.Enabled = False
+        Btfindclothno.Enabled = False
+        Btfindcusship.Enabled = False
+        Btfindcustid.Enabled = False
+        Btfindlotno.Enabled = False
+        Btdcancel.Enabled = False
+        Tbkgprice.Enabled = False
+        Tbremark.Enabled = False
+        Dtpdate.Enabled = False
+        Btdadd.Enabled = False
+        Btdedit.Enabled = False
+        Btddel.Enabled = False
+        GroupPanel2.Visible = False
+    End Sub
+    Private Sub Mainbuttonaddedit()
+        Btmnew.Enabled = False
+        Btmedit.Enabled = False
+        Btmdel.Enabled = False
+        Btmsave.Enabled = True
+        Btmcancel.Enabled = True
+        Btmreports.Enabled = False
+        Enabledbutton()
+    End Sub
+    Private Sub Mainbuttoncancel()
+        Btmnew.Enabled = True
+        Btmedit.Enabled = False
+        Btmdel.Enabled = False
+        Btmsave.Enabled = False
+        Btmcancel.Enabled = False
+        Btmreports.Enabled = False
+        Disbaledbutton()
+
+    End Sub
+
 End Class

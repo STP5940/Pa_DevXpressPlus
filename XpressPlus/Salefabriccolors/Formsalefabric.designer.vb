@@ -24,12 +24,12 @@ Partial Class Formsalefabric
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Formsalefabric))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle49 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle50 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle51 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle52 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle53 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle54 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Btmclose = New System.Windows.Forms.ToolStripButton()
         Me.Btmfind = New System.Windows.Forms.ToolStripButton()
@@ -171,6 +171,7 @@ Partial Class Formsalefabric
         Me.LabelX3 = New DevComponents.DotNetBar.LabelX()
         Me.ProgressBarX1 = New DevComponents.DotNetBar.Controls.ProgressBarX()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
+        Me.Btdbadd = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -236,6 +237,7 @@ Partial Class Formsalefabric
         'Btmreports
         '
         Me.Btmreports.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Btmreports.Enabled = False
         Me.Btmreports.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btmreports.Image = Global.XpressPlus.My.Resources.Resources.Newspaperdown
         Me.Btmreports.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -261,6 +263,7 @@ Partial Class Formsalefabric
         'Btmsave
         '
         Me.Btmsave.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Btmsave.Enabled = False
         Me.Btmsave.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btmsave.Image = Global.XpressPlus.My.Resources.Resources.Saveb
         Me.Btmsave.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -273,6 +276,7 @@ Partial Class Formsalefabric
         'Btmdel
         '
         Me.Btmdel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Btmdel.Enabled = False
         Me.Btmdel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btmdel.Image = Global.XpressPlus.My.Resources.Resources.Delbelow
         Me.Btmdel.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -325,8 +329,8 @@ Partial Class Formsalefabric
         '
         Me.TabControl1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TabControl1.CanReorderTabs = True
-        Me.TabControl1.Controls.Add(Me.TabControlPanel2)
         Me.TabControl1.Controls.Add(Me.TabControlPanel1)
+        Me.TabControl1.Controls.Add(Me.TabControlPanel2)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.TabControl1.ForeColor = System.Drawing.Color.Black
@@ -396,14 +400,14 @@ Partial Class Formsalefabric
         '
         Me.Dgvlist.AllowUserToAddRows = False
         Me.Dgvlist.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Dgvlist.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle49.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle49.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        DataGridViewCellStyle49.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle49.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle49.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle49.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgvlist.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle49
         Me.Dgvlist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Dgvlist.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Status, Me.Comid, Me.Ldfabdate, Me.Dlvno, Me.Lcustid, Me.Lcustname, Me.Clothid, Me.Clothno, Me.Ftype, Me.Fwidth, Me.Lcustadd, Me.Lcustshipadd, Me.Lshadid, Me.Lshadedesc, Me.Lcolorno, Me.Lkgprice, Me.Lsumkg, Me.Lsumprice, Me.Ldremark, Me.Lsremark})
         Me.Dgvlist.Dock = System.Windows.Forms.DockStyle.Fill
@@ -851,14 +855,14 @@ Partial Class Formsalefabric
         '
         Me.Dgvmas.AllowUserToAddRows = False
         Me.Dgvmas.AllowUserToDeleteRows = False
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle50.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle50.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        DataGridViewCellStyle50.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle50.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle50.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle50.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle50
         Me.Dgvmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Mstat, Me.Dcomid, Me.Ddlvno, Me.Dlot, Me.Mkongno, Me.Rollno, Me.Qtykg})
         Me.Dgvmas.Dock = System.Windows.Forms.DockStyle.Fill
@@ -896,8 +900,8 @@ Partial Class Formsalefabric
         '
         Me.Dlot.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Dlot.DataPropertyName = "Lotno"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Dlot.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Dlot.DefaultCellStyle = DataGridViewCellStyle51
         Me.Dlot.HeaderText = "Lot No."
         Me.Dlot.Name = "Dlot"
         Me.Dlot.ReadOnly = True
@@ -905,10 +909,10 @@ Partial Class Formsalefabric
         'Mkongno
         '
         Me.Mkongno.DataPropertyName = "Kongno"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle4.Format = "N2"
-        DataGridViewCellStyle4.NullValue = Nothing
-        Me.Mkongno.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle52.Format = "N2"
+        DataGridViewCellStyle52.NullValue = Nothing
+        Me.Mkongno.DefaultCellStyle = DataGridViewCellStyle52
         Me.Mkongno.HeaderText = "เบอร์กอง"
         Me.Mkongno.Name = "Mkongno"
         Me.Mkongno.ReadOnly = True
@@ -917,9 +921,9 @@ Partial Class Formsalefabric
         'Rollno
         '
         Me.Rollno.DataPropertyName = "Rollno"
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle5.NullValue = Nothing
-        Me.Rollno.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle53.NullValue = Nothing
+        Me.Rollno.DefaultCellStyle = DataGridViewCellStyle53
         Me.Rollno.HeaderText = "พับที่"
         Me.Rollno.Name = "Rollno"
         Me.Rollno.ReadOnly = True
@@ -928,10 +932,10 @@ Partial Class Formsalefabric
         'Qtykg
         '
         Me.Qtykg.DataPropertyName = "Wgtkg"
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle6.Format = "N2"
-        DataGridViewCellStyle6.NullValue = Nothing
-        Me.Qtykg.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle54.Format = "N2"
+        DataGridViewCellStyle54.NullValue = Nothing
+        Me.Qtykg.DefaultCellStyle = DataGridViewCellStyle54
         Me.Qtykg.HeaderText = "น้ำหนัก"
         Me.Qtykg.Name = "Qtykg"
         Me.Qtykg.ReadOnly = True
@@ -940,7 +944,7 @@ Partial Class Formsalefabric
         'ToolStrip2
         '
         Me.ToolStrip2.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btddel, Me.Btdedit, Me.Tsbwsave})
+        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btddel, Me.Btdedit, Me.Tsbwsave, Me.Btdbadd})
         Me.ToolStrip2.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip2.Name = "ToolStrip2"
         Me.ToolStrip2.Size = New System.Drawing.Size(1000, 49)
@@ -950,6 +954,7 @@ Partial Class Formsalefabric
         'Btddel
         '
         Me.Btddel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Btddel.Enabled = False
         Me.Btddel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btddel.Image = Global.XpressPlus.My.Resources.Resources.Deleteicon
         Me.Btddel.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -1869,6 +1874,19 @@ Partial Class Formsalefabric
         Me.TabItem1.Name = "TabItem1"
         Me.TabItem1.Text = "รายละเอียด"
         '
+        'Btdbadd
+        '
+        Me.Btdbadd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Btdbadd.Enabled = False
+        Me.Btdbadd.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btdbadd.Image = Global.XpressPlus.My.Resources.Resources.Addicon
+        Me.Btdbadd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.Btdbadd.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Btdbadd.Name = "Btdbadd"
+        Me.Btdbadd.Size = New System.Drawing.Size(35, 46)
+        Me.Btdbadd.Text = "เพิ่ม"
+        Me.Btdbadd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
         'Formsalefabric
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2066,4 +2084,5 @@ Partial Class Formsalefabric
     Friend WithEvents Btddel As ToolStripButton
     Friend WithEvents Btdedit As ToolStripButton
     Friend WithEvents Tsbwsave As ToolStripLabel
+    Friend WithEvents Btdbadd As ToolStripButton
 End Class

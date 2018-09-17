@@ -41,4 +41,14 @@
         End If
         Return Valid
     End Function
+
+    Private Sub Btfindyarn_Click(sender As Object, e As EventArgs) Handles Btfindyarn.Click
+        Dim frm As New Formsalefablotnolist
+        Showdiaformcenter(frm, Me)
+        If frm.Tbcancel.Text = "C" Then
+            Exit Sub
+        End If
+        Tbfabno.Text = Trim(frm.Dgvmas.CurrentRow.Cells("Mlotno").Value)
+        Normtextbox1.Text = Trim(frm.Dgvmas.CurrentRow.Cells("Kongno").Value)
+    End Sub
 End Class

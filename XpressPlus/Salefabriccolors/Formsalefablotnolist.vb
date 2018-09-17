@@ -36,9 +36,10 @@
         Me.Close()
     End Sub
     Private Sub Bindingmaster()
+        MessageBox.Show(Tbclothid.Text)
         Tmaster = New DataTable
         Tmaster = SQLCommand("SELECT Lotno,Kongno,Shadeid,Shadedesc FROM Vrecfabcoldet
-                            WHERE Comid = '" & Gscomid & "' AND Clothid = '" & Tbclothid.Text & "'
+                            WHERE Comid = '" & Gscomid & "'
                             GROUP BY Lotno,Kongno,Shadeid,Shadedesc")
         Dgvmas.DataSource = Tmaster
     End Sub
@@ -56,6 +57,10 @@
     Private Sub Formsalefablotnolist_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         Dgvmas.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
         Dgvmas.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
+
+    End Sub
+
+    Private Sub TabControl1_Click(sender As Object, e As EventArgs) Handles TabControl1.Click
 
     End Sub
 End Class
