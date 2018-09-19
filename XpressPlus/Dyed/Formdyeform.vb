@@ -579,10 +579,11 @@ Public Class Formdyeform
             Tqtykg = Dgvmas.Rows(I).Cells("Mkg").Value
             Tfinwgt = Trim(Dgvmas.Rows(I).Cells("Mfinwgt").Value)
             Tknitbill = Dgvmas.Rows(I).Cells("Mbrawfab").Value
-            SQLCommand("INSERT INTO Tdyedcomdetxp(Comid,Dyedcomno,Knittcomid,Clothid,Shadeid,
+            Dim numrow = I + 1
+            SQLCommand("INSERT INTO Tdyedcomdetxp(Comid,Dyedcomno,Ord,Knittcomid,Clothid,Shadeid,
                         Qtyroll,Qtykg,Finwgt,Knittbill,
                         Updusr,Uptype,Uptime)
-                        VALUES('" & Gscomid & "','" & Trim(Tbdyedcomno.Text) & "','" & Tknitcomno & "','" & Tclotid & "','" & Tshadeid & "'
+                        VALUES('" & Gscomid & "','" & Trim(Tbdyedcomno.Text) & "'," & numrow & ",'" & Tknitcomno & "','" & Tclotid & "','" & Tshadeid & "'
                         ," & Tqtyroll & "," & Tqtykg & ",'" & Tfinwgt & "','" & Tknitbill & "',
                         '" & Gsuserid & "','" & Etype & "','" & Formatdatesave(Now) & "')")
             ProgressBarX1.Value = ((I + 1) / Dgvmas.Rows.Count) * 100
@@ -639,7 +640,7 @@ Public Class Formdyeform
     End Sub
     Private Sub Binddetails()
         Tdetails = New DataTable
-        Tdetails = SQLCommand("SELECT '' AS Stat,* FROM Vdyedcomdet
+        Tdetails = SQLCommand("SELECT '' AS Stat,count(Ord) As Ord,* FROM Vdyedcomdet
                                 WHERE Comid = '" & Gscomid & "' AND Dyedcomno = '" & Trim(Tbdyedcomno.Text) & "'")
         Dgvmas.DataSource = Tdetails
     End Sub
