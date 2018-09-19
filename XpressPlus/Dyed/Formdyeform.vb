@@ -269,7 +269,7 @@ Public Class Formdyeform
         Tbdyedcomno.Enabled = False
         Bindmaster()
         BindingNavigator1.Enabled = True
-        'Btmnew.Enabled = False
+        Btmnew.Enabled = False
         Btmedit.Enabled = True
         Btmdel.Enabled = True
         Btmsave.Enabled = False
