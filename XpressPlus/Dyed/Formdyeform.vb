@@ -151,12 +151,16 @@ Public Class Formdyeform
         Frm.ReportViewer1.Reset()
         'Frm.Tbshipping.Text = Trim(Tbshippingname.Text)
         'Frm.Tbsuplier.Text = Trim(Tbsuppliername.Text)
-        'Frm.Tbdate.Text = Format(Dtpdate.Value, "dd/MM/yyyy")
+        Frm.Tbdate.Text = Format(Dtpdate.Value, "dd/MM/yyyy")
+        Frm.SendTo.Text = Tbdhname.Text
+        Frm.PickupArea.Text = Tbpickup.Text
+        Frm.Note.Text = Tbremark.Text
         'Frm.Tbsumctn.Text = Tstbsumctn.Text
         'Frm.Tbsumgw.Text = Tstbsumgw.Text
         'Frm.Tbsumnw.Text = Tstbsumnw.Text
         'Frm.Tbsumqty.Text = Tstbsumqty.Text
         'Frm.Tbdlvno.Text = Tbdlvno.Text
+
         If Gsexpau = False Then
             Frm.ReportViewer1.ShowExportButton = False
         End If

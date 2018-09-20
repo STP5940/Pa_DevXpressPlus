@@ -216,3 +216,5 @@ D:\VDO\GSC\เป้ ส่งให้พี่หรั่ง\XpressPlus\bin\D
 D:\VDO\GSC\เป้ ส่งให้พี่หรั่ง\XpressPlus\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
 D:\VDO\GSC\เป้ ส่งให้พี่หรั่ง\XpressPlus\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
 D:\VDO\GSC\เป้ ส่งให้พี่หรั่ง\XpressPlus\obj\Debug\XpressPlus.Formdyedcomrpt.resources
+C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.vbprojResolveAssemblyReference.cache
+C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formdyedcomrpt.resources

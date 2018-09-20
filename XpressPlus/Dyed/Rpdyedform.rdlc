@@ -691,7 +691,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Right</TextAlign>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -726,7 +726,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Right</TextAlign>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -760,7 +760,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Right</TextAlign>
+                                <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -1575,7 +1575,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>Knitspeed</Value>
                       <Style />
                     </TextRun>
                   </TextRuns>
@@ -1605,7 +1605,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Parameters!ParSendTo.Value</Value>
                       <Style />
                     </TextRun>
                   </TextRuns>
@@ -1635,7 +1635,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Parameters!Pardate.Value</Value>
                       <Style />
                     </TextRun>
                   </TextRuns>
@@ -1667,7 +1667,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Fields!Dyedcomno.Value</Value>
                       <Style />
                     </TextRun>
                   </TextRuns>
@@ -1743,7 +1743,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Parameters!PickupArea.Value</Value>
                       <Style />
                     </TextRun>
                   </TextRuns>
@@ -1828,7 +1828,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=Parameters!Note.Value</Value>
                       <Style />
                     </TextRun>
                   </TextRuns>
@@ -1868,6 +1868,24 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="Pardate">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ParSendTo">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="PickupArea">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Note">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <Language>th-TH</Language>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>5c6e46f7-7a5e-4f5a-9946-0e2e43418737</rd:ReportID>
