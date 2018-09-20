@@ -154,7 +154,11 @@ Public Class Formdyeform
         Frm.Tbdate.Text = Format(Dtpdate.Value, "dd/MM/yyyy")
         Frm.SendTo.Text = Tbdhname.Text
         Frm.PickupArea.Text = Tbpickup.Text
-        Frm.Note.Text = Tbremark.Text
+        If Tbremark.Text <> "" Then
+            Frm.Note.Text = Tbremark.Text
+        Else
+            Frm.Note.Text = " "
+        End If
         'Frm.Tbsumctn.Text = Tstbsumctn.Text
         'Frm.Tbsumgw.Text = Tstbsumgw.Text
         'Frm.Tbsumnw.Text = Tstbsumnw.Text
