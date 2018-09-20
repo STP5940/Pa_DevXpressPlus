@@ -24,11 +24,11 @@ Partial Class Formdyeform
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Formdyeform))
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Formdyeform))
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Btmclose = New System.Windows.Forms.ToolStripButton()
         Me.Btmfind = New System.Windows.Forms.ToolStripButton()
@@ -48,6 +48,21 @@ Partial Class Formdyeform
         Me.Ctdedit = New DevComponents.DotNetBar.ButtonItem()
         Me.Ctddel = New DevComponents.DotNetBar.ButtonItem()
         Me.Dgvmas = New System.Windows.Forms.DataGridView()
+        Me.Mstatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ord = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Dcomid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Dyedcomno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Dknittno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Clothid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Clothno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Ftype = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mqty = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mkg = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mfinwgt = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mfinwid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Shid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mshade = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mbrawfab = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip3 = New System.Windows.Forms.ToolStrip()
         Me.Tstbsumcot = New System.Windows.Forms.ToolStripTextBox()
         Me.Tstbsumlb = New System.Windows.Forms.ToolStripTextBox()
@@ -147,26 +162,11 @@ Partial Class Formdyeform
         Me.Btrefresh = New System.Windows.Forms.ToolStripButton()
         Me.Btlistfind = New System.Windows.Forms.ToolStripButton()
         Me.Tstbkeyword = New System.Windows.Forms.ToolStripTextBox()
+        Me.Tscboth = New XpressPlus.ToolStripCheckBox()
         Me.ToolStripLabel4 = New System.Windows.Forms.ToolStripLabel()
+        Me.Tscbdate = New XpressPlus.ToolStripCheckBox()
         Me.ToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
         Me.TabItem2 = New DevComponents.DotNetBar.TabItem(Me.components)
-        Me.Tscboth = New XpressPlus.ToolStripCheckBox()
-        Me.Tscbdate = New XpressPlus.ToolStripCheckBox()
-        Me.Mstatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ord = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Dcomid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Dyedcomno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Dknittno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Clothid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Clothno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Ftype = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Mqty = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Mkg = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Mfinwgt = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Mfinwid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Shid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Mshade = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Mbrawfab = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -229,7 +229,6 @@ Partial Class Formdyeform
         'Btmreports
         '
         Me.Btmreports.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Btmreports.Enabled = False
         Me.Btmreports.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btmreports.Image = Global.XpressPlus.My.Resources.Resources.Newspaperdown
         Me.Btmreports.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -463,6 +462,134 @@ Partial Class Formdyeform
         Me.Dgvmas.ReadOnly = True
         Me.Dgvmas.Size = New System.Drawing.Size(1000, 230)
         Me.Dgvmas.TabIndex = 98
+        '
+        'Mstatus
+        '
+        Me.Mstatus.DataPropertyName = "Stat"
+        Me.Mstatus.HeaderText = ""
+        Me.Mstatus.Name = "Mstatus"
+        Me.Mstatus.ReadOnly = True
+        Me.Mstatus.Visible = False
+        Me.Mstatus.Width = 20
+        '
+        'ord
+        '
+        Me.ord.DataPropertyName = "ord"
+        Me.ord.HeaderText = "Item No"
+        Me.ord.Name = "ord"
+        Me.ord.ReadOnly = True
+        Me.ord.Width = 85
+        '
+        'Dcomid
+        '
+        Me.Dcomid.DataPropertyName = "Comid"
+        Me.Dcomid.HeaderText = "Comid"
+        Me.Dcomid.Name = "Dcomid"
+        Me.Dcomid.ReadOnly = True
+        Me.Dcomid.Visible = False
+        '
+        'Dyedcomno
+        '
+        Me.Dyedcomno.DataPropertyName = "Dyedcomno"
+        Me.Dyedcomno.HeaderText = "Dyedcomno"
+        Me.Dyedcomno.Name = "Dyedcomno"
+        Me.Dyedcomno.ReadOnly = True
+        Me.Dyedcomno.Visible = False
+        '
+        'Dknittno
+        '
+        Me.Dknittno.DataPropertyName = "Knittcomid"
+        Me.Dknittno.HeaderText = "เลขที่ใบสั่งทอ"
+        Me.Dknittno.Name = "Dknittno"
+        Me.Dknittno.ReadOnly = True
+        Me.Dknittno.Width = 135
+        '
+        'Clothid
+        '
+        Me.Clothid.DataPropertyName = "Clothid"
+        Me.Clothid.HeaderText = "Clothid"
+        Me.Clothid.Name = "Clothid"
+        Me.Clothid.ReadOnly = True
+        Me.Clothid.Visible = False
+        '
+        'Clothno
+        '
+        Me.Clothno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Clothno.DataPropertyName = "Clothno"
+        Me.Clothno.HeaderText = "Description"
+        Me.Clothno.Name = "Clothno"
+        Me.Clothno.ReadOnly = True
+        '
+        'Ftype
+        '
+        Me.Ftype.DataPropertyName = "Ftype"
+        Me.Ftype.HeaderText = "Fabric Type"
+        Me.Ftype.Name = "Ftype"
+        Me.Ftype.ReadOnly = True
+        Me.Ftype.Width = 150
+        '
+        'Mqty
+        '
+        Me.Mqty.DataPropertyName = "Qtyroll"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Mqty.DefaultCellStyle = DataGridViewCellStyle2
+        Me.Mqty.HeaderText = "QTY(Rolls/พับ)"
+        Me.Mqty.Name = "Mqty"
+        Me.Mqty.ReadOnly = True
+        Me.Mqty.Width = 120
+        '
+        'Mkg
+        '
+        Me.Mkg.DataPropertyName = "Qtykg"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "N2"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.Mkg.DefaultCellStyle = DataGridViewCellStyle3
+        Me.Mkg.HeaderText = "QTY(KG)"
+        Me.Mkg.Name = "Mkg"
+        Me.Mkg.ReadOnly = True
+        Me.Mkg.Width = 80
+        '
+        'Mfinwgt
+        '
+        Me.Mfinwgt.DataPropertyName = "Finwgt"
+        Me.Mfinwgt.HeaderText = "Finished Wgt"
+        Me.Mfinwgt.Name = "Mfinwgt"
+        Me.Mfinwgt.ReadOnly = True
+        Me.Mfinwgt.Width = 130
+        '
+        'Mfinwid
+        '
+        Me.Mfinwid.DataPropertyName = "Fwidth"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Mfinwid.DefaultCellStyle = DataGridViewCellStyle4
+        Me.Mfinwid.HeaderText = "Finished Width"
+        Me.Mfinwid.Name = "Mfinwid"
+        Me.Mfinwid.ReadOnly = True
+        Me.Mfinwid.Width = 130
+        '
+        'Shid
+        '
+        Me.Shid.DataPropertyName = "Shadeid"
+        Me.Shid.HeaderText = "Shadeid"
+        Me.Shid.Name = "Shid"
+        Me.Shid.ReadOnly = True
+        Me.Shid.Visible = False
+        '
+        'Mshade
+        '
+        Me.Mshade.DataPropertyName = "Shadedesc"
+        Me.Mshade.HeaderText = "Shade"
+        Me.Mshade.Name = "Mshade"
+        Me.Mshade.ReadOnly = True
+        Me.Mshade.Width = 120
+        '
+        'Mbrawfab
+        '
+        Me.Mbrawfab.DataPropertyName = "Knittbill"
+        Me.Mbrawfab.HeaderText = "บิลผ้าดิบ"
+        Me.Mbrawfab.Name = "Mbrawfab"
+        Me.Mbrawfab.ReadOnly = True
         '
         'ToolStrip3
         '
@@ -1664,6 +1791,17 @@ Partial Class Formdyeform
         Me.Tstbkeyword.Name = "Tstbkeyword"
         Me.Tstbkeyword.Size = New System.Drawing.Size(120, 49)
         '
+        'Tscboth
+        '
+        Me.Tscboth.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Tscboth.BackColor = System.Drawing.Color.Transparent
+        Me.Tscboth.Checked = True
+        Me.Tscboth.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tscboth.Name = "Tscboth"
+        Me.Tscboth.Size = New System.Drawing.Size(55, 46)
+        Me.Tscboth.Text = "อื่นๆ"
+        Me.Tscboth.ToolStripCheckBoxEnabled = True
+        '
         'ToolStripLabel4
         '
         Me.ToolStripLabel4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
@@ -1671,6 +1809,17 @@ Partial Class Formdyeform
         Me.ToolStripLabel4.Name = "ToolStripLabel4"
         Me.ToolStripLabel4.Size = New System.Drawing.Size(24, 46)
         Me.ToolStripLabel4.Text = "ถึง"
+        '
+        'Tscbdate
+        '
+        Me.Tscbdate.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Tscbdate.BackColor = System.Drawing.Color.Transparent
+        Me.Tscbdate.Checked = False
+        Me.Tscbdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tscbdate.Name = "Tscbdate"
+        Me.Tscbdate.Size = New System.Drawing.Size(55, 46)
+        Me.Tscbdate.Text = "วันที่"
+        Me.Tscbdate.ToolStripCheckBoxEnabled = True
         '
         'ToolStripLabel3
         '
@@ -1685,156 +1834,6 @@ Partial Class Formdyeform
         Me.TabItem2.AttachedControl = Me.TabControlPanel2
         Me.TabItem2.Name = "TabItem2"
         Me.TabItem2.Text = "รายการทั้งหมด"
-        '
-        'Tscboth
-        '
-        Me.Tscboth.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Tscboth.BackColor = System.Drawing.Color.Transparent
-        Me.Tscboth.Checked = True
-        Me.Tscboth.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tscboth.Name = "Tscboth"
-        Me.Tscboth.Size = New System.Drawing.Size(55, 46)
-        Me.Tscboth.Text = "อื่นๆ"
-        Me.Tscboth.ToolStripCheckBoxEnabled = True
-        '
-        'Tscbdate
-        '
-        Me.Tscbdate.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Tscbdate.BackColor = System.Drawing.Color.Transparent
-        Me.Tscbdate.Checked = False
-        Me.Tscbdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tscbdate.Name = "Tscbdate"
-        Me.Tscbdate.Size = New System.Drawing.Size(55, 46)
-        Me.Tscbdate.Text = "วันที่"
-        Me.Tscbdate.ToolStripCheckBoxEnabled = True
-        '
-        'Mstatus
-        '
-        Me.Mstatus.DataPropertyName = "Stat"
-        Me.Mstatus.HeaderText = ""
-        Me.Mstatus.Name = "Mstatus"
-        Me.Mstatus.ReadOnly = True
-        Me.Mstatus.Visible = False
-        Me.Mstatus.Width = 20
-        '
-        'ord
-        '
-        Me.ord.DataPropertyName = "ord"
-        Me.ord.HeaderText = "Item No"
-        Me.ord.Name = "ord"
-        Me.ord.ReadOnly = True
-        Me.ord.Width = 85
-        '
-        'Dcomid
-        '
-        Me.Dcomid.DataPropertyName = "Comid"
-        Me.Dcomid.HeaderText = "Comid"
-        Me.Dcomid.Name = "Dcomid"
-        Me.Dcomid.ReadOnly = True
-        Me.Dcomid.Visible = False
-        '
-        'Dyedcomno
-        '
-        Me.Dyedcomno.DataPropertyName = "Dyedcomno"
-        Me.Dyedcomno.HeaderText = "Dyedcomno"
-        Me.Dyedcomno.Name = "Dyedcomno"
-        Me.Dyedcomno.ReadOnly = True
-        Me.Dyedcomno.Visible = False
-        '
-        'Dknittno
-        '
-        Me.Dknittno.DataPropertyName = "Knittcomid"
-        Me.Dknittno.HeaderText = "เลขที่ใบสั่งทอ"
-        Me.Dknittno.Name = "Dknittno"
-        Me.Dknittno.ReadOnly = True
-        Me.Dknittno.Width = 135
-        '
-        'Clothid
-        '
-        Me.Clothid.DataPropertyName = "Clothid"
-        Me.Clothid.HeaderText = "Clothid"
-        Me.Clothid.Name = "Clothid"
-        Me.Clothid.ReadOnly = True
-        Me.Clothid.Visible = False
-        '
-        'Clothno
-        '
-        Me.Clothno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Clothno.DataPropertyName = "Clothno"
-        Me.Clothno.HeaderText = "Description"
-        Me.Clothno.Name = "Clothno"
-        Me.Clothno.ReadOnly = True
-        '
-        'Ftype
-        '
-        Me.Ftype.DataPropertyName = "Ftype"
-        Me.Ftype.HeaderText = "Fabric Type"
-        Me.Ftype.Name = "Ftype"
-        Me.Ftype.ReadOnly = True
-        Me.Ftype.Width = 150
-        '
-        'Mqty
-        '
-        Me.Mqty.DataPropertyName = "Qtyroll"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Mqty.DefaultCellStyle = DataGridViewCellStyle2
-        Me.Mqty.HeaderText = "QTY(Rolls/พับ)"
-        Me.Mqty.Name = "Mqty"
-        Me.Mqty.ReadOnly = True
-        Me.Mqty.Width = 120
-        '
-        'Mkg
-        '
-        Me.Mkg.DataPropertyName = "Qtykg"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "N2"
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.Mkg.DefaultCellStyle = DataGridViewCellStyle3
-        Me.Mkg.HeaderText = "QTY(KG)"
-        Me.Mkg.Name = "Mkg"
-        Me.Mkg.ReadOnly = True
-        Me.Mkg.Width = 80
-        '
-        'Mfinwgt
-        '
-        Me.Mfinwgt.DataPropertyName = "Finwgt"
-        Me.Mfinwgt.HeaderText = "Finished Wgt"
-        Me.Mfinwgt.Name = "Mfinwgt"
-        Me.Mfinwgt.ReadOnly = True
-        Me.Mfinwgt.Width = 130
-        '
-        'Mfinwid
-        '
-        Me.Mfinwid.DataPropertyName = "Fwidth"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Mfinwid.DefaultCellStyle = DataGridViewCellStyle4
-        Me.Mfinwid.HeaderText = "Finished Width"
-        Me.Mfinwid.Name = "Mfinwid"
-        Me.Mfinwid.ReadOnly = True
-        Me.Mfinwid.Width = 130
-        '
-        'Shid
-        '
-        Me.Shid.DataPropertyName = "Shadeid"
-        Me.Shid.HeaderText = "Shadeid"
-        Me.Shid.Name = "Shid"
-        Me.Shid.ReadOnly = True
-        Me.Shid.Visible = False
-        '
-        'Mshade
-        '
-        Me.Mshade.DataPropertyName = "Shadedesc"
-        Me.Mshade.HeaderText = "Shade"
-        Me.Mshade.Name = "Mshade"
-        Me.Mshade.ReadOnly = True
-        Me.Mshade.Width = 120
-        '
-        'Mbrawfab
-        '
-        Me.Mbrawfab.DataPropertyName = "Knittbill"
-        Me.Mbrawfab.HeaderText = "บิลผ้าดิบ"
-        Me.Mbrawfab.Name = "Mbrawfab"
-        Me.Mbrawfab.ReadOnly = True
         '
         'Formdyeform
         '

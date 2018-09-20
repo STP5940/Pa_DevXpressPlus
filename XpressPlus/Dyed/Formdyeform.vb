@@ -138,17 +138,17 @@ Public Class Formdyeform
         'Bindmaster()
     End Sub
     Private Sub Btmreports_Click(sender As Object, e As EventArgs) Handles Btmreports.Click
-        'If Dgvmas.RowCount = 0 Then
-        '    Exit Sub
-        'End If
-        'If Tsbwsave.Visible = True Then
-        '    Informmessage("มีการเปลี่ยนแปลงและยังไม่ทำการบันทึก")
-        '    Exit Sub
-        'End If
-        'Binddetails()
-        'Tsbwsave.Visible = False
-        'Dim Frm As New Formdyedcomrpt
-        'Frm.ReportViewer1.Reset()
+        If Dgvmas.RowCount = 0 Then
+            Exit Sub
+        End If
+        If Tsbwsave.Visible = True Then
+            Informmessage("มีการเปลี่ยนแปลงและยังไม่ทำการบันทึก")
+            Exit Sub
+        End If
+        Binddetails()
+        Tsbwsave.Visible = False
+        Dim Frm As New Formdyedcomrpt
+        Frm.ReportViewer1.Reset()
         'Frm.Tbshipping.Text = Trim(Tbshippingname.Text)
         'Frm.Tbsuplier.Text = Trim(Tbsuppliername.Text)
         'Frm.Tbdate.Text = Format(Dtpdate.Value, "dd/MM/yyyy")
@@ -157,18 +157,19 @@ Public Class Formdyeform
         'Frm.Tbsumnw.Text = Tstbsumnw.Text
         'Frm.Tbsumqty.Text = Tstbsumqty.Text
         'Frm.Tbdlvno.Text = Tbdlvno.Text
-        'If Gsexpau = False Then
-        '    Frm.ReportViewer1.ShowExportButton = False
-        'End If
-        'If Gspriau = False Then
-        '    Frm.ReportViewer1.ShowPrintButton = False
-        'End If
-        'Dim rds As New ReportDataSource()
-        'rds.Name = "DataSet1"
-        'rds.Value = Tdetails
-        'Frm.ReportViewer1.LocalReport.DataSources.Add(rds)
-        'Showform(Frm)
-        'Sumall()
+        If Gsexpau = False Then
+            Frm.ReportViewer1.ShowExportButton = False
+        End If
+        If Gspriau = False Then
+            Frm.ReportViewer1.ShowPrintButton = False
+        End If
+        Dim rds As New ReportDataSource()
+        rds.Name = "DataSet1"
+        rds.Value = Tdetails
+        Frm.ReportViewer1.LocalReport.DataSources.Add(rds)
+        '  Showform(Frm)
+        Frm.Show()
+        Sumall()
         Clrtextmaster()
         Clrtextdetails()
         Clrgridmaster()

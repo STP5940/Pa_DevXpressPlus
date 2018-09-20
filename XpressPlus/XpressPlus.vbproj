@@ -85,6 +85,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dyed\Formdyedcomrpt.designer.vb">
+      <DependentUpon>Formdyedcomrpt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dyed\Formdyedcomrpt.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dyed\Formdyedlist.designer.vb">
       <DependentUpon>Formdyedlist.vb</DependentUpon>
     </Compile>
@@ -237,6 +243,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Dyed\Formdyedcomrpt.resx">
+      <DependentUpon>Formdyedcomrpt.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dyed\Formdyedlist.resx">
       <DependentUpon>Formdyedlist.vb</DependentUpon>
     </EmbeddedResource>
@@ -249,7 +258,7 @@
     <EmbeddedResource Include="Dyed\Formshadelist.resx">
       <DependentUpon>Formshadelist.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dyed\Rptknittingform.rdlc" />
+    <EmbeddedResource Include="Dyed\Rpdyedform.rdlc" />
     <EmbeddedResource Include="Knitting\Formdlvnoknittlist.resx">
       <DependentUpon>Formdlvnoknittlist.vb</DependentUpon>
     </EmbeddedResource>
