@@ -1,0 +1,11 @@
+Tdyedmovementxp
+dy เลขที่สั้งย้อม
+ord ลำดับที่
+Kni เลขที่สั่งทอ
+Dyed จำนวนที่สังทอ
+Upd User
+Utype ประเภท เพิ่ม แก้ไข ลบ A E D
+Uptime เวลาที่บันทึก
+
+
+[Tdyedcomdetxp] หลัก

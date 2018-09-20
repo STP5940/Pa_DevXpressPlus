@@ -281,6 +281,7 @@ Public Class Formdyeform
         Ctdedit.Enabled = False
         Ctddel.Enabled = False
         Dgvmas.Enabled = True
+
     End Sub
     Private Sub Btfirst_Click(sender As Object, e As EventArgs) Handles Btfirst.Click
         Befirst()
@@ -384,6 +385,8 @@ Public Class Formdyeform
                     Tdetails.Rows.Add()
                 End If
                 Tsbwsave.Visible = True
+                CountDgvmas.Text = CountDgvmas.Text + 1
+                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("ord").Value = Trim(CountDgvmas.Text)
                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dknittno").Value = Trim(Tbknitcomno.Text)
                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Clothid").Value = Trim(Tbclothid.Text)
                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Clothno").Value = Trim(Tbclothno.Text)
@@ -412,6 +415,18 @@ Public Class Formdyeform
         Sumall()
         Btdcancel_Click(sender, e)
         Tbremark.Focus()
+
+        Tbknitcomno.Text = ""
+        Tbclothid.Text = ""
+        Tbclothno.Text = ""
+        Tbclothtype.Text = ""
+        Tbqtyroll.Text = ""
+        Tbwgtkg.Text = ""
+        Tbfinwgt.Text = ""
+        Tbfinwidth.Text = ""
+        Tbshadeid.Text = ""
+        Tbshadename.Text = ""
+        Tbfabbill.Text = ""
     End Sub
     Private Sub Btdcancel_Click(sender As Object, e As EventArgs) Handles Btdcancel.Click
 
@@ -463,6 +478,12 @@ Public Class Formdyeform
         Tsbwsave.Visible = True
         Dgvmas.Rows.Remove(Dgvmas.CurrentRow)
         Sumall()
+
+        For i = 0 To Dgvmas.RowCount - 1
+            Dim Rows As Integer = i + 1
+            Dgvmas.Rows(i).Cells("ord").Value = Rows
+            'MessageBox.Show(Rows)
+        Next
     End Sub
     Private Sub Dgvmas_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Dgvmas.CellClick
         If Dgvmas.RowCount = 0 Then
@@ -640,14 +661,14 @@ Public Class Formdyeform
     End Sub
     Private Sub Binddetails()
         Tdetails = New DataTable
-        Tdetails = SQLCommand("SELECT '' AS Stat,count(Ord) As Ord,* FROM Vdyedcomdet
-                                WHERE Comid = '" & Gscomid & "' AND Dyedcomno = '" & Trim(Tbdyedcomno.Text) & "'")
+        Tdetails = SQLCommand("SELECT '' AS Stat,* FROM Vdyedcomdet
+                                WHERE Comid = '" & Gscomid & "' AND Dyedcomno = '" & Trim(Tbdyedcomno.Text) & "' ORDER BY Ord")
         Dgvmas.DataSource = Tdetails
+        CountDgvmas.Text = Dgvmas.Rows.Count
     End Sub
     Private Sub Bindinglist()
         Tlist = New DataTable
-        Tlist = SQLCommand("SELECT '' AS Stat,* FROM Vdyedcommas
-                                WHERE Comid = '" & Gscomid & "'")
+        Tlist = SQLCommand("SELECT '' AS Stat,* FROM Vdyedcommas WHERE Comid = '" & Gscomid & "'")
         Dgvlist.DataSource = Tlist
         Bs = New BindingSource
         Bs.DataSource = Tlist
