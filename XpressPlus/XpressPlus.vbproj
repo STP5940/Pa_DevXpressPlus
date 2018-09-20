@@ -48,16 +48,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dectextbox">
-      <HintPath>..\..\..\..\XpressPlus QT\Extdll\Source\Dectextbox\Dectextbox\bin\Debug\Dectextbox.dll</HintPath>
+      <HintPath>\\s-pc\VDO\GSC\Dll\Dectextbox.dll</HintPath>
     </Reference>
     <Reference Include="DevComponents.DotNetBar2, Version=14.1.0.32, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
     <Reference Include="Inttextbox">
-      <HintPath>..\..\..\..\XpressPlus QT\Extdll\Source\Inttextbox\Inttextbox\bin\Debug\Inttextbox.dll</HintPath>
+      <HintPath>\\s-pc\VDO\GSC\Dll\Inttextbox.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Normtextbox">
-      <HintPath>..\..\..\..\XpressPlus QT\Extdll\Source\Normtextbox\Normtextbox\bin\Debug\Normtextbox.dll</HintPath>
+      <HintPath>\\s-pc\VDO\GSC\Dll\Normtextbox.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -112,6 +112,29 @@
     <Compile Include="Gbstatement\Gbclass.vb" />
     <Compile Include="Gbstatement\ToolStripCheckBox.vb">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Knitting\Dsyarndlvk.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Dsyarndlvk.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Knitting\Formdlvnoknittlist.designer.vb">
+      <DependentUpon>Formdlvnoknittlist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Knitting\Formdlvnoknittlist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Knitting\Formknitingfrmrpt.designer.vb">
+      <DependentUpon>Formknitingfrmrpt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Knitting\Formknitingfrmrpt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Knitting\Formknittingform.designer.vb">
+      <DependentUpon>Formknittingform.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Knitting\Formknittingform.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -226,6 +249,17 @@
     <EmbeddedResource Include="Dyed\Formshadelist.resx">
       <DependentUpon>Formshadelist.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dyed\Rptknittingform.rdlc" />
+    <EmbeddedResource Include="Knitting\Formdlvnoknittlist.resx">
+      <DependentUpon>Formdlvnoknittlist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Knitting\Formknitingfrmrpt.resx">
+      <DependentUpon>Formknitingfrmrpt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Knitting\Formknittingform.resx">
+      <DependentUpon>Formknittingform.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Knitting\Rptknittingform.rdlc" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -276,6 +310,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Knitting\Dsyarndlvk.xsc">
+      <DependentUpon>Dsyarndlvk.xsd</DependentUpon>
+    </None>
+    <None Include="Knitting\Dsyarndlvk.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Dsyarndlvk.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Knitting\Dsyarndlvk.xss">
+      <DependentUpon>Dsyarndlvk.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -347,6 +392,7 @@
   <ItemGroup>
     <None Include="Resources\Updated.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

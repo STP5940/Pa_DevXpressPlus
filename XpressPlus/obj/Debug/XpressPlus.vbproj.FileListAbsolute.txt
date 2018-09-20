@@ -136,14 +136,7 @@ C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\XpressPlus.
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\XpressPlus.xml
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\DevComponents.DotNetBar2.dll
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\Microsoft.ReportViewer.WinForms.dll
-C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\Dectextbox.pdb
-C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\Dectextbox.xml
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\DevComponents.DotNetBar2.xml
-C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\Inttextbox.pdb
-C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\Inttextbox.xml
-C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\Normtextbox.pdb
-C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\Normtextbox.xml
-C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.vbprojResolveAssemblyReference.cache
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formdyedlist.resources
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formdyeform.resources
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formknitfordyelist.resources
@@ -164,3 +157,11 @@ C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formsupplierslist.resources
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formyarnlist.resources
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.vbproj.GenerateResource.Cache
+C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\Dectextbox.dll
+C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\Inttextbox.dll
+C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\Normtextbox.dll
+C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formdlvnoknittlist.resources
+C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formknitingfrmrpt.resources
+C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formknittingform.resources
+C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\RdlCompile.cache
+C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\RdlCompile.compiled
