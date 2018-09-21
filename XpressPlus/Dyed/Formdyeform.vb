@@ -88,6 +88,7 @@ Public Class Formdyeform
         End If
     End Sub
     Private Sub Btmsave_Click(sender As Object, e As EventArgs) Handles Btmsave.Click
+        CountDgvmas.Text = 0
         Tbfinddhid.Enabled = False
         Tbremark.Enabled = False
         Tbpickup.Enabled = False
@@ -128,6 +129,7 @@ Public Class Formdyeform
         Clrtextdetails()
         Clrgridmaster()
         TabControl1.SelectedTabIndex = 0
+        CountDgvmas.Text = 0
         BindingNavigator1.Enabled = False
         Tbfinddhid.Enabled = False
         Tbremark.Enabled = False
@@ -224,6 +226,7 @@ Public Class Formdyeform
     End Sub
     Private Sub Tscboth_CheckedChanged(sender As Object, e As EventArgs) Handles Tscboth.CheckedChanged
         If Tscboth.Checked = True Then
+            ToolStripLabel4.Visible = False
             Tscbdate.Checked = False
             Btrefresh.Visible = False
             Dtplistfm.Visible = False
@@ -232,6 +235,7 @@ Public Class Formdyeform
             Tstbkeyword.Select()
             Tstbkeyword.Focus()
         Else
+            ToolStripLabel4.Visible = True
             Tstbkeyword.Visible = False
             Tscbdate.Checked = True
             Dtplistfm.Visible = True
@@ -284,6 +288,8 @@ Public Class Formdyeform
         Tbdyedcomno.DataBindings.Add("Text", Bs, "Dyecomno")
         Tbdyedcomno.Enabled = False
         Bindmaster()
+        Dtpdate.Enabled = False
+        Tbpickup.Enabled = False
         Btmreports.Enabled = True
         BindingNavigator1.Enabled = True
         Btmnew.Enabled = False
@@ -885,6 +891,11 @@ Public Class Formdyeform
         End If
         Return Valid
     End Function
+
+    Private Sub Tscboth_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
     Private Sub Setauthorize()
         If Gscreau = False Then
             Btmnew.Visible = False
