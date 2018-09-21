@@ -27,4 +27,7 @@ Public Class Formdyedcomrpt
         Me.ReportViewer1.RefreshReport()
     End Sub
 
+    Private Sub Btmclose_Click_1(sender As Object, e As EventArgs) Handles Btmclose.Click
+        Me.Close()
+    End Sub
 End Class

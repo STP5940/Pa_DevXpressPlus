@@ -211,6 +211,12 @@
     <Compile Include="Salefabriccolors\Formsalefabric.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="salerepor\Formsaleyarnrpt.designer.vb">
+      <DependentUpon>Formsaleyarnrpt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="salerepor\Formsaleyarnrpt.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Waitdialog\Formwaitdialoque.designer.vb">
       <DependentUpon>Formwaitdialoque.vb</DependentUpon>
     </Compile>
@@ -301,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Salefabriccolors\Formsalefabric.resx">
       <DependentUpon>Formsalefabric.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="salerepor\Formsaleyarnrpt.resx">
+      <DependentUpon>Formsaleyarnrpt.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Waitdialog\Formwaitdialoque.resx">
       <DependentUpon>Formwaitdialoque.vb</DependentUpon>
@@ -401,7 +410,9 @@
   <ItemGroup>
     <None Include="Resources\Updated.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Closewin.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

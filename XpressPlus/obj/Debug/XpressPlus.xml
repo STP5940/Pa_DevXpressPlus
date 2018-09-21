@@ -37,6 +37,11 @@ XpressPlus
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:XpressPlus.My.Resources.Resources.Closewin">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:XpressPlus.My.Resources.Resources.Delbelow">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

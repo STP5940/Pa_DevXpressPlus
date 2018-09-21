@@ -258,3 +258,4 @@ C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\RdlCompile.cache
 C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\RdlCompile.compiled
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.vbprojResolveAssemblyReference.cache
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formdyedcomrpt.resources
+C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formsaleyarnrpt.resources
