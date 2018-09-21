@@ -153,7 +153,14 @@ Public Class Formdyeform
         'Frm.Tbsuplier.Text = Trim(Tbsuppliername.Text)
         Frm.Tbdate.Text = Format(Dtpdate.Value, "dd/MM/yyyy")
         Frm.SendTo.Text = Tbdhname.Text
-        Frm.PickupArea.Text = Tbpickup.Text
+        'Frm.PickupArea.Text = Tbpickup.Text
+
+        If Tbpickup.Text <> "" Then
+            Frm.PickupArea.Text = Tbpickup.Text
+        Else
+            Frm.PickupArea.Text = " "
+        End If
+
         If Tbremark.Text <> "" Then
             Frm.Note.Text = Tbremark.Text
         Else
@@ -277,6 +284,7 @@ Public Class Formdyeform
         Tbdyedcomno.DataBindings.Add("Text", Bs, "Dyecomno")
         Tbdyedcomno.Enabled = False
         Bindmaster()
+        Btmreports.Enabled = True
         BindingNavigator1.Enabled = True
         Btmnew.Enabled = False
         Btmedit.Enabled = True
@@ -504,7 +512,7 @@ Public Class Formdyeform
         If e.Button = Windows.Forms.MouseButtons.Right Then
             If Me.Dgvmas.Rows.Count < 1 Then Exit Sub
             If e.RowIndex < 0 Then Exit Sub
-            Dgvmas.CurrentCell = Dgvmas(3, e.RowIndex)
+            'Dgvmas.CurrentCell = Dgvmas(3, e.RowIndex)
             Me.Dgvmas.Rows(e.RowIndex).Selected = True
             Editcontextdetmenu()
         End If

@@ -14,7 +14,7 @@ Public Class Formdyedcomrpt
         Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {Par3})
         Par4 = New ReportParameter("ParSendTo", Trim(SendTo.Text), True)
         Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {Par4})
-        Par5 = New ReportParameter("PickupArea", Trim(PickupArea.Text), True)
+        Par5 = New ReportParameter("PickupArea", PickupArea.Text, True)
         Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {Par5})
         Par6 = New ReportParameter("Note", Note.Text, True)
         Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {Par6})
