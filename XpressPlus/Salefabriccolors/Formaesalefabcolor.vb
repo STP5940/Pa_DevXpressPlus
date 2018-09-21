@@ -20,4 +20,11 @@
         Dgvmas.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
     End Sub
 
+    Private Sub Btok_Click(sender As Object, e As EventArgs) Handles Btok.Click
+        Me.Close()
+
+        'Dim frm As New Formsalefabric
+        'frm.Dgvmas.Rows(0).Cells("Dlot").Value = 0
+
+    End Sub
 End Class

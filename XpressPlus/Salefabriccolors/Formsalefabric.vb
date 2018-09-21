@@ -819,11 +819,62 @@ Public Class Formsalefabric
     End Sub
 
     Private Sub Btfindlotno_Click_1(sender As Object, e As EventArgs) Handles Btfindlotno.Click
+        'Dgvmas.Rows(0).Cells("Dlot").Value = 0
         Dim Frm As New Formaesalefabcolor
         Showdiaformcenter(Frm, Me)
         If Frm.Tbcancel.Text = "C" Then
             Exit Sub
         End If
+
+
+        For i = 0 To Frm.Dgvmas.RowCount - 1
+            If Frm.Dgvmas.Rows(i).Cells("Column1").Value = True Then
+                'Dim dRow As DataRow
+                If Tbdlvno.Text = "NEW" Then
+                    'MessageBox.Show(Dgvmas.RowCount)
+
+                    For CheckLot = 0 To Dgvmas.RowCount - 1
+                        MessageBox.Show(CheckLot)
+                    Next
+
+                    'Dgvmas.Rows.Add()
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dlot").Value = Frm.Dgvmas.Rows(i).Cells("Mlotno").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkongno").Value = Frm.Dgvmas.Rows(i).Cells("Kongno").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollno").Value = Frm.Dgvmas.Rows(i).Cells("Pubno").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Qtykg").Value = Frm.Dgvmas.Rows(i).Cells("Rollwage").Value
+                    'MessageBox.Show(1)
+                Else
+
+                    For CheckLot = 0 To Dgvmas.RowCount - 1
+                        MessageBox.Show($"{Dgvmas.Rows(CheckLot).Cells("Mkongno").Value} : {Frm.Dgvmas.Rows(i).Cells("Kongno").Value}")
+                        If Dgvmas.Rows(CheckLot).Cells("Mkongno").Value <> Frm.Dgvmas.Rows(i).Cells("Kongno").Value Then
+                            MessageBox.Show("ไม่ซ้ำ")
+                            If CheckLot = Dgvmas.RowCount - 1 Then
+                                MessageBox.Show("เขียนได้")
+                            End If
+                            'Tdetails.Rows.Add()
+                            'Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dlot").Value = Frm.Dgvmas.Rows(i).Cells("Mlotno").Value
+                            'Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkongno").Value = Frm.Dgvmas.Rows(i).Cells("Kongno").Value
+                            'Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollno").Value = Frm.Dgvmas.Rows(i).Cells("Pubno").Value
+                            'Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Qtykg").Value = Frm.Dgvmas.Rows(i).Cells("Rollwage").Value
+                        Else
+                            MessageBox.Show("มีข้อมูลแล้ว")
+                            Exit For
+                        End If
+                    Next
+
+                    'Tdetails.Rows.Add()
+
+                    'MessageBox.Show(0)
+                End If
+
+                'Dgvmas.Rows(i).Cells("Dlot").Value = Frm.Dgvmas.Rows(i).Cells("Mlotno").Value
+            End If
+        Next
+
+        'Dgvmas.Rows(0).Cells("Dlot").Value = 0
+
+
         'Tblotno.Text = Trim(Frm.Tbfabno.Text)
         'Tbkongno.Text = Trim(Frm.Normtextbox1.Text)
         'Btdadd.Focus()

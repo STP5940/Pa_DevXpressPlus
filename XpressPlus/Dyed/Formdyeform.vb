@@ -372,6 +372,7 @@ Public Class Formdyeform
         If Frm.Tbcancel.Text = "C" Then
             Exit Sub
         End If
+
         Tbshadeid.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Mid").Value)
         Tbshadename.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Mname").Value)
         Tbfabbill.Focus()
