@@ -25,16 +25,16 @@ Partial Class Formdyedcomrpt
         Me.components = New System.ComponentModel.Container()
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
         Me.Tbpickarea = New System.Windows.Forms.TextBox()
-        Me.Tbremark = New System.Windows.Forms.TextBox()
-        Me.Tbdate = New System.Windows.Forms.TextBox()
         Me.Tbdyedno = New System.Windows.Forms.TextBox()
         Me.Tbdhname = New System.Windows.Forms.TextBox()
         Me.Tbcustname = New System.Windows.Forms.TextBox()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
-        Me.SendTo = New System.Windows.Forms.TextBox()
+        Me.Tbdate = New System.Windows.Forms.TextBox()
+        Me.Tbremark = New System.Windows.Forms.TextBox()
         Me.PickupArea = New System.Windows.Forms.TextBox()
+        Me.SendTo = New System.Windows.Forms.TextBox()
         Me.Note = New System.Windows.Forms.TextBox()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -61,10 +61,10 @@ Partial Class Formdyedcomrpt
         '
         'TabControlPanel1
         '
-        Me.TabControlPanel1.Controls.Add(Me.Note)
-        Me.TabControlPanel1.Controls.Add(Me.PickupArea)
-        Me.TabControlPanel1.Controls.Add(Me.SendTo)
         Me.TabControlPanel1.Controls.Add(Me.Tbpickarea)
+        Me.TabControlPanel1.Controls.Add(Me.Note)
+        Me.TabControlPanel1.Controls.Add(Me.SendTo)
+        Me.TabControlPanel1.Controls.Add(Me.PickupArea)
         Me.TabControlPanel1.Controls.Add(Me.Tbremark)
         Me.TabControlPanel1.Controls.Add(Me.Tbdate)
         Me.TabControlPanel1.Controls.Add(Me.Tbdyedno)
@@ -87,6 +87,20 @@ Partial Class Formdyedcomrpt
         Me.TabControlPanel1.TabIndex = 1
         Me.TabControlPanel1.TabItem = Me.TabItem1
         '
+        'ReportViewer1
+        '
+        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ReportViewer1.Location = New System.Drawing.Point(1, 1)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.Size = New System.Drawing.Size(1006, 701)
+        Me.ReportViewer1.TabIndex = 0
+        '
+        'TabItem1
+        '
+        Me.TabItem1.AttachedControl = Me.TabControlPanel1
+        Me.TabItem1.Name = "TabItem1"
+        Me.TabItem1.Text = "ใบสั่งย้อม"
+        '
         'Tbpickarea
         '
         Me.Tbpickarea.Location = New System.Drawing.Point(896, 84)
@@ -94,22 +108,6 @@ Partial Class Formdyedcomrpt
         Me.Tbpickarea.Size = New System.Drawing.Size(100, 22)
         Me.Tbpickarea.TabIndex = 6
         Me.Tbpickarea.Visible = False
-        '
-        'Tbremark
-        '
-        Me.Tbremark.Location = New System.Drawing.Point(790, 84)
-        Me.Tbremark.Name = "Tbremark"
-        Me.Tbremark.Size = New System.Drawing.Size(100, 22)
-        Me.Tbremark.TabIndex = 5
-        Me.Tbremark.Visible = False
-        '
-        'Tbdate
-        '
-        Me.Tbdate.Location = New System.Drawing.Point(896, 56)
-        Me.Tbdate.Name = "Tbdate"
-        Me.Tbdate.Size = New System.Drawing.Size(100, 22)
-        Me.Tbdate.TabIndex = 4
-        Me.Tbdate.Visible = False
         '
         'Tbdyedno
         '
@@ -135,42 +133,44 @@ Partial Class Formdyedcomrpt
         Me.Tbcustname.TabIndex = 1
         Me.Tbcustname.Visible = False
         '
-        'ReportViewer1
+        'Tbdate
         '
-        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ReportViewer1.Location = New System.Drawing.Point(1, 1)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(1006, 701)
-        Me.ReportViewer1.TabIndex = 0
+        Me.Tbdate.Location = New System.Drawing.Point(896, 56)
+        Me.Tbdate.Name = "Tbdate"
+        Me.Tbdate.Size = New System.Drawing.Size(100, 22)
+        Me.Tbdate.TabIndex = 4
+        Me.Tbdate.Visible = False
         '
-        'TabItem1
+        'Tbremark
         '
-        Me.TabItem1.AttachedControl = Me.TabControlPanel1
-        Me.TabItem1.Name = "TabItem1"
-        Me.TabItem1.Text = "ใบสั่งย้อม"
-        '
-        'SendTo
-        '
-        Me.SendTo.Location = New System.Drawing.Point(896, 112)
-        Me.SendTo.Name = "SendTo"
-        Me.SendTo.Size = New System.Drawing.Size(100, 22)
-        Me.SendTo.TabIndex = 7
-        Me.SendTo.Visible = False
+        Me.Tbremark.Location = New System.Drawing.Point(790, 84)
+        Me.Tbremark.Name = "Tbremark"
+        Me.Tbremark.Size = New System.Drawing.Size(100, 22)
+        Me.Tbremark.TabIndex = 5
+        Me.Tbremark.Visible = False
         '
         'PickupArea
         '
         Me.PickupArea.Location = New System.Drawing.Point(790, 112)
         Me.PickupArea.Name = "PickupArea"
         Me.PickupArea.Size = New System.Drawing.Size(100, 22)
-        Me.PickupArea.TabIndex = 8
+        Me.PickupArea.TabIndex = 5
         Me.PickupArea.Visible = False
+        '
+        'SendTo
+        '
+        Me.SendTo.Location = New System.Drawing.Point(896, 112)
+        Me.SendTo.Name = "SendTo"
+        Me.SendTo.Size = New System.Drawing.Size(100, 22)
+        Me.SendTo.TabIndex = 5
+        Me.SendTo.Visible = False
         '
         'Note
         '
         Me.Note.Location = New System.Drawing.Point(896, 140)
         Me.Note.Name = "Note"
         Me.Note.Size = New System.Drawing.Size(100, 22)
-        Me.Note.TabIndex = 9
+        Me.Note.TabIndex = 5
         Me.Note.Visible = False
         '
         'Formdyedcomrpt
@@ -192,15 +192,15 @@ Partial Class Formdyedcomrpt
 
     Friend WithEvents TabControl1 As DevComponents.DotNetBar.TabControl
     Friend WithEvents TabControlPanel1 As DevComponents.DotNetBar.TabControlPanel
+    Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
+    Friend WithEvents TabItem1 As DevComponents.DotNetBar.TabItem
+    Friend WithEvents Tbpickarea As TextBox
+    Friend WithEvents Note As TextBox
+    Friend WithEvents SendTo As TextBox
+    Friend WithEvents PickupArea As TextBox
+    Friend WithEvents Tbremark As TextBox
     Friend WithEvents Tbdate As TextBox
     Friend WithEvents Tbdyedno As TextBox
     Friend WithEvents Tbdhname As TextBox
     Friend WithEvents Tbcustname As TextBox
-    Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
-    Friend WithEvents TabItem1 As DevComponents.DotNetBar.TabItem
-    Friend WithEvents Tbremark As TextBox
-    Friend WithEvents Tbpickarea As TextBox
-    Friend WithEvents SendTo As TextBox
-    Friend WithEvents PickupArea As TextBox
-    Friend WithEvents Note As TextBox
 End Class

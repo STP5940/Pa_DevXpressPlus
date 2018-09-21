@@ -216,5 +216,43 @@ D:\VDO\GSC\เป้ ส่งให้พี่หรั่ง\XpressPlus\bin\D
 D:\VDO\GSC\เป้ ส่งให้พี่หรั่ง\XpressPlus\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
 D:\VDO\GSC\เป้ ส่งให้พี่หรั่ง\XpressPlus\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
 D:\VDO\GSC\เป้ ส่งให้พี่หรั่ง\XpressPlus\obj\Debug\XpressPlus.Formdyedcomrpt.resources
-C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.vbprojResolveAssemblyReference.cache
-C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formdyedcomrpt.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\bin\Debug\XpressPlus.exe.config
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.exe
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.xml
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.pdb
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\bin\Debug\XpressPlus.exe
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\bin\Debug\XpressPlus.pdb
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\bin\Debug\XpressPlus.xml
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\bin\Debug\Dectextbox.dll
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\bin\Debug\DevComponents.DotNetBar2.dll
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\bin\Debug\Inttextbox.dll
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\bin\Debug\Normtextbox.dll
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\bin\Debug\DevComponents.DotNetBar2.xml
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.vbprojResolveAssemblyReference.cache
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Formdyedcomrpt.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Formdyedlist.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Formdyeform.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Formknitfordyelist.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Formshadelist.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Formdlvnoknittlist.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Formknitingfrmrpt.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Formknittingform.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Resources.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Formaesalefabcolor.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Formcustomerslist.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Formcustshiplist.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Formfabrictypelist.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Formfabrolllist.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Formsalebilllist.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Formsalefabcolrpt.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Formsalefablotnolist.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Formsalefabric.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Formwaitdialoque.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Formbooking.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Formshipinglist.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Formsupplierslist.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.Formyarnlist.resources
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\XpressPlus.vbproj.GenerateResource.Cache
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\RdlCompile.cache
+C:\Users\this\Documents\GitHub\Pa\XpressPlus\obj\Debug\RdlCompile.compiled
