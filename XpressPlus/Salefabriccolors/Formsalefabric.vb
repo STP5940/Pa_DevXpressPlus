@@ -846,20 +846,25 @@ Public Class Formsalefabric
                 Else
 
                     For CheckLot = 0 To Dgvmas.RowCount - 1
-                        MessageBox.Show($"{Dgvmas.Rows(CheckLot).Cells("Mkongno").Value} : {Frm.Dgvmas.Rows(i).Cells("Kongno").Value}")
-                        If Dgvmas.Rows(CheckLot).Cells("Mkongno").Value <> Frm.Dgvmas.Rows(i).Cells("Kongno").Value Then
-                            MessageBox.Show("ไม่ซ้ำ")
-                            If CheckLot = Dgvmas.RowCount - 1 Then
-                                MessageBox.Show("เขียนได้")
-                            End If
-                            'Tdetails.Rows.Add()
-                            'Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dlot").Value = Frm.Dgvmas.Rows(i).Cells("Mlotno").Value
-                            'Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkongno").Value = Frm.Dgvmas.Rows(i).Cells("Kongno").Value
-                            'Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollno").Value = Frm.Dgvmas.Rows(i).Cells("Pubno").Value
-                            'Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Qtykg").Value = Frm.Dgvmas.Rows(i).Cells("Rollwage").Value
-                        Else
-                            MessageBox.Show("มีข้อมูลแล้ว")
+                        'MessageBox.Show($"{Dgvmas.Rows(CheckLot).Cells("Mkongno").Value} : {Frm.Dgvmas.Rows(i).Cells("Kongno").Value}")
+                        'If Dgvmas.Rows(CheckLot).Cells("Mkongno").Value <> Frm.Dgvmas.Rows(i).Cells("Kongno").Value Then
+                        If Dgvmas.Rows(CheckLot).Cells("Dlot").Value = Frm.Dgvmas.Rows(i).Cells("Mlotno").Value AndAlso 'เลข Lot No
+                            Dgvmas.Rows(CheckLot).Cells("Rollno").Value = Frm.Dgvmas.Rows(i).Cells("Pubno").Value AndAlso 'เลขพับที่
+                            Dgvmas.Rows(CheckLot).Cells("Qtykg").Value = Frm.Dgvmas.Rows(i).Cells("Rollwage").Value Then 'เลขน้ำหนัก
+                            'MessageBox.Show("มีข้อมูลแล้ว")
+                            Informmessage($"มีข้อมูล Lot No: {Dgvmas.Rows(CheckLot).Cells("Dlot").Value} อยู่ในรายการแล้ว")
                             Exit For
+                        Else
+                            'MessageBox.Show("ไม่ซ้ำ")
+                            If CheckLot = Dgvmas.RowCount - 1 Then
+                                'MessageBox.Show("เขียนได้")
+                                Tdetails.Rows.Add()
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dlot").Value = Frm.Dgvmas.Rows(i).Cells("Mlotno").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkongno").Value = Frm.Dgvmas.Rows(i).Cells("Kongno").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollno").Value = Frm.Dgvmas.Rows(i).Cells("Pubno").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Qtykg").Value = Frm.Dgvmas.Rows(i).Cells("Rollwage").Value
+                            End If
+
                         End If
                     Next
 

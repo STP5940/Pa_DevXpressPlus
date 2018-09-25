@@ -129,7 +129,8 @@ Module Gbclass
         Dim DTadapter As SqlDataAdapter
         Dim ObjConn As New SqlConnection
         Dim DT As New DataTable
-        ObjConn.ConnectionString = "Data Source = 192.168.100.223;Initial Catalog = EXPRESSPLUS;Persist Security Info=True;User ID = SA;Password = Ecs@1234"
+        'ObjConn.ConnectionString = "Data Source = 192.168.100.223;Initial Catalog = EXPRESSPLUS;Persist Security Info=True;User ID = SA;Password = Ecs@1234"
+        ObjConn.ConnectionString = "Data Source = S-PC;Initial Catalog = EXPRESSPLUS;Persist Security Info=True;User ID = SA;Password = !password#"
         ObjConn.Open()
         DTadapter = New SqlDataAdapter(Sqltext, ObjConn)
         DTadapter.Fill(DT)
