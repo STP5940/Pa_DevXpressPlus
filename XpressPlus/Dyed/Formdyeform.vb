@@ -50,6 +50,7 @@ Public Class Formdyeform
         Clrgridmaster()
         TabControl1.SelectedTabIndex = 1
         BindingNavigator1.Enabled = False
+        Tbqtyroll.Enabled = False
         Tbfinddhid.Enabled = True
         Tbpickup.Enabled = True
         Tbremark.Enabled = True
@@ -288,6 +289,7 @@ Public Class Formdyeform
         Tbdyedcomno.DataBindings.Add("Text", Bs, "Dyecomno")
         Tbdyedcomno.Enabled = False
         Bindmaster()
+        Tbqtyroll.Enabled = False
         Dtpdate.Enabled = False
         Tbpickup.Enabled = False
         Btmreports.Enabled = True
@@ -345,7 +347,15 @@ Public Class Formdyeform
         Tbclothid.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Clothid").Value)
         Tbclothno.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Clothno").Value)
         Tbclothtype.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Ftype").Value)
-        Tbqtyroll.Text = Format(Frm.Dgvmas.CurrentRow.Cells("Qtyroll").Value, "###,###")
+        'Tbqtyroll.Text = Format(Frm.Dgvmas.CurrentRow.Cells("Qtyroll").Value, "###,###")
+        If Frm.SellSums.Text > 0 Then
+            Tbqtyroll.Enabled = True
+            Tbqtyroll.Text = Format(Val(Frm.SellSums.Text), "###,###")
+        Else
+            Tbqtyroll.Enabled = False
+            Tbqtyroll.Text = 0
+        End If
+
         Tbwgtkg.Text = Format(Frm.Dgvmas.CurrentRow.Cells("Wgtkg").Value, "###,###.#0")
         Tbfinwgt.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Finwgt").Value)
         Tbfinwidth.Text = Frm.Dgvmas.CurrentRow.Cells("Fwidth").Value
@@ -383,6 +393,7 @@ Public Class Formdyeform
         End If
     End Sub
     Private Sub Btdadd_Click(sender As Object, e As EventArgs) Handles Btdadd.Click
+
         If Validmas() = False Then
             Informmessage("กรุณาเลือกที่โรงย้อม")
             Exit Sub
@@ -451,6 +462,7 @@ Public Class Formdyeform
         Tbshadeid.Text = ""
         Tbshadename.Text = ""
         Tbfabbill.Text = ""
+        Tbqtyroll.Enabled = False
     End Sub
     Private Sub Btdcancel_Click(sender As Object, e As EventArgs) Handles Btdcancel.Click
 
@@ -458,6 +470,7 @@ Public Class Formdyeform
     Private Sub Btdbadd_Click(sender As Object, e As EventArgs) Handles Btdbadd.Click
         Btdcancel_Click(sender, e)
         GroupPanel2.Visible = True
+        Tbqtyroll.Enabled = False
         Tbaddedit.Text = "เพิ่ม"
         Tbknitcomno.Text = ""
         Tbclothid.Text = ""
@@ -481,6 +494,7 @@ Public Class Formdyeform
             Exit Sub
         End If
         Tbaddedit.Text = "แก้ไข"
+        Tbqtyroll.Enabled = True
         Tbknitcomno.Text = Trim(Dgvmas.CurrentRow.Cells("Dknittno").Value)
         Tbclothid.Text = Trim(Dgvmas.CurrentRow.Cells("Clothid").Value)
         Tbclothno.Text = Trim(Dgvmas.CurrentRow.Cells("Clothno").Value)

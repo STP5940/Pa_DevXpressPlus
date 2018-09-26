@@ -40,6 +40,9 @@
     Private Sub Bindingmaster()
         Tmaster = New DataTable
         Tmaster = SQLCommand("SELECT * FROM Vknitcomdet  WHERE Comid = '" & Gscomid & "'")
+        'SELECT SUM(Qtyroll) AS Qtyroll FROM Tdyedcomdetxp WHERE Knittcomid = 'VC180900008'
+        'Dim PriceSell = New DataTable
+        'PriceSell = SQLCommand("SELECT SUM(Qtyroll) AS Qtyroll FROM Tdyedcomdetxp WHERE Knittcomid = 'VC180900008'")
         Dgvmas.DataSource = Tmaster
     End Sub
     Private Sub Filtermastergrid()
@@ -57,4 +60,18 @@
         Dgvmas.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
         Dgvmas.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
     End Sub
+
+    Private Sub Dgvmas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles Dgvmas.CellClick
+        Dim Knitcomno = Dgvmas.CurrentRow.Cells("Knitcomno").Value
+        Dim Clothid = Dgvmas.CurrentRow.Cells("Clothid").Value
+        Dim Qtyroll = Dgvmas.CurrentRow.Cells("Qtyroll").Value
+        'MessageBox.Show(Knitcomno)
+        'MessageBox.Show(Clothid)
+
+        Dim SellSum = New DataTable
+        SellSum = SQLCommand($"SELECT SUM(Qtyroll) AS Sum FROM Tdyedcomdetxp WHERE Knittcomid = '{Knitcomno}' and Clothid= '{Clothid}'")
+        DataSum.DataSource = SellSum
+        SellSums.Text = If(IsDBNull(DataSum.Rows(0).Cells("Sum").Value), Qtyroll, (Qtyroll - DataSum.Rows(0).Cells("Sum").Value))
+    End Sub
+
 End Class
