@@ -115,6 +115,12 @@
     <Compile Include="Dyed\Formshadelist.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Gbstatement\Gbclass.vb" />
     <Compile Include="Gbstatement\ToolStripCheckBox.vb">
       <SubType>Component</SubType>
@@ -265,6 +271,9 @@
       <DependentUpon>Formshadelist.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dyed\Rpdyedform.rdlc" />
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Knitting\Formdlvnoknittlist.resx">
       <DependentUpon>Formdlvnoknittlist.vb</DependentUpon>
     </EmbeddedResource>

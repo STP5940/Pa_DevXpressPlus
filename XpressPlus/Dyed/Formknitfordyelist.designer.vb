@@ -23,10 +23,11 @@ Partial Class Formknitfordyelist
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
+        Me.LabelX4 = New DevComponents.DotNetBar.LabelX()
         Me.DataSum = New System.Windows.Forms.DataGridView()
         Me.SellSums = New Normtextbox.Normtextbox()
         Me.Dgvmas = New System.Windows.Forms.DataGridView()
@@ -50,7 +51,6 @@ Partial Class Formknitfordyelist
         Me.Btcancel = New DevComponents.DotNetBar.ButtonX()
         Me.Btok = New DevComponents.DotNetBar.ButtonX()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
-        Me.LabelX4 = New DevComponents.DotNetBar.LabelX()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabControlPanel1.SuspendLayout()
@@ -101,6 +101,20 @@ Partial Class Formknitfordyelist
         Me.TabControlPanel1.TabIndex = 1
         Me.TabControlPanel1.TabItem = Me.TabItem1
         '
+        'LabelX4
+        '
+        Me.LabelX4.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.LabelX4.Location = New System.Drawing.Point(211, 217)
+        Me.LabelX4.Name = "LabelX4"
+        Me.LabelX4.Size = New System.Drawing.Size(77, 23)
+        Me.LabelX4.TabIndex = 116
+        Me.LabelX4.Text = "ยอดคงเหลือ"
+        '
         'DataSum
         '
         Me.DataSum.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -125,24 +139,24 @@ Partial Class Formknitfordyelist
         '
         Me.Dgvmas.AllowUserToAddRows = False
         Me.Dgvmas.AllowUserToDeleteRows = False
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.Dgvmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Status, Me.Column1, Me.Column2, Me.Column3, Me.Comid, Me.Knitcomno, Me.Clothid, Me.Clothno, Me.Ftype, Me.Fwidth, Me.Qtyroll, Me.Wgtkg, Me.Finwgt})
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Dgvmas.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Dgvmas.DefaultCellStyle = DataGridViewCellStyle2
         Me.Dgvmas.Dock = System.Windows.Forms.DockStyle.Top
         Me.Dgvmas.Location = New System.Drawing.Point(1, 50)
         Me.Dgvmas.Name = "Dgvmas"
@@ -319,20 +333,6 @@ Partial Class Formknitfordyelist
         Me.TabItem1.AttachedControl = Me.TabControlPanel1
         Me.TabItem1.Name = "TabItem1"
         Me.TabItem1.Text = "เลขที่ใบสั่งทอ"
-        '
-        'LabelX4
-        '
-        Me.LabelX4.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX4.Location = New System.Drawing.Point(211, 217)
-        Me.LabelX4.Name = "LabelX4"
-        Me.LabelX4.Size = New System.Drawing.Size(77, 23)
-        Me.LabelX4.TabIndex = 116
-        Me.LabelX4.Text = "ยอดคงเหลือ"
         '
         'Formknitfordyelist
         '

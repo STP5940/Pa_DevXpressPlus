@@ -279,6 +279,7 @@ Public Class Formdyeform
         End If
     End Sub
     Private Sub Ctmledit_Click(sender As Object, e As EventArgs) Handles Ctmledit.Click
+        OriginalTbqtyroll.Text = ""
         Clrtextmaster()
         Clrtextdetails()
         Clrgridmaster()
@@ -351,6 +352,7 @@ Public Class Formdyeform
         If Frm.SellSums.Text > 0 Then
             Tbqtyroll.Enabled = True
             Tbqtyroll.Text = Format(Val(Frm.SellSums.Text), "###,###")
+            TbqtyrollTemp.Text = Format(Val(Frm.SellSums.Text), "###,###")
         Else
             Tbqtyroll.Enabled = False
             Tbqtyroll.Text = 0
@@ -412,6 +414,73 @@ Public Class Formdyeform
                 Exit Sub
             End If
         End If
+
+        Dim SumSell = New DataTable
+        SumSell = SQLCommand($"SELECT SUM(Qtyroll) As SumSell FROM Tdyedcomdetxp WHERE Knittcomid = '{Tbknitcomno.Text}' and Clothid= '{Tbclothid.Text}'")
+        SumSellEdit.DataSource = SumSell
+        Dim SumSellCash = If(IsDBNull(SumSellEdit.Rows(0).Cells("SumSell").Value), "0", SumSellEdit.Rows(0).Cells("SumSell").Value - TbqtyrollTemp.Text)
+        'MessageBox.Show(Tbqtyroll.Text)
+
+        Dim Frm As New Formknitfordyelist
+        'MessageBox.Show($"{Tbqtyroll.Text }:{ TbqtyrollTemp.Text}")
+
+
+        'TbqtyrollTemp คงเหลือ
+        'SumSellCash ทั้งหมด
+        'Tbqtyroll ค่าที่ใส่
+
+
+        'If CLng(Tbqtyroll.Text) > CLng(SumSellCash) Then
+        '    Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ A") 'แก้ไขใส่เกิน
+        '    Exit Sub
+        'End If
+
+        If Tbaddedit.Text = "เพิ่ม" AndAlso CLng(Tbqtyroll.Text) > CLng(TbqtyrollTemp.Text) Then
+            Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ B") 'เพิ่มใหม่ใส่เกิน
+            Exit Sub
+        End If
+
+        If Tbdyedcomno.Text = "NEW" Then
+            If OriginalTbqtyroll.Text = "" And Tbaddedit.Text = "แก้ไข" Then
+                OriginalTbqtyroll.Text = Format(CLng(Dgvmas.CurrentRow.Cells("Mqty").Value), "###,###")
+                If Tbaddedit.Text = "แก้ไข" AndAlso CLng(Tbqtyroll.Text) > CLng(TbqtyrollTemp.Text) Then
+                    Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ C") 'เพิ่มใหม่ใส่เกิน
+                    Exit Sub
+                End If
+            Else
+                If Tbaddedit.Text = "แก้ไข" AndAlso CLng(Tbqtyroll.Text) > CLng(TbqtyrollTemp.Text) Then
+                    Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ D") 'เพิ่มใหม่ใส่เกิน
+                    Exit Sub
+                End If
+            End If
+        Else
+            If OriginalTbqtyroll.Text = "" And Tbaddedit.Text = "แก้ไข" Then
+                OriginalTbqtyroll.Text = Format(CLng(Dgvmas.CurrentRow.Cells("Mqty").Value), "###,###")
+                If Tbaddedit.Text = "แก้ไข" AndAlso CLng(Tbqtyroll.Text) > CLng(OriginalTbqtyroll.Text) + CLng(TbqtyrollTemp.Text) Then
+                    Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ C") 'เพิ่มใหม่ใส่เกิน
+                    Exit Sub
+                End If
+            Else
+                If Tbaddedit.Text = "แก้ไข" AndAlso CLng(Tbqtyroll.Text) > CLng(OriginalTbqtyroll.Text) + CLng(TbqtyrollTemp.Text) Then
+                    Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ D") 'เพิ่มใหม่ใส่เกิน
+                    Exit Sub
+                End If
+            End If
+        End If
+
+        'If OriginalTbqtyroll.Text = "" And Tbaddedit.Text = "แก้ไข" Then
+        '    OriginalTbqtyroll.Text = Format(CLng(Dgvmas.CurrentRow.Cells("Mqty").Value), "###,###")
+        '    If Tbaddedit.Text = "แก้ไข" AndAlso CLng(Tbqtyroll.Text) > CLng(OriginalTbqtyroll.Text) + CLng(TbqtyrollTemp.Text) Then
+        '        Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ C") 'เพิ่มใหม่ใส่เกิน
+        '        Exit Sub
+        '    End If
+        'Else
+        '    If Tbaddedit.Text = "แก้ไข" AndAlso CLng(Tbqtyroll.Text) > CLng(OriginalTbqtyroll.Text) + CLng(TbqtyrollTemp.Text) Then
+        '        Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ D") 'เพิ่มใหม่ใส่เกิน
+        '        Exit Sub
+        '    End If
+        'End If
+
         Select Case Trim(Tbaddedit.Text)
             Case "เพิ่ม"
                 If Tbdyedcomno.Text = "NEW" Then
@@ -485,6 +554,7 @@ Public Class Formdyeform
         Tbfabbill.Text = ""
     End Sub
     Private Sub Btdedit_Click(sender As Object, e As EventArgs) Handles Btdedit.Click
+
         GroupPanel2.Visible = True
         If Dgvmas.RowCount = 0 Then
             Exit Sub
@@ -506,7 +576,36 @@ Public Class Formdyeform
         Tbwgtkg.Text = Format(CDbl(Dgvmas.CurrentRow.Cells("Mkg").Value), "###,###.#0")
         Tbfinwgt.Text = Trim(Dgvmas.CurrentRow.Cells("Mfinwgt").Value)
         Tbfabbill.Text = Trim(Dgvmas.CurrentRow.Cells("Mbrawfab").Value)
+
+        If OriginalTbqtyroll.Text = "" Then
+            OriginalTbqtyroll.Text = Format(CLng(Dgvmas.CurrentRow.Cells("Mqty").Value), "###,###")
+        End If
+
+
         Tbqtyroll.Focus()
+
+        Dim SumSell = New DataTable
+        SumSell = SQLCommand($"SELECT SUM(Qtyroll) As SumSell FROM Tdyedcomdetxp WHERE Knittcomid = '{Tbknitcomno.Text}' and Clothid= '{Tbclothid.Text}'")
+        SumSellEdit.DataSource = SumSell
+        Dim SumSellCash = If(IsDBNull(SumSellEdit.Rows(0).Cells("SumSell").Value), "0", SumSellEdit.Rows(0).Cells("SumSell").Value)
+
+        'MessageBox.Show(SumSellCash)
+
+        Dim EditCheckStock = New DataTable
+        EditCheckStock = SQLCommand($"Select SUM(Qtyroll) As Sum FROM Vknitcomdet WHERE Knitcomno = '{Tbknitcomno.Text}' and Clothid= '{Tbclothid.Text}'")
+        CheckStock.DataSource = EditCheckStock
+        TbqtyrollTemp.Text = If(IsDBNull(CheckStock.Rows(0).Cells("Sum").Value), "", (CheckStock.Rows(0).Cells("Sum").Value - SumSellCash))
+
+
+        'MessageBox.Show(Tbclothid.Text)
+
+        'Dim EditCheckStock = New DataTable
+        'EditCheckStock = SQLCommand($"SELECT SUM(Qtyroll) AS Sum FROM Tdyedcomdetxp WHERE Knittcomid = '{Tbknitcomno.Text}' and Clothid= '{Tbclothid.Text}'")
+        'CheckStock.DataSource = EditCheckStock
+
+        'SellSums.Text = If(IsDBNull(CheckStock.Rows(0).Cells("Sum").Value), Qtyroll, (Qtyroll - DataSum.Rows(0).Cells("Sum").Value))
+
+        'SELECT Qtyroll FROM Vknitcomdet WHERE Knitcomno = 'Tbknitcomno.Text' and Clothid= 'Tbclothid.Text' --ที่มีอยู่ในระบบ
     End Sub
     Private Sub Btddel_Click(sender As Object, e As EventArgs) Handles Btddel.Click
         If Dgvmas.RowCount = 0 Then
@@ -524,6 +623,24 @@ Public Class Formdyeform
         Next
     End Sub
     Private Sub Dgvmas_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Dgvmas.CellClick
+        If Tbaddedit.Text = "แก้ไข" Then
+            Tbqtyroll.Enabled = False
+            'OriginalTbqtyroll.Text = ""
+            Tbknitcomno.Text = ""
+            Tbclothtype.Text = ""
+            Tbqtyroll.Text = ""
+            Tbfinwgt.Text = ""
+            Tbshadeid.Text = ""
+            Tbclothid.Text = ""
+            Tbclothno.Text = ""
+            ItemNo.Text = ""
+            Tbwgtkg.Text = ""
+            Tbfinwidth.Text = ""
+            Tbshadename.Text = ""
+            Tbfabbill.Text = ""
+            Tbaddedit.Text = "เพิ่ม"
+        End If
+
         If Dgvmas.RowCount = 0 Then
             Exit Sub
         End If
@@ -910,6 +1027,8 @@ Public Class Formdyeform
     Private Sub Tscboth_Click(sender As Object, e As EventArgs)
 
     End Sub
+
+
 
     Private Sub Setauthorize()
         If Gscreau = False Then
