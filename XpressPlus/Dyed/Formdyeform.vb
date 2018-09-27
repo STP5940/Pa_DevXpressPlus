@@ -344,6 +344,9 @@ Public Class Formdyeform
         If Frm.Tbcancel.Text = "C" Then
             Exit Sub
         End If
+        If Frm.SellSums.Text = "" Then
+            Exit Sub
+        End If
         Tbknitcomno.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Knitcomno").Value)
         Tbclothid.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Clothid").Value)
         Tbclothno.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Clothno").Value)

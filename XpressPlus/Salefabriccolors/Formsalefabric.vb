@@ -587,7 +587,7 @@ Public Class Formsalefabric
         Tstbsumkg.Text = Format(Sumkg, "###,###.#0")
         Tbsumwgt.Text = Format(Sumkg, "###,###.#0")
         Tstbsumroll.Text = Dgvmas.RowCount
-        Tbsummoney.Text = Format(Sumkg * CDbl(Tbkgprice.Text), "###,###.#0")
+        'Tbsummoney.Text = Format(Sumkg * CDbl(Tbkgprice.Text), "###,###.#0")
     End Sub
     Private Sub Clrdgrid()
         Dgvmas.AutoGenerateColumns = False
@@ -968,6 +968,22 @@ Public Class Formsalefabric
 
     Private Sub Btdbadd_Click(sender As Object, e As EventArgs) Handles Btdbadd.Click
         GroupPanel2.Visible = True
+    End Sub
+
+    Private Sub Btddel_Click_1(sender As Object, e As EventArgs) Handles Btddel.Click
+        If Dgvmas.RowCount = 0 Then
+            Exit Sub
+        End If
+        Btdcancel_Click(sender, e)
+        Tsbwsave.Visible = True
+        Dgvmas.Rows.Remove(Dgvmas.CurrentRow)
+        Sumall()
+
+        For i = 0 To Dgvmas.RowCount - 1
+            Dim Rows As Integer = i + 1
+            Dgvmas.Rows(i).Cells("ord").Value = Rows
+            'MessageBox.Show(Rows)
+        Next
     End Sub
 
     Private Sub Clrgridmaster()
