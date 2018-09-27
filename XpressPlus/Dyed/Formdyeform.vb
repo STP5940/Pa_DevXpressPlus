@@ -436,7 +436,7 @@ Public Class Formdyeform
         'End If
 
         If Tbaddedit.Text = "เพิ่ม" AndAlso CLng(Tbqtyroll.Text) > CLng(TbqtyrollTemp.Text) Then
-            Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ B") 'เพิ่มใหม่ใส่เกิน
+            Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ") 'เพิ่มใหม่ใส่เกิน
             Exit Sub
         End If
 
@@ -444,12 +444,12 @@ Public Class Formdyeform
             If OriginalTbqtyroll.Text = "" And Tbaddedit.Text = "แก้ไข" Then
                 OriginalTbqtyroll.Text = Format(CLng(Dgvmas.CurrentRow.Cells("Mqty").Value), "###,###")
                 If Tbaddedit.Text = "แก้ไข" AndAlso CLng(Tbqtyroll.Text) > CLng(TbqtyrollTemp.Text) Then
-                    Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ C") 'เพิ่มใหม่ใส่เกิน
+                    Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ") 'เพิ่มใหม่ใส่เกิน
                     Exit Sub
                 End If
             Else
                 If Tbaddedit.Text = "แก้ไข" AndAlso CLng(Tbqtyroll.Text) > CLng(TbqtyrollTemp.Text) Then
-                    Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ D") 'เพิ่มใหม่ใส่เกิน
+                    Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ") 'เพิ่มใหม่ใส่เกิน
                     Exit Sub
                 End If
             End If
@@ -457,13 +457,13 @@ Public Class Formdyeform
             If OriginalTbqtyroll.Text = "" And Tbaddedit.Text = "แก้ไข" Then
                 OriginalTbqtyroll.Text = Format(CLng(Dgvmas.CurrentRow.Cells("Mqty").Value), "###,###")
                 If Tbaddedit.Text = "แก้ไข" AndAlso CLng(Tbqtyroll.Text) > CLng(OriginalTbqtyroll.Text) + CLng(TbqtyrollTemp.Text) Then
-                    Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ C") 'เพิ่มใหม่ใส่เกิน
-                    Exit Sub
+                    Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ") 'เพิ่มใหม่ใส่เกิน
+                    'Exit Sub
                 End If
             Else
                 If Tbaddedit.Text = "แก้ไข" AndAlso CLng(Tbqtyroll.Text) > CLng(OriginalTbqtyroll.Text) + CLng(TbqtyrollTemp.Text) Then
-                    Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ D") 'เพิ่มใหม่ใส่เกิน
-                    Exit Sub
+                    Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ") 'เพิ่มใหม่ใส่เกิน
+                    'Exit Sub
                 End If
             End If
         End If
@@ -625,7 +625,7 @@ Public Class Formdyeform
     Private Sub Dgvmas_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Dgvmas.CellClick
         If Tbaddedit.Text = "แก้ไข" Then
             Tbqtyroll.Enabled = False
-            'OriginalTbqtyroll.Text = ""
+            OriginalTbqtyroll.Text = ""
             Tbknitcomno.Text = ""
             Tbclothtype.Text = ""
             Tbqtyroll.Text = ""
