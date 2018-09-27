@@ -28,12 +28,6 @@ Partial Class Formaesalefabcolor
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
         Me.Dgvmas = New System.Windows.Forms.DataGridView()
-        Me.Status = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Mlotno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Kongno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Pubno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Rollwage = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Btmsearch = New System.Windows.Forms.ToolStripButton()
         Me.Tbkeyword = New System.Windows.Forms.ToolStripTextBox()
@@ -42,6 +36,12 @@ Partial Class Formaesalefabcolor
         Me.Btcancel = New DevComponents.DotNetBar.ButtonX()
         Me.Btok = New DevComponents.DotNetBar.ButtonX()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
+        Me.Status = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mlotno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Kongno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Checked = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.Pubno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Rollwage = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabControlPanel1.SuspendLayout()
@@ -101,7 +101,7 @@ Partial Class Formaesalefabcolor
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.Dgvmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Status, Me.Mlotno, Me.Kongno, Me.Column1, Me.Pubno, Me.Rollwage})
+        Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Status, Me.Mlotno, Me.Kongno, Me.Checked, Me.Pubno, Me.Rollwage})
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
@@ -115,49 +115,6 @@ Partial Class Formaesalefabcolor
         Me.Dgvmas.Name = "Dgvmas"
         Me.Dgvmas.Size = New System.Drawing.Size(382, 251)
         Me.Dgvmas.TabIndex = 30
-        '
-        'Status
-        '
-        Me.Status.DataPropertyName = "Stat"
-        Me.Status.HeaderText = ""
-        Me.Status.Name = "Status"
-        Me.Status.Width = 20
-        '
-        'Mlotno
-        '
-        Me.Mlotno.DataPropertyName = "Lotno"
-        Me.Mlotno.HeaderText = "LOT No."
-        Me.Mlotno.Name = "Mlotno"
-        Me.Mlotno.Width = 120
-        '
-        'Kongno
-        '
-        Me.Kongno.DataPropertyName = "Kongno"
-        Me.Kongno.HeaderText = "เบอร์กอง"
-        Me.Kongno.Name = "Kongno"
-        Me.Kongno.Width = 120
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = ""
-        Me.Column1.Name = "Column1"
-        Me.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Column1.Width = 69
-        '
-        'Pubno
-        '
-        Me.Pubno.DataPropertyName = "Pubno"
-        Me.Pubno.HeaderText = "Pubno"
-        Me.Pubno.Name = "Pubno"
-        Me.Pubno.Width = 5
-        '
-        'Rollwage
-        '
-        Me.Rollwage.DataPropertyName = "Rollwage"
-        Me.Rollwage.HeaderText = "Rollwage"
-        Me.Rollwage.Name = "Rollwage"
-        Me.Rollwage.Width = 5
         '
         'ToolStrip1
         '
@@ -231,6 +188,51 @@ Partial Class Formaesalefabcolor
         Me.TabItem1.Name = "TabItem1"
         Me.TabItem1.Text = "รายละเอียดผ้า"
         '
+        'Status
+        '
+        Me.Status.DataPropertyName = "Stat"
+        Me.Status.HeaderText = ""
+        Me.Status.Name = "Status"
+        Me.Status.Width = 20
+        '
+        'Mlotno
+        '
+        Me.Mlotno.DataPropertyName = "Lotno"
+        Me.Mlotno.HeaderText = "LOT No."
+        Me.Mlotno.Name = "Mlotno"
+        Me.Mlotno.Width = 120
+        '
+        'Kongno
+        '
+        Me.Kongno.DataPropertyName = "Kongno"
+        Me.Kongno.HeaderText = "เบอร์กอง"
+        Me.Kongno.Name = "Kongno"
+        Me.Kongno.Width = 120
+        '
+        'Checked
+        '
+        Me.Checked.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Checked.HeaderText = ""
+        Me.Checked.Name = "Checked"
+        Me.Checked.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Checked.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'Pubno
+        '
+        Me.Pubno.DataPropertyName = "Pubno"
+        Me.Pubno.HeaderText = "Pubno"
+        Me.Pubno.Name = "Pubno"
+        Me.Pubno.Visible = False
+        Me.Pubno.Width = 5
+        '
+        'Rollwage
+        '
+        Me.Rollwage.DataPropertyName = "Rollwage"
+        Me.Rollwage.HeaderText = "Rollwage"
+        Me.Rollwage.Name = "Rollwage"
+        Me.Rollwage.Visible = False
+        Me.Rollwage.Width = 5
+        '
         'Formaesalefabcolor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -265,7 +267,7 @@ Partial Class Formaesalefabcolor
     Friend WithEvents Status As DataGridViewTextBoxColumn
     Friend WithEvents Mlotno As DataGridViewTextBoxColumn
     Friend WithEvents Kongno As DataGridViewTextBoxColumn
-    Friend WithEvents Column1 As DataGridViewCheckBoxColumn
+    Friend WithEvents Checked As DataGridViewCheckBoxColumn
     Friend WithEvents Pubno As DataGridViewTextBoxColumn
     Friend WithEvents Rollwage As DataGridViewTextBoxColumn
 End Class

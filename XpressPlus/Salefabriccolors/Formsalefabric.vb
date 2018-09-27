@@ -826,23 +826,60 @@ Public Class Formsalefabric
             Exit Sub
         End If
 
-
+        Dim DatainGride = 0
         For i = 0 To Frm.Dgvmas.RowCount - 1
-            If Frm.Dgvmas.Rows(i).Cells("Column1").Value = True Then
+            If Frm.Dgvmas.Rows(i).Cells("Checked").Value = True Then
                 'Dim dRow As DataRow
                 If Tbdlvno.Text = "NEW" Then
-                    'MessageBox.Show(Dgvmas.RowCount)
 
-                    For CheckLot = 0 To Dgvmas.RowCount - 1
-                        MessageBox.Show(CheckLot)
-                    Next
+                    'MessageBox.Show(Dgvmas.RowCount - 1)
 
-                    'Dgvmas.Rows.Add()
-                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dlot").Value = Frm.Dgvmas.Rows(i).Cells("Mlotno").Value
-                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkongno").Value = Frm.Dgvmas.Rows(i).Cells("Kongno").Value
-                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollno").Value = Frm.Dgvmas.Rows(i).Cells("Pubno").Value
-                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Qtykg").Value = Frm.Dgvmas.Rows(i).Cells("Rollwage").Value
-                    'MessageBox.Show(1)
+                    If (Dgvmas.RowCount - 1) = -1 Then
+                        'MessageBox.Show("Nooooooo")
+                        For CheckLot = 0 To Frm.Dgvmas.RowCount - 1
+                            If Frm.Dgvmas.Rows(CheckLot).Cells("Checked").Value = True Then
+                                Dgvmas.Rows.Add()
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dlot").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Mlotno").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkongno").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Kongno").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollno").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Pubno").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Qtykg").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Rollwage").Value
+                                DatainGride = 1
+                            End If
+                        Next
+
+                    Else
+                        'MessageBox.Show("Yessssss")
+
+                        For CheckLot = 0 To Dgvmas.RowCount - 1
+                            'MessageBox.Show($"{Dgvmas.Rows(CheckLot).Cells("Mkongno").Value} : {Frm.Dgvmas.Rows(i).Cells("Kongno").Value}")
+                            'If Dgvmas.Rows(CheckLot).Cells("Mkongno").Value <> Frm.Dgvmas.Rows(i).Cells("Kongno").Value Then
+                            If Dgvmas.Rows(CheckLot).Cells("Dlot").Value = Frm.Dgvmas.Rows(i).Cells("Mlotno").Value AndAlso 'เลข Lot No
+                                Dgvmas.Rows(CheckLot).Cells("Rollno").Value = Frm.Dgvmas.Rows(i).Cells("Pubno").Value AndAlso 'เลขพับที่
+                                Dgvmas.Rows(CheckLot).Cells("Qtykg").Value = Frm.Dgvmas.Rows(i).Cells("Rollwage").Value Then 'เลขน้ำหนัก
+                                'MessageBox.Show("มีข้อมูลแล้ว")
+                                'Informmessage($"มีข้อมูล Lot No: {Dgvmas.Rows(CheckLot).Cells("Dlot").Value} อยู่ในรายการแล้ว")
+                                If DatainGride = 0 Then
+                                    Informmessage("มีบางรายการถูกเลือกอยู่แล้ว")
+                                    DatainGride = 1
+                                End If
+                                Exit For
+                            Else
+                                'MessageBox.Show("ไม่ซ้ำ")
+                                If CheckLot = Dgvmas.RowCount - 1 Then
+                                    'MessageBox.Show("เขียนได้")
+                                    Dgvmas.Rows.Add()
+                                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dlot").Value = Frm.Dgvmas.Rows(i).Cells("Mlotno").Value
+                                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkongno").Value = Frm.Dgvmas.Rows(i).Cells("Kongno").Value
+                                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollno").Value = Frm.Dgvmas.Rows(i).Cells("Pubno").Value
+                                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Qtykg").Value = Frm.Dgvmas.Rows(i).Cells("Rollwage").Value
+                                End If
+
+                            End If
+                        Next
+
+                    End If
+
+
                 Else
 
                     For CheckLot = 0 To Dgvmas.RowCount - 1
@@ -852,7 +889,11 @@ Public Class Formsalefabric
                             Dgvmas.Rows(CheckLot).Cells("Rollno").Value = Frm.Dgvmas.Rows(i).Cells("Pubno").Value AndAlso 'เลขพับที่
                             Dgvmas.Rows(CheckLot).Cells("Qtykg").Value = Frm.Dgvmas.Rows(i).Cells("Rollwage").Value Then 'เลขน้ำหนัก
                             'MessageBox.Show("มีข้อมูลแล้ว")
-                            Informmessage($"มีข้อมูล Lot No: {Dgvmas.Rows(CheckLot).Cells("Dlot").Value} อยู่ในรายการแล้ว")
+                            'Informmessage($"มีข้อมูล Lot No: {Dgvmas.Rows(CheckLot).Cells("Dlot").Value} อยู่ในรายการแล้ว")
+                            If DatainGride = 0 Then
+                                Informmessage("มีบางรายการถูกเลือกอยู่แล้ว")
+                                DatainGride = 1
+                            End If
                             Exit For
                         Else
                             'MessageBox.Show("ไม่ซ้ำ")
