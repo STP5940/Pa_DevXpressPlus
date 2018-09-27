@@ -917,7 +917,7 @@ Public Class Formsalefabric
                 'Dgvmas.Rows(i).Cells("Dlot").Value = Frm.Dgvmas.Rows(i).Cells("Mlotno").Value
             End If
         Next
-
+        Sumall()
         'Dgvmas.Rows(0).Cells("Dlot").Value = 0
 
 
@@ -979,11 +979,19 @@ Public Class Formsalefabric
         Dgvmas.Rows.Remove(Dgvmas.CurrentRow)
         Sumall()
 
-        For i = 0 To Dgvmas.RowCount - 1
-            Dim Rows As Integer = i + 1
-            Dgvmas.Rows(i).Cells("ord").Value = Rows
-            'MessageBox.Show(Rows)
-        Next
+        'For i = 0 To Dgvmas.RowCount - 1
+        '    Dim Rows As Integer = i + 1
+        '    Dgvmas.Rows(i).Cells("ord").Value = Rows
+        '    'MessageBox.Show(Rows)
+        'Next
+    End Sub
+
+    Private Sub Btdedit_Click(sender As Object, e As EventArgs) Handles Btdedit.Click
+        If Dgvmas.RowCount > 0 Then
+            Tbaddedit.Text = "แก้ไข"
+            Tblotno.Text = Trim(Dgvmas.CurrentRow.Cells("Dlot").Value)
+            Tbkongno.Text = Trim(Dgvmas.CurrentRow.Cells("Mkongno").Value)
+        End If
     End Sub
 
     Private Sub Clrgridmaster()
