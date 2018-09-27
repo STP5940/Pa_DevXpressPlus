@@ -534,7 +534,20 @@ Public Class Formdyeform
         Tbqtyroll.Enabled = False
     End Sub
     Private Sub Btdcancel_Click(sender As Object, e As EventArgs) Handles Btdcancel.Click
-
+        Tbknitcomno.Text = ""
+        Tbclothtype.Text = ""
+        Tbqtyroll.Text = ""
+        Tbfinwgt.Text = ""
+        Tbshadeid.Text = ""
+        Tbclothid.Text = ""
+        Tbclothno.Text = ""
+        ItemNo.Text = ""
+        Tbwgtkg.Text = ""
+        Tbfinwidth.Text = ""
+        Tbshadename.Text = ""
+        Tbfabbill.Text = ""
+        TbqtyrollTemp.Text = "0"
+        Tbqtyroll.Enabled = False
     End Sub
     Private Sub Btdbadd_Click(sender As Object, e As EventArgs) Handles Btdbadd.Click
         Btdcancel_Click(sender, e)
