@@ -350,6 +350,8 @@ Public Class Formsalefabric
         Tbshadeid.Text = ""
         Tbkongno.Text = ""
         Tbkgprice.Text = ""
+        Rollnobox.Text = ""
+        Qtykgbox.Text = ""
     End Sub
     Private Sub Btddel_Click(sender As Object, e As EventArgs)
         If Dgvmas.RowCount = 0 Then
@@ -570,6 +572,7 @@ Public Class Formsalefabric
         If Dgvmas.RowCount = 0 Then
             Tstbsumkg.Text = Format(Sumkg, "###,###.#0")
             Tbsummoney.Text = Format(Sumprice, "###,###.#0")
+            Tstbsumroll.Text = 0
             Exit Sub
         End If
         ProgressBarX1.Value = 0
@@ -882,6 +885,20 @@ Public Class Formsalefabric
 
                 Else
 
+                    If (Dgvmas.RowCount - 1) = -1 Then
+                        'MessageBox.Show("Nooooooo")
+                        For CheckLot = 0 To Frm.Dgvmas.RowCount - 1
+                            If Frm.Dgvmas.Rows(CheckLot).Cells("Checked").Value = True Then
+                                Tdetails.Rows.Add()
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dlot").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Mlotno").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkongno").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Kongno").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollno").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Pubno").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Qtykg").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Rollwage").Value
+                                DatainGride = 1
+                            End If
+                        Next
+                    End If
+
                     For CheckLot = 0 To Dgvmas.RowCount - 1
                         'MessageBox.Show($"{Dgvmas.Rows(CheckLot).Cells("Mkongno").Value} : {Frm.Dgvmas.Rows(i).Cells("Kongno").Value}")
                         'If Dgvmas.Rows(CheckLot).Cells("Mkongno").Value <> Frm.Dgvmas.Rows(i).Cells("Kongno").Value Then
@@ -954,6 +971,8 @@ Public Class Formsalefabric
     Private Sub Clrdetails()
         'Tbyarnid.Text = ""
         'Tbyarnname.Text = ""
+        Qtykgbox.Text = ""
+        Rollnobox.Text = ""
         Tblotno.Text = ""
         Tbkongno.Text = ""
         Tbsumwgt.Text = ""
@@ -967,7 +986,9 @@ Public Class Formsalefabric
     End Sub
 
     Private Sub Btdbadd_Click(sender As Object, e As EventArgs) Handles Btdbadd.Click
+        Btfindlotno.Enabled = True
         GroupPanel2.Visible = True
+        Tbaddedit.Text = "เพิ่ม"
     End Sub
 
     Private Sub Btddel_Click_1(sender As Object, e As EventArgs) Handles Btddel.Click
@@ -988,11 +1009,16 @@ Public Class Formsalefabric
 
     Private Sub Btdedit_Click(sender As Object, e As EventArgs) Handles Btdedit.Click
         If Dgvmas.RowCount > 0 Then
+            Btfindlotno.Enabled = False
+            GroupPanel2.Visible = True
             Tbaddedit.Text = "แก้ไข"
             Tblotno.Text = Trim(Dgvmas.CurrentRow.Cells("Dlot").Value)
             Tbkongno.Text = Trim(Dgvmas.CurrentRow.Cells("Mkongno").Value)
+            Rollnobox.Text = Trim(Dgvmas.CurrentRow.Cells("Rollno").Value)
+            Qtykgbox.Text = Trim(Dgvmas.CurrentRow.Cells("Qtykg").Value)
         End If
     End Sub
+
 
     Private Sub Clrgridmaster()
         Dgvmas.AutoGenerateColumns = False

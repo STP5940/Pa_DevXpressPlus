@@ -64,6 +64,10 @@ Partial Class Formsalefabric
         Me.Btdbadd = New System.Windows.Forms.ToolStripButton()
         Me.GroupPanel2 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.LabelX14 = New DevComponents.DotNetBar.LabelX()
+        Me.Qtykgbox = New Dectextbox.Dectextbox()
+        Me.LabelX18 = New DevComponents.DotNetBar.LabelX()
+        Me.Rollnobox = New Normtextbox.Normtextbox()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Tbsummoney = New Dectextbox.Dectextbox()
         Me.Tbsumwgt = New Dectextbox.Dectextbox()
@@ -379,9 +383,9 @@ Partial Class Formsalefabric
         Me.GroupPanel3.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.GroupPanel3.Location = New System.Drawing.Point(1, 275)
+        Me.GroupPanel3.Location = New System.Drawing.Point(1, 307)
         Me.GroupPanel3.Name = "GroupPanel3"
-        Me.GroupPanel3.Size = New System.Drawing.Size(1006, 303)
+        Me.GroupPanel3.Size = New System.Drawing.Size(1006, 271)
         '
         '
         '
@@ -421,7 +425,7 @@ Partial Class Formsalefabric
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel6.Location = New System.Drawing.Point(0, 49)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(1000, 231)
+        Me.Panel6.Size = New System.Drawing.Size(1000, 199)
         Me.Panel6.TabIndex = 95
         '
         'ContextMenuBar2
@@ -479,7 +483,7 @@ Partial Class Formsalefabric
         Me.Dgvmas.Name = "Dgvmas"
         Me.Dgvmas.ReadOnly = True
         Me.Dgvmas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Dgvmas.Size = New System.Drawing.Size(1000, 231)
+        Me.Dgvmas.Size = New System.Drawing.Size(1000, 199)
         Me.Dgvmas.TabIndex = 95
         '
         'Mstat
@@ -586,6 +590,7 @@ Partial Class Formsalefabric
         Me.Btdedit.Size = New System.Drawing.Size(48, 46)
         Me.Btdedit.Text = "แก้ไข"
         Me.Btdedit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.Btdedit.Visible = False
         '
         'Tsbwsave
         '
@@ -620,7 +625,7 @@ Partial Class Formsalefabric
         Me.GroupPanel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.GroupPanel2.Location = New System.Drawing.Point(1, 194)
         Me.GroupPanel2.Name = "GroupPanel2"
-        Me.GroupPanel2.Size = New System.Drawing.Size(1006, 81)
+        Me.GroupPanel2.Size = New System.Drawing.Size(1006, 113)
         '
         '
         '
@@ -655,6 +660,10 @@ Partial Class Formsalefabric
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.Transparent
+        Me.Panel3.Controls.Add(Me.LabelX14)
+        Me.Panel3.Controls.Add(Me.Qtykgbox)
+        Me.Panel3.Controls.Add(Me.LabelX18)
+        Me.Panel3.Controls.Add(Me.Rollnobox)
         Me.Panel3.Controls.Add(Me.Panel7)
         Me.Panel3.Controls.Add(Me.Btfindlotno)
         Me.Panel3.Controls.Add(Me.LabelX11)
@@ -666,8 +675,58 @@ Partial Class Formsalefabric
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1000, 58)
+        Me.Panel3.Size = New System.Drawing.Size(1000, 90)
         Me.Panel3.TabIndex = 81
+        '
+        'LabelX14
+        '
+        Me.LabelX14.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX14.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX14.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.LabelX14.Location = New System.Drawing.Point(359, 45)
+        Me.LabelX14.Name = "LabelX14"
+        Me.LabelX14.Size = New System.Drawing.Size(47, 23)
+        Me.LabelX14.TabIndex = 107
+        Me.LabelX14.Text = "น้ำหนัก"
+        '
+        'Qtykgbox
+        '
+        Me.Qtykgbox.Enabled = False
+        Me.Qtykgbox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Qtykgbox.Location = New System.Drawing.Point(412, 45)
+        Me.Qtykgbox.MaxLength = 12
+        Me.Qtykgbox.Name = "Qtykgbox"
+        Me.Qtykgbox.Size = New System.Drawing.Size(125, 24)
+        Me.Qtykgbox.TabIndex = 106
+        Me.Qtykgbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'LabelX18
+        '
+        Me.LabelX18.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX18.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX18.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.LabelX18.Location = New System.Drawing.Point(202, 43)
+        Me.LabelX18.Name = "LabelX18"
+        Me.LabelX18.Size = New System.Drawing.Size(30, 23)
+        Me.LabelX18.TabIndex = 105
+        Me.LabelX18.Text = "พับที่"
+        '
+        'Rollnobox
+        '
+        Me.Rollnobox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Rollnobox.Enabled = False
+        Me.Rollnobox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Rollnobox.Location = New System.Drawing.Point(238, 44)
+        Me.Rollnobox.MaxLength = 120
+        Me.Rollnobox.Name = "Rollnobox"
+        Me.Rollnobox.Size = New System.Drawing.Size(118, 24)
+        Me.Rollnobox.TabIndex = 104
         '
         'Panel7
         '
@@ -681,7 +740,7 @@ Partial Class Formsalefabric
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel7.Location = New System.Drawing.Point(706, 0)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(294, 58)
+        Me.Panel7.Size = New System.Drawing.Size(294, 90)
         Me.Panel7.TabIndex = 103
         '
         'Tbsummoney
@@ -784,7 +843,7 @@ Partial Class Formsalefabric
         '
         Me.LabelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX11.Location = New System.Drawing.Point(238, 4)
+        Me.LabelX11.Location = New System.Drawing.Point(8, 44)
         Me.LabelX11.Name = "LabelX11"
         Me.LabelX11.Size = New System.Drawing.Size(54, 23)
         Me.LabelX11.TabIndex = 101
@@ -794,10 +853,10 @@ Partial Class Formsalefabric
         '
         Me.Tbkongno.Enabled = False
         Me.Tbkongno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbkongno.Location = New System.Drawing.Point(298, 3)
+        Me.Tbkongno.Location = New System.Drawing.Point(75, 43)
         Me.Tbkongno.MaxLength = 12
         Me.Tbkongno.Name = "Tbkongno"
-        Me.Tbkongno.Size = New System.Drawing.Size(125, 24)
+        Me.Tbkongno.Size = New System.Drawing.Size(118, 24)
         Me.Tbkongno.TabIndex = 94
         Me.Tbkongno.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -813,7 +872,7 @@ Partial Class Formsalefabric
         Me.Tbaddedit.Enabled = False
         Me.Tbaddedit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Tbaddedit.ForeColor = System.Drawing.Color.Black
-        Me.Tbaddedit.Location = New System.Drawing.Point(429, 3)
+        Me.Tbaddedit.Location = New System.Drawing.Point(667, 6)
         Me.Tbaddedit.Name = "Tbaddedit"
         Me.Tbaddedit.PreventEnterBeep = True
         Me.Tbaddedit.Size = New System.Drawing.Size(33, 22)
@@ -851,7 +910,7 @@ Partial Class Formsalefabric
         Me.Btdcancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btdcancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Btdcancel.Image = Global.XpressPlus.My.Resources.Resources.Undo
-        Me.Btdcancel.Location = New System.Drawing.Point(475, 14)
+        Me.Btdcancel.Location = New System.Drawing.Point(560, 35)
         Me.Btdcancel.Name = "Btdcancel"
         Me.Btdcancel.Size = New System.Drawing.Size(67, 34)
         Me.Btdcancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
@@ -2071,4 +2130,8 @@ Partial Class Formsalefabric
     Friend WithEvents Btdbadd As ToolStripButton
     Friend WithEvents LabelX11 As DevComponents.DotNetBar.LabelX
     Friend WithEvents Tbkongno As Dectextbox.Dectextbox
+    Friend WithEvents LabelX14 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents Qtykgbox As Dectextbox.Dectextbox
+    Friend WithEvents LabelX18 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents Rollnobox As Normtextbox.Normtextbox
 End Class
