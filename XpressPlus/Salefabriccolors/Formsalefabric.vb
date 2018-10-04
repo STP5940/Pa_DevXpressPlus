@@ -831,6 +831,16 @@ Public Class Formsalefabric
     End Sub
 
     Private Sub Btfindlotno_Click_1(sender As Object, e As EventArgs) Handles Btfindlotno.Click
+        If Tbkgprice.Text = "" Then
+            Informmessage("กรุณาใส่ ราคา/กก.")
+            Exit Sub
+        Else
+            MessageBox.Show(Tbkgprice.Text)
+            Dim Coverprice As Long = CDbl(Tbkgprice.Text)
+            MessageBox.Show(Coverprice)
+            Tbsummoney.Text = "100000"
+        End If
+
         'Dgvmas.Rows(0).Cells("Dlot").Value = 0
         Dim Frm As New Formaesalefabcolor
         Showdiaformcenter(Frm, Me)
@@ -951,7 +961,6 @@ Public Class Formsalefabric
         'Tbkongno.Text = Trim(Frm.Normtextbox1.Text)
         'Btdadd.Focus()
 
-        Tbsummoney.Text = "100000"
     End Sub
 
     Private Sub Clrmaster()
