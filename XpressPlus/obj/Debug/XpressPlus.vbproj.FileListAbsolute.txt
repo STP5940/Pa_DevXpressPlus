@@ -157,9 +157,6 @@ C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formsupplierslist.resources
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formyarnlist.resources
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.vbproj.GenerateResource.Cache
-C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\Dectextbox.dll
-C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\Inttextbox.dll
-C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\Normtextbox.dll
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formdlvnoknittlist.resources
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formknitingfrmrpt.resources
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formknittingform.resources

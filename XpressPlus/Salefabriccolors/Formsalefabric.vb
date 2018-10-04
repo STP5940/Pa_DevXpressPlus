@@ -362,7 +362,13 @@ Public Class Formsalefabric
         Dgvmas.Rows.Remove(Dgvmas.CurrentRow)
         Sumall()
     End Sub
-    Private Sub Dgvmas_CellClick(sender As Object, e As DataGridViewCellEventArgs)
+    Private Sub Dgvmas_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Dgvmas.CellClick
+        If e.RowIndex <> -1 Then
+            Tbkongno.Text = Dgvmas.Rows(e.RowIndex).Cells("Mkongno").Value
+            Rollnobox.Text = Dgvmas.Rows(e.RowIndex).Cells("Rollno").Value
+            Qtykgbox.Text = Dgvmas.Rows(e.RowIndex).Cells("Qtykg").Value
+        End If
+
         If Dgvmas.RowCount = 0 Then
             Exit Sub
         End If
@@ -1019,6 +1025,44 @@ Public Class Formsalefabric
         End If
     End Sub
 
+    Private Sub Dgvmas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles Dgvmas.CellContentClick
+
+    End Sub
+
+    Private Sub Btfindcustid_Click_1(sender As Object, e As EventArgs) Handles Btfindcustid.Click
+        Dim Frm As New Formcustomerslist
+        Showdiaformcenter(Frm, Me)
+        If Frm.Tbcancel.Text = "C" Then
+            Exit Sub
+        End If
+        Tbcustid.Text = CLng(Frm.Dgvmas.CurrentRow.Cells("Mid").Value)
+        Tbcustname.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Mname").Value)
+
+    End Sub
+
+    Private Sub Btfindcusship_Click_1(sender As Object, e As EventArgs) Handles Btfindcusship.Click
+        Dim Frm As New Formcustshiplist
+        Frm.Tbcustid.Text = Tbcustid.Text
+        Showdiaformcenter(Frm, Me)
+        If Frm.Tbcancel.Text = "C" Then
+            Exit Sub
+        End If
+        Tbcusadd.Text = CLng(Frm.Dgvmas.CurrentRow.Cells("Mord").Value)
+        Tbcustship.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Mshaddr").Value)
+
+    End Sub
+
+    Private Sub Btfindclothno_Click_1(sender As Object, e As EventArgs) Handles Btfindclothno.Click
+        Dim Frm As New Formfabrictypelist
+        Showdiaformcenter(Frm, Me)
+        If Frm.Tbcancel.Text = "C" Then
+            Exit Sub
+        End If
+        Tbclothid.Text = CLng(Frm.Dgvmas.CurrentRow.Cells("Mid").Value)
+        Tbclothno.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Mname").Value)
+        Tbwidth.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Fwidth").Value)
+
+    End Sub
 
     Private Sub Clrgridmaster()
         Dgvmas.AutoGenerateColumns = False
