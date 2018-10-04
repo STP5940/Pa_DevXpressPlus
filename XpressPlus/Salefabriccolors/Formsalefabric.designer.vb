@@ -90,6 +90,7 @@ Partial Class Formsalefabric
         Me.Tbdlvno = New Normtextbox.Normtextbox()
         Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Btfindshade = New DevComponents.DotNetBar.ButtonX()
         Me.Tbcolorno = New Normtextbox.Normtextbox()
         Me.Tbcustship = New Normtextbox.Normtextbox()
         Me.Tbshadename = New Normtextbox.Normtextbox()
@@ -872,7 +873,7 @@ Partial Class Formsalefabric
         Me.Tbaddedit.Enabled = False
         Me.Tbaddedit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Tbaddedit.ForeColor = System.Drawing.Color.Black
-        Me.Tbaddedit.Location = New System.Drawing.Point(667, 6)
+        Me.Tbaddedit.Location = New System.Drawing.Point(237, 4)
         Me.Tbaddedit.Name = "Tbaddedit"
         Me.Tbaddedit.PreventEnterBeep = True
         Me.Tbaddedit.Size = New System.Drawing.Size(33, 22)
@@ -1038,6 +1039,7 @@ Partial Class Formsalefabric
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.Color.Transparent
+        Me.Panel4.Controls.Add(Me.Btfindshade)
         Me.Panel4.Controls.Add(Me.Tbcolorno)
         Me.Panel4.Controls.Add(Me.Tbcustship)
         Me.Panel4.Controls.Add(Me.Tbshadename)
@@ -1067,12 +1069,23 @@ Partial Class Formsalefabric
         Me.Panel4.Size = New System.Drawing.Size(694, 139)
         Me.Panel4.TabIndex = 89
         '
+        'Btfindshade
+        '
+        Me.Btfindshade.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.Btfindshade.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.Btfindshade.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Btfindshade.Image = Global.XpressPlus.My.Resources.Resources.Find16
+        Me.Btfindshade.Location = New System.Drawing.Point(357, 86)
+        Me.Btfindshade.Name = "Btfindshade"
+        Me.Btfindshade.Size = New System.Drawing.Size(36, 24)
+        Me.Btfindshade.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
+        Me.Btfindshade.TabIndex = 108
+        '
         'Tbcolorno
         '
         Me.Tbcolorno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Tbcolorno.Enabled = False
         Me.Tbcolorno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbcolorno.Location = New System.Drawing.Point(416, 86)
+        Me.Tbcolorno.Location = New System.Drawing.Point(72, 113)
         Me.Tbcolorno.MaxLength = 120
         Me.Tbcolorno.Name = "Tbcolorno"
         Me.Tbcolorno.Size = New System.Drawing.Size(118, 24)
@@ -1103,7 +1116,7 @@ Partial Class Formsalefabric
         'Tbkgprice
         '
         Me.Tbkgprice.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbkgprice.Location = New System.Drawing.Point(72, 114)
+        Me.Tbkgprice.Location = New System.Drawing.Point(271, 113)
         Me.Tbkgprice.MaxLength = 12
         Me.Tbkgprice.Name = "Tbkgprice"
         Me.Tbkgprice.Size = New System.Drawing.Size(74, 24)
@@ -1141,7 +1154,7 @@ Partial Class Formsalefabric
         '
         Me.LabelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX15.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX15.Location = New System.Drawing.Point(8, 115)
+        Me.LabelX15.Location = New System.Drawing.Point(203, 114)
         Me.LabelX15.Name = "LabelX15"
         Me.LabelX15.Size = New System.Drawing.Size(64, 23)
         Me.LabelX15.TabIndex = 92
@@ -1180,7 +1193,7 @@ Partial Class Formsalefabric
         '
         Me.LabelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX10.Location = New System.Drawing.Point(357, 90)
+        Me.LabelX10.Location = New System.Drawing.Point(6, 114)
         Me.LabelX10.Name = "LabelX10"
         Me.LabelX10.Size = New System.Drawing.Size(63, 23)
         Me.LabelX10.TabIndex = 77
@@ -2134,4 +2147,5 @@ Partial Class Formsalefabric
     Friend WithEvents Qtykgbox As Dectextbox.Dectextbox
     Friend WithEvents LabelX18 As DevComponents.DotNetBar.LabelX
     Friend WithEvents Rollnobox As Normtextbox.Normtextbox
+    Friend WithEvents Btfindshade As DevComponents.DotNetBar.ButtonX
 End Class

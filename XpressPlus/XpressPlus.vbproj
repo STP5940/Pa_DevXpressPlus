@@ -217,6 +217,12 @@
     <Compile Include="Salefabriccolors\Formsalefabric.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Salefabriccolors\Formsheadbyfab.Designer.vb">
+      <DependentUpon>Formsheadbyfab.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Salefabriccolors\Formsheadbyfab.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="salerepor\Formsaleyarnrpt.designer.vb">
       <DependentUpon>Formsaleyarnrpt.vb</DependentUpon>
     </Compile>
@@ -316,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Salefabriccolors\Formsalefabric.resx">
       <DependentUpon>Formsalefabric.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salefabriccolors\Formsheadbyfab.resx">
+      <DependentUpon>Formsheadbyfab.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="salerepor\Formsaleyarnrpt.resx">
       <DependentUpon>Formsaleyarnrpt.vb</DependentUpon>

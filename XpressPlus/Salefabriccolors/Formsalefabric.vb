@@ -46,6 +46,7 @@ Public Class Formsalefabric
         Btfindcusship.Enabled = True
         Btfindclothno.Enabled = True
         Tbkgprice.Enabled = True
+        Tbcolorno.Enabled = True
         Btfindlotno.Enabled = True
         'Btdadd.Enabled = True
         Btdcancel.Enabled = True
@@ -734,6 +735,7 @@ Public Class Formsalefabric
         Btdbadd.Enabled = True
         Btfindlotno.Enabled = True
         Tbkgprice.Enabled = True
+        Tbcolorno.Enabled = True
         Btdcancel.Enabled = True
         Tbremark.Enabled = True
         Dtpdate.Enabled = True
@@ -1064,6 +1066,17 @@ Public Class Formsalefabric
 
     End Sub
 
+    Private Sub Btfindshade_Click(sender As Object, e As EventArgs) Handles Btfindshade.Click
+        Dim Frm As New Formsheadbyfab
+        Showdiaformcenter(Frm, Me)
+        If Frm.Tbcancel.Text = "C" Then
+            Exit Sub
+        End If
+        Tbshadeid.Text = CLng(Frm.Dgvmas.CurrentRow.Cells("Mid").Value)
+        Tbshadename.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Shade").Value)
+
+    End Sub
+
     Private Sub Clrgridmaster()
         Dgvmas.AutoGenerateColumns = False
         Dgvmas.DataSource = Nothing
@@ -1109,6 +1122,7 @@ Public Class Formsalefabric
         Btfindlotno.Enabled = False
         Btdcancel.Enabled = False
         Tbkgprice.Enabled = False
+        Tbcolorno.Enabled = False
         Tbremark.Enabled = False
         Dtpdate.Enabled = False
         'Btdadd.Enabled = False
