@@ -753,6 +753,7 @@ Partial Class Formsalefabric
         Me.Tbsummoney.Name = "Tbsummoney"
         Me.Tbsummoney.Size = New System.Drawing.Size(113, 24)
         Me.Tbsummoney.TabIndex = 107
+        Me.Tbsummoney.Text = "0.00"
         Me.Tbsummoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Tbsumwgt
@@ -764,6 +765,7 @@ Partial Class Formsalefabric
         Me.Tbsumwgt.Name = "Tbsumwgt"
         Me.Tbsumwgt.Size = New System.Drawing.Size(113, 24)
         Me.Tbsumwgt.TabIndex = 106
+        Me.Tbsumwgt.Text = "0.00"
         Me.Tbsumwgt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'LabelX17

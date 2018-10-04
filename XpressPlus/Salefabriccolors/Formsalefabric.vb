@@ -578,7 +578,8 @@ Public Class Formsalefabric
         Sumprice = 0.0
         If Dgvmas.RowCount = 0 Then
             Tstbsumkg.Text = Format(Sumkg, "###,###.#0")
-            Tbsummoney.Text = Format(Sumprice, "###,###.#0")
+            Tbsumwgt.Text = Format(Sumkg, "0.#0")
+            Tbsummoney.Text = Format(Sumprice, "0.#0")
             Tstbsumroll.Text = 0
             Exit Sub
         End If
@@ -949,6 +950,8 @@ Public Class Formsalefabric
         'Tblotno.Text = Trim(Frm.Tbfabno.Text)
         'Tbkongno.Text = Trim(Frm.Normtextbox1.Text)
         'Btdadd.Focus()
+
+        Tbsummoney.Text = "100000"
     End Sub
 
     Private Sub Clrmaster()
