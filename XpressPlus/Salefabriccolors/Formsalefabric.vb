@@ -345,12 +345,12 @@ Public Class Formsalefabric
     End Sub
     Private Sub Btdcancel_Click(sender As Object, e As EventArgs)
         Tbaddedit.Text = "เพิ่ม"
-        Tbclothid.Text = ""
-        Tbclothno.Text = ""
+        'Tbclothid.Text = ""
+        'Tbclothno.Text = ""
         Tblotno.Text = ""
-        Tbshadeid.Text = ""
+        'Tbshadeid.Text = ""
         Tbkongno.Text = ""
-        Tbkgprice.Text = ""
+        'Tbkgprice.Text = ""
         Rollnobox.Text = ""
         Qtykgbox.Text = ""
     End Sub
@@ -834,11 +834,10 @@ Public Class Formsalefabric
         If Tbkgprice.Text = "" Then
             Informmessage("กรุณาใส่ ราคา/กก.")
             Exit Sub
-        Else
-            MessageBox.Show(Tbkgprice.Text)
-            Dim Coverprice As Long = CDbl(Tbkgprice.Text)
-            MessageBox.Show(Coverprice)
-            Tbsummoney.Text = "100000"
+        End If
+
+        If CDbl(Tbkgprice.Text) = 0 Then
+            Informmessage("คำเตือน กรุณาตรวจสอบอีกครั้งคุณใส่ราคา 0")
         End If
 
         'Dgvmas.Rows(0).Cells("Dlot").Value = 0
@@ -954,6 +953,13 @@ Public Class Formsalefabric
             End If
         Next
         Sumall()
+
+        'MessageBox.Show(CDbl(Tbkgprice.Text))
+        'Dim Coverprice As Long = CDbl(Tbkgprice.Text)
+        Dim Summoney As Double = CDbl(Tbkgprice.Text) * CDbl(Tbsumwgt.Text)
+        'MessageBox.Show(Summoney)
+        Tbsummoney.Text = Format(Summoney, "###,###.#0")
+
         'Dgvmas.Rows(0).Cells("Dlot").Value = 0
 
 
@@ -985,7 +991,10 @@ Public Class Formsalefabric
 
 
     Private Sub Btdcancel_Click_1(sender As Object, e As EventArgs) Handles Btdcancel.Click
-        Clrdetails()
+        Qtykgbox.Text = ""
+        Rollnobox.Text = ""
+        Tbkongno.Text = ""
+        GroupPanel2.Visible = False
     End Sub
 
     Private Sub Clrdetails()
@@ -995,8 +1004,8 @@ Public Class Formsalefabric
         Rollnobox.Text = ""
         Tblotno.Text = ""
         Tbkongno.Text = ""
-        Tbsumwgt.Text = ""
-        Tbsummoney.Text = ""
+        Tbsumwgt.Text = "0.00"
+        Tbsummoney.Text = "0.00"
         'Tbnwpcotkg.Text = ""
         'Tbnwpcotp.Text = ""
         'Tbgrwpcotkg.Text = ""
@@ -1019,6 +1028,18 @@ Public Class Formsalefabric
         Tsbwsave.Visible = True
         Dgvmas.Rows.Remove(Dgvmas.CurrentRow)
         Sumall()
+
+        If Tbkgprice.Text = "" OrElse Tbkgprice.Text = "." Then
+            Tbsummoney.Text = "0.00"
+            Exit Sub
+        End If
+
+        If CDbl(Tbkgprice.Text) = 0 Then
+            Tbsummoney.Text = "0.00"
+        End If
+
+        Dim Summoney As Double = CDbl(Tbkgprice.Text) * CDbl(Tbsumwgt.Text)
+        Tbsummoney.Text = Format(Summoney, "###,##0.#0")
 
         'For i = 0 To Dgvmas.RowCount - 1
         '    Dim Rows As Integer = i + 1
@@ -1087,6 +1108,20 @@ Public Class Formsalefabric
         Tbshadeid.Text = CLng(Frm.Dgvmas.CurrentRow.Cells("Mid").Value)
         Tbshadename.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Shade").Value)
 
+    End Sub
+
+    Private Sub Tbkgprice_TextChanged(sender As Object, e As EventArgs) Handles Tbkgprice.TextChanged
+        If Tbkgprice.Text = "" OrElse Tbkgprice.Text = "." Then
+            Tbsummoney.Text = "0.00"
+            Exit Sub
+        End If
+
+        If CDbl(Tbkgprice.Text) = 0 Then
+            Tbsummoney.Text = "0.00"
+        End If
+
+        Dim Summoney As Double = CDbl(Tbkgprice.Text) * CDbl(Tbsumwgt.Text)
+        Tbsummoney.Text = Format(Summoney, "###,##0.#0")
     End Sub
 
     Private Sub Clrgridmaster()
