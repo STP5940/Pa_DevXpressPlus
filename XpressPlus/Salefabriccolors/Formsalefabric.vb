@@ -41,6 +41,7 @@ Public Class Formsalefabric
         Clrtextdetails()
         Clrgridmaster()
         TabControl1.SelectedTabIndex = 1
+        Btfindshade.Enabled = True
         BindingNavigator1.Enabled = False
         'Tbfinddhid.Enabled = True
         'Tbpickup.Enabled = True
@@ -105,7 +106,7 @@ Public Class Formsalefabric
             Clrdgrid()
             Clrtxtbox()
             Clrtextmaster()
-            'Clrtextdetails()
+            Clrtextdetails()
             Clrgridmaster()
             Bindinglist()
             TabControl1.SelectedTabIndex = 0
@@ -418,6 +419,7 @@ Public Class Formsalefabric
     End Sub
     Private Sub Dgvmas_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Dgvmas.CellClick
         If e.RowIndex <> -1 Then
+            Tblotno.Text = Dgvmas.Rows(e.RowIndex).Cells("Dlot").Value
             Tbkongno.Text = Dgvmas.Rows(e.RowIndex).Cells("Mkongno").Value
             Rollnobox.Text = Dgvmas.Rows(e.RowIndex).Cells("Rollno").Value
             Qtykgbox.Text = Dgvmas.Rows(e.RowIndex).Cells("Qtykg").Value
@@ -1206,6 +1208,7 @@ Public Class Formsalefabric
             Bindmaster()
         End If
     End Sub
+
 
     Private Sub Clrgridmaster()
         Dgvmas.AutoGenerateColumns = False

@@ -24,12 +24,12 @@ Partial Class Formsalefabric
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Formsalefabric))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Btmclose = New System.Windows.Forms.ToolStripButton()
         Me.Btmfind = New System.Windows.Forms.ToolStripButton()
@@ -140,6 +140,22 @@ Partial Class Formsalefabric
         Me.Ctmmenugrid = New DevComponents.DotNetBar.ButtonItem()
         Me.Ctmledit = New DevComponents.DotNetBar.ButtonItem()
         Me.Dgvlist = New System.Windows.Forms.DataGridView()
+        Me.ToolStrip5 = New System.Windows.Forms.ToolStrip()
+        Me.Btfirst = New System.Windows.Forms.ToolStripButton()
+        Me.Btprev = New System.Windows.Forms.ToolStripButton()
+        Me.Tbpage = New System.Windows.Forms.ToolStripTextBox()
+        Me.Btnext = New System.Windows.Forms.ToolStripButton()
+        Me.Btlast = New System.Windows.Forms.ToolStripButton()
+        Me.Tbrecord = New System.Windows.Forms.ToolStripTextBox()
+        Me.ToolStrip4 = New System.Windows.Forms.ToolStrip()
+        Me.Btrefresh = New System.Windows.Forms.ToolStripButton()
+        Me.Btlistfind = New System.Windows.Forms.ToolStripButton()
+        Me.Tstbkeyword = New System.Windows.Forms.ToolStripTextBox()
+        Me.Tscboth = New XpressPlus.ToolStripCheckBox()
+        Me.ToolStripLabel4 = New System.Windows.Forms.ToolStripLabel()
+        Me.Tscbdate = New XpressPlus.ToolStripCheckBox()
+        Me.ToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
+        Me.TabItem2 = New DevComponents.DotNetBar.TabItem(Me.components)
         Me.Status = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Comid = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Ldfabdate = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -160,22 +176,6 @@ Partial Class Formsalefabric
         Me.Lsumprice = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Ldremark = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Lsremark = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ToolStrip5 = New System.Windows.Forms.ToolStrip()
-        Me.Btfirst = New System.Windows.Forms.ToolStripButton()
-        Me.Btprev = New System.Windows.Forms.ToolStripButton()
-        Me.Tbpage = New System.Windows.Forms.ToolStripTextBox()
-        Me.Btnext = New System.Windows.Forms.ToolStripButton()
-        Me.Btlast = New System.Windows.Forms.ToolStripButton()
-        Me.Tbrecord = New System.Windows.Forms.ToolStripTextBox()
-        Me.ToolStrip4 = New System.Windows.Forms.ToolStrip()
-        Me.Btrefresh = New System.Windows.Forms.ToolStripButton()
-        Me.Btlistfind = New System.Windows.Forms.ToolStripButton()
-        Me.Tstbkeyword = New System.Windows.Forms.ToolStripTextBox()
-        Me.ToolStripLabel4 = New System.Windows.Forms.ToolStripLabel()
-        Me.ToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
-        Me.TabItem2 = New DevComponents.DotNetBar.TabItem(Me.components)
-        Me.Tscboth = New XpressPlus.ToolStripCheckBox()
-        Me.Tscbdate = New XpressPlus.ToolStripCheckBox()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -333,8 +333,8 @@ Partial Class Formsalefabric
         '
         Me.TabControl1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TabControl1.CanReorderTabs = True
-        Me.TabControl1.Controls.Add(Me.TabControlPanel1)
         Me.TabControl1.Controls.Add(Me.TabControlPanel2)
+        Me.TabControl1.Controls.Add(Me.TabControlPanel1)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.TabControl1.ForeColor = System.Drawing.Color.Black
@@ -384,9 +384,9 @@ Partial Class Formsalefabric
         Me.GroupPanel3.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.GroupPanel3.Location = New System.Drawing.Point(1, 307)
+        Me.GroupPanel3.Location = New System.Drawing.Point(1, 285)
         Me.GroupPanel3.Name = "GroupPanel3"
-        Me.GroupPanel3.Size = New System.Drawing.Size(1006, 271)
+        Me.GroupPanel3.Size = New System.Drawing.Size(1006, 293)
         '
         '
         '
@@ -426,7 +426,7 @@ Partial Class Formsalefabric
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel6.Location = New System.Drawing.Point(0, 49)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(1000, 199)
+        Me.Panel6.Size = New System.Drawing.Size(1000, 221)
         Me.Panel6.TabIndex = 95
         '
         'ContextMenuBar2
@@ -469,14 +469,14 @@ Partial Class Formsalefabric
         '
         Me.Dgvmas.AllowUserToAddRows = False
         Me.Dgvmas.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.Dgvmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Mstat, Me.Dcomid, Me.Ddlvno, Me.Dlot, Me.Mkongno, Me.Rollno, Me.Qtykg})
         Me.Dgvmas.Dock = System.Windows.Forms.DockStyle.Fill
@@ -484,7 +484,7 @@ Partial Class Formsalefabric
         Me.Dgvmas.Name = "Dgvmas"
         Me.Dgvmas.ReadOnly = True
         Me.Dgvmas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Dgvmas.Size = New System.Drawing.Size(1000, 199)
+        Me.Dgvmas.Size = New System.Drawing.Size(1000, 221)
         Me.Dgvmas.TabIndex = 95
         '
         'Mstat
@@ -515,46 +515,46 @@ Partial Class Formsalefabric
         '
         Me.Dlot.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Dlot.DataPropertyName = "Lotno"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Dlot.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Dlot.DefaultCellStyle = DataGridViewCellStyle3
         Me.Dlot.HeaderText = "Lot No."
         Me.Dlot.Name = "Dlot"
         Me.Dlot.ReadOnly = True
         '
         'Mkongno
         '
+        Me.Mkongno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Mkongno.DataPropertyName = "Kongno"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "N2"
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.Mkongno.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle4.Format = "N2"
+        DataGridViewCellStyle4.NullValue = Nothing
+        Me.Mkongno.DefaultCellStyle = DataGridViewCellStyle4
         Me.Mkongno.HeaderText = "เบอร์กอง"
         Me.Mkongno.Name = "Mkongno"
         Me.Mkongno.ReadOnly = True
-        Me.Mkongno.Width = 120
         '
         'Rollno
         '
+        Me.Rollno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Rollno.DataPropertyName = "Rollno"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle4.NullValue = Nothing
-        Me.Rollno.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle5.NullValue = Nothing
+        Me.Rollno.DefaultCellStyle = DataGridViewCellStyle5
         Me.Rollno.HeaderText = "พับที่"
         Me.Rollno.Name = "Rollno"
         Me.Rollno.ReadOnly = True
-        Me.Rollno.Width = 120
         '
         'Qtykg
         '
+        Me.Qtykg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Qtykg.DataPropertyName = "Wgtkg"
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle5.Format = "N2"
-        DataGridViewCellStyle5.NullValue = Nothing
-        Me.Qtykg.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle6.Format = "N2"
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.Qtykg.DefaultCellStyle = DataGridViewCellStyle6
         Me.Qtykg.HeaderText = "น้ำหนัก"
         Me.Qtykg.Name = "Qtykg"
         Me.Qtykg.ReadOnly = True
-        Me.Qtykg.Width = 120
         '
         'ToolStrip2
         '
@@ -624,9 +624,9 @@ Partial Class Formsalefabric
         Me.GroupPanel2.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupPanel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.GroupPanel2.Location = New System.Drawing.Point(1, 194)
+        Me.GroupPanel2.Location = New System.Drawing.Point(1, 187)
         Me.GroupPanel2.Name = "GroupPanel2"
-        Me.GroupPanel2.Size = New System.Drawing.Size(1006, 113)
+        Me.GroupPanel2.Size = New System.Drawing.Size(1006, 98)
         '
         '
         '
@@ -676,7 +676,7 @@ Partial Class Formsalefabric
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1000, 90)
+        Me.Panel3.Size = New System.Drawing.Size(1000, 75)
         Me.Panel3.TabIndex = 81
         '
         'LabelX14
@@ -687,7 +687,7 @@ Partial Class Formsalefabric
         '
         Me.LabelX14.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX14.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX14.Location = New System.Drawing.Point(359, 45)
+        Me.LabelX14.Location = New System.Drawing.Point(359, 41)
         Me.LabelX14.Name = "LabelX14"
         Me.LabelX14.Size = New System.Drawing.Size(47, 23)
         Me.LabelX14.TabIndex = 107
@@ -697,7 +697,7 @@ Partial Class Formsalefabric
         '
         Me.Qtykgbox.Enabled = False
         Me.Qtykgbox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Qtykgbox.Location = New System.Drawing.Point(412, 45)
+        Me.Qtykgbox.Location = New System.Drawing.Point(412, 41)
         Me.Qtykgbox.MaxLength = 12
         Me.Qtykgbox.Name = "Qtykgbox"
         Me.Qtykgbox.Size = New System.Drawing.Size(125, 24)
@@ -712,7 +712,7 @@ Partial Class Formsalefabric
         '
         Me.LabelX18.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX18.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX18.Location = New System.Drawing.Point(202, 43)
+        Me.LabelX18.Location = New System.Drawing.Point(202, 39)
         Me.LabelX18.Name = "LabelX18"
         Me.LabelX18.Size = New System.Drawing.Size(30, 23)
         Me.LabelX18.TabIndex = 105
@@ -723,7 +723,7 @@ Partial Class Formsalefabric
         Me.Rollnobox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Rollnobox.Enabled = False
         Me.Rollnobox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Rollnobox.Location = New System.Drawing.Point(238, 44)
+        Me.Rollnobox.Location = New System.Drawing.Point(238, 40)
         Me.Rollnobox.MaxLength = 120
         Me.Rollnobox.Name = "Rollnobox"
         Me.Rollnobox.Size = New System.Drawing.Size(118, 24)
@@ -741,14 +741,14 @@ Partial Class Formsalefabric
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel7.Location = New System.Drawing.Point(706, 0)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(294, 90)
+        Me.Panel7.Size = New System.Drawing.Size(294, 75)
         Me.Panel7.TabIndex = 103
         '
         'Tbsummoney
         '
         Me.Tbsummoney.Enabled = False
         Me.Tbsummoney.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbsummoney.Location = New System.Drawing.Point(137, 32)
+        Me.Tbsummoney.Location = New System.Drawing.Point(137, 41)
         Me.Tbsummoney.MaxLength = 12
         Me.Tbsummoney.Name = "Tbsummoney"
         Me.Tbsummoney.Size = New System.Drawing.Size(113, 24)
@@ -760,7 +760,7 @@ Partial Class Formsalefabric
         '
         Me.Tbsumwgt.Enabled = False
         Me.Tbsumwgt.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbsumwgt.Location = New System.Drawing.Point(137, 3)
+        Me.Tbsumwgt.Location = New System.Drawing.Point(137, 4)
         Me.Tbsumwgt.MaxLength = 12
         Me.Tbsumwgt.Name = "Tbsumwgt"
         Me.Tbsumwgt.Size = New System.Drawing.Size(113, 24)
@@ -776,7 +776,7 @@ Partial Class Formsalefabric
         '
         Me.LabelX17.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX17.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX17.Location = New System.Drawing.Point(256, 33)
+        Me.LabelX17.Location = New System.Drawing.Point(256, 42)
         Me.LabelX17.Name = "LabelX17"
         Me.LabelX17.Size = New System.Drawing.Size(30, 23)
         Me.LabelX17.TabIndex = 105
@@ -791,7 +791,7 @@ Partial Class Formsalefabric
         '
         Me.LabelX16.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX16.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX16.Location = New System.Drawing.Point(256, 4)
+        Me.LabelX16.Location = New System.Drawing.Point(256, 5)
         Me.LabelX16.Name = "LabelX16"
         Me.LabelX16.Size = New System.Drawing.Size(30, 23)
         Me.LabelX16.TabIndex = 104
@@ -806,7 +806,7 @@ Partial Class Formsalefabric
         '
         Me.LabelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX13.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX13.Location = New System.Drawing.Point(52, 33)
+        Me.LabelX13.Location = New System.Drawing.Point(52, 42)
         Me.LabelX13.Name = "LabelX13"
         Me.LabelX13.Size = New System.Drawing.Size(79, 23)
         Me.LabelX13.TabIndex = 102
@@ -820,7 +820,7 @@ Partial Class Formsalefabric
         '
         Me.LabelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX8.Location = New System.Drawing.Point(52, 4)
+        Me.LabelX8.Location = New System.Drawing.Point(52, 5)
         Me.LabelX8.Name = "LabelX8"
         Me.LabelX8.Size = New System.Drawing.Size(79, 23)
         Me.LabelX8.TabIndex = 100
@@ -846,7 +846,7 @@ Partial Class Formsalefabric
         '
         Me.LabelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX11.Location = New System.Drawing.Point(8, 44)
+        Me.LabelX11.Location = New System.Drawing.Point(8, 40)
         Me.LabelX11.Name = "LabelX11"
         Me.LabelX11.Size = New System.Drawing.Size(54, 23)
         Me.LabelX11.TabIndex = 101
@@ -856,7 +856,7 @@ Partial Class Formsalefabric
         '
         Me.Tbkongno.Enabled = False
         Me.Tbkongno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbkongno.Location = New System.Drawing.Point(75, 43)
+        Me.Tbkongno.Location = New System.Drawing.Point(75, 39)
         Me.Tbkongno.MaxLength = 12
         Me.Tbkongno.Name = "Tbkongno"
         Me.Tbkongno.Size = New System.Drawing.Size(118, 24)
@@ -913,7 +913,7 @@ Partial Class Formsalefabric
         Me.Btdcancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btdcancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Btdcancel.Image = Global.XpressPlus.My.Resources.Resources.Undo
-        Me.Btdcancel.Location = New System.Drawing.Point(560, 35)
+        Me.Btdcancel.Location = New System.Drawing.Point(560, 31)
         Me.Btdcancel.Name = "Btdcancel"
         Me.Btdcancel.Size = New System.Drawing.Size(67, 34)
         Me.Btdcancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
@@ -930,7 +930,7 @@ Partial Class Formsalefabric
         Me.GroupPanel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.GroupPanel1.Location = New System.Drawing.Point(1, 26)
         Me.GroupPanel1.Name = "GroupPanel1"
-        Me.GroupPanel1.Size = New System.Drawing.Size(1006, 168)
+        Me.GroupPanel1.Size = New System.Drawing.Size(1006, 161)
         '
         '
         '
@@ -974,7 +974,7 @@ Partial Class Formsalefabric
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1000, 145)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1000, 138)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'Panel5
@@ -987,15 +987,15 @@ Partial Class Formsalefabric
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel5.Location = New System.Drawing.Point(703, 3)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(294, 139)
+        Me.Panel5.Size = New System.Drawing.Size(294, 132)
         Me.Panel5.TabIndex = 88
         '
         'Dtpdate
         '
         Me.Dtpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Dtpdate.Location = New System.Drawing.Point(125, 30)
+        Me.Dtpdate.Location = New System.Drawing.Point(128, 35)
         Me.Dtpdate.Name = "Dtpdate"
-        Me.Dtpdate.Size = New System.Drawing.Size(164, 24)
+        Me.Dtpdate.Size = New System.Drawing.Size(161, 24)
         Me.Dtpdate.TabIndex = 42
         '
         'LabelX2
@@ -1006,7 +1006,7 @@ Partial Class Formsalefabric
         '
         Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX2.Location = New System.Drawing.Point(45, 3)
+        Me.LabelX2.Location = New System.Drawing.Point(72, 3)
         Me.LabelX2.Name = "LabelX2"
         Me.LabelX2.Size = New System.Drawing.Size(92, 23)
         Me.LabelX2.TabIndex = 41
@@ -1017,10 +1017,10 @@ Partial Class Formsalefabric
         Me.Tbdlvno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbdlvno.Enabled = False
         Me.Tbdlvno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Tbdlvno.Location = New System.Drawing.Point(140, 2)
+        Me.Tbdlvno.Location = New System.Drawing.Point(170, 2)
         Me.Tbdlvno.MaxLength = 150
         Me.Tbdlvno.Name = "Tbdlvno"
-        Me.Tbdlvno.Size = New System.Drawing.Size(149, 24)
+        Me.Tbdlvno.Size = New System.Drawing.Size(119, 24)
         Me.Tbdlvno.TabIndex = 40
         Me.Tbdlvno.Text = "NEW"
         '
@@ -1032,7 +1032,7 @@ Partial Class Formsalefabric
         '
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX1.Location = New System.Drawing.Point(45, 32)
+        Me.LabelX1.Location = New System.Drawing.Point(72, 35)
         Me.LabelX1.Name = "LabelX1"
         Me.LabelX1.Size = New System.Drawing.Size(32, 23)
         Me.LabelX1.TabIndex = 40
@@ -1068,7 +1068,7 @@ Partial Class Formsalefabric
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(3, 3)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(694, 139)
+        Me.Panel4.Size = New System.Drawing.Size(694, 132)
         Me.Panel4.TabIndex = 89
         '
         'Btfindshade
@@ -1077,7 +1077,7 @@ Partial Class Formsalefabric
         Me.Btfindshade.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btfindshade.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Btfindshade.Image = Global.XpressPlus.My.Resources.Resources.Find16
-        Me.Btfindshade.Location = New System.Drawing.Point(357, 86)
+        Me.Btfindshade.Location = New System.Drawing.Point(154, 100)
         Me.Btfindshade.Name = "Btfindshade"
         Me.Btfindshade.Size = New System.Drawing.Size(36, 24)
         Me.Btfindshade.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
@@ -1087,10 +1087,10 @@ Partial Class Formsalefabric
         '
         Me.Tbcolorno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbcolorno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbcolorno.Location = New System.Drawing.Point(72, 113)
+        Me.Tbcolorno.Location = New System.Drawing.Point(458, 101)
         Me.Tbcolorno.MaxLength = 120
         Me.Tbcolorno.Name = "Tbcolorno"
-        Me.Tbcolorno.Size = New System.Drawing.Size(118, 24)
+        Me.Tbcolorno.Size = New System.Drawing.Size(76, 24)
         Me.Tbcolorno.TabIndex = 107
         '
         'Tbcustship
@@ -1098,10 +1098,10 @@ Partial Class Formsalefabric
         Me.Tbcustship.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbcustship.Enabled = False
         Me.Tbcustship.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbcustship.Location = New System.Drawing.Point(196, 30)
+        Me.Tbcustship.Location = New System.Drawing.Point(196, 34)
         Me.Tbcustship.MaxLength = 150
         Me.Tbcustship.Name = "Tbcustship"
-        Me.Tbcustship.Size = New System.Drawing.Size(262, 24)
+        Me.Tbcustship.Size = New System.Drawing.Size(185, 24)
         Me.Tbcustship.TabIndex = 71
         '
         'Tbshadename
@@ -1109,19 +1109,19 @@ Partial Class Formsalefabric
         Me.Tbshadename.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbshadename.Enabled = False
         Me.Tbshadename.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbshadename.Location = New System.Drawing.Point(154, 86)
+        Me.Tbshadename.Location = New System.Drawing.Point(196, 100)
         Me.Tbshadename.MaxLength = 120
         Me.Tbshadename.Name = "Tbshadename"
-        Me.Tbshadename.Size = New System.Drawing.Size(197, 24)
+        Me.Tbshadename.Size = New System.Drawing.Size(185, 24)
         Me.Tbshadename.TabIndex = 106
         '
         'Tbkgprice
         '
         Me.Tbkgprice.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbkgprice.Location = New System.Drawing.Point(271, 113)
+        Me.Tbkgprice.Location = New System.Drawing.Point(613, 99)
         Me.Tbkgprice.MaxLength = 12
         Me.Tbkgprice.Name = "Tbkgprice"
-        Me.Tbkgprice.Size = New System.Drawing.Size(74, 24)
+        Me.Tbkgprice.Size = New System.Drawing.Size(78, 24)
         Me.Tbkgprice.TabIndex = 95
         Me.Tbkgprice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -1131,7 +1131,7 @@ Partial Class Formsalefabric
         Me.Btfindcusship.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btfindcusship.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Btfindcusship.Image = Global.XpressPlus.My.Resources.Resources.Find16
-        Me.Btfindcusship.Location = New System.Drawing.Point(154, 29)
+        Me.Btfindcusship.Location = New System.Drawing.Point(154, 33)
         Me.Btfindcusship.Name = "Btfindcusship"
         Me.Btfindcusship.Size = New System.Drawing.Size(36, 24)
         Me.Btfindcusship.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
@@ -1142,7 +1142,7 @@ Partial Class Formsalefabric
         Me.Tbshadeid.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbshadeid.Enabled = False
         Me.Tbshadeid.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbshadeid.Location = New System.Drawing.Point(72, 86)
+        Me.Tbshadeid.Location = New System.Drawing.Point(72, 100)
         Me.Tbshadeid.MaxLength = 120
         Me.Tbshadeid.Name = "Tbshadeid"
         Me.Tbshadeid.Size = New System.Drawing.Size(74, 24)
@@ -1156,7 +1156,7 @@ Partial Class Formsalefabric
         '
         Me.LabelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX15.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX15.Location = New System.Drawing.Point(203, 114)
+        Me.LabelX15.Location = New System.Drawing.Point(545, 100)
         Me.LabelX15.Name = "LabelX15"
         Me.LabelX15.Size = New System.Drawing.Size(64, 23)
         Me.LabelX15.TabIndex = 92
@@ -1167,7 +1167,7 @@ Partial Class Formsalefabric
         Me.Tbcusadd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbcusadd.Enabled = False
         Me.Tbcusadd.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbcusadd.Location = New System.Drawing.Point(72, 30)
+        Me.Tbcusadd.Location = New System.Drawing.Point(72, 34)
         Me.Tbcusadd.MaxLength = 150
         Me.Tbcusadd.Name = "Tbcusadd"
         Me.Tbcusadd.Size = New System.Drawing.Size(74, 24)
@@ -1181,7 +1181,7 @@ Partial Class Formsalefabric
         '
         Me.LabelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX9.Location = New System.Drawing.Point(5, 31)
+        Me.LabelX9.Location = New System.Drawing.Point(5, 35)
         Me.LabelX9.Name = "LabelX9"
         Me.LabelX9.Size = New System.Drawing.Size(56, 23)
         Me.LabelX9.TabIndex = 68
@@ -1195,7 +1195,7 @@ Partial Class Formsalefabric
         '
         Me.LabelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX10.Location = New System.Drawing.Point(6, 114)
+        Me.LabelX10.Location = New System.Drawing.Point(392, 102)
         Me.LabelX10.Name = "LabelX10"
         Me.LabelX10.Size = New System.Drawing.Size(63, 23)
         Me.LabelX10.TabIndex = 77
@@ -1206,10 +1206,10 @@ Partial Class Formsalefabric
         Me.Tbmycom.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbmycom.Enabled = False
         Me.Tbmycom.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Tbmycom.Location = New System.Drawing.Point(522, 4)
+        Me.Tbmycom.Location = New System.Drawing.Point(458, 4)
         Me.Tbmycom.MaxLength = 150
         Me.Tbmycom.Name = "Tbmycom"
-        Me.Tbmycom.Size = New System.Drawing.Size(92, 23)
+        Me.Tbmycom.Size = New System.Drawing.Size(76, 23)
         Me.Tbmycom.TabIndex = 66
         Me.Tbmycom.Visible = False
         '
@@ -1221,7 +1221,7 @@ Partial Class Formsalefabric
         '
         Me.LabelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX4.Location = New System.Drawing.Point(478, 4)
+        Me.LabelX4.Location = New System.Drawing.Point(389, 3)
         Me.LabelX4.Name = "LabelX4"
         Me.LabelX4.Size = New System.Drawing.Size(38, 23)
         Me.LabelX4.TabIndex = 67
@@ -1233,10 +1233,10 @@ Partial Class Formsalefabric
         Me.Tbwidth.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbwidth.Enabled = False
         Me.Tbwidth.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbwidth.Location = New System.Drawing.Point(416, 58)
+        Me.Tbwidth.Location = New System.Drawing.Point(458, 66)
         Me.Tbwidth.MaxLength = 120
         Me.Tbwidth.Name = "Tbwidth"
-        Me.Tbwidth.Size = New System.Drawing.Size(87, 24)
+        Me.Tbwidth.Size = New System.Drawing.Size(76, 24)
         Me.Tbwidth.TabIndex = 100
         '
         'Btfindcustid
@@ -1259,7 +1259,7 @@ Partial Class Formsalefabric
         '
         Me.LabelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX19.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX19.Location = New System.Drawing.Point(357, 61)
+        Me.LabelX19.Location = New System.Drawing.Point(391, 66)
         Me.LabelX19.Name = "LabelX19"
         Me.LabelX19.Size = New System.Drawing.Size(63, 23)
         Me.LabelX19.TabIndex = 99
@@ -1298,7 +1298,7 @@ Partial Class Formsalefabric
         Me.Tbcustname.Location = New System.Drawing.Point(196, 2)
         Me.Tbcustname.MaxLength = 150
         Me.Tbcustname.Name = "Tbcustname"
-        Me.Tbcustname.Size = New System.Drawing.Size(262, 24)
+        Me.Tbcustname.Size = New System.Drawing.Size(185, 24)
         Me.Tbcustname.TabIndex = 64
         '
         'LabelX6
@@ -1309,7 +1309,7 @@ Partial Class Formsalefabric
         '
         Me.LabelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX6.Location = New System.Drawing.Point(5, 60)
+        Me.LabelX6.Location = New System.Drawing.Point(5, 68)
         Me.LabelX6.Name = "LabelX6"
         Me.LabelX6.Size = New System.Drawing.Size(62, 23)
         Me.LabelX6.TabIndex = 71
@@ -1320,7 +1320,7 @@ Partial Class Formsalefabric
         Me.Tbclothid.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbclothid.Enabled = False
         Me.Tbclothid.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbclothid.Location = New System.Drawing.Point(72, 58)
+        Me.Tbclothid.Location = New System.Drawing.Point(72, 66)
         Me.Tbclothid.MaxLength = 120
         Me.Tbclothid.Name = "Tbclothid"
         Me.Tbclothid.Size = New System.Drawing.Size(74, 24)
@@ -1332,7 +1332,7 @@ Partial Class Formsalefabric
         Me.Btfindclothno.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btfindclothno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Btfindclothno.Image = Global.XpressPlus.My.Resources.Resources.Find16
-        Me.Btfindclothno.Location = New System.Drawing.Point(154, 58)
+        Me.Btfindclothno.Location = New System.Drawing.Point(154, 66)
         Me.Btfindclothno.Name = "Btfindclothno"
         Me.Btfindclothno.Size = New System.Drawing.Size(36, 24)
         Me.Btfindclothno.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
@@ -1343,10 +1343,10 @@ Partial Class Formsalefabric
         Me.Tbclothno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbclothno.Enabled = False
         Me.Tbclothno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbclothno.Location = New System.Drawing.Point(196, 58)
+        Me.Tbclothno.Location = New System.Drawing.Point(196, 66)
         Me.Tbclothno.MaxLength = 120
         Me.Tbclothno.Name = "Tbclothno"
-        Me.Tbclothno.Size = New System.Drawing.Size(155, 24)
+        Me.Tbclothno.Size = New System.Drawing.Size(185, 24)
         Me.Tbclothno.TabIndex = 74
         '
         'LabelX12
@@ -1357,7 +1357,7 @@ Partial Class Formsalefabric
         '
         Me.LabelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX12.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX12.Location = New System.Drawing.Point(5, 87)
+        Me.LabelX12.Location = New System.Drawing.Point(5, 101)
         Me.LabelX12.Name = "LabelX12"
         Me.LabelX12.Size = New System.Drawing.Size(56, 23)
         Me.LabelX12.TabIndex = 82
@@ -1613,14 +1613,14 @@ Partial Class Formsalefabric
         '
         Me.Dgvlist.AllowUserToAddRows = False
         Me.Dgvlist.AllowUserToDeleteRows = False
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Dgvlist.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgvlist.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.Dgvlist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Dgvlist.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Status, Me.Comid, Me.Ldfabdate, Me.Dlvno, Me.Lcustid, Me.Lcustname, Me.Clothid, Me.Clothno, Me.Ftype, Me.Fwidth, Me.Lcustadd, Me.Lcustshipadd, Me.Lshadid, Me.Lshadedesc, Me.Lcolorno, Me.Lkgprice, Me.Lsumkg, Me.Lsumprice, Me.Ldremark, Me.Lsremark})
         Me.Dgvlist.Dock = System.Windows.Forms.DockStyle.Fill
@@ -1629,164 +1629,6 @@ Partial Class Formsalefabric
         Me.Dgvlist.ReadOnly = True
         Me.Dgvlist.Size = New System.Drawing.Size(1006, 564)
         Me.Dgvlist.TabIndex = 68
-        '
-        'Status
-        '
-        Me.Status.DataPropertyName = "Stat"
-        Me.Status.HeaderText = ""
-        Me.Status.Name = "Status"
-        Me.Status.ReadOnly = True
-        Me.Status.Width = 20
-        '
-        'Comid
-        '
-        Me.Comid.DataPropertyName = "Comid"
-        Me.Comid.HeaderText = "Comid"
-        Me.Comid.Name = "Comid"
-        Me.Comid.ReadOnly = True
-        Me.Comid.Visible = False
-        '
-        'Ldfabdate
-        '
-        Me.Ldfabdate.DataPropertyName = "Dfabdate"
-        Me.Ldfabdate.HeaderText = "วันที่"
-        Me.Ldfabdate.Name = "Ldfabdate"
-        Me.Ldfabdate.ReadOnly = True
-        '
-        'Dlvno
-        '
-        Me.Dlvno.DataPropertyName = "Dlvno"
-        Me.Dlvno.HeaderText = "เลขที่"
-        Me.Dlvno.Name = "Dlvno"
-        Me.Dlvno.ReadOnly = True
-        '
-        'Lcustid
-        '
-        Me.Lcustid.DataPropertyName = "Custid"
-        Me.Lcustid.HeaderText = "Custid"
-        Me.Lcustid.Name = "Lcustid"
-        Me.Lcustid.ReadOnly = True
-        Me.Lcustid.Visible = False
-        '
-        'Lcustname
-        '
-        Me.Lcustname.DataPropertyName = "Custname"
-        Me.Lcustname.HeaderText = "ลูกค้า"
-        Me.Lcustname.Name = "Lcustname"
-        Me.Lcustname.ReadOnly = True
-        Me.Lcustname.Width = 150
-        '
-        'Clothid
-        '
-        Me.Clothid.DataPropertyName = "Clothid"
-        Me.Clothid.HeaderText = "Clothid"
-        Me.Clothid.Name = "Clothid"
-        Me.Clothid.ReadOnly = True
-        Me.Clothid.Visible = False
-        '
-        'Clothno
-        '
-        Me.Clothno.DataPropertyName = "Clothno"
-        Me.Clothno.HeaderText = "เบอร์ผ้า"
-        Me.Clothno.Name = "Clothno"
-        Me.Clothno.ReadOnly = True
-        Me.Clothno.Width = 130
-        '
-        'Ftype
-        '
-        Me.Ftype.DataPropertyName = "Ftype"
-        Me.Ftype.HeaderText = "Ftype"
-        Me.Ftype.Name = "Ftype"
-        Me.Ftype.ReadOnly = True
-        Me.Ftype.Visible = False
-        '
-        'Fwidth
-        '
-        Me.Fwidth.DataPropertyName = "Fwidth"
-        Me.Fwidth.HeaderText = "Fwidth"
-        Me.Fwidth.Name = "Fwidth"
-        Me.Fwidth.ReadOnly = True
-        Me.Fwidth.Visible = False
-        '
-        'Lcustadd
-        '
-        Me.Lcustadd.DataPropertyName = "Custadd"
-        Me.Lcustadd.HeaderText = "Custadd"
-        Me.Lcustadd.Name = "Lcustadd"
-        Me.Lcustadd.ReadOnly = True
-        Me.Lcustadd.Visible = False
-        '
-        'Lcustshipadd
-        '
-        Me.Lcustshipadd.DataPropertyName = "Custshipadd"
-        Me.Lcustshipadd.HeaderText = "Custshipadd"
-        Me.Lcustshipadd.Name = "Lcustshipadd"
-        Me.Lcustshipadd.ReadOnly = True
-        Me.Lcustshipadd.Visible = False
-        '
-        'Lshadid
-        '
-        Me.Lshadid.DataPropertyName = "Shadid"
-        Me.Lshadid.HeaderText = "Shadid"
-        Me.Lshadid.Name = "Lshadid"
-        Me.Lshadid.ReadOnly = True
-        Me.Lshadid.Visible = False
-        '
-        'Lshadedesc
-        '
-        Me.Lshadedesc.DataPropertyName = "Shadedesc"
-        Me.Lshadedesc.HeaderText = "Shadedesc"
-        Me.Lshadedesc.Name = "Lshadedesc"
-        Me.Lshadedesc.ReadOnly = True
-        Me.Lshadedesc.Visible = False
-        '
-        'Lcolorno
-        '
-        Me.Lcolorno.DataPropertyName = "Colorno"
-        Me.Lcolorno.HeaderText = "Colorno"
-        Me.Lcolorno.Name = "Lcolorno"
-        Me.Lcolorno.ReadOnly = True
-        Me.Lcolorno.Visible = False
-        '
-        'Lkgprice
-        '
-        Me.Lkgprice.DataPropertyName = "Kgprice"
-        Me.Lkgprice.HeaderText = "Kgprice"
-        Me.Lkgprice.Name = "Lkgprice"
-        Me.Lkgprice.ReadOnly = True
-        Me.Lkgprice.Visible = False
-        '
-        'Lsumkg
-        '
-        Me.Lsumkg.DataPropertyName = "Sumkg"
-        Me.Lsumkg.HeaderText = "Sumkg"
-        Me.Lsumkg.Name = "Lsumkg"
-        Me.Lsumkg.ReadOnly = True
-        Me.Lsumkg.Visible = False
-        '
-        'Lsumprice
-        '
-        Me.Lsumprice.DataPropertyName = "Sumprice"
-        Me.Lsumprice.HeaderText = "Sumprice"
-        Me.Lsumprice.Name = "Lsumprice"
-        Me.Lsumprice.ReadOnly = True
-        Me.Lsumprice.Visible = False
-        '
-        'Ldremark
-        '
-        Me.Ldremark.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Ldremark.DataPropertyName = "Dremark"
-        Me.Ldremark.HeaderText = "หมายเหตุ"
-        Me.Ldremark.Name = "Ldremark"
-        Me.Ldremark.ReadOnly = True
-        '
-        'Lsremark
-        '
-        Me.Lsremark.DataPropertyName = "Sremark"
-        Me.Lsremark.HeaderText = "Sremark"
-        Me.Lsremark.Name = "Lsremark"
-        Me.Lsremark.ReadOnly = True
-        Me.Lsremark.Visible = False
         '
         'ToolStrip5
         '
@@ -1904,6 +1746,17 @@ Partial Class Formsalefabric
         Me.Tstbkeyword.Name = "Tstbkeyword"
         Me.Tstbkeyword.Size = New System.Drawing.Size(120, 49)
         '
+        'Tscboth
+        '
+        Me.Tscboth.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Tscboth.BackColor = System.Drawing.Color.Transparent
+        Me.Tscboth.Checked = True
+        Me.Tscboth.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tscboth.Name = "Tscboth"
+        Me.Tscboth.Size = New System.Drawing.Size(55, 46)
+        Me.Tscboth.Text = "อื่นๆ"
+        Me.Tscboth.ToolStripCheckBoxEnabled = True
+        '
         'ToolStripLabel4
         '
         Me.ToolStripLabel4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
@@ -1911,6 +1764,17 @@ Partial Class Formsalefabric
         Me.ToolStripLabel4.Name = "ToolStripLabel4"
         Me.ToolStripLabel4.Size = New System.Drawing.Size(24, 46)
         Me.ToolStripLabel4.Text = "ถึง"
+        '
+        'Tscbdate
+        '
+        Me.Tscbdate.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Tscbdate.BackColor = System.Drawing.Color.Transparent
+        Me.Tscbdate.Checked = False
+        Me.Tscbdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tscbdate.Name = "Tscbdate"
+        Me.Tscbdate.Size = New System.Drawing.Size(55, 46)
+        Me.Tscbdate.Text = "วันที่"
+        Me.Tscbdate.ToolStripCheckBoxEnabled = True
         '
         'ToolStripLabel3
         '
@@ -1926,27 +1790,164 @@ Partial Class Formsalefabric
         Me.TabItem2.Name = "TabItem2"
         Me.TabItem2.Text = "รายการทั้งหมด"
         '
-        'Tscboth
+        'Status
         '
-        Me.Tscboth.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Tscboth.BackColor = System.Drawing.Color.Transparent
-        Me.Tscboth.Checked = True
-        Me.Tscboth.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tscboth.Name = "Tscboth"
-        Me.Tscboth.Size = New System.Drawing.Size(55, 46)
-        Me.Tscboth.Text = "อื่นๆ"
-        Me.Tscboth.ToolStripCheckBoxEnabled = True
+        Me.Status.DataPropertyName = "Stat"
+        Me.Status.HeaderText = ""
+        Me.Status.Name = "Status"
+        Me.Status.ReadOnly = True
+        Me.Status.Width = 20
         '
-        'Tscbdate
+        'Comid
         '
-        Me.Tscbdate.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Tscbdate.BackColor = System.Drawing.Color.Transparent
-        Me.Tscbdate.Checked = False
-        Me.Tscbdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tscbdate.Name = "Tscbdate"
-        Me.Tscbdate.Size = New System.Drawing.Size(55, 46)
-        Me.Tscbdate.Text = "วันที่"
-        Me.Tscbdate.ToolStripCheckBoxEnabled = True
+        Me.Comid.DataPropertyName = "Comid"
+        Me.Comid.HeaderText = "Comid"
+        Me.Comid.Name = "Comid"
+        Me.Comid.ReadOnly = True
+        Me.Comid.Visible = False
+        '
+        'Ldfabdate
+        '
+        Me.Ldfabdate.DataPropertyName = "Dfabdate"
+        Me.Ldfabdate.HeaderText = "วันที่"
+        Me.Ldfabdate.Name = "Ldfabdate"
+        Me.Ldfabdate.ReadOnly = True
+        '
+        'Dlvno
+        '
+        Me.Dlvno.DataPropertyName = "Dlvno"
+        Me.Dlvno.HeaderText = "เลขที่"
+        Me.Dlvno.Name = "Dlvno"
+        Me.Dlvno.ReadOnly = True
+        Me.Dlvno.Width = 110
+        '
+        'Lcustid
+        '
+        Me.Lcustid.DataPropertyName = "Custid"
+        Me.Lcustid.HeaderText = "Custid"
+        Me.Lcustid.Name = "Lcustid"
+        Me.Lcustid.ReadOnly = True
+        Me.Lcustid.Visible = False
+        '
+        'Lcustname
+        '
+        Me.Lcustname.DataPropertyName = "Custname"
+        Me.Lcustname.HeaderText = "ลูกค้า"
+        Me.Lcustname.Name = "Lcustname"
+        Me.Lcustname.ReadOnly = True
+        Me.Lcustname.Width = 170
+        '
+        'Clothid
+        '
+        Me.Clothid.DataPropertyName = "Clothid"
+        Me.Clothid.HeaderText = "Clothid"
+        Me.Clothid.Name = "Clothid"
+        Me.Clothid.ReadOnly = True
+        Me.Clothid.Visible = False
+        '
+        'Clothno
+        '
+        Me.Clothno.DataPropertyName = "Clothno"
+        Me.Clothno.HeaderText = "เบอร์ผ้า"
+        Me.Clothno.Name = "Clothno"
+        Me.Clothno.ReadOnly = True
+        Me.Clothno.Width = 170
+        '
+        'Ftype
+        '
+        Me.Ftype.DataPropertyName = "Ftype"
+        Me.Ftype.HeaderText = "Ftype"
+        Me.Ftype.Name = "Ftype"
+        Me.Ftype.ReadOnly = True
+        Me.Ftype.Visible = False
+        '
+        'Fwidth
+        '
+        Me.Fwidth.DataPropertyName = "Fwidth"
+        Me.Fwidth.HeaderText = "Fwidth"
+        Me.Fwidth.Name = "Fwidth"
+        Me.Fwidth.ReadOnly = True
+        Me.Fwidth.Visible = False
+        '
+        'Lcustadd
+        '
+        Me.Lcustadd.DataPropertyName = "Custadd"
+        Me.Lcustadd.HeaderText = "Custadd"
+        Me.Lcustadd.Name = "Lcustadd"
+        Me.Lcustadd.ReadOnly = True
+        Me.Lcustadd.Visible = False
+        '
+        'Lcustshipadd
+        '
+        Me.Lcustshipadd.DataPropertyName = "Custshipadd"
+        Me.Lcustshipadd.HeaderText = "Custshipadd"
+        Me.Lcustshipadd.Name = "Lcustshipadd"
+        Me.Lcustshipadd.ReadOnly = True
+        Me.Lcustshipadd.Visible = False
+        '
+        'Lshadid
+        '
+        Me.Lshadid.DataPropertyName = "Shadid"
+        Me.Lshadid.HeaderText = "Shadid"
+        Me.Lshadid.Name = "Lshadid"
+        Me.Lshadid.ReadOnly = True
+        Me.Lshadid.Visible = False
+        '
+        'Lshadedesc
+        '
+        Me.Lshadedesc.DataPropertyName = "Shadedesc"
+        Me.Lshadedesc.HeaderText = "Shadedesc"
+        Me.Lshadedesc.Name = "Lshadedesc"
+        Me.Lshadedesc.ReadOnly = True
+        Me.Lshadedesc.Visible = False
+        '
+        'Lcolorno
+        '
+        Me.Lcolorno.DataPropertyName = "Colorno"
+        Me.Lcolorno.HeaderText = "Colorno"
+        Me.Lcolorno.Name = "Lcolorno"
+        Me.Lcolorno.ReadOnly = True
+        Me.Lcolorno.Visible = False
+        '
+        'Lkgprice
+        '
+        Me.Lkgprice.DataPropertyName = "Kgprice"
+        Me.Lkgprice.HeaderText = "Kgprice"
+        Me.Lkgprice.Name = "Lkgprice"
+        Me.Lkgprice.ReadOnly = True
+        Me.Lkgprice.Visible = False
+        '
+        'Lsumkg
+        '
+        Me.Lsumkg.DataPropertyName = "Sumkg"
+        Me.Lsumkg.HeaderText = "Sumkg"
+        Me.Lsumkg.Name = "Lsumkg"
+        Me.Lsumkg.ReadOnly = True
+        Me.Lsumkg.Visible = False
+        '
+        'Lsumprice
+        '
+        Me.Lsumprice.DataPropertyName = "Sumprice"
+        Me.Lsumprice.HeaderText = "Sumprice"
+        Me.Lsumprice.Name = "Lsumprice"
+        Me.Lsumprice.ReadOnly = True
+        Me.Lsumprice.Visible = False
+        '
+        'Ldremark
+        '
+        Me.Ldremark.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Ldremark.DataPropertyName = "Dremark"
+        Me.Ldremark.HeaderText = "หมายเหตุ"
+        Me.Ldremark.Name = "Ldremark"
+        Me.Ldremark.ReadOnly = True
+        '
+        'Lsremark
+        '
+        Me.Lsremark.DataPropertyName = "Sremark"
+        Me.Lsremark.HeaderText = "Sremark"
+        Me.Lsremark.Name = "Lsremark"
+        Me.Lsremark.ReadOnly = True
+        Me.Lsremark.Visible = False
         '
         'Formsalefabric
         '
@@ -2047,26 +2048,6 @@ Partial Class Formsalefabric
     Friend WithEvents Tstbdocpre As ToolStripTextBox
     Friend WithEvents Tstbdocpreid As ToolStripTextBox
     Friend WithEvents ToolStripLabel2 As ToolStripLabel
-    Friend WithEvents Status As DataGridViewTextBoxColumn
-    Friend WithEvents Comid As DataGridViewTextBoxColumn
-    Friend WithEvents Ldfabdate As DataGridViewTextBoxColumn
-    Friend WithEvents Dlvno As DataGridViewTextBoxColumn
-    Friend WithEvents Lcustid As DataGridViewTextBoxColumn
-    Friend WithEvents Lcustname As DataGridViewTextBoxColumn
-    Friend WithEvents Clothid As DataGridViewTextBoxColumn
-    Friend WithEvents Clothno As DataGridViewTextBoxColumn
-    Friend WithEvents Ftype As DataGridViewTextBoxColumn
-    Friend WithEvents Fwidth As DataGridViewTextBoxColumn
-    Friend WithEvents Lcustadd As DataGridViewTextBoxColumn
-    Friend WithEvents Lcustshipadd As DataGridViewTextBoxColumn
-    Friend WithEvents Lshadid As DataGridViewTextBoxColumn
-    Friend WithEvents Lshadedesc As DataGridViewTextBoxColumn
-    Friend WithEvents Lcolorno As DataGridViewTextBoxColumn
-    Friend WithEvents Lkgprice As DataGridViewTextBoxColumn
-    Friend WithEvents Lsumkg As DataGridViewTextBoxColumn
-    Friend WithEvents Lsumprice As DataGridViewTextBoxColumn
-    Friend WithEvents Ldremark As DataGridViewTextBoxColumn
-    Friend WithEvents Lsremark As DataGridViewTextBoxColumn
     Friend WithEvents Btmedit As ToolStripButton
     Friend WithEvents Btmcancel As ToolStripButton
     Friend WithEvents BindingNavigator1 As BindingNavigator
@@ -2131,13 +2112,6 @@ Partial Class Formsalefabric
     Friend WithEvents Ctdedit As DevComponents.DotNetBar.ButtonItem
     Friend WithEvents Ctddel As DevComponents.DotNetBar.ButtonItem
     Friend WithEvents Dgvmas As DataGridView
-    Friend WithEvents Mstat As DataGridViewTextBoxColumn
-    Friend WithEvents Dcomid As DataGridViewTextBoxColumn
-    Friend WithEvents Ddlvno As DataGridViewTextBoxColumn
-    Friend WithEvents Dlot As DataGridViewTextBoxColumn
-    Friend WithEvents Mkongno As DataGridViewTextBoxColumn
-    Friend WithEvents Rollno As DataGridViewTextBoxColumn
-    Friend WithEvents Qtykg As DataGridViewTextBoxColumn
     Friend WithEvents ToolStrip2 As ToolStrip
     Friend WithEvents Btddel As ToolStripButton
     Friend WithEvents Btdedit As ToolStripButton
@@ -2150,4 +2124,31 @@ Partial Class Formsalefabric
     Friend WithEvents LabelX18 As DevComponents.DotNetBar.LabelX
     Friend WithEvents Rollnobox As Normtextbox.Normtextbox
     Friend WithEvents Btfindshade As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents Mstat As DataGridViewTextBoxColumn
+    Friend WithEvents Dcomid As DataGridViewTextBoxColumn
+    Friend WithEvents Ddlvno As DataGridViewTextBoxColumn
+    Friend WithEvents Dlot As DataGridViewTextBoxColumn
+    Friend WithEvents Mkongno As DataGridViewTextBoxColumn
+    Friend WithEvents Rollno As DataGridViewTextBoxColumn
+    Friend WithEvents Qtykg As DataGridViewTextBoxColumn
+    Friend WithEvents Status As DataGridViewTextBoxColumn
+    Friend WithEvents Comid As DataGridViewTextBoxColumn
+    Friend WithEvents Ldfabdate As DataGridViewTextBoxColumn
+    Friend WithEvents Dlvno As DataGridViewTextBoxColumn
+    Friend WithEvents Lcustid As DataGridViewTextBoxColumn
+    Friend WithEvents Lcustname As DataGridViewTextBoxColumn
+    Friend WithEvents Clothid As DataGridViewTextBoxColumn
+    Friend WithEvents Clothno As DataGridViewTextBoxColumn
+    Friend WithEvents Ftype As DataGridViewTextBoxColumn
+    Friend WithEvents Fwidth As DataGridViewTextBoxColumn
+    Friend WithEvents Lcustadd As DataGridViewTextBoxColumn
+    Friend WithEvents Lcustshipadd As DataGridViewTextBoxColumn
+    Friend WithEvents Lshadid As DataGridViewTextBoxColumn
+    Friend WithEvents Lshadedesc As DataGridViewTextBoxColumn
+    Friend WithEvents Lcolorno As DataGridViewTextBoxColumn
+    Friend WithEvents Lkgprice As DataGridViewTextBoxColumn
+    Friend WithEvents Lsumkg As DataGridViewTextBoxColumn
+    Friend WithEvents Lsumprice As DataGridViewTextBoxColumn
+    Friend WithEvents Ldremark As DataGridViewTextBoxColumn
+    Friend WithEvents Lsremark As DataGridViewTextBoxColumn
 End Class
