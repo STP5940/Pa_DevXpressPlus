@@ -95,7 +95,27 @@ Public Class Formsalefabric
             SQLCommand("DELETE FROM Tsalefabcolxp WHERE Comid = '" & Gscomid & "' AND Dlvno = '" & Trim(Tbdlvno.Text) & "'")
             Clrdgrid()
             Clrtxtbox()
+            Clrtextmaster()
+            'Clrtextdetails()
+            Clrgridmaster()
+            Bindinglist()
+            TabControl1.SelectedTabIndex = 0
+            BindingNavigator1.Enabled = False
+            Mainbuttoncancel()
         End If
+
+        '------
+        'If Confirmdelete() = True Then
+        '    Deldetails(Trim(Tbdyedcomno.Text))
+        '    SQLCommand("DELETE FROM Tdyedcomxp WHERE Comid = '" & Gscomid & "' AND Dyecomno = '" & Trim(Tbdyedcomno.Text) & "'")
+        '    Clrtextmaster()
+        '    Clrtextdetails()
+        '    Clrgridmaster()
+        '    Bindinglist()
+        '    TabControl1.SelectedTabIndex = 0
+        '    BindingNavigator1.Enabled = False
+        '    Mainbuttoncancel()
+        'End If
     End Sub
     Private Sub Btmreports_Click(sender As Object, e As EventArgs) Handles Btmreports.Click
         If Dgvmas.RowCount = 0 Then
@@ -417,13 +437,14 @@ Public Class Formsalefabric
             Exit Sub
         End If
         Tlist = SQLCommand("SELECT '' AS Stat,* FROM Vsalefabcolmas
-                                WHERE Comid = '" & Gscomid & "' AND (Knitdesc LIKE '%' + '" & Sval & "' + '%' OR Dlvno LIKE '%' + '" & Sval & "' + '%')")
+                                WHERE Comid = '" & Gscomid & "' AND (Custname LIKE '%' + '" & Sval & "' + '%' OR Dlvno LIKE '%' + '" & Sval & "' + '%' OR Clothno LIKE '%' + '" & Sval & "' + '%' OR Dremark LIKE '%' + '" & Sval & "' + '%')")
+        'Custname LIKE '%' + '" & Sval & "' + '%' OR Dlvno LIKE '%' + '" & Sval & "' + '%' OR Clothno LIKE '%' + '" & Sval & "' + '%' OR Dremark LIKE '%' + '" & Sval & "' + '%'
         FillGrid()
         ShowRecordDetail()
     End Sub
     Private Sub Searchlistbydate()
         Tlist = SQLCommand("SELECT '' AS Stat,* FROM Vsalefabcolmas
-                                WHERE Comid = '" & Gscomid & "' AND (Dyarndate BETWEEN '" & Formatshortdatesave(Dtplistfm.Value) & "' AND '" & Formatshortdatesave(Dtplistto.Value) & "')")
+                                WHERE Comid = '" & Gscomid & "' AND (Dfabdate BETWEEN '" & Formatshortdatesave(Dtplistfm.Value) & "' AND '" & Formatshortdatesave(Dtplistto.Value) & "')")
         FillGrid()
         ShowRecordDetail()
     End Sub
@@ -1100,6 +1121,8 @@ Public Class Formsalefabric
         End If
         Tbcustid.Text = CLng(Frm.Dgvmas.CurrentRow.Cells("Mid").Value)
         Tbcustname.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Mname").Value)
+        Tbcusadd.Text = ""
+        Tbcustship.Text = ""
 
     End Sub
 
@@ -1152,9 +1175,6 @@ Public Class Formsalefabric
         Tbsummoney.Text = Format(Summoney, "###,##0.#0")
     End Sub
 
-    Private Sub Tbremark_TextChanged(sender As Object, e As EventArgs) Handles Tbremark.TextChanged
-
-    End Sub
 
     Private Sub Clrgridmaster()
         Dgvmas.AutoGenerateColumns = False
@@ -1163,15 +1183,18 @@ Public Class Formsalefabric
     End Sub
 
     Private Sub Clrtextmaster()
+
         'Tbdhid.Text = ""
         'Tbdhname.Text = ""
-        'Tbdyedcomno.Text = "NEW"
+        Clrmaster()
+        Clrdetails()
+        Tbdlvno.Text = "NEW"
         Dtpdate.Value = Now
         'Tbpickup.Text = ""
-        Tstbsumroll.Text = ""
-        Tstbsumkg.Text = ""
-        Tbremark.Text = ""
-        Tsbwsave.Visible = False
+        'Tstbsumroll.Text = ""
+        'Tstbsumkg.Text = ""
+        'Tbremark.Text = ""
+        'Tsbwsave.Visible = False
     End Sub
 
     Private Sub Clrtextdetails()
