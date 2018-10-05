@@ -27,13 +27,6 @@ Partial Class Formsheadbyfab
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
         Me.Dgvmas = New System.Windows.Forms.DataGridView()
-        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.Btmsearch = New System.Windows.Forms.ToolStripButton()
-        Me.Tbkeyword = New System.Windows.Forms.ToolStripTextBox()
-        Me.Tbcancel = New System.Windows.Forms.ToolStripTextBox()
-        Me.Btcancel = New DevComponents.DotNetBar.ButtonX()
-        Me.Btok = New DevComponents.DotNetBar.ButtonX()
-        Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
         Me.Status = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MComid = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Mid = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -43,6 +36,13 @@ Partial Class Formsheadbyfab
         Me.Updusr = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Uptype = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Uptime = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.Btmsearch = New System.Windows.Forms.ToolStripButton()
+        Me.Tbkeyword = New System.Windows.Forms.ToolStripTextBox()
+        Me.Tbcancel = New System.Windows.Forms.ToolStripTextBox()
+        Me.Btcancel = New DevComponents.DotNetBar.ButtonX()
+        Me.Btok = New DevComponents.DotNetBar.ButtonX()
+        Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabControlPanel1.SuspendLayout()
@@ -107,74 +107,9 @@ Partial Class Formsheadbyfab
         Me.Dgvmas.Location = New System.Drawing.Point(1, 50)
         Me.Dgvmas.Name = "Dgvmas"
         Me.Dgvmas.ReadOnly = True
+        Me.Dgvmas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.Dgvmas.Size = New System.Drawing.Size(382, 180)
         Me.Dgvmas.TabIndex = 29
-        '
-        'ToolStrip1
-        '
-        Me.ToolStrip1.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btmsearch, Me.Tbkeyword, Me.Tbcancel})
-        Me.ToolStrip1.Location = New System.Drawing.Point(1, 1)
-        Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(382, 49)
-        Me.ToolStrip1.TabIndex = 28
-        Me.ToolStrip1.Text = "ToolStrip1"
-        '
-        'Btmsearch
-        '
-        Me.Btmsearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Btmsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btmsearch.Image = Global.XpressPlus.My.Resources.Resources.Findicon
-        Me.Btmsearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.Btmsearch.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Btmsearch.Name = "Btmsearch"
-        Me.Btmsearch.Size = New System.Drawing.Size(48, 46)
-        Me.Btmsearch.Text = "ค้นหา"
-        Me.Btmsearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'Tbkeyword
-        '
-        Me.Tbkeyword.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Tbkeyword.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Tbkeyword.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbkeyword.Name = "Tbkeyword"
-        Me.Tbkeyword.Size = New System.Drawing.Size(120, 49)
-        '
-        'Tbcancel
-        '
-        Me.Tbcancel.Name = "Tbcancel"
-        Me.Tbcancel.Size = New System.Drawing.Size(25, 49)
-        Me.Tbcancel.Visible = False
-        '
-        'Btcancel
-        '
-        Me.Btcancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.Btcancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.Btcancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btcancel.Location = New System.Drawing.Point(233, 249)
-        Me.Btcancel.Name = "Btcancel"
-        Me.Btcancel.Size = New System.Drawing.Size(73, 34)
-        Me.Btcancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
-        Me.Btcancel.TabIndex = 1
-        Me.Btcancel.Text = "ยกเลิก"
-        '
-        'Btok
-        '
-        Me.Btok.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.Btok.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.Btok.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btok.Location = New System.Drawing.Point(87, 249)
-        Me.Btok.Name = "Btok"
-        Me.Btok.Size = New System.Drawing.Size(73, 34)
-        Me.Btok.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
-        Me.Btok.TabIndex = 0
-        Me.Btok.Text = "ตกลง"
-        '
-        'TabItem1
-        '
-        Me.TabItem1.AttachedControl = Me.TabControlPanel1
-        Me.TabItem1.Name = "TabItem1"
-        Me.TabItem1.Text = "เบอร์ผ้า"
         '
         'Status
         '
@@ -247,6 +182,72 @@ Partial Class Formsheadbyfab
         Me.Uptime.Name = "Uptime"
         Me.Uptime.ReadOnly = True
         Me.Uptime.Visible = False
+        '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.BackColor = System.Drawing.Color.Transparent
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btmsearch, Me.Tbkeyword, Me.Tbcancel})
+        Me.ToolStrip1.Location = New System.Drawing.Point(1, 1)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(382, 49)
+        Me.ToolStrip1.TabIndex = 28
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'Btmsearch
+        '
+        Me.Btmsearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Btmsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Btmsearch.Image = Global.XpressPlus.My.Resources.Resources.Findicon
+        Me.Btmsearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.Btmsearch.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Btmsearch.Name = "Btmsearch"
+        Me.Btmsearch.Size = New System.Drawing.Size(48, 46)
+        Me.Btmsearch.Text = "ค้นหา"
+        Me.Btmsearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'Tbkeyword
+        '
+        Me.Tbkeyword.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Tbkeyword.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbkeyword.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tbkeyword.Name = "Tbkeyword"
+        Me.Tbkeyword.Size = New System.Drawing.Size(120, 49)
+        '
+        'Tbcancel
+        '
+        Me.Tbcancel.Name = "Tbcancel"
+        Me.Tbcancel.Size = New System.Drawing.Size(25, 49)
+        Me.Tbcancel.Visible = False
+        '
+        'Btcancel
+        '
+        Me.Btcancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.Btcancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.Btcancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Btcancel.Location = New System.Drawing.Point(233, 249)
+        Me.Btcancel.Name = "Btcancel"
+        Me.Btcancel.Size = New System.Drawing.Size(73, 34)
+        Me.Btcancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
+        Me.Btcancel.TabIndex = 1
+        Me.Btcancel.Text = "ยกเลิก"
+        '
+        'Btok
+        '
+        Me.Btok.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.Btok.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.Btok.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Btok.Location = New System.Drawing.Point(87, 249)
+        Me.Btok.Name = "Btok"
+        Me.Btok.Size = New System.Drawing.Size(73, 34)
+        Me.Btok.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
+        Me.Btok.TabIndex = 0
+        Me.Btok.Text = "ตกลง"
+        '
+        'TabItem1
+        '
+        Me.TabItem1.AttachedControl = Me.TabControlPanel1
+        Me.TabItem1.Name = "TabItem1"
+        Me.TabItem1.Text = "เบอร์ผ้า"
         '
         'Formsheadbyfab
         '

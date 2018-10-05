@@ -113,6 +113,7 @@ Partial Class Formaesalefabcolor
         Me.Dgvmas.Dock = System.Windows.Forms.DockStyle.Top
         Me.Dgvmas.Location = New System.Drawing.Point(1, 50)
         Me.Dgvmas.Name = "Dgvmas"
+        Me.Dgvmas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.Dgvmas.Size = New System.Drawing.Size(382, 251)
         Me.Dgvmas.TabIndex = 30
         '
