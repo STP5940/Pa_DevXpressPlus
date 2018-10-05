@@ -74,8 +74,10 @@ Public Class Formsalefabric
             Exit Sub
         End If
         If Tbdlvno.Text = "NEW" Then
+            'Informmessage("Wowww! Newdoc")
             Newdoc()
         Else
+            'Informmessage("Wowww! Editdoc")
             Editdoc()
         End If
         Btdcancel_Click(sender, e)
@@ -771,7 +773,8 @@ Public Class Formsalefabric
     End Function
     Private Function Validmas() As Boolean
         Dim Valid As Boolean = False
-        If Tbmycom.Text <> "" And Tbcustid.Text <> "" And Tbcustname.Text <> "" And Tbdlvno.Text <> "" And
+        'Tbmycom.Text <> "" And 
+        If Tbcustid.Text <> "" And Tbcustname.Text <> "" And Tbdlvno.Text <> "" And
         Tbcusadd.Text <> "" And Tbcustship.Text <> "" And Tbclothid.Text <> "" And Tbclothno.Text <> "" And
         Tbwidth.Text <> "" And Tbshadeid.Text <> "" And Tbshadename.Text <> "" And Tbcolorno.Text <> "" And
         Tbkgprice.Text <> "" Then
@@ -1018,6 +1021,17 @@ Public Class Formsalefabric
         Btfindlotno.Enabled = True
         GroupPanel2.Visible = True
         Tbaddedit.Text = "เพิ่ม"
+
+        If Tbkgprice.Text = "" OrElse Tbkgprice.Text = "." Then
+            Tbsummoney.Text = "0.00"
+            Exit Sub
+        ElseIf CDbl(Tbkgprice.Text) = 0 Then
+            Tbsummoney.Text = "0.00"
+        End If
+
+        Dim Summoney As Double = CDbl(Tbkgprice.Text) * CDbl(Tbsumwgt.Text)
+        Tbsummoney.Text = Format(Summoney, "###,##0.#0")
+
     End Sub
 
     Private Sub Btddel_Click_1(sender As Object, e As EventArgs) Handles Btddel.Click
