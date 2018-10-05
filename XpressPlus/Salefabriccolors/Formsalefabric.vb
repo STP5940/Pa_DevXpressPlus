@@ -84,6 +84,13 @@ Public Class Formsalefabric
         End If
         Btdcancel_Click(sender, e)
         Tsbwsave.Visible = False
+        Clrtextmaster()
+        Clrtextdetails()
+        Clrgridmaster()
+        Bindinglist()
+        TabControl1.SelectedTabIndex = 0
+        BindingNavigator1.Enabled = False
+        Mainbuttoncancel()
     End Sub
     Private Sub Btmdel_Click(sender As Object, e As EventArgs) Handles Btmdel.Click
         If Trim(Tbdlvno.Text) = "NEW" Then
