@@ -153,6 +153,13 @@ Public Class Formsalefabric
         Frm.ReportViewer1.LocalReport.DataSources.Add(Rds)
         'Showform(Frm)
         Frm.Show()
+        Sumall()
+        Clrtextmaster()
+        Clrtextdetails()
+        Clrgridmaster()
+        BindingNavigator1.Enabled = False
+        Mainbuttoncancel()
+        TabControl1.SelectedTabIndex = 0
     End Sub
     Private Sub Btmfind_Click(sender As Object, e As EventArgs) Handles Btmfind.Click
         TabControl1.SelectedTabIndex = 0
