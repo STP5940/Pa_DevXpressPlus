@@ -6,6 +6,7 @@ Public Class Formdyeform
     Private WithEvents Dtplistfm As New DateTimePicker
     Private WithEvents Dtplistto As New DateTimePicker
     Private Bs As BindingSource
+
     Private Sub Formdyeform_Load(sender As Object, e As EventArgs) Handles Me.Load
         BindingNavigator1.Enabled = False
         GroupPanel2.Visible = False
@@ -1039,11 +1040,6 @@ Public Class Formdyeform
         End If
         Return Valid
     End Function
-
-    Private Sub Tscboth_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
 
 
     Private Sub Setauthorize()

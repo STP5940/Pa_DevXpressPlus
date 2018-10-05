@@ -5,6 +5,8 @@ Public Class Formsalefabric
     Private Pagecount, Maxrec, Pagesize, Currentpage, Recno As Integer
     Private WithEvents Dtplistfm As New DateTimePicker
     Private WithEvents Dtplistto As New DateTimePicker
+    Private Bs As BindingSource
+
     Private Sub Formsalefabric_Load(sender As Object, e As EventArgs) Handles Me.Load
         Mainbuttoncancel()
         Controls.Add(Dtplistfm)
@@ -220,6 +222,11 @@ Public Class Formsalefabric
         Btdcancel_Click(sender, e)
         TabControl1.SelectedTabIndex = 1
         Tbdlvno.Text = Trim(Dgvlist.CurrentRow.Cells("Dlvno").Value)
+        Tbdlvno.DataBindings.Clear()
+        Tbdlvno.Text = ""
+        Bs.Position = Bs.Find("Dlvno", Trim(Dgvlist.CurrentRow.Cells("Dlvno").Value))
+        Tbdlvno.DataBindings.Add("Text", Bs, "Dlvno")
+        Tbdlvno.Enabled = False
         Bindmaster()
         BindingNavigator1.Enabled = True
         'Btmnew.Enabled = False
@@ -590,6 +597,9 @@ Public Class Formsalefabric
         Tlist = SQLCommand("SELECT '' AS Stat,* FROM Vsalefabcolmas
                                 WHERE Comid = '" & Gscomid & "'")
         Dgvlist.DataSource = Tlist
+        Bs = New BindingSource
+        Bs.DataSource = Tlist
+        BindingNavigator1.BindingSource = Bs
         FillGrid()
         ShowRecordDetail()
     End Sub
@@ -1175,6 +1185,13 @@ Public Class Formsalefabric
         Tbsummoney.Text = Format(Summoney, "###,##0.#0")
     End Sub
 
+    Private Sub BindingNavigator1_RefreshItems(sender As Object, e As EventArgs) Handles BindingNavigator1.RefreshItems
+        Tsbwsave.Visible = False
+        Tbdlvno.Enabled = False
+        If Btmedit.Enabled = True Then
+            Bindmaster()
+        End If
+    End Sub
 
     Private Sub Clrgridmaster()
         Dgvmas.AutoGenerateColumns = False
