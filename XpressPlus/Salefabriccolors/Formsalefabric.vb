@@ -463,8 +463,8 @@ Public Class Formsalefabric
     End Sub
     Private Sub Editmaster()
         SQLCommand("UPDATE Tsalefabcolxp SET Dfabdate = '" & Formatdatesave(Dtpdate.Value) & "',Clothid = '" & Tbclothid.Text & "',Custid = '" & Trim(Tbcustid.Text) & "',
-                    Custadd = " & Trim(Tbcusadd.Text) & ",Colorno = '" & Trim(Tbcolorno.Text) & "',Kgprice = " & Trim(Tbkgprice.Text) & ",Sumkg = " & Tbsumwgt.Text & ",
-                    Sumprice = " & Tbsummoney.Text & ",Dremark = '" & Trim(Tbremark.Text) & "',Updusr = '" & Gsuserid & "',Uptype = 'E',Uptime = '" & Formatdatesave(Now) & "'
+                    Custadd = " & Trim(Tbcusadd.Text) & ",Colorno = '" & Trim(Tbcolorno.Text) & "',Kgprice = " & Trim(Tbkgprice.Text) & ",Sumkg = " & CDbl(Tbsumwgt.Text) & ",
+                    Sumprice = " & CDbl(Tbsummoney.Text) & ",Dremark = '" & Trim(Tbremark.Text) & "',Updusr = '" & Gsuserid & "',Uptype = 'E',Uptime = '" & Formatdatesave(Now) & "'
                     WHERE Comid = '" & Gscomid & "' AND Dlvno = '" & Tbdlvno.Text & "'")
     End Sub
     Private Sub Deldetails(Tdlvno As String)
