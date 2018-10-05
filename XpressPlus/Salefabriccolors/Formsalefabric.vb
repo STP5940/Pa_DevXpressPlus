@@ -209,6 +209,16 @@ Public Class Formsalefabric
         Btmsave.Enabled = False
         Btmcancel.Enabled = False
         Btmreports.Enabled = True
+        Btfindcustid.Enabled = False
+        Btfindcusship.Enabled = False
+        Btfindclothno.Enabled = False
+        Btfindshade.Enabled = False
+        Tbcolorno.Enabled = False
+        Tbkgprice.Enabled = False
+        Tbremark.Enabled = False
+        Dtpdate.Enabled = False
+        Btdbadd.Enabled = False
+        Btddel.Enabled = False
         'Btdadd.Enabled = False
         'Btdedit.Enabled = False
         'Btddel.Enabled = False
@@ -745,6 +755,10 @@ Public Class Formsalefabric
         Ctdedit.Enabled = True
         Ctddel.Enabled = True
         Btmnew.Enabled = False
+        Btfindcustid.Enabled = True
+        Btfindcusship.Enabled = True
+        Btfindclothno.Enabled = True
+        Btfindshade.Enabled = True
         'Btdadd.Enabled = True
         BindingNavigator1.Enabled = False
         Mainbuttonaddedit()
@@ -1136,6 +1150,10 @@ Public Class Formsalefabric
 
         Dim Summoney As Double = CDbl(Tbkgprice.Text) * CDbl(Tbsumwgt.Text)
         Tbsummoney.Text = Format(Summoney, "###,##0.#0")
+    End Sub
+
+    Private Sub Tbremark_TextChanged(sender As Object, e As EventArgs) Handles Tbremark.TextChanged
+
     End Sub
 
     Private Sub Clrgridmaster()
