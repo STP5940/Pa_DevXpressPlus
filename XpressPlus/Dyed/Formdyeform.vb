@@ -1,7 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports Microsoft.Reporting.WinForms
 Public Class Formdyeform
-    Private Tmaster, Tdetails, Tlist, FabricTlist, Dttemp As DataTable
+    Private Tmaster, Tdetails, Tlist, TbFabric, FabricTlist, Dttemp As DataTable
     Private Pagecount, Maxrec, Pagesize, Currentpage, Recno As Integer
     Private WithEvents Dtplistfm As New DateTimePicker
     Private WithEvents Dtplistto As New DateTimePicker
@@ -853,9 +853,17 @@ Public Class Formdyeform
     End Sub
     Private Sub BindingFabriclist()
         Tlist = New DataTable
-        Tlist = SQLCommand("SELECT '' AS Stat,* FROM Vknitcommas 
+        Tlist = SQLCommand("SELECT '' AS Stat,* FROM Vknitcomdet 
                             WHERE Comid = '" & Gscomid & "'")
         FabricList.DataSource = Tlist
+
+        'For I = 0 To FabricList.RowCount - 1
+        '    MessageBox.Show(FabricList.Rows(I).Cells("Knitcomno").Value)
+        '    TbFabric = New DataTable
+        '    'TbFabric = SQLCommand("")
+
+        'Next
+
         FillGrid()
         'ShowRecordDetail()
     End Sub

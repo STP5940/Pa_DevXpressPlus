@@ -39,7 +39,7 @@
     End Sub
     Private Sub Bindingmaster()
         Tmaster = New DataTable
-        Tmaster = SQLCommand("SELECT * FROM Vknitcomdet  WHERE Comid = '" & Gscomid & "'")
+        Tmaster = SQLCommand("SELECT * FROM Vknitcomdet  WHERE Comid = '" & Gscomid & "' order by Knitcomno")
         'SELECT SUM(Qtyroll) AS Qtyroll FROM Tdyedcomdetxp WHERE Knittcomid = 'VC180900008'
         'Dim PriceSell = New DataTable
         'PriceSell = SQLCommand("SELECT SUM(Qtyroll) AS Qtyroll FROM Tdyedcomdetxp WHERE Knittcomid = 'VC180900008'")
