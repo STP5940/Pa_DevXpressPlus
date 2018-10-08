@@ -1,7 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports Microsoft.Reporting.WinForms
 Public Class Formdyeform
-    Private Tmaster, Tdetails, Tlist, Dttemp As DataTable
+    Private Tmaster, Tdetails, Tlist, FabricTlist, Dttemp As DataTable
     Private Pagecount, Maxrec, Pagesize, Currentpage, Recno As Integer
     Private WithEvents Dtplistfm As New DateTimePicker
     Private WithEvents Dtplistto As New DateTimePicker
@@ -43,6 +43,9 @@ Public Class Formdyeform
         Dgvmas.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
         Dgvlist.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
         Dgvlist.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
+        FabricList.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
+        FabricList.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
+        BindingFabriclist()
         Bindinglist()
     End Sub
     Private Sub Btmnew_Click(sender As Object, e As EventArgs) Handles Btmnew.Click
@@ -284,7 +287,7 @@ Public Class Formdyeform
         Clrtextmaster()
         Clrtextdetails()
         Clrgridmaster()
-        TabControl1.SelectedTabIndex = 1
+        TabControl1.SelectedTabIndex = 2
         Tbdyedcomno.DataBindings.Clear()
         Tbdyedcomno.Text = ""
         Bs.Position = Bs.Find("Dyecomno", Trim(Dgvlist.CurrentRow.Cells("Ldyecomno").Value))
@@ -847,6 +850,14 @@ Public Class Formdyeform
         BindingNavigator1.BindingSource = Bs
         FillGrid()
         ShowRecordDetail()
+    End Sub
+    Private Sub BindingFabriclist()
+        Tlist = New DataTable
+        Tlist = SQLCommand("SELECT '' AS Stat,* FROM Vknitcommas 
+                            WHERE Comid = '" & Gscomid & "'")
+        FabricList.DataSource = Tlist
+        FillGrid()
+        'ShowRecordDetail()
     End Sub
     Private Sub Sumall()
         Dim Sumkg As Double
