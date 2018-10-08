@@ -47,6 +47,19 @@ Partial Class Formdyeform
         Me.ButtonItem1 = New DevComponents.DotNetBar.ButtonItem()
         Me.ButtonItem2 = New DevComponents.DotNetBar.ButtonItem()
         Me.FabricList = New System.Windows.Forms.DataGridView()
+        Me.Stat = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Knitcomno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Clothids = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Clothnos = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Ftypes = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Fwidth = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Qtyroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Comids = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Wgtkg = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Finwgt = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Dozen = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Dyededroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Remainroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip6 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
@@ -194,19 +207,6 @@ Partial Class Formdyeform
         Me.Tscbdate = New XpressPlus.ToolStripCheckBox()
         Me.ToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
         Me.TabItem2 = New DevComponents.DotNetBar.TabItem(Me.components)
-        Me.Stat = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Knitcomno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Clothids = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Clothnos = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Ftypes = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Fwidth = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Qtyroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Comids = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Wgtkg = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Finwgt = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Dozen = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Dyededroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Remainroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -457,6 +457,106 @@ Partial Class Formdyeform
         Me.FabricList.ReadOnly = True
         Me.FabricList.Size = New System.Drawing.Size(1006, 564)
         Me.FabricList.TabIndex = 72
+        '
+        'Stat
+        '
+        Me.Stat.DataPropertyName = "Stat"
+        Me.Stat.HeaderText = ""
+        Me.Stat.Name = "Stat"
+        Me.Stat.ReadOnly = True
+        Me.Stat.Width = 10
+        '
+        'Knitcomno
+        '
+        Me.Knitcomno.DataPropertyName = "Knitcomno"
+        Me.Knitcomno.HeaderText = "เลขที่ใบสั่งทอ"
+        Me.Knitcomno.Name = "Knitcomno"
+        Me.Knitcomno.ReadOnly = True
+        Me.Knitcomno.Width = 120
+        '
+        'Clothids
+        '
+        Me.Clothids.DataPropertyName = "Clothid"
+        Me.Clothids.HeaderText = "Lot ID"
+        Me.Clothids.Name = "Clothids"
+        Me.Clothids.ReadOnly = True
+        '
+        'Clothnos
+        '
+        Me.Clothnos.DataPropertyName = "Clothno"
+        Me.Clothnos.HeaderText = "ประเภทผ้า"
+        Me.Clothnos.Name = "Clothnos"
+        Me.Clothnos.ReadOnly = True
+        Me.Clothnos.Width = 150
+        '
+        'Ftypes
+        '
+        Me.Ftypes.DataPropertyName = "Ftype"
+        Me.Ftypes.HeaderText = "สีผ้า"
+        Me.Ftypes.Name = "Ftypes"
+        Me.Ftypes.ReadOnly = True
+        '
+        'Fwidth
+        '
+        Me.Fwidth.DataPropertyName = "Fwidth"
+        Me.Fwidth.HeaderText = "หน้ากว้าง"
+        Me.Fwidth.Name = "Fwidth"
+        Me.Fwidth.ReadOnly = True
+        '
+        'Qtyroll
+        '
+        Me.Qtyroll.DataPropertyName = "Qtyroll"
+        Me.Qtyroll.HeaderText = "จำนวนผ้า"
+        Me.Qtyroll.Name = "Qtyroll"
+        Me.Qtyroll.ReadOnly = True
+        '
+        'Comids
+        '
+        Me.Comids.DataPropertyName = "Comid"
+        Me.Comids.HeaderText = "Comids"
+        Me.Comids.Name = "Comids"
+        Me.Comids.ReadOnly = True
+        Me.Comids.Visible = False
+        '
+        'Wgtkg
+        '
+        Me.Wgtkg.DataPropertyName = "Wgtkg"
+        Me.Wgtkg.HeaderText = "Wgtkg"
+        Me.Wgtkg.Name = "Wgtkg"
+        Me.Wgtkg.ReadOnly = True
+        Me.Wgtkg.Visible = False
+        '
+        'Finwgt
+        '
+        Me.Finwgt.DataPropertyName = "Finwgt"
+        Me.Finwgt.HeaderText = "Finwgt"
+        Me.Finwgt.Name = "Finwgt"
+        Me.Finwgt.ReadOnly = True
+        Me.Finwgt.Visible = False
+        '
+        'Dozen
+        '
+        Me.Dozen.DataPropertyName = "Dozen"
+        Me.Dozen.HeaderText = "Dozen"
+        Me.Dozen.Name = "Dozen"
+        Me.Dozen.ReadOnly = True
+        Me.Dozen.Visible = False
+        '
+        'Dyededroll
+        '
+        Me.Dyededroll.DataPropertyName = "Dyededroll"
+        Me.Dyededroll.HeaderText = "Dyededroll"
+        Me.Dyededroll.Name = "Dyededroll"
+        Me.Dyededroll.ReadOnly = True
+        Me.Dyededroll.Visible = False
+        '
+        'Remainroll
+        '
+        Me.Remainroll.DataPropertyName = "Remainroll"
+        Me.Remainroll.HeaderText = "Remainroll"
+        Me.Remainroll.Name = "Remainroll"
+        Me.Remainroll.ReadOnly = True
+        Me.Remainroll.Visible = False
         '
         'ToolStrip6
         '
@@ -2182,106 +2282,6 @@ Partial Class Formdyeform
         Me.TabItem2.AttachedControl = Me.TabControlPanel2
         Me.TabItem2.Name = "TabItem2"
         Me.TabItem2.Text = "รายการทั้งหมด"
-        '
-        'Stat
-        '
-        Me.Stat.DataPropertyName = "Stat"
-        Me.Stat.HeaderText = ""
-        Me.Stat.Name = "Stat"
-        Me.Stat.ReadOnly = True
-        Me.Stat.Width = 10
-        '
-        'Knitcomno
-        '
-        Me.Knitcomno.DataPropertyName = "Knitcomno"
-        Me.Knitcomno.HeaderText = "เลขที่ใบสั่งทอ"
-        Me.Knitcomno.Name = "Knitcomno"
-        Me.Knitcomno.ReadOnly = True
-        Me.Knitcomno.Width = 120
-        '
-        'Clothids
-        '
-        Me.Clothids.DataPropertyName = "Clothid"
-        Me.Clothids.HeaderText = "Lot ID"
-        Me.Clothids.Name = "Clothids"
-        Me.Clothids.ReadOnly = True
-        '
-        'Clothnos
-        '
-        Me.Clothnos.DataPropertyName = "Clothno"
-        Me.Clothnos.HeaderText = "ประเภทผ้า"
-        Me.Clothnos.Name = "Clothnos"
-        Me.Clothnos.ReadOnly = True
-        Me.Clothnos.Width = 150
-        '
-        'Ftypes
-        '
-        Me.Ftypes.DataPropertyName = "Ftype"
-        Me.Ftypes.HeaderText = "สีผ้า"
-        Me.Ftypes.Name = "Ftypes"
-        Me.Ftypes.ReadOnly = True
-        '
-        'Fwidth
-        '
-        Me.Fwidth.DataPropertyName = "Fwidth"
-        Me.Fwidth.HeaderText = "หน้ากว้าง"
-        Me.Fwidth.Name = "Fwidth"
-        Me.Fwidth.ReadOnly = True
-        '
-        'Qtyroll
-        '
-        Me.Qtyroll.DataPropertyName = "Qtyroll"
-        Me.Qtyroll.HeaderText = "จำนวนผ้า"
-        Me.Qtyroll.Name = "Qtyroll"
-        Me.Qtyroll.ReadOnly = True
-        '
-        'Comids
-        '
-        Me.Comids.DataPropertyName = "Comid"
-        Me.Comids.HeaderText = "Comids"
-        Me.Comids.Name = "Comids"
-        Me.Comids.ReadOnly = True
-        Me.Comids.Visible = False
-        '
-        'Wgtkg
-        '
-        Me.Wgtkg.DataPropertyName = "Wgtkg"
-        Me.Wgtkg.HeaderText = "Wgtkg"
-        Me.Wgtkg.Name = "Wgtkg"
-        Me.Wgtkg.ReadOnly = True
-        Me.Wgtkg.Visible = False
-        '
-        'Finwgt
-        '
-        Me.Finwgt.DataPropertyName = "Finwgt"
-        Me.Finwgt.HeaderText = "Finwgt"
-        Me.Finwgt.Name = "Finwgt"
-        Me.Finwgt.ReadOnly = True
-        Me.Finwgt.Visible = False
-        '
-        'Dozen
-        '
-        Me.Dozen.DataPropertyName = "Dozen"
-        Me.Dozen.HeaderText = "Dozen"
-        Me.Dozen.Name = "Dozen"
-        Me.Dozen.ReadOnly = True
-        Me.Dozen.Visible = False
-        '
-        'Dyededroll
-        '
-        Me.Dyededroll.DataPropertyName = "Dyededroll"
-        Me.Dyededroll.HeaderText = "Dyededroll"
-        Me.Dyededroll.Name = "Dyededroll"
-        Me.Dyededroll.ReadOnly = True
-        Me.Dyededroll.Visible = False
-        '
-        'Remainroll
-        '
-        Me.Remainroll.DataPropertyName = "Remainroll"
-        Me.Remainroll.HeaderText = "Remainroll"
-        Me.Remainroll.Name = "Remainroll"
-        Me.Remainroll.ReadOnly = True
-        Me.Remainroll.Visible = False
         '
         'Formdyeform
         '
