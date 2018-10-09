@@ -37,6 +37,15 @@ Public Class Formdyeform
         '  Setauthorize()
         Retdocprefix()
         Tbmycom.Text = Trim(Gscomname)
+        FabricList.Columns(0).SortMode = DataGridViewColumnSortMode.NotSortable
+        FabricList.Columns(1).SortMode = DataGridViewColumnSortMode.NotSortable
+        FabricList.Columns(2).SortMode = DataGridViewColumnSortMode.NotSortable
+        FabricList.Columns(3).SortMode = DataGridViewColumnSortMode.NotSortable
+        FabricList.Columns(4).SortMode = DataGridViewColumnSortMode.NotSortable
+        FabricList.Columns(5).SortMode = DataGridViewColumnSortMode.NotSortable
+        FabricList.Columns(6).SortMode = DataGridViewColumnSortMode.NotSortable
+        FabricList.Columns(7).SortMode = DataGridViewColumnSortMode.NotSortable
+        FabricList.Columns(8).SortMode = DataGridViewColumnSortMode.NotSortable
     End Sub
     Private Sub Formdyeform_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         Dgvmas.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
@@ -52,7 +61,7 @@ Public Class Formdyeform
         Clrtextmaster()
         Clrtextdetails()
         Clrgridmaster()
-        TabControl1.SelectedTabIndex = 1
+        TabControl1.SelectedTabIndex = 2
         BindingNavigator1.Enabled = False
         Tbqtyroll.Enabled = False
         Tbfinddhid.Enabled = True
@@ -86,6 +95,7 @@ Public Class Formdyeform
             Clrtextmaster()
             Clrtextdetails()
             Clrgridmaster()
+            BindingFabriclist()
             Bindinglist()
             TabControl1.SelectedTabIndex = 0
             BindingNavigator1.Enabled = False
@@ -124,6 +134,7 @@ Public Class Formdyeform
         Clrtextmaster()
         Clrtextdetails()
         Clrgridmaster()
+        BindingFabriclist()
         Bindinglist()
         TabControl1.SelectedTabIndex = 0
         BindingNavigator1.Enabled = False
@@ -1050,6 +1061,7 @@ Public Class Formdyeform
     End Sub
     Private Sub ShowRecordDetail()
         Tbrecord.Text = "แสดง " & (Dgvlist.RowCount) & " รายการ จาก " & Tlist.Rows.Count & " รายการ"
+        ToolStripTextBox4.Text = "แสดง " & (FabricList.RowCount) & " รายการ จาก " & Tlist.Rows.Count & " รายการ"
     End Sub
     Private Function Findpoud(Tkg As String) As Double
         Dim Rpound As Double = 0.0
@@ -1060,6 +1072,26 @@ Public Class Formdyeform
         End If
         Return Rpound
     End Function
+
+    Private Sub ButtonItem2_Click(sender As Object, e As EventArgs) Handles ButtonItem2.Click
+        MessageBox.Show(0)
+    End Sub
+
+    Private Sub FabricList_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles FabricList.CellMouseClick
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            If Me.FabricList.Rows.Count < 1 Then Exit Sub
+            If e.RowIndex < 0 Then Exit Sub
+            'FabricList.CurrentCell = FabricList(2, e.RowIndex)
+            Me.FabricList.Rows(e.RowIndex).Selected = True
+            EditcontextFabricList()
+        End If
+    End Sub
+    Private Sub EditcontextFabricList()
+        ButtonItem1.Displayed = False
+        ButtonItem1.PopupMenu(Control.MousePosition)
+    End Sub
+
+
     Private Function Validmas() As Boolean
         Dim Valid As Boolean = False
         If Tbdhid.Text <> "" And Tbdhname.Text <> "" Then
