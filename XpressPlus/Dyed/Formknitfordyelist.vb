@@ -72,6 +72,13 @@
         SellSum = SQLCommand($"SELECT SUM(Qtyroll) AS Sum FROM Tdyedcomdetxp WHERE Knittcomid = '{Knitcomno}' and Clothid= '{Clothid}'")
         DataSum.DataSource = SellSum
         SellSums.Text = If(IsDBNull(DataSum.Rows(0).Cells("Sum").Value), Qtyroll, (Qtyroll - DataSum.Rows(0).Cells("Sum").Value))
+        Send.Text = If(IsDBNull(DataSum.Rows(0).Cells("Sum").Value), 0, DataSum.Rows(0).Cells("Sum").Value)
+
+        If SellSums.Text < "1" Then
+            SellSums.BackColor = Color.FromArgb(255, 224, 192)
+        Else
+            SellSums.BackColor = Color.FromArgb(192, 255, 192)
+        End If
     End Sub
 
 End Class

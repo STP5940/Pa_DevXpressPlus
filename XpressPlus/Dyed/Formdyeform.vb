@@ -1,7 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports Microsoft.Reporting.WinForms
 Public Class Formdyeform
-    Private Tmaster, Tdetails, Tlist, TbFabric, FabricTlist, Dttemp As DataTable
+    Private Tmaster, Tdetails, Tlist, TFablist, TbFabric, FabricTlist, Dttemp As DataTable
     Private Pagecount, Maxrec, Pagesize, Currentpage, Recno As Integer
     Private WithEvents Dtplistfm As New DateTimePicker
     Private WithEvents Dtplistto As New DateTimePicker
@@ -46,6 +46,7 @@ Public Class Formdyeform
         FabricList.Columns(6).SortMode = DataGridViewColumnSortMode.NotSortable
         FabricList.Columns(7).SortMode = DataGridViewColumnSortMode.NotSortable
         FabricList.Columns(8).SortMode = DataGridViewColumnSortMode.NotSortable
+        ToolStrip6.Visible = False
     End Sub
     Private Sub Formdyeform_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         Dgvmas.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
@@ -380,6 +381,11 @@ Public Class Formdyeform
         Tbfinwgt.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Finwgt").Value)
         Tbfinwidth.Text = Frm.Dgvmas.CurrentRow.Cells("Fwidth").Value
         Tbqtyroll.Focus()
+        If Dgvmas.RowCount > 0 Then
+            Tbshadeid.Text = Trim(Dgvmas.Rows(0).Cells("Shid").Value)
+            Tbshadename.Text = Trim(Dgvmas.Rows(0).Cells("Mshade").Value)
+        End If
+
     End Sub
     Private Sub Tbqtyroll_KeyDown(sender As Object, e As KeyEventArgs) Handles Tbqtyroll.KeyDown
         If e.KeyCode = Keys.Enter Then
@@ -401,6 +407,15 @@ Public Class Formdyeform
         Showdiaformcenter(Frm, Me)
         If Frm.Tbcancel.Text = "C" Then
             Exit Sub
+        End If
+        If Dgvmas.RowCount > 0 Then
+            'Tbshadeid.Text = Trim(Dgvmas.Rows(0).Cells("Shid").Value)
+            'Tbshadename.Text = Trim(Dgvmas.Rows(0).Cells("Mshade").Value)
+
+            If Trim(Frm.Dgvmas.CurrentRow.Cells("Mid").Value) <> Trim(Dgvmas.Rows(0).Cells("Shid").Value) Then
+                Informmessage("Shade ไม่ตรงกันโปรดตรวจสอบอีกครั้ง")
+                Exit Sub
+            End If
         End If
 
         Tbshadeid.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Mid").Value)
@@ -864,10 +879,11 @@ Public Class Formdyeform
     End Sub
     Private Sub BindingFabriclist()
 
-        Tlist = New DataTable
-        Tlist = SQLCommand("SELECT '' AS Stat,* FROM Vknitcomdet 
+        TFablist = New DataTable
+        TFablist = SQLCommand("SELECT '' AS Stat,* FROM Vknitcomdet 
                             WHERE Comid = '" & Gscomid & "'")
-        FabricList.DataSource = Tlist
+        FabricList.DataSource = TFablist
+        'Tlist = TFablist
 
         Dim SumQtyroll As New DataTable
         'SumQtyroll = SQLCommand("SELECT SUM(Qtyroll) AS SUM FROM Tdyedcomdetxp WHERE Knittcomid ='VC180900008' AND Clothid = '10001' --ส่งไปย้อม แล้วนับจำนวน")
@@ -890,7 +906,7 @@ Public Class Formdyeform
             End If
         Next
 
-        FillGrid()
+        'FillGrid()
         'ShowRecordDetail()
     End Sub
     Private Sub Sumall()
@@ -1074,7 +1090,22 @@ Public Class Formdyeform
     End Function
 
     Private Sub ButtonItem2_Click(sender As Object, e As EventArgs) Handles ButtonItem2.Click
-        MessageBox.Show(0)
+        TabControl1.SelectedTabIndex = 2
+        Btmnew_Click(sender, e)
+        Btdbadd_Click(sender, e)
+        Tbknitcomno.Text = Trim(FabricList.CurrentRow.Cells("Knitcomno").Value)
+        Tbclothid.Text = Trim(FabricList.CurrentRow.Cells("Clothids").Value)
+        Tbclothno.Text = Trim(FabricList.CurrentRow.Cells("Clothnos").Value)
+        Tbclothtype.Text = Trim(FabricList.CurrentRow.Cells("Ftypes").Value)
+        'ItemNo.Text = 0
+        Tbqtyroll.Enabled = True
+        Tbqtyroll.Text = Trim(FabricList.CurrentRow.Cells("Qtyroll").Value)
+        TbqtyrollTemp.Text = Trim(FabricList.CurrentRow.Cells("Qtyroll").Value)
+        Tbwgtkg.Text = Format(FabricList.CurrentRow.Cells("Wgtkg").Value, "###,###.#0")
+        Tbfinwgt.Text = Format(FabricList.CurrentRow.Cells("Finwgt").Value)
+        Tbfinwidth.Text = Format(FabricList.CurrentRow.Cells("Fwidth").Value)
+
+        'MessageBox.Show(0)
     End Sub
 
     Private Sub FabricList_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles FabricList.CellMouseClick

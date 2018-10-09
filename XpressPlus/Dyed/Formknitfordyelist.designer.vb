@@ -27,6 +27,8 @@ Partial Class Formknitfordyelist
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
+        Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
+        Me.Send = New Normtextbox.Normtextbox()
         Me.LabelX4 = New DevComponents.DotNetBar.LabelX()
         Me.DataSum = New System.Windows.Forms.DataGridView()
         Me.SellSums = New Normtextbox.Normtextbox()
@@ -70,7 +72,7 @@ Partial Class Formknitfordyelist
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedTabFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
         Me.TabControl1.SelectedTabIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(384, 331)
+        Me.TabControl1.Size = New System.Drawing.Size(384, 358)
         Me.TabControl1.TabIndex = 8
         Me.TabControl1.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox
         Me.TabControl1.Tabs.Add(Me.TabItem1)
@@ -78,6 +80,8 @@ Partial Class Formknitfordyelist
         '
         'TabControlPanel1
         '
+        Me.TabControlPanel1.Controls.Add(Me.LabelX1)
+        Me.TabControlPanel1.Controls.Add(Me.Send)
         Me.TabControlPanel1.Controls.Add(Me.LabelX4)
         Me.TabControlPanel1.Controls.Add(Me.DataSum)
         Me.TabControlPanel1.Controls.Add(Me.SellSums)
@@ -90,7 +94,7 @@ Partial Class Formknitfordyelist
         Me.TabControlPanel1.Location = New System.Drawing.Point(0, 26)
         Me.TabControlPanel1.Name = "TabControlPanel1"
         Me.TabControlPanel1.Padding = New System.Windows.Forms.Padding(1)
-        Me.TabControlPanel1.Size = New System.Drawing.Size(384, 305)
+        Me.TabControlPanel1.Size = New System.Drawing.Size(384, 332)
         Me.TabControlPanel1.Style.BackColor1.Color = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(179, Byte), Integer), CType(CType(231, Byte), Integer))
         Me.TabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(CType(CType(223, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(254, Byte), Integer))
         Me.TabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -101,6 +105,33 @@ Partial Class Formknitfordyelist
         Me.TabControlPanel1.TabIndex = 1
         Me.TabControlPanel1.TabItem = Me.TabItem1
         '
+        'LabelX1
+        '
+        Me.LabelX1.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.LabelX1.Location = New System.Drawing.Point(177, 216)
+        Me.LabelX1.Name = "LabelX1"
+        Me.LabelX1.Size = New System.Drawing.Size(70, 23)
+        Me.LabelX1.TabIndex = 118
+        Me.LabelX1.Text = "สั่งย้อมแล้ว"
+        '
+        'Send
+        '
+        Me.Send.BackColor = System.Drawing.Color.White
+        Me.Send.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Send.Enabled = False
+        Me.Send.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Send.Location = New System.Drawing.Point(253, 216)
+        Me.Send.MaxLength = 120
+        Me.Send.Name = "Send"
+        Me.Send.Size = New System.Drawing.Size(127, 24)
+        Me.Send.TabIndex = 117
+        Me.Send.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'LabelX4
         '
         Me.LabelX4.BackColor = System.Drawing.Color.Transparent
@@ -109,7 +140,7 @@ Partial Class Formknitfordyelist
         '
         Me.LabelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX4.Location = New System.Drawing.Point(211, 217)
+        Me.LabelX4.Location = New System.Drawing.Point(170, 245)
         Me.LabelX4.Name = "LabelX4"
         Me.LabelX4.Size = New System.Drawing.Size(77, 23)
         Me.LabelX4.TabIndex = 116
@@ -118,22 +149,24 @@ Partial Class Formknitfordyelist
         'DataSum
         '
         Me.DataSum.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataSum.Location = New System.Drawing.Point(326, 295)
+        Me.DataSum.Location = New System.Drawing.Point(364, 310)
         Me.DataSum.Name = "DataSum"
-        Me.DataSum.Size = New System.Drawing.Size(58, 10)
+        Me.DataSum.Size = New System.Drawing.Size(20, 10)
         Me.DataSum.TabIndex = 114
         Me.DataSum.Visible = False
         '
         'SellSums
         '
+        Me.SellSums.BackColor = System.Drawing.Color.White
         Me.SellSums.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.SellSums.Enabled = False
-        Me.SellSums.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SellSums.Location = New System.Drawing.Point(289, 216)
+        Me.SellSums.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SellSums.Location = New System.Drawing.Point(253, 246)
         Me.SellSums.MaxLength = 120
         Me.SellSums.Name = "SellSums"
-        Me.SellSums.Size = New System.Drawing.Size(88, 24)
+        Me.SellSums.Size = New System.Drawing.Size(127, 24)
         Me.SellSums.TabIndex = 113
+        Me.SellSums.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Dgvmas
         '
@@ -309,7 +342,7 @@ Partial Class Formknitfordyelist
         Me.Btcancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
         Me.Btcancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btcancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btcancel.Location = New System.Drawing.Point(253, 253)
+        Me.Btcancel.Location = New System.Drawing.Point(253, 286)
         Me.Btcancel.Name = "Btcancel"
         Me.Btcancel.Size = New System.Drawing.Size(73, 34)
         Me.Btcancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
@@ -321,7 +354,7 @@ Partial Class Formknitfordyelist
         Me.Btok.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
         Me.Btok.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btok.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btok.Location = New System.Drawing.Point(78, 253)
+        Me.Btok.Location = New System.Drawing.Point(78, 286)
         Me.Btok.Name = "Btok"
         Me.Btok.Size = New System.Drawing.Size(73, 34)
         Me.Btok.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
@@ -338,7 +371,7 @@ Partial Class Formknitfordyelist
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(384, 331)
+        Me.ClientSize = New System.Drawing.Size(384, 358)
         Me.ControlBox = False
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "Formknitfordyelist"
@@ -381,4 +414,6 @@ Partial Class Formknitfordyelist
     Friend WithEvents SellSums As Normtextbox.Normtextbox
     Friend WithEvents DataSum As DataGridView
     Friend WithEvents LabelX4 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents LabelX1 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents Send As Normtextbox.Normtextbox
 End Class
