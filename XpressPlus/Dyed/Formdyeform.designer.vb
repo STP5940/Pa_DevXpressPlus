@@ -43,6 +43,7 @@ Partial Class Formdyeform
         Me.Tstbdocpreid = New System.Windows.Forms.ToolStripTextBox()
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel3 = New DevComponents.DotNetBar.TabControlPanel()
+        Me.SumQtyrolls = New System.Windows.Forms.DataGridView()
         Me.ContextMenuBar3 = New DevComponents.DotNetBar.ContextMenuBar()
         Me.ButtonItem1 = New DevComponents.DotNetBar.ButtonItem()
         Me.ButtonItem2 = New DevComponents.DotNetBar.ButtonItem()
@@ -54,6 +55,8 @@ Partial Class Formdyeform
         Me.Ftypes = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Fwidth = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Qtyroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Dye = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Balance = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Comids = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Wgtkg = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Finwgt = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -211,6 +214,7 @@ Partial Class Formdyeform
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabControlPanel3.SuspendLayout()
+        CType(Me.SumQtyrolls, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ContextMenuBar3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FabricList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip6.SuspendLayout()
@@ -388,6 +392,7 @@ Partial Class Formdyeform
         '
         'TabControlPanel3
         '
+        Me.TabControlPanel3.Controls.Add(Me.SumQtyrolls)
         Me.TabControlPanel3.Controls.Add(Me.ContextMenuBar3)
         Me.TabControlPanel3.Controls.Add(Me.FabricList)
         Me.TabControlPanel3.Controls.Add(Me.ToolStrip6)
@@ -407,6 +412,15 @@ Partial Class Formdyeform
         Me.TabControlPanel3.Style.GradientAngle = 90
         Me.TabControlPanel3.TabIndex = 12
         Me.TabControlPanel3.TabItem = Me.TabItem3
+        '
+        'SumQtyrolls
+        '
+        Me.SumQtyrolls.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.SumQtyrolls.Location = New System.Drawing.Point(767, 575)
+        Me.SumQtyrolls.Name = "SumQtyrolls"
+        Me.SumQtyrolls.Size = New System.Drawing.Size(240, 39)
+        Me.SumQtyrolls.TabIndex = 74
+        Me.SumQtyrolls.Visible = False
         '
         'ContextMenuBar3
         '
@@ -450,11 +464,12 @@ Partial Class Formdyeform
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.FabricList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.FabricList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.FabricList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Stat, Me.Knitcomno, Me.Clothids, Me.Clothnos, Me.Ftypes, Me.Fwidth, Me.Qtyroll, Me.Comids, Me.Wgtkg, Me.Finwgt, Me.Dozen, Me.Dyededroll, Me.Remainroll})
+        Me.FabricList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Stat, Me.Knitcomno, Me.Clothids, Me.Clothnos, Me.Ftypes, Me.Fwidth, Me.Qtyroll, Me.Dye, Me.Balance, Me.Comids, Me.Wgtkg, Me.Finwgt, Me.Dozen, Me.Dyededroll, Me.Remainroll})
         Me.FabricList.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FabricList.Location = New System.Drawing.Point(1, 50)
         Me.FabricList.Name = "FabricList"
         Me.FabricList.ReadOnly = True
+        Me.FabricList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.FabricList.Size = New System.Drawing.Size(1006, 564)
         Me.FabricList.TabIndex = 72
         '
@@ -468,14 +483,15 @@ Partial Class Formdyeform
         '
         'Knitcomno
         '
+        Me.Knitcomno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Knitcomno.DataPropertyName = "Knitcomno"
         Me.Knitcomno.HeaderText = "เลขที่ใบสั่งทอ"
         Me.Knitcomno.Name = "Knitcomno"
         Me.Knitcomno.ReadOnly = True
-        Me.Knitcomno.Width = 120
         '
         'Clothids
         '
+        Me.Clothids.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Clothids.DataPropertyName = "Clothid"
         Me.Clothids.HeaderText = "Lot ID"
         Me.Clothids.Name = "Clothids"
@@ -483,14 +499,15 @@ Partial Class Formdyeform
         '
         'Clothnos
         '
+        Me.Clothnos.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Clothnos.DataPropertyName = "Clothno"
         Me.Clothnos.HeaderText = "ประเภทผ้า"
         Me.Clothnos.Name = "Clothnos"
         Me.Clothnos.ReadOnly = True
-        Me.Clothnos.Width = 150
         '
         'Ftypes
         '
+        Me.Ftypes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Ftypes.DataPropertyName = "Ftype"
         Me.Ftypes.HeaderText = "สีผ้า"
         Me.Ftypes.Name = "Ftypes"
@@ -498,6 +515,7 @@ Partial Class Formdyeform
         '
         'Fwidth
         '
+        Me.Fwidth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Fwidth.DataPropertyName = "Fwidth"
         Me.Fwidth.HeaderText = "หน้ากว้าง"
         Me.Fwidth.Name = "Fwidth"
@@ -505,10 +523,25 @@ Partial Class Formdyeform
         '
         'Qtyroll
         '
+        Me.Qtyroll.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Qtyroll.DataPropertyName = "Qtyroll"
         Me.Qtyroll.HeaderText = "จำนวนผ้า"
         Me.Qtyroll.Name = "Qtyroll"
         Me.Qtyroll.ReadOnly = True
+        '
+        'Dye
+        '
+        Me.Dye.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Dye.HeaderText = "จำนวนส่งย้อม"
+        Me.Dye.Name = "Dye"
+        Me.Dye.ReadOnly = True
+        '
+        'Balance
+        '
+        Me.Balance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Balance.HeaderText = "ยอดคงเหลือ"
+        Me.Balance.Name = "Balance"
+        Me.Balance.ReadOnly = True
         '
         'Comids
         '
@@ -2300,6 +2333,7 @@ Partial Class Formdyeform
         Me.TabControl1.ResumeLayout(False)
         Me.TabControlPanel3.ResumeLayout(False)
         Me.TabControlPanel3.PerformLayout()
+        CType(Me.SumQtyrolls, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ContextMenuBar3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FabricList, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip6.ResumeLayout(False)
@@ -2509,6 +2543,7 @@ Partial Class Formdyeform
     Friend WithEvents ToolStripLabel4 As ToolStripLabel
     Friend WithEvents Tscbdate As ToolStripCheckBox
     Friend WithEvents ToolStripLabel3 As ToolStripLabel
+    Friend WithEvents SumQtyrolls As DataGridView
     Friend WithEvents Stat As DataGridViewTextBoxColumn
     Friend WithEvents Knitcomno As DataGridViewTextBoxColumn
     Friend WithEvents Clothids As DataGridViewTextBoxColumn
@@ -2516,6 +2551,8 @@ Partial Class Formdyeform
     Friend WithEvents Ftypes As DataGridViewTextBoxColumn
     Friend WithEvents Fwidth As DataGridViewTextBoxColumn
     Friend WithEvents Qtyroll As DataGridViewTextBoxColumn
+    Friend WithEvents Dye As DataGridViewTextBoxColumn
+    Friend WithEvents Balance As DataGridViewTextBoxColumn
     Friend WithEvents Comids As DataGridViewTextBoxColumn
     Friend WithEvents Wgtkg As DataGridViewTextBoxColumn
     Friend WithEvents Finwgt As DataGridViewTextBoxColumn

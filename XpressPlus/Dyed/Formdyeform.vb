@@ -852,17 +852,32 @@ Public Class Formdyeform
         ShowRecordDetail()
     End Sub
     Private Sub BindingFabriclist()
+
         Tlist = New DataTable
         Tlist = SQLCommand("SELECT '' AS Stat,* FROM Vknitcomdet 
                             WHERE Comid = '" & Gscomid & "'")
         FabricList.DataSource = Tlist
 
-        'For I = 0 To FabricList.RowCount - 1
-        '    MessageBox.Show(FabricList.Rows(I).Cells("Knitcomno").Value)
-        '    TbFabric = New DataTable
-        '    'TbFabric = SQLCommand("")
+        Dim SumQtyroll As New DataTable
+        'SumQtyroll = SQLCommand("SELECT SUM(Qtyroll) AS SUM FROM Tdyedcomdetxp WHERE Knittcomid ='VC180900008' AND Clothid = '10001' --ส่งไปย้อม แล้วนับจำนวน")
+        'SumQtyrolls.DataSource = SumQtyroll
+        'SumQtyroll.Rows.Add()
+        'SumQtyrolls.Rows(1).Cells("SUM").Value = 0
 
-        'Next
+        For I = 0 To FabricList.RowCount - 1
+            'MessageBox.Show(" VC:" & FabricList.Rows(I).Cells("Knitcomno").Value & " Lot:" & FabricList.Rows(I).Cells("Clothids").Value)
+            SumQtyroll = SQLCommand($"SELECT '' AS Stat, SUM(Qtyroll) AS SUM FROM Tdyedcomdetxp WHERE Knittcomid ='{FabricList.Rows(I).Cells("Knitcomno").Value}' AND Clothid = '{FabricList.Rows(I).Cells("Clothids").Value}' --ส่งไปย้อม แล้วนับจำนวน")
+            SumQtyrolls.DataSource = SumQtyroll
+            FabricList.Rows(I).Cells("Dye").Value = IIf((IsDBNull(SumQtyrolls.Rows(0).Cells("Sum").Value) = True), 0, SumQtyrolls.Rows(0).Cells("Sum").Value)
+            FabricList.Rows(I).Cells("Balance").Value = FabricList.Rows(I).Cells("Qtyroll").Value - FabricList.Rows(I).Cells("Dye").Value
+        Next
+
+        For I = FabricList.RowCount - 1 To 0 Step -1
+            If FabricList.Rows(I).Cells("Balance").Value <= 0 Then
+                'MessageBox.Show(FabricList.Rows(I).Cells("Knitcomno").Value)
+                FabricList.Rows.Remove(FabricList.Rows(I))
+            End If
+        Next
 
         FillGrid()
         'ShowRecordDetail()
