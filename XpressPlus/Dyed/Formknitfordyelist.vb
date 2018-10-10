@@ -38,12 +38,24 @@
         Me.Close()
     End Sub
     Private Sub Bindingmaster()
+        'Dim Knitcomno = Dgvmas.CurrentRow.Cells("Knitcomno").Value
+        'Dim Clothid = Dgvmas.CurrentRow.Cells("Clothid").Value
+        'Dim Qtyroll = Dgvmas.CurrentRow.Cells("Qtyroll").Value
+
         Tmaster = New DataTable
         Tmaster = SQLCommand("SELECT * FROM Vknitcomdet  WHERE Comid = '" & Gscomid & "' order by Knitcomno")
         'SELECT SUM(Qtyroll) AS Qtyroll FROM Tdyedcomdetxp WHERE Knittcomid = 'VC180900008'
         'Dim PriceSell = New DataTable
         'PriceSell = SQLCommand("SELECT SUM(Qtyroll) AS Qtyroll FROM Tdyedcomdetxp WHERE Knittcomid = 'VC180900008'")
         Dgvmas.DataSource = Tmaster
+
+        'Dim SellSum = New DataTable
+        'For I = 0 To Dgvmas.RowCount - 1
+        '    'MessageBox.Show(Dgvmas.Rows(I).Cells("Knitcomno").Value)
+        '    SellSum = SQLCommand($"SELECT SUM(Qtyroll) AS Sum FROM Tdyedcomdetxp WHERE Knittcomid = '{Knitcomno}' and Clothid= '{Clothid}'")
+        '    SumAll.DataSource = SellSum
+        '    'CountStock
+        'Next
     End Sub
     Private Sub Filtermastergrid()
         If Tmaster.Rows.Count = 0 Then

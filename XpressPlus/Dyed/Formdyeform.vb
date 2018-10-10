@@ -5,6 +5,8 @@ Public Class Formdyeform
     Private Pagecount, Maxrec, Pagesize, Currentpage, Recno As Integer
     Private WithEvents Dtplistfm As New DateTimePicker
     Private WithEvents Dtplistto As New DateTimePicker
+    Private WithEvents DtplistFabricfm As New DateTimePicker
+    Private WithEvents DtplistFabric As New DateTimePicker
     Private Bs As BindingSource
 
     Private Sub Formdyeform_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -32,8 +34,6 @@ Public Class Formdyeform
         Dtplistto.Width = 130
         Me.ToolStrip4.Items.Insert(4, New ToolStripControlHost(Dtplistto))
         Me.ToolStrip4.Items(4).Alignment = ToolStripItemAlignment.Right
-        Dtplistfm.Visible = False
-        Dtplistto.Visible = False
         '  Setauthorize()
         Retdocprefix()
         Tbmycom.Text = Trim(Gscomname)
@@ -46,7 +46,27 @@ Public Class Formdyeform
         FabricList.Columns(6).SortMode = DataGridViewColumnSortMode.NotSortable
         FabricList.Columns(7).SortMode = DataGridViewColumnSortMode.NotSortable
         FabricList.Columns(8).SortMode = DataGridViewColumnSortMode.NotSortable
-        ToolStrip6.Visible = False
+        'ToolStrip6.Visible = False
+        Dtplistfm.Visible = False
+        Dtplistto.Visible = False
+
+        ''------------- Tab Fabric -------------'
+        'Controls.Add(DtplistFabricfm)
+        'DtplistFabricfm.Value = Now
+        'DtplistFabricfm.Width = 130
+        'Me.ToolStrip7.Items.Insert(5, New ToolStripControlHost(DtplistFabricfm))
+        'Me.ToolStrip7.Items(5).Alignment = ToolStripItemAlignment.Right
+        'DtplistFabricfm.Visible = False
+
+        'Controls.Add(DtplistFabric)
+        'DtplistFabric.Value = Now
+        'DtplistFabric.Width = 130
+        'Me.ToolStrip7.Items.Insert(4, New ToolStripControlHost(DtplistFabric))
+        'Me.ToolStrip7.Items(4).Alignment = ToolStripItemAlignment.Right
+        'DtplistFabric.Visible = False
+        ''------------- End Tab Fabric -------------'
+
+        'ToolStrip7.Visible = False
     End Sub
     Private Sub Formdyeform_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         Dgvmas.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
@@ -70,6 +90,7 @@ Public Class Formdyeform
         Tbremark.Enabled = True
         Dtpdate.Enabled = True
         Dgvmas.Enabled = True
+        Btfindshade.Enabled = True
         Mainbuttonaddedit()
     End Sub
     Private Sub Btmedit_Click(sender As Object, e As EventArgs) Handles Btmedit.Click
@@ -260,12 +281,21 @@ Public Class Formdyeform
             Btrefresh.Visible = True
         End If
     End Sub
+
     Private Sub Tstbkeyword_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Tstbkeyword.KeyPress
+        e.Handled = (Asc(e.KeyChar) = 39)
+    End Sub
+    Private Sub FabricKeyword_KeyPress(sender As Object, e As KeyPressEventArgs) Handles FabricKeyword.KeyPress
         e.Handled = (Asc(e.KeyChar) = 39)
     End Sub
     Private Sub Tstbkeyword_TextChanged(sender As Object, e As EventArgs) Handles Tstbkeyword.TextChanged
         If Me.Created Then
             Btlistfind_Click(sender, e)
+        End If
+    End Sub
+    Private Sub FabricKeyword_TextChanged(sender As Object, e As EventArgs) Handles FabricKeyword.TextChanged
+        If Me.Created Then
+            FabricSearch_Click(sender, e)
         End If
     End Sub
     Private Sub Btlistfind_Click(sender As Object, e As EventArgs) Handles Btlistfind.Click
@@ -276,6 +306,11 @@ Public Class Formdyeform
             Searchlistbyoth(Trim(Tstbkeyword.Text))
         End If
     End Sub
+
+    Private Sub FabricSearch_Click(sender As Object, e As EventArgs) Handles FabricSearch.Click
+        SearchlistFabric(Trim(FabricKeyword.Text))
+    End Sub
+
     Private Sub Btrefresh_Click(sender As Object, e As EventArgs) Handles Btrefresh.Click
         Bindinglist()
     End Sub
@@ -382,8 +417,11 @@ Public Class Formdyeform
         Tbfinwidth.Text = Frm.Dgvmas.CurrentRow.Cells("Fwidth").Value
         Tbqtyroll.Focus()
         If Dgvmas.RowCount > 0 Then
+            Btfindshade.Enabled = False
             Tbshadeid.Text = Trim(Dgvmas.Rows(0).Cells("Shid").Value)
             Tbshadename.Text = Trim(Dgvmas.Rows(0).Cells("Mshade").Value)
+        Else
+            Btfindshade.Enabled = True
         End If
 
     End Sub
@@ -729,6 +767,20 @@ Public Class Formdyeform
         FillGrid()
         ShowRecordDetail()
     End Sub
+    Private Sub SearchlistFabric(Sval As String)
+        If Sval = "" Then
+            BindingFabriclist()
+            Exit Sub
+        End If
+        TFablist = SQLCommand("SELECT '' AS Stat,* FROM Vknitcomdet
+                                WHERE Comid = '" & Gscomid & "' AND (Knitcomno LIKE '%' + '" & Sval & "' + '%' OR Clothno LIKE '%' + '" & Sval & "' + '%' OR Ftype LIKE '%' + '" & Sval & "' + '%' OR Qtyroll LIKE '%' + '" & Sval & "' + '%')")
+        FabricList.DataSource = TFablist
+
+        InsertDataFab()
+
+        'FillGrid()
+        'ShowRecordDetail()
+    End Sub
     Private Sub Searchlistbydate()
         Tlist = SQLCommand("SELECT '' AS Stat,* FROM Vdyedcommas
                                 WHERE Comid = '" & Gscomid & "' AND (Dyeddate BETWEEN '" & Formatshortdatesave(Dtplistfm.Value) & "' AND '" & Formatshortdatesave(Dtplistto.Value) & "')")
@@ -884,7 +936,14 @@ Public Class Formdyeform
                             WHERE Comid = '" & Gscomid & "'")
         FabricList.DataSource = TFablist
         'Tlist = TFablist
+        InsertDataFab()
 
+
+        'FillGrid()
+        'ShowRecordDetail()
+    End Sub
+
+    Private Sub InsertDataFab()
         Dim SumQtyroll As New DataTable
         'SumQtyroll = SQLCommand("SELECT SUM(Qtyroll) AS SUM FROM Tdyedcomdetxp WHERE Knittcomid ='VC180900008' AND Clothid = '10001' --ส่งไปย้อม แล้วนับจำนวน")
         'SumQtyrolls.DataSource = SumQtyroll
@@ -905,10 +964,8 @@ Public Class Formdyeform
                 FabricList.Rows.Remove(FabricList.Rows(I))
             End If
         Next
-
-        'FillGrid()
-        'ShowRecordDetail()
     End Sub
+
     Private Sub Sumall()
         Dim Sumkg As Double
         Dim Sumroll As Long
@@ -1077,7 +1134,7 @@ Public Class Formdyeform
     End Sub
     Private Sub ShowRecordDetail()
         Tbrecord.Text = "แสดง " & (Dgvlist.RowCount) & " รายการ จาก " & Tlist.Rows.Count & " รายการ"
-        ToolStripTextBox4.Text = "แสดง " & (FabricList.RowCount) & " รายการ จาก " & Tlist.Rows.Count & " รายการ"
+        'ToolStripTextBox4.Text = "แสดง " & (FabricList.RowCount) & " รายการ จาก " & Tlist.Rows.Count & " รายการ"
     End Sub
     Private Function Findpoud(Tkg As String) As Double
         Dim Rpound As Double = 0.0
@@ -1117,6 +1174,11 @@ Public Class Formdyeform
             EditcontextFabricList()
         End If
     End Sub
+
+    Private Sub BtrefreshFabric_Click(sender As Object, e As EventArgs) Handles BtrefreshFabric.Click
+        BindingFabriclist()
+    End Sub
+
     Private Sub EditcontextFabricList()
         ButtonItem1.Displayed = False
         ButtonItem1.PopupMenu(Control.MousePosition)
