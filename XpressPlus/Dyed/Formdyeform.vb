@@ -24,16 +24,16 @@ Public Class Formdyeform
         Tbwgtkg.Enabled = False
         Tbfinwgt.Enabled = False
         Tbfinwidth.Enabled = False
-        Controls.Add(Dtplistfm)
-        Dtplistfm.Value = Now
-        Dtplistfm.Width = 130
-        Me.ToolStrip4.Items.Insert(5, New ToolStripControlHost(Dtplistfm))
-        Me.ToolStrip4.Items(5).Alignment = ToolStripItemAlignment.Right
-        Controls.Add(Dtplistto)
-        Dtplistto.Value = Now
-        Dtplistto.Width = 130
-        Me.ToolStrip4.Items.Insert(4, New ToolStripControlHost(Dtplistto))
-        Me.ToolStrip4.Items(4).Alignment = ToolStripItemAlignment.Right
+        'Controls.Add(Dtplistfm)
+        'Dtplistfm.Value = Now
+        'Dtplistfm.Width = 130
+        'Me.ToolStrip4.Items.Insert(5, New ToolStripControlHost(Dtplistfm))
+        'Me.ToolStrip4.Items(5).Alignment = ToolStripItemAlignment.Right
+        'Controls.Add(Dtplistto)
+        'Dtplistto.Value = Now
+        'Dtplistto.Width = 130
+        'Me.ToolStrip4.Items.Insert(4, New ToolStripControlHost(Dtplistto))
+        'Me.ToolStrip4.Items(4).Alignment = ToolStripItemAlignment.Right
         '  Setauthorize()
         Retdocprefix()
         Tbmycom.Text = Trim(Gscomname)
@@ -50,21 +50,21 @@ Public Class Formdyeform
         Dtplistfm.Visible = False
         Dtplistto.Visible = False
 
-        ''------------- Tab Fabric -------------'
-        'Controls.Add(DtplistFabricfm)
-        'DtplistFabricfm.Value = Now
-        'DtplistFabricfm.Width = 130
-        'Me.ToolStrip7.Items.Insert(5, New ToolStripControlHost(DtplistFabricfm))
-        'Me.ToolStrip7.Items(5).Alignment = ToolStripItemAlignment.Right
-        'DtplistFabricfm.Visible = False
+        '------------- Tab Fabric -------------'
+        Controls.Add(Dtplistfm)
+        Dtplistfm.Value = Now
+        Dtplistfm.Width = 130
+        Me.ToolStrip4.Items.Insert(5, New ToolStripControlHost(Dtplistfm))
+        Me.ToolStrip4.Items(5).Alignment = ToolStripItemAlignment.Right
+        Dtplistfm.Visible = False
 
-        'Controls.Add(DtplistFabric)
-        'DtplistFabric.Value = Now
-        'DtplistFabric.Width = 130
-        'Me.ToolStrip7.Items.Insert(4, New ToolStripControlHost(DtplistFabric))
-        'Me.ToolStrip7.Items(4).Alignment = ToolStripItemAlignment.Right
-        'DtplistFabric.Visible = False
-        ''------------- End Tab Fabric -------------'
+        Controls.Add(Dtplistto)
+        Dtplistto.Value = Now
+        Dtplistto.Width = 130
+        Me.ToolStrip4.Items.Insert(4, New ToolStripControlHost(Dtplistto))
+        Me.ToolStrip4.Items(4).Alignment = ToolStripItemAlignment.Right
+        Dtplistto.Visible = False
+        '------------- End Tab Fabric -------------'
 
         'ToolStrip7.Visible = False
     End Sub
@@ -94,6 +94,7 @@ Public Class Formdyeform
         Mainbuttonaddedit()
     End Sub
     Private Sub Btmedit_Click(sender As Object, e As EventArgs) Handles Btmedit.Click
+        DemoColor()
         Tbfinddhid.Enabled = True
         Tbpickup.Enabled = True
         Tbremark.Enabled = True
@@ -125,13 +126,6 @@ Public Class Formdyeform
         End If
     End Sub
     Private Sub Btmsave_Click(sender As Object, e As EventArgs) Handles Btmsave.Click
-        CountDgvmas.Text = 0
-        Tbfinddhid.Enabled = False
-        Tbremark.Enabled = False
-        Tbpickup.Enabled = False
-        Dtpdate.Enabled = False
-        Dgvmas.Enabled = False
-
         If Tstbdocpre.Text = "" Then
             Informmessage("กรุณาติดต่อ Admin เพื่อกำหนด Prefix ของเลขที่เอกสาร")
             Exit Sub
@@ -144,6 +138,14 @@ Public Class Formdyeform
             Informmessage("กรุณาตรวจสอบรายละเอียดในการส่งให้ครบถ้วน")
             Exit Sub
         End If
+
+        CountDgvmas.Text = 0
+        Tbfinddhid.Enabled = False
+        Tbremark.Enabled = False
+        Tbpickup.Enabled = False
+        Dtpdate.Enabled = False
+        Dgvmas.Enabled = False
+
         If Tbdyedcomno.Text = "NEW" Then
             Newdoc()
             ' Updatestk()
@@ -398,6 +400,7 @@ Public Class Formdyeform
         If Frm.SellSums.Text = "" Then
             Exit Sub
         End If
+
         Tbknitcomno.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Knitcomno").Value)
         Tbclothid.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Clothid").Value)
         Tbclothno.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Clothno").Value)
@@ -413,6 +416,7 @@ Public Class Formdyeform
         End If
 
         Tbwgtkg.Text = Format(Frm.Dgvmas.CurrentRow.Cells("Wgtkg").Value, "###,###.#0")
+        CalOneroll.Text = CDbl(Tbwgtkg.Text) / CDbl(AllFebric.Text)
         Tbfinwgt.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Finwgt").Value)
         Tbfinwidth.Text = Frm.Dgvmas.CurrentRow.Cells("Fwidth").Value
         Tbqtyroll.Focus()
@@ -458,7 +462,13 @@ Public Class Formdyeform
 
         Tbshadeid.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Mid").Value)
         Tbshadename.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Mname").Value)
+        DemoColor()
         Tbfabbill.Focus()
+    End Sub
+    Private Sub DemoColor()
+        If Dgvmas.RowCount <> 0 OrElse Tbdyedcomno.Text = "NEW" Then
+            DemoCode.BackColor = Color.FromArgb(255, 192, 128)
+        End If
     End Sub
     Private Sub Tbfabbill_KeyDown(sender As Object, e As KeyEventArgs) Handles Tbfabbill.KeyDown
         If e.KeyCode = Keys.Enter Then
@@ -471,14 +481,37 @@ Public Class Formdyeform
             Informmessage("กรุณาเลือกที่โรงย้อม")
             Exit Sub
         End If
+
+        '---------------- New Informmessage ----------------'
+        If Tbknitcomno.Text = "" Then
+            Informmessage("กรุณาเลือก ใบสั่งทอ")
+            Exit Sub
+        End If
+        If Tbqtyroll.Text = "" Then
+            Informmessage("กรุณาตรวจสอบข้อมูลช่องจำนวนพับ")
+            Tbqtyroll.Focus()
+            Exit Sub
+        End If
+        If Validnumber() = False Then
+            Informmessage("ข้อมูลช่องจำนวนพับหรือน้ำหนักต้องมากกว่า 0")
+            Exit Sub
+        End If
+        If Tbshadeid.Text = "" Then
+            Informmessage("กรุณาเลือก Shade")
+            Exit Sub
+        End If
+        If Tbfabbill.Text = "" Then
+            Informmessage("กรุณาตรวจสอบข้อมูลช่องบิลผ้าดิบ")
+            Tbfabbill.Focus()
+            Exit Sub
+        End If
+        '---------------- End New Informmessage ----------------'
+
         If Validinput() = False Then
             Informmessage("กรุณาตรวจสอบข้อมูลให้ถูกต้อง ครบถ้วน")
             Exit Sub
         End If
-        If Validnumber() = False Then
-            Informmessage("กรุณาตรวจจำนวนให้ถูกต้อง ครบถ้วน")
-            Exit Sub
-        End If
+
         If Tbaddedit.Text = "เพิ่ม" Then
             If Chkdupyarnidingrid() = True Then
                 Informmessage("เลขที่สั่งทอและผ้าเบอร์นี้มีแล้ว")
@@ -1018,8 +1051,8 @@ Public Class Formdyeform
     End Sub
     Private Function Validinput() As Boolean
         Dim Valid As Boolean = False
-        If Tbknitcomno.Text <> "" And Tbclothid.Text <> "" And Tbclothno.Text <> "" And Tbclothtype.Text <> "" And Tbqtyroll.Text <> "" And
-            Tbwgtkg.Text <> "" And Tbfinwgt.Text <> "" And Tbfinwidth.Text <> "" And Tbshadeid.Text <> "" And Tbshadename.Text <> "" And Tbfabbill.Text <> "" Then
+        If Tbclothid.Text <> "" And Tbclothno.Text <> "" And Tbclothtype.Text <> "" And
+            Tbwgtkg.Text <> "" And Tbfinwgt.Text <> "" And Tbfinwidth.Text <> "" And Tbshadename.Text <> "" Then
             Valid = True
         End If
         Return Valid
@@ -1156,9 +1189,11 @@ Public Class Formdyeform
         Tbclothtype.Text = Trim(FabricList.CurrentRow.Cells("Ftypes").Value)
         'ItemNo.Text = 0
         Tbqtyroll.Enabled = True
-        Tbqtyroll.Text = Trim(FabricList.CurrentRow.Cells("Qtyroll").Value)
-        TbqtyrollTemp.Text = Trim(FabricList.CurrentRow.Cells("Qtyroll").Value)
+        Tbqtyroll.Text = Trim(FabricList.CurrentRow.Cells("Balance").Value)
+        TbqtyrollTemp.Text = Trim(FabricList.CurrentRow.Cells("Balance").Value)
+        AllFebric.Text = Trim(FabricList.CurrentRow.Cells("Qtyroll").Value)
         Tbwgtkg.Text = Format(FabricList.CurrentRow.Cells("Wgtkg").Value, "###,###.#0")
+        CalOneroll.Text = CDbl(Tbwgtkg.Text) / CDbl(AllFebric.Text)
         Tbfinwgt.Text = Format(FabricList.CurrentRow.Cells("Finwgt").Value)
         Tbfinwidth.Text = Format(FabricList.CurrentRow.Cells("Fwidth").Value)
 
@@ -1179,11 +1214,15 @@ Public Class Formdyeform
         BindingFabriclist()
     End Sub
 
+    'Private Sub Tbqtyroll_TextChanged(sender As Object, e As EventArgs) Handles Tbqtyroll.KeyPress
+    '    MessageBox.Show("Hello My Proscess")
+    'End Sub
+
+
     Private Sub EditcontextFabricList()
         ButtonItem1.Displayed = False
         ButtonItem1.PopupMenu(Control.MousePosition)
     End Sub
-
 
     Private Function Validmas() As Boolean
         Dim Valid As Boolean = False
@@ -1240,6 +1279,7 @@ Public Class Formdyeform
         Return Dup
     End Function
     Private Sub Clrtextdetails()
+        DemoCode.BackColor = Color.White
         Tbknitcomno.Text = ""
         Tbclothid.Text = ""
         Tbclothno.Text = ""
@@ -1282,5 +1322,8 @@ Public Class Formdyeform
         Disbaledbutton()
     End Sub
 
-
+    Private Sub Tbqtyroll_LostFocus(sender As Object, e As EventArgs) Handles Tbqtyroll.LostFocus
+        'MessageBox.Show("My LosFocus")
+        Tbwgtkg.Text = Format(CDbl(CalOneroll.Text) * CDbl(Tbqtyroll.Text), "###,###.#0")
+    End Sub
 End Class

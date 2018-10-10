@@ -23,13 +23,13 @@ Partial Class Formdyeform
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Formdyeform))
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Btmclose = New System.Windows.Forms.ToolStripButton()
         Me.Btmfind = New System.Windows.Forms.ToolStripButton()
@@ -83,7 +83,11 @@ Partial Class Formdyeform
         Me.Tsbwsave = New System.Windows.Forms.ToolStripLabel()
         Me.Btdbadd = New System.Windows.Forms.ToolStripButton()
         Me.GroupPanel2 = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.LabelX20 = New DevComponents.DotNetBar.LabelX()
+        Me.AllFebric = New Inttextbox.Inttextbox()
         Me.LabelX19 = New DevComponents.DotNetBar.LabelX()
+        Me.CalOneroll = New Dectextbox.Dectextbox()
+        Me.DemoCode = New DevComponents.DotNetBar.LabelX()
         Me.OriginalTbqtyroll = New Inttextbox.Inttextbox()
         Me.LabelX18 = New DevComponents.DotNetBar.LabelX()
         Me.SumSellEdit = New System.Windows.Forms.DataGridView()
@@ -490,14 +494,14 @@ Partial Class Formdyeform
         '
         Me.Dgvmas.AllowUserToAddRows = False
         Me.Dgvmas.AllowUserToDeleteRows = False
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.Dgvmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Mstatus, Me.ord, Me.Dcomid, Me.Dyedcomno, Me.Dknittno, Me.Clothid, Me.Clothno, Me.Ftype, Me.Mqty, Me.Mkg, Me.Mfinwgt, Me.Mfinwid, Me.Shid, Me.Mshade, Me.Mbrawfab})
         Me.Dgvmas.Dock = System.Windows.Forms.DockStyle.Fill
@@ -576,8 +580,8 @@ Partial Class Formdyeform
         'Mqty
         '
         Me.Mqty.DataPropertyName = "Qtyroll"
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Mqty.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Mqty.DefaultCellStyle = DataGridViewCellStyle2
         Me.Mqty.HeaderText = "QTY(Rolls/พับ)"
         Me.Mqty.Name = "Mqty"
         Me.Mqty.ReadOnly = True
@@ -586,10 +590,10 @@ Partial Class Formdyeform
         'Mkg
         '
         Me.Mkg.DataPropertyName = "Qtykg"
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle9.Format = "N2"
-        DataGridViewCellStyle9.NullValue = Nothing
-        Me.Mkg.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "N2"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.Mkg.DefaultCellStyle = DataGridViewCellStyle3
         Me.Mkg.HeaderText = "QTY(KG)"
         Me.Mkg.Name = "Mkg"
         Me.Mkg.ReadOnly = True
@@ -606,8 +610,8 @@ Partial Class Formdyeform
         'Mfinwid
         '
         Me.Mfinwid.DataPropertyName = "Fwidth"
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Mfinwid.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Mfinwid.DefaultCellStyle = DataGridViewCellStyle4
         Me.Mfinwid.HeaderText = "Finished Width"
         Me.Mfinwid.Name = "Mfinwid"
         Me.Mfinwid.ReadOnly = True
@@ -836,7 +840,11 @@ Partial Class Formdyeform
         Me.GroupPanel2.BackColor = System.Drawing.Color.Transparent
         Me.GroupPanel2.CanvasColor = System.Drawing.Color.Transparent
         Me.GroupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2013
+        Me.GroupPanel2.Controls.Add(Me.LabelX20)
+        Me.GroupPanel2.Controls.Add(Me.AllFebric)
         Me.GroupPanel2.Controls.Add(Me.LabelX19)
+        Me.GroupPanel2.Controls.Add(Me.CalOneroll)
+        Me.GroupPanel2.Controls.Add(Me.DemoCode)
         Me.GroupPanel2.Controls.Add(Me.OriginalTbqtyroll)
         Me.GroupPanel2.Controls.Add(Me.LabelX18)
         Me.GroupPanel2.Controls.Add(Me.SumSellEdit)
@@ -908,31 +916,86 @@ Partial Class Formdyeform
         Me.GroupPanel2.TabIndex = 93
         Me.GroupPanel2.Text = "เพิ่ม แก้ไข รายละเอียดการสั่งย้อม"
         '
+        'LabelX20
+        '
+        Me.LabelX20.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LabelX20.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX20.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX20.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.LabelX20.Location = New System.Drawing.Point(801, 4)
+        Me.LabelX20.Name = "LabelX20"
+        Me.LabelX20.Size = New System.Drawing.Size(77, 23)
+        Me.LabelX20.TabIndex = 144
+        Me.LabelX20.Text = "ผ้าทั้งหมด"
+        '
+        'AllFebric
+        '
+        Me.AllFebric.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.AllFebric.Enabled = False
+        Me.AllFebric.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AllFebric.Location = New System.Drawing.Point(881, 3)
+        Me.AllFebric.MaxLength = 10
+        Me.AllFebric.Name = "AllFebric"
+        Me.AllFebric.Size = New System.Drawing.Size(111, 24)
+        Me.AllFebric.TabIndex = 143
+        Me.AllFebric.Text = "1"
+        Me.AllFebric.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'LabelX19
         '
-        Me.LabelX19.BackColor = System.Drawing.Color.White
+        Me.LabelX19.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LabelX19.BackColor = System.Drawing.Color.Transparent
         '
         '
         '
         Me.LabelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX19.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX19.ForeColor = System.Drawing.Color.Gray
-        Me.LabelX19.Location = New System.Drawing.Point(373, 114)
+        Me.LabelX19.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.LabelX19.Location = New System.Drawing.Point(753, 64)
         Me.LabelX19.Name = "LabelX19"
-        Me.LabelX19.SingleLineColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.LabelX19.Size = New System.Drawing.Size(67, 23)
-        Me.LabelX19.SymbolColor = System.Drawing.Color.Black
-        Me.LabelX19.SymbolSet = DevComponents.DotNetBar.eSymbolSet.Material
-        Me.LabelX19.TabIndex = 139
-        Me.LabelX19.Text = "สีตัวอย่าง"
-        Me.LabelX19.TextAlignment = System.Drawing.StringAlignment.Center
+        Me.LabelX19.Size = New System.Drawing.Size(113, 23)
+        Me.LabelX19.TabIndex = 142
+        Me.LabelX19.Text = "น้ำหนักเฉลี่ยต่อพับ"
+        '
+        'CalOneroll
+        '
+        Me.CalOneroll.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CalOneroll.Enabled = False
+        Me.CalOneroll.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CalOneroll.Location = New System.Drawing.Point(881, 63)
+        Me.CalOneroll.MaxLength = 12
+        Me.CalOneroll.Name = "CalOneroll"
+        Me.CalOneroll.Size = New System.Drawing.Size(111, 24)
+        Me.CalOneroll.TabIndex = 141
+        Me.CalOneroll.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'DemoCode
+        '
+        Me.DemoCode.BackColor = System.Drawing.Color.White
+        '
+        '
+        '
+        Me.DemoCode.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.DemoCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.DemoCode.ForeColor = System.Drawing.Color.Gray
+        Me.DemoCode.Location = New System.Drawing.Point(373, 114)
+        Me.DemoCode.Name = "DemoCode"
+        Me.DemoCode.SingleLineColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.DemoCode.Size = New System.Drawing.Size(67, 23)
+        Me.DemoCode.SymbolColor = System.Drawing.Color.Black
+        Me.DemoCode.SymbolSet = DevComponents.DotNetBar.eSymbolSet.Material
+        Me.DemoCode.TabIndex = 139
+        Me.DemoCode.Text = "สีตัวอย่าง"
+        Me.DemoCode.TextAlignment = System.Drawing.StringAlignment.Center
         '
         'OriginalTbqtyroll
         '
         Me.OriginalTbqtyroll.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.OriginalTbqtyroll.Enabled = False
         Me.OriginalTbqtyroll.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OriginalTbqtyroll.Location = New System.Drawing.Point(965, 30)
+        Me.OriginalTbqtyroll.Location = New System.Drawing.Point(965, 92)
         Me.OriginalTbqtyroll.MaxLength = 10
         Me.OriginalTbqtyroll.Name = "OriginalTbqtyroll"
         Me.OriginalTbqtyroll.Size = New System.Drawing.Size(27, 24)
@@ -949,7 +1012,7 @@ Partial Class Formdyeform
         '
         Me.LabelX18.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX18.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX18.Location = New System.Drawing.Point(801, 2)
+        Me.LabelX18.Location = New System.Drawing.Point(792, 33)
         Me.LabelX18.Name = "LabelX18"
         Me.LabelX18.Size = New System.Drawing.Size(77, 23)
         Me.LabelX18.TabIndex = 136
@@ -958,7 +1021,7 @@ Partial Class Formdyeform
         'SumSellEdit
         '
         Me.SumSellEdit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.SumSellEdit.Location = New System.Drawing.Point(940, 40)
+        Me.SumSellEdit.Location = New System.Drawing.Point(940, 102)
         Me.SumSellEdit.Name = "SumSellEdit"
         Me.SumSellEdit.Size = New System.Drawing.Size(10, 14)
         Me.SumSellEdit.TabIndex = 135
@@ -967,7 +1030,7 @@ Partial Class Formdyeform
         'CheckStock
         '
         Me.CheckStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.CheckStock.Location = New System.Drawing.Point(953, 40)
+        Me.CheckStock.Location = New System.Drawing.Point(953, 102)
         Me.CheckStock.Name = "CheckStock"
         Me.CheckStock.Size = New System.Drawing.Size(10, 14)
         Me.CheckStock.TabIndex = 134
@@ -978,7 +1041,7 @@ Partial Class Formdyeform
         Me.TbqtyrollTemp.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TbqtyrollTemp.Enabled = False
         Me.TbqtyrollTemp.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbqtyrollTemp.Location = New System.Drawing.Point(881, 2)
+        Me.TbqtyrollTemp.Location = New System.Drawing.Point(881, 33)
         Me.TbqtyrollTemp.MaxLength = 10
         Me.TbqtyrollTemp.Name = "TbqtyrollTemp"
         Me.TbqtyrollTemp.Size = New System.Drawing.Size(111, 24)
@@ -1738,14 +1801,14 @@ Partial Class Formdyeform
         '
         Me.FabricList.AllowUserToAddRows = False
         Me.FabricList.AllowUserToDeleteRows = False
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.FabricList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.FabricList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.FabricList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.FabricList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Stat, Me.Knitcomno, Me.Clothids, Me.Clothnos, Me.Ftypes, Me.Fwidth, Me.Qtyroll, Me.Dye, Me.Balance, Me.Comids, Me.Wgtkg, Me.Finwgt, Me.Dozen, Me.Dyededroll, Me.Remainroll})
         Me.FabricList.Dock = System.Windows.Forms.DockStyle.Fill
@@ -1985,14 +2048,14 @@ Partial Class Formdyeform
         '
         Me.Dgvlist.AllowUserToAddRows = False
         Me.Dgvlist.AllowUserToDeleteRows = False
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Dgvlist.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgvlist.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.Dgvlist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Dgvlist.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Status, Me.Comid, Me.Ldyarndate, Me.Ldyecomno, Me.Ldhid, Me.Ldyedhdesc, Me.Pickarea, Me.Dremark})
         Me.Dgvlist.Dock = System.Windows.Forms.DockStyle.Fill
@@ -2051,6 +2114,7 @@ Partial Class Formdyeform
         '
         'Pickarea
         '
+        Me.Pickarea.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Pickarea.DataPropertyName = "Pickarea"
         Me.Pickarea.HeaderText = "Pickarea"
         Me.Pickarea.Name = "Pickarea"
@@ -2390,14 +2454,6 @@ Partial Class Formdyeform
     Friend WithEvents Btdedit As ToolStripButton
     Friend WithEvents Tsbwsave As ToolStripLabel
     Friend WithEvents Btdbadd As ToolStripButton
-    Friend WithEvents Status As DataGridViewTextBoxColumn
-    Friend WithEvents Comid As DataGridViewTextBoxColumn
-    Friend WithEvents Ldyarndate As DataGridViewTextBoxColumn
-    Friend WithEvents Ldyecomno As DataGridViewTextBoxColumn
-    Friend WithEvents Ldhid As DataGridViewTextBoxColumn
-    Friend WithEvents Ldyedhdesc As DataGridViewTextBoxColumn
-    Friend WithEvents Pickarea As DataGridViewTextBoxColumn
-    Friend WithEvents Dremark As DataGridViewTextBoxColumn
     Friend WithEvents ItemNo As Normtextbox.Normtextbox
     Friend WithEvents Tbclothtype As Normtextbox.Normtextbox
     Friend WithEvents CountDgvmas As Normtextbox.Normtextbox
@@ -2456,5 +2512,17 @@ Partial Class Formdyeform
     Friend WithEvents Dozen As DataGridViewTextBoxColumn
     Friend WithEvents Dyededroll As DataGridViewTextBoxColumn
     Friend WithEvents Remainroll As DataGridViewTextBoxColumn
+    Friend WithEvents DemoCode As DevComponents.DotNetBar.LabelX
+    Friend WithEvents Status As DataGridViewTextBoxColumn
+    Friend WithEvents Comid As DataGridViewTextBoxColumn
+    Friend WithEvents Ldyarndate As DataGridViewTextBoxColumn
+    Friend WithEvents Ldyecomno As DataGridViewTextBoxColumn
+    Friend WithEvents Ldhid As DataGridViewTextBoxColumn
+    Friend WithEvents Ldyedhdesc As DataGridViewTextBoxColumn
+    Friend WithEvents Pickarea As DataGridViewTextBoxColumn
+    Friend WithEvents Dremark As DataGridViewTextBoxColumn
+    Friend WithEvents CalOneroll As Dectextbox.Dectextbox
     Friend WithEvents LabelX19 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents LabelX20 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents AllFebric As Inttextbox.Inttextbox
 End Class
