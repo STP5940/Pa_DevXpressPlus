@@ -355,10 +355,9 @@ Partial Class Formknitfordyelist
         'Qtyroll
         '
         Me.Qtyroll.DataPropertyName = "Qtyroll"
-        Me.Qtyroll.HeaderText = "Qtyroll"
+        Me.Qtyroll.HeaderText = "จำนวนพับ"
         Me.Qtyroll.Name = "Qtyroll"
         Me.Qtyroll.ReadOnly = True
-        Me.Qtyroll.Visible = False
         '
         'Wgtkg
         '

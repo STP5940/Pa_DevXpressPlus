@@ -21,7 +21,7 @@ Public Class Formdyeform
         Btdedit.Enabled = False
         Btddel.Enabled = False
         Tbqtyroll.Enabled = False
-        Tbwgtkg.Enabled = False
+        'Tbwgtkg.Enabled = False
         Tbfinwgt.Enabled = False
         Tbfinwidth.Enabled = False
         'Controls.Add(Dtplistfm)
@@ -405,6 +405,7 @@ Public Class Formdyeform
         Tbclothid.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Clothid").Value)
         Tbclothno.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Clothno").Value)
         Tbclothtype.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Ftype").Value)
+        AllFebric.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Qtyroll").Value)
         'Tbqtyroll.Text = Format(Frm.Dgvmas.CurrentRow.Cells("Qtyroll").Value, "###,###")
         If Frm.SellSums.Text > 0 Then
             Tbqtyroll.Enabled = True
@@ -413,10 +414,17 @@ Public Class Formdyeform
         Else
             Tbqtyroll.Enabled = False
             Tbqtyroll.Text = 0
+            TbqtyrollTemp.Text = Format(Val(Frm.SellSums.Text), "###,###")
         End If
 
-        Tbwgtkg.Text = Format(Frm.Dgvmas.CurrentRow.Cells("Wgtkg").Value, "###,###.#0")
-        CalOneroll.Text = CDbl(Tbwgtkg.Text) / CDbl(AllFebric.Text)
+        AllWgtkg.Text = Format(Frm.Dgvmas.CurrentRow.Cells("Wgtkg").Value, "###,###.#0")
+
+        CalOneroll.Text = CDbl(AllWgtkg.Text) / CDbl(AllFebric.Text)
+        If TbqtyrollTemp.Text = "" Then
+            TbqtyrollTemp.Text = 0
+        End If
+        Tbwgtkg.Text = Format(TbqtyrollTemp.Text * CalOneroll.Text, "###,###.#0") ' น้ำหนัก จำนวนปัจจุบันตามจำนวนที่เลือก
+
         Tbfinwgt.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Finwgt").Value)
         Tbfinwidth.Text = Frm.Dgvmas.CurrentRow.Cells("Fwidth").Value
         Tbqtyroll.Focus()
@@ -650,7 +658,10 @@ Public Class Formdyeform
         Tbfinwidth.Text = ""
         Tbshadename.Text = ""
         Tbfabbill.Text = ""
-        TbqtyrollTemp.Text = "0"
+        AllFebric.Text = ""
+        AllWgtkg.Text = ""
+        TbqtyrollTemp.Text = ""
+        CalOneroll.Text = ""
         Tbqtyroll.Enabled = False
     End Sub
     Private Sub Btdbadd_Click(sender As Object, e As EventArgs) Handles Btdbadd.Click
@@ -669,6 +680,7 @@ Public Class Formdyeform
         Tbshadeid.Text = ""
         Tbshadename.Text = ""
         Tbfabbill.Text = ""
+        TbqtyrollTemp.Text = ""
     End Sub
     Private Sub Btdedit_Click(sender As Object, e As EventArgs) Handles Btdedit.Click
 
@@ -690,7 +702,6 @@ Public Class Formdyeform
         Tbshadeid.Text = Trim(Dgvmas.CurrentRow.Cells("Shid").Value)
         Tbshadename.Text = Trim(Dgvmas.CurrentRow.Cells("Mshade").Value)
         Tbqtyroll.Text = Format(CLng(Dgvmas.CurrentRow.Cells("Mqty").Value), "###,###")
-        Tbwgtkg.Text = Format(CDbl(Dgvmas.CurrentRow.Cells("Mkg").Value), "###,###.#0")
         Tbfinwgt.Text = Trim(Dgvmas.CurrentRow.Cells("Mfinwgt").Value)
         Tbfabbill.Text = Trim(Dgvmas.CurrentRow.Cells("Mbrawfab").Value)
 
@@ -713,7 +724,18 @@ Public Class Formdyeform
         CheckStock.DataSource = EditCheckStock
         TbqtyrollTemp.Text = If(IsDBNull(CheckStock.Rows(0).Cells("Sum").Value), "", (CheckStock.Rows(0).Cells("Sum").Value - SumSellCash))
 
-
+        Dim CountFabricAll = New DataTable
+        CountFabricAll = SQLCommand($"SELECT Qtyroll,Wgtkg FROM Vknitcomdet  WHERE Knitcomno = '{Tbknitcomno.Text}' And Clothid = '{Tbclothid.Text}'")
+        'MessageBox.Show(CountFabricAll(0)(0))
+        AllFebric.Text = CountFabricAll(0)(0)
+        If AllFebric.Text = "" Then
+            Informmessage("ไม่พบจำนวนพับในระบบ")
+            AllFebric.Text = 0
+        End If
+        AllWgtkg.Text = Format(CountFabricAll(0)(1), "###,###.#0")
+        CalOneroll.Text = CDbl(AllWgtkg.Text) / CDbl(AllFebric.Text)
+        'AllWgtkg.Text = Format(CDbl(Dgvmas.CurrentRow.Cells("Mkg").Value), "###,###.#0")
+        Tbwgtkg.Text = Format(Tbqtyroll.Text * CalOneroll.Text, "###,###.#0") ' น้ำหนัก จำนวนปัจจุบันตามจำนวนที่เลือก
         'MessageBox.Show(Tbclothid.Text)
 
         'Dim EditCheckStock = New DataTable
@@ -728,6 +750,11 @@ Public Class Formdyeform
         If Dgvmas.RowCount = 0 Then
             Exit Sub
         End If
+        If Dgvmas.RowCount = 1 Then
+            DemoCode.BackColor = Color.White
+        End If
+
+        Tbaddedit.Text = "เพิ่ม"
         Btdcancel_Click(sender, e)
         Tsbwsave.Visible = True
         Dgvmas.Rows.Remove(Dgvmas.CurrentRow)
@@ -755,6 +782,10 @@ Public Class Formdyeform
             Tbfinwidth.Text = ""
             Tbshadename.Text = ""
             Tbfabbill.Text = ""
+            AllFebric.Text = ""
+            AllWgtkg.Text = ""
+            TbqtyrollTemp.Text = ""
+            CalOneroll.Text = ""
             Tbaddedit.Text = "เพิ่ม"
         End If
 
@@ -1039,6 +1070,10 @@ Public Class Formdyeform
         Tstbsumroll.Text = ""
         Tstbsumkg.Text = ""
         Tbremark.Text = ""
+        AllFebric.Text = ""
+        AllWgtkg.Text = ""
+        TbqtyrollTemp.Text = ""
+        CalOneroll.Text = ""
         Tsbwsave.Visible = False
     End Sub
     Private Sub Editcontextdetmenu()
@@ -1192,10 +1227,12 @@ Public Class Formdyeform
         Tbqtyroll.Text = Trim(FabricList.CurrentRow.Cells("Balance").Value)
         TbqtyrollTemp.Text = Trim(FabricList.CurrentRow.Cells("Balance").Value)
         AllFebric.Text = Trim(FabricList.CurrentRow.Cells("Qtyroll").Value)
-        Tbwgtkg.Text = Format(FabricList.CurrentRow.Cells("Wgtkg").Value, "###,###.#0")
-        CalOneroll.Text = CDbl(Tbwgtkg.Text) / CDbl(AllFebric.Text)
+        AllWgtkg.Text = Format(FabricList.CurrentRow.Cells("Wgtkg").Value, "###,###.#0")
+        CalOneroll.Text = CDbl(AllWgtkg.Text) / CDbl(AllFebric.Text)
         Tbfinwgt.Text = Format(FabricList.CurrentRow.Cells("Finwgt").Value)
         Tbfinwidth.Text = Format(FabricList.CurrentRow.Cells("Fwidth").Value)
+        Tbwgtkg.Text = Format(TbqtyrollTemp.Text * CalOneroll.Text, "###,###.#0") ' น้ำหนัก จำนวนปัจจุบันตามจำนวนที่เลือก
+
 
         'MessageBox.Show(0)
     End Sub
@@ -1323,7 +1360,9 @@ Public Class Formdyeform
     End Sub
 
     Private Sub Tbqtyroll_LostFocus(sender As Object, e As EventArgs) Handles Tbqtyroll.LostFocus
-        'MessageBox.Show("My LosFocus")
+        If CalOneroll.Text = "" OrElse Tbqtyroll.Text = "" Then
+            Exit Sub
+        End If
         Tbwgtkg.Text = Format(CDbl(CalOneroll.Text) * CDbl(Tbqtyroll.Text), "###,###.#0")
     End Sub
 End Class
