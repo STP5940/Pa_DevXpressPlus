@@ -8,6 +8,7 @@ Public Class Formdyeform
     Private WithEvents DtplistFabricfm As New DateTimePicker
     Private WithEvents DtplistFabric As New DateTimePicker
     Private Bs As BindingSource
+    Private Cheng = 0
 
     Private Sub Formdyeform_Load(sender As Object, e As EventArgs) Handles Me.Load
         BindingNavigator1.Enabled = False
@@ -528,10 +529,14 @@ Public Class Formdyeform
         End If
 
         Dim SumSell = New DataTable
-        SumSell = SQLCommand($"SELECT SUM(Qtyroll) As SumSell FROM Tdyedcomdetxp WHERE Knittcomid = '{Tbknitcomno.Text}' and Clothid= '{Tbclothid.Text}'")
+        SumSell = SQLCommand($"SELECT SUM(Qtyroll) As SumSell, SUM(Qtykg) As Qtykg FROM Tdyedcomdetxp WHERE Knittcomid = '{Tbknitcomno.Text}' and Clothid= '{Tbclothid.Text}'")
         SumSellEdit.DataSource = SumSell
         Dim SumSellCash = If(IsDBNull(SumSellEdit.Rows(0).Cells("SumSell").Value), "0", SumSellEdit.Rows(0).Cells("SumSell").Value - TbqtyrollTemp.Text)
         'MessageBox.Show(Tbqtyroll.Text)
+        If Tbwgtkg.Text + SumSell(0)(1) > AllWgtkg.Text Then
+            Informmessage("น้ำหนักคงเหลือ น้อยกว่าที่ระบุ")
+        End If
+        Label1.Text = AllWgtkg.Text - SumSell(0)(1)
 
         Dim Frm As New Formknitfordyelist
         'MessageBox.Show($"{Tbqtyroll.Text }:{ TbqtyrollTemp.Text}")
@@ -683,7 +688,7 @@ Public Class Formdyeform
         TbqtyrollTemp.Text = ""
     End Sub
     Private Sub Btdedit_Click(sender As Object, e As EventArgs) Handles Btdedit.Click
-
+        Cheng = 0
         GroupPanel2.Visible = True
         If Dgvmas.RowCount = 0 Then
             Exit Sub
@@ -735,7 +740,14 @@ Public Class Formdyeform
         AllWgtkg.Text = Format(CountFabricAll(0)(1), "###,###.#0")
         CalOneroll.Text = CDbl(AllWgtkg.Text) / CDbl(AllFebric.Text)
         'AllWgtkg.Text = Format(CDbl(Dgvmas.CurrentRow.Cells("Mkg").Value), "###,###.#0")
-        Tbwgtkg.Text = Format(Tbqtyroll.Text * CalOneroll.Text, "###,###.#0") ' น้ำหนัก จำนวนปัจจุบันตามจำนวนที่เลือก
+        If Tbaddedit.Text = "แก้ไข" Then
+            Tbwgtkg.Text = Format(CLng(Dgvmas.CurrentRow.Cells("Mkg").Value), "###,###")
+        End If
+
+        'If Cheng = 2 Then
+        '    Tbwgtkg.Text = Format(Tbqtyroll.Text * CalOneroll.Text, "###,###.#0") ' น้ำหนัก จำนวนปัจจุบันตามจำนวนที่เลือก
+        '    Cheng = 0
+        'End If
         'MessageBox.Show(Tbclothid.Text)
 
         'Dim EditCheckStock = New DataTable
@@ -1261,6 +1273,11 @@ Public Class Formdyeform
         ButtonItem1.PopupMenu(Control.MousePosition)
     End Sub
 
+    Private Sub Tbqtyroll_TextChanged(sender As Object, e As EventArgs) Handles Tbqtyroll.TextChanged
+        'MsgBox(Cheng) 'ถ้ามีการแก้ไขตัวเลขพับ จะถูก +1 และถ้ามากกว่า 1 จะมีการคำนวนน้ำหนักใหม่
+        Cheng = Cheng + 1
+    End Sub
+
     Private Function Validmas() As Boolean
         Dim Valid As Boolean = False
         If Tbdhid.Text <> "" And Tbdhname.Text <> "" Then
@@ -1363,6 +1380,9 @@ Public Class Formdyeform
         If CalOneroll.Text = "" OrElse Tbqtyroll.Text = "" Then
             Exit Sub
         End If
-        Tbwgtkg.Text = Format(CDbl(CalOneroll.Text) * CDbl(Tbqtyroll.Text), "###,###.#0")
+        'MsgBox("0")
+        If Cheng > 1 Then
+            Tbwgtkg.Text = Format(CDbl(CalOneroll.Text) * CDbl(Tbqtyroll.Text), "###,###.#0")
+        End If
     End Sub
 End Class
