@@ -159,7 +159,7 @@ Public Class Formsalefabric
             Frm.ReportViewer1.ShowPrintButton = False
         End If
         Dim Rds, Rds1 As New ReportDataSource()
-        Rds.Name = "DataSet1"
+        Rds.Name = "DataSetSale"
         Rds.Value = Tdetails
         Frm.ReportViewer1.LocalReport.DataSources.Add(Rds)
         'Showform(Frm)
