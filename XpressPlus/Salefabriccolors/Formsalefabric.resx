@@ -124,96 +124,30 @@
   <data name="Btmcancel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGMSURBVEhL3ZS/S8NAFMejiJO66So6OAQqTa5U6eKq4ubi
-        Irjo7qAuSjanOojS3BVdHBz8B0SXDv7cXHR2cxAREcRKk3e+kxdImgsmEgf9wBdyufe+3+RyOeP/Y3MY
-        szhM0jBflDkT8qUkYI5u5UdgjpK5B4TNcw9oN881QGeuZAn/1OZyCecLhiM7qTwbSeZxvT9brl8t1eQw
-        tX5PevOwGr4t/MPiPvSTjZ6fmYfkNh/xG82SXRx83RNtY2bBMllGKW9DX7HmXeubMorDGtlGUSGMe1fa
-        pgwynVsPj5US2Ub5ChHepa4xi2zXu5lwZBfZRkkM4bDOXJi263IB13oVd88WLuuZ2kmxWhRunBWyjFPZ
-        g158iotwQ9KfPFqDAbsOi0z4x8w5gKB+pPr6Vq7DEJXFaQ9Jc1RgTYWJ1l3QY3Of05QeFWIJ7zxtgMI8
-        kt24PBtMPDULOx8PhpQdNKXH3JU9KiRtQADWTw2K+xYu3zjdSkaFFF0waZgaDJln3N+k4e+AbzBDl38W
-        w/gE6HUwt3re5LsAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGKSURBVEhL3ZS/L8VQFMdLxISNVRgMTZ689jaPvMWK2CwW
+        iYXdgIV0Mz2DkNd7X1gN/gFhMfi5WZhtBhERiXjy2nOdK6dJ+3obrdTAJ/kmvb3nfL/t7e01/j82hzGL
+        wyQNi0WZMyFfHAFzdKs4QnOULDwgal54QLt5oQE6cyVLBCc2l0s4XzJc2Unl+UgzT+r92fKCmlOXw9T6
+        PdnNozoNbBEclPehn2z0/Mw8Iq/5iN9oluyS4OseaxtzC5bJMk5lG/rKdf9a35RTHNbINo4KYdy/0jbl
+        kOne+nisOGQb5ytE+Je6xjyyPf9mwpVdZBsnNYTDOvNg2m7IBVzrVdw9W7isZ2onJWpRuHFWyDJJdQ96
+        8Skuog1pf/JoHQbsBiwyERwxV0BYP1J7fas0YIjKkrSHZDkqsKbKROsu7LF5wGlKjwqxhH+eNUBhHspu
+        XJ4NJp6apZ2PB0PKDprSY+7KHhWSNSAE66cGxX0Ll2+cbqWjQsoemDTMDIbMMx5s0vB3wDeYocs/i2F8
+        As/QMK4g8ZcQAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="Btmedit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHjSURBVEhLpVS7SgNBFA2+0CoiCtpZWQRks7uK6dL6A4Kl
-        jYWdrVhsOivBwmR3IjFgJfkCEQtRfJSigvoFWkk6Cdmd8d7JjElms4+JBw7MzD33nGWGvRmETVgTyOJo
-        kvY7anMNNsGbdAAGqQNgXbI8usYb0wKa0gd4wRHsm1oh2NBrNohKAJ6lD0GxNIqiDDA9ug77EhICdjca
-        bJSbxAHEqQOGAhgkBuScV98st75UWpX2h7CJBhgkBsSwKWyigSKlSYd/AYVDOiWW/UARik3iv1hVtpWG
-        qOUBnn+DHqvHbN4ot9/w4blpL7oBwWWxzibTELX5iv8IfdnCCZ1Bcx4IDIXIAB1Kc27gsBGbBKe99b4Q
-        ONAKkOb5Gp2D9S3/4ZSQiIDgyqiz6SSCdlyYPwvDzl8NIZYX1GKuyH9aIXQzitC4jHrFXDJ6dGBREYeo
-        XItqzmznjFpVui0s+wECEfDzbbnsWiXUGsB4c4/uCLswQNQJ8IILcRTC0OYIEPIAg7Q+4aHPJS1C90R9
-        dmhzBIgHvoFshnVWvEG3ntYcAQ0DAwyXLa5W6RJeD+y7ITrmCBy5oTHs+ndYM93gAK9HhsDsedAyT4Ic
-        ahiCM6fosDFR+j/gSxfg57u3Cd3Pu9QQxxrIZH4Bx12HeXe/NOIAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHiSURBVEhLpVQ9S8NAGC5+oVNFFHRzcihImsRit67+AcHR
+        xcHNVRzSzUlwsE2uUrtKf4GIgyh+jKKC+gt0km5Smtz5vtc7216a5FIfeODu3ud9nnBH3gzCJqwFZHE0
+        Secdtbkmm+JNaQAG2gGwLlseXeeNuoAm/QAvOIZ9K1UINvSbDaMSgGf6ISiWRlGUAaZHN2BfRkLA3maT
+        jXOTOIBYO2AkgEFiQM559c1K+0ulVe18CJtogEFiQAxbwiYaKFKa0vAvoHhEZ8RyEChCsUn8F6vGtnWI
+        Wh7g+TfoUThhi0al84YPz0370QsILksNNq1D1Oar/iP0ZYundA7NeSAwFCID0lCacwOHjdkkOOuvD4TA
+        QaoAaZ6v0wVY3/IfTgmJCAiujAabTSJoJ4X5szDs/tUQYnlBPeaK/Kc1QreiCI2rqFfMJaNHBxYVcYjK
+        tajmzHYItWp0R1gOAgQi4Ofbctm1Sqg1gfHmHt0VdmGAqBvgBRfiKISRzREg5AEGaX/CQ59LWoTui/r8
+        yOYIEA99A9kM66x4g15d1xwBDUMDDJctF2p0Ba8H9r2QNOYIHLmhMez6d1gz3eAQr0eGwOx5SGWeBDnU
+        MARnTslhE6L0f8CXLsHPd28TepB3qSGOUyCT+QVQFIdDPwU6mQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="Status.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Comid.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Ldfabdate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Dlvno.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Lcustid.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Lcustname.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Clothid.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Clothno.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Ftype.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Fwidth.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Lcustadd.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Lcustshipadd.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Lshadid.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Lshadedesc.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Lcolorno.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Lkgprice.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Lsumkg.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Lsumprice.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Ldremark.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Lsremark.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ToolStrip5.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>552, 56</value>
-  </metadata>
-  <metadata name="ToolStrip4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>659, 56</value>
-  </metadata>
   <metadata name="Mstat.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -283,5 +217,71 @@
   </data>
   <metadata name="ToolStrip3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>873, 56</value>
+  </metadata>
+  <metadata name="Status.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Comid.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Ldfabdate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Dlvno.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Lcustid.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Lcustname.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Clothid.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Clothno.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Ftype.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Fwidth.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Lcustadd.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Lcustshipadd.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Lshadid.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Lshadedesc.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Lcolorno.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Lkgprice.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Lsumkg.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Lsumprice.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Ldremark.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Lsremark.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ToolStrip5.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>552, 56</value>
+  </metadata>
+  <metadata name="ToolStrip4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>659, 56</value>
   </metadata>
 </root>

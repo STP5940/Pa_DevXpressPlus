@@ -25,6 +25,9 @@ Partial Class Formsalefabcolrpt
         Me.components = New System.ComponentModel.Container()
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
+        Me.Tbsumprice = New System.Windows.Forms.TextBox()
+        Me.Tbkgprice = New System.Windows.Forms.TextBox()
+        Me.Tbsumkg = New System.Windows.Forms.TextBox()
         Me.Tbclothno = New System.Windows.Forms.TextBox()
         Me.Tbshade = New System.Windows.Forms.TextBox()
         Me.Tbwidth = New System.Windows.Forms.TextBox()
@@ -35,9 +38,8 @@ Partial Class Formsalefabcolrpt
         Me.Tbcustaddr = New System.Windows.Forms.TextBox()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
-        Me.Tbsumkg = New System.Windows.Forms.TextBox()
-        Me.Tbkgprice = New System.Windows.Forms.TextBox()
-        Me.Tbsumprice = New System.Windows.Forms.TextBox()
+        Me.Tstbsumkg = New System.Windows.Forms.TextBox()
+        Me.Pricesum = New System.Windows.Forms.TextBox()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabControlPanel1.SuspendLayout()
@@ -63,6 +65,8 @@ Partial Class Formsalefabcolrpt
         '
         'TabControlPanel1
         '
+        Me.TabControlPanel1.Controls.Add(Me.Pricesum)
+        Me.TabControlPanel1.Controls.Add(Me.Tstbsumkg)
         Me.TabControlPanel1.Controls.Add(Me.Tbsumprice)
         Me.TabControlPanel1.Controls.Add(Me.Tbkgprice)
         Me.TabControlPanel1.Controls.Add(Me.Tbsumkg)
@@ -91,6 +95,30 @@ Partial Class Formsalefabcolrpt
         Me.TabControlPanel1.TabIndex = 1
         Me.TabControlPanel1.TabItem = Me.TabItem1
         '
+        'Tbsumprice
+        '
+        Me.Tbsumprice.Location = New System.Drawing.Point(788, 175)
+        Me.Tbsumprice.Name = "Tbsumprice"
+        Me.Tbsumprice.Size = New System.Drawing.Size(100, 22)
+        Me.Tbsumprice.TabIndex = 189
+        Me.Tbsumprice.Visible = False
+        '
+        'Tbkgprice
+        '
+        Me.Tbkgprice.Location = New System.Drawing.Point(788, 147)
+        Me.Tbkgprice.Name = "Tbkgprice"
+        Me.Tbkgprice.Size = New System.Drawing.Size(100, 22)
+        Me.Tbkgprice.TabIndex = 188
+        Me.Tbkgprice.Visible = False
+        '
+        'Tbsumkg
+        '
+        Me.Tbsumkg.Location = New System.Drawing.Point(894, 119)
+        Me.Tbsumkg.Name = "Tbsumkg"
+        Me.Tbsumkg.Size = New System.Drawing.Size(100, 22)
+        Me.Tbsumkg.TabIndex = 187
+        Me.Tbsumkg.Visible = False
+        '
         'Tbclothno
         '
         Me.Tbclothno.Location = New System.Drawing.Point(788, 91)
@@ -117,7 +145,7 @@ Partial Class Formsalefabcolrpt
         '
         'Tbcolor
         '
-        Me.Tbcolor.Location = New System.Drawing.Point(896, 147)
+        Me.Tbcolor.Location = New System.Drawing.Point(894, 147)
         Me.Tbcolor.Name = "Tbcolor"
         Me.Tbcolor.Size = New System.Drawing.Size(100, 22)
         Me.Tbcolor.TabIndex = 183
@@ -169,29 +197,21 @@ Partial Class Formsalefabcolrpt
         Me.TabItem1.Name = "TabItem1"
         Me.TabItem1.Text = "ใบส่งผ้าสี(ขาย)"
         '
-        'Tbsumkg
+        'Tstbsumkg
         '
-        Me.Tbsumkg.Location = New System.Drawing.Point(894, 119)
-        Me.Tbsumkg.Name = "Tbsumkg"
-        Me.Tbsumkg.Size = New System.Drawing.Size(100, 22)
-        Me.Tbsumkg.TabIndex = 187
-        Me.Tbsumkg.Visible = False
+        Me.Tstbsumkg.Location = New System.Drawing.Point(894, 175)
+        Me.Tstbsumkg.Name = "Tstbsumkg"
+        Me.Tstbsumkg.Size = New System.Drawing.Size(100, 22)
+        Me.Tstbsumkg.TabIndex = 190
+        Me.Tstbsumkg.Visible = False
         '
-        'Tbkgprice
+        'Pricesum
         '
-        Me.Tbkgprice.Location = New System.Drawing.Point(788, 147)
-        Me.Tbkgprice.Name = "Tbkgprice"
-        Me.Tbkgprice.Size = New System.Drawing.Size(100, 22)
-        Me.Tbkgprice.TabIndex = 188
-        Me.Tbkgprice.Visible = False
-        '
-        'Tbsumprice
-        '
-        Me.Tbsumprice.Location = New System.Drawing.Point(788, 175)
-        Me.Tbsumprice.Name = "Tbsumprice"
-        Me.Tbsumprice.Size = New System.Drawing.Size(100, 22)
-        Me.Tbsumprice.TabIndex = 189
-        Me.Tbsumprice.Visible = False
+        Me.Pricesum.Location = New System.Drawing.Point(894, 203)
+        Me.Pricesum.Name = "Pricesum"
+        Me.Pricesum.Size = New System.Drawing.Size(100, 22)
+        Me.Pricesum.TabIndex = 191
+        Me.Pricesum.Visible = False
         '
         'Formsalefabcolrpt
         '
@@ -225,4 +245,6 @@ Partial Class Formsalefabcolrpt
     Friend WithEvents Tbsumprice As TextBox
     Friend WithEvents Tbkgprice As TextBox
     Friend WithEvents Tbsumkg As TextBox
+    Friend WithEvents Tstbsumkg As TextBox
+    Friend WithEvents Pricesum As TextBox
 End Class

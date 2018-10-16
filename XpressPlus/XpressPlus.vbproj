@@ -327,6 +327,7 @@
     <EmbeddedResource Include="Salefabriccolors\Formsheadbyfab.resx">
       <DependentUpon>Formsheadbyfab.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Salefabriccolors\Rptsalefabric.rdlc" />
     <EmbeddedResource Include="salerepor\Formsaleyarnrpt.resx">
       <DependentUpon>Formsaleyarnrpt.vb</DependentUpon>
     </EmbeddedResource>

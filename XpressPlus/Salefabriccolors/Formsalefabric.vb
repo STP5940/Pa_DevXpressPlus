@@ -143,12 +143,15 @@ Public Class Formsalefabric
         Frm.Tbclothno.Text = Trim(Tbclothno.Text)
         Frm.Tbwidth.Text = Trim(Tbwidth.Text)
         Frm.Tbdlvno.Text = Trim(Tbdlvno.Text)
+        'MsgBox(Format(Dtpdate.Value, "dd/MM/yyyy"))
         Frm.Tbdate.Text = Format(Dtpdate.Value, "dd/MM/yyyy")
         Frm.Tbshade.Text = Trim(Tbshadename.Text)
         Frm.Tbcolor.Text = Trim(Tbcolorno.Text)
         Frm.Tbsumkg.Text = Trim(Tbsumwgt.Text)
         Frm.Tbkgprice.Text = Trim(Tbkgprice.Text)
         Frm.Tbsumprice.Text = Trim(Tbsummoney.Text)
+        Frm.Tstbsumkg.Text = Trim(Tstbsumkg.Text)
+
         If Gsexpau = False Then
             Frm.ReportViewer1.ShowExportButton = False
         End If
