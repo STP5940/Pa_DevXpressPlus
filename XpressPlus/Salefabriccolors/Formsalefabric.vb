@@ -152,6 +152,32 @@ Public Class Formsalefabric
         Frm.Tbsumprice.Text = Trim(Tbsummoney.Text)
         Frm.Tstbsumkg.Text = Trim(Tstbsumkg.Text)
 
+        '--------'
+        Dim NumberMax As Integer
+        Dim NumberMin As Integer
+
+        For I = 0 To Dgvmas.RowCount - 1
+            If I > 0 Then
+                If Dgvmas.Rows(I).Cells("Mkongno").Value > NumberMax Then
+                    NumberMax = Dgvmas.Rows(I).Cells("Mkongno").Value
+                End If
+                If Dgvmas.Rows(I).Cells("Mkongno").Value < NumberMin Then
+                    NumberMin = Dgvmas.Rows(I).Cells("Mkongno").Value
+                End If
+                Continue For
+            End If
+            NumberMax = Dgvmas.Rows(I).Cells("Mkongno").Value
+            NumberMin = Dgvmas.Rows(I).Cells("Mkongno").Value
+            'MsgBox(Dgvmas.Rows(I).Cells("Mkongno").Value)
+        Next
+
+        'MsgBox($"NumberMin: {NumberMin}")
+        'MsgBox($"NumberMax: {NumberMax}")
+        Frm.NumberMax.Text = Trim(NumberMax)
+        Frm.NumberMin.Text = Trim(NumberMin)
+        'MsgBox(Dgvmas.RowCount)
+        '--------'
+
         If Gsexpau = False Then
             Frm.ReportViewer1.ShowExportButton = False
         End If

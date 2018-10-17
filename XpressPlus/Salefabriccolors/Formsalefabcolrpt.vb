@@ -5,7 +5,7 @@ Public Class Formsalefabcolrpt
         ReportViewer1.SetDisplayMode(DisplayMode.PrintLayout)
         ReportViewer1.ZoomMode = ZoomMode.Percent
         ReportViewer1.ZoomPercent = 100
-        Dim Par1, Par2, Par3, Par4, Par5, Par6, Par7, Par8, Par9, Par10, Par11, Par12, Par13 As ReportParameter
+        Dim Par1, Par2, Par3, Par4, Par5, Par6, Par7, Par8, Par9, Par10, Par11, Par12, Par13, NumberMin, NumberMax As ReportParameter
         Par1 = New ReportParameter("Pcustname", Trim(Tbcustname.Text), True)
         Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {Par1})
         'Par2 = New ReportParameter("Pdlvno", Trim(Tbdlvno.Text), True)
@@ -33,6 +33,10 @@ Public Class Formsalefabcolrpt
         Pricesum.Text = Format(Trim(Tbkgprice.Text) * Trim(Tstbsumkg.Text), "###,###.#0")
         Par13 = New ReportParameter("Pricesum", Trim(Pricesum.Text), True)
         Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {Par13})
+        NumberMax = New ReportParameter("NumberMax", Trim(Me.NumberMax.Text), True)
+        Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {NumberMax})
+        NumberMin = New ReportParameter("NumberMin", Trim(Me.NumberMin.Text), True)
+        Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {NumberMin})
 
         Me.ReportViewer1.RefreshReport()
     End Sub
