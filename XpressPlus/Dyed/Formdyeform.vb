@@ -421,6 +421,7 @@ Public Class Formdyeform
         AllWgtkg.Text = Format(Frm.Dgvmas.CurrentRow.Cells("Wgtkg").Value, "###,###.#0")
 
         CalOneroll.Text = CDbl(AllWgtkg.Text) / CDbl(AllFebric.Text)
+        CalOnerollShow.Text = Format(CDbl(CalOneroll.Text), "###,###.#0") 'แสดงทศนิยม 2 ตำแหน่งอย่างเดียว
         If TbqtyrollTemp.Text = "" Then
             TbqtyrollTemp.Text = 0
         End If
@@ -739,6 +740,7 @@ Public Class Formdyeform
         End If
         AllWgtkg.Text = Format(CountFabricAll(0)(1), "###,###.#0")
         CalOneroll.Text = CDbl(AllWgtkg.Text) / CDbl(AllFebric.Text)
+        CalOnerollShow.Text = Format(CDbl(CalOneroll.Text), "###,###.#0") 'แสดงทศนิยม 2 ตำแหน่งอย่างเดียว
         'AllWgtkg.Text = Format(CDbl(Dgvmas.CurrentRow.Cells("Mkg").Value), "###,###.#0")
         If Tbaddedit.Text = "แก้ไข" Then
             Tbwgtkg.Text = Format(CDbl(Dgvmas.CurrentRow.Cells("Mkg").Value), "###,###.#0")
@@ -1241,6 +1243,7 @@ Public Class Formdyeform
         AllFebric.Text = Trim(FabricList.CurrentRow.Cells("Qtyroll").Value)
         AllWgtkg.Text = Format(FabricList.CurrentRow.Cells("Wgtkg").Value, "###,###.#0")
         CalOneroll.Text = CDbl(AllWgtkg.Text) / CDbl(AllFebric.Text)
+        CalOnerollShow.Text = Format(CDbl(CalOneroll.Text), "###,###.#0") 'แสดงทศนิยม 2 ตำแหน่งอย่างเดียว
         Tbfinwgt.Text = Format(FabricList.CurrentRow.Cells("Finwgt").Value)
         Tbfinwidth.Text = Format(FabricList.CurrentRow.Cells("Fwidth").Value)
         Tbwgtkg.Text = Format(TbqtyrollTemp.Text * CalOneroll.Text, "###,###.#0") ' น้ำหนัก จำนวนปัจจุบันตามจำนวนที่เลือก

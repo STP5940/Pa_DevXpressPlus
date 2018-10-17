@@ -87,6 +87,7 @@ Partial Class Formdyeform
         Me.Tsbwsave = New System.Windows.Forms.ToolStripLabel()
         Me.Btdbadd = New System.Windows.Forms.ToolStripButton()
         Me.GroupPanel2 = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.CalOnerollShow = New Dectextbox.Dectextbox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SumSellEdit = New System.Windows.Forms.DataGridView()
         Me.LabelX25 = New DevComponents.DotNetBar.LabelX()
@@ -851,6 +852,7 @@ Partial Class Formdyeform
         Me.GroupPanel2.BackColor = System.Drawing.Color.Transparent
         Me.GroupPanel2.CanvasColor = System.Drawing.Color.Transparent
         Me.GroupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2013
+        Me.GroupPanel2.Controls.Add(Me.CalOnerollShow)
         Me.GroupPanel2.Controls.Add(Me.Label1)
         Me.GroupPanel2.Controls.Add(Me.SumSellEdit)
         Me.GroupPanel2.Controls.Add(Me.LabelX25)
@@ -934,10 +936,22 @@ Partial Class Formdyeform
         Me.GroupPanel2.TabIndex = 93
         Me.GroupPanel2.Text = "เพิ่ม แก้ไข รายละเอียดการสั่งย้อม"
         '
+        'CalOnerollShow
+        '
+        Me.CalOnerollShow.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CalOnerollShow.Enabled = False
+        Me.CalOnerollShow.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CalOnerollShow.Location = New System.Drawing.Point(878, 89)
+        Me.CalOnerollShow.MaxLength = 12
+        Me.CalOnerollShow.Name = "CalOnerollShow"
+        Me.CalOnerollShow.Size = New System.Drawing.Size(82, 24)
+        Me.CalOnerollShow.TabIndex = 152
+        Me.CalOnerollShow.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(818, 130)
+        Me.Label1.Location = New System.Drawing.Point(818, 134)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(116, 16)
         Me.Label1.TabIndex = 151
@@ -1038,7 +1052,7 @@ Partial Class Formdyeform
         Me.AllWgtkg.Name = "AllWgtkg"
         Me.AllWgtkg.Size = New System.Drawing.Size(82, 24)
         Me.AllWgtkg.TabIndex = 145
-        Me.AllWgtkg.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.AllWgtkg.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'LabelX20
         '
@@ -1065,7 +1079,7 @@ Partial Class Formdyeform
         Me.AllFebric.Name = "AllFebric"
         Me.AllFebric.Size = New System.Drawing.Size(82, 24)
         Me.AllFebric.TabIndex = 143
-        Me.AllFebric.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.AllFebric.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'LabelX19
         '
@@ -1076,7 +1090,7 @@ Partial Class Formdyeform
         '
         Me.LabelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX19.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX19.Location = New System.Drawing.Point(750, 88)
+        Me.LabelX19.Location = New System.Drawing.Point(750, 89)
         Me.LabelX19.Name = "LabelX19"
         Me.LabelX19.Size = New System.Drawing.Size(113, 23)
         Me.LabelX19.TabIndex = 142
@@ -1087,12 +1101,13 @@ Partial Class Formdyeform
         Me.CalOneroll.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CalOneroll.Enabled = False
         Me.CalOneroll.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CalOneroll.Location = New System.Drawing.Point(878, 87)
+        Me.CalOneroll.Location = New System.Drawing.Point(982, 122)
         Me.CalOneroll.MaxLength = 12
         Me.CalOneroll.Name = "CalOneroll"
-        Me.CalOneroll.Size = New System.Drawing.Size(82, 24)
+        Me.CalOneroll.Size = New System.Drawing.Size(10, 24)
         Me.CalOneroll.TabIndex = 141
-        Me.CalOneroll.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.CalOneroll.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.CalOneroll.Visible = False
         '
         'DemoCode
         '
@@ -1118,10 +1133,10 @@ Partial Class Formdyeform
         Me.OriginalTbqtyroll.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.OriginalTbqtyroll.Enabled = False
         Me.OriginalTbqtyroll.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OriginalTbqtyroll.Location = New System.Drawing.Point(965, 122)
+        Me.OriginalTbqtyroll.Location = New System.Drawing.Point(967, 122)
         Me.OriginalTbqtyroll.MaxLength = 10
         Me.OriginalTbqtyroll.Name = "OriginalTbqtyroll"
-        Me.OriginalTbqtyroll.Size = New System.Drawing.Size(27, 24)
+        Me.OriginalTbqtyroll.Size = New System.Drawing.Size(11, 24)
         Me.OriginalTbqtyroll.TabIndex = 137
         Me.OriginalTbqtyroll.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.OriginalTbqtyroll.Visible = False
@@ -1160,7 +1175,7 @@ Partial Class Formdyeform
         Me.TbqtyrollTemp.Name = "TbqtyrollTemp"
         Me.TbqtyrollTemp.Size = New System.Drawing.Size(82, 24)
         Me.TbqtyrollTemp.TabIndex = 133
-        Me.TbqtyrollTemp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.TbqtyrollTemp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'CountDgvmas
         '
@@ -2654,4 +2669,5 @@ Partial Class Formdyeform
     Friend WithEvents Dozen As DataGridViewTextBoxColumn
     Friend WithEvents Dyededroll As DataGridViewTextBoxColumn
     Friend WithEvents Remainroll As DataGridViewTextBoxColumn
+    Friend WithEvents CalOnerollShow As Dectextbox.Dectextbox
 End Class
