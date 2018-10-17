@@ -533,10 +533,15 @@ Public Class Formdyeform
         SumSellEdit.DataSource = SumSell
         Dim SumSellCash = If(IsDBNull(SumSellEdit.Rows(0).Cells("SumSell").Value), "0", SumSellEdit.Rows(0).Cells("SumSell").Value - TbqtyrollTemp.Text)
         'MessageBox.Show(Tbqtyroll.Text)
+
+        If Tbaddedit.Text = "เพิ่ม" AndAlso CLng(Tbqtyroll.Text) > CLng(TbqtyrollTemp.Text) Then
+            Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ") 'เพิ่มใหม่ใส่เกิน
+            Exit Sub
+        End If
         If Tbwgtkg.Text + SumSell(0)(1) > AllWgtkg.Text Then
             Informmessage("น้ำหนักคงเหลือ น้อยกว่าที่ระบุ")
         End If
-        Label1.Text = AllWgtkg.Text - SumSell(0)(1)
+        'Label1.Text = AllWgtkg.Text - SumSell(0)(1)
 
         Dim Frm As New Formknitfordyelist
         'MessageBox.Show($"{Tbqtyroll.Text }:{ TbqtyrollTemp.Text}")
@@ -551,11 +556,6 @@ Public Class Formdyeform
         '    Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ A") 'แก้ไขใส่เกิน
         '    Exit Sub
         'End If
-
-        If Tbaddedit.Text = "เพิ่ม" AndAlso CLng(Tbqtyroll.Text) > CLng(TbqtyrollTemp.Text) Then
-            Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ") 'เพิ่มใหม่ใส่เกิน
-            Exit Sub
-        End If
 
         If Tbdyedcomno.Text = "NEW" Then
             If OriginalTbqtyroll.Text = "" And Tbaddedit.Text = "แก้ไข" Then
@@ -741,7 +741,7 @@ Public Class Formdyeform
         CalOneroll.Text = CDbl(AllWgtkg.Text) / CDbl(AllFebric.Text)
         'AllWgtkg.Text = Format(CDbl(Dgvmas.CurrentRow.Cells("Mkg").Value), "###,###.#0")
         If Tbaddedit.Text = "แก้ไข" Then
-            Tbwgtkg.Text = Format(CLng(Dgvmas.CurrentRow.Cells("Mkg").Value), "###,###")
+            Tbwgtkg.Text = Format(CDbl(Dgvmas.CurrentRow.Cells("Mkg").Value), "###,###.#0")
         End If
 
         'If Cheng = 2 Then
