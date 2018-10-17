@@ -539,9 +539,6 @@ Public Class Formdyeform
             Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ") 'เพิ่มใหม่ใส่เกิน
             Exit Sub
         End If
-        If Tbwgtkg.Text + SumSell(0)(1) > AllWgtkg.Text Then
-            Informmessage("น้ำหนักคงเหลือ น้อยกว่าที่ระบุ")
-        End If
         'Label1.Text = AllWgtkg.Text - SumSell(0)(1)
 
         Dim Frm As New Formknitfordyelist
@@ -584,6 +581,10 @@ Public Class Formdyeform
                     'Exit Sub
                 End If
             End If
+        End If
+
+        If Tbwgtkg.Text + SumSell(0)(1) > AllWgtkg.Text Then
+            Informmessage("น้ำหนักคงเหลือ น้อยกว่าที่ระบุ")
         End If
 
         'If OriginalTbqtyroll.Text = "" And Tbaddedit.Text = "แก้ไข" Then
