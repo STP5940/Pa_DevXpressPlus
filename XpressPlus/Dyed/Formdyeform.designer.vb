@@ -2337,31 +2337,31 @@ Partial Class Formdyeform
         '
         'Qtyroll
         '
-        Me.Qtyroll.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Qtyroll.DataPropertyName = "Qtyroll"
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
         Me.Qtyroll.DefaultCellStyle = DataGridViewCellStyle3
-        Me.Qtyroll.HeaderText = "จำนวนผ้า"
+        Me.Qtyroll.HeaderText = "จำนวนผ้า(กอง)"
         Me.Qtyroll.Name = "Qtyroll"
         Me.Qtyroll.ReadOnly = True
+        Me.Qtyroll.Width = 130
         '
         'Dye
         '
-        Me.Dye.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
         Me.Dye.DefaultCellStyle = DataGridViewCellStyle4
-        Me.Dye.HeaderText = "จำนวนส่งย้อม"
+        Me.Dye.HeaderText = "จำนวนส่งย้อม(กอง)"
         Me.Dye.Name = "Dye"
         Me.Dye.ReadOnly = True
+        Me.Dye.Width = 130
         '
         'Balance
         '
-        Me.Balance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
         Me.Balance.DefaultCellStyle = DataGridViewCellStyle5
-        Me.Balance.HeaderText = "ยอดคงเหลือ"
+        Me.Balance.HeaderText = "ยอดคงเหลือ(กอง)"
         Me.Balance.Name = "Balance"
         Me.Balance.ReadOnly = True
+        Me.Balance.Width = 130
         '
         'Comids
         '
