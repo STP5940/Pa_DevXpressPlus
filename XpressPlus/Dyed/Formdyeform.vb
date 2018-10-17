@@ -95,7 +95,8 @@ Public Class Formdyeform
         Mainbuttonaddedit()
     End Sub
     Private Sub Btmedit_Click(sender As Object, e As EventArgs) Handles Btmedit.Click
-        DemoColor()
+        Btdedit_Click(sender, e)
+        DemoColor(Tbshadeid.Text)
         Tbfinddhid.Enabled = True
         Tbpickup.Enabled = True
         Tbremark.Enabled = True
@@ -464,7 +465,7 @@ Public Class Formdyeform
             'Tbshadeid.Text = Trim(Dgvmas.Rows(0).Cells("Shid").Value)
             'Tbshadename.Text = Trim(Dgvmas.Rows(0).Cells("Mshade").Value)
 
-            If Trim(Frm.Dgvmas.CurrentRow.Cells("Mid").Value) <> Trim(Dgvmas.Rows(0).Cells("Shid").Value) Then
+            If Trim(Frm.Dgvmas.CurrentRow.Cells("Mid").Value) <> Trim(Dgvmas.Rows(0).Cells("Shid").Value) AndAlso Dgvmas.RowCount > 1 Then
                 Informmessage("Shade ไม่ตรงกันโปรดตรวจสอบอีกครั้ง")
                 Exit Sub
             End If
@@ -472,13 +473,29 @@ Public Class Formdyeform
 
         Tbshadeid.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Mid").Value)
         Tbshadename.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Mname").Value)
-        DemoColor()
+        DemoColor(Tbshadeid.Text)
         Tbfabbill.Focus()
     End Sub
-    Private Sub DemoColor()
-        If Dgvmas.RowCount <> 0 OrElse Tbdyedcomno.Text = "NEW" Then
-            DemoCode.BackColor = Color.FromArgb(255, 192, 128)
-        End If
+    Private Sub DemoColor(RBGColor As Object)
+
+        Try
+            If Dgvmas.RowCount <> 0 OrElse Tbdyedcomno.Text = "NEW" Then
+                Dim EBGColor As New DataTable
+                EBGColor = SQLCommand($"SELECT Rcolor,Gcolor,Bcolor FROM Tshadexp WHERE Shadeid = '{RBGColor}'")
+
+                If IsDBNull(EBGColor(0)(0)) OrElse IsDBNull(EBGColor(0)(1)) OrElse IsDBNull(EBGColor(0)(2)) Then
+                    Informmessage("Shade นี้ยังไม่มีสีตัวอย่าง")
+                    DemoCode.BackColor = Color.White
+                    Exit Sub
+                End If
+                DemoCode.BackColor = Color.FromArgb(EBGColor(0)(0), EBGColor(0)(1), EBGColor(0)(2))
+            End If
+        Catch ex As Exception
+            Informmessage("เกิดข้อผิดพลาดในการเปลี่ยนสีตัวอย่าง")
+            DemoCode.BackColor = Color.White
+        End Try
+
+
     End Sub
     Private Sub Tbfabbill_KeyDown(sender As Object, e As KeyEventArgs) Handles Tbfabbill.KeyDown
         If e.KeyCode = Keys.Enter Then
@@ -584,7 +601,7 @@ Public Class Formdyeform
         End If
 
         If Tbwgtkg.Text + SumSell(0)(1) > AllWgtkg.Text Then
-            Informmessage("น้ำหนักคงเหลือ น้อยกว่าที่ระบุ")
+            Informmessage($"น้ำหนักคงเหลือ น้อยกว่าที่ระบุ{Tbwgtkg.Text + SumSell(0)(1)}>{AllWgtkg.Text}")
         End If
 
         'If OriginalTbqtyroll.Text = "" And Tbaddedit.Text = "แก้ไข" Then
