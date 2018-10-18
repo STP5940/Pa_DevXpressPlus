@@ -491,7 +491,9 @@ Public Class Formdyeform
                 DemoCode.BackColor = Color.FromArgb(EBGColor(0)(0), EBGColor(0)(1), EBGColor(0)(2))
             End If
         Catch ex As Exception
-            Informmessage("เกิดข้อผิดพลาดในการเปลี่ยนสีตัวอย่าง")
+            If Tbdyedcomno.Text <> "NEW" Then
+                Informmessage("เกิดข้อผิดพลาดในการเปลี่ยนสีตัวอย่าง")
+            End If
             DemoCode.BackColor = Color.White
         End Try
 
@@ -600,9 +602,12 @@ Public Class Formdyeform
             End If
         End If
 
-        If Tbwgtkg.Text + SumSell(0)(1) > AllWgtkg.Text Then
-            Informmessage($"น้ำหนักคงเหลือ น้อยกว่าที่ระบุ{Tbwgtkg.Text + SumSell(0)(1)}>{AllWgtkg.Text}")
+        If AllWgtkg.Text < Tbwgtkg.Text + SumSell(0)(1) AndAlso Tbaddedit.Text = "เพิ่ม" Then
+            Informmessage($"น้ำหนักรวมผ้า น้อยกว่าที่ระบุ")
         End If
+
+        'If Tbwgtkg.Text + SumSell(0)(1) > AllWgtkg.Text AndAlso Tbaddedit.Text = "แก้ไข" Then
+        '    AllWgtkg
 
         'If OriginalTbqtyroll.Text = "" And Tbaddedit.Text = "แก้ไข" Then
         '    OriginalTbqtyroll.Text = Format(CLng(Dgvmas.CurrentRow.Cells("Mqty").Value), "###,###")
@@ -748,17 +753,29 @@ Public Class Formdyeform
         CheckStock.DataSource = EditCheckStock
         TbqtyrollTemp.Text = If(IsDBNull(CheckStock.Rows(0).Cells("Sum").Value), "", (CheckStock.Rows(0).Cells("Sum").Value - SumSellCash))
 
+        If TbqtyrollTemp.Text = "" Then
+            TbqtyrollTemp.Text = 0
+        End If
+
         Dim CountFabricAll = New DataTable
         CountFabricAll = SQLCommand($"SELECT Qtyroll,Wgtkg FROM Vknitcomdet  WHERE Knitcomno = '{Tbknitcomno.Text}' And Clothid = '{Tbclothid.Text}'")
         'MessageBox.Show(CountFabricAll(0)(0))
-        AllFebric.Text = CountFabricAll(0)(0)
-        If AllFebric.Text = "" Then
-            Informmessage("ไม่พบจำนวนพับในระบบ")
-            AllFebric.Text = 0
-        End If
-        AllWgtkg.Text = Format(CountFabricAll(0)(1), "###,###.#0")
+        Try
+            AllFebric.Text = CountFabricAll(0)(0)
+            AllWgtkg.Text = Format(CountFabricAll(0)(1), "###,###.#0")
+        Catch ex As Exception
+            If AllFebric.Text = "" Then
+                MessageBox.Show($"ไม่พบข้อมูลใบสั่งทอเลขที่: {Tbknitcomno.Text}", "ข้อผิดพลาดร้ายแรง", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                'Informmessage($"ไม่พบใบสั่งทอเลขที่: {Tbknitcomno.Text} อาจมีการลบใบสั่งทอนี้แล้ว")
+                AllFebric.Text = 0
+                AllWgtkg.Text = 0
+            End If
+        End Try
         CalOneroll.Text = CDbl(AllWgtkg.Text) / CDbl(AllFebric.Text)
         CalOnerollShow.Text = Format(CDbl(CalOneroll.Text), "###,###.#0") 'แสดงทศนิยม 2 ตำแหน่งอย่างเดียว
+        If CalOnerollShow.Text = "NaN" Then
+            CalOnerollShow.Text = 0
+        End If
         'AllWgtkg.Text = Format(CDbl(Dgvmas.CurrentRow.Cells("Mkg").Value), "###,###.#0")
         If Tbaddedit.Text = "แก้ไข" Then
             Tbwgtkg.Text = Format(CDbl(Dgvmas.CurrentRow.Cells("Mkg").Value), "###,###.#0")

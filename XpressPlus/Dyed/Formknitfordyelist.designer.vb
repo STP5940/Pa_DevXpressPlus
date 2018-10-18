@@ -33,13 +33,6 @@ Partial Class Formknitfordyelist
         Me.DataSum = New System.Windows.Forms.DataGridView()
         Me.SellSums = New Normtextbox.Normtextbox()
         Me.Dgvmas = New System.Windows.Forms.DataGridView()
-        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.Btmsearch = New System.Windows.Forms.ToolStripButton()
-        Me.Tbkeyword = New System.Windows.Forms.ToolStripTextBox()
-        Me.Tbcancel = New System.Windows.Forms.ToolStripTextBox()
-        Me.Btcancel = New DevComponents.DotNetBar.ButtonX()
-        Me.Btok = New DevComponents.DotNetBar.ButtonX()
-        Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
         Me.Status = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -53,6 +46,16 @@ Partial Class Formknitfordyelist
         Me.Qtyroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Wgtkg = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Finwgt = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Havedoz = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.Btmsearch = New System.Windows.Forms.ToolStripButton()
+        Me.Tbkeyword = New System.Windows.Forms.ToolStripTextBox()
+        Me.Tbcancel = New System.Windows.Forms.ToolStripTextBox()
+        Me.Btcancel = New DevComponents.DotNetBar.ButtonX()
+        Me.Btok = New DevComponents.DotNetBar.ButtonX()
+        Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
+        Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
+        Me.LabelX3 = New DevComponents.DotNetBar.LabelX()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabControlPanel1.SuspendLayout()
@@ -80,6 +83,8 @@ Partial Class Formknitfordyelist
         '
         'TabControlPanel1
         '
+        Me.TabControlPanel1.Controls.Add(Me.LabelX3)
+        Me.TabControlPanel1.Controls.Add(Me.LabelX2)
         Me.TabControlPanel1.Controls.Add(Me.LabelX1)
         Me.TabControlPanel1.Controls.Add(Me.Send)
         Me.TabControlPanel1.Controls.Add(Me.LabelX4)
@@ -130,7 +135,7 @@ Partial Class Formknitfordyelist
         Me.Send.Location = New System.Drawing.Point(253, 216)
         Me.Send.MaxLength = 120
         Me.Send.Name = "Send"
-        Me.Send.Size = New System.Drawing.Size(127, 24)
+        Me.Send.Size = New System.Drawing.Size(86, 24)
         Me.Send.TabIndex = 117
         Me.Send.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -143,11 +148,11 @@ Partial Class Formknitfordyelist
         '
         Me.LabelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX4.Location = New System.Drawing.Point(170, 245)
+        Me.LabelX4.Location = New System.Drawing.Point(197, 245)
         Me.LabelX4.Name = "LabelX4"
-        Me.LabelX4.Size = New System.Drawing.Size(77, 23)
+        Me.LabelX4.Size = New System.Drawing.Size(53, 23)
         Me.LabelX4.TabIndex = 116
-        Me.LabelX4.Text = "ยอดคงเหลือ"
+        Me.LabelX4.Text = "คงเหลือ"
         '
         'DataSum
         '
@@ -169,7 +174,7 @@ Partial Class Formknitfordyelist
         Me.SellSums.Location = New System.Drawing.Point(253, 246)
         Me.SellSums.MaxLength = 120
         Me.SellSums.Name = "SellSums"
-        Me.SellSums.Size = New System.Drawing.Size(127, 24)
+        Me.SellSums.Size = New System.Drawing.Size(86, 24)
         Me.SellSums.TabIndex = 113
         Me.SellSums.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -189,7 +194,7 @@ Partial Class Formknitfordyelist
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.Dgvmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Status, Me.Column1, Me.Column2, Me.Column3, Me.Comid, Me.Knitcomno, Me.Clothid, Me.Clothno, Me.Ftype, Me.Fwidth, Me.Qtyroll, Me.Wgtkg, Me.Finwgt})
+        Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Status, Me.Column1, Me.Column2, Me.Column3, Me.Comid, Me.Knitcomno, Me.Clothid, Me.Clothno, Me.Ftype, Me.Fwidth, Me.Qtyroll, Me.Wgtkg, Me.Finwgt, Me.Havedoz})
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
@@ -203,74 +208,6 @@ Partial Class Formknitfordyelist
         Me.Dgvmas.ReadOnly = True
         Me.Dgvmas.Size = New System.Drawing.Size(382, 160)
         Me.Dgvmas.TabIndex = 29
-        '
-        'ToolStrip1
-        '
-        Me.ToolStrip1.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btmsearch, Me.Tbkeyword, Me.Tbcancel})
-        Me.ToolStrip1.Location = New System.Drawing.Point(1, 1)
-        Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(382, 49)
-        Me.ToolStrip1.TabIndex = 28
-        Me.ToolStrip1.Text = "ToolStrip1"
-        '
-        'Btmsearch
-        '
-        Me.Btmsearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Btmsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btmsearch.Image = Global.XpressPlus.My.Resources.Resources.Findicon
-        Me.Btmsearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.Btmsearch.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Btmsearch.Name = "Btmsearch"
-        Me.Btmsearch.Size = New System.Drawing.Size(48, 46)
-        Me.Btmsearch.Text = "ค้นหา"
-        Me.Btmsearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'Tbkeyword
-        '
-        Me.Tbkeyword.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Tbkeyword.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Tbkeyword.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbkeyword.Name = "Tbkeyword"
-        Me.Tbkeyword.Size = New System.Drawing.Size(120, 49)
-        '
-        'Tbcancel
-        '
-        Me.Tbcancel.Name = "Tbcancel"
-        Me.Tbcancel.Size = New System.Drawing.Size(25, 49)
-        Me.Tbcancel.Visible = False
-        '
-        'Btcancel
-        '
-        Me.Btcancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.Btcancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Btcancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.Btcancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btcancel.Location = New System.Drawing.Point(253, 286)
-        Me.Btcancel.Name = "Btcancel"
-        Me.Btcancel.Size = New System.Drawing.Size(73, 34)
-        Me.Btcancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
-        Me.Btcancel.TabIndex = 1
-        Me.Btcancel.Text = "ยกเลิก"
-        '
-        'Btok
-        '
-        Me.Btok.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.Btok.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Btok.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.Btok.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btok.Location = New System.Drawing.Point(78, 286)
-        Me.Btok.Name = "Btok"
-        Me.Btok.Size = New System.Drawing.Size(73, 34)
-        Me.Btok.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
-        Me.Btok.TabIndex = 0
-        Me.Btok.Text = "ตกลง"
-        '
-        'TabItem1
-        '
-        Me.TabItem1.AttachedControl = Me.TabControlPanel1
-        Me.TabItem1.Name = "TabItem1"
-        Me.TabItem1.Text = "เลขที่ใบสั่งทอ"
         '
         'Status
         '
@@ -375,6 +312,112 @@ Partial Class Formknitfordyelist
         Me.Finwgt.ReadOnly = True
         Me.Finwgt.Visible = False
         '
+        'Havedoz
+        '
+        Me.Havedoz.DataPropertyName = "Havedoz"
+        Me.Havedoz.HeaderText = "Havedoz"
+        Me.Havedoz.Name = "Havedoz"
+        Me.Havedoz.ReadOnly = True
+        Me.Havedoz.Visible = False
+        '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.BackColor = System.Drawing.Color.Transparent
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btmsearch, Me.Tbkeyword, Me.Tbcancel})
+        Me.ToolStrip1.Location = New System.Drawing.Point(1, 1)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(382, 49)
+        Me.ToolStrip1.TabIndex = 28
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'Btmsearch
+        '
+        Me.Btmsearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Btmsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Btmsearch.Image = Global.XpressPlus.My.Resources.Resources.Findicon
+        Me.Btmsearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.Btmsearch.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Btmsearch.Name = "Btmsearch"
+        Me.Btmsearch.Size = New System.Drawing.Size(48, 46)
+        Me.Btmsearch.Text = "ค้นหา"
+        Me.Btmsearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'Tbkeyword
+        '
+        Me.Tbkeyword.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Tbkeyword.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbkeyword.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tbkeyword.Name = "Tbkeyword"
+        Me.Tbkeyword.Size = New System.Drawing.Size(120, 49)
+        '
+        'Tbcancel
+        '
+        Me.Tbcancel.Name = "Tbcancel"
+        Me.Tbcancel.Size = New System.Drawing.Size(25, 49)
+        Me.Tbcancel.Visible = False
+        '
+        'Btcancel
+        '
+        Me.Btcancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.Btcancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Btcancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.Btcancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Btcancel.Location = New System.Drawing.Point(253, 286)
+        Me.Btcancel.Name = "Btcancel"
+        Me.Btcancel.Size = New System.Drawing.Size(73, 34)
+        Me.Btcancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
+        Me.Btcancel.TabIndex = 1
+        Me.Btcancel.Text = "ยกเลิก"
+        '
+        'Btok
+        '
+        Me.Btok.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.Btok.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Btok.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.Btok.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Btok.Location = New System.Drawing.Point(78, 286)
+        Me.Btok.Name = "Btok"
+        Me.Btok.Size = New System.Drawing.Size(73, 34)
+        Me.Btok.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
+        Me.Btok.TabIndex = 0
+        Me.Btok.Text = "ตกลง"
+        '
+        'TabItem1
+        '
+        Me.TabItem1.AttachedControl = Me.TabControlPanel1
+        Me.TabItem1.Name = "TabItem1"
+        Me.TabItem1.Text = "เลขที่ใบสั่งทอ"
+        '
+        'LabelX2
+        '
+        Me.LabelX2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LabelX2.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.LabelX2.Location = New System.Drawing.Point(345, 216)
+        Me.LabelX2.Name = "LabelX2"
+        Me.LabelX2.Size = New System.Drawing.Size(22, 23)
+        Me.LabelX2.TabIndex = 119
+        Me.LabelX2.Text = "พับ"
+        '
+        'LabelX3
+        '
+        Me.LabelX3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LabelX3.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.LabelX3.Location = New System.Drawing.Point(345, 245)
+        Me.LabelX3.Name = "LabelX3"
+        Me.LabelX3.Size = New System.Drawing.Size(22, 23)
+        Me.LabelX3.TabIndex = 120
+        Me.LabelX3.Text = "พับ"
+        '
         'Formknitfordyelist
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -424,4 +467,7 @@ Partial Class Formknitfordyelist
     Friend WithEvents Qtyroll As DataGridViewTextBoxColumn
     Friend WithEvents Wgtkg As DataGridViewTextBoxColumn
     Friend WithEvents Finwgt As DataGridViewTextBoxColumn
+    Friend WithEvents Havedoz As DataGridViewTextBoxColumn
+    Friend WithEvents LabelX3 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents LabelX2 As DevComponents.DotNetBar.LabelX
 End Class
