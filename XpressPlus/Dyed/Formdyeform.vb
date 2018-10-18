@@ -765,7 +765,7 @@ Public Class Formdyeform
             AllWgtkg.Text = Format(CountFabricAll(0)(1), "###,###.#0")
         Catch ex As Exception
             If AllFebric.Text = "" Then
-                MessageBox.Show($"ไม่พบข้อมูลใบสั่งทอเลขที่: {Tbknitcomno.Text}", "ข้อผิดพลาดร้ายแรง", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show($"ไม่พบข้อมูลใบสั่งทอเลขที่: {Tbknitcomno.Text}", "แจ้งเตือนข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 'Informmessage($"ไม่พบใบสั่งทอเลขที่: {Tbknitcomno.Text} อาจมีการลบใบสั่งทอนี้แล้ว")
                 AllFebric.Text = 0
                 AllWgtkg.Text = 0
