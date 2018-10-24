@@ -1,7 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports Microsoft.Reporting.WinForms
 Public Class Formsalefabric
-    Private Tmaster, Tdetails, Tlist, Dttemp As DataTable
+    Private Tmaster, Tdetails, Tlist, Dttemp, Kongno, KongnoKg As DataTable
     Private Pagecount, Maxrec, Pagesize, Currentpage, Recno As Integer
     Private WithEvents Dtplistfm As New DateTimePicker
     Private WithEvents Dtplistto As New DateTimePicker
@@ -136,67 +136,68 @@ Public Class Formsalefabric
             Exit Sub
         End If
         Binddetails()
-        Dim Frm As New Formsalefabcolrpt
-        Frm.ReportViewer1.Reset()
-        Frm.Tbcustname.Text = Trim(Tbcustname.Text)
-        Frm.Tbcustaddr.Text = Trim(Tbcustship.Text)
-        Frm.Tbclothno.Text = Trim(Tbclothno.Text)
-        Frm.Tbwidth.Text = Trim(Tbwidth.Text)
-        Frm.Tbdlvno.Text = Trim(Tbdlvno.Text)
-        'MsgBox(Format(Dtpdate.Value, "dd/MM/yyyy"))
-        Frm.Tbdate.Text = Format(Dtpdate.Value, "dd/MM/yyyy")
-        Frm.Tbshade.Text = Trim(Tbshadename.Text)
-        Frm.Tbcolor.Text = Trim(Tbcolorno.Text)
-        Frm.Tbsumkg.Text = Trim(Tbsumwgt.Text)
-        Frm.Tbkgprice.Text = Trim(Tbkgprice.Text)
-        Frm.Tbsumprice.Text = Trim(Tbsummoney.Text)
-        Frm.Tstbsumkg.Text = Trim(Tstbsumkg.Text)
+        Salefab()
+        'Dim Frm As New Formsalefabcolrpt
+        'Frm.ReportViewer1.Reset()
+        'Frm.Tbcustname.Text = Trim(Tbcustname.Text)
+        'Frm.Tbcustaddr.Text = Trim(Tbcustship.Text)
+        'Frm.Tbclothno.Text = Trim(Tbclothno.Text)
+        'Frm.Tbwidth.Text = Trim(Tbwidth.Text)
+        'Frm.Tbdlvno.Text = Trim(Tbdlvno.Text)
+        ''MsgBox(Format(Dtpdate.Value, "dd/MM/yyyy"))
+        'Frm.Tbdate.Text = Format(Dtpdate.Value, "dd/MM/yyyy")
+        'Frm.Tbshade.Text = Trim(Tbshadename.Text)
+        'Frm.Tbcolor.Text = Trim(Tbcolorno.Text)
+        'Frm.Tbsumkg.Text = Trim(Tbsumwgt.Text)
+        'Frm.Tbkgprice.Text = Trim(Tbkgprice.Text)
+        'Frm.Tbsumprice.Text = Trim(Tbsummoney.Text)
+        'Frm.Tstbsumkg.Text = Trim(Tstbsumkg.Text)
 
-        '--------'
-        Dim NumberMax As Integer
-        Dim NumberMin As Integer
+        ''--------'
+        'Dim NumberMax As Integer
+        'Dim NumberMin As Integer
 
-        For I = 0 To Dgvmas.RowCount - 1
-            If I > 0 Then
-                If Dgvmas.Rows(I).Cells("Mkongno").Value > NumberMax Then
-                    NumberMax = Dgvmas.Rows(I).Cells("Mkongno").Value
-                End If
-                If Dgvmas.Rows(I).Cells("Mkongno").Value < NumberMin Then
-                    NumberMin = Dgvmas.Rows(I).Cells("Mkongno").Value
-                End If
-                Continue For
-            End If
-            NumberMax = Dgvmas.Rows(I).Cells("Mkongno").Value
-            NumberMin = Dgvmas.Rows(I).Cells("Mkongno").Value
-            'MsgBox(Dgvmas.Rows(I).Cells("Mkongno").Value)
-        Next
+        'For I = 0 To Dgvmas.RowCount - 1
+        '    If I > 0 Then
+        '        If Dgvmas.Rows(I).Cells("Mkongno").Value > NumberMax Then
+        '            NumberMax = Dgvmas.Rows(I).Cells("Mkongno").Value
+        '        End If
+        '        If Dgvmas.Rows(I).Cells("Mkongno").Value < NumberMin Then
+        '            NumberMin = Dgvmas.Rows(I).Cells("Mkongno").Value
+        '        End If
+        '        Continue For
+        '    End If
+        '    NumberMax = Dgvmas.Rows(I).Cells("Mkongno").Value
+        '    NumberMin = Dgvmas.Rows(I).Cells("Mkongno").Value
+        '    'MsgBox(Dgvmas.Rows(I).Cells("Mkongno").Value)
+        'Next
 
-        'MsgBox($"NumberMin: {NumberMin}")
-        'MsgBox($"NumberMax: {NumberMax}")
-        Frm.NumberMax.Text = Trim(NumberMax)
-        Frm.NumberMin.Text = Trim(NumberMin)
-        'MsgBox(Dgvmas.RowCount)
-        '--------'
+        ''MsgBox($"NumberMin: {NumberMin}")
+        ''MsgBox($"NumberMax: {NumberMax}")
+        'Frm.NumberMax.Text = Trim(NumberMax)
+        'Frm.NumberMin.Text = Trim(NumberMin)
+        ''MsgBox(Dgvmas.RowCount)
+        ''--------'
 
-        If Gsexpau = False Then
-            Frm.ReportViewer1.ShowExportButton = False
-        End If
-        If Gspriau = False Then
-            Frm.ReportViewer1.ShowPrintButton = False
-        End If
-        Dim Rds, Rds1 As New ReportDataSource()
-        Rds.Name = "DataSetSale"
-        Rds.Value = Tdetails
-        Frm.ReportViewer1.LocalReport.DataSources.Add(Rds)
-        'Showform(Frm)
-        Frm.Show()
-        Sumall()
-        Clrtextmaster()
-        Clrtextdetails()
-        Clrgridmaster()
-        BindingNavigator1.Enabled = False
-        Mainbuttoncancel()
-        TabControl1.SelectedTabIndex = 0
+        'If Gsexpau = False Then
+        '    Frm.ReportViewer1.ShowExportButton = False
+        'End If
+        'If Gspriau = False Then
+        '    Frm.ReportViewer1.ShowPrintButton = False
+        'End If
+        'Dim Rds, Rds1 As New ReportDataSource()
+        'Rds.Name = "DataSetSale"
+        'Rds.Value = Tdetails
+        'Frm.ReportViewer1.LocalReport.DataSources.Add(Rds)
+        ''Showform(Frm)
+        'Frm.Show()
+        'Sumall()
+        'Clrtextmaster()
+        'Clrtextdetails()
+        'Clrgridmaster()
+        'BindingNavigator1.Enabled = False
+        'Mainbuttoncancel()
+        'TabControl1.SelectedTabIndex = 0
     End Sub
     Private Sub Btmfind_Click(sender As Object, e As EventArgs) Handles Btmfind.Click
         TabControl1.SelectedTabIndex = 0
@@ -636,6 +637,57 @@ Public Class Formsalefabric
         Tdetails = SQLCommand("SELECT '' AS Stat,* FROM Tsalefabcoldetxp
                                 WHERE Comid = '" & Gscomid & "' AND Dlvno = '" & Trim(Tbdlvno.Text) & "'")
         Dgvmas.DataSource = Tdetails
+    End Sub
+    Private Sub Salefab()
+        Dim HeaderOne() = {"No1", "No2", "No3", "No4"}
+        Dim Header() = {"Kg1", "Kg2", "Kg3", "Kg4"}
+        Dim RowNew = 0
+        Dim SalefabRows = 0
+        Dim InsertRow = 1
+        Dim CountProduc = 1
+
+        DataSalefab.Rows.Add()
+        For I = 0 To Dgvmas.RowCount - 1
+            MsgBox(Dgvmas.Rows(I).Cells("Mkongno").Value)
+            For Filters = 0 To FilterKong.RowCount - 1
+                If FilterKong.Rows(Filters).Cells("Header").Value = Dgvmas.Rows(I).Cells("Mkongno").Value Then
+                    Exit For
+                End If
+
+                If Filters = FilterKong.RowCount - 1 Then
+                    FilterKong.Rows.Add()
+                    FilterKong.Rows(RowNew).Cells("Header").Value = Dgvmas.Rows(I).Cells("Mkongno").Value
+                    RowNew += 1
+                End If
+            Next
+        Next
+
+        For List = 0 To 19
+            'DataSalefab.Rows.Insert(DataSalefab.RowCount - 1, $"{List + 1}")
+            DataSalefab.Rows.Insert(DataSalefab.RowCount - 1, $"")
+        Next
+
+
+        For i = 0 To Header.Length - 1
+            DataSalefab.Rows(0).Cells(Header(i)).Value = FilterKong.Rows(i).Cells("Header").Value
+        Next
+
+        For i = 0 To FilterKong.RowCount - 1
+            KongnoKg = New DataTable
+            KongnoKg = SQLCommand($"SELECT Wgtkg FROM Tsalefabcoldetxp WHERE 
+                                Kongno = '{FilterKong.Rows(i).Cells("Header").Value}'")
+            KongnoList.DataSource = KongnoKg
+            For List = 0 To KongnoList.RowCount - 1
+                DataSalefab.Rows(List + 1).Cells(HeaderOne(i)).Value = CountProduc
+                DataSalefab.Rows(List + 1).Cells(Header(i)).Value = KongnoList.Rows(List).Cells("Kg").Value
+                CountProduc += 1
+            Next
+        Next
+
+
+
+        'MsgBox(KongnoList.RowCount)
+
     End Sub
     Private Sub Bindinglist()
         Tlist = New DataTable
