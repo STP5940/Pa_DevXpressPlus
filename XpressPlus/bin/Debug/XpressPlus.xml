@@ -147,22 +147,22 @@ Represents strongly named DataRow class.
 Row event argument class
 </summary>
 </member>
-<member name="T:XpressPlus.Datareport_">
+<member name="T:XpressPlus._Datareport">
 <summary>
 Represents a strongly typed in-memory cache of data.
 </summary>
 </member>
-<member name="T:XpressPlus.Datareport_.DatareportDataTable">
+<member name="T:XpressPlus._Datareport.DatareportsDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:XpressPlus.Datareport_.DatareportRow">
+<member name="T:XpressPlus._Datareport.DatareportsRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:XpressPlus.Datareport_.DatareportRowChangeEvent">
+<member name="T:XpressPlus._Datareport.DatareportsRowChangeEvent">
 <summary>
 Row event argument class
 </summary>

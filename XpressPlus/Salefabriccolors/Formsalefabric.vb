@@ -137,98 +137,77 @@ Public Class Formsalefabric
         End If
         Binddetails()
         Salefab()
-        'ClearSalefab()
 
-        Dim No1, Kg1, No2, Kg2, No3, Kg3, No4, Kg4 As String
-        Dim Datareport As New DataTable
-        With Datareport
-            .Columns.Add("No1")
-            .Columns.Add("Kg1")
-            .Columns.Add("No2")
-            .Columns.Add("Kg2")
-            .Columns.Add("No3")
-            .Columns.Add("Kg3")
-            .Columns.Add("No4")
-            .Columns.Add("Kg4")
-        End With
-        Datareport.Rows.Clear()
-        For i = 0 To DataSalefab.RowCount - 1
-            No1 = DataSalefab.Rows(i).Cells("No1").Value
-            Kg1 = DataSalefab.Rows(i).Cells("Kg1").Value
-            No2 = DataSalefab.Rows(i).Cells("No2").Value
-            Kg2 = DataSalefab.Rows(i).Cells("Kg2").Value
-            No3 = DataSalefab.Rows(i).Cells("No3").Value
-            Kg3 = DataSalefab.Rows(i).Cells("Kg3").Value
-            No4 = DataSalefab.Rows(i).Cells("No4").Value
-            Kg4 = DataSalefab.Rows(i).Cells("Kg4").Value
-            Datareport.Rows.Add(No1, Kg1, No2, Kg2, No3, Kg3, No4, Kg4)
-        Next
+        ''ClearSalefab()
+        'MsgBox("Hello")
 
-        Dim Frm As New Formsalefabcolrpt
-        Frm.ReportViewer1.Reset()
-        Frm.Tbcustname.Text = Trim(Tbcustname.Text)
-        Frm.Tbcustaddr.Text = Trim(Tbcustship.Text)
-        Frm.Tbclothno.Text = Trim(Tbclothno.Text)
-        Frm.Tbwidth.Text = Trim(Tbwidth.Text)
-        Frm.Tbdlvno.Text = Trim(Tbdlvno.Text)
-        'MsgBox(Format(Dtpdate.Value, "dd/MM/yyyy"))
-        Frm.Tbdate.Text = Format(Dtpdate.Value, "dd/MM/yyyy")
-        Frm.Tbshade.Text = Trim(Tbshadename.Text)
-        Frm.Tbcolor.Text = Trim(Tbcolorno.Text)
-        Frm.Tbsumkg.Text = Trim(Tbsumwgt.Text)
-        Frm.Tbkgprice.Text = Trim(Tbkgprice.Text)
-        Frm.Tbsumprice.Text = Trim(Tbsummoney.Text)
-        Frm.Tstbsumkg.Text = Trim(Tstbsumkg.Text)
+        'Dim Frm As New Formsalefabcolrpt
+        'Frm.DataReport.Rows(0).Cells("Kg1").Value = DataSalefab.Rows(0).Cells("Kg1").Value
 
-        '--------'
-        Dim NumberMax As Integer
-        Dim NumberMin As Integer
+        'Frm.ReportViewer1.Reset()
+        'Frm.Tbcustname.Text = Trim(Tbcustname.Text)
+        'Frm.Tbcustaddr.Text = Trim(Tbcustship.Text)
+        'Frm.Tbclothno.Text = Trim(Tbclothno.Text)
+        'Frm.Tbwidth.Text = Trim(Tbwidth.Text)
+        'Frm.Tbdlvno.Text = Trim(Tbdlvno.Text)
+        ''MsgBox(Format(Dtpdate.Value, "dd/MM/yyyy"))
+        'Frm.Tbdate.Text = Format(Dtpdate.Value, "dd/MM/yyyy")
+        'Frm.Tbshade.Text = Trim(Tbshadename.Text)
+        'Frm.Tbcolor.Text = Trim(Tbcolorno.Text)
+        'Frm.Tbsumkg.Text = Trim(Tbsumwgt.Text)
+        'Frm.Tbkgprice.Text = Trim(Tbkgprice.Text)
+        'Frm.Tbsumprice.Text = Trim(Tbsummoney.Text)
+        'Frm.Tstbsumkg.Text = Trim(Tstbsumkg.Text)
 
-        For I = 0 To Dgvmas.RowCount - 1
-            If I > 0 Then
-                If Dgvmas.Rows(I).Cells("Mkongno").Value > NumberMax Then
-                    NumberMax = Dgvmas.Rows(I).Cells("Mkongno").Value
-                End If
-                If Dgvmas.Rows(I).Cells("Mkongno").Value < NumberMin Then
-                    NumberMin = Dgvmas.Rows(I).Cells("Mkongno").Value
-                End If
-                Continue For
-            End If
-            NumberMax = Dgvmas.Rows(I).Cells("Mkongno").Value
-            NumberMin = Dgvmas.Rows(I).Cells("Mkongno").Value
-            'MsgBox(Dgvmas.Rows(I).Cells("Mkongno").Value)
-        Next
+        ''--------'
+        'Dim NumberMax As Integer
+        'Dim NumberMin As Integer
 
-        'MsgBox($"NumberMin: {NumberMin}")
-        'MsgBox($"NumberMax: {NumberMax}")
-        Frm.NumberMax.Text = Trim(NumberMax)
-        Frm.NumberMin.Text = Trim(NumberMin)
-        'MsgBox(Dgvmas.RowCount)
-        '--------'
+        'For I = 0 To Dgvmas.RowCount - 1
+        '    If I > 0 Then
+        '        If Dgvmas.Rows(I).Cells("Mkongno").Value > NumberMax Then
+        '            NumberMax = Dgvmas.Rows(I).Cells("Mkongno").Value
+        '        End If
+        '        If Dgvmas.Rows(I).Cells("Mkongno").Value < NumberMin Then
+        '            NumberMin = Dgvmas.Rows(I).Cells("Mkongno").Value
+        '        End If
+        '        Continue For
+        '    End If
+        '    NumberMax = Dgvmas.Rows(I).Cells("Mkongno").Value
+        '    NumberMin = Dgvmas.Rows(I).Cells("Mkongno").Value
+        '    'MsgBox(Dgvmas.Rows(I).Cells("Mkongno").Value)
+        'Next
 
-        If Gsexpau = False Then
-            Frm.ReportViewer1.ShowExportButton = False
-        End If
-        If Gspriau = False Then
-            Frm.ReportViewer1.ShowPrintButton = False
-        End If
-        Dim Rds, Rds1 As New ReportDataSource()
-        Rds.Name = "DataSetSale"
-        Rds.Value = Tdetails
-        Frm.ReportViewer1.LocalReport.DataSources.Add(Rds)
+        ''MsgBox($"NumberMin: {NumberMin}")
+        ''MsgBox($"NumberMax: {NumberMax}")
+        'Frm.NumberMax.Text = Trim(NumberMax)
+        'Frm.NumberMin.Text = Trim(NumberMin)
+        ''MsgBox(Dgvmas.RowCount)
+        ''--------'
 
-        'Rds1.Name = "DataGridReport"
-        'Rds1.Value = DataSalefab.DataSource
-        'Frm.ReportViewer1.LocalReport.DataSources.Add(Rds1)
-        'Showform(Frm)
-        Frm.Show()
-        Sumall()
-        Clrtextmaster()
-        Clrtextdetails()
-        Clrgridmaster()
-        BindingNavigator1.Enabled = False
-        Mainbuttoncancel()
-        TabControl1.SelectedTabIndex = 0
+        'If Gsexpau = False Then
+        '    Frm.ReportViewer1.ShowExportButton = False
+        'End If
+        'If Gspriau = False Then
+        '    Frm.ReportViewer1.ShowPrintButton = False
+        'End If
+        'Dim Rds, Rds1 As New ReportDataSource()
+        'Rds.Name = "DataSetSale"
+        'Rds.Value = Tdetails
+        'Frm.ReportViewer1.LocalReport.DataSources.Add(Rds)
+
+        ''Rds1.Name = "DataGridReport"
+        ''Rds1.Value = DataSalefab.DataSource
+        ''Frm.ReportViewer1.LocalReport.DataSources.Add(Rds1)
+        ''Showform(Frm)
+        'Frm.Show()
+        'Sumall()
+        'Clrtextmaster()
+        'Clrtextdetails()
+        'Clrgridmaster()
+        'BindingNavigator1.Enabled = False
+        'Mainbuttoncancel()
+        'TabControl1.SelectedTabIndex = 0
     End Sub
     Private Sub Btmfind_Click(sender As Object, e As EventArgs) Handles Btmfind.Click
         TabControl1.SelectedTabIndex = 0
@@ -670,37 +649,33 @@ Public Class Formsalefabric
         Dgvmas.DataSource = Tdetails
     End Sub
     Private Sub Salefab()
-        Dim HeaderOne() = {"No1", "No2", "No3", "No4"}
-        Dim Header() = {"Kg1", "Kg2", "Kg3", "Kg4"}
-        Dim RowNew = 0
-        Dim SalefabRows = 0
-        Dim InsertRow = 1
-        Dim CountProduc = 1
-        Dim EndGrid = 0
-        Dim FirstGrid = 0
-        Dim IndexHeader = 0
-        Dim FirstList = 0
-        Dim Countkongno = 0
+        Dim HeaderOne() As String = {"No1", "No2", "No3", "No4"}
+        Dim Header() As String = {"Kg1", "Kg2", "Kg3", "Kg4"}
 
+        Dim FilterKongarray As New List(Of String)()
+        Dim KongnoListarray As New List(Of String)()
+        Dim IndexHeader As Integer = 0
+        Dim Countkongno As Integer = 0
+        Dim RowNew As Long = 0
+        Dim FirstGrid As Long = 0
+        Dim CountProduc As Long = 1
+        Dim StartFirstGrid As Long = 0
+
+
+        FilterKongarray.Add("")
         For I = 0 To Dgvmas.RowCount - 1
-            For Filters = 0 To FilterKong.RowCount - 1
-                If FilterKong.Rows(Filters).Cells("Header").Value = Dgvmas.Rows(I).Cells("Mkongno").Value Then
+            For Filters = 0 To FilterKongarray.Count - 1
+                If FilterKongarray(Filters) = Dgvmas.Rows(I).Cells("Mkongno").Value Then
                     Exit For
                 End If
 
-                If Filters = FilterKong.RowCount - 1 Then
-                    FilterKong.Rows.Add()
-                    FilterKong.Rows(RowNew).Cells("Header").Value = Dgvmas.Rows(I).Cells("Mkongno").Value
-                    RowNew += 1
+                If Filters = FilterKongarray.Count - 1 Then
+                    FilterKongarray.Add(Dgvmas.Rows(I).Cells("Mkongno").Value)
                 End If
             Next
         Next
 
-        IndexHeader = 0
-        FirstGrid = 0
-        Dim StartFirstGrid = 0
-        For i = 0 To FilterKong.RowCount - 2
-
+        For i = 1 To FilterKongarray.Count - 1
             If IndexHeader = 0 Then
                 For List = 1 To 21
                     DataSalefab.Rows.Insert(DataSalefab.RowCount - 1, $"") ' สร้าง 20 แถว
@@ -709,10 +684,13 @@ Public Class Formsalefabric
 
             KongnoKg = New DataTable
             KongnoKg = SQLCommand($"SELECT Wgtkg FROM Tsalefabcoldetxp WHERE 
-                                Kongno = '{FilterKong.Rows(i).Cells("Header").Value}'")
-            KongnoList.DataSource = KongnoKg
+                                Kongno = '{FilterKongarray(i)}'")
+            For KongLoop = 0 To KongnoKg.Rows.Count - 1
+                KongnoListarray.Add(KongnoKg(KongLoop)(0))
+            Next
+
             Countkongno = 0
-            For List = 0 To KongnoList.RowCount - 1
+            For List = 0 To KongnoListarray.Count - 1
 
                 Countkongno += 1
                 If Countkongno = 21 Then
@@ -722,11 +700,11 @@ Public Class Formsalefabric
                 End If
 
                 FirstGrid += 1
-                DataSalefab.Rows(StartFirstGrid).Cells(Header(IndexHeader)).Value = FilterKong.Rows(i).Cells("Header").Value ' ใส่หัวเลขที่กอง
+                DataSalefab.Rows(StartFirstGrid).Cells(Header(IndexHeader)).Value = FilterKongarray(i) ' ใส่หัวเลขที่กอง
                 DataSalefab.Rows(FirstGrid).Cells(HeaderOne(IndexHeader)).Value = CountProduc
-                DataSalefab.Rows(FirstGrid).Cells(Header(IndexHeader)).Value = KongnoList.Rows(List).Cells("Kg").Value
+                DataSalefab.Rows(FirstGrid).Cells(Header(IndexHeader)).Value = KongnoListarray(List)
                 CountProduc += 1
-                If List = KongnoList.RowCount - 1 Then
+                If List = KongnoListarray.Count - 1 Then
                     FirstGrid = StartFirstGrid
                 End If
             Next
@@ -737,6 +715,10 @@ Public Class Formsalefabric
                 FirstGrid += 21
                 StartFirstGrid += 21
             End If
+
+            For KongLoop = 0 To KongnoKg.Rows.Count - 1
+                KongnoListarray.RemoveAt(0)
+            Next
         Next
 
     End Sub

@@ -842,11 +842,12 @@ Partial Class Formsalefabric
         'KongnoList
         '
         Me.KongnoList.AllowUserToAddRows = False
+        Me.KongnoList.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.KongnoList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.KongnoList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Kg})
-        Me.KongnoList.Location = New System.Drawing.Point(662, 63)
+        Me.KongnoList.Location = New System.Drawing.Point(798, 63)
         Me.KongnoList.Name = "KongnoList"
-        Me.KongnoList.Size = New System.Drawing.Size(175, 150)
+        Me.KongnoList.Size = New System.Drawing.Size(145, 155)
         Me.KongnoList.TabIndex = 99
         '
         'Kg
@@ -858,12 +859,13 @@ Partial Class Formsalefabric
         '
         'FilterKong
         '
+        Me.FilterKong.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FilterKong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.FilterKong.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Header})
-        Me.FilterKong.Location = New System.Drawing.Point(873, 44)
+        Me.FilterKong.Location = New System.Drawing.Point(649, 63)
         Me.FilterKong.Name = "FilterKong"
         Me.FilterKong.ReadOnly = True
-        Me.FilterKong.Size = New System.Drawing.Size(119, 165)
+        Me.FilterKong.Size = New System.Drawing.Size(143, 155)
         Me.FilterKong.TabIndex = 98
         '
         'Header
@@ -874,6 +876,9 @@ Partial Class Formsalefabric
         '
         'DataSalefab
         '
+        Me.DataSalefab.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataSalefab.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataSalefab.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.No1, Me.Kg1, Me.No2, Me.Kg2, Me.No3, Me.Kg3, Me.No4, Me.Kg4})
         Me.DataSalefab.Location = New System.Drawing.Point(0, 63)

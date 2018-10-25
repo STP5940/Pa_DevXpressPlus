@@ -38,6 +38,35 @@ Public Class Formsalefabcolrpt
         NumberMin = New ReportParameter("NumberMin", Trim(Me.NumberMin.Text), True)
         Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {NumberMin})
 
+        Dim No1, Kg1, No2, Kg2, No3, Kg3, No4, Kg4 As String
+        Dim Datareport As New DataTable
+        With Datareport
+            .Columns.Add("No1")
+            .Columns.Add("Kg1")
+            .Columns.Add("No2")
+            .Columns.Add("Kg2")
+            .Columns.Add("No3")
+            .Columns.Add("Kg3")
+            .Columns.Add("No4")
+            .Columns.Add("Kg4")
+        End With
+        Datareport.Rows.Clear()
+        For i = 0 To Me.DataReport.RowCount - 1
+            No1 = Me.DataReport.Rows(i).Cells("No1").Value
+            Kg1 = Me.DataReport.Rows(i).Cells("Kg1").Value
+            No2 = Me.DataReport.Rows(i).Cells("No2").Value
+            Kg2 = Me.DataReport.Rows(i).Cells("Kg2").Value
+            No3 = Me.DataReport.Rows(i).Cells("No3").Value
+            Kg3 = Me.DataReport.Rows(i).Cells("Kg3").Value
+            No4 = Me.DataReport.Rows(i).Cells("No4").Value
+            Kg4 = Me.DataReport.Rows(i).Cells("Kg4").Value
+            Datareport.Rows.Add(No1, Kg1, No2, Kg2, No3, Kg3, No4, Kg4)
+        Next
+
+        Dim Rds As New ReportDataSource()
+        Rds.Name = "DataSet1"
+        Rds.Value = Datareport
+        ReportViewer1.LocalReport.DataSources.Add(Rds)
         Me.ReportViewer1.RefreshReport()
     End Sub
 End Class
