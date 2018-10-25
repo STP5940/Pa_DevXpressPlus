@@ -138,6 +138,32 @@ Public Class Formsalefabric
         Binddetails()
         Salefab()
         'ClearSalefab()
+
+        Dim No1, Kg1, No2, Kg2, No3, Kg3, No4, Kg4 As String
+        Dim Datareport As New DataTable
+        With Datareport
+            .Columns.Add("No1")
+            .Columns.Add("Kg1")
+            .Columns.Add("No2")
+            .Columns.Add("Kg2")
+            .Columns.Add("No3")
+            .Columns.Add("Kg3")
+            .Columns.Add("No4")
+            .Columns.Add("Kg4")
+        End With
+        Datareport.Rows.Clear()
+        For i = 0 To DataSalefab.RowCount - 1
+            No1 = DataSalefab.Rows(i).Cells("No1").Value
+            Kg1 = DataSalefab.Rows(i).Cells("Kg1").Value
+            No2 = DataSalefab.Rows(i).Cells("No2").Value
+            Kg2 = DataSalefab.Rows(i).Cells("Kg2").Value
+            No3 = DataSalefab.Rows(i).Cells("No3").Value
+            Kg3 = DataSalefab.Rows(i).Cells("Kg3").Value
+            No4 = DataSalefab.Rows(i).Cells("No4").Value
+            Kg4 = DataSalefab.Rows(i).Cells("Kg4").Value
+            Datareport.Rows.Add(No1, Kg1, No2, Kg2, No3, Kg3, No4, Kg4)
+        Next
+
         Dim Frm As New Formsalefabcolrpt
         Frm.ReportViewer1.Reset()
         Frm.Tbcustname.Text = Trim(Tbcustname.Text)
