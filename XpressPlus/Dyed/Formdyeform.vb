@@ -673,6 +673,7 @@ Public Class Formdyeform
         Tbshadename.Text = ""
         Tbfabbill.Text = ""
         Tbqtyroll.Enabled = False
+        Btdbadd.Enabled = True
     End Sub
     Private Sub Btdcancel_Click(sender As Object, e As EventArgs) Handles Btdcancel.Click
         Tbknitcomno.Text = ""
@@ -1282,7 +1283,7 @@ Public Class Formdyeform
         Tbfinwgt.Text = Format(FabricList.CurrentRow.Cells("Finwgt").Value)
         Tbfinwidth.Text = Format(FabricList.CurrentRow.Cells("Fwidth").Value)
         Tbwgtkg.Text = Format(TbqtyrollTemp.Text * CalOneroll.Text, "###,###.#0") ' น้ำหนัก จำนวนปัจจุบันตามจำนวนที่เลือก
-
+        Btdbadd.Enabled = False
 
         'MessageBox.Show(0)
     End Sub
