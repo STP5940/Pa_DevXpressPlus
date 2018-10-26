@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class Formsalefabric
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()>
+    <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Formsalefabric
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()>
+    <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Formsalefabric))
@@ -86,6 +86,10 @@ Partial Class Formsalefabric
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
         Me.GroupPanel3 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.KongnoList = New System.Windows.Forms.DataGridView()
+        Me.Kg = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FilterKong = New System.Windows.Forms.DataGridView()
+        Me.Header = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataSalefab = New System.Windows.Forms.DataGridView()
         Me.No1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Kg1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -196,6 +200,8 @@ Partial Class Formsalefabric
         Me.TabControlPanel1.SuspendLayout()
         Me.GroupPanel3.SuspendLayout()
         Me.Panel6.SuspendLayout()
+        CType(Me.KongnoList, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FilterKong, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSalefab, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ContextMenuBar2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Dgvmas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -822,6 +828,8 @@ Partial Class Formsalefabric
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.Transparent
+        Me.Panel6.Controls.Add(Me.KongnoList)
+        Me.Panel6.Controls.Add(Me.FilterKong)
         Me.Panel6.Controls.Add(Me.DataSalefab)
         Me.Panel6.Controls.Add(Me.ContextMenuBar2)
         Me.Panel6.Controls.Add(Me.Dgvmas)
@@ -831,6 +839,41 @@ Partial Class Formsalefabric
         Me.Panel6.Size = New System.Drawing.Size(1000, 221)
         Me.Panel6.TabIndex = 95
         '
+        'KongnoList
+        '
+        Me.KongnoList.AllowUserToAddRows = False
+        Me.KongnoList.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.KongnoList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.KongnoList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Kg})
+        Me.KongnoList.Location = New System.Drawing.Point(798, 63)
+        Me.KongnoList.Name = "KongnoList"
+        Me.KongnoList.Size = New System.Drawing.Size(145, 155)
+        Me.KongnoList.TabIndex = 99
+        '
+        'Kg
+        '
+        Me.Kg.DataPropertyName = "Wgtkg"
+        Me.Kg.HeaderText = "Kongno"
+        Me.Kg.Name = "Kg"
+        Me.Kg.ReadOnly = True
+        '
+        'FilterKong
+        '
+        Me.FilterKong.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FilterKong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.FilterKong.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Header})
+        Me.FilterKong.Location = New System.Drawing.Point(649, 63)
+        Me.FilterKong.Name = "FilterKong"
+        Me.FilterKong.ReadOnly = True
+        Me.FilterKong.Size = New System.Drawing.Size(143, 155)
+        Me.FilterKong.TabIndex = 98
+        '
+        'Header
+        '
+        Me.Header.HeaderText = "Header"
+        Me.Header.Name = "Header"
+        Me.Header.ReadOnly = True
+        '
         'DataSalefab
         '
         Me.DataSalefab.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -838,11 +881,10 @@ Partial Class Formsalefabric
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataSalefab.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataSalefab.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.No1, Me.Kg1, Me.No2, Me.Kg2, Me.No3, Me.Kg3, Me.No4, Me.Kg4})
-        Me.DataSalefab.Location = New System.Drawing.Point(0, 145)
+        Me.DataSalefab.Location = New System.Drawing.Point(0, 63)
         Me.DataSalefab.Name = "DataSalefab"
-        Me.DataSalefab.Size = New System.Drawing.Size(992, 73)
+        Me.DataSalefab.Size = New System.Drawing.Size(643, 155)
         Me.DataSalefab.TabIndex = 97
-        Me.DataSalefab.Visible = False
         '
         'No1
         '
@@ -2049,6 +2091,8 @@ Partial Class Formsalefabric
         Me.GroupPanel3.ResumeLayout(False)
         Me.GroupPanel3.PerformLayout()
         Me.Panel6.ResumeLayout(False)
+        CType(Me.KongnoList, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FilterKong, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSalefab, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ContextMenuBar2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Dgvmas, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2233,4 +2277,8 @@ Partial Class Formsalefabric
     Friend WithEvents Kg3 As DataGridViewTextBoxColumn
     Friend WithEvents No4 As DataGridViewTextBoxColumn
     Friend WithEvents Kg4 As DataGridViewTextBoxColumn
+    Friend WithEvents FilterKong As DataGridView
+    Friend WithEvents Header As DataGridViewTextBoxColumn
+    Friend WithEvents KongnoList As DataGridView
+    Friend WithEvents Kg As DataGridViewTextBoxColumn
 End Class
