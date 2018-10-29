@@ -27,6 +27,18 @@ Partial Class Formshade
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
         Me.Dgvmas = New System.Windows.Forms.DataGridView()
+        Me.Status = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mcomid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mdesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Rcolor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Gcolor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Bcolor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mact = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.Mdel = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Musr = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mtype = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mtime = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Btmclose = New System.Windows.Forms.ToolStripButton()
         Me.Btmsearch = New System.Windows.Forms.ToolStripButton()
@@ -42,18 +54,6 @@ Partial Class Formshade
         Me.Btlast = New System.Windows.Forms.ToolStripButton()
         Me.Tbmrecord = New System.Windows.Forms.ToolStripTextBox()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
-        Me.Status = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Mcomid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Mid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Mdesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Rcolor = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Gcolor = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Bcolor = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Mact = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Mdel = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Musr = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Mtype = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Mtime = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabControlPanel1.SuspendLayout()
@@ -121,6 +121,103 @@ Partial Class Formshade
         Me.Dgvmas.ReadOnly = True
         Me.Dgvmas.Size = New System.Drawing.Size(1006, 613)
         Me.Dgvmas.TabIndex = 20
+        '
+        'Status
+        '
+        Me.Status.DataPropertyName = "Stat"
+        Me.Status.HeaderText = ""
+        Me.Status.Name = "Status"
+        Me.Status.ReadOnly = True
+        Me.Status.Width = 20
+        '
+        'Mcomid
+        '
+        Me.Mcomid.DataPropertyName = "Comid"
+        Me.Mcomid.HeaderText = "Comid"
+        Me.Mcomid.Name = "Mcomid"
+        Me.Mcomid.ReadOnly = True
+        Me.Mcomid.Visible = False
+        '
+        'Mid
+        '
+        Me.Mid.DataPropertyName = "Shadeid"
+        Me.Mid.HeaderText = "รหัส"
+        Me.Mid.Name = "Mid"
+        Me.Mid.ReadOnly = True
+        '
+        'Mdesc
+        '
+        Me.Mdesc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Mdesc.DataPropertyName = "Shadedesc"
+        Me.Mdesc.HeaderText = "ชื่อ"
+        Me.Mdesc.Name = "Mdesc"
+        Me.Mdesc.ReadOnly = True
+        '
+        'Rcolor
+        '
+        Me.Rcolor.DataPropertyName = "Rcolor"
+        Me.Rcolor.HeaderText = "Rcolor"
+        Me.Rcolor.Name = "Rcolor"
+        Me.Rcolor.ReadOnly = True
+        Me.Rcolor.Visible = False
+        '
+        'Gcolor
+        '
+        Me.Gcolor.DataPropertyName = "Gcolor"
+        Me.Gcolor.HeaderText = "Gcolor"
+        Me.Gcolor.Name = "Gcolor"
+        Me.Gcolor.ReadOnly = True
+        Me.Gcolor.Visible = False
+        '
+        'Bcolor
+        '
+        Me.Bcolor.DataPropertyName = "Bcolor"
+        Me.Bcolor.HeaderText = "Bcolor"
+        Me.Bcolor.Name = "Bcolor"
+        Me.Bcolor.ReadOnly = True
+        Me.Bcolor.Visible = False
+        '
+        'Mact
+        '
+        Me.Mact.DataPropertyName = "Sactive"
+        Me.Mact.HeaderText = "Active"
+        Me.Mact.Name = "Mact"
+        Me.Mact.ReadOnly = True
+        Me.Mact.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Mact.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.Mact.Width = 80
+        '
+        'Mdel
+        '
+        Me.Mdel.DataPropertyName = "Sstatus"
+        Me.Mdel.HeaderText = "Sstatus"
+        Me.Mdel.Name = "Mdel"
+        Me.Mdel.ReadOnly = True
+        Me.Mdel.Visible = False
+        '
+        'Musr
+        '
+        Me.Musr.DataPropertyName = "Updusr"
+        Me.Musr.HeaderText = "Updusr"
+        Me.Musr.Name = "Musr"
+        Me.Musr.ReadOnly = True
+        Me.Musr.Visible = False
+        '
+        'Mtype
+        '
+        Me.Mtype.DataPropertyName = "Uptype"
+        Me.Mtype.HeaderText = "Uptype"
+        Me.Mtype.Name = "Mtype"
+        Me.Mtype.ReadOnly = True
+        Me.Mtype.Visible = False
+        '
+        'Mtime
+        '
+        Me.Mtime.DataPropertyName = "Uptime"
+        Me.Mtime.HeaderText = "Uptime"
+        Me.Mtime.Name = "Mtime"
+        Me.Mtime.ReadOnly = True
+        Me.Mtime.Visible = False
         '
         'ToolStrip1
         '
@@ -278,103 +375,6 @@ Partial Class Formshade
         Me.TabItem1.AttachedControl = Me.TabControlPanel1
         Me.TabItem1.Name = "TabItem1"
         Me.TabItem1.Text = "Shade"
-        '
-        'Status
-        '
-        Me.Status.DataPropertyName = "Stat"
-        Me.Status.HeaderText = ""
-        Me.Status.Name = "Status"
-        Me.Status.ReadOnly = True
-        Me.Status.Width = 20
-        '
-        'Mcomid
-        '
-        Me.Mcomid.DataPropertyName = "Comid"
-        Me.Mcomid.HeaderText = "Comid"
-        Me.Mcomid.Name = "Mcomid"
-        Me.Mcomid.ReadOnly = True
-        Me.Mcomid.Visible = False
-        '
-        'Mid
-        '
-        Me.Mid.DataPropertyName = "Shadeid"
-        Me.Mid.HeaderText = "รหัส"
-        Me.Mid.Name = "Mid"
-        Me.Mid.ReadOnly = True
-        '
-        'Mdesc
-        '
-        Me.Mdesc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Mdesc.DataPropertyName = "Shadedesc"
-        Me.Mdesc.HeaderText = "ชื่อ"
-        Me.Mdesc.Name = "Mdesc"
-        Me.Mdesc.ReadOnly = True
-        '
-        'Rcolor
-        '
-        Me.Rcolor.DataPropertyName = "Rcolor"
-        Me.Rcolor.HeaderText = "Rcolor"
-        Me.Rcolor.Name = "Rcolor"
-        Me.Rcolor.ReadOnly = True
-        Me.Rcolor.Visible = False
-        '
-        'Gcolor
-        '
-        Me.Gcolor.DataPropertyName = "Gcolor"
-        Me.Gcolor.HeaderText = "Gcolor"
-        Me.Gcolor.Name = "Gcolor"
-        Me.Gcolor.ReadOnly = True
-        Me.Gcolor.Visible = False
-        '
-        'Bcolor
-        '
-        Me.Bcolor.DataPropertyName = "Bcolor"
-        Me.Bcolor.HeaderText = "Bcolor"
-        Me.Bcolor.Name = "Bcolor"
-        Me.Bcolor.ReadOnly = True
-        Me.Bcolor.Visible = False
-        '
-        'Mact
-        '
-        Me.Mact.DataPropertyName = "Sactive"
-        Me.Mact.HeaderText = "Active"
-        Me.Mact.Name = "Mact"
-        Me.Mact.ReadOnly = True
-        Me.Mact.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Mact.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Mact.Width = 80
-        '
-        'Mdel
-        '
-        Me.Mdel.DataPropertyName = "Sstatus"
-        Me.Mdel.HeaderText = "Sstatus"
-        Me.Mdel.Name = "Mdel"
-        Me.Mdel.ReadOnly = True
-        Me.Mdel.Visible = False
-        '
-        'Musr
-        '
-        Me.Musr.DataPropertyName = "Updusr"
-        Me.Musr.HeaderText = "Updusr"
-        Me.Musr.Name = "Musr"
-        Me.Musr.ReadOnly = True
-        Me.Musr.Visible = False
-        '
-        'Mtype
-        '
-        Me.Mtype.DataPropertyName = "Uptype"
-        Me.Mtype.HeaderText = "Uptype"
-        Me.Mtype.Name = "Mtype"
-        Me.Mtype.ReadOnly = True
-        Me.Mtype.Visible = False
-        '
-        'Mtime
-        '
-        Me.Mtime.DataPropertyName = "Uptime"
-        Me.Mtime.HeaderText = "Uptime"
-        Me.Mtime.Name = "Mtime"
-        Me.Mtime.ReadOnly = True
-        Me.Mtime.Visible = False
         '
         'Formshade
         '

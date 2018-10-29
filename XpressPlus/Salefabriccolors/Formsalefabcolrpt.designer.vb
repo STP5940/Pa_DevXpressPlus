@@ -25,15 +25,6 @@ Partial Class Formsalefabcolrpt
         Me.components = New System.ComponentModel.Container()
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
-        Me.DataReport = New System.Windows.Forms.DataGridView()
-        Me.No1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Kg1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.No2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Kg2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.No3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Kg3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.No4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Kg4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NumberMin = New System.Windows.Forms.TextBox()
         Me.NumberMax = New System.Windows.Forms.TextBox()
         Me.Pricesum = New System.Windows.Forms.TextBox()
@@ -51,6 +42,15 @@ Partial Class Formsalefabcolrpt
         Me.Tbcustaddr = New System.Windows.Forms.TextBox()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
+        Me.DataReport = New System.Windows.Forms.DataGridView()
+        Me.No1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Kg1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.No2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Kg2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.No3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Kg3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.No4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Kg4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabControlPanel1.SuspendLayout()
@@ -109,67 +109,6 @@ Partial Class Formsalefabcolrpt
         Me.TabControlPanel1.Style.GradientAngle = 90
         Me.TabControlPanel1.TabIndex = 1
         Me.TabControlPanel1.TabItem = Me.TabItem1
-        '
-        'DataReport
-        '
-        Me.DataReport.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataReport.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.No1, Me.Kg1, Me.No2, Me.Kg2, Me.No3, Me.Kg3, Me.No4, Me.Kg4})
-        Me.DataReport.Location = New System.Drawing.Point(120, 54)
-        Me.DataReport.Name = "DataReport"
-        Me.DataReport.Size = New System.Drawing.Size(643, 155)
-        Me.DataReport.TabIndex = 98
-        Me.DataReport.Visible = False
-        '
-        'No1
-        '
-        Me.No1.HeaderText = "No1"
-        Me.No1.Name = "No1"
-        Me.No1.ReadOnly = True
-        '
-        'Kg1
-        '
-        Me.Kg1.HeaderText = "Kg1"
-        Me.Kg1.Name = "Kg1"
-        Me.Kg1.ReadOnly = True
-        '
-        'No2
-        '
-        Me.No2.HeaderText = "No2"
-        Me.No2.Name = "No2"
-        Me.No2.ReadOnly = True
-        '
-        'Kg2
-        '
-        Me.Kg2.HeaderText = "Kg2"
-        Me.Kg2.Name = "Kg2"
-        Me.Kg2.ReadOnly = True
-        '
-        'No3
-        '
-        Me.No3.HeaderText = "No3"
-        Me.No3.Name = "No3"
-        Me.No3.ReadOnly = True
-        '
-        'Kg3
-        '
-        Me.Kg3.HeaderText = "Kg3"
-        Me.Kg3.Name = "Kg3"
-        Me.Kg3.ReadOnly = True
-        '
-        'No4
-        '
-        Me.No4.HeaderText = "No4"
-        Me.No4.Name = "No4"
-        Me.No4.ReadOnly = True
-        '
-        'Kg4
-        '
-        Me.Kg4.HeaderText = "Kg4"
-        Me.Kg4.Name = "Kg4"
-        Me.Kg4.ReadOnly = True
         '
         'NumberMin
         '
@@ -304,6 +243,67 @@ Partial Class Formsalefabcolrpt
         Me.TabItem1.AttachedControl = Me.TabControlPanel1
         Me.TabItem1.Name = "TabItem1"
         Me.TabItem1.Text = "ใบส่งผ้าสี(ขาย)"
+        '
+        'DataReport
+        '
+        Me.DataReport.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataReport.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.No1, Me.Kg1, Me.No2, Me.Kg2, Me.No3, Me.Kg3, Me.No4, Me.Kg4})
+        Me.DataReport.Location = New System.Drawing.Point(109, 91)
+        Me.DataReport.Name = "DataReport"
+        Me.DataReport.Size = New System.Drawing.Size(643, 155)
+        Me.DataReport.TabIndex = 194
+        Me.DataReport.Visible = False
+        '
+        'No1
+        '
+        Me.No1.HeaderText = "No1"
+        Me.No1.Name = "No1"
+        Me.No1.ReadOnly = True
+        '
+        'Kg1
+        '
+        Me.Kg1.HeaderText = "Kg1"
+        Me.Kg1.Name = "Kg1"
+        Me.Kg1.ReadOnly = True
+        '
+        'No2
+        '
+        Me.No2.HeaderText = "No2"
+        Me.No2.Name = "No2"
+        Me.No2.ReadOnly = True
+        '
+        'Kg2
+        '
+        Me.Kg2.HeaderText = "Kg2"
+        Me.Kg2.Name = "Kg2"
+        Me.Kg2.ReadOnly = True
+        '
+        'No3
+        '
+        Me.No3.HeaderText = "No3"
+        Me.No3.Name = "No3"
+        Me.No3.ReadOnly = True
+        '
+        'Kg3
+        '
+        Me.Kg3.HeaderText = "Kg3"
+        Me.Kg3.Name = "Kg3"
+        Me.Kg3.ReadOnly = True
+        '
+        'No4
+        '
+        Me.No4.HeaderText = "No4"
+        Me.No4.Name = "No4"
+        Me.No4.ReadOnly = True
+        '
+        'Kg4
+        '
+        Me.Kg4.HeaderText = "Kg4"
+        Me.Kg4.Name = "Kg4"
+        Me.Kg4.ReadOnly = True
         '
         'Formsalefabcolrpt
         '

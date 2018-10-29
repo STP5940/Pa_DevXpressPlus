@@ -138,4 +138,43 @@ Module Gbclass
         ObjConn = Nothing
         Return DT
     End Function
+    Public Function Confirmnextstage() As Boolean
+        If MessageBox.Show("มีบางรายการได้ทำการเปลี่ยนแปลงข้อมูล ท่านต้องการทำต่อไป โดยไม่บันทึกใช่หรือไม่ ?", "ยืนยันอีกครั้ง", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.OK Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+    Public Function Statusmodify(dgv As DataGridView) As Boolean
+        Dim ModStat As Boolean
+        ModStat = False
+        For i As Integer = 0 To dgv.RowCount - 2
+            If dgv.Rows(i).Cells("Status").Value <> "" Then
+                ModStat = True
+                Exit For
+            Else
+                ModStat = False
+            End If
+        Next
+        If ModStat Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+    Public Function Gent5id(Tablename As String, Fieldid As String, Comid As String) As String
+        Dim Gen5id As New DataTable
+        Dim Sautoid As String
+        Sautoid = ""
+        Gen5id = SQLCommand("select isnull(max(cast(" & Fieldid & " as int)), 0) + 1 as Autoid  From " & Tablename & " where Comid =  '" & Comid & "'")
+        If Gen5id.Rows.Count > 0 Then
+            Sautoid = Gen5id.Rows(0)("Autoid")
+        Else
+            Sautoid = 1
+        End If
+        If Sautoid < 100 Then
+            Sautoid = 10000
+        End If
+        Return Sautoid
+    End Function
 End Module

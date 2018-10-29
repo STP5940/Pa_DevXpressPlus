@@ -5,7 +5,7 @@ Public Class Formshade
     Private Sub Formshade_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         Dgvmas.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
         Dgvmas.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
-        Setauthorize()
+        'Setauthorize() 'เป้
         Bindingmaster()
     End Sub
     Private Sub Bindingmaster()
@@ -101,7 +101,7 @@ Public Class Formshade
         Belast()
     End Sub
     Private Sub Formshade_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        My.Forms.Formmain.Panel1.Visible = True
+        '  My.Forms.Formmain.Panel1.Visible = True
     End Sub
     Private Function Checkfillbutton() As Boolean
         If Pagesize = 0 Then
@@ -209,6 +209,7 @@ Public Class Formshade
         Catch ex As Exception
         End Try
     End Sub
+
     Private Sub LoadPage()
         Dim i, startRec, endRec As Integer
         Dttemp = Tmaster.Clone

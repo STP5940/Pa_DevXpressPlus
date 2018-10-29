@@ -138,76 +138,75 @@ Public Class Formsalefabric
         Binddetails()
         Salefab()
 
-        ''ClearSalefab()
-        'MsgBox("Hello")
 
-        'Dim Frm As New Formsalefabcolrpt
-        'Frm.DataReport.Rows(0).Cells("Kg1").Value = DataSalefab.Rows(0).Cells("Kg1").Value
+        Dim Frm As New Formsalefabcolrpt
+        Frm.DataReport.Rows(0).Cells("Kg1").Value = DataSalefab.Rows(0).Cells("Kg1").Value
+        ClearSalefab()
 
-        'Frm.ReportViewer1.Reset()
-        'Frm.Tbcustname.Text = Trim(Tbcustname.Text)
-        'Frm.Tbcustaddr.Text = Trim(Tbcustship.Text)
-        'Frm.Tbclothno.Text = Trim(Tbclothno.Text)
-        'Frm.Tbwidth.Text = Trim(Tbwidth.Text)
-        'Frm.Tbdlvno.Text = Trim(Tbdlvno.Text)
-        ''MsgBox(Format(Dtpdate.Value, "dd/MM/yyyy"))
-        'Frm.Tbdate.Text = Format(Dtpdate.Value, "dd/MM/yyyy")
-        'Frm.Tbshade.Text = Trim(Tbshadename.Text)
-        'Frm.Tbcolor.Text = Trim(Tbcolorno.Text)
-        'Frm.Tbsumkg.Text = Trim(Tbsumwgt.Text)
-        'Frm.Tbkgprice.Text = Trim(Tbkgprice.Text)
-        'Frm.Tbsumprice.Text = Trim(Tbsummoney.Text)
-        'Frm.Tstbsumkg.Text = Trim(Tstbsumkg.Text)
+        Frm.ReportViewer1.Reset()
+        Frm.Tbcustname.Text = Trim(Tbcustname.Text)
+        Frm.Tbcustaddr.Text = Trim(Tbcustship.Text)
+        Frm.Tbclothno.Text = Trim(Tbclothno.Text)
+        Frm.Tbwidth.Text = Trim(Tbwidth.Text)
+        Frm.Tbdlvno.Text = Trim(Tbdlvno.Text)
+        'MsgBox(Format(Dtpdate.Value, "dd/MM/yyyy"))
+        Frm.Tbdate.Text = Format(Dtpdate.Value, "dd/MM/yyyy")
+        Frm.Tbshade.Text = Trim(Tbshadename.Text)
+        Frm.Tbcolor.Text = Trim(Tbcolorno.Text)
+        Frm.Tbsumkg.Text = Trim(Tbsumwgt.Text)
+        Frm.Tbkgprice.Text = Trim(Tbkgprice.Text)
+        Frm.Tbsumprice.Text = Trim(Tbsummoney.Text)
+        Frm.Tstbsumkg.Text = Trim(Tstbsumkg.Text)
 
-        ''--------'
-        'Dim NumberMax As Integer
-        'Dim NumberMin As Integer
+        '--------'
+        Dim NumberMax As Integer
+        Dim NumberMin As Integer
 
-        'For I = 0 To Dgvmas.RowCount - 1
-        '    If I > 0 Then
-        '        If Dgvmas.Rows(I).Cells("Mkongno").Value > NumberMax Then
-        '            NumberMax = Dgvmas.Rows(I).Cells("Mkongno").Value
-        '        End If
-        '        If Dgvmas.Rows(I).Cells("Mkongno").Value < NumberMin Then
-        '            NumberMin = Dgvmas.Rows(I).Cells("Mkongno").Value
-        '        End If
-        '        Continue For
-        '    End If
-        '    NumberMax = Dgvmas.Rows(I).Cells("Mkongno").Value
-        '    NumberMin = Dgvmas.Rows(I).Cells("Mkongno").Value
-        '    'MsgBox(Dgvmas.Rows(I).Cells("Mkongno").Value)
-        'Next
+        For I = 0 To Dgvmas.RowCount - 1
+            If I > 0 Then
+                If Dgvmas.Rows(I).Cells("Mkongno").Value > NumberMax Then
+                    NumberMax = Dgvmas.Rows(I).Cells("Mkongno").Value
+                End If
+                If Dgvmas.Rows(I).Cells("Mkongno").Value < NumberMin Then
+                    NumberMin = Dgvmas.Rows(I).Cells("Mkongno").Value
+                End If
+                Continue For
+            End If
+            NumberMax = Dgvmas.Rows(I).Cells("Mkongno").Value
+            NumberMin = Dgvmas.Rows(I).Cells("Mkongno").Value
+            'MsgBox(Dgvmas.Rows(I).Cells("Mkongno").Value)
+        Next
 
-        ''MsgBox($"NumberMin: {NumberMin}")
-        ''MsgBox($"NumberMax: {NumberMax}")
-        'Frm.NumberMax.Text = Trim(NumberMax)
-        'Frm.NumberMin.Text = Trim(NumberMin)
-        ''MsgBox(Dgvmas.RowCount)
-        ''--------'
+        'MsgBox($"NumberMin: {NumberMin}")
+        'MsgBox($"NumberMax: {NumberMax}")
+        Frm.NumberMax.Text = Trim(NumberMax)
+        Frm.NumberMin.Text = Trim(NumberMin)
+        'MsgBox(Dgvmas.RowCount)
+        '--------'
 
-        'If Gsexpau = False Then
-        '    Frm.ReportViewer1.ShowExportButton = False
-        'End If
-        'If Gspriau = False Then
-        '    Frm.ReportViewer1.ShowPrintButton = False
-        'End If
-        'Dim Rds, Rds1 As New ReportDataSource()
-        'Rds.Name = "DataSetSale"
-        'Rds.Value = Tdetails
-        'Frm.ReportViewer1.LocalReport.DataSources.Add(Rds)
+        If Gsexpau = False Then
+            Frm.ReportViewer1.ShowExportButton = False
+        End If
+        If Gspriau = False Then
+            Frm.ReportViewer1.ShowPrintButton = False
+        End If
+        Dim Rds, Rds1 As New ReportDataSource()
+        Rds.Name = "DataSetSale"
+        Rds.Value = Tdetails
+        Frm.ReportViewer1.LocalReport.DataSources.Add(Rds)
 
-        ''Rds1.Name = "DataGridReport"
-        ''Rds1.Value = DataSalefab.DataSource
-        ''Frm.ReportViewer1.LocalReport.DataSources.Add(Rds1)
-        ''Showform(Frm)
-        'Frm.Show()
-        'Sumall()
-        'Clrtextmaster()
-        'Clrtextdetails()
-        'Clrgridmaster()
-        'BindingNavigator1.Enabled = False
-        'Mainbuttoncancel()
-        'TabControl1.SelectedTabIndex = 0
+        'Rds1.Name = "DataGridReport"
+        'Rds1.Value = DataSalefab.DataSource
+        'Frm.ReportViewer1.LocalReport.DataSources.Add(Rds1)
+        'Showform(Frm)
+        Frm.Show()
+        Sumall()
+        Clrtextmaster()
+        Clrtextdetails()
+        Clrgridmaster()
+        BindingNavigator1.Enabled = False
+        Mainbuttoncancel()
+        TabControl1.SelectedTabIndex = 0
     End Sub
     Private Sub Btmfind_Click(sender As Object, e As EventArgs) Handles Btmfind.Click
         TabControl1.SelectedTabIndex = 0
@@ -725,7 +724,7 @@ Public Class Formsalefabric
 
     Private Sub ClearSalefab()
         DataSalefab.Rows.Clear()
-        FilterKong.Rows.Clear()
+        'FilterKong.Rows.Clear()
         'KongnoList.Rows.Clear()
     End Sub
     Private Sub Bindinglist()

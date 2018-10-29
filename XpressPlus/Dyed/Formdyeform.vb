@@ -9,7 +9,6 @@ Public Class Formdyeform
     Private WithEvents DtplistFabric As New DateTimePicker
     Private Bs As BindingSource
     Private Cheng = 0
-
     Private Sub Formdyeform_Load(sender As Object, e As EventArgs) Handles Me.Load
         BindingNavigator1.Enabled = False
         GroupPanel2.Visible = False
@@ -22,20 +21,9 @@ Public Class Formdyeform
         Btdedit.Enabled = False
         Btddel.Enabled = False
         Tbqtyroll.Enabled = False
-        'Tbwgtkg.Enabled = False
         Tbfinwgt.Enabled = False
         Tbfinwidth.Enabled = False
-        'Controls.Add(Dtplistfm)
-        'Dtplistfm.Value = Now
-        'Dtplistfm.Width = 130
-        'Me.ToolStrip4.Items.Insert(5, New ToolStripControlHost(Dtplistfm))
-        'Me.ToolStrip4.Items(5).Alignment = ToolStripItemAlignment.Right
-        'Controls.Add(Dtplistto)
-        'Dtplistto.Value = Now
-        'Dtplistto.Width = 130
-        'Me.ToolStrip4.Items.Insert(4, New ToolStripControlHost(Dtplistto))
-        'Me.ToolStrip4.Items(4).Alignment = ToolStripItemAlignment.Right
-        '  Setauthorize()
+        ' Setauthorize() 'Suphat
         Retdocprefix()
         Tbmycom.Text = Trim(Gscomname)
         FabricList.Columns(0).SortMode = DataGridViewColumnSortMode.NotSortable
@@ -47,27 +35,20 @@ Public Class Formdyeform
         FabricList.Columns(6).SortMode = DataGridViewColumnSortMode.NotSortable
         FabricList.Columns(7).SortMode = DataGridViewColumnSortMode.NotSortable
         FabricList.Columns(8).SortMode = DataGridViewColumnSortMode.NotSortable
-        'ToolStrip6.Visible = False
         Dtplistfm.Visible = False
         Dtplistto.Visible = False
-
-        '------------- Tab Fabric -------------'
         Controls.Add(Dtplistfm)
         Dtplistfm.Value = Now
         Dtplistfm.Width = 130
         Me.ToolStrip4.Items.Insert(5, New ToolStripControlHost(Dtplistfm))
         Me.ToolStrip4.Items(5).Alignment = ToolStripItemAlignment.Right
         Dtplistfm.Visible = False
-
         Controls.Add(Dtplistto)
         Dtplistto.Value = Now
         Dtplistto.Width = 130
         Me.ToolStrip4.Items.Insert(4, New ToolStripControlHost(Dtplistto))
         Me.ToolStrip4.Items(4).Alignment = ToolStripItemAlignment.Right
         Dtplistto.Visible = False
-        '------------- End Tab Fabric -------------'
-
-        'ToolStrip7.Visible = False
     End Sub
     Private Sub Formdyeform_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         Dgvmas.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
@@ -140,20 +121,16 @@ Public Class Formdyeform
             Informmessage("กรุณาตรวจสอบรายละเอียดในการส่งให้ครบถ้วน")
             Exit Sub
         End If
-
         CountDgvmas.Text = 0
         Tbfinddhid.Enabled = False
         Tbremark.Enabled = False
         Tbpickup.Enabled = False
         Dtpdate.Enabled = False
         Dgvmas.Enabled = False
-
         If Tbdyedcomno.Text = "NEW" Then
             Newdoc()
-            ' Updatestk()
         Else
             Editdoc()
-            'Updatestk()
         End If
         Tsbwsave.Visible = False
         Btmreports_Click(sender, e)
@@ -179,7 +156,6 @@ Public Class Formdyeform
         Dtpdate.Enabled = False
         Dgvmas.Enabled = False
         Mainbuttoncancel()
-        'Bindmaster()
     End Sub
     Private Sub Btmreports_Click(sender As Object, e As EventArgs) Handles Btmreports.Click
         If Dgvmas.RowCount = 0 Then
@@ -193,29 +169,18 @@ Public Class Formdyeform
         Tsbwsave.Visible = False
         Dim Frm As New Formdyedcomrpt
         Frm.ReportViewer1.Reset()
-        'Frm.Tbshipping.Text = Trim(Tbshippingname.Text)
-        'Frm.Tbsuplier.Text = Trim(Tbsuppliername.Text)
         Frm.Tbdate.Text = Format(Dtpdate.Value, "dd/MM/yyyy")
         Frm.SendTo.Text = Tbdhname.Text
-        'Frm.PickupArea.Text = Tbpickup.Text
-
         If Tbpickup.Text <> "" Then
             Frm.PickupArea.Text = Tbpickup.Text
         Else
             Frm.PickupArea.Text = " "
         End If
-
         If Tbremark.Text <> "" Then
             Frm.Note.Text = Tbremark.Text
         Else
             Frm.Note.Text = " "
         End If
-        'Frm.Tbsumctn.Text = Tstbsumctn.Text
-        'Frm.Tbsumgw.Text = Tstbsumgw.Text
-        'Frm.Tbsumnw.Text = Tstbsumnw.Text
-        'Frm.Tbsumqty.Text = Tstbsumqty.Text
-        'Frm.Tbdlvno.Text = Tbdlvno.Text
-
         If Gsexpau = False Then
             Frm.ReportViewer1.ShowExportButton = False
         End If
@@ -226,8 +191,8 @@ Public Class Formdyeform
         rds.Name = "DataSet1"
         rds.Value = Tdetails
         Frm.ReportViewer1.LocalReport.DataSources.Add(rds)
-        '  Showform(Frm)
-        Frm.Show()
+        'Showform(Frm) ' Suphat
+        Frm.Show() 'เป้
         Sumall()
         Clrtextmaster()
         Clrtextdetails()
@@ -285,7 +250,6 @@ Public Class Formdyeform
             Btrefresh.Visible = True
         End If
     End Sub
-
     Private Sub Tstbkeyword_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Tstbkeyword.KeyPress
         e.Handled = (Asc(e.KeyChar) = 39)
     End Sub
@@ -310,11 +274,9 @@ Public Class Formdyeform
             Searchlistbyoth(Trim(Tstbkeyword.Text))
         End If
     End Sub
-
     Private Sub FabricSearch_Click(sender As Object, e As EventArgs) Handles FabricSearch.Click
         SearchlistFabric(Trim(FabricKeyword.Text))
     End Sub
-
     Private Sub Btrefresh_Click(sender As Object, e As EventArgs) Handles Btrefresh.Click
         Bindinglist()
     End Sub
@@ -408,7 +370,6 @@ Public Class Formdyeform
         Tbclothno.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Clothno").Value)
         Tbclothtype.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Ftype").Value)
         AllFebric.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Qtyroll").Value)
-        'Tbqtyroll.Text = Format(Frm.Dgvmas.CurrentRow.Cells("Qtyroll").Value, "###,###")
         If Frm.SellSums.Text > 0 Then
             Tbqtyroll.Enabled = True
             Tbqtyroll.Text = Format(Val(Frm.SellSums.Text), "###,###")
@@ -418,16 +379,13 @@ Public Class Formdyeform
             Tbqtyroll.Text = 0
             TbqtyrollTemp.Text = Format(Val(Frm.SellSums.Text), "###,###")
         End If
-
         AllWgtkg.Text = Format(Frm.Dgvmas.CurrentRow.Cells("Wgtkg").Value, "###,###.#0")
-
         CalOneroll.Text = CDbl(AllWgtkg.Text) / CDbl(AllFebric.Text)
         CalOnerollShow.Text = Format(CDbl(CalOneroll.Text), "###,###.#0") 'แสดงทศนิยม 2 ตำแหน่งอย่างเดียว
         If TbqtyrollTemp.Text = "" Then
             TbqtyrollTemp.Text = 0
         End If
         Tbwgtkg.Text = Format(TbqtyrollTemp.Text * CalOneroll.Text, "###,###.#0") ' น้ำหนัก จำนวนปัจจุบันตามจำนวนที่เลือก
-
         Tbfinwgt.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Finwgt").Value)
         Tbfinwidth.Text = Frm.Dgvmas.CurrentRow.Cells("Fwidth").Value
         Tbqtyroll.Focus()
@@ -438,7 +396,6 @@ Public Class Formdyeform
         Else
             Btfindshade.Enabled = True
         End If
-
     End Sub
     Private Sub Tbqtyroll_KeyDown(sender As Object, e As KeyEventArgs) Handles Tbqtyroll.KeyDown
         If e.KeyCode = Keys.Enter Then
@@ -462,27 +419,21 @@ Public Class Formdyeform
             Exit Sub
         End If
         If Dgvmas.RowCount > 0 Then
-            'Tbshadeid.Text = Trim(Dgvmas.Rows(0).Cells("Shid").Value)
-            'Tbshadename.Text = Trim(Dgvmas.Rows(0).Cells("Mshade").Value)
-
             If Trim(Frm.Dgvmas.CurrentRow.Cells("Mid").Value) <> Trim(Dgvmas.Rows(0).Cells("Shid").Value) AndAlso Dgvmas.RowCount > 1 Then
                 Informmessage("Shade ไม่ตรงกันโปรดตรวจสอบอีกครั้ง")
                 Exit Sub
             End If
         End If
-
         Tbshadeid.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Mid").Value)
         Tbshadename.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Mname").Value)
         DemoColor(Tbshadeid.Text)
         Tbfabbill.Focus()
     End Sub
     Private Sub DemoColor(RBGColor As Object)
-
         Try
             If Dgvmas.RowCount <> 0 OrElse Tbdyedcomno.Text = "NEW" Then
                 Dim EBGColor As New DataTable
                 EBGColor = SQLCommand($"SELECT Rcolor,Gcolor,Bcolor FROM Tshadexp WHERE Shadeid = '{RBGColor}'")
-
                 If IsDBNull(EBGColor(0)(0)) OrElse IsDBNull(EBGColor(0)(1)) OrElse IsDBNull(EBGColor(0)(2)) Then
                     Informmessage("Shade นี้ยังไม่มีสีตัวอย่าง")
                     DemoCode.BackColor = Color.White
@@ -496,8 +447,6 @@ Public Class Formdyeform
             End If
             DemoCode.BackColor = Color.White
         End Try
-
-
     End Sub
     Private Sub Tbfabbill_KeyDown(sender As Object, e As KeyEventArgs) Handles Tbfabbill.KeyDown
         If e.KeyCode = Keys.Enter Then
@@ -505,13 +454,10 @@ Public Class Formdyeform
         End If
     End Sub
     Private Sub Btdadd_Click(sender As Object, e As EventArgs) Handles Btdadd.Click
-
         If Validmas() = False Then
             Informmessage("กรุณาเลือกที่โรงย้อม")
             Exit Sub
         End If
-
-        '---------------- New Informmessage ----------------'
         If Tbknitcomno.Text = "" Then
             Informmessage("กรุณาเลือก ใบสั่งทอ")
             Exit Sub
@@ -534,8 +480,6 @@ Public Class Formdyeform
             Tbfabbill.Focus()
             Exit Sub
         End If
-        '---------------- End New Informmessage ----------------'
-
         If Validinput() = False Then
             Informmessage("กรุณาตรวจสอบข้อมูลให้ถูกต้อง ครบถ้วน")
             Exit Sub
@@ -547,33 +491,15 @@ Public Class Formdyeform
                 Exit Sub
             End If
         End If
-
         Dim SumSell = New DataTable
         SumSell = SQLCommand($"SELECT SUM(Qtyroll) As SumSell, SUM(Qtykg) As Qtykg FROM Tdyedcomdetxp WHERE Knittcomid = '{Tbknitcomno.Text}' and Clothid= '{Tbclothid.Text}'")
         SumSellEdit.DataSource = SumSell
         Dim SumSellCash = If(IsDBNull(SumSellEdit.Rows(0).Cells("SumSell").Value), "0", SumSellEdit.Rows(0).Cells("SumSell").Value - TbqtyrollTemp.Text)
-        'MessageBox.Show(Tbqtyroll.Text)
-
         If Tbaddedit.Text = "เพิ่ม" AndAlso CLng(Tbqtyroll.Text) > CLng(TbqtyrollTemp.Text) Then
             Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ") 'เพิ่มใหม่ใส่เกิน
             Exit Sub
         End If
-        'Label1.Text = AllWgtkg.Text - SumSell(0)(1)
-
         Dim Frm As New Formknitfordyelist
-        'MessageBox.Show($"{Tbqtyroll.Text }:{ TbqtyrollTemp.Text}")
-
-
-        'TbqtyrollTemp คงเหลือ
-        'SumSellCash ทั้งหมด
-        'Tbqtyroll ค่าที่ใส่
-
-
-        'If CLng(Tbqtyroll.Text) > CLng(SumSellCash) Then
-        '    Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ A") 'แก้ไขใส่เกิน
-        '    Exit Sub
-        'End If
-
         If Tbdyedcomno.Text = "NEW" Then
             If OriginalTbqtyroll.Text = "" And Tbaddedit.Text = "แก้ไข" Then
                 OriginalTbqtyroll.Text = Format(CLng(Dgvmas.CurrentRow.Cells("Mqty").Value), "###,###")
@@ -592,12 +518,10 @@ Public Class Formdyeform
                 OriginalTbqtyroll.Text = Format(CLng(Dgvmas.CurrentRow.Cells("Mqty").Value), "###,###")
                 If Tbaddedit.Text = "แก้ไข" AndAlso CLng(Tbqtyroll.Text) > CLng(OriginalTbqtyroll.Text) + CLng(TbqtyrollTemp.Text) Then
                     Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ") 'เพิ่มใหม่ใส่เกิน
-                    'Exit Sub
                 End If
             Else
                 If Tbaddedit.Text = "แก้ไข" AndAlso CLng(Tbqtyroll.Text) > CLng(OriginalTbqtyroll.Text) + CLng(TbqtyrollTemp.Text) Then
                     Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ") 'เพิ่มใหม่ใส่เกิน
-                    'Exit Sub
                 End If
             End If
         End If
@@ -605,23 +529,6 @@ Public Class Formdyeform
         If AllWgtkg.Text < Tbwgtkg.Text + SumSell(0)(1) AndAlso Tbaddedit.Text = "เพิ่ม" Then
             Informmessage($"น้ำหนักรวมผ้า น้อยกว่าที่ระบุ")
         End If
-
-        'If Tbwgtkg.Text + SumSell(0)(1) > AllWgtkg.Text AndAlso Tbaddedit.Text = "แก้ไข" Then
-        '    AllWgtkg
-
-        'If OriginalTbqtyroll.Text = "" And Tbaddedit.Text = "แก้ไข" Then
-        '    OriginalTbqtyroll.Text = Format(CLng(Dgvmas.CurrentRow.Cells("Mqty").Value), "###,###")
-        '    If Tbaddedit.Text = "แก้ไข" AndAlso CLng(Tbqtyroll.Text) > CLng(OriginalTbqtyroll.Text) + CLng(TbqtyrollTemp.Text) Then
-        '        Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ C") 'เพิ่มใหม่ใส่เกิน
-        '        Exit Sub
-        '    End If
-        'Else
-        '    If Tbaddedit.Text = "แก้ไข" AndAlso CLng(Tbqtyroll.Text) > CLng(OriginalTbqtyroll.Text) + CLng(TbqtyrollTemp.Text) Then
-        '        Informmessage("จำนวนพับคงเหลือน้อยกว่าที่ระบุ D") 'เพิ่มใหม่ใส่เกิน
-        '        Exit Sub
-        '    End If
-        'End If
-
         Select Case Trim(Tbaddedit.Text)
             Case "เพิ่ม"
                 If Tbdyedcomno.Text = "NEW" Then
@@ -660,7 +567,6 @@ Public Class Formdyeform
         Sumall()
         Btdcancel_Click(sender, e)
         Tbremark.Focus()
-
         Tbknitcomno.Text = ""
         Tbclothid.Text = ""
         Tbclothno.Text = ""
@@ -734,40 +640,29 @@ Public Class Formdyeform
         Tbqtyroll.Text = Format(CLng(Dgvmas.CurrentRow.Cells("Mqty").Value), "###,###")
         Tbfinwgt.Text = Trim(Dgvmas.CurrentRow.Cells("Mfinwgt").Value)
         Tbfabbill.Text = Trim(Dgvmas.CurrentRow.Cells("Mbrawfab").Value)
-
         If OriginalTbqtyroll.Text = "" Then
             OriginalTbqtyroll.Text = Format(CLng(Dgvmas.CurrentRow.Cells("Mqty").Value), "###,###")
         End If
-
-
         Tbqtyroll.Focus()
-
         Dim SumSell = New DataTable
         SumSell = SQLCommand($"SELECT SUM(Qtyroll) As SumSell FROM Tdyedcomdetxp WHERE Knittcomid = '{Tbknitcomno.Text}' and Clothid= '{Tbclothid.Text}'")
         SumSellEdit.DataSource = SumSell
         Dim SumSellCash = If(IsDBNull(SumSellEdit.Rows(0).Cells("SumSell").Value), "0", SumSellEdit.Rows(0).Cells("SumSell").Value)
-
-        'MessageBox.Show(SumSellCash)
-
         Dim EditCheckStock = New DataTable
         EditCheckStock = SQLCommand($"Select SUM(Qtyroll) As Sum FROM Vknitcomdet WHERE Knitcomno = '{Tbknitcomno.Text}' and Clothid= '{Tbclothid.Text}'")
         CheckStock.DataSource = EditCheckStock
         TbqtyrollTemp.Text = If(IsDBNull(CheckStock.Rows(0).Cells("Sum").Value), "", (CheckStock.Rows(0).Cells("Sum").Value - SumSellCash))
-
         If TbqtyrollTemp.Text = "" Then
             TbqtyrollTemp.Text = 0
         End If
-
         Dim CountFabricAll = New DataTable
         CountFabricAll = SQLCommand($"SELECT Qtyroll,Wgtkg FROM Vknitcomdet  WHERE Knitcomno = '{Tbknitcomno.Text}' And Clothid = '{Tbclothid.Text}'")
-        'MessageBox.Show(CountFabricAll(0)(0))
         Try
             AllFebric.Text = CountFabricAll(0)(0)
             AllWgtkg.Text = Format(CountFabricAll(0)(1), "###,###.#0")
         Catch ex As Exception
             If AllFebric.Text = "" Then
                 MessageBox.Show($"ไม่พบข้อมูลใบสั่งทอเลขที่: {Tbknitcomno.Text}", "แจ้งเตือนข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                'Informmessage($"ไม่พบใบสั่งทอเลขที่: {Tbknitcomno.Text} อาจมีการลบใบสั่งทอนี้แล้ว")
                 AllFebric.Text = 0
                 AllWgtkg.Text = 0
             End If
@@ -777,24 +672,9 @@ Public Class Formdyeform
         If CalOnerollShow.Text = "NaN" Then
             CalOnerollShow.Text = 0
         End If
-        'AllWgtkg.Text = Format(CDbl(Dgvmas.CurrentRow.Cells("Mkg").Value), "###,###.#0")
         If Tbaddedit.Text = "แก้ไข" Then
             Tbwgtkg.Text = Format(CDbl(Dgvmas.CurrentRow.Cells("Mkg").Value), "###,###.#0")
         End If
-
-        'If Cheng = 2 Then
-        '    Tbwgtkg.Text = Format(Tbqtyroll.Text * CalOneroll.Text, "###,###.#0") ' น้ำหนัก จำนวนปัจจุบันตามจำนวนที่เลือก
-        '    Cheng = 0
-        'End If
-        'MessageBox.Show(Tbclothid.Text)
-
-        'Dim EditCheckStock = New DataTable
-        'EditCheckStock = SQLCommand($"SELECT SUM(Qtyroll) AS Sum FROM Tdyedcomdetxp WHERE Knittcomid = '{Tbknitcomno.Text}' and Clothid= '{Tbclothid.Text}'")
-        'CheckStock.DataSource = EditCheckStock
-
-        'SellSums.Text = If(IsDBNull(CheckStock.Rows(0).Cells("Sum").Value), Qtyroll, (Qtyroll - DataSum.Rows(0).Cells("Sum").Value))
-
-        'SELECT Qtyroll FROM Vknitcomdet WHERE Knitcomno = 'Tbknitcomno.Text' and Clothid= 'Tbclothid.Text' --ที่มีอยู่ในระบบ
     End Sub
     Private Sub Btddel_Click(sender As Object, e As EventArgs) Handles Btddel.Click
         If Dgvmas.RowCount = 0 Then
@@ -803,17 +683,14 @@ Public Class Formdyeform
         If Dgvmas.RowCount = 1 Then
             DemoCode.BackColor = Color.White
         End If
-
         Tbaddedit.Text = "เพิ่ม"
         Btdcancel_Click(sender, e)
         Tsbwsave.Visible = True
         Dgvmas.Rows.Remove(Dgvmas.CurrentRow)
         Sumall()
-
         For i = 0 To Dgvmas.RowCount - 1
             Dim Rows As Integer = i + 1
             Dgvmas.Rows(i).Cells("ord").Value = Rows
-            'MessageBox.Show(Rows)
         Next
     End Sub
     Private Sub Dgvmas_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Dgvmas.CellClick
@@ -838,7 +715,6 @@ Public Class Formdyeform
             CalOneroll.Text = ""
             Tbaddedit.Text = "เพิ่ม"
         End If
-
         If Dgvmas.RowCount = 0 Then
             Exit Sub
         End If
@@ -848,7 +724,6 @@ Public Class Formdyeform
         If e.Button = Windows.Forms.MouseButtons.Right Then
             If Me.Dgvmas.Rows.Count < 1 Then Exit Sub
             If e.RowIndex < 0 Then Exit Sub
-            'Dgvmas.CurrentCell = Dgvmas(3, e.RowIndex)
             Me.Dgvmas.Rows(e.RowIndex).Selected = True
             Editcontextdetmenu()
         End If
@@ -861,12 +736,12 @@ Public Class Formdyeform
     End Sub
     Private Sub Formdyeform_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         If Tbdyedcomno.Text = "NEW" And Dgvmas.RowCount = 0 Then
-            'My.Forms.Formmain.Panel1.Visible = True
+            ' My.Forms.Formmain.Panel1.Visible = True 'Suphat
             Exit Sub
         End If
         If Confirmcloseform("ใบสั่งย้อม") Then
             e.Cancel = False
-            ' My.Forms.Formmain.Panel1.Visible = True
+            ' My.Forms.Formmain.Panel1.Visible = True 'Suphat
         Else
             e.Cancel = True
         End If
@@ -889,11 +764,7 @@ Public Class Formdyeform
         TFablist = SQLCommand("SELECT '' AS Stat,* FROM Vknitcomdet
                                 WHERE Comid = '" & Gscomid & "' AND (Knitcomno LIKE '%' + '" & Sval & "' + '%' OR Clothno LIKE '%' + '" & Sval & "' + '%' OR Ftype LIKE '%' + '" & Sval & "' + '%' OR Qtyroll LIKE '%' + '" & Sval & "' + '%')")
         FabricList.DataSource = TFablist
-
         InsertDataFab()
-
-        'FillGrid()
-        'ShowRecordDetail()
     End Sub
     Private Sub Searchlistbydate()
         Tlist = SQLCommand("SELECT '' AS Stat,* FROM Vdyedcommas
@@ -1044,42 +915,27 @@ Public Class Formdyeform
         ShowRecordDetail()
     End Sub
     Private Sub BindingFabriclist()
-
         TFablist = New DataTable
         TFablist = SQLCommand("SELECT '' AS Stat,* FROM Vknitcomdet 
                             WHERE Comid = '" & Gscomid & "'")
         FabricList.DataSource = TFablist
-        'Tlist = TFablist
         InsertDataFab()
-
-
-        'FillGrid()
-        'ShowRecordDetail()
     End Sub
 
     Private Sub InsertDataFab()
         Dim SumQtyroll As New DataTable
-        'SumQtyroll = SQLCommand("SELECT SUM(Qtyroll) AS SUM FROM Tdyedcomdetxp WHERE Knittcomid ='VC180900008' AND Clothid = '10001' --ส่งไปย้อม แล้วนับจำนวน")
-        'SumQtyrolls.DataSource = SumQtyroll
-        'SumQtyroll.Rows.Add()
-        'SumQtyrolls.Rows(1).Cells("SUM").Value = 0
-
         For I = 0 To FabricList.RowCount - 1
-            'MessageBox.Show(" VC:" & FabricList.Rows(I).Cells("Knitcomno").Value & " Lot:" & FabricList.Rows(I).Cells("Clothids").Value)
             SumQtyroll = SQLCommand($"SELECT '' AS Stat, SUM(Qtyroll) AS SUM FROM Tdyedcomdetxp WHERE Knittcomid ='{FabricList.Rows(I).Cells("Knitcomno").Value}' AND Clothid = '{FabricList.Rows(I).Cells("Clothids").Value}' --ส่งไปย้อม แล้วนับจำนวน")
             SumQtyrolls.DataSource = SumQtyroll
             FabricList.Rows(I).Cells("Dye").Value = IIf((IsDBNull(SumQtyrolls.Rows(0).Cells("Sum").Value) = True), 0, SumQtyrolls.Rows(0).Cells("Sum").Value)
             FabricList.Rows(I).Cells("Balance").Value = FabricList.Rows(I).Cells("Qtyroll").Value - FabricList.Rows(I).Cells("Dye").Value
         Next
-
         For I = FabricList.RowCount - 1 To 0 Step -1
             If FabricList.Rows(I).Cells("Balance").Value <= 0 Then
-                'MessageBox.Show(FabricList.Rows(I).Cells("Knitcomno").Value)
                 FabricList.Rows.Remove(FabricList.Rows(I))
             End If
         Next
     End Sub
-
     Private Sub Sumall()
         Dim Sumkg As Double
         Dim Sumroll As Long
@@ -1252,7 +1108,6 @@ Public Class Formdyeform
     End Sub
     Private Sub ShowRecordDetail()
         Tbrecord.Text = "แสดง " & (Dgvlist.RowCount) & " รายการ จาก " & Tlist.Rows.Count & " รายการ"
-        'ToolStripTextBox4.Text = "แสดง " & (FabricList.RowCount) & " รายการ จาก " & Tlist.Rows.Count & " รายการ"
     End Sub
     Private Function Findpoud(Tkg As String) As Double
         Dim Rpound As Double = 0.0
@@ -1272,7 +1127,6 @@ Public Class Formdyeform
         Tbclothid.Text = Trim(FabricList.CurrentRow.Cells("Clothids").Value)
         Tbclothno.Text = Trim(FabricList.CurrentRow.Cells("Clothnos").Value)
         Tbclothtype.Text = Trim(FabricList.CurrentRow.Cells("Ftypes").Value)
-        'ItemNo.Text = 0
         Tbqtyroll.Enabled = True
         Tbqtyroll.Text = Trim(FabricList.CurrentRow.Cells("Balance").Value)
         TbqtyrollTemp.Text = Trim(FabricList.CurrentRow.Cells("Balance").Value)
@@ -1284,15 +1138,12 @@ Public Class Formdyeform
         Tbfinwidth.Text = Format(FabricList.CurrentRow.Cells("Fwidth").Value)
         Tbwgtkg.Text = Format(TbqtyrollTemp.Text * CalOneroll.Text, "###,###.#0") ' น้ำหนัก จำนวนปัจจุบันตามจำนวนที่เลือก
         Btdbadd.Enabled = False
-
-        'MessageBox.Show(0)
     End Sub
 
     Private Sub FabricList_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles FabricList.CellMouseClick
         If e.Button = Windows.Forms.MouseButtons.Right Then
             If Me.FabricList.Rows.Count < 1 Then Exit Sub
             If e.RowIndex < 0 Then Exit Sub
-            'FabricList.CurrentCell = FabricList(2, e.RowIndex)
             Me.FabricList.Rows(e.RowIndex).Selected = True
             EditcontextFabricList()
         End If
@@ -1301,19 +1152,12 @@ Public Class Formdyeform
     Private Sub BtrefreshFabric_Click(sender As Object, e As EventArgs) Handles BtrefreshFabric.Click
         BindingFabriclist()
     End Sub
-
-    'Private Sub Tbqtyroll_TextChanged(sender As Object, e As EventArgs) Handles Tbqtyroll.KeyPress
-    '    MessageBox.Show("Hello My Proscess")
-    'End Sub
-
-
     Private Sub EditcontextFabricList()
         ButtonItem1.Displayed = False
         ButtonItem1.PopupMenu(Control.MousePosition)
     End Sub
 
     Private Sub Tbqtyroll_TextChanged(sender As Object, e As EventArgs) Handles Tbqtyroll.TextChanged
-        'MsgBox(Cheng) 'ถ้ามีการแก้ไขตัวเลขพับ จะถูก +1 และถ้ามากกว่า 1 จะมีการคำนวนน้ำหนักใหม่
         Cheng = Cheng + 1
     End Sub
 
@@ -1331,8 +1175,6 @@ Public Class Formdyeform
         End If
         Return Valid
     End Function
-
-
     Private Sub Setauthorize()
         If Gscreau = False Then
             Btmnew.Visible = False
@@ -1355,7 +1197,6 @@ Public Class Formdyeform
             Btrefresh.Visible = False
         End If
     End Sub
-
     Private Function Chkdupyarnidingrid() As Boolean
         Dim Dup As Boolean = False
         If Dgvmas.RowCount = 0 Then
@@ -1414,12 +1255,10 @@ Public Class Formdyeform
         Btmreports.Enabled = False
         Disbaledbutton()
     End Sub
-
     Private Sub Tbqtyroll_LostFocus(sender As Object, e As EventArgs) Handles Tbqtyroll.LostFocus
         If CalOneroll.Text = "" OrElse Tbqtyroll.Text = "" Then
             Exit Sub
         End If
-        'MsgBox("0")
         If Cheng > 1 Then
             Tbwgtkg.Text = Format(CDbl(CalOneroll.Text) * CDbl(Tbqtyroll.Text), "###,###.#0")
         End If

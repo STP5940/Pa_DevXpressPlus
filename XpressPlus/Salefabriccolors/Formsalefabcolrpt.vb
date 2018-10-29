@@ -64,7 +64,7 @@ Public Class Formsalefabcolrpt
         Next
 
         Dim Rds As New ReportDataSource()
-        Rds.Name = "DataSet1"
+        Rds.Name = "Datareport"
         Rds.Value = Datareport
         ReportViewer1.LocalReport.DataSources.Add(Rds)
         Me.ReportViewer1.RefreshReport()

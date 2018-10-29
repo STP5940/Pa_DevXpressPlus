@@ -164,13 +164,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Salefabriccolors\Datareport .Designer.vb">
+    <Compile Include="Salefabriccolors\Datareport.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Datareport .xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Salefabriccolors\Datareport .vb">
-      <DependentUpon>Datareport .xsd</DependentUpon>
+      <DependentUpon>Datareport.xsd</DependentUpon>
     </Compile>
     <Compile Include="Salefabriccolors\Formaesalefabcolor.designer.vb">
       <DependentUpon>Formaesalefabcolor.vb</DependentUpon>
@@ -236,6 +233,18 @@
       <DependentUpon>Formsaleyarnrpt.vb</DependentUpon>
     </Compile>
     <Compile Include="salerepor\Formsaleyarnrpt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shade\Formaeshade.designer.vb">
+      <DependentUpon>Formaeshade.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Shade\Formaeshade.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shade\Formshade.designer.vb">
+      <DependentUpon>Formshade.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Shade\Formshade.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Waitdialog\Formwaitdialoque.designer.vb">
@@ -339,6 +348,12 @@
     <EmbeddedResource Include="salerepor\Formsaleyarnrpt.resx">
       <DependentUpon>Formsaleyarnrpt.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Shade\Formaeshade.resx">
+      <DependentUpon>Formaeshade.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shade\Formshade.resx">
+      <DependentUpon>Formshade.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Waitdialog\Formwaitdialoque.resx">
       <DependentUpon>Formwaitdialoque.vb</DependentUpon>
     </EmbeddedResource>
@@ -377,16 +392,16 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
-    <None Include="Salefabriccolors\Datareport .xsc">
-      <DependentUpon>Datareport .xsd</DependentUpon>
+    <None Include="Salefabriccolors\Datareport.xsc">
+      <DependentUpon>Datareport.xsd</DependentUpon>
     </None>
-    <None Include="Salefabriccolors\Datareport .xsd">
+    <None Include="Salefabriccolors\Datareport.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Datareport .Designer.vb</LastGenOutput>
+      <LastGenOutput>Datareport.Designer.vb</LastGenOutput>
     </None>
-    <None Include="Salefabriccolors\Datareport .xss">
-      <DependentUpon>Datareport .xsd</DependentUpon>
+    <None Include="Salefabriccolors\Datareport.xss">
+      <DependentUpon>Datareport.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -452,6 +467,7 @@
   <ItemGroup>
     <None Include="Resources\Closewin.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

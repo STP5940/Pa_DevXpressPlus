@@ -27,8 +27,6 @@ Partial Class Formknitfordyelist
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
-        Me.LabelX3 = New DevComponents.DotNetBar.LabelX()
-        Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
         Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
         Me.Send = New Normtextbox.Normtextbox()
         Me.LabelX4 = New DevComponents.DotNetBar.LabelX()
@@ -56,6 +54,8 @@ Partial Class Formknitfordyelist
         Me.Btcancel = New DevComponents.DotNetBar.ButtonX()
         Me.Btok = New DevComponents.DotNetBar.ButtonX()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
+        Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
+        Me.LabelX3 = New DevComponents.DotNetBar.LabelX()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabControlPanel1.SuspendLayout()
@@ -75,7 +75,7 @@ Partial Class Formknitfordyelist
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedTabFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
         Me.TabControl1.SelectedTabIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(449, 358)
+        Me.TabControl1.Size = New System.Drawing.Size(384, 358)
         Me.TabControl1.TabIndex = 8
         Me.TabControl1.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox
         Me.TabControl1.Tabs.Add(Me.TabItem1)
@@ -99,7 +99,7 @@ Partial Class Formknitfordyelist
         Me.TabControlPanel1.Location = New System.Drawing.Point(0, 26)
         Me.TabControlPanel1.Name = "TabControlPanel1"
         Me.TabControlPanel1.Padding = New System.Windows.Forms.Padding(1)
-        Me.TabControlPanel1.Size = New System.Drawing.Size(449, 332)
+        Me.TabControlPanel1.Size = New System.Drawing.Size(384, 332)
         Me.TabControlPanel1.Style.BackColor1.Color = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(179, Byte), Integer), CType(CType(231, Byte), Integer))
         Me.TabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(CType(CType(223, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(254, Byte), Integer))
         Me.TabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -110,36 +110,6 @@ Partial Class Formknitfordyelist
         Me.TabControlPanel1.TabIndex = 1
         Me.TabControlPanel1.TabItem = Me.TabItem1
         '
-        'LabelX3
-        '
-        Me.LabelX3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.LabelX3.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX3.Location = New System.Drawing.Point(410, 245)
-        Me.LabelX3.Name = "LabelX3"
-        Me.LabelX3.Size = New System.Drawing.Size(22, 23)
-        Me.LabelX3.TabIndex = 120
-        Me.LabelX3.Text = "พับ"
-        '
-        'LabelX2
-        '
-        Me.LabelX2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.LabelX2.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX2.Location = New System.Drawing.Point(410, 216)
-        Me.LabelX2.Name = "LabelX2"
-        Me.LabelX2.Size = New System.Drawing.Size(22, 23)
-        Me.LabelX2.TabIndex = 119
-        Me.LabelX2.Text = "พับ"
-        '
         'LabelX1
         '
         Me.LabelX1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -149,7 +119,7 @@ Partial Class Formknitfordyelist
         '
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX1.Location = New System.Drawing.Point(242, 216)
+        Me.LabelX1.Location = New System.Drawing.Point(177, 216)
         Me.LabelX1.Name = "LabelX1"
         Me.LabelX1.Size = New System.Drawing.Size(70, 23)
         Me.LabelX1.TabIndex = 118
@@ -162,7 +132,7 @@ Partial Class Formknitfordyelist
         Me.Send.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Send.Enabled = False
         Me.Send.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Send.Location = New System.Drawing.Point(318, 216)
+        Me.Send.Location = New System.Drawing.Point(253, 216)
         Me.Send.MaxLength = 120
         Me.Send.Name = "Send"
         Me.Send.Size = New System.Drawing.Size(86, 24)
@@ -178,7 +148,7 @@ Partial Class Formknitfordyelist
         '
         Me.LabelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX4.Location = New System.Drawing.Point(262, 245)
+        Me.LabelX4.Location = New System.Drawing.Point(197, 245)
         Me.LabelX4.Name = "LabelX4"
         Me.LabelX4.Size = New System.Drawing.Size(53, 23)
         Me.LabelX4.TabIndex = 116
@@ -188,7 +158,7 @@ Partial Class Formknitfordyelist
         '
         Me.DataSum.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataSum.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataSum.Location = New System.Drawing.Point(429, 310)
+        Me.DataSum.Location = New System.Drawing.Point(364, 310)
         Me.DataSum.Name = "DataSum"
         Me.DataSum.Size = New System.Drawing.Size(20, 10)
         Me.DataSum.TabIndex = 114
@@ -201,7 +171,7 @@ Partial Class Formknitfordyelist
         Me.SellSums.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.SellSums.Enabled = False
         Me.SellSums.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SellSums.Location = New System.Drawing.Point(318, 246)
+        Me.SellSums.Location = New System.Drawing.Point(253, 246)
         Me.SellSums.MaxLength = 120
         Me.SellSums.Name = "SellSums"
         Me.SellSums.Size = New System.Drawing.Size(86, 24)
@@ -236,7 +206,7 @@ Partial Class Formknitfordyelist
         Me.Dgvmas.Location = New System.Drawing.Point(1, 50)
         Me.Dgvmas.Name = "Dgvmas"
         Me.Dgvmas.ReadOnly = True
-        Me.Dgvmas.Size = New System.Drawing.Size(447, 160)
+        Me.Dgvmas.Size = New System.Drawing.Size(382, 160)
         Me.Dgvmas.TabIndex = 29
         '
         'Status
@@ -356,7 +326,7 @@ Partial Class Formknitfordyelist
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btmsearch, Me.Tbkeyword, Me.Tbcancel})
         Me.ToolStrip1.Location = New System.Drawing.Point(1, 1)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(447, 49)
+        Me.ToolStrip1.Size = New System.Drawing.Size(382, 49)
         Me.ToolStrip1.TabIndex = 28
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -392,7 +362,7 @@ Partial Class Formknitfordyelist
         Me.Btcancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Btcancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btcancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btcancel.Location = New System.Drawing.Point(318, 286)
+        Me.Btcancel.Location = New System.Drawing.Point(253, 286)
         Me.Btcancel.Name = "Btcancel"
         Me.Btcancel.Size = New System.Drawing.Size(73, 34)
         Me.Btcancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
@@ -405,7 +375,7 @@ Partial Class Formknitfordyelist
         Me.Btok.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Btok.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btok.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btok.Location = New System.Drawing.Point(143, 286)
+        Me.Btok.Location = New System.Drawing.Point(78, 286)
         Me.Btok.Name = "Btok"
         Me.Btok.Size = New System.Drawing.Size(73, 34)
         Me.Btok.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
@@ -418,11 +388,41 @@ Partial Class Formknitfordyelist
         Me.TabItem1.Name = "TabItem1"
         Me.TabItem1.Text = "เลขที่ใบสั่งทอ"
         '
+        'LabelX2
+        '
+        Me.LabelX2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LabelX2.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.LabelX2.Location = New System.Drawing.Point(345, 216)
+        Me.LabelX2.Name = "LabelX2"
+        Me.LabelX2.Size = New System.Drawing.Size(22, 23)
+        Me.LabelX2.TabIndex = 119
+        Me.LabelX2.Text = "พับ"
+        '
+        'LabelX3
+        '
+        Me.LabelX3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LabelX3.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.LabelX3.Location = New System.Drawing.Point(345, 245)
+        Me.LabelX3.Name = "LabelX3"
+        Me.LabelX3.Size = New System.Drawing.Size(22, 23)
+        Me.LabelX3.TabIndex = 120
+        Me.LabelX3.Text = "พับ"
+        '
         'Formknitfordyelist
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(449, 358)
+        Me.ClientSize = New System.Drawing.Size(384, 358)
         Me.ControlBox = False
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "Formknitfordyelist"
