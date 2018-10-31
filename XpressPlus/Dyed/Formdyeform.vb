@@ -838,6 +838,7 @@ Public Class Formdyeform
             Tqtykg = Dgvmas.Rows(I).Cells("Mkg").Value
             Tfinwgt = Trim(Dgvmas.Rows(I).Cells("Mfinwgt").Value)
             Tknitbill = Dgvmas.Rows(I).Cells("Mbrawfab").Value
+            'MsgBox(Tknitbill) ' เป้
             Dim numrow = I + 1
             SQLCommand("INSERT INTO Tdyedcomdetxp(Comid,Dyedcomno,Ord,Knittcomid,Clothid,Shadeid,
                         Qtyroll,Qtykg,Finwgt,Knittbill,

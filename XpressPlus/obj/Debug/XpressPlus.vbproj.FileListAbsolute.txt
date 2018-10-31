@@ -359,3 +359,5 @@ C:\Users\this\Documents\GitHub\Dyed_DevXpressPlus\XpressPlus\obj\Debug\XpressPlu
 C:\Users\this\Documents\GitHub\Dyed_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.vbproj.GenerateResource.Cache
 C:\Users\this\Documents\GitHub\Dyed_DevXpressPlus\XpressPlus\obj\Debug\RdlCompile.cache
 C:\Users\this\Documents\GitHub\Dyed_DevXpressPlus\XpressPlus\obj\Debug\RdlCompile.compiled
+C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formaeshade.resources
+C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formshade.resources
