@@ -1254,9 +1254,6 @@ Public Class Formsalefabric
         End If
     End Sub
 
-    Private Sub Dgvmas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles Dgvmas.CellContentClick
-
-    End Sub
 
     Private Sub Btfindcustid_Click_1(sender As Object, e As EventArgs) Handles Btfindcustid.Click
         Dim Frm As New Formcustomerslist
