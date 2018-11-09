@@ -105,6 +105,7 @@
                   <TextRun>
                     <Value>รายการสั่งย้อม</Value>
                     <Style>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -131,28 +132,28 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.63542in</Width>
+                  <Width>0.76871in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.03046in</Width>
+                  <Width>1.60685in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.80171in</Width>
+                  <Width>1.49934in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.7in</Width>
+                  <Width>0.825in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.7in</Width>
+                  <Width>0.85625in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.38754in</Width>
+                  <Width>1.23129in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.21046in</Width>
+                  <Width>1.47087in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.16454in</Width>
+                  <Width>1.3801in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.15625in</Width>
@@ -173,6 +174,7 @@
                                 <TextRun>
                                   <Value>Item No.</Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -185,9 +187,15 @@
                           <rd:DefaultName>Textbox22</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Width>3pt</Width>
+                            </TopBorder>
+                            <LeftBorder>
+                              <Width>3pt</Width>
+                            </LeftBorder>
+                            <BackgroundColor>Gainsboro</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -207,6 +215,7 @@
                                 <TextRun>
                                   <Value>Description</Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -219,9 +228,12 @@
                           <rd:DefaultName>Textbox8</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Width>3pt</Width>
+                            </TopBorder>
+                            <BackgroundColor>Gainsboro</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -241,6 +253,7 @@
                                 <TextRun>
                                   <Value>Fabric Type</Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -253,9 +266,12 @@
                           <rd:DefaultName>Textbox12</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Width>3pt</Width>
+                            </TopBorder>
+                            <BackgroundColor>Gainsboro</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -275,6 +291,7 @@
                                 <TextRun>
                                   <Value>Qty(Roll)</Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -287,9 +304,12 @@
                           <rd:DefaultName>Textbox18</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Width>3pt</Width>
+                            </TopBorder>
+                            <BackgroundColor>Gainsboro</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -309,6 +329,7 @@
                                 <TextRun>
                                   <Value>Qty(Kg)</Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -321,9 +342,12 @@
                           <rd:DefaultName>Textbox25</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Width>3pt</Width>
+                            </TopBorder>
+                            <BackgroundColor>Gainsboro</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -343,6 +367,7 @@
                                 <TextRun>
                                   <Value>Color</Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -355,9 +380,12 @@
                           <rd:DefaultName>Textbox6</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Width>3pt</Width>
+                            </TopBorder>
+                            <BackgroundColor>Gainsboro</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -377,6 +405,7 @@
                                 <TextRun>
                                   <Value>Finished Weight</Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -389,9 +418,12 @@
                           <rd:DefaultName>Textbox27</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Width>3pt</Width>
+                            </TopBorder>
+                            <BackgroundColor>Gainsboro</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -411,6 +443,7 @@
                                 <TextRun>
                                   <Value>Finished Width</Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -423,9 +456,12 @@
                           <rd:DefaultName>Textbox29</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Width>3pt</Width>
+                            </TopBorder>
+                            <BackgroundColor>Gainsboro</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -445,6 +481,7 @@
                                 <TextRun>
                                   <Value>บิลผ้าดิบ</Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -457,9 +494,15 @@
                           <rd:DefaultName>Textbox11</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Width>3pt</Width>
+                            </TopBorder>
+                            <RightBorder>
+                              <Width>3pt</Width>
+                            </RightBorder>
+                            <BackgroundColor>Gainsboro</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -484,7 +527,7 @@
                                 <TextRun>
                                   <Value>=RowNumber(nothing)</Value>
                                   <Style>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>12pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -496,9 +539,11 @@
                           <rd:DefaultName>Textbox23</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <LeftBorder>
+                              <Width>3pt</Width>
+                            </LeftBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -518,7 +563,7 @@
                                 <TextRun>
                                   <Value>=Fields!Clothno.Value</Value>
                                   <Style>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>12pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -528,7 +573,6 @@
                           <rd:DefaultName>Clothno</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -550,7 +594,7 @@
                                 <TextRun>
                                   <Value>=Fields!Ftype.Value</Value>
                                   <Style>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>12pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -560,7 +604,6 @@
                           <rd:DefaultName>Ftype</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -582,7 +625,7 @@
                                 <TextRun>
                                   <Value>=Fields!Qtyroll.Value</Value>
                                   <Style>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>12pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -594,7 +637,6 @@
                           <rd:DefaultName>Qtyroll</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -616,7 +658,7 @@
                                 <TextRun>
                                   <Value>=Fields!Qtykg.Value</Value>
                                   <Style>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>12pt</FontSize>
                                     <Format>n2</Format>
                                   </Style>
                                 </TextRun>
@@ -629,7 +671,6 @@
                           <rd:DefaultName>Qtykg</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -651,19 +692,18 @@
                                 <TextRun>
                                   <Value>=Fields!Shadedesc.Value</Value>
                                   <Style>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>12pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Left</TextAlign>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Shadedesc</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -685,20 +725,19 @@
                                 <TextRun>
                                   <Value>=Fields!Finwgt.Value</Value>
                                   <Style>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>12pt</FontSize>
                                     <Format>n2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Right</TextAlign>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Finwgt</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -720,7 +759,7 @@
                                 <TextRun>
                                   <Value>=Fields!Fwidth.Value</Value>
                                   <Style>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>12pt</FontSize>
                                     <Format>n2</Format>
                                   </Style>
                                 </TextRun>
@@ -733,7 +772,6 @@
                           <rd:DefaultName>Fwidth</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -755,21 +793,23 @@
                                 <TextRun>
                                   <Value>=Fields!Knittbill.Value</Value>
                                   <Style>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>12pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Left</TextAlign>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Knittbill</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <RightBorder>
+                              <Width>3pt</Width>
+                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -781,7 +821,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.0625in</Height>
+                  <Height>0.04167in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -793,7 +833,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value />
-                                  <Style />
+                                  <Style>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -804,9 +846,11 @@
                           <rd:DefaultName>Textbox31</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <LeftBorder>
+                              <Width>3pt</Width>
+                            </LeftBorder>
                             <RightBorder>
                               <Style>None</Style>
                             </RightBorder>
@@ -828,7 +872,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value />
-                                  <Style />
+                                  <Style>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -837,7 +883,6 @@
                           <rd:DefaultName>Textbox32</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <LeftBorder>
@@ -864,7 +909,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value />
-                                  <Style />
+                                  <Style>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -873,7 +920,6 @@
                           <rd:DefaultName>Textbox33</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <LeftBorder>
@@ -900,7 +946,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value />
-                                  <Style />
+                                  <Style>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -911,7 +959,6 @@
                           <rd:DefaultName>Textbox7</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <LeftBorder>
@@ -938,7 +985,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value />
-                                  <Style />
+                                  <Style>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -949,7 +998,6 @@
                           <rd:DefaultName>Textbox13</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <LeftBorder>
@@ -976,7 +1024,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value />
-                                  <Style />
+                                  <Style>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -987,7 +1037,6 @@
                           <rd:DefaultName>Textbox9</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <LeftBorder>
@@ -1014,7 +1063,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value />
-                                  <Style />
+                                  <Style>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -1025,7 +1076,6 @@
                           <rd:DefaultName>Textbox36</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <LeftBorder>
@@ -1052,7 +1102,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value />
-                                  <Style />
+                                  <Style>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -1063,7 +1115,6 @@
                           <rd:DefaultName>Textbox37</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <LeftBorder>
@@ -1087,7 +1138,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value />
-                                  <Style />
+                                  <Style>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -1098,12 +1151,14 @@
                           <rd:DefaultName>Textbox15</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
                             <LeftBorder>
                               <Style>None</Style>
                             </LeftBorder>
+                            <RightBorder>
+                              <Width>3pt</Width>
+                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1127,7 +1182,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>Total</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -1138,9 +1195,14 @@
                           <rd:DefaultName>Textbox38</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BottomBorder>
+                              <Width>3pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Width>3pt</Width>
+                            </LeftBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1162,7 +1224,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=sum(Fields!Qtyroll.Value)</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -1173,9 +1237,11 @@
                           <rd:DefaultName>Textbox41</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BottomBorder>
+                              <Width>3pt</Width>
+                            </BottomBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1195,6 +1261,7 @@
                                 <TextRun>
                                   <Value>=sum(Fields!Qtykg.Value)</Value>
                                   <Style>
+                                    <FontSize>12pt</FontSize>
                                     <Format>n2</Format>
                                   </Style>
                                 </TextRun>
@@ -1207,9 +1274,11 @@
                           <rd:DefaultName>Textbox42</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BottomBorder>
+                              <Width>3pt</Width>
+                            </BottomBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1228,7 +1297,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value />
-                                  <Style />
+                                  <Style>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -1239,9 +1310,11 @@
                           <rd:DefaultName>Textbox10</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BottomBorder>
+                              <Width>3pt</Width>
+                            </BottomBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1260,7 +1333,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value />
-                                  <Style />
+                                  <Style>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -1271,9 +1346,11 @@
                           <rd:DefaultName>Textbox43</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BottomBorder>
+                              <Width>3pt</Width>
+                            </BottomBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1292,7 +1369,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value />
-                                  <Style />
+                                  <Style>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -1303,9 +1382,11 @@
                           <rd:DefaultName>Textbox44</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BottomBorder>
+                              <Width>3pt</Width>
+                            </BottomBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1324,7 +1405,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value />
-                                  <Style />
+                                  <Style>
+                                    <FontSize>11pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -1335,9 +1418,14 @@
                           <rd:DefaultName>Textbox16</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BottomBorder>
+                              <Width>3pt</Width>
+                            </BottomBorder>
+                            <RightBorder>
+                              <Width>3pt</Width>
+                            </RightBorder>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -1382,8 +1470,8 @@
             <DataSetName>DataSet1</DataSetName>
             <Top>0.38889in</Top>
             <Left>0.375in</Left>
-            <Height>0.8125in</Height>
-            <Width>10.78638in</Width>
+            <Height>0.79167in</Height>
+            <Width>10.79466in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -1392,7 +1480,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>31.83825mm</Height>
+        <Height>33.16117mm</Height>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1402,7 +1490,7 @@
       <Width>289.18466mm</Width>
       <Page>
         <PageHeader>
-          <Height>1.60361in</Height>
+          <Height>1.78694in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1415,7 +1503,7 @@
                     <TextRun>
                       <Value>Dyeing Form/ใบสั่งย้อม</Value>
                       <Style>
-                        <FontSize>12pt</FontSize>
+                        <FontSize>14pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -1449,6 +1537,7 @@
                     <TextRun>
                       <Value>From/จาก :</Value>
                       <Style>
+                        <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -1460,7 +1549,7 @@
               <Top>0.59597in</Top>
               <Left>0.375in</Left>
               <Height>0.25in</Height>
-              <Width>0.76042in</Width>
+              <Width>0.86681in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -1481,6 +1570,7 @@
                     <TextRun>
                       <Value>To/ถึง :</Value>
                       <Style>
+                        <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -1492,7 +1582,7 @@
               <Top>0.95361in</Top>
               <Left>0.375in</Left>
               <Height>0.25in</Height>
-              <Width>0.76042in</Width>
+              <Width>0.86681in</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -1511,8 +1601,9 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Date:</Value>
+                      <Value>Date :</Value>
                       <Style>
+                        <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -1522,9 +1613,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>0.59597in</Top>
-              <Left>9.5572in</Left>
+              <Left>9.24142in</Left>
               <Height>0.25in</Height>
-              <Width>0.44792in</Width>
+              <Width>0.70255in</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -1543,8 +1634,9 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Bill:</Value>
+                      <Value>Bill No:</Value>
                       <Style>
+                        <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -1554,9 +1646,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>0.95361in</Top>
-              <Left>9.5572in</Left>
+              <Left>9.24142in</Left>
               <Height>0.25in</Height>
-              <Width>0.44792in</Width>
+              <Width>0.70255in</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -1576,7 +1668,9 @@
                   <TextRuns>
                     <TextRun>
                       <Value>Knitspeed</Value>
-                      <Style />
+                      <Style>
+                        <FontSize>12pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
@@ -1586,7 +1680,7 @@
               <Top>0.59597in</Top>
               <Left>1.31125in</Left>
               <Height>0.25in</Height>
-              <Width>8.11574in</Width>
+              <Width>7.81905in</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>
@@ -1606,7 +1700,9 @@
                   <TextRuns>
                     <TextRun>
                       <Value>=Parameters!ParSendTo.Value</Value>
-                      <Style />
+                      <Style>
+                        <FontSize>12pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
@@ -1616,7 +1712,7 @@
               <Top>0.95361in</Top>
               <Left>1.31125in</Left>
               <Height>0.25in</Height>
-              <Width>8.11574in</Width>
+              <Width>7.81905in</Width>
               <ZIndex>6</ZIndex>
               <Style>
                 <Border>
@@ -1636,7 +1732,9 @@
                   <TextRuns>
                     <TextRun>
                       <Value>=Parameters!Pardate.Value</Value>
-                      <Style />
+                      <Style>
+                        <FontSize>12pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style>
@@ -1646,9 +1744,9 @@
               </Paragraphs>
               <rd:DefaultName>Parfrm</rd:DefaultName>
               <Top>0.59597in</Top>
-              <Left>10.14767in</Left>
+              <Left>10.01341in</Left>
               <Height>0.25in</Height>
-              <Width>1.02199in</Width>
+              <Width>1.15625in</Width>
               <ZIndex>7</ZIndex>
               <Style>
                 <Border>
@@ -1668,7 +1766,9 @@
                   <TextRuns>
                     <TextRun>
                       <Value>=Fields!Dyedcomno.Value</Value>
-                      <Style />
+                      <Style>
+                        <FontSize>12pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style>
@@ -1678,9 +1778,9 @@
               </Paragraphs>
               <rd:DefaultName>Parfrm</rd:DefaultName>
               <Top>0.95361in</Top>
-              <Left>10.14767in</Left>
+              <Left>10.01341in</Left>
               <Height>0.25in</Height>
-              <Width>1.02199in</Width>
+              <Width>1.15625in</Width>
               <ZIndex>8</ZIndex>
               <Style>
                 <Border>
@@ -1693,7 +1793,7 @@
               </Style>
             </Textbox>
             <Line Name="Line1">
-              <Top>1.57861in</Top>
+              <Top>1.70361in</Top>
               <Left>0.375in</Left>
               <Height>0in</Height>
               <Width>10.79466in</Width>
@@ -1713,6 +1813,7 @@
                     <TextRun>
                       <Value>รับผ้าดิบที่ :</Value>
                       <Style>
+                        <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -1724,7 +1825,7 @@
               <Top>1.29805in</Top>
               <Left>0.375in</Left>
               <Height>0.25in</Height>
-              <Width>0.76042in</Width>
+              <Width>0.86681in</Width>
               <ZIndex>10</ZIndex>
               <Style>
                 <Border>
@@ -1744,7 +1845,9 @@
                   <TextRuns>
                     <TextRun>
                       <Value>=Parameters!PickupArea.Value</Value>
-                      <Style />
+                      <Style>
+                        <FontSize>12pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
@@ -1754,7 +1857,7 @@
               <Top>1.29805in</Top>
               <Left>1.31125in</Left>
               <Height>0.25in</Height>
-              <Width>8.11574in</Width>
+              <Width>7.81905in</Width>
               <ZIndex>11</ZIndex>
               <Style>
                 <Border>
@@ -1787,6 +1890,7 @@
                     <TextRun>
                       <Value>หมายเหตุ</Value>
                       <Style>
+                        <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -1798,7 +1902,7 @@
               <Top>0.15875cm</Top>
               <Left>0.375in</Left>
               <Height>0.25in</Height>
-              <Width>0.63542in</Width>
+              <Width>0.86681in</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1829,7 +1933,9 @@
                   <TextRuns>
                     <TextRun>
                       <Value>=Parameters!Note.Value</Value>
-                      <Style />
+                      <Style>
+                        <FontSize>12pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
@@ -1837,9 +1943,9 @@
               </Paragraphs>
               <rd:DefaultName>Parfrm</rd:DefaultName>
               <Top>0.0625in</Top>
-              <Left>1.11333in</Left>
+              <Left>1.31125in</Left>
               <Height>0.25in</Height>
-              <Width>10.05633in</Width>
+              <Width>9.85841in</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
