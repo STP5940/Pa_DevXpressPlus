@@ -176,6 +176,12 @@
     <Compile Include="Salefabriccolors\Formfabrolllist.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Salefabriccolors\Formkongnolist.Designer.vb">
+      <DependentUpon>Formkongnolist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Salefabriccolors\Formkongnolist.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Salefabriccolors\Formsalebilllist.designer.vb">
       <DependentUpon>Formsalebilllist.vb</DependentUpon>
     </Compile>
@@ -204,6 +210,12 @@
       <DependentUpon>Formsheadbyfab.vb</DependentUpon>
     </Compile>
     <Compile Include="Salefabriccolors\Formsheadbyfab.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Salefabriccolors\Formyedcomno.Designer.vb">
+      <DependentUpon>Formyedcomno.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Salefabriccolors\Formyedcomno.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="salerepor\Formsaleyarnrpt.designer.vb">
@@ -296,6 +308,9 @@
     <EmbeddedResource Include="Salefabriccolors\Formfabrolllist.resx">
       <DependentUpon>Formfabrolllist.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Salefabriccolors\Formkongnolist.resx">
+      <DependentUpon>Formkongnolist.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Salefabriccolors\Formsalebilllist.resx">
       <DependentUpon>Formsalebilllist.vb</DependentUpon>
     </EmbeddedResource>
@@ -311,7 +326,11 @@
     <EmbeddedResource Include="Salefabriccolors\Formsheadbyfab.resx">
       <DependentUpon>Formsheadbyfab.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Salefabriccolors\Formyedcomno.resx">
+      <DependentUpon>Formyedcomno.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Salefabriccolors\Rptsalefabric.rdlc" />
+    <EmbeddedResource Include="Salefabriccolors\Rptsalefabric_temp.rdlc" />
     <EmbeddedResource Include="salerepor\Formsaleyarnrpt.resx">
       <DependentUpon>Formsaleyarnrpt.vb</DependentUpon>
     </EmbeddedResource>
@@ -423,7 +442,9 @@
   <ItemGroup>
     <None Include="Resources\Closewin.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Checkmark-256.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

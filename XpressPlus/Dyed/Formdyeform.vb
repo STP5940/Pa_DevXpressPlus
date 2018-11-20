@@ -1205,7 +1205,7 @@ Public Class Formdyeform
         Else
             Dim I As Integer
             For I = 0 To Dgvmas.RowCount - 1
-                If Trim(Tbknitcomno.Text) = Trim(Dgvmas.Rows(I).Cells("Dknittno").Value) And Trim(Tbclothid.Text) = Trim(Dgvmas.Rows(I).Cells("Clothid").Value) Then
+                If Trim(Tbknitcomno.Text) = Trim(Dgvmas.Rows(I).Cells("Dknittno").Value) And Trim(Tbclothid.Text) = Trim(Dgvmas.Rows(I).Cells("Clothid").Value) And Trim(Tbfabbill.Text) = Trim(Dgvmas.Rows(I).Cells("Mbrawfab").Value) Then
                     Dup = True
                     Exit For
                 End If

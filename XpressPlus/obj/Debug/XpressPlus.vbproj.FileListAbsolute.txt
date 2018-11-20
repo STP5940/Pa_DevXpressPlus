@@ -358,3 +358,5 @@ C:\Users\this\Documents\GitHub\Dyed_DevXpressPlus\XpressPlus\obj\Debug\RdlCompil
 C:\Users\this\Documents\GitHub\Dyed_DevXpressPlus\XpressPlus\obj\Debug\RdlCompile.compiled
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formaeshade.resources
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formshade.resources
+C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formkongnolist.resources
+C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formyedcomno.resources

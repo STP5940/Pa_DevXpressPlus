@@ -29,6 +29,10 @@ Partial Class Formsalefabric
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Btmclose = New System.Windows.Forms.ToolStripButton()
@@ -65,6 +69,12 @@ Partial Class Formsalefabric
         Me.Dlot = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Mkongno = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Rollno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Shadeid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SaleClothid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SaleClothno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SaleFtype = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Shadedesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SaleFwidth = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Qtykg = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
         Me.Btddel = New System.Windows.Forms.ToolStripButton()
@@ -73,6 +83,11 @@ Partial Class Formsalefabric
         Me.Btdbadd = New System.Windows.Forms.ToolStripButton()
         Me.GroupPanel2 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.RS = New Normtextbox.Normtextbox()
+        Me.Findyedcomno = New DevComponents.DotNetBar.ButtonX()
+        Me.LabelX20 = New DevComponents.DotNetBar.LabelX()
+        Me.Tbdyedcomno = New Normtextbox.Normtextbox()
+        Me.ButtonX1 = New DevComponents.DotNetBar.ButtonX()
         Me.LabelX14 = New DevComponents.DotNetBar.LabelX()
         Me.Qtykgbox = New Dectextbox.Dectextbox()
         Me.LabelX18 = New DevComponents.DotNetBar.LabelX()
@@ -444,9 +459,9 @@ Partial Class Formsalefabric
         '
         Me.DataSalefab.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataSalefab.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.No1, Me.Kg1, Me.No2, Me.Kg2, Me.No3, Me.Kg3, Me.No4, Me.Kg4})
-        Me.DataSalefab.Location = New System.Drawing.Point(144, 42)
+        Me.DataSalefab.Location = New System.Drawing.Point(96, 46)
         Me.DataSalefab.Name = "DataSalefab"
-        Me.DataSalefab.Size = New System.Drawing.Size(240, 150)
+        Me.DataSalefab.Size = New System.Drawing.Size(678, 150)
         Me.DataSalefab.TabIndex = 97
         Me.DataSalefab.Visible = False
         '
@@ -539,7 +554,7 @@ Partial Class Formsalefabric
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.Dgvmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Mstat, Me.Dcomid, Me.Ddlvno, Me.Dlot, Me.Mkongno, Me.Rollno, Me.Qtykg})
+        Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Mstat, Me.Dcomid, Me.Ddlvno, Me.Dlot, Me.Mkongno, Me.Rollno, Me.Shadeid, Me.SaleClothid, Me.SaleClothno, Me.SaleFtype, Me.Shadedesc, Me.SaleFwidth, Me.Qtykg})
         Me.Dgvmas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Dgvmas.Location = New System.Drawing.Point(0, 0)
         Me.Dgvmas.Name = "Dgvmas"
@@ -574,7 +589,6 @@ Partial Class Formsalefabric
         '
         'Dlot
         '
-        Me.Dlot.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Dlot.DataPropertyName = "Lotno"
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
         Me.Dlot.DefaultCellStyle = DataGridViewCellStyle3
@@ -584,7 +598,6 @@ Partial Class Formsalefabric
         '
         'Mkongno
         '
-        Me.Mkongno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Mkongno.DataPropertyName = "Kongno"
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
         DataGridViewCellStyle4.Format = "N2"
@@ -596,7 +609,6 @@ Partial Class Formsalefabric
         '
         'Rollno
         '
-        Me.Rollno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Rollno.DataPropertyName = "Rollno"
         DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
         DataGridViewCellStyle5.NullValue = Nothing
@@ -605,17 +617,74 @@ Partial Class Formsalefabric
         Me.Rollno.Name = "Rollno"
         Me.Rollno.ReadOnly = True
         '
+        'Shadeid
+        '
+        Me.Shadeid.DataPropertyName = "Shadeid"
+        Me.Shadeid.HeaderText = "Shadeid"
+        Me.Shadeid.Name = "Shadeid"
+        Me.Shadeid.ReadOnly = True
+        Me.Shadeid.Visible = False
+        '
+        'SaleClothid
+        '
+        Me.SaleClothid.DataPropertyName = "Clothid"
+        Me.SaleClothid.HeaderText = "Clothid"
+        Me.SaleClothid.Name = "SaleClothid"
+        Me.SaleClothid.ReadOnly = True
+        Me.SaleClothid.Visible = False
+        Me.SaleClothid.Width = 120
+        '
+        'SaleClothno
+        '
+        Me.SaleClothno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.SaleClothno.DataPropertyName = "Clothno"
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.SaleClothno.DefaultCellStyle = DataGridViewCellStyle6
+        Me.SaleClothno.HeaderText = "เบอร์ผ้า"
+        Me.SaleClothno.Name = "SaleClothno"
+        Me.SaleClothno.ReadOnly = True
+        '
+        'SaleFtype
+        '
+        Me.SaleFtype.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.SaleFtype.DataPropertyName = "Ftype"
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.SaleFtype.DefaultCellStyle = DataGridViewCellStyle7
+        Me.SaleFtype.HeaderText = "ประเภทผ้า"
+        Me.SaleFtype.Name = "SaleFtype"
+        Me.SaleFtype.ReadOnly = True
+        '
+        'Shadedesc
+        '
+        Me.Shadedesc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Shadedesc.DataPropertyName = "Shadedesc"
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Shadedesc.DefaultCellStyle = DataGridViewCellStyle8
+        Me.Shadedesc.HeaderText = "Shade"
+        Me.Shadedesc.Name = "Shadedesc"
+        Me.Shadedesc.ReadOnly = True
+        '
+        'SaleFwidth
+        '
+        Me.SaleFwidth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.SaleFwidth.DataPropertyName = "Fwidth"
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.SaleFwidth.DefaultCellStyle = DataGridViewCellStyle9
+        Me.SaleFwidth.HeaderText = "หน้ากว้าง"
+        Me.SaleFwidth.Name = "SaleFwidth"
+        Me.SaleFwidth.ReadOnly = True
+        '
         'Qtykg
         '
-        Me.Qtykg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Qtykg.DataPropertyName = "Wgtkg"
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle6.Format = "N2"
-        DataGridViewCellStyle6.NullValue = Nothing
-        Me.Qtykg.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle10.Format = "N2"
+        DataGridViewCellStyle10.NullValue = Nothing
+        Me.Qtykg.DefaultCellStyle = DataGridViewCellStyle10
         Me.Qtykg.HeaderText = "น้ำหนัก"
         Me.Qtykg.Name = "Qtykg"
         Me.Qtykg.ReadOnly = True
+        Me.Qtykg.Width = 150
         '
         'ToolStrip2
         '
@@ -722,6 +791,11 @@ Partial Class Formsalefabric
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.Transparent
+        Me.Panel3.Controls.Add(Me.RS)
+        Me.Panel3.Controls.Add(Me.Findyedcomno)
+        Me.Panel3.Controls.Add(Me.LabelX20)
+        Me.Panel3.Controls.Add(Me.Tbdyedcomno)
+        Me.Panel3.Controls.Add(Me.ButtonX1)
         Me.Panel3.Controls.Add(Me.LabelX14)
         Me.Panel3.Controls.Add(Me.Qtykgbox)
         Me.Panel3.Controls.Add(Me.LabelX18)
@@ -740,6 +814,68 @@ Partial Class Formsalefabric
         Me.Panel3.Size = New System.Drawing.Size(1000, 75)
         Me.Panel3.TabIndex = 81
         '
+        'RS
+        '
+        Me.RS.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.RS.Enabled = False
+        Me.RS.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RS.Location = New System.Drawing.Point(199, 56)
+        Me.RS.MaxLength = 120
+        Me.RS.Name = "RS"
+        Me.RS.Size = New System.Drawing.Size(36, 24)
+        Me.RS.TabIndex = 112
+        Me.RS.Text = "RS"
+        Me.RS.Visible = False
+        '
+        'Findyedcomno
+        '
+        Me.Findyedcomno.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.Findyedcomno.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.Findyedcomno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Findyedcomno.Image = Global.XpressPlus.My.Resources.Resources.Find16
+        Me.Findyedcomno.Location = New System.Drawing.Point(486, 26)
+        Me.Findyedcomno.Name = "Findyedcomno"
+        Me.Findyedcomno.Size = New System.Drawing.Size(37, 23)
+        Me.Findyedcomno.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
+        Me.Findyedcomno.TabIndex = 111
+        '
+        'LabelX20
+        '
+        Me.LabelX20.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX20.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX20.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.LabelX20.Location = New System.Drawing.Point(239, 25)
+        Me.LabelX20.Name = "LabelX20"
+        Me.LabelX20.Size = New System.Drawing.Size(86, 23)
+        Me.LabelX20.TabIndex = 110
+        Me.LabelX20.Text = "เลขที่ใบรับผ้าสี"
+        '
+        'Tbdyedcomno
+        '
+        Me.Tbdyedcomno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbdyedcomno.Enabled = False
+        Me.Tbdyedcomno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tbdyedcomno.Location = New System.Drawing.Point(331, 25)
+        Me.Tbdyedcomno.MaxLength = 150
+        Me.Tbdyedcomno.Name = "Tbdyedcomno"
+        Me.Tbdyedcomno.Size = New System.Drawing.Size(148, 24)
+        Me.Tbdyedcomno.TabIndex = 109
+        '
+        'ButtonX1
+        '
+        Me.ButtonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.ButtonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.ButtonX1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.ButtonX1.Image = Global.XpressPlus.My.Resources.Resources.Find16
+        Me.ButtonX1.Location = New System.Drawing.Point(199, 24)
+        Me.ButtonX1.Name = "ButtonX1"
+        Me.ButtonX1.Size = New System.Drawing.Size(33, 24)
+        Me.ButtonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
+        Me.ButtonX1.TabIndex = 108
+        '
         'LabelX14
         '
         Me.LabelX14.BackColor = System.Drawing.Color.Transparent
@@ -748,22 +884,24 @@ Partial Class Formsalefabric
         '
         Me.LabelX14.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX14.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX14.Location = New System.Drawing.Point(359, 41)
+        Me.LabelX14.Location = New System.Drawing.Point(314, 59)
         Me.LabelX14.Name = "LabelX14"
         Me.LabelX14.Size = New System.Drawing.Size(47, 23)
         Me.LabelX14.TabIndex = 107
         Me.LabelX14.Text = "น้ำหนัก"
+        Me.LabelX14.Visible = False
         '
         'Qtykgbox
         '
         Me.Qtykgbox.Enabled = False
         Me.Qtykgbox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Qtykgbox.Location = New System.Drawing.Point(412, 41)
+        Me.Qtykgbox.Location = New System.Drawing.Point(367, 53)
         Me.Qtykgbox.MaxLength = 12
         Me.Qtykgbox.Name = "Qtykgbox"
-        Me.Qtykgbox.Size = New System.Drawing.Size(125, 24)
+        Me.Qtykgbox.Size = New System.Drawing.Size(44, 24)
         Me.Qtykgbox.TabIndex = 106
         Me.Qtykgbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.Qtykgbox.Visible = False
         '
         'LabelX18
         '
@@ -773,22 +911,24 @@ Partial Class Formsalefabric
         '
         Me.LabelX18.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX18.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX18.Location = New System.Drawing.Point(202, 39)
+        Me.LabelX18.Location = New System.Drawing.Point(244, 60)
         Me.LabelX18.Name = "LabelX18"
         Me.LabelX18.Size = New System.Drawing.Size(30, 23)
         Me.LabelX18.TabIndex = 105
         Me.LabelX18.Text = "พับที่"
+        Me.LabelX18.Visible = False
         '
         'Rollnobox
         '
         Me.Rollnobox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Rollnobox.Enabled = False
         Me.Rollnobox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Rollnobox.Location = New System.Drawing.Point(238, 40)
+        Me.Rollnobox.Location = New System.Drawing.Point(282, 55)
         Me.Rollnobox.MaxLength = 120
         Me.Rollnobox.Name = "Rollnobox"
-        Me.Rollnobox.Size = New System.Drawing.Size(118, 24)
+        Me.Rollnobox.Size = New System.Drawing.Size(26, 24)
         Me.Rollnobox.TabIndex = 104
+        Me.Rollnobox.Visible = False
         '
         'Panel7
         '
@@ -800,9 +940,9 @@ Partial Class Formsalefabric
         Me.Panel7.Controls.Add(Me.LabelX13)
         Me.Panel7.Controls.Add(Me.LabelX8)
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel7.Location = New System.Drawing.Point(706, 0)
+        Me.Panel7.Location = New System.Drawing.Point(703, 0)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(294, 75)
+        Me.Panel7.Size = New System.Drawing.Size(297, 75)
         Me.Panel7.TabIndex = 103
         '
         'Tbsummoney
@@ -893,9 +1033,9 @@ Partial Class Formsalefabric
         Me.Btfindlotno.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btfindlotno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Btfindlotno.Image = Global.XpressPlus.My.Resources.Resources.Find16
-        Me.Btfindlotno.Location = New System.Drawing.Point(199, 3)
+        Me.Btfindlotno.Location = New System.Drawing.Point(529, 20)
         Me.Btfindlotno.Name = "Btfindlotno"
-        Me.Btfindlotno.Size = New System.Drawing.Size(33, 24)
+        Me.Btfindlotno.Size = New System.Drawing.Size(67, 34)
         Me.Btfindlotno.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
         Me.Btfindlotno.TabIndex = 102
         '
@@ -907,7 +1047,7 @@ Partial Class Formsalefabric
         '
         Me.LabelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX11.Location = New System.Drawing.Point(8, 40)
+        Me.LabelX11.Location = New System.Drawing.Point(8, 25)
         Me.LabelX11.Name = "LabelX11"
         Me.LabelX11.Size = New System.Drawing.Size(54, 23)
         Me.LabelX11.TabIndex = 101
@@ -917,7 +1057,7 @@ Partial Class Formsalefabric
         '
         Me.Tbkongno.Enabled = False
         Me.Tbkongno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbkongno.Location = New System.Drawing.Point(75, 39)
+        Me.Tbkongno.Location = New System.Drawing.Point(75, 24)
         Me.Tbkongno.MaxLength = 12
         Me.Tbkongno.Name = "Tbkongno"
         Me.Tbkongno.Size = New System.Drawing.Size(118, 24)
@@ -936,7 +1076,7 @@ Partial Class Formsalefabric
         Me.Tbaddedit.Enabled = False
         Me.Tbaddedit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Tbaddedit.ForeColor = System.Drawing.Color.Black
-        Me.Tbaddedit.Location = New System.Drawing.Point(237, 4)
+        Me.Tbaddedit.Location = New System.Drawing.Point(675, 26)
         Me.Tbaddedit.Name = "Tbaddedit"
         Me.Tbaddedit.PreventEnterBeep = True
         Me.Tbaddedit.Size = New System.Drawing.Size(33, 22)
@@ -951,22 +1091,24 @@ Partial Class Formsalefabric
         '
         Me.LabelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX7.Location = New System.Drawing.Point(8, 3)
+        Me.LabelX7.Location = New System.Drawing.Point(8, 56)
         Me.LabelX7.Name = "LabelX7"
         Me.LabelX7.Size = New System.Drawing.Size(64, 23)
         Me.LabelX7.TabIndex = 76
         Me.LabelX7.Text = "LOT No."
+        Me.LabelX7.Visible = False
         '
         'Tblotno
         '
         Me.Tblotno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tblotno.Enabled = False
         Me.Tblotno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tblotno.Location = New System.Drawing.Point(75, 3)
+        Me.Tblotno.Location = New System.Drawing.Point(75, 56)
         Me.Tblotno.MaxLength = 120
         Me.Tblotno.Name = "Tblotno"
         Me.Tblotno.Size = New System.Drawing.Size(118, 24)
         Me.Tblotno.TabIndex = 75
+        Me.Tblotno.Visible = False
         '
         'Btdcancel
         '
@@ -974,7 +1116,7 @@ Partial Class Formsalefabric
         Me.Btdcancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btdcancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Btdcancel.Image = Global.XpressPlus.My.Resources.Resources.Undo
-        Me.Btdcancel.Location = New System.Drawing.Point(560, 31)
+        Me.Btdcancel.Location = New System.Drawing.Point(602, 20)
         Me.Btdcancel.Name = "Btdcancel"
         Me.Btdcancel.Size = New System.Drawing.Size(67, 34)
         Me.Btdcancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
@@ -2178,13 +2320,6 @@ Partial Class Formsalefabric
     Friend WithEvents LabelX18 As DevComponents.DotNetBar.LabelX
     Friend WithEvents Rollnobox As Normtextbox.Normtextbox
     Friend WithEvents Btfindshade As DevComponents.DotNetBar.ButtonX
-    Friend WithEvents Mstat As DataGridViewTextBoxColumn
-    Friend WithEvents Dcomid As DataGridViewTextBoxColumn
-    Friend WithEvents Ddlvno As DataGridViewTextBoxColumn
-    Friend WithEvents Dlot As DataGridViewTextBoxColumn
-    Friend WithEvents Mkongno As DataGridViewTextBoxColumn
-    Friend WithEvents Rollno As DataGridViewTextBoxColumn
-    Friend WithEvents Qtykg As DataGridViewTextBoxColumn
     Friend WithEvents Status As DataGridViewTextBoxColumn
     Friend WithEvents Comid As DataGridViewTextBoxColumn
     Friend WithEvents Ldfabdate As DataGridViewTextBoxColumn
@@ -2222,4 +2357,22 @@ Partial Class Formsalefabric
     Friend WithEvents Kg3 As DataGridViewTextBoxColumn
     Friend WithEvents No4 As DataGridViewTextBoxColumn
     Friend WithEvents Kg4 As DataGridViewTextBoxColumn
+    Friend WithEvents LabelX20 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents Tbdyedcomno As Normtextbox.Normtextbox
+    Friend WithEvents ButtonX1 As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents Findyedcomno As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents RS As Normtextbox.Normtextbox
+    Friend WithEvents Mstat As DataGridViewTextBoxColumn
+    Friend WithEvents Dcomid As DataGridViewTextBoxColumn
+    Friend WithEvents Ddlvno As DataGridViewTextBoxColumn
+    Friend WithEvents Dlot As DataGridViewTextBoxColumn
+    Friend WithEvents Mkongno As DataGridViewTextBoxColumn
+    Friend WithEvents Rollno As DataGridViewTextBoxColumn
+    Friend WithEvents Shadeid As DataGridViewTextBoxColumn
+    Friend WithEvents SaleClothid As DataGridViewTextBoxColumn
+    Friend WithEvents SaleClothno As DataGridViewTextBoxColumn
+    Friend WithEvents SaleFtype As DataGridViewTextBoxColumn
+    Friend WithEvents Shadedesc As DataGridViewTextBoxColumn
+    Friend WithEvents SaleFwidth As DataGridViewTextBoxColumn
+    Friend WithEvents Qtykg As DataGridViewTextBoxColumn
 End Class

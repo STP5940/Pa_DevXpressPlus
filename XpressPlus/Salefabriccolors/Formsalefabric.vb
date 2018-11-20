@@ -1,7 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports Microsoft.Reporting.WinForms
 Public Class Formsalefabric
-    Private Tmaster, Tdetails, Tlist, Dttemp, Kongno, KongnoKg As DataTable
+    Private Tmaster, Tdetails, Tlist, Dttemp, Kongno, KongnoKg, REData As DataTable
     Private Pagecount, Maxrec, Pagesize, Currentpage, Recno As Integer
     Private WithEvents Dtplistfm As New DateTimePicker
     Private WithEvents Dtplistto As New DateTimePicker
@@ -77,12 +77,11 @@ Public Class Formsalefabric
             Exit Sub
         End If
         If Tbdlvno.Text = "NEW" Then
-            'Informmessage("Wowww! Newdoc")
             Newdoc()
         Else
-            'Informmessage("Wowww! Editdoc")
             Editdoc()
         End If
+        Btmreports_Click(sender, e)
         Btdcancel_Click(sender, e)
         Tsbwsave.Visible = False
         Clrtextmaster()
@@ -128,6 +127,9 @@ Public Class Formsalefabric
         'End If
     End Sub
     Private Sub Btmreports_Click(sender As Object, e As EventArgs) Handles Btmreports.Click
+        'Dgvmas.Sort(SaleFtype, System.ComponentModel.ListSortDirection.Descending)
+        Dgvmas.Sort(Dgvmas.Columns(5), ListSortDirection.Ascending)
+
         If Dgvmas.RowCount = 0 Then
             Exit Sub
         End If
@@ -140,7 +142,21 @@ Public Class Formsalefabric
 
 
         Dim Frm As New Formsalefabcolrpt
-        Frm.DataReport.Rows(0).Cells("Kg1").Value = DataSalefab.Rows(0).Cells("Kg1").Value
+        'Frm.ReportViewer1.ShowPrintButton = True
+        'Frm.DataReport.Rows(0).Cells("Kg1").Value = DataSalefab.Rows(0).Cells("Kg1").Value
+
+        For i = 0 To DataSalefab.Rows.Count - 1
+            Frm.DataReport.Rows.Add()
+            Frm.DataReport.Rows(i).Cells("No1").Value = DataSalefab.Rows(i).Cells("No1").Value
+            Frm.DataReport.Rows(i).Cells("Kg1").Value = DataSalefab.Rows(i).Cells("Kg1").Value
+            Frm.DataReport.Rows(i).Cells("No2").Value = DataSalefab.Rows(i).Cells("No2").Value
+            Frm.DataReport.Rows(i).Cells("Kg2").Value = DataSalefab.Rows(i).Cells("Kg2").Value
+            Frm.DataReport.Rows(i).Cells("No3").Value = DataSalefab.Rows(i).Cells("No3").Value
+            Frm.DataReport.Rows(i).Cells("Kg3").Value = DataSalefab.Rows(i).Cells("Kg3").Value
+            Frm.DataReport.Rows(i).Cells("No4").Value = DataSalefab.Rows(i).Cells("No4").Value
+            Frm.DataReport.Rows(i).Cells("Kg4").Value = DataSalefab.Rows(i).Cells("Kg4").Value
+        Next
+
         ClearSalefab()
 
         Frm.ReportViewer1.Reset()
@@ -157,39 +173,67 @@ Public Class Formsalefabric
         Frm.Tbkgprice.Text = Trim(Tbkgprice.Text)
         Frm.Tbsumprice.Text = Trim(Tbsummoney.Text)
         Frm.Tstbsumkg.Text = Trim(Tstbsumkg.Text)
+        Frm.Tbremark.Text = Trim(Tbremark.Text)
 
         '--------'
-        Dim NumberMax As Integer
-        Dim NumberMin As Integer
-
+        Dim FilterKongarray As New List(Of String)()
         For I = 0 To Dgvmas.RowCount - 1
-            If I > 0 Then
-                If Dgvmas.Rows(I).Cells("Mkongno").Value > NumberMax Then
-                    NumberMax = Dgvmas.Rows(I).Cells("Mkongno").Value
-                End If
-                If Dgvmas.Rows(I).Cells("Mkongno").Value < NumberMin Then
-                    NumberMin = Dgvmas.Rows(I).Cells("Mkongno").Value
-                End If
+            If I = 0 Then
+                FilterKongarray.Add(Dgvmas.Rows(I).Cells("Mkongno").Value)
                 Continue For
             End If
-            NumberMax = Dgvmas.Rows(I).Cells("Mkongno").Value
-            NumberMin = Dgvmas.Rows(I).Cells("Mkongno").Value
-            'MsgBox(Dgvmas.Rows(I).Cells("Mkongno").Value)
+            For x = 0 To FilterKongarray.Count - 1
+                If FilterKongarray(x) = Dgvmas.Rows(I).Cells("Mkongno").Value Then
+                    Exit For
+                Else
+                    If x = FilterKongarray.Count - 1 Then
+                        FilterKongarray.Add(Dgvmas.Rows(I).Cells("Mkongno").Value)
+                    End If
+                End If
+            Next
+        Next
+        For I = 0 To FilterKongarray.Count - 1
+            If I = 0 Then
+                Frm.FilterKongarray.Text = FilterKongarray(I)
+            Else
+                Frm.FilterKongarray.Text += $",{FilterKongarray(I)}"
+            End If
         Next
 
-        'MsgBox($"NumberMin: {NumberMin}")
-        'MsgBox($"NumberMax: {NumberMax}")
-        Frm.NumberMax.Text = Trim(NumberMax)
-        Frm.NumberMin.Text = Trim(NumberMin)
-        'MsgBox(Dgvmas.RowCount)
+        '--------'
+        Dim FilterLotarray As New List(Of String)()
+        For I = 0 To Dgvmas.RowCount - 1
+            If I = 0 Then
+                FilterLotarray.Add(Dgvmas.Rows(I).Cells("Mkongno").Value)
+                Continue For
+            End If
+            For x = 0 To FilterLotarray.Count - 1
+                If FilterLotarray(x) = Dgvmas.Rows(I).Cells("Mkongno").Value Then
+                    Exit For
+                Else
+                    If x = FilterLotarray.Count - 1 Then
+                        FilterLotarray.Add(Dgvmas.Rows(I).Cells("Mkongno").Value)
+                    End If
+                End If
+            Next
+        Next
+        For I = 0 To FilterLotarray.Count - 1
+            If I = 0 Then
+                Frm.FilterLotarray.Text = FilterLotarray(I)
+            Else
+                Frm.FilterLotarray.Text += $",{FilterLotarray(I)}"
+            End If
+        Next
+
         '--------'
 
-        If Gsexpau = False Then
-            Frm.ReportViewer1.ShowExportButton = False
-        End If
-        If Gspriau = False Then
-            Frm.ReportViewer1.ShowPrintButton = False
-        End If
+        'If Gsexpau = False Then
+        '    Frm.ReportViewer1.ShowExportButton = False
+        'End If
+        'If Gspriau = False Then
+        '    Frm.ReportViewer1.ShowPrintButton = False
+        'End If
+
         Dim Rds, Rds1 As New ReportDataSource()
         Rds.Name = "DataSetSale"
         Rds.Value = Tdetails
@@ -442,7 +486,7 @@ Public Class Formsalefabric
         'Tbclothno.Text = ""
         Tblotno.Text = ""
         'Tbshadeid.Text = ""
-        Tbkongno.Text = ""
+        'Tbkongno.Text = ""
         'Tbkgprice.Text = ""
         Rollnobox.Text = ""
         Qtykgbox.Text = ""
@@ -570,17 +614,20 @@ Public Class Formsalefabric
         ProgressBarX1.Value = 0
         Dim Frm As New Formwaitdialoque
         Frm.Show()
-        Dim Tlotno, Tkongo, Trollno As String
+        Dim Tlotno, Tkongo, Trollno, SaleClothid, Shadeid As String
         Dim Twgkg As Double
         For I = 0 To Dgvmas.RowCount - 1
             Tlotno = Trim(Dgvmas.Rows(I).Cells("Dlot").Value)
             Tkongo = Dgvmas.Rows(I).Cells("Mkongno").Value
             Trollno = Dgvmas.Rows(I).Cells("Rollno").Value
             Twgkg = Dgvmas.Rows(I).Cells("Qtykg").Value
+            SaleClothid = Dgvmas.Rows(I).Cells("SaleClothid").Value
+            Shadeid = Dgvmas.Rows(I).Cells("Shadeid").Value
+
             SQLCommand("INSERT INTO Tsalefabcoldetxp(Comid,Dlvno,Lotno,Kongno,Rollno,
-                        Wgtkg,Updusr,Uptype,Uptime)
+                        Clothid,Shadeid,Wgtkg,Updusr,Uptype,Uptime)
                         VALUES('" & Gscomid & "','" & Trim(Tbdlvno.Text) & "','" & Tlotno & "','" & Tkongo & "','" & Trollno & "'
-                        ," & Twgkg & ",'" & Gsuserid & "','" & Etype & "','" & Formatdatesave(Now) & "')")
+                        ,'" & SaleClothid & "','" & Shadeid & "'," & Twgkg & ",'" & Gsuserid & "','" & Etype & "','" & Formatdatesave(Now) & "')")
             ProgressBarX1.Value = ((I + 1) / Dgvmas.Rows.Count) * 100
             ProgressBarX1.Text = "Saving ... " & ProgressBarX1.Value & "%"
         Next
@@ -643,8 +690,23 @@ Public Class Formsalefabric
     End Sub
     Private Sub Binddetails()
         Tdetails = New DataTable
-        Tdetails = SQLCommand("SELECT '' AS Stat,* FROM Tsalefabcoldetxp
-                                WHERE Comid = '" & Gscomid & "' AND Dlvno = '" & Trim(Tbdlvno.Text) & "'")
+        Tdetails = SQLCommand($"SELECT dbo.Tsalefabcoldetxp.Comid, dbo.Tsalefabcoldetxp.Dlvno,
+                                       dbo.Tsalefabcoldetxp.Lotno, dbo.Tsalefabcoldetxp.Kongno, 
+                                       dbo.Tsalefabcoldetxp.Rollno, dbo.Tsalefabcoldetxp.Wgtkg, 
+                                       dbo.Tsalefabcoldetxp.Updusr, dbo.Tsalefabcoldetxp.Uptype, 
+                                       dbo.Tsalefabcoldetxp.Uptime, dbo.Tsalefabcoldetxp.Shadeid, 
+                                       dbo.Tshadexp.Shadedesc, dbo.Tshadexp.Rcolor, dbo.Tshadexp.Gcolor, 
+                                       dbo.Tshadexp.Bcolor, dbo.Tsalefabcoldetxp.Clothid, dbo.Tclothxp.Clothno, 
+                                       dbo.Tclothxp.Ftype, dbo.Tclothxp.Fwidth FROM dbo.Tsalefabcoldetxp 
+                               LEFT OUTER JOIN dbo.Tclothxp
+                                       ON dbo.Tsalefabcoldetxp.Clothid = dbo.Tclothxp.Clothid 
+                                       AND dbo.Tsalefabcoldetxp.Comid = dbo.Tclothxp.Comid 
+						       LEFT OUTER JOIN dbo.Tshadexp 
+                                       ON dbo.Tsalefabcoldetxp.Shadeid = dbo.Tshadexp.Shadeid 
+                                       AND dbo.Tsalefabcoldetxp.Comid = dbo.Tshadexp.Comid
+						       WHERE Tsalefabcoldetxp.Comid = '{Gscomid}' 
+                                       AND Tsalefabcoldetxp.Dlvno = '{Trim(Tbdlvno.Text)}' ORDER BY Tclothxp.Ftype DESC")
+
         Dgvmas.DataSource = Tdetails
     End Sub
     Private Sub Salefab()
@@ -653,37 +715,53 @@ Public Class Formsalefabric
 
         Dim FilterKongarray As New List(Of String)()
         Dim KongnoListarray As New List(Of String)()
+        Dim TypeListarray As New List(Of String)()
+        Dim ClothnoListarray As New List(Of String)()
+        'Dim SaleFtypeListarray As New List(Of String)()
+
         Dim IndexHeader As Integer = 0
         Dim Countkongno As Integer = 0
-        Dim RowNew As Long = 0
-        Dim FirstGrid As Long = 0
+        Dim FirstGrid As Long = 1
         Dim CountProduc As Long = 1
-        Dim StartFirstGrid As Long = 0
+        Dim StartFirstGrid As Long = 1
+        Dim ChashIndex As Long = -1
 
 
         FilterKongarray.Add("")
+        TypeListarray.Add("")
+        ClothnoListarray.Add("")
+        'SaleFtypeListarray.Add("")
         For I = 0 To Dgvmas.RowCount - 1
             For Filters = 0 To FilterKongarray.Count - 1
-                If FilterKongarray(Filters) = Dgvmas.Rows(I).Cells("Mkongno").Value Then
+                If FilterKongarray(Filters) = Dgvmas.Rows(I).Cells("Mkongno").Value And TypeListarray(Filters) = Dgvmas.Rows(I).Cells("SaleFtype").Value Then
                     Exit For
                 End If
 
                 If Filters = FilterKongarray.Count - 1 Then
                     FilterKongarray.Add(Dgvmas.Rows(I).Cells("Mkongno").Value)
+                    TypeListarray.Add(Dgvmas.Rows(I).Cells("SaleFtype").Value)
+                    ClothnoListarray.Add(Dgvmas.Rows(I).Cells("SaleClothno").Value)
+                    'SaleFtypeListarray.Add(Dgvmas.Rows(I).Cells("SaleFtype").Value)
                 End If
             Next
         Next
 
         For i = 1 To FilterKongarray.Count - 1
             If IndexHeader = 0 Then
-                For List = 1 To 21
+                For List = 1 To 26
                     DataSalefab.Rows.Insert(DataSalefab.RowCount - 1, $"") ' สร้าง 20 แถว
                 Next
             End If
 
             KongnoKg = New DataTable
-            KongnoKg = SQLCommand($"SELECT Wgtkg FROM Tsalefabcoldetxp WHERE 
-                                Kongno = '{FilterKongarray(i)}'")
+            'KongnoKg = SQLCommand($"SELECT Wgtkg FROM Tsalefabcoldetxp WHERE 
+            '                    Kongno = '{FilterKongarray(i)}'")
+            KongnoKg = SQLCommand($"SELECT dbo.Tsalefabcoldetxp.Wgtkg, dbo.Tclothxp.Ftype FROM dbo.Tsalefabcoldetxp 
+													  LEFT OUTER JOIN dbo.Tclothxp 
+													  ON dbo.Tsalefabcoldetxp.Comid = dbo.Tclothxp.Comid 
+														AND dbo.Tsalefabcoldetxp.Clothid = dbo.Tclothxp.Clothid
+													  WHERE Tsalefabcoldetxp.Comid = '{Gscomid}' 
+														AND Kongno = '{FilterKongarray(i)}' AND Ftype = '{TypeListarray(i)}'")
             For KongLoop = 0 To KongnoKg.Rows.Count - 1
                 KongnoListarray.Add(KongnoKg(KongLoop)(0))
             Next
@@ -692,7 +770,7 @@ Public Class Formsalefabric
             For List = 0 To KongnoListarray.Count - 1
 
                 Countkongno += 1
-                If Countkongno = 21 Then
+                If Countkongno = 26 Then
                     IndexHeader += 1
                     Countkongno = 0
                     FirstGrid = StartFirstGrid
@@ -700,8 +778,20 @@ Public Class Formsalefabric
 
                 FirstGrid += 1
                 DataSalefab.Rows(StartFirstGrid).Cells(Header(IndexHeader)).Value = FilterKongarray(i) ' ใส่หัวเลขที่กอง
-                DataSalefab.Rows(FirstGrid).Cells(HeaderOne(IndexHeader)).Value = CountProduc
+                DataSalefab.Rows(StartFirstGrid - 1).Cells(Header(IndexHeader)).Value = ClothnoListarray(i)
+
+                If ChashIndex <> IndexHeader Then
+                    'DataSalefab.Rows(FirstGrid - 2).Cells(HeaderOne(IndexHeader)).Value = ClothnoListarray(i)
+                    DataSalefab.Rows(FirstGrid - 1).Cells(HeaderOne(IndexHeader)).Value = "No."
+                    ChashIndex = IndexHeader
+                End If
+                If TypeListarray(i) = "RIB" Then
+                    DataSalefab.Rows(FirstGrid).Cells(HeaderOne(IndexHeader)).Value = CountProduc & "(บุ้ง)"
+                Else
+                    DataSalefab.Rows(FirstGrid).Cells(HeaderOne(IndexHeader)).Value = CountProduc
+                End If
                 DataSalefab.Rows(FirstGrid).Cells(Header(IndexHeader)).Value = KongnoListarray(List)
+
                 CountProduc += 1
                 If List = KongnoListarray.Count - 1 Then
                     FirstGrid = StartFirstGrid
@@ -711,8 +801,8 @@ Public Class Formsalefabric
             IndexHeader += 1
             If IndexHeader = 4 Then
                 IndexHeader = 0
-                FirstGrid += 21
-                StartFirstGrid += 21
+                FirstGrid += 26
+                StartFirstGrid += 26
             End If
 
             For KongLoop = 0 To KongnoKg.Rows.Count - 1
@@ -1023,8 +1113,18 @@ Public Class Formsalefabric
             Informmessage("คำเตือน กรุณาตรวจสอบอีกครั้งคุณใส่ราคา 0")
         End If
 
+        If Trim(Tbclothid.Text) = "" Then
+            Informmessage("กรุณาเลือกเบอร์ผ้า")
+            Exit Sub
+        End If
+
         'Dgvmas.Rows(0).Cells("Dlot").Value = 0
         Dim Frm As New Formaesalefabcolor
+
+        Frm.Tbclothid.Text = Trim(Tbclothid.Text)
+        Frm.Tbkongno.Text = Trim(Tbkongno.Text)
+        Frm.RS.Text = Trim(RS.Text)
+
         Showdiaformcenter(Frm, Me)
         If Frm.Tbcancel.Text = "C" Then
             Exit Sub
@@ -1047,6 +1147,12 @@ Public Class Formsalefabric
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkongno").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Kongno").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollno").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Pubno").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Qtykg").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Rollwage").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleFtype").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Ftype").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothid").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Clothid").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothno").Value = Trim(Tbclothno.Text)
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Trim(Tbshadename.Text)
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleFwidth").Value = Trim(Tbwidth.Text)
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadeid").Value = Trim(Tbshadeid.Text)
                                 DatainGride = 1
                             End If
                         Next
@@ -1076,6 +1182,12 @@ Public Class Formsalefabric
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkongno").Value = Frm.Dgvmas.Rows(i).Cells("Kongno").Value
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollno").Value = Frm.Dgvmas.Rows(i).Cells("Pubno").Value
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Qtykg").Value = Frm.Dgvmas.Rows(i).Cells("Rollwage").Value
+                                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleFtype").Value = Frm.Dgvmas.Rows(i).Cells("Ftype").Value
+                                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothid").Value = Frm.Dgvmas.Rows(i).Cells("Clothid").Value
+                                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothno").Value = Trim(Tbclothno.Text)
+                                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Trim(Tbshadename.Text)
+                                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleFwidth").Value = Trim(Tbwidth.Text)
+                                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadeid").Value = Trim(Tbshadeid.Text)
                                 End If
 
                             End If
@@ -1095,6 +1207,12 @@ Public Class Formsalefabric
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkongno").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Kongno").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollno").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Pubno").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Qtykg").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Rollwage").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleFtype").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Ftype").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothid").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Clothid").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothno").Value = Trim(Tbclothno.Text)
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Trim(Tbshadename.Text)
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleFwidth").Value = Trim(Tbwidth.Text)
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadeid").Value = Trim(Tbshadeid.Text)
                                 DatainGride = 1
                             End If
                         Next
@@ -1122,6 +1240,12 @@ Public Class Formsalefabric
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkongno").Value = Frm.Dgvmas.Rows(i).Cells("Kongno").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollno").Value = Frm.Dgvmas.Rows(i).Cells("Pubno").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Qtykg").Value = Frm.Dgvmas.Rows(i).Cells("Rollwage").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleFtype").Value = Frm.Dgvmas.Rows(i).Cells("Ftype").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothid").Value = Frm.Dgvmas.Rows(i).Cells("Clothid").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothno").Value = Trim(Tbclothno.Text)
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Trim(Tbshadename.Text)
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleFwidth").Value = Trim(Tbwidth.Text)
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadeid").Value = Trim(Tbshadeid.Text)
                             End If
 
                         End If
@@ -1174,10 +1298,13 @@ Public Class Formsalefabric
 
 
     Private Sub Btdcancel_Click_1(sender As Object, e As EventArgs) Handles Btdcancel.Click
+        Tbdyedcomno.Text = ""
+        RS.Text = "RS"
         Qtykgbox.Text = ""
         Rollnobox.Text = ""
         Tbkongno.Text = ""
         GroupPanel2.Visible = False
+        Btdbadd.Enabled = True
     End Sub
 
     Private Sub Clrdetails()
@@ -1211,7 +1338,7 @@ Public Class Formsalefabric
 
         Dim Summoney As Double = CDbl(Tbkgprice.Text) * CDbl(Tbsumwgt.Text)
         Tbsummoney.Text = Format(Summoney, "###,##0.#0")
-
+        Btdbadd.Enabled = False
     End Sub
 
     Private Sub Btddel_Click_1(sender As Object, e As EventArgs) Handles Btddel.Click
@@ -1289,7 +1416,9 @@ Public Class Formsalefabric
         Tbclothid.Text = CLng(Frm.Dgvmas.CurrentRow.Cells("Mid").Value)
         Tbclothno.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Mname").Value)
         Tbwidth.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Fwidth").Value)
-
+        Tbkongno.Text = ""
+        Tbdyedcomno.Text = ""
+        RS.Text = "RS"
     End Sub
 
     Private Sub Btfindshade_Click(sender As Object, e As EventArgs) Handles Btfindshade.Click
@@ -1301,6 +1430,41 @@ Public Class Formsalefabric
         Tbshadeid.Text = CLng(Frm.Dgvmas.CurrentRow.Cells("Mid").Value)
         Tbshadename.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Shade").Value)
 
+    End Sub
+
+    Private Sub ButtonX1_Click(sender As Object, e As EventArgs) Handles ButtonX1.Click
+        If Tbclothid.Text = "" Then
+            Informmessage("กรุณาเลือกเบอร์ผ้า")
+            Exit Sub
+        End If
+
+        Dim Frm As New Formkongnolist
+        Frm.Tbclothid.Text = Tbclothid.Text
+        Showdiaformcenter(Frm, Me)
+        If Frm.Tbcancel.Text = "C" Then
+            Exit Sub
+        End If
+        Tbkongno.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Kongno").Value)
+        RS.Text = "RS"
+        Tbdyedcomno.Text = ""
+    End Sub
+
+    Private Sub Findyedcomno_Click(sender As Object, e As EventArgs) Handles Findyedcomno.Click
+        If Tbkongno.Text = "" Then
+            Informmessage("กรุณาเลือกเบอร์กอง")
+            Exit Sub
+        End If
+
+        Dim Frm As New Formyedcomno
+        Frm.Tbkongno.Text = Tbkongno.Text
+        Showdiaformcenter(Frm, Me)
+        If Frm.Tbcancel.Text = "C" Then
+            Exit Sub
+        End If
+        Tbdyedcomno.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Reid").Value)
+        REData = New DataTable
+        REData = SQLCommand($"SELECT Billdyedno FROM Vrecfabcolmas WHERE Reid = '{Tbdyedcomno.Text}' AND Comid = '{Gscomid}'")
+        RS.Text = REData(0)(0)
     End Sub
 
     Private Sub Tbkgprice_TextChanged(sender As Object, e As EventArgs) Handles Tbkgprice.TextChanged

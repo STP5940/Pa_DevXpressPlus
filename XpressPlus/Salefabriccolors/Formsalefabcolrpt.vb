@@ -5,11 +5,11 @@ Public Class Formsalefabcolrpt
         ReportViewer1.SetDisplayMode(DisplayMode.PrintLayout)
         ReportViewer1.ZoomMode = ZoomMode.Percent
         ReportViewer1.ZoomPercent = 100
-        Dim Par1, Par2, Par3, Par4, Par5, Par6, Par7, Par8, Par9, Par10, Par11, Par12, Par13, NumberMin, NumberMax As ReportParameter
+        Dim Par1, Par2, Par3, Par4, Par5, Par6, Par7, Par8, Par9, Par10, Par11, Par12, Par13, Kongarray, Lotarray, Tbremark As ReportParameter
         Par1 = New ReportParameter("Pcustname", Trim(Tbcustname.Text), True)
         Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {Par1})
-        'Par2 = New ReportParameter("Pdlvno", Trim(Tbdlvno.Text), True)
-        'Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {Par2})
+        Par2 = New ReportParameter("Pdlvno", Trim(Tbdlvno.Text), True)
+        Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {Par2})
         Par3 = New ReportParameter("Pcustship", Trim(Tbcustaddr.Text), True)
         Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {Par3})
         Par4 = New ReportParameter("Pdate", Trim(Tbdate.Text), True)
@@ -33,10 +33,13 @@ Public Class Formsalefabcolrpt
         Pricesum.Text = Format(Trim(Tbkgprice.Text) * Trim(Tstbsumkg.Text), "###,###.#0")
         Par13 = New ReportParameter("Pricesum", Trim(Pricesum.Text), True)
         Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {Par13})
-        NumberMax = New ReportParameter("NumberMax", Trim(Me.NumberMax.Text), True)
-        Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {NumberMax})
-        NumberMin = New ReportParameter("NumberMin", Trim(Me.NumberMin.Text), True)
-        Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {NumberMin})
+        Kongarray = New ReportParameter("Kongarray", Trim(Me.FilterKongarray.Text), True)
+        Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {Kongarray})
+        Lotarray = New ReportParameter("Lotarray", Trim(Me.FilterLotarray.Text), True)
+        Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {Lotarray})
+        Tbremark = New ReportParameter("Tbremark", Trim(Me.Tbremark.Text), True)
+        Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {Tbremark})
+
 
         Dim No1, Kg1, No2, Kg2, No3, Kg3, No4, Kg4 As String
         Dim Datareport As New DataTable
@@ -62,6 +65,8 @@ Public Class Formsalefabcolrpt
             Kg4 = Me.DataReport.Rows(i).Cells("Kg4").Value
             Datareport.Rows.Add(No1, Kg1, No2, Kg2, No3, Kg3, No4, Kg4)
         Next
+        Datareport.Rows.RemoveAt(Datareport.Rows.Count - 1)
+        Datareport.Rows.RemoveAt(Datareport.Rows.Count - 1)
 
         Dim Rds As New ReportDataSource()
         Rds.Name = "Datareport"

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Formsalefabcolrpt
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,13 +20,23 @@ Partial Class Formsalefabcolrpt
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
-        Me.NumberMin = New System.Windows.Forms.TextBox()
-        Me.NumberMax = New System.Windows.Forms.TextBox()
+        Me.Tbremark = New Normtextbox.Normtextbox()
+        Me.FilterLotarray = New System.Windows.Forms.TextBox()
+        Me.DataReport = New System.Windows.Forms.DataGridView()
+        Me.No1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Kg1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.No2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Kg2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.No3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Kg3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.No4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Kg4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FilterKongarray = New System.Windows.Forms.TextBox()
         Me.Pricesum = New System.Windows.Forms.TextBox()
         Me.Tstbsumkg = New System.Windows.Forms.TextBox()
         Me.Tbsumprice = New System.Windows.Forms.TextBox()
@@ -42,15 +52,6 @@ Partial Class Formsalefabcolrpt
         Me.Tbcustaddr = New System.Windows.Forms.TextBox()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
-        Me.DataReport = New System.Windows.Forms.DataGridView()
-        Me.No1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Kg1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.No2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Kg2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.No3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Kg3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.No4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Kg4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabControlPanel1.SuspendLayout()
@@ -77,9 +78,10 @@ Partial Class Formsalefabcolrpt
         '
         'TabControlPanel1
         '
+        Me.TabControlPanel1.Controls.Add(Me.Tbremark)
+        Me.TabControlPanel1.Controls.Add(Me.FilterLotarray)
         Me.TabControlPanel1.Controls.Add(Me.DataReport)
-        Me.TabControlPanel1.Controls.Add(Me.NumberMin)
-        Me.TabControlPanel1.Controls.Add(Me.NumberMax)
+        Me.TabControlPanel1.Controls.Add(Me.FilterKongarray)
         Me.TabControlPanel1.Controls.Add(Me.Pricesum)
         Me.TabControlPanel1.Controls.Add(Me.Tstbsumkg)
         Me.TabControlPanel1.Controls.Add(Me.Tbsumprice)
@@ -110,21 +112,94 @@ Partial Class Formsalefabcolrpt
         Me.TabControlPanel1.TabIndex = 1
         Me.TabControlPanel1.TabItem = Me.TabItem1
         '
-        'NumberMin
+        'Tbremark
         '
-        Me.NumberMin.Location = New System.Drawing.Point(894, 236)
-        Me.NumberMin.Name = "NumberMin"
-        Me.NumberMin.Size = New System.Drawing.Size(100, 22)
-        Me.NumberMin.TabIndex = 193
-        Me.NumberMin.Visible = False
+        Me.Tbremark.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbremark.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tbremark.Location = New System.Drawing.Point(788, 231)
+        Me.Tbremark.MaxLength = 150
+        Me.Tbremark.Multiline = True
+        Me.Tbremark.Name = "Tbremark"
+        Me.Tbremark.Size = New System.Drawing.Size(100, 22)
+        Me.Tbremark.TabIndex = 196
+        Me.Tbremark.Visible = False
         '
-        'NumberMax
+        'FilterLotarray
         '
-        Me.NumberMax.Location = New System.Drawing.Point(788, 236)
-        Me.NumberMax.Name = "NumberMax"
-        Me.NumberMax.Size = New System.Drawing.Size(100, 22)
-        Me.NumberMax.TabIndex = 192
-        Me.NumberMax.Visible = False
+        Me.FilterLotarray.Location = New System.Drawing.Point(894, 231)
+        Me.FilterLotarray.Name = "FilterLotarray"
+        Me.FilterLotarray.Size = New System.Drawing.Size(100, 22)
+        Me.FilterLotarray.TabIndex = 195
+        Me.FilterLotarray.Visible = False
+        '
+        'DataReport
+        '
+        Me.DataReport.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataReport.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.No1, Me.Kg1, Me.No2, Me.Kg2, Me.No3, Me.Kg3, Me.No4, Me.Kg4})
+        Me.DataReport.Location = New System.Drawing.Point(109, 91)
+        Me.DataReport.Name = "DataReport"
+        Me.DataReport.Size = New System.Drawing.Size(643, 155)
+        Me.DataReport.TabIndex = 194
+        Me.DataReport.Visible = False
+        '
+        'No1
+        '
+        Me.No1.HeaderText = "No1"
+        Me.No1.Name = "No1"
+        Me.No1.ReadOnly = True
+        '
+        'Kg1
+        '
+        Me.Kg1.HeaderText = "Kg1"
+        Me.Kg1.Name = "Kg1"
+        Me.Kg1.ReadOnly = True
+        '
+        'No2
+        '
+        Me.No2.HeaderText = "No2"
+        Me.No2.Name = "No2"
+        Me.No2.ReadOnly = True
+        '
+        'Kg2
+        '
+        Me.Kg2.HeaderText = "Kg2"
+        Me.Kg2.Name = "Kg2"
+        Me.Kg2.ReadOnly = True
+        '
+        'No3
+        '
+        Me.No3.HeaderText = "No3"
+        Me.No3.Name = "No3"
+        Me.No3.ReadOnly = True
+        '
+        'Kg3
+        '
+        Me.Kg3.HeaderText = "Kg3"
+        Me.Kg3.Name = "Kg3"
+        Me.Kg3.ReadOnly = True
+        '
+        'No4
+        '
+        Me.No4.HeaderText = "No4"
+        Me.No4.Name = "No4"
+        Me.No4.ReadOnly = True
+        '
+        'Kg4
+        '
+        Me.Kg4.HeaderText = "Kg4"
+        Me.Kg4.Name = "Kg4"
+        Me.Kg4.ReadOnly = True
+        '
+        'FilterKongarray
+        '
+        Me.FilterKongarray.Location = New System.Drawing.Point(788, 203)
+        Me.FilterKongarray.Name = "FilterKongarray"
+        Me.FilterKongarray.Size = New System.Drawing.Size(100, 22)
+        Me.FilterKongarray.TabIndex = 192
+        Me.FilterKongarray.Visible = False
         '
         'Pricesum
         '
@@ -244,67 +319,6 @@ Partial Class Formsalefabcolrpt
         Me.TabItem1.Name = "TabItem1"
         Me.TabItem1.Text = "ใบส่งผ้าสี(ขาย)"
         '
-        'DataReport
-        '
-        Me.DataReport.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataReport.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.No1, Me.Kg1, Me.No2, Me.Kg2, Me.No3, Me.Kg3, Me.No4, Me.Kg4})
-        Me.DataReport.Location = New System.Drawing.Point(109, 91)
-        Me.DataReport.Name = "DataReport"
-        Me.DataReport.Size = New System.Drawing.Size(643, 155)
-        Me.DataReport.TabIndex = 194
-        Me.DataReport.Visible = False
-        '
-        'No1
-        '
-        Me.No1.HeaderText = "No1"
-        Me.No1.Name = "No1"
-        Me.No1.ReadOnly = True
-        '
-        'Kg1
-        '
-        Me.Kg1.HeaderText = "Kg1"
-        Me.Kg1.Name = "Kg1"
-        Me.Kg1.ReadOnly = True
-        '
-        'No2
-        '
-        Me.No2.HeaderText = "No2"
-        Me.No2.Name = "No2"
-        Me.No2.ReadOnly = True
-        '
-        'Kg2
-        '
-        Me.Kg2.HeaderText = "Kg2"
-        Me.Kg2.Name = "Kg2"
-        Me.Kg2.ReadOnly = True
-        '
-        'No3
-        '
-        Me.No3.HeaderText = "No3"
-        Me.No3.Name = "No3"
-        Me.No3.ReadOnly = True
-        '
-        'Kg3
-        '
-        Me.Kg3.HeaderText = "Kg3"
-        Me.Kg3.Name = "Kg3"
-        Me.Kg3.ReadOnly = True
-        '
-        'No4
-        '
-        Me.No4.HeaderText = "No4"
-        Me.No4.Name = "No4"
-        Me.No4.ReadOnly = True
-        '
-        'Kg4
-        '
-        Me.Kg4.HeaderText = "Kg4"
-        Me.Kg4.Name = "Kg4"
-        Me.Kg4.ReadOnly = True
-        '
         'Formsalefabcolrpt
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -340,8 +354,7 @@ Partial Class Formsalefabcolrpt
     Friend WithEvents Tbsumkg As TextBox
     Friend WithEvents Tstbsumkg As TextBox
     Friend WithEvents Pricesum As TextBox
-    Friend WithEvents NumberMin As TextBox
-    Friend WithEvents NumberMax As TextBox
+    Friend WithEvents FilterKongarray As TextBox
     Friend WithEvents DataReport As DataGridView
     Friend WithEvents No1 As DataGridViewTextBoxColumn
     Friend WithEvents Kg1 As DataGridViewTextBoxColumn
@@ -351,4 +364,6 @@ Partial Class Formsalefabcolrpt
     Friend WithEvents Kg3 As DataGridViewTextBoxColumn
     Friend WithEvents No4 As DataGridViewTextBoxColumn
     Friend WithEvents Kg4 As DataGridViewTextBoxColumn
+    Friend WithEvents FilterLotarray As TextBox
+    Friend WithEvents Tbremark As Normtextbox.Normtextbox
 End Class
