@@ -389,13 +389,6 @@ Public Class Formdyeform
         Tbfinwgt.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Finwgt").Value)
         Tbfinwidth.Text = Frm.Dgvmas.CurrentRow.Cells("Fwidth").Value
         Tbqtyroll.Focus()
-        If Dgvmas.RowCount > 0 Then
-            Btfindshade.Enabled = False
-            Tbshadeid.Text = Trim(Dgvmas.Rows(0).Cells("Shid").Value)
-            Tbshadename.Text = Trim(Dgvmas.Rows(0).Cells("Mshade").Value)
-        Else
-            Btfindshade.Enabled = True
-        End If
     End Sub
     Private Sub Tbqtyroll_KeyDown(sender As Object, e As KeyEventArgs) Handles Tbqtyroll.KeyDown
         If e.KeyCode = Keys.Enter Then
@@ -418,12 +411,12 @@ Public Class Formdyeform
         If Frm.Tbcancel.Text = "C" Then
             Exit Sub
         End If
-        If Dgvmas.RowCount > 0 Then
-            If Trim(Frm.Dgvmas.CurrentRow.Cells("Mid").Value) <> Trim(Dgvmas.Rows(0).Cells("Shid").Value) AndAlso Dgvmas.RowCount > 1 Then
-                Informmessage("Shade ไม่ตรงกันโปรดตรวจสอบอีกครั้ง")
-                Exit Sub
-            End If
-        End If
+        'If Dgvmas.RowCount > 0 Then
+        '    If Trim(Frm.Dgvmas.CurrentRow.Cells("Mid").Value) <> Trim(Dgvmas.Rows(0).Cells("Shid").Value) AndAlso Dgvmas.RowCount > 1 Then
+        '        Informmessage("Shade ไม่ตรงกันโปรดตรวจสอบอีกครั้ง")
+        '        Exit Sub
+        '    End If
+        'End If
         Tbshadeid.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Mid").Value)
         Tbshadename.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Mname").Value)
         DemoColor(Tbshadeid.Text)
@@ -550,6 +543,7 @@ Public Class Formdyeform
                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkg").Value = CDbl(Tbwgtkg.Text)
                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mfinwgt").Value = Trim(Tbfinwgt.Text)
                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mbrawfab").Value = Trim(Tbfabbill.Text)
+                DemoCode.BackColor = Color.White
             Case "แก้ไข"
                 Tsbwsave.Visible = True
                 Dgvmas.CurrentRow.Cells("Dknittno").Value = Trim(Tbknitcomno.Text)
@@ -563,6 +557,8 @@ Public Class Formdyeform
                 Dgvmas.CurrentRow.Cells("Mkg").Value = CDbl(Tbwgtkg.Text)
                 Dgvmas.CurrentRow.Cells("Mfinwgt").Value = Trim(Tbfinwgt.Text)
                 Dgvmas.CurrentRow.Cells("Mbrawfab").Value = Trim(Tbfabbill.Text)
+                DemoCode.BackColor = Color.White
+                Tbaddedit.Text = "เพิ่ม"
         End Select
         Sumall()
         Btdcancel_Click(sender, e)
@@ -636,6 +632,7 @@ Public Class Formdyeform
         Tbclothtype.Text = Trim(Dgvmas.CurrentRow.Cells("Ftype").Value)
         Tbfinwidth.Text = Trim(Dgvmas.CurrentRow.Cells("Mfinwid").Value)
         Tbshadeid.Text = Trim(Dgvmas.CurrentRow.Cells("Shid").Value)
+        DemoColor(Tbshadeid.Text)
         Tbshadename.Text = Trim(Dgvmas.CurrentRow.Cells("Mshade").Value)
         Tbqtyroll.Text = Format(CLng(Dgvmas.CurrentRow.Cells("Mqty").Value), "###,###")
         Tbfinwgt.Text = Trim(Dgvmas.CurrentRow.Cells("Mfinwgt").Value)
@@ -714,6 +711,7 @@ Public Class Formdyeform
             TbqtyrollTemp.Text = ""
             CalOneroll.Text = ""
             Tbaddedit.Text = "เพิ่ม"
+            DemoCode.BackColor = Color.White
         End If
         If Dgvmas.RowCount = 0 Then
             Exit Sub
