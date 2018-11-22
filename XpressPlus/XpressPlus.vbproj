@@ -126,6 +126,63 @@
     <Compile Include="Gbstatement\ToolStripCheckBox.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Knitting\Dsknittdet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Dsknittdet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Knitting\Dsyarndlvk.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Dsyarndlvk.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Knitting\Formbillnolist.designer.vb">
+      <DependentUpon>Formbillnolist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Knitting\Formbillnolist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Knitting\Formdlvnoknittlist.designer.vb">
+      <DependentUpon>Formdlvnoknittlist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Knitting\Formdlvnoknittlist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Knitting\FormfabrictypelistForknitt.designer.vb">
+      <DependentUpon>FormfabrictypelistForknitt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Knitting\FormfabrictypelistForknitt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Knitting\Formfactorylist.designer.vb">
+      <DependentUpon>Formfactorylist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Knitting\Formfactorylist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Knitting\Formknitingfrmrpt.designer.vb">
+      <DependentUpon>Formknitingfrmrpt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Knitting\Formknitingfrmrpt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Knitting\Formknittingform.designer.vb">
+      <DependentUpon>Formknittingform.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Knitting\Formknittingform.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Knitting\Formknittinglist.designer.vb">
+      <DependentUpon>Formknittinglist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Knitting\Formknittinglist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Knitting\LbSend.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LbSend.xsd</DependentUpon>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -140,6 +197,109 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ReceivefabOld\FormaeformreceivefabcolorsOld.designer.vb">
+      <DependentUpon>FormaeformreceivefabcolorsOld.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReceivefabOld\FormaeformreceivefabcolorsOld.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReceivefabOld\FormdyeddetlistOld.designer.vb">
+      <DependentUpon>FormdyeddetlistOld.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReceivefabOld\FormdyeddetlistOld.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReceivefabOld\FormdyedlistOld.designer.vb">
+      <DependentUpon>FormdyedlistOld.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReceivefabOld\FormdyedlistOld.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReceivefabOld\FormknittnolistOld.designer.vb">
+      <DependentUpon>FormknittnolistOld.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReceivefabOld\FormknittnolistOld.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReceivefabOld\FormreceivefabcolorsOld.designer.vb">
+      <DependentUpon>FormreceivefabcolorsOld.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReceivefabOld\FormreceivefabcolorsOld.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReceivefabOld\FormreceivefabrptOld.designer.vb">
+      <DependentUpon>FormreceivefabrptOld.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReceivefabOld\FormreceivefabrptOld.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReceivefabOld\FormrefabcolorlotnoOld.designer.vb">
+      <DependentUpon>FormrefabcolorlotnoOld.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReceivefabOld\FormrefabcolorlotnoOld.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReceivefabOld\FormsheadbyfabOld.designer.vb">
+      <DependentUpon>FormsheadbyfabOld.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReceivefabOld\FormsheadbyfabOld.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receivefab\DataCountreport.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataCountreport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Receivefab\DataCountreport.vb">
+      <DependentUpon>DataCountreport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Receivefab\Datareportfab.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Datareportfab.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Receivefab\Formaeformreceivefabcolors.designer.vb">
+      <DependentUpon>Formaeformreceivefabcolors.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Receivefab\Formaeformreceivefabcolors.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receivefab\Formdyeddetlist.designer.vb">
+      <DependentUpon>Formdyeddetlist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Receivefab\Formdyeddetlist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receivefab\Formknittnolist.designer.vb">
+      <DependentUpon>Formknittnolist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Receivefab\Formknittnolist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receivefab\Formreceivablelist.designer.vb">
+      <DependentUpon>Formreceivablelist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Receivefab\Formreceivablelist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receivefab\Formreceivefabcolors.designer.vb">
+      <DependentUpon>Formreceivefabcolors.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Receivefab\Formreceivefabcolors.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receivefab\Formreceivefabrpt.designer.vb">
+      <DependentUpon>Formreceivefabrpt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Receivefab\Formreceivefabrpt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receivefab\Formrefabcolorlotno.designer.vb">
+      <DependentUpon>Formrefabcolorlotno.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Receivefab\Formrefabcolorlotno.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Salefabriccolors\Datareport.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -287,12 +447,80 @@
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Knitting\Formbillnolist.resx">
+      <DependentUpon>Formbillnolist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Knitting\Formdlvnoknittlist.resx">
+      <DependentUpon>Formdlvnoknittlist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Knitting\FormfabrictypelistForknitt.resx">
+      <DependentUpon>FormfabrictypelistForknitt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Knitting\Formfactorylist.resx">
+      <DependentUpon>Formfactorylist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Knitting\Formknitingfrmrpt.resx">
+      <DependentUpon>Formknitingfrmrpt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Knitting\Formknittingform.resx">
+      <DependentUpon>Formknittingform.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Knitting\Formknittinglist.resx">
+      <DependentUpon>Formknittinglist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Knitting\Rptknittingform.rdlc" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReceivefabOld\FormaeformreceivefabcolorsOld.resx">
+      <DependentUpon>FormaeformreceivefabcolorsOld.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReceivefabOld\FormdyeddetlistOld.resx">
+      <DependentUpon>FormdyeddetlistOld.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReceivefabOld\FormdyedlistOld.resx">
+      <DependentUpon>FormdyedlistOld.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReceivefabOld\FormknittnolistOld.resx">
+      <DependentUpon>FormknittnolistOld.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReceivefabOld\FormreceivefabcolorsOld.resx">
+      <DependentUpon>FormreceivefabcolorsOld.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReceivefabOld\FormreceivefabrptOld.resx">
+      <DependentUpon>FormreceivefabrptOld.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReceivefabOld\FormrefabcolorlotnoOld.resx">
+      <DependentUpon>FormrefabcolorlotnoOld.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReceivefabOld\FormsheadbyfabOld.resx">
+      <DependentUpon>FormsheadbyfabOld.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receivefab\Formaeformreceivefabcolors.resx">
+      <DependentUpon>Formaeformreceivefabcolors.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receivefab\Formdyeddetlist.resx">
+      <DependentUpon>Formdyeddetlist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receivefab\Formknittnolist.resx">
+      <DependentUpon>Formknittnolist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receivefab\Formreceivablelist.resx">
+      <DependentUpon>Formreceivablelist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receivefab\Formreceivefabcolors.resx">
+      <DependentUpon>Formreceivefabcolors.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receivefab\Formreceivefabrpt.resx">
+      <DependentUpon>Formreceivefabrpt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receivefab\Formrefabcolorlotno.resx">
+      <DependentUpon>Formrefabcolorlotno.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receivefab\Rptreceivefabform.rdlc" />
     <EmbeddedResource Include="Salefabriccolors\Formaesalefabcolor.resx">
       <DependentUpon>Formaesalefabcolor.vb</DependentUpon>
     </EmbeddedResource>
@@ -357,6 +585,39 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Knitting\Dsknittdet.xsc">
+      <DependentUpon>Dsknittdet.xsd</DependentUpon>
+    </None>
+    <None Include="Knitting\Dsknittdet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Dsknittdet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Knitting\Dsknittdet.xss">
+      <DependentUpon>Dsknittdet.xsd</DependentUpon>
+    </None>
+    <None Include="Knitting\Dsyarndlvk.xsc">
+      <DependentUpon>Dsyarndlvk.xsd</DependentUpon>
+    </None>
+    <None Include="Knitting\Dsyarndlvk.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Dsyarndlvk.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Knitting\Dsyarndlvk.xss">
+      <DependentUpon>Dsyarndlvk.xsd</DependentUpon>
+    </None>
+    <None Include="Knitting\LbSend.xsc">
+      <DependentUpon>LbSend.xsd</DependentUpon>
+    </None>
+    <None Include="Knitting\LbSend.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LbSend.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Knitting\LbSend.xss">
+      <DependentUpon>LbSend.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -367,6 +628,28 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="Receivefab\DataCountreport.xsc">
+      <DependentUpon>DataCountreport.xsd</DependentUpon>
+    </None>
+    <None Include="Receivefab\DataCountreport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataCountreport.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Receivefab\DataCountreport.xss">
+      <DependentUpon>DataCountreport.xsd</DependentUpon>
+    </None>
+    <None Include="Receivefab\Datareportfab.xsc">
+      <DependentUpon>Datareportfab.xsd</DependentUpon>
+    </None>
+    <None Include="Receivefab\Datareportfab.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Datareportfab.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Receivefab\Datareportfab.xss">
+      <DependentUpon>Datareportfab.xsd</DependentUpon>
+    </None>
     <None Include="Salefabriccolors\Datareport.xsc">
       <DependentUpon>Datareport.xsd</DependentUpon>
     </None>
@@ -445,6 +728,7 @@
   <ItemGroup>
     <None Include="Resources\Checkmark-256.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
