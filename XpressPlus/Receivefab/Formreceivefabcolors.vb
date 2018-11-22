@@ -5,6 +5,7 @@ Public Class Formreceivefabcolors
     Private Pagecount, Maxrec, Pagesize, Currentpage, Recno As Integer
     Private WithEvents Dtplistfm As New DateTimePicker
     Private WithEvents Dtplistto As New DateTimePicker
+    Private RestatusBtmnew As Byte = 0
     Private Bs As BindingSource
     Private Sub Formreceivefabcolors_Load(sender As Object, e As EventArgs) Handles Me.Load
         Controls.Add(Dtplistfm)
@@ -51,6 +52,10 @@ Public Class Formreceivefabcolors
         BindingNavigator1.Enabled = False
         Mainbuttonaddedit()
         Tbrollid.Text = 1
+        Different("Btmnew")
+        BtmnewOld.Enabled = True
+        'FindShade.Visible = False
+        'Tbshadeid.Size = New Size(116, 24)
     End Sub
     Private Sub Btmsave_Click(sender As Object, e As EventArgs) Handles Btmsave.Click
         If Validmas() = False Then
@@ -266,10 +271,21 @@ BypassFilter:
         Tbknittno.Enabled = False
         Tbrefablotno.Enabled = False
         Tbcolorno.Enabled = False
+        BtmnewOld.Enabled = False
         Btmnew.Enabled = False
         Btmdel.Enabled = True
         Btmreports.Enabled = True
         Bindmaster()
+
+        Dim Tlistnew As New DataTable
+        Tlistnew = SQLCommand($"SELECT Dyecomno FROM Vdyedcommas WHERE Comid = '{Gscomid}' AND Dyecomno = '{Trim(Tbdyedbillno.Text)}'")
+        If Tlistnew.Rows.Count > 0 Then
+            Different("Btmnew")
+        Else
+            Different("BtmnewOld")
+            Tbdyedbillno.Enabled = False
+        End If
+
     End Sub
     Private Sub Btfirst_Click(sender As Object, e As EventArgs) Handles Btfirst.Click
         Befirst()
@@ -312,30 +328,53 @@ BypassFilter:
 
     End Sub
     Private Sub Btfindknitid_Click(sender As Object, e As EventArgs) Handles Btfindknitid.Click
-        If Trim(Tbdyedbillno.Text) = "" Then
+        If Trim(Tbdyedbillno.Text) = "" And RestatusBtmnew = 1 Then
             Informmessage("กรุณาเลือกเลขที่ใบสั่งย้อม")
             Btfindbillno_Click(sender, e)
             Exit Sub
         End If
-        Dim Frm As New Formdyeddetlist
-        Frm.Tbknitbill.Text = Trim(Tbknittno.Text)
-        Frm.Tbdyedbillno.Text = Trim(Tbdyedbillno.Text)
-        Showdiaformcenter(Frm, Me)
-        If Frm.Tbcancel.Text = "C" Then
-            Exit Sub
+
+        If RestatusBtmnew = 1 Then
+
+            Dim Frm As New Formdyeddetlist
+            Frm.Tbknitbill.Text = Trim(Tbknittno.Text)
+            Frm.Tbdyedbillno.Text = Trim(Tbdyedbillno.Text)
+            Showdiaformcenter(Frm, Me)
+            If Frm.Tbcancel.Text = "C" Then
+                Exit Sub
+            End If
+            AllQtyroll.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("BQtyroll").Value)
+            AllQtykg.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("BQtykg").Value)
+            Tbclothid.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("BClothidyed").Value)
+            Tbclothno.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("BClothnoyed").Value)
+            Tbclothtype.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("BFtypeyed").Value)
+            Tbwidht.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("BFwidthyed").Value)
+            Tbshadeid.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("BShadeid").Value)
+            Tbshadename.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("BShadedesc").Value)
+            DemoColor(Tbshadeid.Text)
+
+        Else
+
+            Dim Frm As New FormdyeddetlistOld
+            Frm.Tbknitbill.Text = Trim(Tbknittno.Text)
+            Frm.Tbdyedbillno.Text = Trim(Tbdyedbillno.Text)
+            Showdiaformcenter(Frm, Me)
+            If Frm.Tbcancel.Text = "C" Then
+                Exit Sub
+            End If
+            Tbclothid.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("BClothidyed").Value)
+            Tbclothno.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("BClothnoyed").Value)
+            Tbclothtype.Text = InputGrid(Frm.Dgvmas.CurrentRow.Cells("BFtypeyed").Value)
+            Tbwidht.Text = InputGrid(Frm.Dgvmas.CurrentRow.Cells("BFwidthyed").Value)
+
         End If
-        AllQtyroll.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("BQtyroll").Value)
-        AllQtykg.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("BQtykg").Value)
-        Tbclothid.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("BClothidyed").Value)
-        Tbclothno.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("BClothnoyed").Value)
-        Tbclothtype.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("BFtypeyed").Value)
-        Tbwidht.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("BFwidthyed").Value)
-        Tbshadeid.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("BShadeid").Value)
-        Tbshadename.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("BShadedesc").Value)
-        DemoColor(Tbshadeid.Text)
+
         Tbkongno.Focus()
     End Sub
-
+    Private Function InputGrid(Data As Object)
+        Dim Redata As String = IIf(IsDBNull(Data), "", Data)
+        Return Trim(Redata)
+    End Function
     Private Sub DemoColor(RBGColor As Object)
         Try
             If Dgvmas.RowCount <> 0 OrElse Tbdyedcomno.Text = "NEW" Then
@@ -373,8 +412,11 @@ BypassFilter:
             Informmessage("กรุณาเลือกโรงย้อม")
             Exit Sub
         End If
-        If Trim(Tbdyedbillno.Text) = "" Then
+        If Trim(Tbdyedbillno.Text) = "" And RestatusBtmnew = 1 Then
             Informmessage("กรุณาเลือกเลขที่ใบสั่งย้อม")
+            Exit Sub
+        ElseIf Trim(Tbdyedbillno.Text) = "" And RestatusBtmnew = 0 Then
+            Informmessage("กรุณาใส่เลขที่ใบสั่งย้อม")
             Exit Sub
         End If
         If Trim(Tbcolorno.Text) = "" Then
@@ -404,7 +446,7 @@ BypassFilter:
             Tbrollid.Focus()
             Exit Sub
         End If
-        If Trim(Tbkg.Text) = "" Then
+        If Trim(Tbkg.Text) = "" Or Trim(Tbkg.Text) = ".00" Then
             Informmessage("กรุณาใส่น้ำหนัก")
             Tbkg.Focus()
             Exit Sub
@@ -488,6 +530,7 @@ BypassFilter:
                 Next
                 Dgvmas.CurrentRow.Cells("Rollwage").Value = CDbl(Tbkg.Text)
                 ClearDetail()
+                DemoCode.BackColor = Color.White
         End Select
         Sumall()
         'Btdcancel_Click(sender, e)
@@ -1019,6 +1062,8 @@ BypassFilter:
         Tbrollid.Enabled = True
         Tbkg.Enabled = True
         Btfindknitid.Enabled = True
+        Btmnew.Enabled = False
+        BtmnewOld.Enabled = False
     End Sub
 
     Private Sub Btfindbillno_Click(sender As Object, e As EventArgs) Handles Btfindbillno.Click
@@ -1093,6 +1138,9 @@ BypassFilter:
         Tbrollid.Enabled = True
         Tbkg.Enabled = True
         Btfindknitid.Enabled = True
+        DemoCode.BackColor = Color.White
+        Btmnew.Enabled = False
+        BtmnewOld.Enabled = False
     End Sub
 
     Private Function rollidnew(GridName As Object, RowsName As String)
@@ -1157,6 +1205,27 @@ BypassFilter:
         Btmcancel_Click(sender, e)
     End Sub
 
+    Private Function Different(Status As String)
+
+        If Status = "Btmnew" Then
+            Btfindbillno.Visible = True
+            Tbdyedbillno.Size = New Size(99, 24)
+            FindShade.Visible = False
+            Tbshadeid.Size = New Size(116, 24)
+            RestatusBtmnew = 1
+        End If
+
+        If Status = "BtmnewOld" Then
+            Btfindbillno.Visible = False
+            Tbdyedbillno.Size = New Size(144, 24)
+            Tbdyedbillno.Enabled = True
+            FindShade.Visible = True
+            Tbshadeid.Size = New Size(72, 24)
+            RestatusBtmnew = 0
+        End If
+
+        Return RestatusBtmnew
+    End Function
     Private Sub CountfabricFilter()
 
         Dim Frm As New Formreceivefabrpt ' เป้
@@ -1414,6 +1483,33 @@ BypassFilter:
             Tbknittno.Text += tlistnittno(i)(0)
         Next
     End Sub
+
+    Private Sub BtmnewOld_Click(sender As Object, e As EventArgs) Handles BtmnewOld.Click
+        Clrdgrid()
+        Clrtxtbox()
+        Tbkongno.Text = ""
+        Clrupdet()
+        Btdcancel_Click(sender, e)
+        TabControl1.SelectedTabIndex = 2
+
+        BindingNavigator1.Enabled = False
+        Mainbuttonaddedit()
+        Tbrollid.Text = 1
+        Different("BtmnewOld")
+        Btmnew.Enabled = True
+    End Sub
+
+    Private Sub FindShade_Click(sender As Object, e As EventArgs) Handles FindShade.Click
+        Dim Frm As New Formsheadbyfab 'ใช้จาก Salefabriccolors > Formsheadbyfab.vb
+        Showdiaformcenter(Frm, Me)
+        If Frm.Tbcancel.Text = "C" Then
+            Exit Sub
+        End If
+        Tbshadeid.Text = CLng(Frm.Dgvmas.CurrentRow.Cells("Mid").Value)
+        Tbshadename.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Shade").Value)
+        DemoColor(Tbshadeid.Text)
+    End Sub
+
     Private Sub Bindingnamebill()
         tlistnamebill = New DataTable
         tlistnamebill = SQLCommand($"SELECT Dyedhid, Dyedhdesc FROM Tdyedhousexp
@@ -1496,6 +1592,7 @@ BypassFilter:
 
     'Test
     Private Sub Mainbuttonaddedit()
+        BtmnewOld.Enabled = False
         Btmnew.Enabled = False
         Btmedit.Enabled = False
         Btmdel.Enabled = False
@@ -1519,6 +1616,10 @@ BypassFilter:
         Btdbadd.Enabled = True
     End Sub
     Private Sub Mainbuttoncancel()
+        'Btfindbillno.Visible = True
+        'Tbdyedbillno.Size = New Size(99, 24)
+        'FindShade.Visible = True
+        'Tbshadeid.Size = New Size(72, 24)
         Btfinddyedh.Enabled = False
         Tbdyedbillno.Enabled = False
         Tbknittno.Enabled = False
@@ -1530,6 +1631,7 @@ BypassFilter:
         Btdadd.Enabled = False
         Btdcancel.Enabled = False
         Dtprecdate.Enabled = False
+        BtmnewOld.Enabled = True
         Btmnew.Enabled = True
         Btmedit.Enabled = False
         Btmdel.Enabled = False

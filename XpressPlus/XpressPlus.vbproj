@@ -204,12 +204,6 @@
     <Compile Include="ReceivefabOld\FormaeformreceivefabcolorsOld.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReceivefabOld\FormdyeddetlistOld.designer.vb">
-      <DependentUpon>FormdyeddetlistOld.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ReceivefabOld\FormdyeddetlistOld.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="ReceivefabOld\FormdyedlistOld.designer.vb">
       <DependentUpon>FormdyedlistOld.vb</DependentUpon>
     </Compile>
@@ -269,6 +263,12 @@
       <DependentUpon>Formdyeddetlist.vb</DependentUpon>
     </Compile>
     <Compile Include="Receivefab\Formdyeddetlist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receivefab\FormdyeddetlistOld.designer.vb">
+      <DependentUpon>FormdyeddetlistOld.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Receivefab\FormdyeddetlistOld.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Receivefab\Formdyedlistreceivefab.Designer.vb">
@@ -484,9 +484,6 @@
     <EmbeddedResource Include="ReceivefabOld\FormaeformreceivefabcolorsOld.resx">
       <DependentUpon>FormaeformreceivefabcolorsOld.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReceivefabOld\FormdyeddetlistOld.resx">
-      <DependentUpon>FormdyeddetlistOld.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ReceivefabOld\FormdyedlistOld.resx">
       <DependentUpon>FormdyedlistOld.vb</DependentUpon>
     </EmbeddedResource>
@@ -510,6 +507,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Receivefab\Formdyeddetlist.resx">
       <DependentUpon>Formdyeddetlist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receivefab\FormdyeddetlistOld.resx">
+      <DependentUpon>FormdyeddetlistOld.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Receivefab\Formdyedlistreceivefab.resx">
       <DependentUpon>Formdyedlistreceivefab.vb</DependentUpon>

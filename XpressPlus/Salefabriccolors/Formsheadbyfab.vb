@@ -3,7 +3,7 @@
     Private Sub Bindingmaster()
         Tmaster = New DataTable
         Tmaster = SQLCommand("SELECT '' AS Stat, Comid, Shadeid, Shadedesc, Sactive, Sstatus, Updusr, Uptype, Uptime FROM Tshadexp
-                                WHERE Comid = '" & Gscomid & "' ")
+                                WHERE Comid = '" & Gscomid & "' AND Sstatus = '1'")
         Dgvmas.DataSource = Tmaster
     End Sub
     Private Sub Filtermastergrid()

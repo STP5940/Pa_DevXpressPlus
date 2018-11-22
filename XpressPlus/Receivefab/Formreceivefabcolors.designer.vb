@@ -23,14 +23,15 @@ Partial Class Formreceivefabcolors
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Formreceivefabcolors))
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Formreceivefabcolors))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Btmclose = New System.Windows.Forms.ToolStripButton()
         Me.Btmfind = New System.Windows.Forms.ToolStripButton()
@@ -39,6 +40,7 @@ Partial Class Formreceivefabcolors
         Me.Btmsave = New System.Windows.Forms.ToolStripButton()
         Me.Btmdel = New System.Windows.Forms.ToolStripButton()
         Me.Btmedit = New System.Windows.Forms.ToolStripButton()
+        Me.BtmnewOld = New System.Windows.Forms.ToolStripButton()
         Me.Btmnew = New System.Windows.Forms.ToolStripButton()
         Me.Tstbdocpreid = New System.Windows.Forms.ToolStripTextBox()
         Me.Tstbdocpre = New System.Windows.Forms.ToolStripTextBox()
@@ -57,6 +59,7 @@ Partial Class Formreceivefabcolors
         Me.Ctddel = New DevComponents.DotNetBar.ButtonItem()
         Me.Dgvmas = New System.Windows.Forms.DataGridView()
         Me.Mstat = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mkong = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.rollid = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Mcomid = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Order = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -70,7 +73,6 @@ Partial Class Formreceivefabcolors
         Me.Dwidth = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Shadeid = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Shadedesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Mkong = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Rollwage = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Instk = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.News = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -90,6 +92,7 @@ Partial Class Formreceivefabcolors
         Me.Tsbwsave = New System.Windows.Forms.ToolStripLabel()
         Me.Btdbadd = New System.Windows.Forms.ToolStripButton()
         Me.GroupPanel2 = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.FindShade = New DevComponents.DotNetBar.ButtonX()
         Me.Tbrollid = New Inttextbox.Inttextbox()
         Me.DemoCode = New DevComponents.DotNetBar.LabelX()
         Me.LabelX17 = New DevComponents.DotNetBar.LabelX()
@@ -271,7 +274,7 @@ Partial Class Formreceivefabcolors
         'ToolStrip1
         '
         Me.ToolStrip1.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btmclose, Me.Btmfind, Me.Btmreports, Me.Btmcancel, Me.Btmsave, Me.Btmdel, Me.Btmedit, Me.Btmnew, Me.Tstbdocpreid, Me.Tstbdocpre})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btmclose, Me.Btmfind, Me.Btmreports, Me.Btmcancel, Me.Btmsave, Me.Btmdel, Me.Btmedit, Me.BtmnewOld, Me.Btmnew, Me.Tstbdocpreid, Me.Tstbdocpre})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(1008, 49)
@@ -367,6 +370,18 @@ Partial Class Formreceivefabcolors
         Me.Btmedit.Text = "แก้ไข"
         Me.Btmedit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
+        'BtmnewOld
+        '
+        Me.BtmnewOld.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.BtmnewOld.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtmnewOld.Image = Global.XpressPlus.My.Resources.Resources.Filenewbelow
+        Me.BtmnewOld.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.BtmnewOld.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtmnewOld.Name = "BtmnewOld"
+        Me.BtmnewOld.Size = New System.Drawing.Size(60, 46)
+        Me.BtmnewOld.Text = "รับผ้าเก่า"
+        Me.BtmnewOld.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
         'Btmnew
         '
         Me.Btmnew.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
@@ -397,8 +412,8 @@ Partial Class Formreceivefabcolors
         '
         Me.TabControl1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TabControl1.CanReorderTabs = True
-        Me.TabControl1.Controls.Add(Me.TabControlPanel1)
         Me.TabControl1.Controls.Add(Me.TabControlPanel3)
+        Me.TabControl1.Controls.Add(Me.TabControlPanel1)
         Me.TabControl1.Controls.Add(Me.TabControlPanel2)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
@@ -564,16 +579,16 @@ Partial Class Formreceivefabcolors
         '
         Me.Dgvmas.AllowUserToAddRows = False
         Me.Dgvmas.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.Dgvmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Mstat, Me.rollid, Me.Mcomid, Me.Order, Me.Dhid, Me.Mdyedhdesc, Me.Billdyedno, Me.Lotno, Me.Clothid, Me.Mclothno, Me.Clothtype, Me.Dwidth, Me.Shadeid, Me.Shadedesc, Me.Mkong, Me.Rollwage, Me.Instk, Me.News})
+        Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Mstat, Me.Mkong, Me.rollid, Me.Mcomid, Me.Order, Me.Dhid, Me.Mdyedhdesc, Me.Billdyedno, Me.Lotno, Me.Clothid, Me.Mclothno, Me.Clothtype, Me.Dwidth, Me.Shadeid, Me.Shadedesc, Me.Rollwage, Me.Instk, Me.News})
         Me.Dgvmas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Dgvmas.Location = New System.Drawing.Point(0, 49)
         Me.Dgvmas.Name = "Dgvmas"
@@ -588,6 +603,15 @@ Partial Class Formreceivefabcolors
         Me.Mstat.Name = "Mstat"
         Me.Mstat.ReadOnly = True
         Me.Mstat.Width = 20
+        '
+        'Mkong
+        '
+        Me.Mkong.DataPropertyName = "Kongno"
+        Me.Mkong.HeaderText = "เบอร์กอง"
+        Me.Mkong.Name = "Mkong"
+        Me.Mkong.ReadOnly = True
+        Me.Mkong.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.Mkong.Width = 150
         '
         'rollid
         '
@@ -674,6 +698,8 @@ Partial Class Formreceivefabcolors
         'Dwidth
         '
         Me.Dwidth.DataPropertyName = "Fwidth"
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Dwidth.DefaultCellStyle = DataGridViewCellStyle6
         Me.Dwidth.HeaderText = "หน้ากว้าง"
         Me.Dwidth.Name = "Dwidth"
         Me.Dwidth.ReadOnly = True
@@ -690,27 +716,18 @@ Partial Class Formreceivefabcolors
         'Shadedesc
         '
         Me.Shadedesc.DataPropertyName = "Shadedesc"
-        Me.Shadedesc.HeaderText = "Shadedesc"
+        Me.Shadedesc.HeaderText = "Shade"
         Me.Shadedesc.Name = "Shadedesc"
         Me.Shadedesc.ReadOnly = True
-        Me.Shadedesc.Visible = False
-        '
-        'Mkong
-        '
-        Me.Mkong.DataPropertyName = "Kongno"
-        Me.Mkong.HeaderText = "เบอร์กอง"
-        Me.Mkong.Name = "Mkong"
-        Me.Mkong.ReadOnly = True
-        Me.Mkong.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.Mkong.Width = 150
+        Me.Shadedesc.Width = 140
         '
         'Rollwage
         '
         Me.Rollwage.DataPropertyName = "Rollwage"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle2.Format = "N2"
-        DataGridViewCellStyle2.NullValue = Nothing
-        Me.Rollwage.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle7.Format = "N2"
+        DataGridViewCellStyle7.NullValue = Nothing
+        Me.Rollwage.DefaultCellStyle = DataGridViewCellStyle7
         Me.Rollwage.HeaderText = "น้ำหนัก(ก.ก.)"
         Me.Rollwage.Name = "Rollwage"
         Me.Rollwage.ReadOnly = True
@@ -899,6 +916,7 @@ Partial Class Formreceivefabcolors
         Me.GroupPanel2.BackColor = System.Drawing.Color.Transparent
         Me.GroupPanel2.CanvasColor = System.Drawing.Color.Transparent
         Me.GroupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2013
+        Me.GroupPanel2.Controls.Add(Me.FindShade)
         Me.GroupPanel2.Controls.Add(Me.Tbrollid)
         Me.GroupPanel2.Controls.Add(Me.DemoCode)
         Me.GroupPanel2.Controls.Add(Me.LabelX17)
@@ -962,6 +980,18 @@ Partial Class Formreceivefabcolors
         Me.GroupPanel2.TabIndex = 93
         Me.GroupPanel2.Text = "เพิ่ม แก้ไข รายละเอียดการรับผ้าสี"
         '
+        'FindShade
+        '
+        Me.FindShade.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.FindShade.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.FindShade.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.FindShade.Image = Global.XpressPlus.My.Resources.Resources.Find16
+        Me.FindShade.Location = New System.Drawing.Point(322, 33)
+        Me.FindShade.Name = "FindShade"
+        Me.FindShade.Size = New System.Drawing.Size(36, 24)
+        Me.FindShade.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
+        Me.FindShade.TabIndex = 144
+        '
         'Tbrollid
         '
         Me.Tbrollid.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
@@ -982,7 +1012,7 @@ Partial Class Formreceivefabcolors
         Me.DemoCode.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.DemoCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.DemoCode.ForeColor = System.Drawing.Color.Gray
-        Me.DemoCode.Location = New System.Drawing.Point(461, 33)
+        Me.DemoCode.Location = New System.Drawing.Point(516, 33)
         Me.DemoCode.Name = "DemoCode"
         Me.DemoCode.SingleLineColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.DemoCode.Size = New System.Drawing.Size(67, 23)
@@ -1165,7 +1195,7 @@ Partial Class Formreceivefabcolors
         Me.Btdcancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btdcancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Btdcancel.Image = Global.XpressPlus.My.Resources.Resources.Undo
-        Me.Btdcancel.Location = New System.Drawing.Point(618, 54)
+        Me.Btdcancel.Location = New System.Drawing.Point(678, 34)
         Me.Btdcancel.Name = "Btdcancel"
         Me.Btdcancel.Size = New System.Drawing.Size(67, 34)
         Me.Btdcancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
@@ -1187,7 +1217,7 @@ Partial Class Formreceivefabcolors
         Me.Btdadd.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btdadd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Btdadd.Image = Global.XpressPlus.My.Resources.Resources.Downarrow
-        Me.Btdadd.Location = New System.Drawing.Point(545, 54)
+        Me.Btdadd.Location = New System.Drawing.Point(605, 34)
         Me.Btdadd.Name = "Btdadd"
         Me.Btdadd.Size = New System.Drawing.Size(67, 34)
         Me.Btdadd.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
@@ -1237,7 +1267,7 @@ Partial Class Formreceivefabcolors
         Me.Tbshadename.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbshadename.Enabled = False
         Me.Tbshadename.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbshadename.Location = New System.Drawing.Point(318, 33)
+        Me.Tbshadename.Location = New System.Drawing.Point(373, 33)
         Me.Tbshadename.MaxLength = 80
         Me.Tbshadename.Name = "Tbshadename"
         Me.Tbshadename.Size = New System.Drawing.Size(135, 24)
@@ -1262,7 +1292,7 @@ Partial Class Formreceivefabcolors
         Me.Tbclothtype.Location = New System.Drawing.Point(432, 1)
         Me.Tbclothtype.MaxLength = 80
         Me.Tbclothtype.Name = "Tbclothtype"
-        Me.Tbclothtype.Size = New System.Drawing.Size(168, 24)
+        Me.Tbclothtype.Size = New System.Drawing.Size(151, 24)
         Me.Tbclothtype.TabIndex = 108
         '
         'LabelX7
@@ -1287,7 +1317,7 @@ Partial Class Formreceivefabcolors
         Me.Tbshadeid.Location = New System.Drawing.Point(242, 33)
         Me.Tbshadeid.MaxLength = 80
         Me.Tbshadeid.Name = "Tbshadeid"
-        Me.Tbshadeid.Size = New System.Drawing.Size(73, 24)
+        Me.Tbshadeid.Size = New System.Drawing.Size(72, 24)
         Me.Tbshadeid.TabIndex = 104
         '
         'LabelX9
@@ -1392,7 +1422,7 @@ Partial Class Formreceivefabcolors
         Me.Btfindknittno.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btfindknittno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Btfindknittno.Image = Global.XpressPlus.My.Resources.Resources.Find16
-        Me.Btfindknittno.Location = New System.Drawing.Point(481, 32)
+        Me.Btfindknittno.Location = New System.Drawing.Point(504, 31)
         Me.Btfindknittno.Name = "Btfindknittno"
         Me.Btfindknittno.Size = New System.Drawing.Size(36, 24)
         Me.Btfindknittno.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
@@ -1405,7 +1435,7 @@ Partial Class Formreceivefabcolors
         Me.Btfindbillno.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btfindbillno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Btfindbillno.Image = Global.XpressPlus.My.Resources.Resources.Find16
-        Me.Btfindbillno.Location = New System.Drawing.Point(207, 32)
+        Me.Btfindbillno.Location = New System.Drawing.Point(230, 31)
         Me.Btfindbillno.Name = "Btfindbillno"
         Me.Btfindbillno.Size = New System.Drawing.Size(36, 24)
         Me.Btfindbillno.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
@@ -1419,7 +1449,7 @@ Partial Class Formreceivefabcolors
         '
         Me.LabelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX15.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX15.Location = New System.Drawing.Point(250, 34)
+        Me.LabelX15.Location = New System.Drawing.Point(273, 33)
         Me.LabelX15.Name = "LabelX15"
         Me.LabelX15.Size = New System.Drawing.Size(82, 23)
         Me.LabelX15.TabIndex = 124
@@ -1430,10 +1460,10 @@ Partial Class Formreceivefabcolors
         Me.Tbdhname.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbdhname.Enabled = False
         Me.Tbdhname.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Tbdhname.Location = New System.Drawing.Point(206, 1)
+        Me.Tbdhname.Location = New System.Drawing.Point(273, 1)
         Me.Tbdhname.MaxLength = 150
         Me.Tbdhname.Name = "Tbdhname"
-        Me.Tbdhname.Size = New System.Drawing.Size(267, 24)
+        Me.Tbdhname.Size = New System.Drawing.Size(223, 24)
         Me.Tbdhname.TabIndex = 123
         '
         'Tbdhid
@@ -1441,10 +1471,10 @@ Partial Class Formreceivefabcolors
         Me.Tbdhid.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbdhid.Enabled = False
         Me.Tbdhid.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Tbdhid.Location = New System.Drawing.Point(72, 1)
+        Me.Tbdhid.Location = New System.Drawing.Point(123, 1)
         Me.Tbdhid.MaxLength = 150
         Me.Tbdhid.Name = "Tbdhid"
-        Me.Tbdhid.Size = New System.Drawing.Size(83, 24)
+        Me.Tbdhid.Size = New System.Drawing.Size(98, 24)
         Me.Tbdhid.TabIndex = 122
         '
         'Btfinddyedh
@@ -1453,7 +1483,7 @@ Partial Class Formreceivefabcolors
         Me.Btfinddyedh.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btfinddyedh.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Btfinddyedh.Image = Global.XpressPlus.My.Resources.Resources.Find16
-        Me.Btfinddyedh.Location = New System.Drawing.Point(164, 1)
+        Me.Btfinddyedh.Location = New System.Drawing.Point(230, 1)
         Me.Btfinddyedh.Name = "Btfinddyedh"
         Me.Btfinddyedh.Size = New System.Drawing.Size(36, 24)
         Me.Btfinddyedh.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
@@ -1464,7 +1494,7 @@ Partial Class Formreceivefabcolors
         Me.Tbmycom.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbmycom.Enabled = False
         Me.Tbmycom.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Tbmycom.Location = New System.Drawing.Point(526, 2)
+        Me.Tbmycom.Location = New System.Drawing.Point(614, 2)
         Me.Tbmycom.MaxLength = 150
         Me.Tbmycom.Name = "Tbmycom"
         Me.Tbmycom.Size = New System.Drawing.Size(100, 23)
@@ -1479,7 +1509,7 @@ Partial Class Formreceivefabcolors
         '
         Me.LabelX14.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX14.Location = New System.Drawing.Point(479, 3)
+        Me.LabelX14.Location = New System.Drawing.Point(567, 3)
         Me.LabelX14.Name = "LabelX14"
         Me.LabelX14.Size = New System.Drawing.Size(38, 23)
         Me.LabelX14.TabIndex = 120
@@ -1493,7 +1523,7 @@ Partial Class Formreceivefabcolors
         Me.Tbcolorno.Location = New System.Drawing.Point(123, 63)
         Me.Tbcolorno.MaxLength = 80
         Me.Tbcolorno.Name = "Tbcolorno"
-        Me.Tbcolorno.Size = New System.Drawing.Size(120, 24)
+        Me.Tbcolorno.Size = New System.Drawing.Size(143, 24)
         Me.Tbcolorno.TabIndex = 71
         '
         'Tbdyedbillno
@@ -1501,20 +1531,20 @@ Partial Class Formreceivefabcolors
         Me.Tbdyedbillno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbdyedbillno.Enabled = False
         Me.Tbdyedbillno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Tbdyedbillno.Location = New System.Drawing.Point(99, 32)
+        Me.Tbdyedbillno.Location = New System.Drawing.Point(122, 31)
         Me.Tbdyedbillno.MaxLength = 150
         Me.Tbdyedbillno.Name = "Tbdyedbillno"
-        Me.Tbdyedbillno.Size = New System.Drawing.Size(101, 24)
+        Me.Tbdyedbillno.Size = New System.Drawing.Size(99, 24)
         Me.Tbdyedbillno.TabIndex = 69
         '
         'Tbrefablotno
         '
         Me.Tbrefablotno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbrefablotno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Tbrefablotno.Location = New System.Drawing.Point(308, 64)
+        Me.Tbrefablotno.Location = New System.Drawing.Point(360, 64)
         Me.Tbrefablotno.MaxLength = 150
         Me.Tbrefablotno.Name = "Tbrefablotno"
-        Me.Tbrefablotno.Size = New System.Drawing.Size(165, 24)
+        Me.Tbrefablotno.Size = New System.Drawing.Size(136, 24)
         Me.Tbrefablotno.TabIndex = 72
         '
         'LabelX2
@@ -1525,7 +1555,7 @@ Partial Class Formreceivefabcolors
         '
         Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX2.Location = New System.Drawing.Point(251, 64)
+        Me.LabelX2.Location = New System.Drawing.Point(274, 64)
         Me.LabelX2.Name = "LabelX2"
         Me.LabelX2.Size = New System.Drawing.Size(61, 23)
         Me.LabelX2.TabIndex = 45
@@ -1549,7 +1579,7 @@ Partial Class Formreceivefabcolors
         '
         Me.Tbknittno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbknittno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Tbknittno.Location = New System.Drawing.Point(337, 32)
+        Me.Tbknittno.Location = New System.Drawing.Point(360, 31)
         Me.Tbknittno.MaxLength = 150
         Me.Tbknittno.Name = "Tbknittno"
         Me.Tbknittno.Size = New System.Drawing.Size(136, 24)
@@ -1794,14 +1824,14 @@ Partial Class Formreceivefabcolors
         '
         Me.Balance.AllowUserToAddRows = False
         Me.Balance.AllowUserToDeleteRows = False
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Balance.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Balance.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.Balance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Balance.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Stat, Me.BDyedcomno, Me.BClothidyed, Me.BClothnoyed, Me.BFtypeyed, Me.BFwidthyed, Me.BQtykg, Me.BQtyroll, Me.BShadeid, Me.BShadedesc})
         Me.Balance.Dock = System.Windows.Forms.DockStyle.Fill
@@ -1845,8 +1875,8 @@ Partial Class Formreceivefabcolors
         'BFwidthyed
         '
         Me.BFwidthyed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.BFwidthyed.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.BFwidthyed.DefaultCellStyle = DataGridViewCellStyle2
         Me.BFwidthyed.HeaderText = "หน้ากว้าง"
         Me.BFwidthyed.Name = "BFwidthyed"
         '
@@ -1860,10 +1890,10 @@ Partial Class Formreceivefabcolors
         'BQtyroll
         '
         Me.BQtyroll.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle5.Format = "N0"
-        DataGridViewCellStyle5.NullValue = Nothing
-        Me.BQtyroll.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "N0"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.BQtyroll.DefaultCellStyle = DataGridViewCellStyle3
         Me.BQtyroll.HeaderText = "จำนวนพับคงเหลือ"
         Me.BQtyroll.Name = "BQtyroll"
         '
@@ -1875,8 +1905,8 @@ Partial Class Formreceivefabcolors
         '
         'BShadedesc
         '
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.BShadedesc.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.BShadedesc.DefaultCellStyle = DataGridViewCellStyle4
         Me.BShadedesc.HeaderText = "Shade"
         Me.BShadedesc.Name = "BShadedesc"
         Me.BShadedesc.Width = 130
@@ -2201,14 +2231,14 @@ Partial Class Formreceivefabcolors
         '
         Me.Dgvlist.AllowUserToAddRows = False
         Me.Dgvlist.AllowUserToDeleteRows = False
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Dgvlist.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgvlist.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.Dgvlist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Dgvlist.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Status, Me.Lrecdate, Me.LComid, Me.Reid, Me.Ldhid, Me.Ldyedhdesc, Me.Lbilldyedno, Me.Lbillknitt, Me.Dlotno, Me.Ldyedcolor, Me.Ldremark})
         Me.Dgvlist.Dock = System.Windows.Forms.DockStyle.Fill
@@ -2697,24 +2727,6 @@ Partial Class Formreceivefabcolors
     Friend WithEvents BShadedesc As DataGridViewTextBoxColumn
     Friend WithEvents Countfabric As DataGridView
     Friend WithEvents DemoCode As DevComponents.DotNetBar.LabelX
-    Friend WithEvents Mstat As DataGridViewTextBoxColumn
-    Friend WithEvents rollid As DataGridViewTextBoxColumn
-    Friend WithEvents Mcomid As DataGridViewTextBoxColumn
-    Friend WithEvents Order As DataGridViewTextBoxColumn
-    Friend WithEvents Dhid As DataGridViewTextBoxColumn
-    Friend WithEvents Mdyedhdesc As DataGridViewTextBoxColumn
-    Friend WithEvents Billdyedno As DataGridViewTextBoxColumn
-    Friend WithEvents Lotno As DataGridViewTextBoxColumn
-    Friend WithEvents Clothid As DataGridViewTextBoxColumn
-    Friend WithEvents Mclothno As DataGridViewTextBoxColumn
-    Friend WithEvents Clothtype As DataGridViewTextBoxColumn
-    Friend WithEvents Dwidth As DataGridViewTextBoxColumn
-    Friend WithEvents Shadeid As DataGridViewTextBoxColumn
-    Friend WithEvents Shadedesc As DataGridViewTextBoxColumn
-    Friend WithEvents Mkong As DataGridViewTextBoxColumn
-    Friend WithEvents Rollwage As DataGridViewTextBoxColumn
-    Friend WithEvents Instk As DataGridViewTextBoxColumn
-    Friend WithEvents News As DataGridViewTextBoxColumn
     Friend WithEvents Cclothno As DataGridViewTextBoxColumn
     Friend WithEvents Cclothtype As DataGridViewTextBoxColumn
     Friend WithEvents CDwidth As DataGridViewTextBoxColumn
@@ -2732,4 +2744,24 @@ Partial Class Formreceivefabcolors
     Friend WithEvents Dlotno As DataGridViewTextBoxColumn
     Friend WithEvents Ldyedcolor As DataGridViewTextBoxColumn
     Friend WithEvents Ldremark As DataGridViewTextBoxColumn
+    Friend WithEvents BtmnewOld As ToolStripButton
+    Friend WithEvents FindShade As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents Mstat As DataGridViewTextBoxColumn
+    Friend WithEvents Mkong As DataGridViewTextBoxColumn
+    Friend WithEvents rollid As DataGridViewTextBoxColumn
+    Friend WithEvents Mcomid As DataGridViewTextBoxColumn
+    Friend WithEvents Order As DataGridViewTextBoxColumn
+    Friend WithEvents Dhid As DataGridViewTextBoxColumn
+    Friend WithEvents Mdyedhdesc As DataGridViewTextBoxColumn
+    Friend WithEvents Billdyedno As DataGridViewTextBoxColumn
+    Friend WithEvents Lotno As DataGridViewTextBoxColumn
+    Friend WithEvents Clothid As DataGridViewTextBoxColumn
+    Friend WithEvents Mclothno As DataGridViewTextBoxColumn
+    Friend WithEvents Clothtype As DataGridViewTextBoxColumn
+    Friend WithEvents Dwidth As DataGridViewTextBoxColumn
+    Friend WithEvents Shadeid As DataGridViewTextBoxColumn
+    Friend WithEvents Shadedesc As DataGridViewTextBoxColumn
+    Friend WithEvents Rollwage As DataGridViewTextBoxColumn
+    Friend WithEvents Instk As DataGridViewTextBoxColumn
+    Friend WithEvents News As DataGridViewTextBoxColumn
 End Class

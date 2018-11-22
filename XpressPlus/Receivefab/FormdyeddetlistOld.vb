@@ -40,12 +40,17 @@
             BindingBalance()
             Exit Sub
         End If
-        Dgvmas.Rows.Clear()
-        tlistyed.DefaultView.RowFilter = String.Format("Dyedcomno Like '%{0}%' or Clothno Like '%{0}%' or Ftype Like '%{0}%' or Fwidth Like '%{0}%'", Trim(Sval))
+        'Dgvmas.Rows.Clear()
+        Tmaster = SQLCommand($"SELECT Clothid, Clothno, Ftype, Fwidth FROM Tclothxp 
+                              WHERE (Clothid LIKE '%{Sval}%' OR Clothno LIKE '%{Sval}%' OR 
+                                     Ftype LIKE '%{Sval}%' OR Fwidth LIKE '%{Sval}%') AND Sstatus = '1' AND Comid = '{Gscomid}'")
+        Dgvmas.DataSource = Tmaster
+
+        'tlistyed.DefaultView.RowFilter = String.Format("Dyedcomno Like '%{0}%' or Clothno Like '%{0}%' or Ftype Like '%{0}%' or Fwidth Like '%{0}%'", Trim(Sval))
     End Sub
 
     Private Sub BindingBalance()
-        Dgvmas.Rows.Clear()
+        'Dgvmas.Rows.Clear()
         Tmaster = SQLCommand("SELECT Clothid, Clothno, Ftype, Fwidth FROM Tclothxp WHERE Sstatus = '1' ")
         Dgvmas.DataSource = Tmaster
     End Sub
