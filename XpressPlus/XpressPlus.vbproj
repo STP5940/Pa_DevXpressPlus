@@ -271,6 +271,12 @@
     <Compile Include="Receivefab\Formdyeddetlist.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Receivefab\Formdyedlistreceivefab.Designer.vb">
+      <DependentUpon>Formdyedlistreceivefab.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Receivefab\Formdyedlistreceivefab.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Receivefab\Formknittnolist.designer.vb">
       <DependentUpon>Formknittnolist.vb</DependentUpon>
     </Compile>
@@ -504,6 +510,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Receivefab\Formdyeddetlist.resx">
       <DependentUpon>Formdyeddetlist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receivefab\Formdyedlistreceivefab.resx">
+      <DependentUpon>Formdyedlistreceivefab.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Receivefab\Formknittnolist.resx">
       <DependentUpon>Formknittnolist.vb</DependentUpon>

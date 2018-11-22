@@ -1,15 +1,9 @@
-﻿Public Class Formknittnolist
+﻿Public Class Formdyedlistreceivefab
     Private Tmaster As DataTable
-    Private Sub Formknittnolist_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Bindingmaster()
-    End Sub
-    Private Sub Formknittnolist_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        Dgvmas.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
-        Dgvmas.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
-    End Sub
     Private Sub Bindingmaster()
         Tmaster = New DataTable
-        Tmaster = SQLCommand($"SELECT DISTINCT Knittbill FROM Vdyedcomdet WHERE Dyedcomno = '{Tbdyedbillno.text}'")
+        Tmaster = SQLCommand("SELECT '' AS Stat,Comid,Dyedhid,Dyedhdesc FROM Tdyedhousexp
+                                WHERE Comid = '" & Gscomid & "' AND Sstatus = 1 AND Sactive = '1'")
         Dgvmas.DataSource = Tmaster
     End Sub
     Private Sub Filtermastergrid()
@@ -53,7 +47,14 @@
             Btmsearch_Click(sender, e)
         End If
     End Sub
+    Private Sub Formdyedlistreceivefab_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Bindingmaster()
+    End Sub
     Private Sub Tbkeyword_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Tbkeyword.KeyPress
         e.Handled = (Asc(e.KeyChar) = 39)
+    End Sub
+    Private Sub Formdyedlistreceivefab_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        Dgvmas.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
+        Dgvmas.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
     End Sub
 End Class

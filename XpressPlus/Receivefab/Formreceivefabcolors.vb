@@ -284,7 +284,7 @@ BypassFilter:
         Belast()
     End Sub
     Private Sub Btfinddyedh_Click(sender As Object, e As EventArgs) Handles Btfinddyedh.Click
-        Dim Frm As New Formdyedlist
+        Dim Frm As New Formdyedlistreceivefab
         Showdiaformcenter(Frm, Me)
         If Frm.Tbcancel.Text = "C" Then
             Exit Sub

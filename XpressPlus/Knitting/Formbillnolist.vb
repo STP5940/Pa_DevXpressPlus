@@ -1,7 +1,11 @@
 ﻿Public Class Formbillnolist
     Private Tmaster As DataTable
-    Private Sub Formdeliprodlist_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub Formbillnolist_Load(sender As Object, e As EventArgs) Handles Me.Load
         Bindingmaster()
+    End Sub
+    Private Sub Formbillnolist_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        Dgvmas.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
+        Dgvmas.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
     End Sub
     Private Sub Btmsearch_Click(sender As Object, e As EventArgs) Handles Btmsearch.Click
         Filtermastergrid()
@@ -54,9 +58,5 @@
             Exit Sub
         End If
         Tmaster.DefaultView.RowFilter = String.Format("Facid Like '%{0}%'", Trim(Tbkeyword.Text))
-    End Sub
-    Private Sub Formdlvnoknittlist_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        Dgvmas.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
-        Dgvmas.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
     End Sub
 End Class
