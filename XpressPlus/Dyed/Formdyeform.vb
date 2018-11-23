@@ -265,6 +265,9 @@ Public Class Formdyeform
         If Me.Created Then
             FabricSearch_Click(sender, e)
         End If
+        If FabricKeyword.Text = "--version" Or FabricKeyword.Text = "-V" Then
+            Informmessage("23/11/2018 12:00")
+        End If
     End Sub
     Private Sub Btlistfind_Click(sender As Object, e As EventArgs) Handles Btlistfind.Click
         If Tscbdate.Checked = True Then
@@ -324,7 +327,34 @@ Public Class Formdyeform
         Ctdedit.Enabled = False
         Ctddel.Enabled = False
         Dgvmas.Enabled = True
-
+    End Sub
+    Friend Sub Showtransaction(transactionRefab As String)
+        OriginalTbqtyroll.Text = ""
+        Clrtextmaster()
+        Clrtextdetails()
+        Clrgridmaster()
+        TabControl1.SelectedTabIndex = 2
+        Tbdyedcomno.DataBindings.Clear()
+        Tbdyedcomno.Text = Trim(transactionRefab)
+        Tbdyedcomno.Enabled = False
+        Bindmaster()
+        Tbqtyroll.Enabled = False
+        Dtpdate.Enabled = False
+        Tbpickup.Enabled = False
+        Btmreports.Enabled = True
+        BindingNavigator1.Enabled = True
+        Btmnew.Enabled = False
+        Btmedit.Enabled = True
+        Btmdel.Enabled = True
+        Btmsave.Enabled = False
+        Btmcancel.Enabled = False
+        Btmreports.Enabled = True
+        Btdbadd.Enabled = False
+        Btdedit.Enabled = False
+        Btddel.Enabled = False
+        Ctdedit.Enabled = False
+        Ctddel.Enabled = False
+        Dgvmas.Enabled = True
     End Sub
     Private Sub Btfirst_Click(sender As Object, e As EventArgs) Handles Btfirst.Click
         Befirst()

@@ -302,6 +302,9 @@ Public Class Formsalefabric
         If Me.Created Then
             Btlistfind_Click(sender, e)
         End If
+        If Tstbkeyword.Text = "--version" Or Tstbkeyword.Text = "-V" Then
+            Informmessage("23/11/2018 12:00")
+        End If
     End Sub
     Private Sub Btlistfind_Click(sender As Object, e As EventArgs) Handles Btlistfind.Click
         If Tscbdate.Checked = True Then

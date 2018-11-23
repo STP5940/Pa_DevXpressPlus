@@ -1,7 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports Microsoft.Reporting.WinForms
 Public Class Formreceivefabcolors
-    Private Tmaster, Tdetails, Tlist, TSendDyelist, Dttemp, tlistfab, tlistyed, tlistnittno, tlistnamebill, ListLotNo As DataTable
+    Private Tmaster, Tdetails, Tlist, TSendDyelist, Dttemp, tlistfab, tlistyed, tlistnittno, tlistnamebill, ListLotNo, billnoLotNo As DataTable
     Private Pagecount, Maxrec, Pagesize, Currentpage, Recno As Integer
     Private WithEvents Dtplistfm As New DateTimePicker
     Private WithEvents Dtplistto As New DateTimePicker
@@ -137,6 +137,12 @@ BypassFilter:
                 Informmessage("มีเลข Lot No นี้แล้วในระบบ")
                 Exit Sub
             End If
+            billnoLotNo = SQLCommand($"SELECT Dyecomno FROM Vdyedcommas WHERE Dyecomno = '{Trim(Tbdyedbillno.Text)}'")
+            If billnoLotNo.Rows.Count > 0 And RestatusBtmnew = 0 Then
+                Informmessage("ไม่สามารถรับผ้าเก่าด้วยเลขที่ใบสั่งย้อมในระบบได้")
+                Exit Sub
+            End If
+
             Newdoc()
         Else
             Editdoc()
@@ -516,6 +522,7 @@ BypassFilter:
                 Btdcancel.Enabled = False
                 Tbkongno.Enabled = False
                 Tbrollid.Enabled = False
+                FindShade.Enabled = False
                 Tbkg.Enabled = False
                 Btfindknitid.Enabled = False
                 Dgvmas.CurrentRow.Cells("rollid").Value = Trim(Tbrollid.Text)
@@ -1051,6 +1058,7 @@ BypassFilter:
             Btdadd.Enabled = False
             Btdcancel.Enabled = False
             Btfindknitid.Enabled = False
+            FindShade.Enabled = False
             Tbkg.Text = ""
             DemoCode.BackColor = Color.White
             Exit Sub
@@ -1062,6 +1070,7 @@ BypassFilter:
         Tbrollid.Enabled = True
         Tbkg.Enabled = True
         Btfindknitid.Enabled = True
+        FindShade.Enabled = True
         Btmnew.Enabled = False
         BtmnewOld.Enabled = False
     End Sub
@@ -1141,6 +1150,7 @@ BypassFilter:
         DemoCode.BackColor = Color.White
         Btmnew.Enabled = False
         BtmnewOld.Enabled = False
+        FindShade.Enabled = True
     End Sub
 
     Private Function rollidnew(GridName As Object, RowsName As String)
@@ -1184,12 +1194,13 @@ BypassFilter:
         Frm.Tbdate.Text = Dtprecdate.Text
 
         Countfabric.Rows.Clear()
-        CountfabricFilter()
+        CountfabricFilter() ' ค่าใน Countfabric มากจากที่นี้
         For i = 0 To Countfabric.Rows.Count - 1
             Frm.Countfabric.Rows.Add()
             Frm.Countfabric.Rows(i).Cells("Cclothno").Value = Countfabric.Rows(i).Cells("Cclothno").Value
             Frm.Countfabric.Rows(i).Cells("Cclothtype").Value = Countfabric.Rows(i).Cells("Cclothtype").Value
             Frm.Countfabric.Rows(i).Cells("CDwidth").Value = Countfabric.Rows(i).Cells("CDwidth").Value
+            Frm.Countfabric.Rows(i).Cells("CShadedesc").Value = Countfabric.Rows(i).Cells("CShadedesc").Value '---
             Frm.Countfabric.Rows(i).Cells("Count").Value = Countfabric.Rows(i).Cells("Count").Value
             Frm.Countfabric.Rows(i).Cells("CRollwage").Value = Countfabric.Rows(i).Cells("CRollwage").Value
         Next
@@ -1236,6 +1247,7 @@ BypassFilter:
             For Filters = 0 To Countfabric.Rows.Count - 1
                 If Countfabric.Rows(Filters).Cells("Cclothno").Value.ToString.ToUpper = Dgvmas.Rows(I).Cells("Mclothno").Value.ToString.ToUpper AndAlso
                    Countfabric.Rows(Filters).Cells("Cclothtype").Value.ToString.ToUpper = Dgvmas.Rows(I).Cells("Clothtype").Value.ToString.ToUpper AndAlso
+                   Countfabric.Rows(Filters).Cells("CShadedesc").Value.ToString.ToUpper = Dgvmas.Rows(I).Cells("Shadedesc").Value.ToString.ToUpper AndAlso
                    Countfabric.Rows(Filters).Cells("CDwidth").Value.ToString.ToUpper = Dgvmas.Rows(I).Cells("Dwidth").Value.ToString.ToUpper Then
                     Countfabric.Rows(Filters).Cells("Count").Value += 1
                     Countfabric.Rows(Filters).Cells("CRollwage").Value += Dgvmas.Rows(I).Cells("Rollwage").Value
@@ -1250,6 +1262,7 @@ BypassFilter:
                     Countfabric.Rows(CountSum).Cells("Cclothno").Value = Dgvmas.Rows(I).Cells("Mclothno").Value
                     Countfabric.Rows(CountSum).Cells("Cclothtype").Value = Dgvmas.Rows(I).Cells("Clothtype").Value
                     Countfabric.Rows(CountSum).Cells("CDwidth").Value = Dgvmas.Rows(I).Cells("Dwidth").Value
+                    Countfabric.Rows(CountSum).Cells("CShadedesc").Value = Dgvmas.Rows(I).Cells("Shadedesc").Value
                     Countfabric.Rows(CountSum).Cells("Count").Value = Count
                     Countfabric.Rows(CountSum).Cells("CRollwage").Value = Dgvmas.Rows(I).Cells("Rollwage").Value
                     CountSum += 1
@@ -1456,7 +1469,7 @@ BypassFilter:
     End Sub
 
 
-    Private Sub ButtonItem2_Click(sender As Object, e As EventArgs) Handles ButtonItem2.Click
+    Private Sub ButtonItem2_Click(sender As Object, e As EventArgs) Handles Mainmake.Click
         Btmnew_Click(sender, e)
         Btdbadd_Click(sender, e)
         Tbdyedbillno.Text = Trim(Balance.CurrentRow.Cells("BDyedcomno").Value)
@@ -1510,6 +1523,50 @@ BypassFilter:
         DemoColor(Tbshadeid.Text)
     End Sub
 
+    Private Sub Ctmtransaction_Click(sender As Object, e As EventArgs) Handles Ctmtransaction.Click
+        Dim frm As New Formdyeform
+        Dim Tmasterdyed = New DataTable
+        Tmasterdyed = SQLCommand("SELECT * FROM Vdyedcommas 
+                                WHERE Comid = '" & Gscomid & "' AND Dyecomno = '" & Trim(Dgvlist.CurrentRow.Cells("Lbilldyedno").Value) & "'")
+        If Tmasterdyed.Rows.Count > 0 Then
+            frm.Showtransaction($"{Dgvlist.CurrentRow.Cells("Lbilldyedno").Value}")
+            frm.TabItem3.Visible = False
+            frm.TabItem2.Visible = False
+            frm.Btmnew.Visible = False
+            frm.Btmedit.Visible = False
+            frm.Btmdel.Visible = False
+            frm.Btmsave.Visible = False
+            frm.Btmcancel.Visible = False
+            frm.Btmreports.Visible = False
+            frm.Btmfind.Visible = False
+            Showdiaformcenter(frm, Me)
+        Else
+            Informmessage("ไม่พบข้อมูลใบสั่งย้อม")
+        End If
+
+    End Sub
+    Private Sub Maintransaction_Click(sender As Object, e As EventArgs) Handles Maintransaction.Click
+        Dim frm As New Formdyeform
+        Dim Tmasterdyed = New DataTable
+        Tmasterdyed = SQLCommand("SELECT * FROM Vdyedcommas 
+                                WHERE Comid = '" & Gscomid & "' AND Dyecomno = '" & Trim(Balance.CurrentRow.Cells("BDyedcomno").Value) & "'")
+        If Tmasterdyed.Rows.Count > 0 Then
+            frm.Showtransaction($"{Balance.CurrentRow.Cells("BDyedcomno").Value}")
+            frm.TabItem3.Visible = False
+            frm.TabItem2.Visible = False
+            frm.Btmnew.Visible = False
+            frm.Btmedit.Visible = False
+            frm.Btmdel.Visible = False
+            frm.Btmsave.Visible = False
+            frm.Btmcancel.Visible = False
+            frm.Btmreports.Visible = False
+            frm.Btmfind.Visible = False
+            Showdiaformcenter(frm, Me)
+        Else
+            Informmessage("ไม่พบข้อมูลใบสั่งย้อม")
+        End If
+    End Sub
+
     Private Sub Bindingnamebill()
         tlistnamebill = New DataTable
         tlistnamebill = SQLCommand($"SELECT Dyedhid, Dyedhdesc FROM Tdyedhousexp
@@ -1524,13 +1581,15 @@ BypassFilter:
     Private Sub ToolStripTextBox3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ToolStripTextBox3.KeyPress
         e.Handled = (Asc(e.KeyChar) = 39)
     End Sub
-
     Private Sub ToolStripButton5_Click(sender As Object, e As EventArgs) Handles ToolStripButton5.Click
         BindingBalance()
     End Sub
 
     Private Sub ToolStripTextBox3_TextChanged(sender As Object, e As EventArgs) Handles ToolStripTextBox3.TextChanged
         Balancefind_Click(sender, e)
+        If ToolStripTextBox3.Text = "--version" Or ToolStripTextBox3.Text = "-V" Then
+            Informmessage("23/11/2018 12:00")
+        End If
     End Sub
 
     Private Sub Balancefind_Click(sender As Object, e As EventArgs) Handles Balancefind.Click
