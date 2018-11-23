@@ -266,9 +266,20 @@ Public Class Formdyeform
             FabricSearch_Click(sender, e)
         End If
         If FabricKeyword.Text = "--version" Or FabricKeyword.Text = "-V" Then
-            Informmessage("23/11/2018 12:00")
+            Informmessage("23/11/2018 15:00")
         End If
     End Sub
+    Public Class MyUtilities
+        Shared Sub RunCommandCom(command As String)
+            Dim p As Process = New Process()
+            Dim pi As ProcessStartInfo = New ProcessStartInfo()
+            pi.Arguments = " " + "/K" + command
+            pi.FileName = "cmd.exe"
+            p.StartInfo = pi
+            p.Start()
+        End Sub
+    End Class
+
     Private Sub Btlistfind_Click(sender As Object, e As EventArgs) Handles Btlistfind.Click
         If Tscbdate.Checked = True Then
             Searchlistbydate()
@@ -1148,7 +1159,7 @@ Public Class Formdyeform
         Return Rpound
     End Function
 
-    Private Sub ButtonItem2_Click(sender As Object, e As EventArgs) Handles ButtonItem2.Click
+    Private Sub ButtonItem2_Click(sender As Object, e As EventArgs) Handles Mainmake.Click
         TabControl1.SelectedTabIndex = 2
         Btmnew_Click(sender, e)
         Btdbadd_Click(sender, e)
@@ -1188,6 +1199,36 @@ Public Class Formdyeform
 
     Private Sub Tbqtyroll_TextChanged(sender As Object, e As EventArgs) Handles Tbqtyroll.TextChanged
         Cheng = Cheng + 1
+    End Sub
+
+    Private Sub Ctdtransaction_Click(sender As Object, e As EventArgs) Handles Ctdtransaction.Click
+        Opentransaction(Dgvmas.CurrentRow.Cells("Dknittno").Value) 'เปิดฟร์อม Formknittingform แสดงใบสั่งทอ
+    End Sub
+
+    Private Sub Maintransaction_Click(sender As Object, e As EventArgs) Handles Maintransaction.Click
+        Opentransaction(FabricList.CurrentRow.Cells("Knitcomno").Value) 'เปิดฟร์อม Formknittingform แสดงใบสั่งทอ
+    End Sub
+
+    Private Sub Opentransaction(Gridrows As String)
+        Dim frm As New Formknittingform
+        Dim TmasterKnitting = New DataTable
+        TmasterKnitting = SQLCommand($"SELECT Knitcomno FROM Vknitcomdet
+                          WHERE Comid = '{Gscomid}' AND Knitcomno = '{Trim(Gridrows)}' ")
+        If TmasterKnitting.Rows.Count > 0 Then
+            frm.Showtransaction(Gridrows)
+            frm.Btmnew.Visible = False
+            frm.Btmedit.Visible = False
+            frm.Btmdel.Visible = False
+            frm.Btmsave.Visible = False
+            frm.Btmcancel.Visible = False
+            frm.Btmreports.Visible = False
+            frm.Btmfind.Visible = False
+            frm.TabItem3.Visible = False
+            frm.TabItem2.Visible = False
+            Showdiaformcenter(frm, Me)
+        Else
+            Informmessage("ไม่พบข้อมูลใบสั่งทอ")
+        End If
     End Sub
 
     Private Function Validmas() As Boolean

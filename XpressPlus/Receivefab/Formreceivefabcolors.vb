@@ -1524,34 +1524,18 @@ BypassFilter:
     End Sub
 
     Private Sub Ctmtransaction_Click(sender As Object, e As EventArgs) Handles Ctmtransaction.Click
-        Dim frm As New Formdyeform
-        Dim Tmasterdyed = New DataTable
-        Tmasterdyed = SQLCommand("SELECT * FROM Vdyedcommas 
-                                WHERE Comid = '" & Gscomid & "' AND Dyecomno = '" & Trim(Dgvlist.CurrentRow.Cells("Lbilldyedno").Value) & "'")
-        If Tmasterdyed.Rows.Count > 0 Then
-            frm.Showtransaction($"{Dgvlist.CurrentRow.Cells("Lbilldyedno").Value}")
-            frm.TabItem3.Visible = False
-            frm.TabItem2.Visible = False
-            frm.Btmnew.Visible = False
-            frm.Btmedit.Visible = False
-            frm.Btmdel.Visible = False
-            frm.Btmsave.Visible = False
-            frm.Btmcancel.Visible = False
-            frm.Btmreports.Visible = False
-            frm.Btmfind.Visible = False
-            Showdiaformcenter(frm, Me)
-        Else
-            Informmessage("ไม่พบข้อมูลใบสั่งย้อม")
-        End If
-
+        Opentransaction(Dgvlist.CurrentRow.Cells("Lbilldyedno").Value)
     End Sub
     Private Sub Maintransaction_Click(sender As Object, e As EventArgs) Handles Maintransaction.Click
+        Opentransaction(Balance.CurrentRow.Cells("BDyedcomno").Value)
+    End Sub
+    Private Sub Opentransaction(Gridrows As String)
         Dim frm As New Formdyeform
         Dim Tmasterdyed = New DataTable
-        Tmasterdyed = SQLCommand("SELECT * FROM Vdyedcommas 
-                                WHERE Comid = '" & Gscomid & "' AND Dyecomno = '" & Trim(Balance.CurrentRow.Cells("BDyedcomno").Value) & "'")
+        Tmasterdyed = SQLCommand($"SELECT * FROM Vdyedcommas 
+                                WHERE Comid = '{Gscomid}' AND Dyecomno = '{Trim(Gridrows)}'")
         If Tmasterdyed.Rows.Count > 0 Then
-            frm.Showtransaction($"{Balance.CurrentRow.Cells("BDyedcomno").Value}")
+            frm.Showtransaction($"{Gridrows}")
             frm.TabItem3.Visible = False
             frm.TabItem2.Visible = False
             frm.Btmnew.Visible = False
@@ -1566,7 +1550,6 @@ BypassFilter:
             Informmessage("ไม่พบข้อมูลใบสั่งย้อม")
         End If
     End Sub
-
     Private Sub Bindingnamebill()
         tlistnamebill = New DataTable
         tlistnamebill = SQLCommand($"SELECT Dyedhid, Dyedhdesc FROM Tdyedhousexp
@@ -1588,7 +1571,7 @@ BypassFilter:
     Private Sub ToolStripTextBox3_TextChanged(sender As Object, e As EventArgs) Handles ToolStripTextBox3.TextChanged
         Balancefind_Click(sender, e)
         If ToolStripTextBox3.Text = "--version" Or ToolStripTextBox3.Text = "-V" Then
-            Informmessage("23/11/2018 12:00")
+            Informmessage("23/11/2018 15:00")
         End If
     End Sub
 

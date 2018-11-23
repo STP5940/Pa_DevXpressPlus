@@ -38,11 +38,11 @@ Public Class Formknittingform
         Bindinglist()
         YanList.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
         YanList.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
-        BYanList.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
-        BYanList.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
+        'BYanList.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
+        'BYanList.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
 
         BindingYanlist()
-        BindingBYanlist()
+        'BindingBYanlist()
         For i = 0 To YanList.RowCount - 1
             YanList.Rows(i).Cells("balanhave").Value = Format(BindingNitSend($"{YanList.Rows(i).Cells("DlvnoDyed").Value}") - FindRekg(BindingNetKG($"{YanList.Rows(i).Cells("DlvnoDyed").Value}")), "###,###.#0")
         Next
@@ -395,7 +395,49 @@ Public Class Formknittingform
         Dgvmas.Enabled = False
         Dgvyarn.Enabled = False
         Tbremark.Enabled = False
-
+    End Sub
+    Friend Sub Showtransaction(transactionRefab As String)
+        Clrdgrid()
+        Clrdetails()
+        TabControl1.SelectedTabIndex = 2
+        Btfinddlvno.Enabled = False
+        Dtpknitcomdate.Enabled = False
+        Tbknitcomno.DataBindings.Clear()
+        Tbknitcomno.Text = Trim(transactionRefab)
+        Tbknitcomno.Enabled = False
+        Bindmasterknit()
+        If Cbfromgsc.Checked = True Then
+            Bindmasterdlv()
+        End If
+        Binddetailsdlv()
+        If Dgvyarn.RowCount > 0 Then
+            Dgvyarn.Rows(0).Selected = False
+        End If
+        If Dgvmas.RowCount > 0 Then
+            Dgvmas.Rows(0).Selected = False
+        End If
+        BindingNavigator1.Enabled = True
+        Btmnew.Enabled = False
+        Btmedit.Enabled = True
+        Btmdel.Enabled = True
+        Btmsave.Enabled = False
+        Btmcancel.Enabled = True
+        Btmreports.Enabled = True
+        Tbremark.Enabled = False
+        Btdedit.Enabled = False
+        Tbfinwgt.Enabled = False
+        QtyrollOrder.Enabled = False
+        WgtKgOrder.Enabled = False
+        Btdadd.Enabled = False
+        Btdcancel.Enabled = False
+        Tbdozen.Visible = False
+        Label_dozen.Visible = False
+        GroupPanel2.Visible = False
+        Btdbadd.Enabled = False
+        Btddel.Enabled = False
+        Dgvmas.Enabled = False
+        Dgvyarn.Enabled = False
+        Tbremark.Enabled = False
     End Sub
     Private Sub Btfirst_Click(sender As Object, e As EventArgs) Handles Btfirst.Click
         Befirst()
@@ -697,7 +739,7 @@ Public Class Formknittingform
     Private Sub YanKeyword_TextChanged(sender As Object, e As EventArgs) Handles YanKeyword.TextChanged
         YanSearch_Click(sender, e)
         If YanKeyword.Text = "--version" Or YanKeyword.Text = "-V" Then
-            Informmessage("23/11/2018 12:00")
+            Informmessage("23/11/2018 15:00")
         End If
     End Sub
     Private Sub YanSearch_Click(sender As Object, e As EventArgs) Handles YanSearch.Click
@@ -942,22 +984,22 @@ Checkloop:
         YanListSend()
         YanCutSend()
     End Sub
-    Private Sub BindingBYanlist()
-        TBYanlist = New DataTable
-        TBYanlist = SQLCommand($"Select Tdeliyarndetxp.Comid,Tdeliyarndetxp.Dlvno,Tdeliyarndetxp.Ord,
-                                Tdeliyarndetxp.Yarnid,Tdeliyarndetxp.Lotno,
-                                Tdeliyarndetxp.Nwppc,Tdeliyarndetxp.Nwkgpc,
-                                Tdeliyarndetxp.Gwppc,Tdeliyarndetxp.Gwkgpc,
-                                Tdeliyarndetxp.Nofc,Tdeliyarndetxp.Updusr,Tdeliyarndetxp.Uptype,
-                                Tdeliyarndetxp.Uptime,Vdeliyarnmas.Knitdesc
-                                FROM Tdeliyarndetxp LEFT OUTER JOIN Vdeliyarnmas
-                                ON Tdeliyarndetxp.Dlvno = Vdeliyarnmas.Dlvno
-                                WHERE Tdeliyarndetxp.Comid = '{Gscomid}'")
-        BYanList.DataSource = TBYanlist
-        'BYanListFilter()
-        'BYanListSend()
-        'BYanCutSend()
-    End Sub
+    'Private Sub BindingBYanlist()
+    '    TBYanlist = New DataTable
+    '    TBYanlist = SQLCommand($"Select Tdeliyarndetxp.Comid,Tdeliyarndetxp.Dlvno,Tdeliyarndetxp.Ord,
+    '                            Tdeliyarndetxp.Yarnid,Tdeliyarndetxp.Lotno,
+    '                            Tdeliyarndetxp.Nwppc,Tdeliyarndetxp.Nwkgpc,
+    '                            Tdeliyarndetxp.Gwppc,Tdeliyarndetxp.Gwkgpc,
+    '                            Tdeliyarndetxp.Nofc,Tdeliyarndetxp.Updusr,Tdeliyarndetxp.Uptype,
+    '                            Tdeliyarndetxp.Uptime,Vdeliyarnmas.Knitdesc
+    '                            FROM Tdeliyarndetxp LEFT OUTER JOIN Vdeliyarnmas
+    '                            ON Tdeliyarndetxp.Dlvno = Vdeliyarnmas.Dlvno
+    '                            WHERE Tdeliyarndetxp.Comid = '{Gscomid}'")
+    '    BYanList.DataSource = TBYanlist
+    '    'BYanListFilter()
+    '    'BYanListSend()
+    '    'BYanCutSend()
+    'End Sub
     Private Sub Bindmasterknit()
         Tmasterknit = New DataTable
         Tmasterknit = SQLCommand("SELECT * FROM Tknittcomxp 
