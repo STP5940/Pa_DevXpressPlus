@@ -739,7 +739,7 @@ Public Class Formknittingform
     Private Sub YanKeyword_TextChanged(sender As Object, e As EventArgs) Handles YanKeyword.TextChanged
         YanSearch_Click(sender, e)
         If YanKeyword.Text = "--version" Or YanKeyword.Text = "-V" Then
-            Informmessage("23/11/2018 15:00")
+            Informmessage("23/11/2018 17:00")
         End If
     End Sub
     Private Sub YanSearch_Click(sender As Object, e As EventArgs) Handles YanSearch.Click

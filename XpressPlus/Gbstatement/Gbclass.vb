@@ -129,14 +129,18 @@ Module Gbclass
         Dim DTadapter As SqlDataAdapter
         Dim ObjConn As New SqlConnection
         Dim DT As New DataTable
-        'ObjConn.ConnectionString = "Data Source = 192.168.100.223;Initial Catalog = EXPRESSPLUS_DEV;Persist Security Info=True;User ID = SA;Password = Ecs@1234"
+        'ObjConn.ConnectionString = "Data Source = 192.168.100.223;Initial Catalog = EXPRESSPLUS;Persist Security Info=True;User ID = SA;Password = Ecs@1234"
         'ObjConn.ConnectionString = "Data Source = S-PC;Initial Catalog = EXPRESSPLUS;Persist Security Info=True;User ID = SA;Password = !password#"
         ObjConn.ConnectionString = "Data Source = localhost;Initial Catalog = EXPRESSPLUS;Persist Security Info=True;User ID = SA;Password = 1234"
         ObjConn.Open()
-        DTadapter = New SqlDataAdapter(Sqltext, ObjConn)
-        DTadapter.Fill(DT)
-        ObjConn.Close()
-        ObjConn = Nothing
+        Try
+            DTadapter = New SqlDataAdapter(Sqltext, ObjConn)
+            DTadapter.Fill(DT)
+            ObjConn.Close()
+            ObjConn = Nothing
+        Catch ex As Exception
+            InputBox("Sql Command", "Debug", Sqltext)
+        End Try
         Return DT
     End Function
     Public Function Confirmnextstage() As Boolean

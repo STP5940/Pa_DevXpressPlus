@@ -174,7 +174,7 @@ Public Class Formdyeform
         If Tbpickup.Text <> "" Then
             Frm.PickupArea.Text = Tbpickup.Text
         Else
-            Frm.PickupArea.Text = " "
+            Frm.PickupArea.Text = "-"
         End If
         If Tbremark.Text <> "" Then
             Frm.Note.Text = Tbremark.Text
@@ -266,7 +266,7 @@ Public Class Formdyeform
             FabricSearch_Click(sender, e)
         End If
         If FabricKeyword.Text = "--version" Or FabricKeyword.Text = "-V" Then
-            Informmessage("23/11/2018 15:00")
+            Informmessage("23/11/2018 17:00")
         End If
     End Sub
     Public Class MyUtilities
