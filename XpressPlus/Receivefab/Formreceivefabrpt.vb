@@ -1,6 +1,9 @@
 ﻿Imports Microsoft.Reporting.WinForms
 
 Public Class Formreceivefabrpt
+    Public Sub VersionReport()
+        Informmessage("Report: 26/11/2018 15:00")
+    End Sub
     Private Sub Formknitingfrmrpt_Load(sender As Object, e As EventArgs) Handles Me.Load
         ReportViewer1.LocalReport.ReportEmbeddedResource = "XpressPlus.Rptreceivefabform.rdlc"
         ReportViewer1.SetDisplayMode(DisplayMode.PrintLayout)
@@ -68,7 +71,7 @@ Public Class Formreceivefabrpt
             Cclothno = Me.Countfabric.Rows(i).Cells("Cclothno").Value
             Cclothtype = Me.Countfabric.Rows(i).Cells("Cclothtype").Value
             CDwidth = Me.Countfabric.Rows(i).Cells("CDwidth").Value
-            CShadedesc = Me.Countfabric.Rows(i).Cells("CShadedesc").Value
+            CShadedesc = InputGrid(Me.Countfabric.Rows(i).Cells("CShadedesc").Value)
             Count = Me.Countfabric.Rows(i).Cells("Count").Value
             CRollwage = Format(Me.Countfabric.Rows(i).Cells("CRollwage").Value, "###,###.#0")
             DataCountreport.Rows.Add(Cclothno, Cclothtype, CDwidth, CShadedesc, Count, CRollwage)
@@ -88,7 +91,10 @@ Public Class Formreceivefabrpt
 
 
     End Sub
-
+    Private Function InputGrid(Data As Object)
+        Dim Redata As String = IIf(IsDBNull(Data), "", Data)
+        Return Trim(Redata)
+    End Function
     Private Sub Btmclose_Click(sender As Object, e As EventArgs) Handles Btmclose.Click
         Me.Close()
     End Sub

@@ -1432,7 +1432,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>1.84375in</Height>
+          <Height>1.72917in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1671,6 +1671,7 @@
     </ReportParameter>
     <ReportParameter Name="Tbremark">
       <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
   </ReportParameters>

@@ -8,6 +8,9 @@
     End Sub
     Private Sub Tbkeyword_TextChanged(sender As Object, e As EventArgs) Handles Tbkeyword.TextChanged
         Btmsearch_Click(sender, e)
+        If Tbkeyword.Text = "--version" Or Tbkeyword.Text = "-V" Then
+            Informmessage("26/11/2018 15:00")
+        End If
     End Sub
     Private Sub Btmsearch_Click(sender As Object, e As EventArgs) Handles Btmsearch.Click
         Filtermastergrid(Tbkeyword.Text)
@@ -50,7 +53,12 @@
         End If
         FilterAllyed.Rows.Clear()
         Dgvmas.Rows.Clear()
-        tlistyed.DefaultView.RowFilter = String.Format("Dyedcomno Like '%{0}%' or Clothno Like '%{0}%' or Ftype Like '%{0}%' or Fwidth Like '%{0}%'", Trim(Sval))
+
+        Try
+            tlistyed.DefaultView.RowFilter = String.Format("Dyedcomno Like '%{0}%' or Clothno Like '%{0}%' or Ftype Like '%{0}%' or Fwidth Like '%{0}%'", Trim(Sval))
+        Catch ex As Exception
+            Sval = ""
+        End Try
         FilteryedGrid()
         Bindingmaster()
     End Sub
@@ -137,7 +145,10 @@
         Next
 
     End Sub
-
+    Private Function InputGrid(Data As Object)
+        Dim Redata As String = IIf(IsDBNull(Data), "", Data)
+        Return Trim(Redata)
+    End Function
     Private Sub FilteryedGrid()
 
         'Clothid
@@ -179,7 +190,8 @@
                     QtykgArray.Add(Allyed.Rows(I).Cells("Qtykg").Value)
                     KnittbillArray.Add(Allyed.Rows(I).Cells("Knittbill").Value)
                     ShadeidArray.Add(Allyed.Rows(I).Cells("Shadeid").Value)
-                    ShadedescArray.Add(Allyed.Rows(I).Cells("Shadedesc").Value)
+                    'ShadedescArray.Add(Allyed.Rows(I).Cells("Shadedesc").Value) ' เป้
+                    ShadedescArray.Add(InputGrid(Allyed.Rows(I).Cells("Shadedesc").Value))
                 End If
             Next
         Next

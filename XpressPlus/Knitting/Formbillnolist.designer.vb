@@ -28,6 +28,8 @@ Partial Class Formbillnolist
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
         Me.Dgvmas = New System.Windows.Forms.DataGridView()
+        Me.Status = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Dyecomno = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Btmsearch = New System.Windows.Forms.ToolStripButton()
         Me.Tbkeyword = New System.Windows.Forms.ToolStripTextBox()
@@ -35,8 +37,6 @@ Partial Class Formbillnolist
         Me.Btcancel = New DevComponents.DotNetBar.ButtonX()
         Me.Btok = New DevComponents.DotNetBar.ButtonX()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
-        Me.Status = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Dyecomno = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabControlPanel1.SuspendLayout()
@@ -112,6 +112,22 @@ Partial Class Formbillnolist
         Me.Dgvmas.Size = New System.Drawing.Size(382, 160)
         Me.Dgvmas.TabIndex = 29
         '
+        'Status
+        '
+        Me.Status.DataPropertyName = "Stat"
+        Me.Status.HeaderText = ""
+        Me.Status.Name = "Status"
+        Me.Status.ReadOnly = True
+        Me.Status.Width = 20
+        '
+        'Dyecomno
+        '
+        Me.Dyecomno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Dyecomno.DataPropertyName = "Dyecomno"
+        Me.Dyecomno.HeaderText = "เลขที่ใบสั่งย้อม"
+        Me.Dyecomno.Name = "Dyecomno"
+        Me.Dyecomno.ReadOnly = True
+        '
         'ToolStrip1
         '
         Me.ToolStrip1.BackColor = System.Drawing.Color.Transparent
@@ -178,27 +194,12 @@ Partial Class Formbillnolist
         Me.TabItem1.Name = "TabItem1"
         Me.TabItem1.Text = "โรงงานเส้นด้าย"
         '
-        'Status
-        '
-        Me.Status.DataPropertyName = "Stat"
-        Me.Status.HeaderText = ""
-        Me.Status.Name = "Status"
-        Me.Status.ReadOnly = True
-        Me.Status.Width = 20
-        '
-        'Dyecomno
-        '
-        Me.Dyecomno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Dyecomno.DataPropertyName = "Dyecomno"
-        Me.Dyecomno.HeaderText = "เลขที่ใบสั่งย้อม"
-        Me.Dyecomno.Name = "Dyecomno"
-        Me.Dyecomno.ReadOnly = True
-        '
         'Formbillnolist
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(384, 331)
+        Me.ControlBox = False
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "Formbillnolist"
         Me.Text = "เลขที่ใบสั่งย้อม"

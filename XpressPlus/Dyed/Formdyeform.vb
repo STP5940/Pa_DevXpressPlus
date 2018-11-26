@@ -266,7 +266,7 @@ Public Class Formdyeform
             FabricSearch_Click(sender, e)
         End If
         If FabricKeyword.Text = "--version" Or FabricKeyword.Text = "-V" Then
-            Informmessage("23/11/2018 17:00")
+            Informmessage("26/11/2018 15:00")
         End If
     End Sub
     Public Class MyUtilities
@@ -674,7 +674,7 @@ Public Class Formdyeform
         Tbfinwidth.Text = Trim(Dgvmas.CurrentRow.Cells("Mfinwid").Value)
         Tbshadeid.Text = Trim(Dgvmas.CurrentRow.Cells("Shid").Value)
         DemoColor(Tbshadeid.Text)
-        Tbshadename.Text = Trim(Dgvmas.CurrentRow.Cells("Mshade").Value)
+        Tbshadename.Text = InputGrid(Dgvmas.CurrentRow.Cells("Mshade").Value)
         Tbqtyroll.Text = Format(CLng(Dgvmas.CurrentRow.Cells("Mqty").Value), "###,###")
         Tbfinwgt.Text = Trim(Dgvmas.CurrentRow.Cells("Mfinwgt").Value)
         Tbfabbill.Text = Trim(Dgvmas.CurrentRow.Cells("Mbrawfab").Value)
@@ -785,6 +785,10 @@ Public Class Formdyeform
             e.Cancel = True
         End If
     End Sub
+    Private Function InputGrid(Data As Object)
+        Dim Redata As String = IIf(IsDBNull(Data), "", Data)
+        Return Trim(Redata)
+    End Function
     Private Sub Searchlistbyoth(Sval As String)
         If Sval = "" Then
             Bindinglist()
@@ -1225,7 +1229,7 @@ Public Class Formdyeform
             frm.Btmfind.Visible = False
             frm.TabItem3.Visible = False
             frm.TabItem2.Visible = False
-            Showdiaformcenter(frm, Me)
+            frm.Show()
         Else
             Informmessage("ไม่พบข้อมูลใบสั่งทอ")
         End If

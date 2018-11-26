@@ -303,7 +303,12 @@ Public Class Formsalefabric
             Btlistfind_Click(sender, e)
         End If
         If Tstbkeyword.Text = "--version" Or Tstbkeyword.Text = "-V" Then
-            Informmessage("23/11/2018 12:00")
+            Informmessage("26/11/2018 12:00")
+        End If
+        If Tstbkeyword.Text = "--report" Then
+            Dim frm As New Formsalefabcolrpt
+            frm.VersionReport()
+            Informmessage("Report: 26/11/2018 15:00")
         End If
     End Sub
     Private Sub Btlistfind_Click(sender As Object, e As EventArgs) Handles Btlistfind.Click
@@ -682,7 +687,8 @@ Public Class Formsalefabric
             Tbclothno.Text = Tmaster.Rows(0)("Clothno")
             Tbwidth.Text = Tmaster.Rows(0)("Fwidth")
             Tbshadeid.Text = Tmaster.Rows(0)("Shadid")
-            Tbshadename.Text = Tmaster.Rows(0)("Shadedesc")
+            Tbshadename.Text = InputGrid(Tmaster.Rows(0)("Shadedesc"))
+            'Tbshadename.Text = Tmaster.Rows(0)("Shadedesc") ' เป้
             Dtpdate.Value = Tmaster.Rows(0)("Dfabdate")
             Tbcolorno.Text = Tmaster.Rows(0)("Colorno")
             Tbkgprice.Text = Format(Tmaster.Rows(0)("Kgprice"), "###,###.#0")
@@ -691,6 +697,10 @@ Public Class Formsalefabric
             Sumall()
         End If
     End Sub
+    Private Function InputGrid(Data As Object)
+        Dim Redata As String = IIf(IsDBNull(Data), "", Data)
+        Return Trim(Redata)
+    End Function
     Private Sub Binddetails()
         Tdetails = New DataTable
         Tdetails = SQLCommand($"SELECT dbo.Tsalefabcoldetxp.Comid, dbo.Tsalefabcoldetxp.Dlvno,

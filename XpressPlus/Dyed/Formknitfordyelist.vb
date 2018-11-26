@@ -10,6 +10,9 @@
         If Me.Created Then
             Btmsearch_Click(sender, e)
         End If
+        If Tbkeyword.Text = "--version" Or Tbkeyword.Text = "-V" Then
+            Informmessage("26/11/2018 15:00")
+        End If
     End Sub
     Private Sub Btmsearch_Click(sender As Object, e As EventArgs) Handles Btmsearch.Click
         Filtermastergrid()
@@ -65,7 +68,11 @@
             Tmaster.DefaultView.RowFilter = String.Empty
             Exit Sub
         End If
-        Tmaster.DefaultView.RowFilter = String.Format("Knitcomno Like '%{0}%' OR Clothno LIKE '%{1}%'", Trim(Tbkeyword.Text), Trim(Tbkeyword.Text))
+        Try
+            Tmaster.DefaultView.RowFilter = String.Format($"Knitcomno Like '%{Trim(Tbkeyword.Text)}%' OR Clothno LIKE '%{Trim(Tbkeyword.Text)}%'")
+        Catch ex As Exception
+            Tbkeyword.Text = ""
+        End Try
     End Sub
 
     Private Sub Formknitfordyelist_Shown(sender As Object, e As EventArgs) Handles Me.Shown

@@ -739,7 +739,7 @@ Public Class Formknittingform
     Private Sub YanKeyword_TextChanged(sender As Object, e As EventArgs) Handles YanKeyword.TextChanged
         YanSearch_Click(sender, e)
         If YanKeyword.Text = "--version" Or YanKeyword.Text = "-V" Then
-            Informmessage("23/11/2018 17:00")
+            Informmessage("26/11/2018 12:00")
         End If
     End Sub
     Private Sub YanSearch_Click(sender As Object, e As EventArgs) Handles YanSearch.Click
@@ -1278,6 +1278,9 @@ Checkloop:
     Private Sub SearchlistYan(Sval As String)
         If Sval = "" Then
             BindingYanlist()
+            For i = 0 To YanList.RowCount - 1
+                YanList.Rows(i).Cells("balanhave").Value = Format(BindingNitSend($"{YanList.Rows(i).Cells("DlvnoDyed").Value}") - FindRekg(BindingNetKG($"{YanList.Rows(i).Cells("DlvnoDyed").Value}")), "###,###.#0")
+            Next
             Exit Sub
         End If
         TYanlist = SQLCommand($"SELECT *  FROM Tdeliyarndetxp WHERE  Dlvno NOT IN (SELECT Dlvno FROM Tknittcomxp)
@@ -1537,6 +1540,7 @@ Checkloop:
         Ctddel.Enabled = True
         Btdbadd.Enabled = True
     End Sub
+
     Private Sub NewBtn()
         Btfindfabtypeid.Enabled = True
         Dtpknitcomdate.Enabled = True

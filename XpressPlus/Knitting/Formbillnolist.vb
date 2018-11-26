@@ -14,6 +14,9 @@
         If Me.Created Then
             Btmsearch_Click(sender, e)
         End If
+        If Tbkeyword.Text = "--version" Or Tbkeyword.Text = "-V" Then
+            Informmessage("26/11/2018 15:00")
+        End If
     End Sub
     Private Sub Tbkeyword_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Tbkeyword.KeyPress
         e.Handled = (Asc(e.KeyChar) = 39)
@@ -57,6 +60,11 @@
             Tmaster.DefaultView.RowFilter = String.Empty
             Exit Sub
         End If
-        Tmaster.DefaultView.RowFilter = String.Format("Facid Like '%{0}%'", Trim(Tbkeyword.Text))
+        Try
+            Tmaster.DefaultView.RowFilter = String.Format("Dyecomno Like '%{0}%'", Trim(Tbkeyword.Text))
+        Catch ex As Exception
+            Tbkeyword.Text = ""
+        End Try
+
     End Sub
 End Class

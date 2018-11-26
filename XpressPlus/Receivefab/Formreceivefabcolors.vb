@@ -1046,7 +1046,7 @@ BypassFilter:
             Tbclothtype.Text = Trim(Dgvmas.CurrentRow.Cells("Clothtype").Value)
             Tbwidht.Text = Trim(Dgvmas.CurrentRow.Cells("Dwidth").Value)
             Tbshadeid.Text = Trim(Dgvmas.CurrentRow.Cells("Shadeid").Value)
-            Tbshadename.Text = Trim(Dgvmas.CurrentRow.Cells("Shadedesc").Value)
+            Tbshadename.Text = Trim(InputGrid(Dgvmas.CurrentRow.Cells("Shadedesc").Value))
             Tbkongno.Text = Trim(Dgvmas.CurrentRow.Cells("Mkong").Value)
             Tbkg.Text = Format(Dgvmas.CurrentRow.Cells("Rollwage").Value, "###,###.#0")
             DemoColor(Tbshadeid.Text)
@@ -1386,7 +1386,8 @@ BypassFilter:
                     QtykgArray.Add(Allyed.Rows(I).Cells("Qtykg").Value)
                     KnittbillArray.Add(Allyed.Rows(I).Cells("Knittbill").Value)
                     ShadeidArray.Add(Allyed.Rows(I).Cells("Shadeid").Value)
-                    ShadedescArray.Add(Allyed.Rows(I).Cells("Shadedesc").Value)
+                    'ShadedescArray.Add(Allyed.Rows(I).Cells("Shadedesc").Value) ' เป้
+                    ShadedescArray.Add(InputGrid(Allyed.Rows(I).Cells("Shadedesc").Value))
                 End If
             Next
         Next
@@ -1545,7 +1546,8 @@ BypassFilter:
             frm.Btmcancel.Visible = False
             frm.Btmreports.Visible = False
             frm.Btmfind.Visible = False
-            Showdiaformcenter(frm, Me)
+            'Showdiaformcenter(frm, Me) 'เป้
+            frm.Show()
         Else
             Informmessage("ไม่พบข้อมูลใบสั่งย้อม")
         End If
@@ -1571,7 +1573,11 @@ BypassFilter:
     Private Sub ToolStripTextBox3_TextChanged(sender As Object, e As EventArgs) Handles ToolStripTextBox3.TextChanged
         Balancefind_Click(sender, e)
         If ToolStripTextBox3.Text = "--version" Or ToolStripTextBox3.Text = "-V" Then
-            Informmessage("23/11/2018 15:00")
+            Informmessage("26/11/2018 15:00")
+        End If
+        If ToolStripTextBox3.Text = "--report" Then
+            Dim frm As New Formreceivefabrpt
+            frm.VersionReport()
         End If
     End Sub
 

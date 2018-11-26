@@ -11,6 +11,9 @@
         If Me.Created Then
             Btmsearch_Click(sender, e)
         End If
+        If Tbkeyword.Text = "--version" Or Tbkeyword.Text = "-V" Then
+            Informmessage("26/11/2018 15:00")
+        End If
     End Sub
     Private Sub Tbkeyword_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Tbkeyword.KeyPress
         e.Handled = (Asc(e.KeyChar) = 39)
@@ -44,7 +47,7 @@
     Private Sub Bindingmaster()
         Tmaster = New DataTable
         Tmaster = SQLCommand("SELECT '' AS Stat,Comid,Shadeid,Shadedesc FROM Tshadexp
-                                WHERE Comid = '" & Gscomid & "' AND Sstatus = 1 AND Sactive = '1'")
+                                WHERE Comid = '" & Gscomid & "' AND Sstatus = '1' AND Sactive = '1'")
         Dgvmas.DataSource = Tmaster
     End Sub
     Private Sub Filtermastergrid()
