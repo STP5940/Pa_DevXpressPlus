@@ -309,7 +309,6 @@ Public Class Formsalefabric
         If Tstbkeyword.Text = "--report" Then
             Dim frm As New Formsalefabcolrpt
             frm.VersionReport()
-            Informmessage("Report: 26/11/2018 15:00")
         End If
     End Sub
     Private Sub Btlistfind_Click(sender As Object, e As EventArgs) Handles Btlistfind.Click

@@ -1,7 +1,7 @@
 ﻿Imports Microsoft.Reporting.WinForms
 Public Class Formsalefabcolrpt
     Public Sub VersionReport()
-        Informmessage("Report: 26/11/2018 15:00")
+        Informmessage("Report: 27/11/2018 15:00")
     End Sub
     Private Sub Formsalefabcolrpt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ReportViewer1.LocalReport.ReportEmbeddedResource = "XpressPlus.Rptsalefabric.rdlc"
