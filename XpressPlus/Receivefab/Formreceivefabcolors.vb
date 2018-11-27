@@ -74,6 +74,7 @@ Public Class Formreceivefabcolors
                 If Balance.Rows(i).Cells("BDyedcomno").Value = Tbdyedbillno.Text AndAlso
                    Balance.Rows(i).Cells("BClothnoyed").Value.ToString.ToUpper = Countfabric.Rows(x).Cells("Cclothno").Value.ToString.ToUpper AndAlso
                    Balance.Rows(i).Cells("BFtypeyed").Value.ToString.ToUpper = Countfabric.Rows(x).Cells("Cclothtype").Value.ToString.ToUpper AndAlso
+                   Balance.Rows(i).Cells("BShadeid").Value.ToString.ToUpper = Countfabric.Rows(x).Cells("CShadeid").Value.ToString.ToUpper AndAlso
                    Balance.Rows(i).Cells("BFwidthyed").Value.ToString.ToUpper = Countfabric.Rows(x).Cells("CDwidth").Value.ToString.ToUpper Then
                     If Balance.Rows(i).Cells("BQtyroll").Value < Countfabric.Rows(x).Cells("Count").Value Then
                         If Tbdyedcomno.Text <> "NEW" Then
@@ -106,6 +107,7 @@ Public Class Formreceivefabcolors
                                     If Balance.Rows(Balan).Cells("BDyedcomno").Value = Tbdyedbillno.Text AndAlso
                                        Balance.Rows(Balan).Cells("BClothnoyed").Value.ToString.ToUpper = Countfabric.Rows(Countfab).Cells("Cclothno").Value.ToString.ToUpper AndAlso
                                        Balance.Rows(Balan).Cells("BFtypeyed").Value.ToString.ToUpper = Countfabric.Rows(Countfab).Cells("Cclothtype").Value.ToString.ToUpper AndAlso
+                                        Balance.Rows(Balan).Cells("BShadeid").Value.ToString.ToUpper = Countfabric.Rows(Countfab).Cells("CShadeid").Value.ToString.ToUpper AndAlso
                                        Balance.Rows(Balan).Cells("BFwidthyed").Value.ToString.ToUpper = Countfabric.Rows(Countfab).Cells("CDwidth").Value.ToString.ToUpper Then
                                         If Balance.Rows(Balan).Cells("BQtyroll").Value < Countfabric.Rows(Countfab).Cells("Count").Value Then
                                             If MessageBox.Show($"คุณทำการรับผ้า {Balance.Rows(Balan).Cells("BClothnoyed").Value} เกินมา {Countfabric.Rows(Countfab).Cells("Count").Value - Balance.Rows(i).Cells("BQtyroll").Value} พับ", "ข้อความแจ้ง", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) = DialogResult.Cancel Then
@@ -385,7 +387,7 @@ BypassFilter:
         Try
             If Dgvmas.RowCount <> 0 OrElse Tbdyedcomno.Text = "NEW" Then
                 Dim EBGColor As New DataTable
-                EBGColor = SQLCommand($"SELECT Rcolor,Gcolor,Bcolor FROM Tshadexp WHERE Shadeid = '{RBGColor}'")
+                EBGColor = SQLCommand($"SELECT Rcolor,Gcolor,Bcolor FROM Tshadexp WHERE Shadeid = '{RBGColor}' AND Comid = '{Gscomid}' ")
                 If IsDBNull(EBGColor(0)(0)) OrElse IsDBNull(EBGColor(0)(1)) OrElse IsDBNull(EBGColor(0)(2)) Then
                     Informmessage("Shade นี้ยังไม่มีสีตัวอย่าง")
                     DemoCode.BackColor = Color.White
@@ -1247,6 +1249,7 @@ BypassFilter:
             For Filters = 0 To Countfabric.Rows.Count - 1
                 If Countfabric.Rows(Filters).Cells("Cclothno").Value.ToString.ToUpper = Dgvmas.Rows(I).Cells("Mclothno").Value.ToString.ToUpper AndAlso
                    Countfabric.Rows(Filters).Cells("Cclothtype").Value.ToString.ToUpper = Dgvmas.Rows(I).Cells("Clothtype").Value.ToString.ToUpper AndAlso
+                   Countfabric.Rows(Filters).Cells("CShadeid").Value.ToString.ToUpper = Dgvmas.Rows(I).Cells("Shadeid").Value.ToString.ToUpper AndAlso
                    Countfabric.Rows(Filters).Cells("CShadedesc").Value.ToString.ToUpper = Dgvmas.Rows(I).Cells("Shadedesc").Value.ToString.ToUpper AndAlso
                    Countfabric.Rows(Filters).Cells("CDwidth").Value.ToString.ToUpper = Dgvmas.Rows(I).Cells("Dwidth").Value.ToString.ToUpper Then
                     Countfabric.Rows(Filters).Cells("Count").Value += 1
@@ -1262,6 +1265,7 @@ BypassFilter:
                     Countfabric.Rows(CountSum).Cells("Cclothno").Value = Dgvmas.Rows(I).Cells("Mclothno").Value
                     Countfabric.Rows(CountSum).Cells("Cclothtype").Value = Dgvmas.Rows(I).Cells("Clothtype").Value
                     Countfabric.Rows(CountSum).Cells("CDwidth").Value = Dgvmas.Rows(I).Cells("Dwidth").Value
+                    Countfabric.Rows(CountSum).Cells("CShadeid").Value = Dgvmas.Rows(I).Cells("Shadeid").Value
                     Countfabric.Rows(CountSum).Cells("CShadedesc").Value = Dgvmas.Rows(I).Cells("Shadedesc").Value
                     Countfabric.Rows(CountSum).Cells("Count").Value = Count
                     Countfabric.Rows(CountSum).Cells("CRollwage").Value = Dgvmas.Rows(I).Cells("Rollwage").Value
@@ -1295,13 +1299,14 @@ BypassFilter:
 
     Private Sub FilterfabGrid()
         Dim BilldyednoArray, ClothidArray,
-            ClothnoArray, FtypeArray, FwidthArray, RollwageArray, QtyrollArray, QtyrollfabArray As New List(Of String)()
+            ClothnoArray, FtypeArray, FwidthArray, RollwageArray, QtyrollArray, QtyrollfabArray, shadeidArray As New List(Of String)()
 
         BilldyednoArray.Add("")
         ClothidArray.Add("")
         ClothnoArray.Add("")
         FtypeArray.Add("")
         FwidthArray.Add("")
+        shadeidArray.add("")
         RollwageArray.Add("")
         QtyrollArray.Add("")
         QtyrollfabArray.Add("")
@@ -1311,6 +1316,7 @@ BypassFilter:
 
                 If BilldyednoArray(Filters) = Allfab.Rows(I).Cells("Billdyedno").Value And
                     FwidthArray(Filters) = Allfab.Rows(I).Cells("Fwidth").Value And
+                    shadeidArray(Filters) = Allfab.Rows(I).Cells("shadeid").Value And
                     ClothidArray(Filters) = Allfab.Rows(I).Cells("Clothid").Value Then
 
                     RollwageArray(Filters) = RollwageArray(Filters) + Allfab.Rows(I).Cells("Rollwage").Value
@@ -1324,6 +1330,7 @@ BypassFilter:
                     ClothnoArray.Add(Allfab.Rows(I).Cells("Clothno").Value)
                     FtypeArray.Add(Allfab.Rows(I).Cells("Ftype").Value)
                     FwidthArray.Add(Allfab.Rows(I).Cells("Fwidth").Value)
+                    shadeidArray.Add(Allfab.Rows(I).Cells("shadeid").Value)
                     RollwageArray.Add(Allfab.Rows(I).Cells("Rollwage").Value)
                     QtyrollfabArray.Add(1)
                 End If
@@ -1339,6 +1346,7 @@ BypassFilter:
             Filterfab.Rows(i).Cells("Clothno").Value = ClothnoArray(PontArray)
             Filterfab.Rows(i).Cells("Ftype").Value = FtypeArray(PontArray)
             Filterfab.Rows(i).Cells("Fwidth").Value = FwidthArray(PontArray)
+            Filterfab.Rows(i).Cells("FterShadeid").Value = shadeidArray(PontArray)
             Filterfab.Rows(i).Cells("FRollwage").Value = RollwageArray(PontArray)
             Filterfab.Rows(i).Cells("Qtyrollfab").Value = QtyrollfabArray(PontArray)
         Next
@@ -1368,6 +1376,7 @@ BypassFilter:
 
                 If DyedcomnoArray(Filters) = Allyed.Rows(I).Cells("Dyedcomno").Value And
                     FwidthArray(Filters) = Allyed.Rows(I).Cells("Fwidth").Value And
+                    ShadeidArray(Filters) = Allyed.Rows(I).Cells("shadeid").Value And
                     ClothidArray(Filters) = Allyed.Rows(I).Cells("Clothid").Value Then
 
                     QtykgArray(Filters) = QtykgArray(Filters) + Allyed.Rows(I).Cells("Qtykg").Value
@@ -1424,11 +1433,13 @@ BypassFilter:
             Balance.Rows(i).Cells("BShadedesc").Value = FilterAllyed.Rows(i).Cells("FShadedesc").Value
         Next
 
+
         For i = 0 To Filterfab.Rows.Count - 1
             For Balan = 0 To Balance.Rows.Count - 1
                 If Filterfab.Rows(i).Cells("FBilldyedno").Value = Balance.Rows(Balan).Cells("BDyedcomno").Value And
                       Filterfab.Rows(i).Cells("FClothid").Value = Balance.Rows(Balan).Cells("BClothidyed").Value And
-                      Filterfab.Rows(i).Cells("Fwidth").Value = Balance.Rows(Balan).Cells("BFwidthyed").Value Then
+                      Filterfab.Rows(i).Cells("FterShadeid").Value = Balance.Rows(Balan).Cells("BShadeid").Value And
+                    Filterfab.Rows(i).Cells("Fwidth").Value = Balance.Rows(Balan).Cells("BFwidthyed").Value Then
                     Balance.Rows(Balan).Cells("BQtyroll").Value = FilterAllyed.Rows(Balan).Cells("Qtyroll").Value - Filterfab.Rows(i).Cells("Qtyrollfab").Value
                     Balance.Rows(Balan).Cells("BQtykg").Value = FilterAllyed.Rows(Balan).Cells("Qtykg").Value - Filterfab.Rows(i).Cells("FRollwage").Value
                 End If
@@ -1573,7 +1584,7 @@ BypassFilter:
     Private Sub ToolStripTextBox3_TextChanged(sender As Object, e As EventArgs) Handles ToolStripTextBox3.TextChanged
         Balancefind_Click(sender, e)
         If ToolStripTextBox3.Text = "--version" Or ToolStripTextBox3.Text = "-V" Then
-            Informmessage("26/11/2018 15:00")
+            Informmessage("26/11/2018 17:00")
         End If
         If ToolStripTextBox3.Text = "--report" Then
             Dim frm As New Formreceivefabrpt

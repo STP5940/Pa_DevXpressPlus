@@ -9,7 +9,7 @@
     Private Sub Tbkeyword_TextChanged(sender As Object, e As EventArgs) Handles Tbkeyword.TextChanged
         Btmsearch_Click(sender, e)
         If Tbkeyword.Text = "--version" Or Tbkeyword.Text = "-V" Then
-            Informmessage("26/11/2018 15:00")
+            Informmessage("27/11/2018 12:00")
         End If
     End Sub
     Private Sub Btmsearch_Click(sender As Object, e As EventArgs) Handles Btmsearch.Click
@@ -172,6 +172,7 @@
 
                 If DyedcomnoArray(Filters) = Allyed.Rows(I).Cells("Dyedcomno").Value And
                     FwidthArray(Filters) = Allyed.Rows(I).Cells("Fwidth").Value And
+                    ShadeidArray(Filters) = Allyed.Rows(I).Cells("shadeid").Value And
                     ClothidArray(Filters) = Allyed.Rows(I).Cells("Clothid").Value Then
 
                     QtykgArray(Filters) = QtykgArray(Filters) + Allyed.Rows(I).Cells("Qtykg").Value

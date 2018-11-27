@@ -9,6 +9,10 @@
         Me.Close()
     End Sub
     Private Sub Btok_Click(sender As Object, e As EventArgs) Handles Btok.Click
+        If Tbmdesc.Text = "--version" Or Tbmdesc.Text = "-V" Then
+            Informmessage("27/11/2018 12:00")
+        End If
+
         If Validinput() = False Then
             Informmessage("กรุณาตรวจสอบข้อมูลให้ถูกต้อง ครบถ้วน")
             Exit Sub
@@ -68,7 +72,7 @@
     Private Sub Formaeshade_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             If Tbaddedit.Text = "แก้ไข" Then
-                colors = SQLCommand($"SELECT Rcolor,Gcolor,Bcolor FROM Tshadexp WHERE Shadeid = '{Tbmid.Text}' ")
+                colors = SQLCommand($"SELECT Rcolor,Gcolor,Bcolor FROM Tshadexp WHERE Shadeid = '{Tbmid.Text}' AND Comid = '{Gscomid}' ")
                 Normtextbox2.Text = colors(0)("Rcolor")
                 Normtextbox3.Text = colors(0)("Gcolor")
                 Normtextbox4.Text = colors(0)("Bcolor")

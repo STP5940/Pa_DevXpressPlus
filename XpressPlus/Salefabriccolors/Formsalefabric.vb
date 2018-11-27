@@ -303,7 +303,7 @@ Public Class Formsalefabric
             Btlistfind_Click(sender, e)
         End If
         If Tstbkeyword.Text = "--version" Or Tstbkeyword.Text = "-V" Then
-            Informmessage("26/11/2018 12:00")
+            Informmessage("27/11/2018 12:00")
         End If
         If Tstbkeyword.Text = "--report" Then
             Dim frm As New Formsalefabcolrpt
@@ -1162,10 +1162,10 @@ Public Class Formsalefabric
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Qtykg").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Rollwage").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleFtype").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Ftype").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothid").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Clothid").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadeid").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Shadeid").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Shadedesc").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothno").Value = Trim(Tbclothno.Text)
-                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Trim(Tbshadename.Text)
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleFwidth").Value = Trim(Tbwidth.Text)
-                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadeid").Value = Trim(Tbshadeid.Text)
                                 DatainGride = 1
                             End If
                         Next
@@ -1178,6 +1178,7 @@ Public Class Formsalefabric
                             'If Dgvmas.Rows(CheckLot).Cells("Mkongno").Value <> Frm.Dgvmas.Rows(i).Cells("Kongno").Value Then
                             If Dgvmas.Rows(CheckLot).Cells("Dlot").Value = Frm.Dgvmas.Rows(i).Cells("Mlotno").Value AndAlso 'เลข Lot No
                                 Dgvmas.Rows(CheckLot).Cells("Rollno").Value = Frm.Dgvmas.Rows(i).Cells("Pubno").Value AndAlso 'เลขพับที่
+                                Dgvmas.Rows(CheckLot).Cells("shadeid").Value = Frm.Dgvmas.Rows(i).Cells("shadeid").Value AndAlso 'เลขพับที่
                                 Dgvmas.Rows(CheckLot).Cells("Qtykg").Value = Frm.Dgvmas.Rows(i).Cells("Rollwage").Value Then 'เลขน้ำหนัก
                                 'MessageBox.Show("มีข้อมูลแล้ว")
                                 'Informmessage($"มีข้อมูล Lot No: {Dgvmas.Rows(CheckLot).Cells("Dlot").Value} อยู่ในรายการแล้ว")
@@ -1197,10 +1198,10 @@ Public Class Formsalefabric
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Qtykg").Value = Frm.Dgvmas.Rows(i).Cells("Rollwage").Value
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleFtype").Value = Frm.Dgvmas.Rows(i).Cells("Ftype").Value
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothid").Value = Frm.Dgvmas.Rows(i).Cells("Clothid").Value
+                                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadeid").Value = Frm.Dgvmas.Rows(i).Cells("Shadeid").Value
+                                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Frm.Dgvmas.Rows(i).Cells("Shadedesc").Value
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothno").Value = Trim(Tbclothno.Text)
-                                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Trim(Tbshadename.Text)
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleFwidth").Value = Trim(Tbwidth.Text)
-                                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadeid").Value = Trim(Tbshadeid.Text)
                                 End If
 
                             End If
@@ -1222,10 +1223,10 @@ Public Class Formsalefabric
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Qtykg").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Rollwage").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleFtype").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Ftype").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothid").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Clothid").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadeid").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Shadeid").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Shadedesc").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothno").Value = Trim(Tbclothno.Text)
-                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Trim(Tbshadename.Text)
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleFwidth").Value = Trim(Tbwidth.Text)
-                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadeid").Value = Trim(Tbshadeid.Text)
                                 DatainGride = 1
                             End If
                         Next
@@ -1236,6 +1237,7 @@ Public Class Formsalefabric
                         'If Dgvmas.Rows(CheckLot).Cells("Mkongno").Value <> Frm.Dgvmas.Rows(i).Cells("Kongno").Value Then
                         If Dgvmas.Rows(CheckLot).Cells("Dlot").Value = Frm.Dgvmas.Rows(i).Cells("Mlotno").Value AndAlso 'เลข Lot No
                             Dgvmas.Rows(CheckLot).Cells("Rollno").Value = Frm.Dgvmas.Rows(i).Cells("Pubno").Value AndAlso 'เลขพับที่
+                            Dgvmas.Rows(CheckLot).Cells("Shadeid").Value = Frm.Dgvmas.Rows(i).Cells("Shadeid").Value AndAlso 'สีผ้า
                             Dgvmas.Rows(CheckLot).Cells("Qtykg").Value = Frm.Dgvmas.Rows(i).Cells("Rollwage").Value Then 'เลขน้ำหนัก
                             'MessageBox.Show("มีข้อมูลแล้ว")
                             'Informmessage($"มีข้อมูล Lot No: {Dgvmas.Rows(CheckLot).Cells("Dlot").Value} อยู่ในรายการแล้ว")
@@ -1255,10 +1257,10 @@ Public Class Formsalefabric
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Qtykg").Value = Frm.Dgvmas.Rows(i).Cells("Rollwage").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleFtype").Value = Frm.Dgvmas.Rows(i).Cells("Ftype").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothid").Value = Frm.Dgvmas.Rows(i).Cells("Clothid").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadeid").Value = Frm.Dgvmas.Rows(i).Cells("Shadeid").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Frm.Dgvmas.Rows(i).Cells("Shadedesc").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothno").Value = Trim(Tbclothno.Text)
-                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Trim(Tbshadename.Text)
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleFwidth").Value = Trim(Tbwidth.Text)
-                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadeid").Value = Trim(Tbshadeid.Text)
                             End If
 
                         End If

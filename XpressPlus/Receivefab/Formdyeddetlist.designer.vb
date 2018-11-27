@@ -26,18 +26,10 @@ Partial Class Formdyeddetlist
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
         Me.Dgvmas = New System.Windows.Forms.DataGridView()
-        Me.BDyedcomno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BClothidyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BClothnoyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BFtypeyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BFwidthyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BQtyroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BQtykg = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BShadeid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BShadedesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FilterAllyed = New System.Windows.Forms.DataGridView()
         Me.Dyedcomno = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Clothidyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -69,6 +61,15 @@ Partial Class Formdyeddetlist
         Me.Btcancel = New DevComponents.DotNetBar.ButtonX()
         Me.Btok = New DevComponents.DotNetBar.ButtonX()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
+        Me.BDyedcomno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BClothidyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BClothnoyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BFtypeyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BFwidthyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BQtyroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BQtykg = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BShadeid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BShadedesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabControlPanel1.SuspendLayout()
@@ -91,7 +92,7 @@ Partial Class Formdyeddetlist
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedTabFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
         Me.TabControl1.SelectedTabIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(757, 331)
+        Me.TabControl1.Size = New System.Drawing.Size(762, 331)
         Me.TabControl1.TabIndex = 9
         Me.TabControl1.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox
         Me.TabControl1.Tabs.Add(Me.TabItem1)
@@ -112,7 +113,7 @@ Partial Class Formdyeddetlist
         Me.TabControlPanel1.Location = New System.Drawing.Point(0, 26)
         Me.TabControlPanel1.Name = "TabControlPanel1"
         Me.TabControlPanel1.Padding = New System.Windows.Forms.Padding(1)
-        Me.TabControlPanel1.Size = New System.Drawing.Size(757, 305)
+        Me.TabControlPanel1.Size = New System.Drawing.Size(762, 305)
         Me.TabControlPanel1.Style.BackColor1.Color = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(179, Byte), Integer), CType(CType(231, Byte), Integer))
         Me.TabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(CType(CType(223, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(254, Byte), Integer))
         Me.TabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -134,8 +135,221 @@ Partial Class Formdyeddetlist
         Me.Dgvmas.Name = "Dgvmas"
         Me.Dgvmas.ReadOnly = True
         Me.Dgvmas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Dgvmas.Size = New System.Drawing.Size(735, 175)
+        Me.Dgvmas.Size = New System.Drawing.Size(738, 175)
         Me.Dgvmas.TabIndex = 33
+        '
+        'FilterAllyed
+        '
+        Me.FilterAllyed.AllowUserToAddRows = False
+        Me.FilterAllyed.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FilterAllyed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.FilterAllyed.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Dyedcomno, Me.Clothidyed, Me.Clothnoyed, Me.Ftypeyed, Me.Fwidthyed, Me.Qtykg, Me.Qtyroll, Me.Knittcomid, Me.Knittbill, Me.Shadeid, Me.Shadedesc})
+        Me.FilterAllyed.Location = New System.Drawing.Point(607, 143)
+        Me.FilterAllyed.Name = "FilterAllyed"
+        Me.FilterAllyed.Size = New System.Drawing.Size(129, 85)
+        Me.FilterAllyed.TabIndex = 32
+        '
+        'Dyedcomno
+        '
+        Me.Dyedcomno.HeaderText = "Dyedcomno"
+        Me.Dyedcomno.Name = "Dyedcomno"
+        '
+        'Clothidyed
+        '
+        Me.Clothidyed.HeaderText = "Clothidyed"
+        Me.Clothidyed.Name = "Clothidyed"
+        '
+        'Clothnoyed
+        '
+        Me.Clothnoyed.HeaderText = "Clothnoyed"
+        Me.Clothnoyed.Name = "Clothnoyed"
+        '
+        'Ftypeyed
+        '
+        Me.Ftypeyed.HeaderText = "Ftypeyed"
+        Me.Ftypeyed.Name = "Ftypeyed"
+        '
+        'Fwidthyed
+        '
+        Me.Fwidthyed.HeaderText = "Fwidthyed"
+        Me.Fwidthyed.Name = "Fwidthyed"
+        '
+        'Qtykg
+        '
+        Me.Qtykg.HeaderText = "Qtykg"
+        Me.Qtykg.Name = "Qtykg"
+        '
+        'Qtyroll
+        '
+        Me.Qtyroll.HeaderText = "Qtyroll"
+        Me.Qtyroll.Name = "Qtyroll"
+        '
+        'Knittcomid
+        '
+        Me.Knittcomid.HeaderText = "Knittcomid"
+        Me.Knittcomid.Name = "Knittcomid"
+        '
+        'Knittbill
+        '
+        Me.Knittbill.HeaderText = "Knittbill"
+        Me.Knittbill.Name = "Knittbill"
+        '
+        'Shadeid
+        '
+        Me.Shadeid.HeaderText = "Shadeid"
+        Me.Shadeid.Name = "Shadeid"
+        '
+        'Shadedesc
+        '
+        Me.Shadedesc.HeaderText = "Shadedesc"
+        Me.Shadedesc.Name = "Shadedesc"
+        '
+        'Filterfab
+        '
+        Me.Filterfab.AllowUserToAddRows = False
+        Me.Filterfab.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Filterfab.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Filterfab.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Billdyedno, Me.Clothid, Me.Clothno, Me.Ftype, Me.Fwidth, Me.Rollwage, Me.Qtyrollfab})
+        Me.Filterfab.Location = New System.Drawing.Point(609, 58)
+        Me.Filterfab.Name = "Filterfab"
+        Me.Filterfab.Size = New System.Drawing.Size(127, 79)
+        Me.Filterfab.TabIndex = 31
+        '
+        'Billdyedno
+        '
+        Me.Billdyedno.HeaderText = "Billdyedno"
+        Me.Billdyedno.Name = "Billdyedno"
+        '
+        'Clothid
+        '
+        Me.Clothid.HeaderText = "Clothid"
+        Me.Clothid.Name = "Clothid"
+        '
+        'Clothno
+        '
+        Me.Clothno.HeaderText = "Clothno"
+        Me.Clothno.Name = "Clothno"
+        '
+        'Ftype
+        '
+        Me.Ftype.HeaderText = "Ftype"
+        Me.Ftype.Name = "Ftype"
+        '
+        'Fwidth
+        '
+        Me.Fwidth.HeaderText = "Fwidth"
+        Me.Fwidth.Name = "Fwidth"
+        '
+        'Rollwage
+        '
+        Me.Rollwage.HeaderText = "Rollwage"
+        Me.Rollwage.Name = "Rollwage"
+        '
+        'Qtyrollfab
+        '
+        Me.Qtyrollfab.HeaderText = "Qtyrollfab"
+        Me.Qtyrollfab.Name = "Qtyrollfab"
+        '
+        'Allyed
+        '
+        Me.Allyed.AllowUserToAddRows = False
+        Me.Allyed.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Allyed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Allyed.Location = New System.Drawing.Point(364, 143)
+        Me.Allyed.Name = "Allyed"
+        Me.Allyed.Size = New System.Drawing.Size(237, 85)
+        Me.Allyed.TabIndex = 30
+        '
+        'Allfab
+        '
+        Me.Allfab.AllowUserToAddRows = False
+        Me.Allfab.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Allfab.Location = New System.Drawing.Point(364, 58)
+        Me.Allfab.Name = "Allfab"
+        Me.Allfab.Size = New System.Drawing.Size(239, 79)
+        Me.Allfab.TabIndex = 29
+        '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.BackColor = System.Drawing.Color.Transparent
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btmsearch, Me.Tbkeyword, Me.Tbcancel, Me.Tbknitbill, Me.Tbdyedbillno})
+        Me.ToolStrip1.Location = New System.Drawing.Point(1, 1)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(760, 49)
+        Me.ToolStrip1.TabIndex = 28
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'Btmsearch
+        '
+        Me.Btmsearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Btmsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Btmsearch.Image = Global.XpressPlus.My.Resources.Resources.Findicon
+        Me.Btmsearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.Btmsearch.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Btmsearch.Name = "Btmsearch"
+        Me.Btmsearch.Size = New System.Drawing.Size(48, 46)
+        Me.Btmsearch.Text = "ค้นหา"
+        Me.Btmsearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'Tbkeyword
+        '
+        Me.Tbkeyword.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Tbkeyword.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbkeyword.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tbkeyword.Name = "Tbkeyword"
+        Me.Tbkeyword.Size = New System.Drawing.Size(120, 49)
+        '
+        'Tbcancel
+        '
+        Me.Tbcancel.Name = "Tbcancel"
+        Me.Tbcancel.Size = New System.Drawing.Size(25, 49)
+        Me.Tbcancel.Visible = False
+        '
+        'Tbknitbill
+        '
+        Me.Tbknitbill.Name = "Tbknitbill"
+        Me.Tbknitbill.Size = New System.Drawing.Size(25, 49)
+        Me.Tbknitbill.Visible = False
+        '
+        'Tbdyedbillno
+        '
+        Me.Tbdyedbillno.Name = "Tbdyedbillno"
+        Me.Tbdyedbillno.Size = New System.Drawing.Size(25, 49)
+        Me.Tbdyedbillno.Visible = False
+        '
+        'Btcancel
+        '
+        Me.Btcancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.Btcancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.Btcancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Btcancel.Location = New System.Drawing.Point(422, 245)
+        Me.Btcancel.Name = "Btcancel"
+        Me.Btcancel.Size = New System.Drawing.Size(73, 34)
+        Me.Btcancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
+        Me.Btcancel.TabIndex = 1
+        Me.Btcancel.Text = "ยกเลิก"
+        '
+        'Btok
+        '
+        Me.Btok.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.Btok.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.Btok.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Btok.Location = New System.Drawing.Point(245, 245)
+        Me.Btok.Name = "Btok"
+        Me.Btok.Size = New System.Drawing.Size(73, 34)
+        Me.Btok.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
+        Me.Btok.TabIndex = 0
+        Me.Btok.Text = "ตกลง"
+        '
+        'TabItem1
+        '
+        Me.TabItem1.AttachedControl = Me.TabControlPanel1
+        Me.TabItem1.Name = "TabItem1"
+        Me.TabItem1.Text = "สั่งย้อม"
         '
         'BDyedcomno
         '
@@ -204,229 +418,17 @@ Partial Class Formdyeddetlist
         '
         'BShadedesc
         '
-        Me.BShadedesc.HeaderText = "BShadedesc"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.BShadedesc.DefaultCellStyle = DataGridViewCellStyle4
+        Me.BShadedesc.HeaderText = "Shade"
         Me.BShadedesc.Name = "BShadedesc"
         Me.BShadedesc.ReadOnly = True
-        Me.BShadedesc.Visible = False
-        '
-        'FilterAllyed
-        '
-        Me.FilterAllyed.AllowUserToAddRows = False
-        Me.FilterAllyed.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FilterAllyed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.FilterAllyed.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Dyedcomno, Me.Clothidyed, Me.Clothnoyed, Me.Ftypeyed, Me.Fwidthyed, Me.Qtykg, Me.Qtyroll, Me.Knittcomid, Me.Knittbill, Me.Shadeid, Me.Shadedesc})
-        Me.FilterAllyed.Location = New System.Drawing.Point(607, 143)
-        Me.FilterAllyed.Name = "FilterAllyed"
-        Me.FilterAllyed.Size = New System.Drawing.Size(138, 85)
-        Me.FilterAllyed.TabIndex = 32
-        '
-        'Dyedcomno
-        '
-        Me.Dyedcomno.HeaderText = "Dyedcomno"
-        Me.Dyedcomno.Name = "Dyedcomno"
-        '
-        'Clothidyed
-        '
-        Me.Clothidyed.HeaderText = "Clothidyed"
-        Me.Clothidyed.Name = "Clothidyed"
-        '
-        'Clothnoyed
-        '
-        Me.Clothnoyed.HeaderText = "Clothnoyed"
-        Me.Clothnoyed.Name = "Clothnoyed"
-        '
-        'Ftypeyed
-        '
-        Me.Ftypeyed.HeaderText = "Ftypeyed"
-        Me.Ftypeyed.Name = "Ftypeyed"
-        '
-        'Fwidthyed
-        '
-        Me.Fwidthyed.HeaderText = "Fwidthyed"
-        Me.Fwidthyed.Name = "Fwidthyed"
-        '
-        'Qtykg
-        '
-        Me.Qtykg.HeaderText = "Qtykg"
-        Me.Qtykg.Name = "Qtykg"
-        '
-        'Qtyroll
-        '
-        Me.Qtyroll.HeaderText = "Qtyroll"
-        Me.Qtyroll.Name = "Qtyroll"
-        '
-        'Knittcomid
-        '
-        Me.Knittcomid.HeaderText = "Knittcomid"
-        Me.Knittcomid.Name = "Knittcomid"
-        '
-        'Knittbill
-        '
-        Me.Knittbill.HeaderText = "Knittbill"
-        Me.Knittbill.Name = "Knittbill"
-        '
-        'Shadeid
-        '
-        Me.Shadeid.HeaderText = "Shadeid"
-        Me.Shadeid.Name = "Shadeid"
-        '
-        'Shadedesc
-        '
-        Me.Shadedesc.HeaderText = "Shadedesc"
-        Me.Shadedesc.Name = "Shadedesc"
-        '
-        'Filterfab
-        '
-        Me.Filterfab.AllowUserToAddRows = False
-        Me.Filterfab.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Filterfab.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Filterfab.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Billdyedno, Me.Clothid, Me.Clothno, Me.Ftype, Me.Fwidth, Me.Rollwage, Me.Qtyrollfab})
-        Me.Filterfab.Location = New System.Drawing.Point(609, 58)
-        Me.Filterfab.Name = "Filterfab"
-        Me.Filterfab.Size = New System.Drawing.Size(138, 79)
-        Me.Filterfab.TabIndex = 31
-        '
-        'Billdyedno
-        '
-        Me.Billdyedno.HeaderText = "Billdyedno"
-        Me.Billdyedno.Name = "Billdyedno"
-        '
-        'Clothid
-        '
-        Me.Clothid.HeaderText = "Clothid"
-        Me.Clothid.Name = "Clothid"
-        '
-        'Clothno
-        '
-        Me.Clothno.HeaderText = "Clothno"
-        Me.Clothno.Name = "Clothno"
-        '
-        'Ftype
-        '
-        Me.Ftype.HeaderText = "Ftype"
-        Me.Ftype.Name = "Ftype"
-        '
-        'Fwidth
-        '
-        Me.Fwidth.HeaderText = "Fwidth"
-        Me.Fwidth.Name = "Fwidth"
-        '
-        'Rollwage
-        '
-        Me.Rollwage.HeaderText = "Rollwage"
-        Me.Rollwage.Name = "Rollwage"
-        '
-        'Qtyrollfab
-        '
-        Me.Qtyrollfab.HeaderText = "Qtyrollfab"
-        Me.Qtyrollfab.Name = "Qtyrollfab"
-        '
-        'Allyed
-        '
-        Me.Allyed.AllowUserToAddRows = False
-        Me.Allyed.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Allyed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Allyed.Location = New System.Drawing.Point(559, 143)
-        Me.Allyed.Name = "Allyed"
-        Me.Allyed.Size = New System.Drawing.Size(42, 85)
-        Me.Allyed.TabIndex = 30
-        '
-        'Allfab
-        '
-        Me.Allfab.AllowUserToAddRows = False
-        Me.Allfab.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Allfab.Location = New System.Drawing.Point(561, 58)
-        Me.Allfab.Name = "Allfab"
-        Me.Allfab.Size = New System.Drawing.Size(42, 79)
-        Me.Allfab.TabIndex = 29
-        '
-        'ToolStrip1
-        '
-        Me.ToolStrip1.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btmsearch, Me.Tbkeyword, Me.Tbcancel, Me.Tbknitbill, Me.Tbdyedbillno})
-        Me.ToolStrip1.Location = New System.Drawing.Point(1, 1)
-        Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(755, 49)
-        Me.ToolStrip1.TabIndex = 28
-        Me.ToolStrip1.Text = "ToolStrip1"
-        '
-        'Btmsearch
-        '
-        Me.Btmsearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Btmsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btmsearch.Image = Global.XpressPlus.My.Resources.Resources.Findicon
-        Me.Btmsearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.Btmsearch.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Btmsearch.Name = "Btmsearch"
-        Me.Btmsearch.Size = New System.Drawing.Size(48, 46)
-        Me.Btmsearch.Text = "ค้นหา"
-        Me.Btmsearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'Tbkeyword
-        '
-        Me.Tbkeyword.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Tbkeyword.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Tbkeyword.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbkeyword.Name = "Tbkeyword"
-        Me.Tbkeyword.Size = New System.Drawing.Size(120, 49)
-        '
-        'Tbcancel
-        '
-        Me.Tbcancel.Name = "Tbcancel"
-        Me.Tbcancel.Size = New System.Drawing.Size(25, 49)
-        Me.Tbcancel.Visible = False
-        '
-        'Tbknitbill
-        '
-        Me.Tbknitbill.Name = "Tbknitbill"
-        Me.Tbknitbill.Size = New System.Drawing.Size(25, 49)
-        Me.Tbknitbill.Visible = False
-        '
-        'Tbdyedbillno
-        '
-        Me.Tbdyedbillno.Name = "Tbdyedbillno"
-        Me.Tbdyedbillno.Size = New System.Drawing.Size(25, 49)
-        Me.Tbdyedbillno.Visible = False
-        '
-        'Btcancel
-        '
-        Me.Btcancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.Btcancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.Btcancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btcancel.Location = New System.Drawing.Point(420, 245)
-        Me.Btcancel.Name = "Btcancel"
-        Me.Btcancel.Size = New System.Drawing.Size(73, 34)
-        Me.Btcancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
-        Me.Btcancel.TabIndex = 1
-        Me.Btcancel.Text = "ยกเลิก"
-        '
-        'Btok
-        '
-        Me.Btok.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.Btok.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.Btok.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btok.Location = New System.Drawing.Point(245, 245)
-        Me.Btok.Name = "Btok"
-        Me.Btok.Size = New System.Drawing.Size(73, 34)
-        Me.Btok.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
-        Me.Btok.TabIndex = 0
-        Me.Btok.Text = "ตกลง"
-        '
-        'TabItem1
-        '
-        Me.TabItem1.AttachedControl = Me.TabControlPanel1
-        Me.TabItem1.Name = "TabItem1"
-        Me.TabItem1.Text = "สั่งย้อม"
         '
         'Formdyeddetlist
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(757, 331)
+        Me.ClientSize = New System.Drawing.Size(762, 331)
         Me.ControlBox = False
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "Formdyeddetlist"

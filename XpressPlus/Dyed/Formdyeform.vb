@@ -266,7 +266,7 @@ Public Class Formdyeform
             FabricSearch_Click(sender, e)
         End If
         If FabricKeyword.Text = "--version" Or FabricKeyword.Text = "-V" Then
-            Informmessage("26/11/2018 15:00")
+            Informmessage("26/11/2018 17:00")
         End If
     End Sub
     Public Class MyUtilities
@@ -467,7 +467,7 @@ Public Class Formdyeform
         Try
             If Dgvmas.RowCount <> 0 OrElse Tbdyedcomno.Text = "NEW" Then
                 Dim EBGColor As New DataTable
-                EBGColor = SQLCommand($"SELECT Rcolor,Gcolor,Bcolor FROM Tshadexp WHERE Shadeid = '{RBGColor}'")
+                EBGColor = SQLCommand($"SELECT Rcolor,Gcolor,Bcolor FROM Tshadexp WHERE Shadeid = '{RBGColor}' AND Comid = '{Gscomid}' ")
                 If IsDBNull(EBGColor(0)(0)) OrElse IsDBNull(EBGColor(0)(1)) OrElse IsDBNull(EBGColor(0)(2)) Then
                     Informmessage("Shade นี้ยังไม่มีสีตัวอย่าง")
                     DemoCode.BackColor = Color.White
