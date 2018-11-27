@@ -262,7 +262,7 @@
                                 <TextRun>
                                   <Value>=Fields!Kg2.Value</Value>
                                   <Style>
-                                    <FontWeight>=IIf(Fields!No1.Value = "" OR Fields!No1.Value = "No.","Bold","Medium")</FontWeight>
+                                    <FontWeight>=IIf(Fields!No2.Value = "" OR Fields!No1.Value = "No.","Bold","Medium")</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -329,7 +329,7 @@
                                 <TextRun>
                                   <Value>=Fields!Kg3.Value</Value>
                                   <Style>
-                                    <FontWeight>=IIf(Fields!No1.Value = "" OR Fields!No1.Value = "No.","Bold","Medium")</FontWeight>
+                                    <FontWeight>=IIf(Fields!No3.Value = "" OR Fields!No1.Value = "No.","Bold","Medium")</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -396,7 +396,7 @@
                                 <TextRun>
                                   <Value>=Fields!Kg4.Value</Value>
                                   <Style>
-                                    <FontWeight>=IIf(Fields!No1.Value = "" OR Fields!No1.Value = "No.","Bold","Medium")</FontWeight>
+                                    <FontWeight>=IIf(Fields!No4.Value = "" OR Fields!No1.Value = "No.","Bold","Medium")</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>

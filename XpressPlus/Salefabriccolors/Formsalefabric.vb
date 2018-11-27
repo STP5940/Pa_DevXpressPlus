@@ -81,6 +81,7 @@ Public Class Formsalefabric
         Else
             Editdoc()
         End If
+        Tsbwsave.Visible = False
         Btmreports_Click(sender, e)
         Btdcancel_Click(sender, e)
         Tsbwsave.Visible = False
@@ -303,7 +304,7 @@ Public Class Formsalefabric
             Btlistfind_Click(sender, e)
         End If
         If Tstbkeyword.Text = "--version" Or Tstbkeyword.Text = "-V" Then
-            Informmessage("27/11/2018 12:00")
+            Informmessage("27/11/2018 15:00")
         End If
         If Tstbkeyword.Text = "--report" Then
             Dim frm As New Formsalefabcolrpt
