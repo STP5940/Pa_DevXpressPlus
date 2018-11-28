@@ -376,3 +376,5 @@ C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formrefabcolorlotno.resources
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.FormdyeddetlistOld.resources
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formdyedlistreceivefab.resources
+C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formrebackfabcolors.resources
+C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formbillsalelist.resources

@@ -198,6 +198,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Rebackfab\Formbillsalelist.Designer.vb">
+      <DependentUpon>Formbillsalelist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Rebackfab\Formbillsalelist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rebackfab\Formrebackfabcolors.Designer.vb">
+      <DependentUpon>Formrebackfabcolors.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Rebackfab\Formrebackfabcolors.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Receivefab\DataCountreport.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -438,6 +450,12 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rebackfab\Formbillsalelist.resx">
+      <DependentUpon>Formbillsalelist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rebackfab\Formrebackfabcolors.resx">
+      <DependentUpon>Formrebackfabcolors.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Receivefab\Formaeformreceivefabcolors.resx">
       <DependentUpon>Formaeformreceivefabcolors.vb</DependentUpon>
