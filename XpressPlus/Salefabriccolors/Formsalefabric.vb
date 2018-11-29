@@ -304,7 +304,7 @@ Public Class Formsalefabric
             Btlistfind_Click(sender, e)
         End If
         If Tstbkeyword.Text = "--version" Or Tstbkeyword.Text = "-V" Then
-            Informmessage("27/11/2018 15:00")
+            Informmessage("28/11/2018 15:00")
         End If
         If Tstbkeyword.Text = "--report" Then
             Dim frm As New Formsalefabcolrpt
@@ -788,7 +788,7 @@ Public Class Formsalefabric
                     Countkongno = 0
                     FirstGrid = StartFirstGrid
                 End If
-
+                ''''''''''''''Format(Me.DataReport.Rows(i).Cells("Kg1").Value, "###,###.#0")
                 FirstGrid += 1
                 DataSalefab.Rows(StartFirstGrid).Cells(Header(IndexHeader)).Value = FilterKongarray(i) ' ใส่หัวเลขที่กอง
                 DataSalefab.Rows(StartFirstGrid - 1).Cells(Header(IndexHeader)).Value = ClothnoListarray(i)
@@ -803,7 +803,7 @@ Public Class Formsalefabric
                 Else
                     DataSalefab.Rows(FirstGrid).Cells(HeaderOne(IndexHeader)).Value = CountProduc
                 End If
-                DataSalefab.Rows(FirstGrid).Cells(Header(IndexHeader)).Value = KongnoListarray(List)
+                DataSalefab.Rows(FirstGrid).Cells(Header(IndexHeader)).Value = Format(CDec(Val(KongnoListarray(List))), "###,###.#0")
 
                 CountProduc += 1
                 If List = KongnoListarray.Count - 1 Then

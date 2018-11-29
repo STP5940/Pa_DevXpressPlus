@@ -204,6 +204,12 @@
     <Compile Include="Rebackfab\Formbillsalelist.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Rebackfab\Formlistsalefab.Designer.vb">
+      <DependentUpon>Formlistsalefab.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Rebackfab\Formlistsalefab.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Rebackfab\Formrebackfabcolors.Designer.vb">
       <DependentUpon>Formrebackfabcolors.vb</DependentUpon>
     </Compile>
@@ -453,6 +459,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rebackfab\Formbillsalelist.resx">
       <DependentUpon>Formbillsalelist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rebackfab\Formlistsalefab.resx">
+      <DependentUpon>Formlistsalefab.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rebackfab\Formrebackfabcolors.resx">
       <DependentUpon>Formrebackfabcolors.vb</DependentUpon>

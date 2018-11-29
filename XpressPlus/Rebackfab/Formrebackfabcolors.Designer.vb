@@ -23,15 +23,11 @@ Partial Class Formrebackfabcolors
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Formrebackfabcolors))
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Btmclose = New System.Windows.Forms.ToolStripButton()
         Me.Btmfind = New System.Windows.Forms.ToolStripButton()
@@ -40,114 +36,21 @@ Partial Class Formrebackfabcolors
         Me.Btmsave = New System.Windows.Forms.ToolStripButton()
         Me.Btmdel = New System.Windows.Forms.ToolStripButton()
         Me.Btmedit = New System.Windows.Forms.ToolStripButton()
-        Me.BtmnewOld = New System.Windows.Forms.ToolStripButton()
         Me.Btmnew = New System.Windows.Forms.ToolStripButton()
         Me.Tstbdocpreid = New System.Windows.Forms.ToolStripTextBox()
         Me.Tstbdocpre = New System.Windows.Forms.ToolStripTextBox()
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
-        Me.TabControlPanel2 = New DevComponents.DotNetBar.TabControlPanel()
-        Me.ContextMenuBar1 = New DevComponents.DotNetBar.ContextMenuBar()
-        Me.Ctmmenugrid = New DevComponents.DotNetBar.ButtonItem()
-        Me.Ctmledit = New DevComponents.DotNetBar.ButtonItem()
-        Me.Ctmtransaction = New DevComponents.DotNetBar.ButtonItem()
-        Me.Dgvlist = New System.Windows.Forms.DataGridView()
-        Me.Status = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Lrecdate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LComid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Reid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Ldhid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Ldyedhdesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Lbilldyedno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Lbillknitt = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Dlotno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Ldyedcolor = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Ldremark = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ToolStrip5 = New System.Windows.Forms.ToolStrip()
-        Me.Btfirst = New System.Windows.Forms.ToolStripButton()
-        Me.Btprev = New System.Windows.Forms.ToolStripButton()
-        Me.Tbpage = New System.Windows.Forms.ToolStripTextBox()
-        Me.Btnext = New System.Windows.Forms.ToolStripButton()
-        Me.Btlast = New System.Windows.Forms.ToolStripButton()
-        Me.Tbrecord = New System.Windows.Forms.ToolStripTextBox()
-        Me.ToolStrip4 = New System.Windows.Forms.ToolStrip()
-        Me.Btrefresh = New System.Windows.Forms.ToolStripButton()
-        Me.Btlistfind = New System.Windows.Forms.ToolStripButton()
-        Me.Tstbkeyword = New System.Windows.Forms.ToolStripTextBox()
-        Me.Tscboth = New XpressPlus.ToolStripCheckBox()
-        Me.ToolStripLabel4 = New System.Windows.Forms.ToolStripLabel()
-        Me.Tscbdate = New XpressPlus.ToolStripCheckBox()
-        Me.ToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
-        Me.TabItem2 = New DevComponents.DotNetBar.TabItem(Me.components)
-        Me.TabControlPanel3 = New DevComponents.DotNetBar.TabControlPanel()
-        Me.ContextMenuBar3 = New DevComponents.DotNetBar.ContextMenuBar()
-        Me.CtmBalance = New DevComponents.DotNetBar.ButtonItem()
-        Me.Mainmake = New DevComponents.DotNetBar.ButtonItem()
-        Me.Maintransaction = New DevComponents.DotNetBar.ButtonItem()
-        Me.Balance = New System.Windows.Forms.DataGridView()
-        Me.Stat = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BDyedcomno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BClothidyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BClothnoyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BFtypeyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BFwidthyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BQtykg = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BShadedesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BQtyroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BShadeid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FilterAllyed = New System.Windows.Forms.DataGridView()
-        Me.Dyedcomno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Clothidyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Clothnoyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Ftypeyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Fwidthyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Qtykg = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Qtyroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Knittcomid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Knittbill = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FShadeid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FShadedesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Filterfab = New System.Windows.Forms.DataGridView()
-        Me.FBilldyedno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FClothid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Clothno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Ftype = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Fwidth = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FterShadeid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FRollwage = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Qtyrollfab = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Allyed = New System.Windows.Forms.DataGridView()
-        Me.Allfab = New System.Windows.Forms.DataGridView()
-        Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripTextBox1 = New System.Windows.Forms.ToolStripTextBox()
-        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripTextBox2 = New System.Windows.Forms.ToolStripTextBox()
-        Me.ToolStrip7 = New System.Windows.Forms.ToolStrip()
-        Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
-        Me.Balancefind = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripTextBox3 = New System.Windows.Forms.ToolStripTextBox()
-        Me.ToolStripLabel6 = New System.Windows.Forms.ToolStripLabel()
-        Me.TabItem3 = New DevComponents.DotNetBar.TabItem(Me.components)
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
         Me.GroupPanel3 = New DevComponents.DotNetBar.Controls.GroupPanel()
-        Me.Countfabric = New System.Windows.Forms.DataGridView()
-        Me.Cclothno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Cclothtype = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CDwidth = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CShadeid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CShadedesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Count = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CRollwage = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ContextMenuBar2 = New DevComponents.DotNetBar.ContextMenuBar()
         Me.Ctmmenudetgrid = New DevComponents.DotNetBar.ButtonItem()
         Me.Ctdedit = New DevComponents.DotNetBar.ButtonItem()
         Me.Ctddel = New DevComponents.DotNetBar.ButtonItem()
         Me.Dgvmas = New System.Windows.Forms.DataGridView()
         Me.Mstat = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Ord = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Mkong = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.rollid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Rollno = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Mcomid = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Order = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Dhid = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -179,52 +82,27 @@ Partial Class Formrebackfabcolors
         Me.Tsbwsave = New System.Windows.Forms.ToolStripLabel()
         Me.Btdbadd = New System.Windows.Forms.ToolStripButton()
         Me.GroupPanel2 = New DevComponents.DotNetBar.Controls.GroupPanel()
-        Me.FindShade = New DevComponents.DotNetBar.ButtonX()
-        Me.Tbrollid = New Inttextbox.Inttextbox()
-        Me.DemoCode = New DevComponents.DotNetBar.LabelX()
+        Me.Findlistsale = New DevComponents.DotNetBar.ButtonX()
         Me.LabelX17 = New DevComponents.DotNetBar.LabelX()
         Me.AllQtyroll = New Normtextbox.Normtextbox()
         Me.AllQtykg = New Dectextbox.Dectextbox()
         Me.LabelX18 = New DevComponents.DotNetBar.LabelX()
-        Me.LabelX16 = New DevComponents.DotNetBar.LabelX()
-        Me.Btfindknitid = New DevComponents.DotNetBar.ButtonX()
         Me.Tbaddedit = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.Tbkg = New Dectextbox.Dectextbox()
         Me.LabelX12 = New DevComponents.DotNetBar.LabelX()
-        Me.LabelX11 = New DevComponents.DotNetBar.LabelX()
         Me.LabelX13 = New DevComponents.DotNetBar.LabelX()
-        Me.Tbwidht = New Normtextbox.Normtextbox()
         Me.Btdcancel = New DevComponents.DotNetBar.ButtonX()
-        Me.Tbkongno = New Normtextbox.Normtextbox()
         Me.Btdadd = New DevComponents.DotNetBar.ButtonX()
-        Me.LabelX10 = New DevComponents.DotNetBar.LabelX()
-        Me.LabelX8 = New DevComponents.DotNetBar.LabelX()
-        Me.Tbclothid = New Normtextbox.Normtextbox()
-        Me.Tbshadename = New Normtextbox.Normtextbox()
-        Me.Tbclothno = New Normtextbox.Normtextbox()
-        Me.Tbclothtype = New Normtextbox.Normtextbox()
-        Me.LabelX7 = New DevComponents.DotNetBar.LabelX()
-        Me.Tbshadeid = New Normtextbox.Normtextbox()
-        Me.LabelX9 = New DevComponents.DotNetBar.LabelX()
         Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Btfindknittno = New DevComponents.DotNetBar.ButtonX()
         Me.Btfindbillno = New DevComponents.DotNetBar.ButtonX()
-        Me.LabelX15 = New DevComponents.DotNetBar.LabelX()
         Me.Tbdhname = New Normtextbox.Normtextbox()
         Me.Tbdhid = New Normtextbox.Normtextbox()
         Me.Btfinddyedh = New DevComponents.DotNetBar.ButtonX()
-        Me.Tbmycom = New Normtextbox.Normtextbox()
-        Me.LabelX14 = New DevComponents.DotNetBar.LabelX()
-        Me.Tbcolorno = New Normtextbox.Normtextbox()
         Me.Tbdyedbillno = New Normtextbox.Normtextbox()
-        Me.Tbrefablotno = New Normtextbox.Normtextbox()
-        Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
         Me.LabelX4 = New DevComponents.DotNetBar.LabelX()
-        Me.Tbknittno = New Normtextbox.Normtextbox()
         Me.LabelX5 = New DevComponents.DotNetBar.LabelX()
-        Me.Coloer = New DevComponents.DotNetBar.LabelX()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.LabelX19 = New DevComponents.DotNetBar.LabelX()
         Me.Tbdyedcomno = New Normtextbox.Normtextbox()
@@ -241,26 +119,61 @@ Partial Class Formrebackfabcolors
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
+        Me.TabControlPanel2 = New DevComponents.DotNetBar.TabControlPanel()
+        Me.ContextMenuBar1 = New DevComponents.DotNetBar.ContextMenuBar()
+        Me.Ctmmenugrid = New DevComponents.DotNetBar.ButtonItem()
+        Me.Ctmledit = New DevComponents.DotNetBar.ButtonItem()
+        Me.Ctmtransaction = New DevComponents.DotNetBar.ButtonItem()
+        Me.Dgvlist = New System.Windows.Forms.DataGridView()
+        Me.Status = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LComid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Rbid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Docref = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Custid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Custname = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Sumroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Sumwgt = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Sumprice = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Remark = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Indate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ToolStrip5 = New System.Windows.Forms.ToolStrip()
+        Me.Btfirst = New System.Windows.Forms.ToolStripButton()
+        Me.Btprev = New System.Windows.Forms.ToolStripButton()
+        Me.Tbpage = New System.Windows.Forms.ToolStripTextBox()
+        Me.Btnext = New System.Windows.Forms.ToolStripButton()
+        Me.Btlast = New System.Windows.Forms.ToolStripButton()
+        Me.Tbrecord = New System.Windows.Forms.ToolStripTextBox()
+        Me.ToolStrip4 = New System.Windows.Forms.ToolStrip()
+        Me.Btrefresh = New System.Windows.Forms.ToolStripButton()
+        Me.Btlistfind = New System.Windows.Forms.ToolStripButton()
+        Me.Tstbkeyword = New System.Windows.Forms.ToolStripTextBox()
+        Me.ToolStripLabel4 = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
+        Me.TabItem2 = New DevComponents.DotNetBar.TabItem(Me.components)
+        Me.Mainmake = New DevComponents.DotNetBar.ButtonItem()
+        Me.Maintransaction = New DevComponents.DotNetBar.ButtonItem()
+        Me.Tscboth = New XpressPlus.ToolStripCheckBox()
+        Me.Tscbdate = New XpressPlus.ToolStripCheckBox()
+        Me.LabelX16 = New DevComponents.DotNetBar.LabelX()
+        Me.LabelX7 = New DevComponents.DotNetBar.LabelX()
+        Me.Tbrollid = New Inttextbox.Inttextbox()
+        Me.Tbkongno = New Normtextbox.Normtextbox()
+        Me.LabelX11 = New DevComponents.DotNetBar.LabelX()
+        Me.DemoCode = New DevComponents.DotNetBar.LabelX()
+        Me.Tbshadename = New Normtextbox.Normtextbox()
+        Me.Tbshadeid = New Normtextbox.Normtextbox()
+        Me.LabelX8 = New DevComponents.DotNetBar.LabelX()
+        Me.Tbwidht = New Normtextbox.Normtextbox()
+        Me.LabelX9 = New DevComponents.DotNetBar.LabelX()
+        Me.Tbclothtype = New Normtextbox.Normtextbox()
+        Me.Tbclothno = New Normtextbox.Normtextbox()
+        Me.LabelX10 = New DevComponents.DotNetBar.LabelX()
+        Me.Tbclothid = New Normtextbox.Normtextbox()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
-        Me.TabControlPanel2.SuspendLayout()
-        CType(Me.ContextMenuBar1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Dgvlist, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ToolStrip5.SuspendLayout()
-        Me.ToolStrip4.SuspendLayout()
-        Me.TabControlPanel3.SuspendLayout()
-        CType(Me.ContextMenuBar3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Balance, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FilterAllyed, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Filterfab, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Allyed, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Allfab, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ToolStrip2.SuspendLayout()
-        Me.ToolStrip7.SuspendLayout()
         Me.TabControlPanel1.SuspendLayout()
         Me.GroupPanel3.SuspendLayout()
-        CType(Me.Countfabric, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ContextMenuBar2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Dgvmas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip6.SuspendLayout()
@@ -274,12 +187,17 @@ Partial Class Formrebackfabcolors
         Me.Panel3.SuspendLayout()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator1.SuspendLayout()
+        Me.TabControlPanel2.SuspendLayout()
+        CType(Me.ContextMenuBar1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Dgvlist, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ToolStrip5.SuspendLayout()
+        Me.ToolStrip4.SuspendLayout()
         Me.SuspendLayout()
         '
         'ToolStrip1
         '
         Me.ToolStrip1.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btmclose, Me.Btmfind, Me.Btmreports, Me.Btmcancel, Me.Btmsave, Me.Btmdel, Me.Btmedit, Me.BtmnewOld, Me.Btmnew, Me.Tstbdocpreid, Me.Tstbdocpre})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btmclose, Me.Btmfind, Me.Btmreports, Me.Btmcancel, Me.Btmsave, Me.Btmdel, Me.Btmedit, Me.Btmnew, Me.Tstbdocpreid, Me.Tstbdocpre})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(1008, 49)
@@ -375,19 +293,6 @@ Partial Class Formrebackfabcolors
         Me.Btmedit.Text = "แก้ไข"
         Me.Btmedit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
-        'BtmnewOld
-        '
-        Me.BtmnewOld.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.BtmnewOld.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtmnewOld.Image = Global.XpressPlus.My.Resources.Resources.Filenewbelow
-        Me.BtmnewOld.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.BtmnewOld.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtmnewOld.Name = "BtmnewOld"
-        Me.BtmnewOld.Size = New System.Drawing.Size(60, 46)
-        Me.BtmnewOld.Text = "รับผ้าเก่า"
-        Me.BtmnewOld.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.BtmnewOld.Visible = False
-        '
         'Btmnew
         '
         Me.Btmnew.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
@@ -418,9 +323,8 @@ Partial Class Formrebackfabcolors
         '
         Me.TabControl1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TabControl1.CanReorderTabs = True
-        Me.TabControl1.Controls.Add(Me.TabControlPanel3)
-        Me.TabControl1.Controls.Add(Me.TabControlPanel2)
         Me.TabControl1.Controls.Add(Me.TabControlPanel1)
+        Me.TabControl1.Controls.Add(Me.TabControlPanel2)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.TabControl1.ForeColor = System.Drawing.Color.Black
@@ -431,756 +335,9 @@ Partial Class Formrebackfabcolors
         Me.TabControl1.Size = New System.Drawing.Size(1008, 680)
         Me.TabControl1.TabIndex = 158
         Me.TabControl1.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox
-        Me.TabControl1.Tabs.Add(Me.TabItem3)
         Me.TabControl1.Tabs.Add(Me.TabItem2)
         Me.TabControl1.Tabs.Add(Me.TabItem1)
         Me.TabControl1.Text = "TabControl1"
-        '
-        'TabControlPanel2
-        '
-        Me.TabControlPanel2.Controls.Add(Me.ContextMenuBar1)
-        Me.TabControlPanel2.Controls.Add(Me.Dgvlist)
-        Me.TabControlPanel2.Controls.Add(Me.ToolStrip5)
-        Me.TabControlPanel2.Controls.Add(Me.ToolStrip4)
-        Me.TabControlPanel2.DisabledBackColor = System.Drawing.Color.Empty
-        Me.TabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControlPanel2.Location = New System.Drawing.Point(0, 26)
-        Me.TabControlPanel2.Name = "TabControlPanel2"
-        Me.TabControlPanel2.Padding = New System.Windows.Forms.Padding(1)
-        Me.TabControlPanel2.Size = New System.Drawing.Size(1008, 654)
-        Me.TabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(179, Byte), Integer), CType(CType(231, Byte), Integer))
-        Me.TabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(CType(CType(223, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(254, Byte), Integer))
-        Me.TabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
-        Me.TabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(156, Byte), Integer))
-        Me.TabControlPanel2.Style.BorderSide = CType(((DevComponents.DotNetBar.eBorderSide.Left Or DevComponents.DotNetBar.eBorderSide.Right) _
-            Or DevComponents.DotNetBar.eBorderSide.Bottom), DevComponents.DotNetBar.eBorderSide)
-        Me.TabControlPanel2.Style.GradientAngle = 90
-        Me.TabControlPanel2.TabIndex = 5
-        Me.TabControlPanel2.TabItem = Me.TabItem2
-        '
-        'ContextMenuBar1
-        '
-        Me.ContextMenuBar1.DockSide = DevComponents.DotNetBar.eDockSide.Document
-        Me.ContextMenuBar1.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ContextMenuBar1.IsMaximized = False
-        Me.ContextMenuBar1.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.Ctmmenugrid})
-        Me.ContextMenuBar1.Location = New System.Drawing.Point(463, 316)
-        Me.ContextMenuBar1.Name = "ContextMenuBar1"
-        Me.ContextMenuBar1.Size = New System.Drawing.Size(84, 25)
-        Me.ContextMenuBar1.Stretch = True
-        Me.ContextMenuBar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.ContextMenuBar1.TabIndex = 70
-        Me.ContextMenuBar1.TabStop = False
-        '
-        'Ctmmenugrid
-        '
-        Me.Ctmmenugrid.AutoExpandOnClick = True
-        Me.Ctmmenugrid.GlobalName = "bEditPopup"
-        Me.Ctmmenugrid.Name = "Ctmmenugrid"
-        Me.Ctmmenugrid.PopupAnimation = DevComponents.DotNetBar.ePopupAnimation.SystemDefault
-        Me.Ctmmenugrid.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.Ctmledit, Me.Ctmtransaction})
-        Me.Ctmmenugrid.Text = "EditGrid"
-        '
-        'Ctmledit
-        '
-        Me.Ctmledit.BeginGroup = True
-        Me.Ctmledit.Name = "Ctmledit"
-        Me.Ctmledit.Text = "เลือกรายการ"
-        '
-        'Ctmtransaction
-        '
-        Me.Ctmtransaction.Name = "Ctmtransaction"
-        Me.Ctmtransaction.Text = "ดูใบสั่งย้อม"
-        '
-        'Dgvlist
-        '
-        Me.Dgvlist.AllowUserToAddRows = False
-        Me.Dgvlist.AllowUserToDeleteRows = False
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Dgvlist.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
-        Me.Dgvlist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Dgvlist.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Status, Me.Lrecdate, Me.LComid, Me.Reid, Me.Ldhid, Me.Ldyedhdesc, Me.Lbilldyedno, Me.Lbillknitt, Me.Dlotno, Me.Ldyedcolor, Me.Ldremark})
-        Me.Dgvlist.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Dgvlist.Location = New System.Drawing.Point(1, 50)
-        Me.Dgvlist.Name = "Dgvlist"
-        Me.Dgvlist.ReadOnly = True
-        Me.Dgvlist.Size = New System.Drawing.Size(1006, 564)
-        Me.Dgvlist.TabIndex = 68
-        '
-        'Status
-        '
-        Me.Status.DataPropertyName = "Stat"
-        Me.Status.HeaderText = ""
-        Me.Status.Name = "Status"
-        Me.Status.ReadOnly = True
-        Me.Status.Width = 20
-        '
-        'Lrecdate
-        '
-        Me.Lrecdate.DataPropertyName = "Recdate"
-        Me.Lrecdate.HeaderText = "วันที่รับ"
-        Me.Lrecdate.Name = "Lrecdate"
-        Me.Lrecdate.ReadOnly = True
-        '
-        'LComid
-        '
-        Me.LComid.DataPropertyName = "Comid"
-        Me.LComid.HeaderText = "Comid"
-        Me.LComid.Name = "LComid"
-        Me.LComid.ReadOnly = True
-        Me.LComid.Visible = False
-        '
-        'Reid
-        '
-        Me.Reid.DataPropertyName = "Reid"
-        Me.Reid.HeaderText = "เลขที่ใบรับผ้าสี"
-        Me.Reid.Name = "Reid"
-        Me.Reid.ReadOnly = True
-        Me.Reid.Width = 120
-        '
-        'Ldhid
-        '
-        Me.Ldhid.DataPropertyName = "Dhid"
-        Me.Ldhid.HeaderText = "Dhid"
-        Me.Ldhid.Name = "Ldhid"
-        Me.Ldhid.ReadOnly = True
-        Me.Ldhid.Visible = False
-        '
-        'Ldyedhdesc
-        '
-        Me.Ldyedhdesc.DataPropertyName = "Dyedhdesc"
-        Me.Ldyedhdesc.HeaderText = "โรงย้อม"
-        Me.Ldyedhdesc.Name = "Ldyedhdesc"
-        Me.Ldyedhdesc.ReadOnly = True
-        Me.Ldyedhdesc.Width = 130
-        '
-        'Lbilldyedno
-        '
-        Me.Lbilldyedno.DataPropertyName = "Billdyedno"
-        Me.Lbilldyedno.HeaderText = "เลขที่ใบสั่งย้อม"
-        Me.Lbilldyedno.Name = "Lbilldyedno"
-        Me.Lbilldyedno.ReadOnly = True
-        Me.Lbilldyedno.Width = 130
-        '
-        'Lbillknitt
-        '
-        Me.Lbillknitt.DataPropertyName = "Billknitt"
-        Me.Lbillknitt.HeaderText = "บิลโรงทอ"
-        Me.Lbillknitt.Name = "Lbillknitt"
-        Me.Lbillknitt.ReadOnly = True
-        Me.Lbillknitt.Width = 120
-        '
-        'Dlotno
-        '
-        Me.Dlotno.DataPropertyName = "Lotno"
-        Me.Dlotno.HeaderText = "LOT No."
-        Me.Dlotno.Name = "Dlotno"
-        Me.Dlotno.ReadOnly = True
-        Me.Dlotno.Width = 120
-        '
-        'Ldyedcolor
-        '
-        Me.Ldyedcolor.DataPropertyName = "Dyedcolor"
-        Me.Ldyedcolor.HeaderText = "สีโรงย้อม"
-        Me.Ldyedcolor.Name = "Ldyedcolor"
-        Me.Ldyedcolor.ReadOnly = True
-        Me.Ldyedcolor.Width = 120
-        '
-        'Ldremark
-        '
-        Me.Ldremark.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Ldremark.DataPropertyName = "Dremark"
-        Me.Ldremark.HeaderText = "หมายเหตุ"
-        Me.Ldremark.Name = "Ldremark"
-        Me.Ldremark.ReadOnly = True
-        '
-        'ToolStrip5
-        '
-        Me.ToolStrip5.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStrip5.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.ToolStrip5.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btfirst, Me.Btprev, Me.Tbpage, Me.Btnext, Me.Btlast, Me.Tbrecord})
-        Me.ToolStrip5.Location = New System.Drawing.Point(1, 614)
-        Me.ToolStrip5.Name = "ToolStrip5"
-        Me.ToolStrip5.Size = New System.Drawing.Size(1006, 39)
-        Me.ToolStrip5.TabIndex = 67
-        Me.ToolStrip5.Text = "ToolStrip5"
-        '
-        'Btfirst
-        '
-        Me.Btfirst.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btfirst.Image = Global.XpressPlus.My.Resources.Resources.Firsticon
-        Me.Btfirst.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.Btfirst.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Btfirst.Name = "Btfirst"
-        Me.Btfirst.Size = New System.Drawing.Size(50, 36)
-        Me.Btfirst.Text = "หน้าแรก"
-        Me.Btfirst.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'Btprev
-        '
-        Me.Btprev.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btprev.Image = Global.XpressPlus.My.Resources.Resources.Lefticon
-        Me.Btprev.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.Btprev.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Btprev.Name = "Btprev"
-        Me.Btprev.Size = New System.Drawing.Size(51, 36)
-        Me.Btprev.Text = "ก่อนหน้า"
-        Me.Btprev.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'Tbpage
-        '
-        Me.Tbpage.Enabled = False
-        Me.Tbpage.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbpage.Name = "Tbpage"
-        Me.Tbpage.Size = New System.Drawing.Size(120, 39)
-        Me.Tbpage.Text = "หน้า 0/0"
-        '
-        'Btnext
-        '
-        Me.Btnext.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btnext.Image = Global.XpressPlus.My.Resources.Resources.Righticon
-        Me.Btnext.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.Btnext.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Btnext.Name = "Btnext"
-        Me.Btnext.Size = New System.Drawing.Size(37, 36)
-        Me.Btnext.Text = "ถัดไป"
-        Me.Btnext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'Btlast
-        '
-        Me.Btlast.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btlast.Image = Global.XpressPlus.My.Resources.Resources.Lasticon
-        Me.Btlast.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.Btlast.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Btlast.Name = "Btlast"
-        Me.Btlast.Size = New System.Drawing.Size(45, 36)
-        Me.Btlast.Text = "สุดท้าย"
-        Me.Btlast.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'Tbrecord
-        '
-        Me.Tbrecord.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Tbrecord.Enabled = False
-        Me.Tbrecord.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbrecord.Name = "Tbrecord"
-        Me.Tbrecord.Size = New System.Drawing.Size(200, 39)
-        Me.Tbrecord.Text = "แสดง 0 รายการ จาก 0 รายการ"
-        Me.Tbrecord.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'ToolStrip4
-        '
-        Me.ToolStrip4.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStrip4.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btrefresh, Me.Btlistfind, Me.Tstbkeyword, Me.Tscboth, Me.ToolStripLabel4, Me.Tscbdate, Me.ToolStripLabel3})
-        Me.ToolStrip4.Location = New System.Drawing.Point(1, 1)
-        Me.ToolStrip4.Name = "ToolStrip4"
-        Me.ToolStrip4.Size = New System.Drawing.Size(1006, 49)
-        Me.ToolStrip4.TabIndex = 66
-        Me.ToolStrip4.Text = "ToolStrip4"
-        '
-        'Btrefresh
-        '
-        Me.Btrefresh.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Btrefresh.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btrefresh.Image = Global.XpressPlus.My.Resources.Resources.Updated
-        Me.Btrefresh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.Btrefresh.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Btrefresh.Name = "Btrefresh"
-        Me.Btrefresh.Size = New System.Drawing.Size(71, 46)
-        Me.Btrefresh.Text = "Refresh"
-        Me.Btrefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Btrefresh.Visible = False
-        '
-        'Btlistfind
-        '
-        Me.Btlistfind.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Btlistfind.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btlistfind.Image = Global.XpressPlus.My.Resources.Resources.Findicon
-        Me.Btlistfind.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.Btlistfind.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Btlistfind.Name = "Btlistfind"
-        Me.Btlistfind.Size = New System.Drawing.Size(48, 46)
-        Me.Btlistfind.Text = "ค้นหา"
-        Me.Btlistfind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'Tstbkeyword
-        '
-        Me.Tstbkeyword.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Tstbkeyword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Tstbkeyword.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tstbkeyword.Name = "Tstbkeyword"
-        Me.Tstbkeyword.Size = New System.Drawing.Size(120, 49)
-        '
-        'Tscboth
-        '
-        Me.Tscboth.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Tscboth.BackColor = System.Drawing.Color.Transparent
-        Me.Tscboth.Checked = True
-        Me.Tscboth.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tscboth.Name = "Tscboth"
-        Me.Tscboth.Size = New System.Drawing.Size(55, 46)
-        Me.Tscboth.Text = "อื่นๆ"
-        Me.Tscboth.ToolStripCheckBoxEnabled = True
-        '
-        'ToolStripLabel4
-        '
-        Me.ToolStripLabel4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.ToolStripLabel4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripLabel4.Name = "ToolStripLabel4"
-        Me.ToolStripLabel4.Size = New System.Drawing.Size(24, 46)
-        Me.ToolStripLabel4.Text = "ถึง"
-        '
-        'Tscbdate
-        '
-        Me.Tscbdate.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Tscbdate.BackColor = System.Drawing.Color.Transparent
-        Me.Tscbdate.Checked = False
-        Me.Tscbdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tscbdate.Name = "Tscbdate"
-        Me.Tscbdate.Size = New System.Drawing.Size(55, 46)
-        Me.Tscbdate.Text = "วันที่"
-        Me.Tscbdate.ToolStripCheckBoxEnabled = True
-        '
-        'ToolStripLabel3
-        '
-        Me.ToolStripLabel3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.ToolStripLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripLabel3.Name = "ToolStripLabel3"
-        Me.ToolStripLabel3.Size = New System.Drawing.Size(68, 46)
-        Me.ToolStripLabel3.Text = "ค้นหาจาก"
-        '
-        'TabItem2
-        '
-        Me.TabItem2.AttachedControl = Me.TabControlPanel2
-        Me.TabItem2.Name = "TabItem2"
-        Me.TabItem2.Text = "รับผ้าคืนจากลูกค้า"
-        '
-        'TabControlPanel3
-        '
-        Me.TabControlPanel3.Controls.Add(Me.ContextMenuBar3)
-        Me.TabControlPanel3.Controls.Add(Me.Balance)
-        Me.TabControlPanel3.Controls.Add(Me.FilterAllyed)
-        Me.TabControlPanel3.Controls.Add(Me.Filterfab)
-        Me.TabControlPanel3.Controls.Add(Me.Allyed)
-        Me.TabControlPanel3.Controls.Add(Me.Allfab)
-        Me.TabControlPanel3.Controls.Add(Me.ToolStrip2)
-        Me.TabControlPanel3.Controls.Add(Me.ToolStrip7)
-        Me.TabControlPanel3.DisabledBackColor = System.Drawing.Color.Empty
-        Me.TabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControlPanel3.Location = New System.Drawing.Point(0, 26)
-        Me.TabControlPanel3.Name = "TabControlPanel3"
-        Me.TabControlPanel3.Padding = New System.Windows.Forms.Padding(1)
-        Me.TabControlPanel3.Size = New System.Drawing.Size(1008, 654)
-        Me.TabControlPanel3.Style.BackColor1.Color = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(179, Byte), Integer), CType(CType(231, Byte), Integer))
-        Me.TabControlPanel3.Style.BackColor2.Color = System.Drawing.Color.FromArgb(CType(CType(223, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(254, Byte), Integer))
-        Me.TabControlPanel3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
-        Me.TabControlPanel3.Style.BorderColor.Color = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(156, Byte), Integer))
-        Me.TabControlPanel3.Style.BorderSide = CType(((DevComponents.DotNetBar.eBorderSide.Left Or DevComponents.DotNetBar.eBorderSide.Right) _
-            Or DevComponents.DotNetBar.eBorderSide.Bottom), DevComponents.DotNetBar.eBorderSide)
-        Me.TabControlPanel3.Style.GradientAngle = 90
-        Me.TabControlPanel3.TabIndex = 12
-        Me.TabControlPanel3.TabItem = Me.TabItem3
-        '
-        'ContextMenuBar3
-        '
-        Me.ContextMenuBar3.DockSide = DevComponents.DotNetBar.eDockSide.Document
-        Me.ContextMenuBar3.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ContextMenuBar3.IsMaximized = False
-        Me.ContextMenuBar3.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.CtmBalance})
-        Me.ContextMenuBar3.Location = New System.Drawing.Point(462, 315)
-        Me.ContextMenuBar3.Name = "ContextMenuBar3"
-        Me.ContextMenuBar3.Size = New System.Drawing.Size(84, 25)
-        Me.ContextMenuBar3.Stretch = True
-        Me.ContextMenuBar3.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.ContextMenuBar3.TabIndex = 76
-        Me.ContextMenuBar3.TabStop = False
-        '
-        'CtmBalance
-        '
-        Me.CtmBalance.AutoExpandOnClick = True
-        Me.CtmBalance.GlobalName = "bEditPopup"
-        Me.CtmBalance.Name = "CtmBalance"
-        Me.CtmBalance.PopupAnimation = DevComponents.DotNetBar.ePopupAnimation.SystemDefault
-        Me.CtmBalance.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.Mainmake, Me.Maintransaction})
-        Me.CtmBalance.Text = "EditGrid"
-        '
-        'Mainmake
-        '
-        Me.Mainmake.BeginGroup = True
-        Me.Mainmake.Name = "Mainmake"
-        Me.Mainmake.Text = "สร้างใบรับผ้าสี"
-        '
-        'Maintransaction
-        '
-        Me.Maintransaction.Name = "Maintransaction"
-        Me.Maintransaction.Text = "ดูใบสั่งย้อม"
-        '
-        'Balance
-        '
-        Me.Balance.AllowUserToAddRows = False
-        Me.Balance.AllowUserToDeleteRows = False
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Balance.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
-        Me.Balance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Balance.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Stat, Me.BDyedcomno, Me.BClothidyed, Me.BClothnoyed, Me.BFtypeyed, Me.BFwidthyed, Me.BQtykg, Me.BShadedesc, Me.BQtyroll, Me.BShadeid})
-        Me.Balance.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Balance.Location = New System.Drawing.Point(1, 50)
-        Me.Balance.Name = "Balance"
-        Me.Balance.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Balance.Size = New System.Drawing.Size(1006, 603)
-        Me.Balance.TabIndex = 75
-        '
-        'Stat
-        '
-        Me.Stat.HeaderText = ""
-        Me.Stat.Name = "Stat"
-        Me.Stat.Width = 20
-        '
-        'BDyedcomno
-        '
-        Me.BDyedcomno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.BDyedcomno.HeaderText = "เลขที่ใบสั่งย้อม"
-        Me.BDyedcomno.Name = "BDyedcomno"
-        '
-        'BClothidyed
-        '
-        Me.BClothidyed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.BClothidyed.HeaderText = "Clothidyed"
-        Me.BClothidyed.Name = "BClothidyed"
-        Me.BClothidyed.Visible = False
-        '
-        'BClothnoyed
-        '
-        Me.BClothnoyed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.BClothnoyed.HeaderText = "เบอร์ผ้า"
-        Me.BClothnoyed.Name = "BClothnoyed"
-        '
-        'BFtypeyed
-        '
-        Me.BFtypeyed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.BFtypeyed.HeaderText = "ประเภท"
-        Me.BFtypeyed.Name = "BFtypeyed"
-        '
-        'BFwidthyed
-        '
-        Me.BFwidthyed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.BFwidthyed.DefaultCellStyle = DataGridViewCellStyle11
-        Me.BFwidthyed.HeaderText = "หน้ากว้าง"
-        Me.BFwidthyed.Name = "BFwidthyed"
-        '
-        'BQtykg
-        '
-        Me.BQtykg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.BQtykg.HeaderText = "น้ำหนักคงเหลือ"
-        Me.BQtykg.Name = "BQtykg"
-        Me.BQtykg.Visible = False
-        '
-        'BShadedesc
-        '
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.BShadedesc.DefaultCellStyle = DataGridViewCellStyle12
-        Me.BShadedesc.HeaderText = "Shade"
-        Me.BShadedesc.Name = "BShadedesc"
-        Me.BShadedesc.Width = 130
-        '
-        'BQtyroll
-        '
-        Me.BQtyroll.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle13.Format = "N0"
-        DataGridViewCellStyle13.NullValue = Nothing
-        Me.BQtyroll.DefaultCellStyle = DataGridViewCellStyle13
-        Me.BQtyroll.HeaderText = "จำนวนพับคงเหลือ"
-        Me.BQtyroll.Name = "BQtyroll"
-        '
-        'BShadeid
-        '
-        Me.BShadeid.HeaderText = "BShadeid"
-        Me.BShadeid.Name = "BShadeid"
-        Me.BShadeid.Visible = False
-        '
-        'FilterAllyed
-        '
-        Me.FilterAllyed.AllowUserToAddRows = False
-        Me.FilterAllyed.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FilterAllyed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.FilterAllyed.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Dyedcomno, Me.Clothidyed, Me.Clothnoyed, Me.Ftypeyed, Me.Fwidthyed, Me.Qtykg, Me.Qtyroll, Me.Knittcomid, Me.Knittbill, Me.FShadeid, Me.FShadedesc})
-        Me.FilterAllyed.Location = New System.Drawing.Point(869, 202)
-        Me.FilterAllyed.Name = "FilterAllyed"
-        Me.FilterAllyed.Size = New System.Drawing.Size(127, 125)
-        Me.FilterAllyed.TabIndex = 74
-        '
-        'Dyedcomno
-        '
-        Me.Dyedcomno.HeaderText = "Dyedcomno"
-        Me.Dyedcomno.Name = "Dyedcomno"
-        '
-        'Clothidyed
-        '
-        Me.Clothidyed.HeaderText = "Clothidyed"
-        Me.Clothidyed.Name = "Clothidyed"
-        '
-        'Clothnoyed
-        '
-        Me.Clothnoyed.HeaderText = "Clothnoyed"
-        Me.Clothnoyed.Name = "Clothnoyed"
-        '
-        'Ftypeyed
-        '
-        Me.Ftypeyed.HeaderText = "Ftypeyed"
-        Me.Ftypeyed.Name = "Ftypeyed"
-        '
-        'Fwidthyed
-        '
-        Me.Fwidthyed.HeaderText = "Fwidthyed"
-        Me.Fwidthyed.Name = "Fwidthyed"
-        '
-        'Qtykg
-        '
-        Me.Qtykg.HeaderText = "Qtykg"
-        Me.Qtykg.Name = "Qtykg"
-        '
-        'Qtyroll
-        '
-        Me.Qtyroll.HeaderText = "Qtyroll"
-        Me.Qtyroll.Name = "Qtyroll"
-        '
-        'Knittcomid
-        '
-        Me.Knittcomid.HeaderText = "Knittcomid"
-        Me.Knittcomid.Name = "Knittcomid"
-        '
-        'Knittbill
-        '
-        Me.Knittbill.HeaderText = "Knittbill"
-        Me.Knittbill.Name = "Knittbill"
-        '
-        'FShadeid
-        '
-        Me.FShadeid.HeaderText = "Shadeid"
-        Me.FShadeid.Name = "FShadeid"
-        '
-        'FShadedesc
-        '
-        Me.FShadedesc.HeaderText = "Shadedesc"
-        Me.FShadedesc.Name = "FShadedesc"
-        '
-        'Filterfab
-        '
-        Me.Filterfab.AllowUserToAddRows = False
-        Me.Filterfab.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Filterfab.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Filterfab.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.FBilldyedno, Me.FClothid, Me.Clothno, Me.Ftype, Me.Fwidth, Me.FterShadeid, Me.FRollwage, Me.Qtyrollfab})
-        Me.Filterfab.Location = New System.Drawing.Point(869, 53)
-        Me.Filterfab.Name = "Filterfab"
-        Me.Filterfab.Size = New System.Drawing.Size(127, 143)
-        Me.Filterfab.TabIndex = 73
-        '
-        'FBilldyedno
-        '
-        Me.FBilldyedno.HeaderText = "Billdyedno"
-        Me.FBilldyedno.Name = "FBilldyedno"
-        '
-        'FClothid
-        '
-        Me.FClothid.HeaderText = "Clothid"
-        Me.FClothid.Name = "FClothid"
-        '
-        'Clothno
-        '
-        Me.Clothno.HeaderText = "Clothno"
-        Me.Clothno.Name = "Clothno"
-        '
-        'Ftype
-        '
-        Me.Ftype.HeaderText = "Ftype"
-        Me.Ftype.Name = "Ftype"
-        '
-        'Fwidth
-        '
-        Me.Fwidth.HeaderText = "Fwidth"
-        Me.Fwidth.Name = "Fwidth"
-        '
-        'FterShadeid
-        '
-        Me.FterShadeid.HeaderText = "Shadeid"
-        Me.FterShadeid.Name = "FterShadeid"
-        '
-        'FRollwage
-        '
-        Me.FRollwage.HeaderText = "Rollwage"
-        Me.FRollwage.Name = "FRollwage"
-        '
-        'Qtyrollfab
-        '
-        Me.Qtyrollfab.HeaderText = "Qtyrollfab"
-        Me.Qtyrollfab.Name = "Qtyrollfab"
-        '
-        'Allyed
-        '
-        Me.Allyed.AllowUserToAddRows = False
-        Me.Allyed.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Allyed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Allyed.Location = New System.Drawing.Point(719, 200)
-        Me.Allyed.Name = "Allyed"
-        Me.Allyed.Size = New System.Drawing.Size(144, 127)
-        Me.Allyed.TabIndex = 72
-        '
-        'Allfab
-        '
-        Me.Allfab.AllowUserToAddRows = False
-        Me.Allfab.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Allfab.Location = New System.Drawing.Point(719, 54)
-        Me.Allfab.Name = "Allfab"
-        Me.Allfab.Size = New System.Drawing.Size(144, 142)
-        Me.Allfab.TabIndex = 71
-        '
-        'ToolStrip2
-        '
-        Me.ToolStrip2.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton2, Me.ToolStripTextBox1, Me.ToolStripButton3, Me.ToolStripButton4, Me.ToolStripTextBox2})
-        Me.ToolStrip2.Location = New System.Drawing.Point(1, 612)
-        Me.ToolStrip2.Name = "ToolStrip2"
-        Me.ToolStrip2.Size = New System.Drawing.Size(1006, 41)
-        Me.ToolStrip2.TabIndex = 70
-        Me.ToolStrip2.Text = "ToolStrip2"
-        Me.ToolStrip2.Visible = False
-        '
-        'ToolStripButton1
-        '
-        Me.ToolStripButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripButton1.Image = Global.XpressPlus.My.Resources.Resources.Firsticon
-        Me.ToolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(60, 38)
-        Me.ToolStripButton1.Text = "หน้าแรก"
-        Me.ToolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'ToolStripButton2
-        '
-        Me.ToolStripButton2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripButton2.Image = Global.XpressPlus.My.Resources.Resources.Lefticon
-        Me.ToolStripButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(61, 38)
-        Me.ToolStripButton2.Text = "ก่อนหน้า"
-        Me.ToolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'ToolStripTextBox1
-        '
-        Me.ToolStripTextBox1.Enabled = False
-        Me.ToolStripTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripTextBox1.Name = "ToolStripTextBox1"
-        Me.ToolStripTextBox1.Size = New System.Drawing.Size(120, 41)
-        Me.ToolStripTextBox1.Text = "หน้า 0/0"
-        '
-        'ToolStripButton3
-        '
-        Me.ToolStripButton3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripButton3.Image = Global.XpressPlus.My.Resources.Resources.Righticon
-        Me.ToolStripButton3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton3.Name = "ToolStripButton3"
-        Me.ToolStripButton3.Size = New System.Drawing.Size(44, 38)
-        Me.ToolStripButton3.Text = "ถัดไป"
-        Me.ToolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'ToolStripButton4
-        '
-        Me.ToolStripButton4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripButton4.Image = Global.XpressPlus.My.Resources.Resources.Lasticon
-        Me.ToolStripButton4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton4.Name = "ToolStripButton4"
-        Me.ToolStripButton4.Size = New System.Drawing.Size(51, 38)
-        Me.ToolStripButton4.Text = "สุดท้าย"
-        Me.ToolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'ToolStripTextBox2
-        '
-        Me.ToolStripTextBox2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.ToolStripTextBox2.Enabled = False
-        Me.ToolStripTextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripTextBox2.Name = "ToolStripTextBox2"
-        Me.ToolStripTextBox2.Size = New System.Drawing.Size(200, 41)
-        Me.ToolStripTextBox2.Text = "แสดง 0 รายการ จาก 0 รายการ"
-        Me.ToolStripTextBox2.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'ToolStrip7
-        '
-        Me.ToolStrip7.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStrip7.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton5, Me.Balancefind, Me.ToolStripTextBox3, Me.ToolStripLabel6})
-        Me.ToolStrip7.Location = New System.Drawing.Point(1, 1)
-        Me.ToolStrip7.Name = "ToolStrip7"
-        Me.ToolStrip7.Size = New System.Drawing.Size(1006, 49)
-        Me.ToolStrip7.TabIndex = 69
-        Me.ToolStrip7.Text = "ToolStrip7"
-        '
-        'ToolStripButton5
-        '
-        Me.ToolStripButton5.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.ToolStripButton5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripButton5.Image = Global.XpressPlus.My.Resources.Resources.Updated
-        Me.ToolStripButton5.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton5.Name = "ToolStripButton5"
-        Me.ToolStripButton5.Size = New System.Drawing.Size(71, 46)
-        Me.ToolStripButton5.Text = "Refresh"
-        Me.ToolStripButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'Balancefind
-        '
-        Me.Balancefind.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Balancefind.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Balancefind.Image = Global.XpressPlus.My.Resources.Resources.Findicon
-        Me.Balancefind.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.Balancefind.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Balancefind.Name = "Balancefind"
-        Me.Balancefind.Size = New System.Drawing.Size(48, 46)
-        Me.Balancefind.Text = "ค้นหา"
-        Me.Balancefind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'ToolStripTextBox3
-        '
-        Me.ToolStripTextBox3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.ToolStripTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ToolStripTextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripTextBox3.Name = "ToolStripTextBox3"
-        Me.ToolStripTextBox3.Size = New System.Drawing.Size(120, 49)
-        '
-        'ToolStripLabel6
-        '
-        Me.ToolStripLabel6.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.ToolStripLabel6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripLabel6.Name = "ToolStripLabel6"
-        Me.ToolStripLabel6.Size = New System.Drawing.Size(44, 46)
-        Me.ToolStripLabel6.Text = "ค้นหา"
-        '
-        'TabItem3
-        '
-        Me.TabItem3.AttachedControl = Me.TabControlPanel3
-        Me.TabItem3.Name = "TabItem3"
-        Me.TabItem3.Text = "ผ้าค้างในโรงย้อม"
-        Me.TabItem3.Visible = False
         '
         'TabControlPanel1
         '
@@ -1209,7 +366,6 @@ Partial Class Formrebackfabcolors
         Me.GroupPanel3.BackColor = System.Drawing.Color.Transparent
         Me.GroupPanel3.CanvasColor = System.Drawing.Color.Transparent
         Me.GroupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2013
-        Me.GroupPanel3.Controls.Add(Me.Countfabric)
         Me.GroupPanel3.Controls.Add(Me.ContextMenuBar2)
         Me.GroupPanel3.Controls.Add(Me.Dgvmas)
         Me.GroupPanel3.Controls.Add(Me.ToolStrip6)
@@ -1219,9 +375,9 @@ Partial Class Formrebackfabcolors
         Me.GroupPanel3.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.GroupPanel3.Location = New System.Drawing.Point(1, 272)
+        Me.GroupPanel3.Location = New System.Drawing.Point(1, 246)
         Me.GroupPanel3.Name = "GroupPanel3"
-        Me.GroupPanel3.Size = New System.Drawing.Size(1006, 381)
+        Me.GroupPanel3.Size = New System.Drawing.Size(1006, 407)
         '
         '
         '
@@ -1252,54 +408,6 @@ Partial Class Formrebackfabcolors
         Me.GroupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.GroupPanel3.TabIndex = 94
         Me.GroupPanel3.Text = "รายละเอียดการรับผ้าสี"
-        '
-        'Countfabric
-        '
-        Me.Countfabric.AllowUserToAddRows = False
-        Me.Countfabric.AllowUserToDeleteRows = False
-        Me.Countfabric.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Countfabric.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Cclothno, Me.Cclothtype, Me.CDwidth, Me.CShadeid, Me.CShadedesc, Me.Count, Me.CRollwage})
-        Me.Countfabric.Location = New System.Drawing.Point(3, 196)
-        Me.Countfabric.Name = "Countfabric"
-        Me.Countfabric.Size = New System.Drawing.Size(714, 83)
-        Me.Countfabric.TabIndex = 100
-        Me.Countfabric.Visible = False
-        '
-        'Cclothno
-        '
-        Me.Cclothno.HeaderText = "เบอร์ผ้า"
-        Me.Cclothno.Name = "Cclothno"
-        '
-        'Cclothtype
-        '
-        Me.Cclothtype.HeaderText = "ประเภทผ้า"
-        Me.Cclothtype.Name = "Cclothtype"
-        '
-        'CDwidth
-        '
-        Me.CDwidth.HeaderText = "หน้ากว้าง"
-        Me.CDwidth.Name = "CDwidth"
-        '
-        'CShadeid
-        '
-        Me.CShadeid.HeaderText = "Shadeid"
-        Me.CShadeid.Name = "CShadeid"
-        '
-        'CShadedesc
-        '
-        Me.CShadedesc.HeaderText = "Shaded"
-        Me.CShadedesc.Name = "CShadedesc"
-        '
-        'Count
-        '
-        Me.Count.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Count.HeaderText = "Count"
-        Me.Count.Name = "Count"
-        '
-        'CRollwage
-        '
-        Me.CRollwage.HeaderText = "CRollwage"
-        Me.CRollwage.Name = "CRollwage"
         '
         'ContextMenuBar2
         '
@@ -1341,21 +449,21 @@ Partial Class Formrebackfabcolors
         '
         Me.Dgvmas.AllowUserToAddRows = False
         Me.Dgvmas.AllowUserToDeleteRows = False
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.Dgvmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Mstat, Me.Mkong, Me.rollid, Me.Mcomid, Me.Order, Me.Dhid, Me.Mdyedhdesc, Me.Billdyedno, Me.Lotno, Me.Clothid, Me.Mclothno, Me.Clothtype, Me.Dwidth, Me.Shadeid, Me.Shadedesc, Me.Rollwage, Me.Instk, Me.News})
+        Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Mstat, Me.Ord, Me.Mkong, Me.Rollno, Me.Mcomid, Me.Order, Me.Dhid, Me.Mdyedhdesc, Me.Billdyedno, Me.Lotno, Me.Clothid, Me.Mclothno, Me.Clothtype, Me.Dwidth, Me.Shadeid, Me.Shadedesc, Me.Rollwage, Me.Instk, Me.News})
         Me.Dgvmas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Dgvmas.Location = New System.Drawing.Point(0, 49)
         Me.Dgvmas.Name = "Dgvmas"
         Me.Dgvmas.ReadOnly = True
-        Me.Dgvmas.Size = New System.Drawing.Size(1000, 234)
+        Me.Dgvmas.Size = New System.Drawing.Size(1000, 260)
         Me.Dgvmas.TabIndex = 98
         '
         'Mstat
@@ -1366,6 +474,13 @@ Partial Class Formrebackfabcolors
         Me.Mstat.ReadOnly = True
         Me.Mstat.Width = 20
         '
+        'Ord
+        '
+        Me.Ord.HeaderText = "Ord"
+        Me.Ord.Name = "Ord"
+        Me.Ord.ReadOnly = True
+        Me.Ord.Width = 70
+        '
         'Mkong
         '
         Me.Mkong.DataPropertyName = "Kongno"
@@ -1373,14 +488,13 @@ Partial Class Formrebackfabcolors
         Me.Mkong.Name = "Mkong"
         Me.Mkong.ReadOnly = True
         Me.Mkong.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.Mkong.Width = 150
         '
-        'rollid
+        'Rollno
         '
-        Me.rollid.DataPropertyName = "Pubno"
-        Me.rollid.HeaderText = "เบอร์พับ"
-        Me.rollid.Name = "rollid"
-        Me.rollid.ReadOnly = True
+        Me.Rollno.DataPropertyName = "Rollno"
+        Me.Rollno.HeaderText = "เบอร์พับ"
+        Me.Rollno.Name = "Rollno"
+        Me.Rollno.ReadOnly = True
         '
         'Mcomid
         '
@@ -1460,8 +574,8 @@ Partial Class Formrebackfabcolors
         'Dwidth
         '
         Me.Dwidth.DataPropertyName = "Fwidth"
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Dwidth.DefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Dwidth.DefaultCellStyle = DataGridViewCellStyle6
         Me.Dwidth.HeaderText = "หน้ากว้าง"
         Me.Dwidth.Name = "Dwidth"
         Me.Dwidth.ReadOnly = True
@@ -1485,10 +599,10 @@ Partial Class Formrebackfabcolors
         'Rollwage
         '
         Me.Rollwage.DataPropertyName = "Rollwage"
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle16.Format = "N2"
-        DataGridViewCellStyle16.NullValue = Nothing
-        Me.Rollwage.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle7.Format = "N2"
+        DataGridViewCellStyle7.NullValue = Nothing
+        Me.Rollwage.DefaultCellStyle = DataGridViewCellStyle7
         Me.Rollwage.HeaderText = "น้ำหนัก(ก.ก.)"
         Me.Rollwage.Name = "Rollwage"
         Me.Rollwage.ReadOnly = True
@@ -1514,7 +628,7 @@ Partial Class Formrebackfabcolors
         Me.ToolStrip6.BackColor = System.Drawing.Color.Transparent
         Me.ToolStrip6.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.ToolStrip6.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Tstbsumkg, Me.ToolStripLabel2, Me.Tstbsumroll, Me.ToolStripLabel5})
-        Me.ToolStrip6.Location = New System.Drawing.Point(0, 283)
+        Me.ToolStrip6.Location = New System.Drawing.Point(0, 309)
         Me.ToolStrip6.Name = "ToolStrip6"
         Me.ToolStrip6.Size = New System.Drawing.Size(1000, 25)
         Me.ToolStrip6.TabIndex = 97
@@ -1559,7 +673,7 @@ Partial Class Formrebackfabcolors
         Me.Panel1.Controls.Add(Me.Tbremark)
         Me.Panel1.Controls.Add(Me.Panel6)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(0, 308)
+        Me.Panel1.Location = New System.Drawing.Point(0, 334)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1000, 27)
         Me.Panel1.TabIndex = 96
@@ -1606,7 +720,7 @@ Partial Class Formrebackfabcolors
         '
         Me.ProgressBarX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.ProgressBarX1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.ProgressBarX1.Location = New System.Drawing.Point(0, 335)
+        Me.ProgressBarX1.Location = New System.Drawing.Point(0, 361)
         Me.ProgressBarX1.Name = "ProgressBarX1"
         Me.ProgressBarX1.Size = New System.Drawing.Size(1000, 23)
         Me.ProgressBarX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2013
@@ -1677,7 +791,7 @@ Partial Class Formrebackfabcolors
         Me.GroupPanel2.BackColor = System.Drawing.Color.Transparent
         Me.GroupPanel2.CanvasColor = System.Drawing.Color.Transparent
         Me.GroupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2013
-        Me.GroupPanel2.Controls.Add(Me.FindShade)
+        Me.GroupPanel2.Controls.Add(Me.Findlistsale)
         Me.GroupPanel2.Controls.Add(Me.Tbrollid)
         Me.GroupPanel2.Controls.Add(Me.DemoCode)
         Me.GroupPanel2.Controls.Add(Me.LabelX17)
@@ -1685,7 +799,6 @@ Partial Class Formrebackfabcolors
         Me.GroupPanel2.Controls.Add(Me.AllQtykg)
         Me.GroupPanel2.Controls.Add(Me.LabelX18)
         Me.GroupPanel2.Controls.Add(Me.LabelX16)
-        Me.GroupPanel2.Controls.Add(Me.Btfindknitid)
         Me.GroupPanel2.Controls.Add(Me.Tbaddedit)
         Me.GroupPanel2.Controls.Add(Me.Tbkg)
         Me.GroupPanel2.Controls.Add(Me.LabelX12)
@@ -1707,9 +820,9 @@ Partial Class Formrebackfabcolors
         Me.GroupPanel2.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupPanel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.GroupPanel2.Location = New System.Drawing.Point(1, 152)
+        Me.GroupPanel2.Location = New System.Drawing.Point(1, 122)
         Me.GroupPanel2.Name = "GroupPanel2"
-        Me.GroupPanel2.Size = New System.Drawing.Size(1006, 120)
+        Me.GroupPanel2.Size = New System.Drawing.Size(1006, 124)
         '
         '
         '
@@ -1741,47 +854,17 @@ Partial Class Formrebackfabcolors
         Me.GroupPanel2.TabIndex = 93
         Me.GroupPanel2.Text = "เพิ่ม แก้ไข รายละเอียดการรับผ้าสี"
         '
-        'FindShade
+        'Findlistsale
         '
-        Me.FindShade.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.FindShade.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.FindShade.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.FindShade.Image = Global.XpressPlus.My.Resources.Resources.Find16
-        Me.FindShade.Location = New System.Drawing.Point(322, 33)
-        Me.FindShade.Name = "FindShade"
-        Me.FindShade.Size = New System.Drawing.Size(36, 24)
-        Me.FindShade.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
-        Me.FindShade.TabIndex = 144
-        '
-        'Tbrollid
-        '
-        Me.Tbrollid.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Tbrollid.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
-        Me.Tbrollid.Location = New System.Drawing.Point(242, 64)
-        Me.Tbrollid.MaxLength = 10
-        Me.Tbrollid.Name = "Tbrollid"
-        Me.Tbrollid.Size = New System.Drawing.Size(72, 24)
-        Me.Tbrollid.TabIndex = 143
-        Me.Tbrollid.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'DemoCode
-        '
-        Me.DemoCode.BackColor = System.Drawing.Color.White
-        '
-        '
-        '
-        Me.DemoCode.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.DemoCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.DemoCode.ForeColor = System.Drawing.Color.Gray
-        Me.DemoCode.Location = New System.Drawing.Point(516, 33)
-        Me.DemoCode.Name = "DemoCode"
-        Me.DemoCode.SingleLineColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.DemoCode.Size = New System.Drawing.Size(67, 23)
-        Me.DemoCode.SymbolColor = System.Drawing.Color.Black
-        Me.DemoCode.SymbolSet = DevComponents.DotNetBar.eSymbolSet.Material
-        Me.DemoCode.TabIndex = 140
-        Me.DemoCode.Text = "สีตัวอย่าง"
-        Me.DemoCode.TextAlignment = System.Drawing.StringAlignment.Center
+        Me.Findlistsale.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.Findlistsale.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.Findlistsale.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Findlistsale.Image = Global.XpressPlus.My.Resources.Resources.Find16
+        Me.Findlistsale.Location = New System.Drawing.Point(565, 29)
+        Me.Findlistsale.Name = "Findlistsale"
+        Me.Findlistsale.Size = New System.Drawing.Size(36, 24)
+        Me.Findlistsale.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
+        Me.Findlistsale.TabIndex = 145
         '
         'LabelX17
         '
@@ -1842,32 +925,6 @@ Partial Class Formrebackfabcolors
         Me.LabelX18.Text = "น้ำหนักรวม"
         Me.LabelX18.Visible = False
         '
-        'LabelX16
-        '
-        Me.LabelX16.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX16.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX16.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX16.Location = New System.Drawing.Point(186, 66)
-        Me.LabelX16.Name = "LabelX16"
-        Me.LabelX16.Size = New System.Drawing.Size(54, 23)
-        Me.LabelX16.TabIndex = 118
-        Me.LabelX16.Text = "เบอร์พับ"
-        '
-        'Btfindknitid
-        '
-        Me.Btfindknitid.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.Btfindknitid.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.Btfindknitid.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btfindknitid.Image = Global.XpressPlus.My.Resources.Resources.Find16
-        Me.Btfindknitid.Location = New System.Drawing.Point(188, 1)
-        Me.Btfindknitid.Name = "Btfindknitid"
-        Me.Btfindknitid.Size = New System.Drawing.Size(36, 24)
-        Me.Btfindknitid.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
-        Me.Btfindknitid.TabIndex = 73
-        '
         'Tbaddedit
         '
         Me.Tbaddedit.BackColor = System.Drawing.Color.White
@@ -1880,7 +937,7 @@ Partial Class Formrebackfabcolors
         Me.Tbaddedit.Enabled = False
         Me.Tbaddedit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Tbaddedit.ForeColor = System.Drawing.Color.Black
-        Me.Tbaddedit.Location = New System.Drawing.Point(605, 2)
+        Me.Tbaddedit.Location = New System.Drawing.Point(517, 7)
         Me.Tbaddedit.Name = "Tbaddedit"
         Me.Tbaddedit.PreventEnterBeep = True
         Me.Tbaddedit.Size = New System.Drawing.Size(33, 22)
@@ -1890,7 +947,7 @@ Partial Class Formrebackfabcolors
         'Tbkg
         '
         Me.Tbkg.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbkg.Location = New System.Drawing.Point(373, 66)
+        Me.Tbkg.Location = New System.Drawing.Point(373, 71)
         Me.Tbkg.MaxLength = 12
         Me.Tbkg.Name = "Tbkg"
         Me.Tbkg.Size = New System.Drawing.Size(80, 24)
@@ -1905,25 +962,11 @@ Partial Class Formrebackfabcolors
         '
         Me.LabelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX12.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX12.Location = New System.Drawing.Point(461, 66)
+        Me.LabelX12.Location = New System.Drawing.Point(461, 71)
         Me.LabelX12.Name = "LabelX12"
         Me.LabelX12.Size = New System.Drawing.Size(35, 23)
         Me.LabelX12.TabIndex = 112
         Me.LabelX12.Text = "ก.ก."
-        '
-        'LabelX11
-        '
-        Me.LabelX11.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX11.Location = New System.Drawing.Point(12, 66)
-        Me.LabelX11.Name = "LabelX11"
-        Me.LabelX11.Size = New System.Drawing.Size(54, 23)
-        Me.LabelX11.TabIndex = 113
-        Me.LabelX11.Text = "เบอร์กอง"
         '
         'LabelX13
         '
@@ -1933,22 +976,11 @@ Partial Class Formrebackfabcolors
         '
         Me.LabelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX13.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX13.Location = New System.Drawing.Point(323, 65)
+        Me.LabelX13.Location = New System.Drawing.Point(323, 70)
         Me.LabelX13.Name = "LabelX13"
         Me.LabelX13.Size = New System.Drawing.Size(50, 23)
         Me.LabelX13.TabIndex = 111
         Me.LabelX13.Text = "น้ำหนัก"
-        '
-        'Tbwidht
-        '
-        Me.Tbwidht.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Tbwidht.Enabled = False
-        Me.Tbwidht.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbwidht.Location = New System.Drawing.Point(75, 33)
-        Me.Tbwidht.MaxLength = 150
-        Me.Tbwidht.Name = "Tbwidht"
-        Me.Tbwidht.Size = New System.Drawing.Size(103, 24)
-        Me.Tbwidht.TabIndex = 67
         '
         'Btdcancel
         '
@@ -1956,21 +988,11 @@ Partial Class Formrebackfabcolors
         Me.Btdcancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btdcancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Btdcancel.Image = Global.XpressPlus.My.Resources.Resources.Undo
-        Me.Btdcancel.Location = New System.Drawing.Point(678, 34)
+        Me.Btdcancel.Location = New System.Drawing.Point(638, 59)
         Me.Btdcancel.Name = "Btdcancel"
         Me.Btdcancel.Size = New System.Drawing.Size(67, 34)
         Me.Btdcancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
         Me.Btdcancel.TabIndex = 92
-        '
-        'Tbkongno
-        '
-        Me.Tbkongno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Tbkongno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbkongno.Location = New System.Drawing.Point(75, 66)
-        Me.Tbkongno.MaxLength = 80
-        Me.Tbkongno.Name = "Tbkongno"
-        Me.Tbkongno.Size = New System.Drawing.Size(103, 24)
-        Me.Tbkongno.TabIndex = 74
         '
         'Btdadd
         '
@@ -1978,122 +1000,11 @@ Partial Class Formrebackfabcolors
         Me.Btdadd.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btdadd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Btdadd.Image = Global.XpressPlus.My.Resources.Resources.Downarrow
-        Me.Btdadd.Location = New System.Drawing.Point(605, 34)
+        Me.Btdadd.Location = New System.Drawing.Point(565, 59)
         Me.Btdadd.Name = "Btdadd"
         Me.Btdadd.Size = New System.Drawing.Size(67, 34)
         Me.Btdadd.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
         Me.Btdadd.TabIndex = 76
-        '
-        'LabelX10
-        '
-        Me.LabelX10.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX10.Location = New System.Drawing.Point(11, 1)
-        Me.LabelX10.Name = "LabelX10"
-        Me.LabelX10.Size = New System.Drawing.Size(62, 23)
-        Me.LabelX10.TabIndex = 100
-        Me.LabelX10.Text = "เบอร์ผ้า"
-        '
-        'LabelX8
-        '
-        Me.LabelX8.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX8.Location = New System.Drawing.Point(184, 33)
-        Me.LabelX8.Name = "LabelX8"
-        Me.LabelX8.Size = New System.Drawing.Size(50, 23)
-        Me.LabelX8.TabIndex = 107
-        Me.LabelX8.Text = "Shade"
-        '
-        'Tbclothid
-        '
-        Me.Tbclothid.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Tbclothid.Enabled = False
-        Me.Tbclothid.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbclothid.Location = New System.Drawing.Point(75, 1)
-        Me.Tbclothid.MaxLength = 80
-        Me.Tbclothid.Name = "Tbclothid"
-        Me.Tbclothid.Size = New System.Drawing.Size(103, 24)
-        Me.Tbclothid.TabIndex = 101
-        '
-        'Tbshadename
-        '
-        Me.Tbshadename.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Tbshadename.Enabled = False
-        Me.Tbshadename.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbshadename.Location = New System.Drawing.Point(373, 33)
-        Me.Tbshadename.MaxLength = 80
-        Me.Tbshadename.Name = "Tbshadename"
-        Me.Tbshadename.Size = New System.Drawing.Size(135, 24)
-        Me.Tbshadename.TabIndex = 105
-        '
-        'Tbclothno
-        '
-        Me.Tbclothno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Tbclothno.Enabled = False
-        Me.Tbclothno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbclothno.Location = New System.Drawing.Point(242, 1)
-        Me.Tbclothno.MaxLength = 80
-        Me.Tbclothno.Name = "Tbclothno"
-        Me.Tbclothno.Size = New System.Drawing.Size(133, 24)
-        Me.Tbclothno.TabIndex = 103
-        '
-        'Tbclothtype
-        '
-        Me.Tbclothtype.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Tbclothtype.Enabled = False
-        Me.Tbclothtype.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbclothtype.Location = New System.Drawing.Point(432, 1)
-        Me.Tbclothtype.MaxLength = 80
-        Me.Tbclothtype.Name = "Tbclothtype"
-        Me.Tbclothtype.Size = New System.Drawing.Size(151, 24)
-        Me.Tbclothtype.TabIndex = 108
-        '
-        'LabelX7
-        '
-        Me.LabelX7.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX7.Location = New System.Drawing.Point(380, 1)
-        Me.LabelX7.Name = "LabelX7"
-        Me.LabelX7.Size = New System.Drawing.Size(50, 23)
-        Me.LabelX7.TabIndex = 106
-        Me.LabelX7.Text = "ประเภท"
-        '
-        'Tbshadeid
-        '
-        Me.Tbshadeid.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Tbshadeid.Enabled = False
-        Me.Tbshadeid.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbshadeid.Location = New System.Drawing.Point(242, 33)
-        Me.Tbshadeid.MaxLength = 80
-        Me.Tbshadeid.Name = "Tbshadeid"
-        Me.Tbshadeid.Size = New System.Drawing.Size(72, 24)
-        Me.Tbshadeid.TabIndex = 104
-        '
-        'LabelX9
-        '
-        Me.LabelX9.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX9.Location = New System.Drawing.Point(11, 33)
-        Me.LabelX9.Name = "LabelX9"
-        Me.LabelX9.Size = New System.Drawing.Size(62, 23)
-        Me.LabelX9.TabIndex = 109
-        Me.LabelX9.Text = "หน้ากว้าง"
         '
         'GroupPanel1
         '
@@ -2106,7 +1017,7 @@ Partial Class Formrebackfabcolors
         Me.GroupPanel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.GroupPanel1.Location = New System.Drawing.Point(1, 26)
         Me.GroupPanel1.Name = "GroupPanel1"
-        Me.GroupPanel1.Size = New System.Drawing.Size(1006, 126)
+        Me.GroupPanel1.Size = New System.Drawing.Size(1006, 96)
         '
         '
         '
@@ -2150,45 +1061,23 @@ Partial Class Formrebackfabcolors
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1000, 103)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1000, 73)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'Panel2
         '
-        Me.Panel2.Controls.Add(Me.Btfindknittno)
         Me.Panel2.Controls.Add(Me.Btfindbillno)
-        Me.Panel2.Controls.Add(Me.LabelX15)
         Me.Panel2.Controls.Add(Me.Tbdhname)
         Me.Panel2.Controls.Add(Me.Tbdhid)
         Me.Panel2.Controls.Add(Me.Btfinddyedh)
-        Me.Panel2.Controls.Add(Me.Tbmycom)
-        Me.Panel2.Controls.Add(Me.LabelX14)
-        Me.Panel2.Controls.Add(Me.Tbcolorno)
         Me.Panel2.Controls.Add(Me.Tbdyedbillno)
-        Me.Panel2.Controls.Add(Me.Tbrefablotno)
-        Me.Panel2.Controls.Add(Me.LabelX2)
         Me.Panel2.Controls.Add(Me.LabelX4)
-        Me.Panel2.Controls.Add(Me.Tbknittno)
         Me.Panel2.Controls.Add(Me.LabelX5)
-        Me.Panel2.Controls.Add(Me.Coloer)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(3, 3)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(730, 97)
+        Me.Panel2.Size = New System.Drawing.Size(730, 67)
         Me.Panel2.TabIndex = 0
-        '
-        'Btfindknittno
-        '
-        Me.Btfindknittno.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.Btfindknittno.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.Btfindknittno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btfindknittno.Image = Global.XpressPlus.My.Resources.Resources.Find16
-        Me.Btfindknittno.Location = New System.Drawing.Point(504, 31)
-        Me.Btfindknittno.Name = "Btfindknittno"
-        Me.Btfindknittno.Size = New System.Drawing.Size(36, 24)
-        Me.Btfindknittno.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
-        Me.Btfindknittno.TabIndex = 126
-        Me.Btfindknittno.Visible = False
         '
         'Btfindbillno
         '
@@ -2196,25 +1085,11 @@ Partial Class Formrebackfabcolors
         Me.Btfindbillno.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btfindbillno.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Btfindbillno.Image = Global.XpressPlus.My.Resources.Resources.Find16
-        Me.Btfindbillno.Location = New System.Drawing.Point(230, 31)
+        Me.Btfindbillno.Location = New System.Drawing.Point(230, 34)
         Me.Btfindbillno.Name = "Btfindbillno"
         Me.Btfindbillno.Size = New System.Drawing.Size(36, 24)
         Me.Btfindbillno.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
         Me.Btfindbillno.TabIndex = 125
-        '
-        'LabelX15
-        '
-        Me.LabelX15.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX15.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX15.Location = New System.Drawing.Point(273, 33)
-        Me.LabelX15.Name = "LabelX15"
-        Me.LabelX15.Size = New System.Drawing.Size(82, 23)
-        Me.LabelX15.TabIndex = 124
-        Me.LabelX15.Text = "เลขที่บิลผ้าดิบ"
         '
         'Tbdhname
         '
@@ -2250,77 +1125,16 @@ Partial Class Formrebackfabcolors
         Me.Btfinddyedh.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
         Me.Btfinddyedh.TabIndex = 121
         '
-        'Tbmycom
-        '
-        Me.Tbmycom.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Tbmycom.Enabled = False
-        Me.Tbmycom.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Tbmycom.Location = New System.Drawing.Point(614, 2)
-        Me.Tbmycom.MaxLength = 150
-        Me.Tbmycom.Name = "Tbmycom"
-        Me.Tbmycom.Size = New System.Drawing.Size(100, 23)
-        Me.Tbmycom.TabIndex = 119
-        Me.Tbmycom.Visible = False
-        '
-        'LabelX14
-        '
-        Me.LabelX14.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX14.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX14.Location = New System.Drawing.Point(567, 3)
-        Me.LabelX14.Name = "LabelX14"
-        Me.LabelX14.Size = New System.Drawing.Size(38, 23)
-        Me.LabelX14.TabIndex = 120
-        Me.LabelX14.Text = "บริษัท"
-        Me.LabelX14.Visible = False
-        '
-        'Tbcolorno
-        '
-        Me.Tbcolorno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Tbcolorno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Tbcolorno.Location = New System.Drawing.Point(123, 63)
-        Me.Tbcolorno.MaxLength = 80
-        Me.Tbcolorno.Name = "Tbcolorno"
-        Me.Tbcolorno.Size = New System.Drawing.Size(143, 24)
-        Me.Tbcolorno.TabIndex = 71
-        '
         'Tbdyedbillno
         '
         Me.Tbdyedbillno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbdyedbillno.Enabled = False
         Me.Tbdyedbillno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Tbdyedbillno.Location = New System.Drawing.Point(122, 31)
+        Me.Tbdyedbillno.Location = New System.Drawing.Point(122, 34)
         Me.Tbdyedbillno.MaxLength = 150
         Me.Tbdyedbillno.Name = "Tbdyedbillno"
         Me.Tbdyedbillno.Size = New System.Drawing.Size(99, 24)
         Me.Tbdyedbillno.TabIndex = 69
-        '
-        'Tbrefablotno
-        '
-        Me.Tbrefablotno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Tbrefablotno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Tbrefablotno.Location = New System.Drawing.Point(360, 64)
-        Me.Tbrefablotno.MaxLength = 150
-        Me.Tbrefablotno.Name = "Tbrefablotno"
-        Me.Tbrefablotno.Size = New System.Drawing.Size(136, 24)
-        Me.Tbrefablotno.TabIndex = 72
-        '
-        'LabelX2
-        '
-        Me.LabelX2.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX2.Location = New System.Drawing.Point(274, 64)
-        Me.LabelX2.Name = "LabelX2"
-        Me.LabelX2.Size = New System.Drawing.Size(61, 23)
-        Me.LabelX2.TabIndex = 45
-        Me.LabelX2.Text = "Lot No."
         '
         'LabelX4
         '
@@ -2334,17 +1148,7 @@ Partial Class Formrebackfabcolors
         Me.LabelX4.Name = "LabelX4"
         Me.LabelX4.Size = New System.Drawing.Size(62, 23)
         Me.LabelX4.TabIndex = 68
-        Me.LabelX4.Text = "โรงย้อม"
-        '
-        'Tbknittno
-        '
-        Me.Tbknittno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Tbknittno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Tbknittno.Location = New System.Drawing.Point(360, 31)
-        Me.Tbknittno.MaxLength = 150
-        Me.Tbknittno.Name = "Tbknittno"
-        Me.Tbknittno.Size = New System.Drawing.Size(136, 24)
-        Me.Tbknittno.TabIndex = 70
+        Me.LabelX4.Text = "ลูกค้า"
         '
         'LabelX5
         '
@@ -2354,25 +1158,11 @@ Partial Class Formrebackfabcolors
         '
         Me.LabelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX5.Location = New System.Drawing.Point(8, 34)
+        Me.LabelX5.Location = New System.Drawing.Point(8, 37)
         Me.LabelX5.Name = "LabelX5"
         Me.LabelX5.Size = New System.Drawing.Size(86, 23)
         Me.LabelX5.TabIndex = 65
-        Me.LabelX5.Text = "เลขที่ใบส่งผ้าสี"
-        '
-        'Coloer
-        '
-        Me.Coloer.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.Coloer.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.Coloer.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Coloer.Location = New System.Drawing.Point(8, 65)
-        Me.Coloer.Name = "Coloer"
-        Me.Coloer.Size = New System.Drawing.Size(116, 23)
-        Me.Coloer.TabIndex = 66
-        Me.Coloer.Text = "เบอร์สีของโรงย้อม"
+        Me.LabelX5.Text = "เลขที่ใบขาย"
         '
         'Panel3
         '
@@ -2383,7 +1173,7 @@ Partial Class Formrebackfabcolors
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(739, 3)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(258, 97)
+        Me.Panel3.Size = New System.Drawing.Size(258, 67)
         Me.Panel3.TabIndex = 1
         '
         'LabelX19
@@ -2526,6 +1316,528 @@ Partial Class Formrebackfabcolors
         Me.TabItem1.Name = "TabItem1"
         Me.TabItem1.Text = "รายละเอียด"
         '
+        'TabControlPanel2
+        '
+        Me.TabControlPanel2.Controls.Add(Me.ContextMenuBar1)
+        Me.TabControlPanel2.Controls.Add(Me.Dgvlist)
+        Me.TabControlPanel2.Controls.Add(Me.ToolStrip5)
+        Me.TabControlPanel2.Controls.Add(Me.ToolStrip4)
+        Me.TabControlPanel2.DisabledBackColor = System.Drawing.Color.Empty
+        Me.TabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControlPanel2.Location = New System.Drawing.Point(0, 26)
+        Me.TabControlPanel2.Name = "TabControlPanel2"
+        Me.TabControlPanel2.Padding = New System.Windows.Forms.Padding(1)
+        Me.TabControlPanel2.Size = New System.Drawing.Size(1008, 654)
+        Me.TabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(179, Byte), Integer), CType(CType(231, Byte), Integer))
+        Me.TabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(CType(CType(223, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.TabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
+        Me.TabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(156, Byte), Integer))
+        Me.TabControlPanel2.Style.BorderSide = CType(((DevComponents.DotNetBar.eBorderSide.Left Or DevComponents.DotNetBar.eBorderSide.Right) _
+            Or DevComponents.DotNetBar.eBorderSide.Bottom), DevComponents.DotNetBar.eBorderSide)
+        Me.TabControlPanel2.Style.GradientAngle = 90
+        Me.TabControlPanel2.TabIndex = 5
+        Me.TabControlPanel2.TabItem = Me.TabItem2
+        '
+        'ContextMenuBar1
+        '
+        Me.ContextMenuBar1.DockSide = DevComponents.DotNetBar.eDockSide.Document
+        Me.ContextMenuBar1.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ContextMenuBar1.IsMaximized = False
+        Me.ContextMenuBar1.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.Ctmmenugrid})
+        Me.ContextMenuBar1.Location = New System.Drawing.Point(463, 316)
+        Me.ContextMenuBar1.Name = "ContextMenuBar1"
+        Me.ContextMenuBar1.Size = New System.Drawing.Size(84, 25)
+        Me.ContextMenuBar1.Stretch = True
+        Me.ContextMenuBar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.ContextMenuBar1.TabIndex = 70
+        Me.ContextMenuBar1.TabStop = False
+        '
+        'Ctmmenugrid
+        '
+        Me.Ctmmenugrid.AutoExpandOnClick = True
+        Me.Ctmmenugrid.GlobalName = "bEditPopup"
+        Me.Ctmmenugrid.Name = "Ctmmenugrid"
+        Me.Ctmmenugrid.PopupAnimation = DevComponents.DotNetBar.ePopupAnimation.SystemDefault
+        Me.Ctmmenugrid.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.Ctmledit, Me.Ctmtransaction})
+        Me.Ctmmenugrid.Text = "EditGrid"
+        '
+        'Ctmledit
+        '
+        Me.Ctmledit.BeginGroup = True
+        Me.Ctmledit.Name = "Ctmledit"
+        Me.Ctmledit.Text = "เลือกรายการ"
+        '
+        'Ctmtransaction
+        '
+        Me.Ctmtransaction.Name = "Ctmtransaction"
+        Me.Ctmtransaction.Text = "ดูใบสั่งย้อม"
+        '
+        'Dgvlist
+        '
+        Me.Dgvlist.AllowUserToAddRows = False
+        Me.Dgvlist.AllowUserToDeleteRows = False
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgvlist.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
+        Me.Dgvlist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Dgvlist.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Status, Me.LComid, Me.Rbid, Me.Docref, Me.Custid, Me.Custname, Me.Sumroll, Me.Sumwgt, Me.Sumprice, Me.Remark, Me.Indate})
+        Me.Dgvlist.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Dgvlist.Location = New System.Drawing.Point(1, 50)
+        Me.Dgvlist.Name = "Dgvlist"
+        Me.Dgvlist.ReadOnly = True
+        Me.Dgvlist.Size = New System.Drawing.Size(1006, 564)
+        Me.Dgvlist.TabIndex = 68
+        '
+        'Status
+        '
+        Me.Status.DataPropertyName = "Stat"
+        Me.Status.HeaderText = ""
+        Me.Status.Name = "Status"
+        Me.Status.ReadOnly = True
+        Me.Status.Width = 20
+        '
+        'LComid
+        '
+        Me.LComid.DataPropertyName = "Comid"
+        Me.LComid.HeaderText = "Comid"
+        Me.LComid.Name = "LComid"
+        Me.LComid.ReadOnly = True
+        Me.LComid.Visible = False
+        '
+        'Rbid
+        '
+        Me.Rbid.DataPropertyName = "Rbid"
+        Me.Rbid.HeaderText = "เลขที่ใบรับคืน"
+        Me.Rbid.Name = "Rbid"
+        Me.Rbid.ReadOnly = True
+        Me.Rbid.Width = 120
+        '
+        'Docref
+        '
+        Me.Docref.DataPropertyName = "Docref"
+        Me.Docref.HeaderText = "เลขที่ใบขาย"
+        Me.Docref.Name = "Docref"
+        Me.Docref.ReadOnly = True
+        Me.Docref.Width = 120
+        '
+        'Custid
+        '
+        Me.Custid.DataPropertyName = "Custid"
+        Me.Custid.HeaderText = "รหัสลูกค้า"
+        Me.Custid.Name = "Custid"
+        Me.Custid.ReadOnly = True
+        Me.Custid.Visible = False
+        '
+        'Custname
+        '
+        Me.Custname.DataPropertyName = "Custname"
+        Me.Custname.HeaderText = "ชื่อลูกค้า"
+        Me.Custname.Name = "Custname"
+        Me.Custname.ReadOnly = True
+        '
+        'Sumroll
+        '
+        Me.Sumroll.DataPropertyName = "Sumroll"
+        Me.Sumroll.HeaderText = "จำนวนพับ"
+        Me.Sumroll.Name = "Sumroll"
+        Me.Sumroll.ReadOnly = True
+        '
+        'Sumwgt
+        '
+        Me.Sumwgt.DataPropertyName = "Sumwgt"
+        Me.Sumwgt.HeaderText = "น้ำหนักรวม"
+        Me.Sumwgt.Name = "Sumwgt"
+        Me.Sumwgt.ReadOnly = True
+        '
+        'Sumprice
+        '
+        Me.Sumprice.DataPropertyName = "Sumprice"
+        Me.Sumprice.HeaderText = "ราคารวม"
+        Me.Sumprice.Name = "Sumprice"
+        Me.Sumprice.ReadOnly = True
+        '
+        'Remark
+        '
+        Me.Remark.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Remark.DataPropertyName = "Remark"
+        Me.Remark.HeaderText = "หมายเหตุ"
+        Me.Remark.Name = "Remark"
+        Me.Remark.ReadOnly = True
+        '
+        'Indate
+        '
+        Me.Indate.DataPropertyName = "Indate"
+        Me.Indate.HeaderText = "Indate"
+        Me.Indate.Name = "Indate"
+        Me.Indate.ReadOnly = True
+        Me.Indate.Visible = False
+        '
+        'ToolStrip5
+        '
+        Me.ToolStrip5.BackColor = System.Drawing.Color.Transparent
+        Me.ToolStrip5.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.ToolStrip5.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btfirst, Me.Btprev, Me.Tbpage, Me.Btnext, Me.Btlast, Me.Tbrecord})
+        Me.ToolStrip5.Location = New System.Drawing.Point(1, 614)
+        Me.ToolStrip5.Name = "ToolStrip5"
+        Me.ToolStrip5.Size = New System.Drawing.Size(1006, 39)
+        Me.ToolStrip5.TabIndex = 67
+        Me.ToolStrip5.Text = "ToolStrip5"
+        '
+        'Btfirst
+        '
+        Me.Btfirst.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btfirst.Image = Global.XpressPlus.My.Resources.Resources.Firsticon
+        Me.Btfirst.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.Btfirst.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Btfirst.Name = "Btfirst"
+        Me.Btfirst.Size = New System.Drawing.Size(50, 36)
+        Me.Btfirst.Text = "หน้าแรก"
+        Me.Btfirst.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'Btprev
+        '
+        Me.Btprev.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btprev.Image = Global.XpressPlus.My.Resources.Resources.Lefticon
+        Me.Btprev.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.Btprev.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Btprev.Name = "Btprev"
+        Me.Btprev.Size = New System.Drawing.Size(51, 36)
+        Me.Btprev.Text = "ก่อนหน้า"
+        Me.Btprev.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'Tbpage
+        '
+        Me.Tbpage.Enabled = False
+        Me.Tbpage.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tbpage.Name = "Tbpage"
+        Me.Tbpage.Size = New System.Drawing.Size(120, 39)
+        Me.Tbpage.Text = "หน้า 0/0"
+        '
+        'Btnext
+        '
+        Me.Btnext.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btnext.Image = Global.XpressPlus.My.Resources.Resources.Righticon
+        Me.Btnext.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.Btnext.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Btnext.Name = "Btnext"
+        Me.Btnext.Size = New System.Drawing.Size(37, 36)
+        Me.Btnext.Text = "ถัดไป"
+        Me.Btnext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'Btlast
+        '
+        Me.Btlast.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btlast.Image = Global.XpressPlus.My.Resources.Resources.Lasticon
+        Me.Btlast.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.Btlast.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Btlast.Name = "Btlast"
+        Me.Btlast.Size = New System.Drawing.Size(45, 36)
+        Me.Btlast.Text = "สุดท้าย"
+        Me.Btlast.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'Tbrecord
+        '
+        Me.Tbrecord.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Tbrecord.Enabled = False
+        Me.Tbrecord.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tbrecord.Name = "Tbrecord"
+        Me.Tbrecord.Size = New System.Drawing.Size(200, 39)
+        Me.Tbrecord.Text = "แสดง 0 รายการ จาก 0 รายการ"
+        Me.Tbrecord.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'ToolStrip4
+        '
+        Me.ToolStrip4.BackColor = System.Drawing.Color.Transparent
+        Me.ToolStrip4.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btrefresh, Me.Btlistfind, Me.Tstbkeyword, Me.Tscboth, Me.ToolStripLabel4, Me.Tscbdate, Me.ToolStripLabel3})
+        Me.ToolStrip4.Location = New System.Drawing.Point(1, 1)
+        Me.ToolStrip4.Name = "ToolStrip4"
+        Me.ToolStrip4.Size = New System.Drawing.Size(1006, 49)
+        Me.ToolStrip4.TabIndex = 66
+        Me.ToolStrip4.Text = "ToolStrip4"
+        '
+        'Btrefresh
+        '
+        Me.Btrefresh.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Btrefresh.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btrefresh.Image = Global.XpressPlus.My.Resources.Resources.Updated
+        Me.Btrefresh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.Btrefresh.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Btrefresh.Name = "Btrefresh"
+        Me.Btrefresh.Size = New System.Drawing.Size(71, 46)
+        Me.Btrefresh.Text = "Refresh"
+        Me.Btrefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.Btrefresh.Visible = False
+        '
+        'Btlistfind
+        '
+        Me.Btlistfind.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Btlistfind.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btlistfind.Image = Global.XpressPlus.My.Resources.Resources.Findicon
+        Me.Btlistfind.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.Btlistfind.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Btlistfind.Name = "Btlistfind"
+        Me.Btlistfind.Size = New System.Drawing.Size(48, 46)
+        Me.Btlistfind.Text = "ค้นหา"
+        Me.Btlistfind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'Tstbkeyword
+        '
+        Me.Tstbkeyword.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Tstbkeyword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Tstbkeyword.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tstbkeyword.Name = "Tstbkeyword"
+        Me.Tstbkeyword.Size = New System.Drawing.Size(120, 49)
+        '
+        'ToolStripLabel4
+        '
+        Me.ToolStripLabel4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.ToolStripLabel4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripLabel4.Name = "ToolStripLabel4"
+        Me.ToolStripLabel4.Size = New System.Drawing.Size(24, 46)
+        Me.ToolStripLabel4.Text = "ถึง"
+        '
+        'ToolStripLabel3
+        '
+        Me.ToolStripLabel3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.ToolStripLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripLabel3.Name = "ToolStripLabel3"
+        Me.ToolStripLabel3.Size = New System.Drawing.Size(68, 46)
+        Me.ToolStripLabel3.Text = "ค้นหาจาก"
+        '
+        'TabItem2
+        '
+        Me.TabItem2.AttachedControl = Me.TabControlPanel2
+        Me.TabItem2.Name = "TabItem2"
+        Me.TabItem2.Text = "รับผ้าคืนจากลูกค้า"
+        '
+        'Mainmake
+        '
+        Me.Mainmake.BeginGroup = True
+        Me.Mainmake.Name = "Mainmake"
+        Me.Mainmake.Text = "สร้างใบรับผ้าสี"
+        '
+        'Maintransaction
+        '
+        Me.Maintransaction.Name = "Maintransaction"
+        Me.Maintransaction.Text = "ดูใบสั่งย้อม"
+        '
+        'Tscboth
+        '
+        Me.Tscboth.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Tscboth.BackColor = System.Drawing.Color.Transparent
+        Me.Tscboth.Checked = True
+        Me.Tscboth.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tscboth.Name = "Tscboth"
+        Me.Tscboth.Size = New System.Drawing.Size(55, 46)
+        Me.Tscboth.Text = "อื่นๆ"
+        Me.Tscboth.ToolStripCheckBoxEnabled = True
+        '
+        'Tscbdate
+        '
+        Me.Tscbdate.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Tscbdate.BackColor = System.Drawing.Color.Transparent
+        Me.Tscbdate.Checked = False
+        Me.Tscbdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tscbdate.Name = "Tscbdate"
+        Me.Tscbdate.Size = New System.Drawing.Size(55, 46)
+        Me.Tscbdate.Text = "วันที่"
+        Me.Tscbdate.ToolStripCheckBoxEnabled = True
+        '
+        'LabelX16
+        '
+        Me.LabelX16.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX16.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX16.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.LabelX16.Location = New System.Drawing.Point(186, 71)
+        Me.LabelX16.Name = "LabelX16"
+        Me.LabelX16.Size = New System.Drawing.Size(54, 23)
+        Me.LabelX16.TabIndex = 118
+        Me.LabelX16.Text = "เบอร์พับ"
+        '
+        'LabelX7
+        '
+        Me.LabelX7.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.LabelX7.Location = New System.Drawing.Point(321, 6)
+        Me.LabelX7.Name = "LabelX7"
+        Me.LabelX7.Size = New System.Drawing.Size(50, 23)
+        Me.LabelX7.TabIndex = 106
+        Me.LabelX7.Text = "ประเภท"
+        '
+        'Tbrollid
+        '
+        Me.Tbrollid.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbrollid.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
+        Me.Tbrollid.Location = New System.Drawing.Point(242, 69)
+        Me.Tbrollid.MaxLength = 10
+        Me.Tbrollid.Name = "Tbrollid"
+        Me.Tbrollid.Size = New System.Drawing.Size(72, 24)
+        Me.Tbrollid.TabIndex = 143
+        Me.Tbrollid.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Tbkongno
+        '
+        Me.Tbkongno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbkongno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tbkongno.Location = New System.Drawing.Point(75, 71)
+        Me.Tbkongno.MaxLength = 80
+        Me.Tbkongno.Name = "Tbkongno"
+        Me.Tbkongno.Size = New System.Drawing.Size(103, 24)
+        Me.Tbkongno.TabIndex = 74
+        '
+        'LabelX11
+        '
+        Me.LabelX11.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.LabelX11.Location = New System.Drawing.Point(12, 71)
+        Me.LabelX11.Name = "LabelX11"
+        Me.LabelX11.Size = New System.Drawing.Size(54, 23)
+        Me.LabelX11.TabIndex = 113
+        Me.LabelX11.Text = "เบอร์กอง"
+        '
+        'DemoCode
+        '
+        Me.DemoCode.BackColor = System.Drawing.Color.White
+        '
+        '
+        '
+        Me.DemoCode.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.DemoCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.DemoCode.ForeColor = System.Drawing.Color.Gray
+        Me.DemoCode.Location = New System.Drawing.Point(461, 38)
+        Me.DemoCode.Name = "DemoCode"
+        Me.DemoCode.SingleLineColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.DemoCode.Size = New System.Drawing.Size(88, 23)
+        Me.DemoCode.SymbolColor = System.Drawing.Color.Black
+        Me.DemoCode.SymbolSet = DevComponents.DotNetBar.eSymbolSet.Material
+        Me.DemoCode.TabIndex = 140
+        Me.DemoCode.Text = "สีตัวอย่าง"
+        Me.DemoCode.TextAlignment = System.Drawing.StringAlignment.Center
+        '
+        'Tbshadename
+        '
+        Me.Tbshadename.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbshadename.Enabled = False
+        Me.Tbshadename.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tbshadename.Location = New System.Drawing.Point(322, 38)
+        Me.Tbshadename.MaxLength = 80
+        Me.Tbshadename.Name = "Tbshadename"
+        Me.Tbshadename.Size = New System.Drawing.Size(131, 24)
+        Me.Tbshadename.TabIndex = 105
+        '
+        'Tbshadeid
+        '
+        Me.Tbshadeid.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbshadeid.Enabled = False
+        Me.Tbshadeid.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tbshadeid.Location = New System.Drawing.Point(242, 38)
+        Me.Tbshadeid.MaxLength = 80
+        Me.Tbshadeid.Name = "Tbshadeid"
+        Me.Tbshadeid.Size = New System.Drawing.Size(72, 24)
+        Me.Tbshadeid.TabIndex = 104
+        '
+        'LabelX8
+        '
+        Me.LabelX8.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.LabelX8.Location = New System.Drawing.Point(184, 38)
+        Me.LabelX8.Name = "LabelX8"
+        Me.LabelX8.Size = New System.Drawing.Size(50, 23)
+        Me.LabelX8.TabIndex = 107
+        Me.LabelX8.Text = "Shade"
+        '
+        'Tbwidht
+        '
+        Me.Tbwidht.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbwidht.Enabled = False
+        Me.Tbwidht.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tbwidht.Location = New System.Drawing.Point(75, 38)
+        Me.Tbwidht.MaxLength = 150
+        Me.Tbwidht.Name = "Tbwidht"
+        Me.Tbwidht.Size = New System.Drawing.Size(103, 24)
+        Me.Tbwidht.TabIndex = 67
+        '
+        'LabelX9
+        '
+        Me.LabelX9.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.LabelX9.Location = New System.Drawing.Point(11, 38)
+        Me.LabelX9.Name = "LabelX9"
+        Me.LabelX9.Size = New System.Drawing.Size(62, 23)
+        Me.LabelX9.TabIndex = 109
+        Me.LabelX9.Text = "หน้ากว้าง"
+        '
+        'Tbclothtype
+        '
+        Me.Tbclothtype.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbclothtype.Enabled = False
+        Me.Tbclothtype.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tbclothtype.Location = New System.Drawing.Point(373, 6)
+        Me.Tbclothtype.MaxLength = 80
+        Me.Tbclothtype.Name = "Tbclothtype"
+        Me.Tbclothtype.Size = New System.Drawing.Size(135, 24)
+        Me.Tbclothtype.TabIndex = 108
+        '
+        'Tbclothno
+        '
+        Me.Tbclothno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbclothno.Enabled = False
+        Me.Tbclothno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tbclothno.Location = New System.Drawing.Point(186, 6)
+        Me.Tbclothno.MaxLength = 80
+        Me.Tbclothno.Name = "Tbclothno"
+        Me.Tbclothno.Size = New System.Drawing.Size(128, 24)
+        Me.Tbclothno.TabIndex = 103
+        '
+        'LabelX10
+        '
+        Me.LabelX10.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.LabelX10.Location = New System.Drawing.Point(11, 6)
+        Me.LabelX10.Name = "LabelX10"
+        Me.LabelX10.Size = New System.Drawing.Size(62, 23)
+        Me.LabelX10.TabIndex = 100
+        Me.LabelX10.Text = "เบอร์ผ้า"
+        '
+        'Tbclothid
+        '
+        Me.Tbclothid.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbclothid.Enabled = False
+        Me.Tbclothid.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tbclothid.Location = New System.Drawing.Point(75, 6)
+        Me.Tbclothid.MaxLength = 80
+        Me.Tbclothid.Name = "Tbclothid"
+        Me.Tbclothid.Size = New System.Drawing.Size(103, 24)
+        Me.Tbclothid.TabIndex = 101
+        '
         'Formrebackfabcolors
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2541,31 +1853,10 @@ Partial Class Formrebackfabcolors
         Me.ToolStrip1.PerformLayout()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
-        Me.TabControlPanel2.ResumeLayout(False)
-        Me.TabControlPanel2.PerformLayout()
-        CType(Me.ContextMenuBar1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Dgvlist, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ToolStrip5.ResumeLayout(False)
-        Me.ToolStrip5.PerformLayout()
-        Me.ToolStrip4.ResumeLayout(False)
-        Me.ToolStrip4.PerformLayout()
-        Me.TabControlPanel3.ResumeLayout(False)
-        Me.TabControlPanel3.PerformLayout()
-        CType(Me.ContextMenuBar3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Balance, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FilterAllyed, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Filterfab, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Allyed, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Allfab, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ToolStrip2.ResumeLayout(False)
-        Me.ToolStrip2.PerformLayout()
-        Me.ToolStrip7.ResumeLayout(False)
-        Me.ToolStrip7.PerformLayout()
         Me.TabControlPanel1.ResumeLayout(False)
         Me.TabControlPanel1.PerformLayout()
         Me.GroupPanel3.ResumeLayout(False)
         Me.GroupPanel3.PerformLayout()
-        CType(Me.Countfabric, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ContextMenuBar2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Dgvmas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip6.ResumeLayout(False)
@@ -2586,6 +1877,14 @@ Partial Class Formrebackfabcolors
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BindingNavigator1.ResumeLayout(False)
         Me.BindingNavigator1.PerformLayout()
+        Me.TabControlPanel2.ResumeLayout(False)
+        Me.TabControlPanel2.PerformLayout()
+        CType(Me.ContextMenuBar1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Dgvlist, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ToolStrip5.ResumeLayout(False)
+        Me.ToolStrip5.PerformLayout()
+        Me.ToolStrip4.ResumeLayout(False)
+        Me.ToolStrip4.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2599,96 +1898,19 @@ Partial Class Formrebackfabcolors
     Friend WithEvents Btmsave As ToolStripButton
     Friend WithEvents Btmdel As ToolStripButton
     Friend WithEvents Btmedit As ToolStripButton
-    Friend WithEvents BtmnewOld As ToolStripButton
     Friend WithEvents Btmnew As ToolStripButton
     Friend WithEvents Tstbdocpreid As ToolStripTextBox
     Friend WithEvents Tstbdocpre As ToolStripTextBox
     Friend WithEvents TabControl1 As DevComponents.DotNetBar.TabControl
-    Friend WithEvents TabControlPanel3 As DevComponents.DotNetBar.TabControlPanel
-    Friend WithEvents ContextMenuBar3 As DevComponents.DotNetBar.ContextMenuBar
-    Friend WithEvents CtmBalance As DevComponents.DotNetBar.ButtonItem
     Friend WithEvents Mainmake As DevComponents.DotNetBar.ButtonItem
     Friend WithEvents Maintransaction As DevComponents.DotNetBar.ButtonItem
-    Friend WithEvents Balance As DataGridView
-    Friend WithEvents Stat As DataGridViewTextBoxColumn
-    Friend WithEvents BDyedcomno As DataGridViewTextBoxColumn
-    Friend WithEvents BClothidyed As DataGridViewTextBoxColumn
-    Friend WithEvents BClothnoyed As DataGridViewTextBoxColumn
-    Friend WithEvents BFtypeyed As DataGridViewTextBoxColumn
-    Friend WithEvents BFwidthyed As DataGridViewTextBoxColumn
-    Friend WithEvents BQtykg As DataGridViewTextBoxColumn
-    Friend WithEvents BShadedesc As DataGridViewTextBoxColumn
-    Friend WithEvents BQtyroll As DataGridViewTextBoxColumn
-    Friend WithEvents BShadeid As DataGridViewTextBoxColumn
-    Friend WithEvents FilterAllyed As DataGridView
-    Friend WithEvents Dyedcomno As DataGridViewTextBoxColumn
-    Friend WithEvents Clothidyed As DataGridViewTextBoxColumn
-    Friend WithEvents Clothnoyed As DataGridViewTextBoxColumn
-    Friend WithEvents Ftypeyed As DataGridViewTextBoxColumn
-    Friend WithEvents Fwidthyed As DataGridViewTextBoxColumn
-    Friend WithEvents Qtykg As DataGridViewTextBoxColumn
-    Friend WithEvents Qtyroll As DataGridViewTextBoxColumn
-    Friend WithEvents Knittcomid As DataGridViewTextBoxColumn
-    Friend WithEvents Knittbill As DataGridViewTextBoxColumn
-    Friend WithEvents FShadeid As DataGridViewTextBoxColumn
-    Friend WithEvents FShadedesc As DataGridViewTextBoxColumn
-    Friend WithEvents Filterfab As DataGridView
-    Friend WithEvents FBilldyedno As DataGridViewTextBoxColumn
-    Friend WithEvents FClothid As DataGridViewTextBoxColumn
-    Friend WithEvents Clothno As DataGridViewTextBoxColumn
-    Friend WithEvents Ftype As DataGridViewTextBoxColumn
-    Friend WithEvents Fwidth As DataGridViewTextBoxColumn
-    Friend WithEvents FterShadeid As DataGridViewTextBoxColumn
-    Friend WithEvents FRollwage As DataGridViewTextBoxColumn
-    Friend WithEvents Qtyrollfab As DataGridViewTextBoxColumn
-    Friend WithEvents Allyed As DataGridView
-    Friend WithEvents Allfab As DataGridView
-    Friend WithEvents ToolStrip2 As ToolStrip
-    Friend WithEvents ToolStripButton1 As ToolStripButton
-    Friend WithEvents ToolStripButton2 As ToolStripButton
-    Friend WithEvents ToolStripTextBox1 As ToolStripTextBox
-    Friend WithEvents ToolStripButton3 As ToolStripButton
-    Friend WithEvents ToolStripButton4 As ToolStripButton
-    Friend WithEvents ToolStripTextBox2 As ToolStripTextBox
-    Friend WithEvents ToolStrip7 As ToolStrip
-    Friend WithEvents ToolStripButton5 As ToolStripButton
-    Friend WithEvents Balancefind As ToolStripButton
-    Friend WithEvents ToolStripTextBox3 As ToolStripTextBox
-    Friend WithEvents ToolStripLabel6 As ToolStripLabel
-    Friend WithEvents TabItem3 As DevComponents.DotNetBar.TabItem
     Friend WithEvents TabControlPanel1 As DevComponents.DotNetBar.TabControlPanel
     Friend WithEvents GroupPanel3 As DevComponents.DotNetBar.Controls.GroupPanel
-    Friend WithEvents Countfabric As DataGridView
-    Friend WithEvents Cclothno As DataGridViewTextBoxColumn
-    Friend WithEvents Cclothtype As DataGridViewTextBoxColumn
-    Friend WithEvents CDwidth As DataGridViewTextBoxColumn
-    Friend WithEvents CShadeid As DataGridViewTextBoxColumn
-    Friend WithEvents CShadedesc As DataGridViewTextBoxColumn
-    Friend WithEvents Count As DataGridViewTextBoxColumn
-    Friend WithEvents CRollwage As DataGridViewTextBoxColumn
     Friend WithEvents ContextMenuBar2 As DevComponents.DotNetBar.ContextMenuBar
     Friend WithEvents Ctmmenudetgrid As DevComponents.DotNetBar.ButtonItem
     Friend WithEvents Ctdedit As DevComponents.DotNetBar.ButtonItem
     Friend WithEvents Ctddel As DevComponents.DotNetBar.ButtonItem
     Friend WithEvents Dgvmas As DataGridView
-    Friend WithEvents Mstat As DataGridViewTextBoxColumn
-    Friend WithEvents Mkong As DataGridViewTextBoxColumn
-    Friend WithEvents rollid As DataGridViewTextBoxColumn
-    Friend WithEvents Mcomid As DataGridViewTextBoxColumn
-    Friend WithEvents Order As DataGridViewTextBoxColumn
-    Friend WithEvents Dhid As DataGridViewTextBoxColumn
-    Friend WithEvents Mdyedhdesc As DataGridViewTextBoxColumn
-    Friend WithEvents Billdyedno As DataGridViewTextBoxColumn
-    Friend WithEvents Lotno As DataGridViewTextBoxColumn
-    Friend WithEvents Clothid As DataGridViewTextBoxColumn
-    Friend WithEvents Mclothno As DataGridViewTextBoxColumn
-    Friend WithEvents Clothtype As DataGridViewTextBoxColumn
-    Friend WithEvents Dwidth As DataGridViewTextBoxColumn
-    Friend WithEvents Shadeid As DataGridViewTextBoxColumn
-    Friend WithEvents Shadedesc As DataGridViewTextBoxColumn
-    Friend WithEvents Rollwage As DataGridViewTextBoxColumn
-    Friend WithEvents Instk As DataGridViewTextBoxColumn
-    Friend WithEvents News As DataGridViewTextBoxColumn
     Friend WithEvents ToolStrip6 As ToolStrip
     Friend WithEvents Tstbsumkg As ToolStripTextBox
     Friend WithEvents ToolStripLabel2 As ToolStripLabel
@@ -2705,52 +1927,26 @@ Partial Class Formrebackfabcolors
     Friend WithEvents Tsbwsave As ToolStripLabel
     Friend WithEvents Btdbadd As ToolStripButton
     Friend WithEvents GroupPanel2 As DevComponents.DotNetBar.Controls.GroupPanel
-    Friend WithEvents FindShade As DevComponents.DotNetBar.ButtonX
-    Friend WithEvents Tbrollid As Inttextbox.Inttextbox
-    Friend WithEvents DemoCode As DevComponents.DotNetBar.LabelX
     Friend WithEvents LabelX17 As DevComponents.DotNetBar.LabelX
     Friend WithEvents AllQtyroll As Normtextbox.Normtextbox
     Friend WithEvents AllQtykg As Dectextbox.Dectextbox
     Friend WithEvents LabelX18 As DevComponents.DotNetBar.LabelX
-    Friend WithEvents LabelX16 As DevComponents.DotNetBar.LabelX
-    Friend WithEvents Btfindknitid As DevComponents.DotNetBar.ButtonX
     Friend WithEvents Tbaddedit As DevComponents.DotNetBar.Controls.TextBoxX
     Friend WithEvents Tbkg As Dectextbox.Dectextbox
     Friend WithEvents LabelX12 As DevComponents.DotNetBar.LabelX
-    Friend WithEvents LabelX11 As DevComponents.DotNetBar.LabelX
     Friend WithEvents LabelX13 As DevComponents.DotNetBar.LabelX
-    Friend WithEvents Tbwidht As Normtextbox.Normtextbox
     Friend WithEvents Btdcancel As DevComponents.DotNetBar.ButtonX
-    Friend WithEvents Tbkongno As Normtextbox.Normtextbox
     Friend WithEvents Btdadd As DevComponents.DotNetBar.ButtonX
-    Friend WithEvents LabelX10 As DevComponents.DotNetBar.LabelX
-    Friend WithEvents LabelX8 As DevComponents.DotNetBar.LabelX
-    Friend WithEvents Tbclothid As Normtextbox.Normtextbox
-    Friend WithEvents Tbshadename As Normtextbox.Normtextbox
-    Friend WithEvents Tbclothno As Normtextbox.Normtextbox
-    Friend WithEvents Tbclothtype As Normtextbox.Normtextbox
-    Friend WithEvents LabelX7 As DevComponents.DotNetBar.LabelX
-    Friend WithEvents Tbshadeid As Normtextbox.Normtextbox
-    Friend WithEvents LabelX9 As DevComponents.DotNetBar.LabelX
     Friend WithEvents GroupPanel1 As DevComponents.DotNetBar.Controls.GroupPanel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents Btfindknittno As DevComponents.DotNetBar.ButtonX
     Friend WithEvents Btfindbillno As DevComponents.DotNetBar.ButtonX
-    Friend WithEvents LabelX15 As DevComponents.DotNetBar.LabelX
     Friend WithEvents Tbdhname As Normtextbox.Normtextbox
     Friend WithEvents Tbdhid As Normtextbox.Normtextbox
     Friend WithEvents Btfinddyedh As DevComponents.DotNetBar.ButtonX
-    Friend WithEvents Tbmycom As Normtextbox.Normtextbox
-    Friend WithEvents LabelX14 As DevComponents.DotNetBar.LabelX
-    Friend WithEvents Tbcolorno As Normtextbox.Normtextbox
     Friend WithEvents Tbdyedbillno As Normtextbox.Normtextbox
-    Friend WithEvents Tbrefablotno As Normtextbox.Normtextbox
-    Friend WithEvents LabelX2 As DevComponents.DotNetBar.LabelX
     Friend WithEvents LabelX4 As DevComponents.DotNetBar.LabelX
-    Friend WithEvents Tbknittno As Normtextbox.Normtextbox
     Friend WithEvents LabelX5 As DevComponents.DotNetBar.LabelX
-    Friend WithEvents Coloer As DevComponents.DotNetBar.LabelX
     Friend WithEvents Panel3 As Panel
     Friend WithEvents LabelX19 As DevComponents.DotNetBar.LabelX
     Friend WithEvents Tbdyedcomno As Normtextbox.Normtextbox
@@ -2773,17 +1969,6 @@ Partial Class Formrebackfabcolors
     Friend WithEvents Ctmledit As DevComponents.DotNetBar.ButtonItem
     Friend WithEvents Ctmtransaction As DevComponents.DotNetBar.ButtonItem
     Friend WithEvents Dgvlist As DataGridView
-    Friend WithEvents Status As DataGridViewTextBoxColumn
-    Friend WithEvents Lrecdate As DataGridViewTextBoxColumn
-    Friend WithEvents LComid As DataGridViewTextBoxColumn
-    Friend WithEvents Reid As DataGridViewTextBoxColumn
-    Friend WithEvents Ldhid As DataGridViewTextBoxColumn
-    Friend WithEvents Ldyedhdesc As DataGridViewTextBoxColumn
-    Friend WithEvents Lbilldyedno As DataGridViewTextBoxColumn
-    Friend WithEvents Lbillknitt As DataGridViewTextBoxColumn
-    Friend WithEvents Dlotno As DataGridViewTextBoxColumn
-    Friend WithEvents Ldyedcolor As DataGridViewTextBoxColumn
-    Friend WithEvents Ldremark As DataGridViewTextBoxColumn
     Friend WithEvents ToolStrip5 As ToolStrip
     Friend WithEvents Btfirst As ToolStripButton
     Friend WithEvents Btprev As ToolStripButton
@@ -2800,4 +1985,50 @@ Partial Class Formrebackfabcolors
     Friend WithEvents Tscbdate As ToolStripCheckBox
     Friend WithEvents ToolStripLabel3 As ToolStripLabel
     Friend WithEvents TabItem2 As DevComponents.DotNetBar.TabItem
+    Friend WithEvents Status As DataGridViewTextBoxColumn
+    Friend WithEvents LComid As DataGridViewTextBoxColumn
+    Friend WithEvents Rbid As DataGridViewTextBoxColumn
+    Friend WithEvents Docref As DataGridViewTextBoxColumn
+    Friend WithEvents Custid As DataGridViewTextBoxColumn
+    Friend WithEvents Custname As DataGridViewTextBoxColumn
+    Friend WithEvents Sumroll As DataGridViewTextBoxColumn
+    Friend WithEvents Sumwgt As DataGridViewTextBoxColumn
+    Friend WithEvents Sumprice As DataGridViewTextBoxColumn
+    Friend WithEvents Remark As DataGridViewTextBoxColumn
+    Friend WithEvents Indate As DataGridViewTextBoxColumn
+    Friend WithEvents Findlistsale As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents Mstat As DataGridViewTextBoxColumn
+    Friend WithEvents Ord As DataGridViewTextBoxColumn
+    Friend WithEvents Mkong As DataGridViewTextBoxColumn
+    Friend WithEvents Rollno As DataGridViewTextBoxColumn
+    Friend WithEvents Mcomid As DataGridViewTextBoxColumn
+    Friend WithEvents Order As DataGridViewTextBoxColumn
+    Friend WithEvents Dhid As DataGridViewTextBoxColumn
+    Friend WithEvents Mdyedhdesc As DataGridViewTextBoxColumn
+    Friend WithEvents Billdyedno As DataGridViewTextBoxColumn
+    Friend WithEvents Lotno As DataGridViewTextBoxColumn
+    Friend WithEvents Clothid As DataGridViewTextBoxColumn
+    Friend WithEvents Mclothno As DataGridViewTextBoxColumn
+    Friend WithEvents Clothtype As DataGridViewTextBoxColumn
+    Friend WithEvents Dwidth As DataGridViewTextBoxColumn
+    Friend WithEvents Shadeid As DataGridViewTextBoxColumn
+    Friend WithEvents Shadedesc As DataGridViewTextBoxColumn
+    Friend WithEvents Rollwage As DataGridViewTextBoxColumn
+    Friend WithEvents Instk As DataGridViewTextBoxColumn
+    Friend WithEvents News As DataGridViewTextBoxColumn
+    Friend WithEvents Tbrollid As Inttextbox.Inttextbox
+    Friend WithEvents DemoCode As DevComponents.DotNetBar.LabelX
+    Friend WithEvents LabelX16 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents LabelX11 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents Tbwidht As Normtextbox.Normtextbox
+    Friend WithEvents Tbkongno As Normtextbox.Normtextbox
+    Friend WithEvents LabelX10 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents LabelX8 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents Tbclothid As Normtextbox.Normtextbox
+    Friend WithEvents Tbshadename As Normtextbox.Normtextbox
+    Friend WithEvents Tbclothno As Normtextbox.Normtextbox
+    Friend WithEvents Tbclothtype As Normtextbox.Normtextbox
+    Friend WithEvents LabelX7 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents Tbshadeid As Normtextbox.Normtextbox
+    Friend WithEvents LabelX9 As DevComponents.DotNetBar.LabelX
 End Class

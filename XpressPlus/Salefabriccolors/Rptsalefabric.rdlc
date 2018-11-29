@@ -1519,7 +1519,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Organized By/ผู้จัดการ</Value>
+                      <Value>Organized By/ผู้จัดทำ</Value>
                       <Style>
                         <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>

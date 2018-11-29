@@ -477,13 +477,12 @@ Partial Class Formknittingform
         Me.SendYan.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.SendYan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.SendYan.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SDlvno, Me.OrderSum})
-        Me.SendYan.Location = New System.Drawing.Point(747, 600)
+        Me.SendYan.Location = New System.Drawing.Point(453, 438)
         Me.SendYan.Name = "SendYan"
         Me.SendYan.ReadOnly = True
         Me.SendYan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.SendYan.Size = New System.Drawing.Size(249, 42)
+        Me.SendYan.Size = New System.Drawing.Size(543, 204)
         Me.SendYan.TabIndex = 78
-        Me.SendYan.Visible = False
         '
         'SDlvno
         '
@@ -514,13 +513,12 @@ Partial Class Formknittingform
         Me.FYanList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.FYanList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.FYanList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.FDlvno, Me.Netpound})
-        Me.FYanList.Location = New System.Drawing.Point(747, 536)
+        Me.FYanList.Location = New System.Drawing.Point(453, 223)
         Me.FYanList.Name = "FYanList"
         Me.FYanList.ReadOnly = True
         Me.FYanList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.FYanList.Size = New System.Drawing.Size(249, 47)
+        Me.FYanList.Size = New System.Drawing.Size(543, 198)
         Me.FYanList.TabIndex = 77
-        Me.FYanList.Visible = False
         '
         'FDlvno
         '
@@ -580,13 +578,12 @@ Partial Class Formknittingform
         Me.YanList.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.YanList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.YanList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Stat, Me.ComidYarn, Me.DlvnoDyed, Me.Ord, Me.Clothids, Me.Clothnos, Me.VKnitdesc, Me.NwppcYarn, Me.GwppcYarn, Me.NwkgpcYarn, Me.GwkgpcYarn, Me.Nofc, Me.Updusr, Me.Uptype, Me.Uptime, Me.balanhave})
-        Me.YanList.Dock = System.Windows.Forms.DockStyle.Fill
         Me.YanList.Location = New System.Drawing.Point(1, 50)
         Me.YanList.MultiSelect = False
         Me.YanList.Name = "YanList"
         Me.YanList.ReadOnly = True
         Me.YanList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.YanList.Size = New System.Drawing.Size(1006, 603)
+        Me.YanList.Size = New System.Drawing.Size(400, 603)
         Me.YanList.TabIndex = 75
         '
         'Stat

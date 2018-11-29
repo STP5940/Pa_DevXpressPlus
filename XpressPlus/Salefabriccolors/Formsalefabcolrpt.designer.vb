@@ -23,6 +23,10 @@ Partial Class Formsalefabcolrpt
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
         Me.Tbremark = New Normtextbox.Normtextbox()
@@ -153,6 +157,9 @@ Partial Class Formsalefabcolrpt
         '
         'Kg1
         '
+        DataGridViewCellStyle1.Format = "N2"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.Kg1.DefaultCellStyle = DataGridViewCellStyle1
         Me.Kg1.HeaderText = "Kg1"
         Me.Kg1.Name = "Kg1"
         Me.Kg1.ReadOnly = True
@@ -165,6 +172,8 @@ Partial Class Formsalefabcolrpt
         '
         'Kg2
         '
+        DataGridViewCellStyle2.Format = "N2"
+        Me.Kg2.DefaultCellStyle = DataGridViewCellStyle2
         Me.Kg2.HeaderText = "Kg2"
         Me.Kg2.Name = "Kg2"
         Me.Kg2.ReadOnly = True
@@ -177,6 +186,8 @@ Partial Class Formsalefabcolrpt
         '
         'Kg3
         '
+        DataGridViewCellStyle3.Format = "N2"
+        Me.Kg3.DefaultCellStyle = DataGridViewCellStyle3
         Me.Kg3.HeaderText = "Kg3"
         Me.Kg3.Name = "Kg3"
         Me.Kg3.ReadOnly = True
@@ -189,6 +200,8 @@ Partial Class Formsalefabcolrpt
         '
         'Kg4
         '
+        DataGridViewCellStyle4.Format = "N2"
+        Me.Kg4.DefaultCellStyle = DataGridViewCellStyle4
         Me.Kg4.HeaderText = "Kg4"
         Me.Kg4.Name = "Kg4"
         Me.Kg4.ReadOnly = True
@@ -356,6 +369,8 @@ Partial Class Formsalefabcolrpt
     Friend WithEvents Pricesum As TextBox
     Friend WithEvents FilterKongarray As TextBox
     Friend WithEvents DataReport As DataGridView
+    Friend WithEvents FilterLotarray As TextBox
+    Friend WithEvents Tbremark As Normtextbox.Normtextbox
     Friend WithEvents No1 As DataGridViewTextBoxColumn
     Friend WithEvents Kg1 As DataGridViewTextBoxColumn
     Friend WithEvents No2 As DataGridViewTextBoxColumn
@@ -364,6 +379,4 @@ Partial Class Formsalefabcolrpt
     Friend WithEvents Kg3 As DataGridViewTextBoxColumn
     Friend WithEvents No4 As DataGridViewTextBoxColumn
     Friend WithEvents Kg4 As DataGridViewTextBoxColumn
-    Friend WithEvents FilterLotarray As TextBox
-    Friend WithEvents Tbremark As Normtextbox.Normtextbox
 End Class

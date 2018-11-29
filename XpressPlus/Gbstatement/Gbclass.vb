@@ -140,6 +140,7 @@ Module Gbclass
             ObjConn = Nothing
         Catch ex As Exception
             InputBox("Sql Command", "Debug", Sqltext)
+            My.Computer.Clipboard.SetText(Sqltext)
         End Try
         Return DT
     End Function
