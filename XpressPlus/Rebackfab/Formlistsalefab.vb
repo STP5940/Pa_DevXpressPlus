@@ -19,7 +19,7 @@
 							            	INNER JOIN dbo.Tclothxp 
 							            	ON dbo.Tsalefabcoldetxp.Comid = dbo.Tclothxp.Comid 
 								            AND dbo.Tsalefabcoldetxp.Clothid = dbo.Tclothxp.Clothid 
-							            	WHERE dbo.Tsalefabcoldetxp.Comid = '101' ")
+							            	WHERE dbo.Tsalefabcoldetxp.Comid = '{Gscomid}' ")
         Else
             Tmaster = SQLCommand($"SELECT dbo.Tsalefabcoldetxp.Comid, dbo.Tsalefabcoldetxp.Dlvno, dbo.Tsalefabcoldetxp.Lotno, 
 							            	dbo.Tsalefabcoldetxp.Kongno, dbo.Tsalefabcoldetxp.Rollno, dbo.Tsalefabcoldetxp.Wgtkg,
@@ -32,7 +32,7 @@
 							            	INNER JOIN dbo.Tclothxp 
 							            	ON dbo.Tsalefabcoldetxp.Comid = dbo.Tclothxp.Comid 
 								            AND dbo.Tsalefabcoldetxp.Clothid = dbo.Tclothxp.Clothid 
-							            	WHERE dbo.Tsalefabcoldetxp.Comid = '101' AND Dlvno = '{Trim(Tbdyedbillno.Text)}'")
+							            	WHERE dbo.Tsalefabcoldetxp.Comid = '{Gscomid}' AND Dlvno = '{Trim(Tbdyedbillno.Text)}'")
         End If
 
         Dgvmas.DataSource = Tmaster
@@ -74,7 +74,7 @@
     Private Sub Tbkeyword_TextChanged(sender As Object, e As EventArgs) Handles Tbkeyword.TextChanged
         Btmsearch_Click(sender, e)
         If Tbkeyword.Text = "--version" Or Tbkeyword.Text = "-V" Then
-            Informmessage("27/11/2018 12:00")
+            Informmessage("29/11/2018 15:00")
         End If
     End Sub
     Private Sub Btmsearch_Click(sender As Object, e As EventArgs) Handles Btmsearch.Click
