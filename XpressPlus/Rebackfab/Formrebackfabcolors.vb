@@ -24,7 +24,6 @@ Public Class Formrebackfabcolors
 
         GroupPanel2.Visible = False
         Retdocprefix()
-        'MsgBox(Tstbdocpre.Text.Length)
         'Setauthorize()
         Mainbuttoncancel()
 
@@ -80,7 +79,7 @@ Public Class Formrebackfabcolors
             Editdoc()
         End If
         Tsbwsave.Visible = False
-        Btmreports_Click(sender, e)
+        'Btmreports_Click(sender, e)
         Btdcancel_Click(sender, e)
         Tbkongno.Text = ""
         Clrupdet()
