@@ -46,7 +46,7 @@
     End Sub
     Private Sub Bindingmaster()
         Tmaster = New DataTable
-        Tmaster = SQLCommand($"SELECT '' AS Stat,Dlvno FROM Tsalefabcolxp WHERE Comid = '{Gscomid}' ")
+        Tmaster = SQLCommand($"SELECT DISTINCT Dlvno FROM VrebackfabSale WHERE SendWgtkg < Wgtkg AND Comid = '{Gscomid}'")
         Dgvmas.DataSource = Tmaster
     End Sub
     Private Sub Filtermastergrid()

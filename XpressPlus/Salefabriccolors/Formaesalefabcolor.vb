@@ -12,14 +12,14 @@
 
         If Trim(Tbkongno.Text) = "" Then
             Tmaster = SQLCommand($"SELECT Pubno,Lotno,Kongno,Rollwage,Clothid,Clothno,Ftype,Fwidth,Shadeid,Shadedesc
-                               From Vrecfabcoldet where Comid = '{Gscomid}' AND Clothid = '{Trim(Tbclothid.Text)}'")
+                               From Vrecfabcoldet where Comid = '{Gscomid}' AND Clothid = '{Trim(Tbclothid.Text)}' AND Shadeid = '{Trim(BoxShadeid.Text)}' ")
         Else
             If RS.Text = "RS" Then
                 Tmaster = SQLCommand($"SELECT Pubno,Lotno,Kongno,Rollwage,Clothid,Clothno,Ftype,Fwidth,Shadeid,Shadedesc
-                               From Vrecfabcoldet where Comid = '{Gscomid}' AND Clothid = '{Trim(Tbclothid.Text)}' AND Kongno = '{Trim(Tbkongno.Text)}'")
+                               From Vrecfabcoldet where Comid = '{Gscomid}' AND Clothid = '{Trim(Tbclothid.Text)}' AND Kongno = '{Trim(Tbkongno.Text)}' AND Shadeid = '{Trim(BoxShadeid.Text)}' ")
             Else
                 Tmaster = SQLCommand($"SELECT Pubno,Lotno,Kongno,Rollwage,Clothid,Clothno,Ftype,Fwidth,Shadeid,Shadedesc
-                               From Vrecfabcoldet where Comid = '{Gscomid}' AND Clothid = '{Trim(Tbclothid.Text)}' AND Kongno = '{Trim(Tbkongno.Text)}' AND Billdyedno = '{Trim(RS.Text)}'")
+                               From Vrecfabcoldet where Comid = '{Gscomid}' AND Clothid = '{Trim(Tbclothid.Text)}' AND Kongno = '{Trim(Tbkongno.Text)}' AND Billdyedno = '{Trim(RS.Text)}' AND Shadeid = '{Trim(BoxShadeid.Text)}' ")
             End If
         End If
 

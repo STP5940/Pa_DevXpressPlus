@@ -5,38 +5,23 @@
         Bindingmaster()
     End Sub
     Private Sub Bindingmaster()
+
         Tmaster = New DataTable
-
         If Trim(Tbdyedbillno.Text) = "" Then
-            Tmaster = SQLCommand($" SELECT dbo.Tsalefabcoldetxp.Comid, dbo.Tsalefabcoldetxp.Dlvno, dbo.Tsalefabcoldetxp.Lotno, 
-							            	dbo.Tsalefabcoldetxp.Kongno, dbo.Tsalefabcoldetxp.Rollno, dbo.Tsalefabcoldetxp.Wgtkg,
-                                            dbo.Tsalefabcoldetxp.Shadeid, dbo.Tshadexp.Shadedesc, dbo.Tsalefabcoldetxp.Clothid, 
-							            	dbo.Tclothxp.Clothno, dbo.Tclothxp.Ftype, dbo.Tclothxp.Fwidth
-                                            FROM dbo.Tsalefabcoldetxp 
-								            INNER JOIN dbo.Tshadexp 
-							            	ON dbo.Tsalefabcoldetxp.Comid = dbo.Tshadexp.Comid 
-							            	AND dbo.Tsalefabcoldetxp.Shadeid = dbo.Tshadexp.Shadeid 
-							            	INNER JOIN dbo.Tclothxp 
-							            	ON dbo.Tsalefabcoldetxp.Comid = dbo.Tclothxp.Comid 
-								            AND dbo.Tsalefabcoldetxp.Clothid = dbo.Tclothxp.Clothid 
-							            	WHERE dbo.Tsalefabcoldetxp.Comid = '{Gscomid}' ")
+            Tmaster = SQLCommand($"SELECT Comid,Dlvno,Lotno,Kongno,Rollno,Shadeid,Shadedesc,
+						                                    Clothid,Clothno,Ftype,Fwidth,Wgtkg,
+						                                    SendWgtkg,Wgtkg-SendWgtkg As HaveWgtkg 
+						                                    FROM VrebackfabSale 
+						                                WHERE SendWgtkg < Wgtkg AND Comid = '{Gscomid}' ")
         Else
-            Tmaster = SQLCommand($"SELECT dbo.Tsalefabcoldetxp.Comid, dbo.Tsalefabcoldetxp.Dlvno, dbo.Tsalefabcoldetxp.Lotno, 
-							            	dbo.Tsalefabcoldetxp.Kongno, dbo.Tsalefabcoldetxp.Rollno, dbo.Tsalefabcoldetxp.Wgtkg,
-                                            dbo.Tsalefabcoldetxp.Shadeid, dbo.Tshadexp.Shadedesc, dbo.Tsalefabcoldetxp.Clothid, 
-							            	dbo.Tclothxp.Clothno, dbo.Tclothxp.Ftype, dbo.Tclothxp.Fwidth
-                                            FROM dbo.Tsalefabcoldetxp 
-								            INNER JOIN dbo.Tshadexp 
-							            	ON dbo.Tsalefabcoldetxp.Comid = dbo.Tshadexp.Comid 
-							            	AND dbo.Tsalefabcoldetxp.Shadeid = dbo.Tshadexp.Shadeid 
-							            	INNER JOIN dbo.Tclothxp 
-							            	ON dbo.Tsalefabcoldetxp.Comid = dbo.Tclothxp.Comid 
-								            AND dbo.Tsalefabcoldetxp.Clothid = dbo.Tclothxp.Clothid 
-							            	WHERE dbo.Tsalefabcoldetxp.Comid = '{Gscomid}' AND Dlvno = '{Trim(Tbdyedbillno.Text)}'")
+            Tmaster = SQLCommand($"SELECT Comid,Dlvno,Lotno,Kongno,Rollno,Shadeid,Shadedesc,
+					                                    	Clothid,Clothno,Ftype,Fwidth,Wgtkg,
+						                                    SendWgtkg,Wgtkg-SendWgtkg As HaveWgtkg 
+					                                    	FROM VrebackfabSale 
+						                                WHERE SendWgtkg < Wgtkg AND Comid = '{Gscomid}' 
+                                                        AND Dlvno = '{Trim(Tbdyedbillno.Text)}' ")
         End If
-
         Dgvmas.DataSource = Tmaster
-        'FilterDgvmas()
 
     End Sub
 
@@ -74,7 +59,7 @@
     Private Sub Tbkeyword_TextChanged(sender As Object, e As EventArgs) Handles Tbkeyword.TextChanged
         Btmsearch_Click(sender, e)
         If Tbkeyword.Text = "--version" Or Tbkeyword.Text = "-V" Then
-            Informmessage("29/11/2018 15:00")
+            Informmessage("30/11/2018 15:00")
         End If
     End Sub
     Private Sub Btmsearch_Click(sender As Object, e As EventArgs) Handles Btmsearch.Click
@@ -86,22 +71,9 @@
             Exit Sub
         End If
         Try
-            Tmaster.DefaultView.RowFilter = String.Format("Lotno Like '%{0}%' or Kongno Like '%{0}%' or Clothno Like '%{0}%' or Ftype Like '%{0}%' or Fwidth Like '%{0}%' or Shadedesc Like '%{0}%'", Trim(Sval))
+            Tmaster.DefaultView.RowFilter = String.Format("Dlvno Like '%{0}%' OR Lotno Like '%{0}%' OR Kongno Like '%{0}%'", Trim(Sval))
         Catch ex As Exception
             Sval = ""
         End Try
     End Sub
-    'Private Sub FilterDgvmas()
-    '    FilterFab = New DataTable
-    '    For i = 0 To Dgvmas.Rows.Count - 1
-    '        If i > Dgvmas.Rows.Count - 1 Then
-    '            Exit For
-    '        End If
-    '        FilterFab = SQLCommand($"SELECT * FROM Tsalefabcoldetxp WHERE Lotno = '{Dgvmas.Rows(i).Cells("Mlotno").Value}' AND Kongno = '{Dgvmas.Rows(i).Cells("Kongno").Value}' And Rollno = '{Dgvmas.Rows(i).Cells("Pubno").Value}' And Comid = '{Gscomid}'")
-    '        If FilterFab.Rows.Count > 0 Then
-    '            Dgvmas.Rows.RemoveAt(i)
-    '            i -= 1
-    '        End If
-    '    Next
-    'End Sub
 End Class

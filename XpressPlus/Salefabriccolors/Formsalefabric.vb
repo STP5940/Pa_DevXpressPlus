@@ -1,8 +1,8 @@
 ﻿Imports System.ComponentModel
 Imports Microsoft.Reporting.WinForms
 Public Class Formsalefabric
-    Private Tmaster, Tdetails, Tlist, Dttemp, Kongno, KongnoKg, REData As DataTable
-    Private Pagecount, Maxrec, Pagesize, Currentpage, Recno As Integer
+    Private Tmaster, Tdetails, Tlist, Stocklist, Dttemp, Dtstocktemp, Kongno, KongnoKg, REData As DataTable
+    Private Pagecount, Pagestockcount, Maxrec, Maxstockrec, Pagesize, Pagestocksize, Currentpage, Currenstocktpage, Recno, Restockcno As Integer
     Private WithEvents Dtplistfm As New DateTimePicker
     Private WithEvents Dtplistto As New DateTimePicker
     Private Bs As BindingSource
@@ -10,17 +10,17 @@ Public Class Formsalefabric
     Private Sub Formsalefabric_Load(sender As Object, e As EventArgs) Handles Me.Load
         Mainbuttoncancel()
         Controls.Add(Dtplistfm)
-        Dtplistfm.Value = Now
-        Dtplistfm.Width = 130
-        Me.ToolStrip4.Items.Insert(5, New ToolStripControlHost(Dtplistfm))
-        Me.ToolStrip4.Items(5).Alignment = ToolStripItemAlignment.Right
         Controls.Add(Dtplistto)
+        Dtplistfm.Value = Now
         Dtplistto.Value = Now
+        Dtplistfm.Width = 130
         Dtplistto.Width = 130
         Me.ToolStrip4.Items.Insert(4, New ToolStripControlHost(Dtplistto))
         Me.ToolStrip4.Items(4).Alignment = ToolStripItemAlignment.Right
-        Dtplistfm.Visible = False
-        Dtplistto.Visible = False
+        Me.ToolStrip4.Items.Insert(6, New ToolStripControlHost(Dtplistfm))
+        Me.ToolStrip4.Items(6).Alignment = ToolStripItemAlignment.Right
+        Me.ToolStrip4.Items(6).Visible = False
+        Me.ToolStrip4.Items(4).Visible = False
         '  Setauthorize()
         Retdocprefix()
         Tbmycom.Text = Trim(Gscomname)
@@ -30,17 +30,20 @@ Public Class Formsalefabric
         Dgvlist.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
         Dgvmas.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
         Dgvmas.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
+        Dgvstock.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
+        Dgvstock.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
+        Bindingstock()
         Bindinglist()
     End Sub
     Private Sub Btmnew_Click(sender As Object, e As EventArgs) Handles Btmnew.Click
         Clrdgrid()
         Clrtxtbox()
-        TabControl1.SelectedTabIndex = 1
+        TabControl1.SelectedTabIndex = 2
 
         Clrtextmaster()
         Clrtextdetails()
         Clrgridmaster()
-        TabControl1.SelectedTabIndex = 1
+        TabControl1.SelectedTabIndex = 2
         Btfindshade.Enabled = True
         BindingNavigator1.Enabled = False
         'Tbfinddhid.Enabled = True
@@ -88,6 +91,7 @@ Public Class Formsalefabric
         Clrtextmaster()
         Clrtextdetails()
         Clrgridmaster()
+        Bindingstock()
         Bindinglist()
         TabControl1.SelectedTabIndex = 0
         BindingNavigator1.Enabled = False
@@ -108,6 +112,7 @@ Public Class Formsalefabric
             Clrtextmaster()
             Clrtextdetails()
             Clrgridmaster()
+            Bindingstock()
             Bindinglist()
             TabControl1.SelectedTabIndex = 0
             BindingNavigator1.Enabled = False
@@ -251,13 +256,12 @@ Public Class Formsalefabric
         Clrgridmaster()
         BindingNavigator1.Enabled = False
         Mainbuttoncancel()
-        TabControl1.SelectedTabIndex = 0
+        TabControl1.SelectedTabIndex = 1
     End Sub
     Private Sub Btmfind_Click(sender As Object, e As EventArgs) Handles Btmfind.Click
         TabControl1.SelectedTabIndex = 0
-        Tscboth.Checked = True
-        Tstbkeyword.Select()
-        Tstbkeyword.Focus()
+        Tstbstockkeyword.Select()
+        Tstbstockkeyword.Focus()
     End Sub
     Private Sub Btmclose_Click(sender As Object, e As EventArgs) Handles Btmclose.Click
         Me.Close()
@@ -303,10 +307,18 @@ Public Class Formsalefabric
         If Me.Created Then
             Btlistfind_Click(sender, e)
         End If
-        If Tstbkeyword.Text = "--version" Or Tstbkeyword.Text = "-V" Then
+    End Sub
+    Private Sub Tstbstockkeyword_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Tstbstockkeyword.KeyPress
+        e.Handled = (Asc(e.KeyChar) = 39)
+    End Sub
+    Private Sub Tstbstockkeyword_TextChanged(sender As Object, e As EventArgs) Handles Tstbstockkeyword.TextChanged
+        If Me.Created Then
+            Btliststockfind_Click(sender, e)
+        End If
+        If Tstbstockkeyword.Text = "--version" Or Tstbstockkeyword.Text = "-V" Then
             Informmessage("28/11/2018 15:00")
         End If
-        If Tstbkeyword.Text = "--report" Then
+        If Tstbstockkeyword.Text = "--report" Then
             Dim frm As New Formsalefabcolrpt
             frm.VersionReport()
         End If
@@ -326,7 +338,7 @@ Public Class Formsalefabric
         Clrdgrid()
         Clrtxtbox()
         Btdcancel_Click(sender, e)
-        TabControl1.SelectedTabIndex = 1
+        TabControl1.SelectedTabIndex = 2
         Tbdlvno.Text = Trim(Dgvlist.CurrentRow.Cells("Dlvno").Value)
         Tbdlvno.DataBindings.Clear()
         Tbdlvno.Text = ""
@@ -359,12 +371,39 @@ Public Class Formsalefabric
         'Ctddel.Enabled = False
         'Dgvmas.Enabled = True
     End Sub
-    Private Sub Ctmldel_Click(sender As Object, e As EventArgs)
-        Ctmledit_Click(sender, e)
-        Btmdel_Click(sender, e)
-        Bindinglist()
-        TabControl1.SelectedTabIndex = 0
+    Friend Sub Showtransaction(transactionRefab As String)
+        Clrdgrid()
+        Clrdetails()
+        TabControl1.SelectedTabIndex = 2
+        Tbdlvno.Text = Trim(transactionRefab)
+        Tbdlvno.Enabled = False
+        Bindmaster()
+        If Dgvmas.RowCount > 0 Then
+            Dgvmas.Rows(0).Selected = False
+        End If
+        BindingNavigator1.Enabled = True
+        Btmnew.Enabled = False
+        Btmedit.Enabled = True
+        Btmdel.Enabled = True
+        Btmsave.Enabled = False
+        Btmcancel.Enabled = True
+        Btmreports.Enabled = True
+        Tbremark.Enabled = False
+        Btdedit.Enabled = False
+        Btdcancel.Enabled = False
+        GroupPanel2.Visible = False
+        Btdbadd.Enabled = False
+        Btddel.Enabled = False
+        Dgvmas.Enabled = False
+        Tbremark.Enabled = False
     End Sub
+    'Private Sub Ctmldel_Click(sender As Object, e As EventArgs)
+    '    Ctmledit_Click(sender, e)
+    '    Btmdel_Click(sender, e)
+    '    Bindingstock()
+    '    Bindinglist()
+    '    TabControl1.SelectedTabIndex = 0
+    'End Sub
     Private Sub Dgvlist_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Dgvlist.CellClick
         If Dgvlist.RowCount = 0 Then
             Exit Sub
@@ -380,6 +419,14 @@ Public Class Formsalefabric
             Editcontextlistmenu()
         End If
     End Sub
+    Private Sub Dgvstock_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles Dgvstock.CellMouseClick
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            If Me.Dgvstock.Rows.Count < 1 Then Exit Sub
+            If e.RowIndex < 0 Then Exit Sub
+            Me.Dgvstock.Rows(e.RowIndex).Selected = True
+            Editcontextstockmenu()
+        End If
+    End Sub
     Private Sub Btfirst_Click(sender As Object, e As EventArgs) Handles Btfirst.Click
         Befirst()
     End Sub
@@ -392,6 +439,25 @@ Public Class Formsalefabric
     Private Sub Btlast_Click(sender As Object, e As EventArgs) Handles Btlast.Click
         Belast()
     End Sub
+
+    '---------------------- Start footer Stock -------------------'
+    Private Sub Btstockfirst_Click(sender As Object, e As EventArgs) Handles Btstockfirst.Click
+        Bestockfirst()
+    End Sub
+
+    Private Sub Btstockprev_Click(sender As Object, e As EventArgs) Handles Btstockprev.Click
+        Bestockprev()
+    End Sub
+
+    Private Sub Btstocknext_Click(sender As Object, e As EventArgs) Handles Btstocknext.Click
+        Bestocknext()
+    End Sub
+
+    Private Sub Btstocklast_Click(sender As Object, e As EventArgs) Handles Btstocklast.Click
+        Bestocklast()
+    End Sub
+    '---------------------- End footer Stock -------------------'
+
     Private Sub Btfindcustid_Click(sender As Object, e As EventArgs)
         Dim Frm As New Formcustomerslist
         Showdiaformcenter(Frm, Me)
@@ -555,6 +621,36 @@ Public Class Formsalefabric
         'Custname LIKE '%' + '" & Sval & "' + '%' OR Dlvno LIKE '%' + '" & Sval & "' + '%' OR Clothno LIKE '%' + '" & Sval & "' + '%' OR Dremark LIKE '%' + '" & Sval & "' + '%'
         FillGrid()
         ShowRecordDetail()
+    End Sub
+    Private Sub Searchstocklistbyoth(Sval As String)
+        If Sval = "" Then
+            Bindingstock()
+            Exit Sub
+        End If
+        Stocklist = SQLCommand($"SELECT dbo.Vsalestock.Comid, dbo.Trecfabcolxp.Reid, dbo.Vsalestock.Dhid, 
+                                    dbo.Vsalestock.Dyedhdesc, dbo.Vsalestock.Lotno, dbo.Vsalestock.Kongno, 
+                                    dbo.Vsalestock.Clothid, dbo.Vsalestock.Clothno, dbo.Vsalestock.Ftype, 
+                                    dbo.Vsalestock.Fwidth, dbo.Vsalestock.Shadeid, dbo.Vsalestock.Shadedesc, 
+                                    COUNT(*) AS Cunt, SUM(dbo.Vsalestock.Rollwage) AS Rollwage
+                            FROM dbo.Vsalestock INNER JOIN dbo.Trecfabcolxp 
+                                    ON dbo.Vsalestock.Comid = dbo.Trecfabcolxp.Comid 
+                                    AND dbo.Vsalestock.Lotno = dbo.Trecfabcolxp.Lotno
+                                    AND (Reid LIKE '%{Sval}%' OR 
+                                         dbo.Vsalestock.Lotno LIKE '%{Sval}%' OR 
+                                         Kongno LIKE '%{Sval}%' OR 
+                                         Ftype LIKE '%{Sval}%' OR 
+                                         Shadedesc LIKE '%{Sval}%' OR 
+                                         Rollwage LIKE '%{Sval}%' OR 
+                                         Clothno LIKE '%{Sval}%')
+                            WHERE (dbo.Vsalestock.Comid = '{Gscomid}')
+                            GROUP BY dbo.Vsalestock.Comid, dbo.Vsalestock.Dyedhdesc, dbo.Vsalestock.Lotno, 
+                                    dbo.Vsalestock.Kongno, dbo.Vsalestock.Clothid, dbo.Vsalestock.Clothno, 
+                                    dbo.Vsalestock.Ftype, dbo.Vsalestock.Fwidth, dbo.Vsalestock.Shadeid, 
+                                    dbo.Vsalestock.Shadedesc, dbo.Trecfabcolxp.Reid, dbo.Vsalestock.Dhid")
+
+        'Custname LIKE '%' + '" & Sval & "' + '%' OR Dlvno LIKE '%' + '" & Sval & "' + '%' OR Clothno LIKE '%' + '" & Sval & "' + '%' OR Dremark LIKE '%' + '" & Sval & "' + '%'
+        FillstockGrid()
+        ShowRecordStockDetail()
     End Sub
     Private Sub Searchlistbydate()
         Tlist = SQLCommand("SELECT '' AS Stat,* FROM Vsalefabcolmas
@@ -841,6 +937,29 @@ Public Class Formsalefabric
         FillGrid()
         ShowRecordDetail()
     End Sub
+    Private Sub Bindingstock()
+        Stocklist = New DataTable
+        Stocklist = SQLCommand($"SELECT dbo.Vsalestock.Comid, dbo.Trecfabcolxp.Reid, dbo.Vsalestock.Dhid, 
+                                        dbo.Vsalestock.Dyedhdesc, dbo.Vsalestock.Lotno, dbo.Vsalestock.Kongno, 
+                                        dbo.Vsalestock.Clothid, dbo.Vsalestock.Clothno, dbo.Vsalestock.Ftype, 
+                                        dbo.Vsalestock.Fwidth, dbo.Vsalestock.Shadeid, dbo.Vsalestock.Shadedesc, 
+                                        COUNT(*) AS Cunt, SUM(dbo.Vsalestock.Rollwage) AS Rollwage
+                                 FROM dbo.Vsalestock INNER JOIN dbo.Trecfabcolxp 
+                                        ON dbo.Vsalestock.Comid = dbo.Trecfabcolxp.Comid 
+                                        AND dbo.Vsalestock.Lotno = dbo.Trecfabcolxp.Lotno
+                                WHERE (dbo.Vsalestock.Comid = '{Gscomid}')
+                                GROUP BY dbo.Vsalestock.Comid, dbo.Vsalestock.Dyedhdesc, dbo.Vsalestock.Lotno, 
+                                         dbo.Vsalestock.Kongno, dbo.Vsalestock.Clothid, dbo.Vsalestock.Clothno, 
+                                         dbo.Vsalestock.Ftype, dbo.Vsalestock.Fwidth, dbo.Vsalestock.Shadeid, 
+                                         dbo.Vsalestock.Shadedesc, dbo.Trecfabcolxp.Reid, dbo.Vsalestock.Dhid")
+
+        Dgvstock.DataSource = Stocklist
+        '    Bs = New BindingSource
+        '    Bs.DataSource = Tlist
+        '    BindingNavigator1.BindingSource = Bs
+        FillstockGrid()
+        ShowRecordStockDetail()
+    End Sub
     Private Function Haveknittform() As Boolean
         Dim Haveform As Boolean = False
         Dim Haveknitfrm As New DataTable
@@ -902,6 +1021,10 @@ Public Class Formsalefabric
         Ctmmenugrid.Displayed = False
         Ctmmenugrid.PopupMenu(Control.MousePosition)
     End Sub
+    Private Sub Editcontextstockmenu()
+        Ctmstockid.Displayed = False
+        Ctmstockid.PopupMenu(Control.MousePosition)
+    End Sub
     Private Function Validinput() As Boolean
         Dim Valid As Boolean = False
         If Tblotno.Text <> "" And Tbkongno.Text <> "" Then
@@ -917,6 +1040,14 @@ Public Class Formsalefabric
             Checkfillbutton = True
         End If
     End Function
+    Private Function Checkstockfillbutton() As Boolean
+        If Pagestocksize = 0 Then
+            Informmessage("Set the Page Size, And Then click the ""Fill Grid"" button!")
+            Checkstockfillbutton = False
+        Else
+            Checkstockfillbutton = True
+        End If
+    End Function
     Private Sub Befirst()
         Try
             If Not Checkfillbutton() Then Return
@@ -927,6 +1058,19 @@ Public Class Formsalefabric
             Currentpage = 1
             Recno = 0
             LoadPage()
+        Catch ex As Exception
+        End Try
+    End Sub
+    Private Sub Bestockfirst()
+        Try
+            If Not Checkstockfillbutton() Then Return
+            If Currenstocktpage = 1 Then
+                Informmessage("You are at the First Page!")
+                Return
+            End If
+            Currenstocktpage = 1
+            Restockcno = 0
+            LoadstockPage()
         Catch ex As Exception
         End Try
     End Sub
@@ -942,6 +1086,21 @@ Public Class Formsalefabric
                 Recno = Pagesize * (Currentpage - 1)
             End If
             LoadPage()
+        Catch ex As Exception
+        End Try
+    End Sub
+    Private Sub Bestockprev()
+        Try
+            If Not Checkstockfillbutton() Then Return
+            Currenstocktpage = Currenstocktpage - 1
+            If Currenstocktpage < 1 Then
+                Informmessage("You are at the First Page!")
+                Currenstocktpage = 1
+                Return
+            Else
+                Restockcno = Pagestocksize * (Currenstocktpage - 1)
+            End If
+            LoadstockPage()
         Catch ex As Exception
         End Try
     End Sub
@@ -964,6 +1123,25 @@ Public Class Formsalefabric
         Catch ex As Exception
         End Try
     End Sub
+    Private Sub Bestocknext()
+        Try
+            If Not Checkstockfillbutton() Then Return
+            If Pagestocksize = 0 Then
+                Informmessage("Set the Page Size, and then click the ""Fill Grid"" button!")
+                Return
+            End If
+            Currenstocktpage = Currenstocktpage + 1
+            If Currenstocktpage > Pagestockcount Then
+                Currenstocktpage = Pagestockcount
+                If Restockcno = Maxstockrec Then
+                    Informmessage("You are at the Last Page!")
+                    Return
+                End If
+            End If
+            LoadstockPage()
+        Catch ex As Exception
+        End Try
+    End Sub
     Private Sub Belast()
         Try
             If Not Checkfillbutton() Then Return
@@ -974,6 +1152,19 @@ Public Class Formsalefabric
             Currentpage = Pagecount
             Recno = Pagesize * (Currentpage - 1)
             LoadPage()
+        Catch ex As Exception
+        End Try
+    End Sub
+    Private Sub Bestocklast()
+        Try
+            If Not Checkstockfillbutton() Then Return
+            If Restockcno = Maxstockrec Then
+                Informmessage("You are at the Last Page!")
+                Return
+            End If
+            Currenstocktpage = Pagestockcount
+            Restockcno = Pagestocksize * (Currenstocktpage - 1)
+            LoadstockPage()
         Catch ex As Exception
         End Try
     End Sub
@@ -996,6 +1187,25 @@ Public Class Formsalefabric
         DisplayPageInfo()
         ShowRecordDetail()
     End Sub
+    Private Sub LoadstockPage()
+        Dim I, Startrec, Endrec As Integer
+        Dtstocktemp = Stocklist.Clone
+        If Currenstocktpage = Pagestockcount Then
+            Endrec = Maxstockrec
+        Else
+            Endrec = Pagestocksize * Currenstocktpage
+        End If
+        Startrec = Restockcno
+        If Stocklist.Rows.Count > 0 Then
+            For I = Startrec To Endrec - 1
+                Dtstocktemp.ImportRow(Stocklist.Rows(I))
+                Restockcno = Restockcno + 1
+            Next
+        End If
+        Dgvstock.DataSource = Dtstocktemp
+        DisplayStockPageInfo()
+        ShowRecordStockDetail()
+    End Sub
     Private Sub FillGrid()
         Pagesize = (CInt(Dgvlist.Height) \ CInt(Dgvlist.RowTemplate.Height)) - 2
         Maxrec = Tlist.Rows.Count
@@ -1007,8 +1217,22 @@ Public Class Formsalefabric
         Recno = 0
         LoadPage()
     End Sub
+    Private Sub FillstockGrid()
+        Pagestocksize = (CInt(Dgvstock.Height) \ CInt(Dgvstock.RowTemplate.Height)) - 2
+        Maxstockrec = Stocklist.Rows.Count
+        Pagestockcount = Maxstockrec \ Pagestocksize
+        If (Maxstockrec Mod Pagestocksize) > 0 Then
+            Pagestockcount = Pagestockcount + 1
+        End If
+        Currenstocktpage = 1
+        Restockcno = 0
+        LoadstockPage()
+    End Sub
     Private Sub DisplayPageInfo()
         Tbpage.Text = "หน้า " & Currentpage.ToString & "/" & Pagecount.ToString
+    End Sub
+    Private Sub DisplayStockPageInfo()
+        Tbstockpage.Text = "หน้า " & Currenstocktpage.ToString & "/" & Pagestockcount.ToString
     End Sub
 
     Private Sub Btmedit_Click(sender As Object, e As EventArgs) Handles Btmedit.Click
@@ -1044,6 +1268,9 @@ Public Class Formsalefabric
 
     Private Sub ShowRecordDetail()
         Tbrecord.Text = "แสดง " & (Dgvlist.RowCount) & " รายการ จาก " & Tlist.Rows.Count & " รายการ"
+    End Sub
+    Private Sub ShowRecordStockDetail()
+        TbrecordStock.Text = "แสดง " & (Dgvstock.RowCount) & " รายการ จาก " & Stocklist.Rows.Count & " รายการ"
     End Sub
     Private Function Findpoud(Tkg As String) As Double
         Dim Rpound As Double = 0.0
@@ -1137,6 +1364,7 @@ Public Class Formsalefabric
         Frm.Tbclothid.Text = Trim(Tbclothid.Text)
         Frm.Tbkongno.Text = Trim(Tbkongno.Text)
         Frm.RS.Text = Trim(RS.Text)
+        Frm.BoxShadeid.Text = Trim(Tbshadeid.Text)
 
         Showdiaformcenter(Frm, Me)
         If Frm.Tbcancel.Text = "C" Then
@@ -1411,6 +1639,10 @@ Public Class Formsalefabric
     End Sub
 
     Private Sub Btfindcusship_Click_1(sender As Object, e As EventArgs) Handles Btfindcusship.Click
+        If Tbcustid.Text = "" Or Tbcustname.Text = "" Then
+            Informmessage("กรุณาเลือกลูกค้า")
+            Exit Sub
+        End If
         Dim Frm As New Formcustshiplist
         Frm.Tbcustid.Text = Tbcustid.Text
         Showdiaformcenter(Frm, Me)
@@ -1420,6 +1652,10 @@ Public Class Formsalefabric
         Tbcusadd.Text = CLng(Frm.Dgvmas.CurrentRow.Cells("Mord").Value)
         Tbcustship.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Mshaddr").Value)
 
+    End Sub
+
+    Private Sub Btliststockfind_Click(sender As Object, e As EventArgs) Handles Btliststockfind.Click
+        Searchstocklistbyoth(Trim(Tstbstockkeyword.Text))
     End Sub
 
     Private Sub Btfindclothno_Click_1(sender As Object, e As EventArgs) Handles Btfindclothno.Click
@@ -1445,6 +1681,26 @@ Public Class Formsalefabric
         Tbshadeid.Text = CLng(Frm.Dgvmas.CurrentRow.Cells("Mid").Value)
         Tbshadename.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Shade").Value)
 
+    End Sub
+
+    Private Sub Ctddel_Click_1(sender As Object, e As EventArgs) Handles Ctddel.Click
+        Btddel_Click_1(sender, e)
+    End Sub
+
+    Private Sub ButtonItem2_Click(sender As Object, e As EventArgs) Handles Ctmstockedit.Click
+        Clrdgrid()
+        Clrtxtbox()
+        Btdcancel_Click(sender, e)
+        Btmnew_Click(sender, e)
+        Tbkongno.Text = InputGrid(Dgvstock.CurrentRow.Cells("SKongno").Value)
+        Tbdyedcomno.Text = InputGrid(Dgvstock.CurrentRow.Cells("Reid").Value)
+        Tbclothid.Text = InputGrid(Dgvstock.CurrentRow.Cells("SClothid").Value)
+        Tbclothno.Text = InputGrid(Dgvstock.CurrentRow.Cells("SClothno").Value)
+        Tbwidth.Text = InputGrid(Dgvstock.CurrentRow.Cells("SFwidth").Value)
+        Tbshadeid.Text = InputGrid(Dgvstock.CurrentRow.Cells("SShadeid").Value)
+        Tbshadename.Text = InputGrid(Dgvstock.CurrentRow.Cells("SShadedesc").Value)
+        Btmedit_Click(sender, e)
+        Btdbadd_Click(sender, e)
     End Sub
 
     Private Sub ButtonX1_Click(sender As Object, e As EventArgs) Handles ButtonX1.Click
@@ -1550,6 +1806,7 @@ Public Class Formsalefabric
         Btfindclothno.Enabled = False
         Btfindcusship.Enabled = False
         Btfindcustid.Enabled = False
+        Btfindshade.Enabled = False
         Btfindlotno.Enabled = False
         Btdcancel.Enabled = False
         Tbkgprice.Enabled = False

@@ -46,6 +46,7 @@ Partial Class Formaesalefabcolor
         Me.Rollwage = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Pubno = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.Btmsearch = New System.Windows.Forms.ToolStripButton()
         Me.Tbkeyword = New System.Windows.Forms.ToolStripTextBox()
         Me.ToolStripTextBox2 = New System.Windows.Forms.ToolStripTextBox()
         Me.ToolStripTextBox3 = New System.Windows.Forms.ToolStripTextBox()
@@ -56,7 +57,7 @@ Partial Class Formaesalefabcolor
         Me.Tbkongno = New System.Windows.Forms.ToolStripTextBox()
         Me.RS = New System.Windows.Forms.ToolStripTextBox()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
-        Me.Btmsearch = New System.Windows.Forms.ToolStripButton()
+        Me.BoxShadeid = New System.Windows.Forms.ToolStripTextBox()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabControlPanel1.SuspendLayout()
@@ -256,12 +257,24 @@ Partial Class Formaesalefabcolor
         'ToolStrip1
         '
         Me.ToolStrip1.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btmsearch, Me.Tbkeyword, Me.ToolStripTextBox2, Me.ToolStripTextBox3, Me.ToolStripTextBox1, Me.Tscball, Me.Tbclothid, Me.Tbcancel, Me.Tbkongno, Me.RS})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btmsearch, Me.Tbkeyword, Me.ToolStripTextBox2, Me.ToolStripTextBox3, Me.ToolStripTextBox1, Me.Tscball, Me.BoxShadeid, Me.Tbclothid, Me.Tbcancel, Me.Tbkongno, Me.RS})
         Me.ToolStrip1.Location = New System.Drawing.Point(1, 1)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(959, 49)
         Me.ToolStrip1.TabIndex = 29
         Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'Btmsearch
+        '
+        Me.Btmsearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Btmsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Btmsearch.Image = Global.XpressPlus.My.Resources.Resources.Findicon
+        Me.Btmsearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.Btmsearch.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Btmsearch.Name = "Btmsearch"
+        Me.Btmsearch.Size = New System.Drawing.Size(48, 46)
+        Me.Btmsearch.Text = "ค้นหา"
+        Me.Btmsearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'Tbkeyword
         '
@@ -335,17 +348,11 @@ Partial Class Formaesalefabcolor
         Me.TabItem1.Name = "TabItem1"
         Me.TabItem1.Text = "รายละเอียดผ้า"
         '
-        'Btmsearch
+        'BoxShadeid
         '
-        Me.Btmsearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Btmsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btmsearch.Image = Global.XpressPlus.My.Resources.Resources.Findicon
-        Me.Btmsearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.Btmsearch.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Btmsearch.Name = "Btmsearch"
-        Me.Btmsearch.Size = New System.Drawing.Size(48, 46)
-        Me.Btmsearch.Text = "ค้นหา"
-        Me.Btmsearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.BoxShadeid.Name = "BoxShadeid"
+        Me.BoxShadeid.Size = New System.Drawing.Size(50, 49)
+        Me.BoxShadeid.Visible = False
         '
         'Formaesalefabcolor
         '
@@ -396,4 +403,5 @@ Partial Class Formaesalefabcolor
     Friend WithEvents Shadedesc As DataGridViewTextBoxColumn
     Friend WithEvents Rollwage As DataGridViewTextBoxColumn
     Friend WithEvents Pubno As DataGridViewTextBoxColumn
+    Friend WithEvents BoxShadeid As ToolStripTextBox
 End Class

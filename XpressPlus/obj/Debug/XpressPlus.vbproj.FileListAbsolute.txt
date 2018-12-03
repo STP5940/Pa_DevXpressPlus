@@ -379,3 +379,4 @@ C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formrebackfabcolors.resources
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formbillsalelist.resources
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formlistsalefab.resources
+C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formrebackfabcolrpt.resources

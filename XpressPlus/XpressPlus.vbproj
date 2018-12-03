@@ -216,6 +216,12 @@
     <Compile Include="Rebackfab\Formrebackfabcolors.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Rebackfab\Formrebackfabcolrpt.Designer.vb">
+      <DependentUpon>Formrebackfabcolrpt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Rebackfab\Formrebackfabcolrpt.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Receivefab\DataCountreport.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -466,6 +472,10 @@
     <EmbeddedResource Include="Rebackfab\Formrebackfabcolors.resx">
       <DependentUpon>Formrebackfabcolors.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Rebackfab\Formrebackfabcolrpt.resx">
+      <DependentUpon>Formrebackfabcolrpt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rebackfab\Rptrebackfabcolr.rdlc" />
     <EmbeddedResource Include="Receivefab\Formaeformreceivefabcolors.resx">
       <DependentUpon>Formaeformreceivefabcolors.vb</DependentUpon>
     </EmbeddedResource>

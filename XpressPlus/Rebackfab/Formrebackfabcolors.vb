@@ -58,6 +58,13 @@ Public Class Formrebackfabcolors
         'Tbshadeid.Size = New Size(116, 24)
     End Sub
     Private Sub Btmsave_Click(sender As Object, e As EventArgs) Handles Btmsave.Click
+        If Tbdhid.Text = "" Then
+            Informmessage("กรุณาเลือกลูกค้า")
+        End If
+        If Tbdyedbillno.Text = "" Then
+            Informmessage("กรุณาเลือกเลขที่ไบขาย")
+        End If
+
         If Validmas() = False Then
             Informmessage("กรุณาตรวจสอบข้อมูลในการรับผ้าสีให้ครบถ้วน")
             Exit Sub
@@ -419,14 +426,27 @@ Public Class Formrebackfabcolors
             Bindinglist()
             Exit Sub
         End If
-        Tlist = SQLCommand("Select '' AS Stat,* FROM Vrecfabcolmas
-                                WHERE Comid = '" & Gscomid & "' AND substring(Reid,1,2) = '" & Trim(Tstbdocpre.Text) & "' AND (Billdyedno LIKE '%' + '" & Sval & "' + '%' OR Billknitt LIKE '%' + '" & Sval & "' + '%' OR Reid LIKE '%' + '" & Sval & "' + '%' OR Dremark LIKE '%' + '" & Sval & "' + '%')")
+        Tlist = SQLCommand($"SELECT dbo.Trebackfab.Rbid, dbo.Trebackfab.Custid, dbo.Tcustomersxp.Custname, dbo.Trebackfab.Docref, 
+							dbo.Trebackfab.Sumroll, dbo.Trebackfab.Sumwgt, dbo.Trebackfab.Sumprice,
+							dbo.Trebackfab.Remark, dbo.Trebackfab.Indate
+							FROM dbo.Tcustomersxp INNER JOIN
+							dbo.Trebackfab ON dbo.Tcustomersxp.Comid = dbo.Trebackfab.Comid 
+							AND dbo.Tcustomersxp.Custid = dbo.Trebackfab.Custid
+							WHERE dbo.Trebackfab.Comid = '{Gscomid}' AND dbo.Trebackfab.Sstatus = '1' 
+							AND (Rbid LIKE '%{Sval}%' OR dbo.Trebackfab.Custid LIKE '%{Sval}%' OR Custname LIKE '%{Sval}%'
+							OR Docref LIKE '%{Sval}%' OR Sumroll LIKE '%{Sval}%' OR Sumwgt LIKE '%{Sval}%' 
+							OR Sumprice LIKE '%{Sval}%' OR Remark LIKE '%{Sval}%' OR Indate LIKE '%{Sval}%')")
         FillGrid()
         ShowRecordDetail()
     End Sub
     Private Sub Searchlistbydate()
-        Tlist = SQLCommand("SELECT '' AS Stat,* FROM Vrecfabcolmas
-                                WHERE Comid = '" & Gscomid & "' AND substring(Reid,1,2) = '" & Trim(Tstbdocpre.Text) & "' AND (Recdate BETWEEN '" & Formatshortdatesave(Dtplistfm.Value) & "' AND '" & Formatshortdatesave(Dtplistto.Value) & "')")
+        Tlist = SQLCommand($"SELECT dbo.Trebackfab.Rbid, dbo.Trebackfab.Custid, dbo.Tcustomersxp.Custname, dbo.Trebackfab.Docref, 
+							dbo.Trebackfab.Sumroll, dbo.Trebackfab.Sumwgt, dbo.Trebackfab.Sumprice,
+							dbo.Trebackfab.Remark, dbo.Trebackfab.Indate
+							FROM dbo.Tcustomersxp INNER JOIN
+							dbo.Trebackfab ON dbo.Tcustomersxp.Comid = dbo.Trebackfab.Comid 
+							AND dbo.Tcustomersxp.Custid = dbo.Trebackfab.Custid
+							WHERE dbo.Trebackfab.Comid = '{Gscomid}' AND dbo.Trebackfab.Sstatus = '1' AND (Indate BETWEEN '{Formatshortdatesave(Dtplistfm.Value)}' AND '{Formatshortdatesave(Dtplistto.Value)}')")
         FillGrid()
         ShowRecordDetail()
     End Sub
@@ -469,6 +489,14 @@ Public Class Formrebackfabcolors
         End If
     End Sub
     Private Sub Insertmaster()
+        SQLCommand($"INSERT INTO Trebackfab(Comid,Rbid,Indate,
+                                            Custid,Docref,Sumroll,
+                                            Sumwgt,Sumprice,Remark,
+                                            Restat,Sstatus,Updusr,Uptype,Uptime)
+                                     VALUES('{Trim(Gscomid)}','{Trim(Tbdyedcomno.Text)}','{Formatdatesave(Dtprecdate.Value)}',
+                                            '{Trim(Tbdhid.Text)}','{Trim(Tbdyedbillno.Text)}','{Trim(Tstbsumroll.Text)}',
+                                            '{Trim(Tstbsumkg.Text)}','{Trim(Tbsummoney.Text)}','{Trim(Tbremark.Text)}',
+                                            '','1','{Gsuserid }','A','{Formatdatesave(Now)}')") 'Pa comment
         'SQLCommand("INSERT INTO Trecfabcolxp(Comid,Reid,Dhid,Billdyedno,Billknitt,Recdate,Lotno,
         '            Dyedcolor,Dremark,Updusr,Uptype,Uptime)
         '            VALUES('" & Gscomid & "','" & Trim(Tbdyedcomno.Text) & "','" & Trim(Tbdhid.Text) & "','" & Tbdyedbillno.Text & "','" & Tbknittno.Text & "','" & Formatshortdatesave(Dtprecdate.Value) & "','" & Trim(Tbrefablotno.Text) & "',
@@ -917,6 +945,7 @@ Public Class Formrebackfabcolors
         Tbkongno.Text = ""
         Tbkg.Text = ""
         'Dtprecdate.Value = Now
+        Findlistsale.Enabled = True
         Tsbwsave.Visible = False
         Btmsave.Enabled = True
         Btmreports.Enabled = False
@@ -997,6 +1026,7 @@ Public Class Formrebackfabcolors
     Private Sub Findlistsale_Click(sender As Object, e As EventArgs) Handles Findlistsale.Click
         If Tbdyedbillno.Text = "" Then
             Informmessage("กรุณาเลือกเลขที่ใบขาย")
+            Btfindbillno_Click(sender, e)
             Exit Sub
         End If
 
@@ -1031,7 +1061,7 @@ Public Class Formrebackfabcolors
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dwidth").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Fwidth").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadeid").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Shadeid").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Shadedesc").Value
-                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollwage").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Wgtkg").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollwage").Value = Frm.Dgvmas.Rows(CheckLot).Cells("HaveWgtkg").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Ord").Value = Trim(rollidnew(Dgvmas, "Ord") + 1)
                                 DatainGride = 1
                             End If
@@ -1057,7 +1087,7 @@ Public Class Formrebackfabcolors
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dwidth").Value = Frm.Dgvmas.Rows(i).Cells("Fwidth").Value
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadeid").Value = Frm.Dgvmas.Rows(i).Cells("Shadeid").Value
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Frm.Dgvmas.Rows(i).Cells("Shadedesc").Value
-                                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollwage").Value = Frm.Dgvmas.Rows(i).Cells("Wgtkg").Value
+                                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollwage").Value = Frm.Dgvmas.Rows(i).Cells("HaveWgtkg").Value
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Ord").Value = Trim(rollidnew(Dgvmas, "Ord") + 1)
                                 End If
                             End If
@@ -1078,7 +1108,7 @@ Public Class Formrebackfabcolors
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dwidth").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Fwidth").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadeid").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Shadeid").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Shadedesc").Value
-                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollwage").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Wgtkg").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollwage").Value = Frm.Dgvmas.Rows(CheckLot).Cells("HaveWgtkg").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Ord").Value = Trim(rollidnew(Dgvmas, "Ord") + 1)
                                 DatainGride = 1
                             End If
@@ -1105,7 +1135,7 @@ Public Class Formrebackfabcolors
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dwidth").Value = Frm.Dgvmas.Rows(i).Cells("Fwidth").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadeid").Value = Frm.Dgvmas.Rows(i).Cells("Shadeid").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Frm.Dgvmas.Rows(i).Cells("Shadedesc").Value
-                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollwage").Value = Frm.Dgvmas.Rows(i).Cells("Wgtkg").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollwage").Value = Frm.Dgvmas.Rows(i).Cells("HaveWgtkg").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Ord").Value = Trim(rollidnew(Dgvmas, "Ord") + 1)
                             End If
                         End If
@@ -1130,7 +1160,8 @@ Public Class Formrebackfabcolors
             Informmessage("มีการเปลี่ยนแปลงและยังไม่ทำการบันทึก")
             Exit Sub
         End If
-        ''Dim Frm As New Formreceivefabrpt ' เป้
+        Dim Frm As New Formrebackfabcolrpt ' เป้
+        Frm.Tbcustname.Text = Tbdhid.Text
         ''For i = 0 To Dgvmas.Rows.Count - 1
 
         ''    Frm.Dgvmas.Rows.Add()
@@ -1150,7 +1181,7 @@ Public Class Formrebackfabcolors
         ''Frm.Tbdate.Text = Dtprecdate.Text
 
         ''Frm.ReportViewer1.Reset()
-        ''Frm.Show()
+        Frm.Show()
         Clrtxtbox()
         Clrdgrid()
         BindingNavigator1.Enabled = False
@@ -1160,16 +1191,15 @@ Public Class Formrebackfabcolors
     End Sub
 
     Private Sub Ctmtransaction_Click(sender As Object, e As EventArgs) Handles Ctmtransaction.Click
-        Opentransaction(Dgvlist.CurrentRow.Cells("Lbilldyedno").Value)
+        Opentransaction(Dgvlist.CurrentRow.Cells("Docref").Value)
     End Sub
     Private Sub Opentransaction(Gridrows As String)
-        Dim frm As New Formdyeform
+        Dim frm As New Formsalefabric
         Dim Tmasterdyed = New DataTable
-        Tmasterdyed = SQLCommand($"SELECT * FROM Vdyedcommas 
-                                WHERE Comid = '{Gscomid}' AND Dyecomno = '{Trim(Gridrows)}'")
+        Tmasterdyed = SQLCommand($"SELECT '' AS Stat,* FROM Vsalefabcolmas
+                                WHERE Comid = '{Gscomid}' AND Dlvno = '{Trim(Gridrows)}' ")
         If Tmasterdyed.Rows.Count > 0 Then
             frm.Showtransaction($"{Gridrows}")
-            frm.TabItem3.Visible = False
             frm.TabItem2.Visible = False
             frm.Btmnew.Visible = False
             frm.Btmedit.Visible = False
@@ -1178,7 +1208,6 @@ Public Class Formrebackfabcolors
             frm.Btmcancel.Visible = False
             frm.Btmreports.Visible = False
             frm.Btmfind.Visible = False
-            'Showdiaformcenter(frm, Me) 'เป้
             frm.Show()
         Else
             Informmessage("ไม่พบข้อมูลใบสั่งย้อม")
@@ -1278,6 +1307,7 @@ Public Class Formrebackfabcolors
         Enabledbutton()
     End Sub
     Private Sub Enabledbutton()
+        Findlistsale.Enabled = True
         Btdedit.Enabled = True
         Btddel.Enabled = True
         Ctdedit.Enabled = True
@@ -1296,6 +1326,7 @@ Public Class Formrebackfabcolors
         'Tbshadeid.Size = New Size(72, 24)
         Tbkgprice.Enabled = False
         Btfinddyedh.Enabled = False
+        Findlistsale.Enabled = False
         Tbdyedbillno.Enabled = False
         Tbkongno.Enabled = False
         Tbkg.Enabled = False

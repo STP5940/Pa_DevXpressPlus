@@ -23,10 +23,12 @@ Partial Class Formrebackfabcolors
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Formrebackfabcolors))
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Btmclose = New System.Windows.Forms.ToolStripButton()
@@ -318,14 +320,12 @@ Partial Class Formrebackfabcolors
         Me.Tstbdocpreid.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
         Me.Tstbdocpreid.Name = "Tstbdocpreid"
         Me.Tstbdocpreid.Size = New System.Drawing.Size(50, 49)
-        Me.Tstbdocpreid.Visible = False
         '
         'Tstbdocpre
         '
         Me.Tstbdocpre.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
         Me.Tstbdocpre.Name = "Tstbdocpre"
         Me.Tstbdocpre.Size = New System.Drawing.Size(50, 49)
-        Me.Tstbdocpre.Visible = False
         '
         'TabControl1
         '
@@ -407,14 +407,14 @@ Partial Class Formrebackfabcolors
         '
         Me.Dgvlist.AllowUserToAddRows = False
         Me.Dgvlist.AllowUserToDeleteRows = False
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Dgvlist.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgvlist.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.Dgvlist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Dgvlist.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Status, Me.LComid, Me.Rbid, Me.Docref, Me.Custid, Me.Custname, Me.Sumroll, Me.Sumwgt, Me.Sumprice, Me.Remark, Me.Indate})
         Me.Dgvlist.Dock = System.Windows.Forms.DockStyle.Fill
@@ -470,6 +470,7 @@ Partial Class Formrebackfabcolors
         Me.Custname.HeaderText = "ชื่อลูกค้า"
         Me.Custname.Name = "Custname"
         Me.Custname.ReadOnly = True
+        Me.Custname.Width = 130
         '
         'Sumroll
         '
@@ -481,6 +482,9 @@ Partial Class Formrebackfabcolors
         'Sumwgt
         '
         Me.Sumwgt.DataPropertyName = "Sumwgt"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle2.Format = "N2"
+        Me.Sumwgt.DefaultCellStyle = DataGridViewCellStyle2
         Me.Sumwgt.HeaderText = "น้ำหนักรวม"
         Me.Sumwgt.Name = "Sumwgt"
         Me.Sumwgt.ReadOnly = True
@@ -488,6 +492,9 @@ Partial Class Formrebackfabcolors
         'Sumprice
         '
         Me.Sumprice.DataPropertyName = "Sumprice"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "N2"
+        Me.Sumprice.DefaultCellStyle = DataGridViewCellStyle3
         Me.Sumprice.HeaderText = "ราคารวม"
         Me.Sumprice.Name = "Sumprice"
         Me.Sumprice.ReadOnly = True
@@ -778,14 +785,14 @@ Partial Class Formrebackfabcolors
         '
         Me.Dgvmas.AllowUserToAddRows = False
         Me.Dgvmas.AllowUserToDeleteRows = False
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.Dgvmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Mstat, Me.Ord, Me.Mkong, Me.Rollno, Me.Mcomid, Me.Order, Me.Dhid, Me.Mdyedhdesc, Me.Billdyedno, Me.Lotno, Me.Clothid, Me.Mclothno, Me.Clothtype, Me.Dwidth, Me.Shadeid, Me.Shadedesc, Me.Rollwage, Me.Instk, Me.News})
         Me.Dgvmas.Dock = System.Windows.Forms.DockStyle.Fill
@@ -904,8 +911,8 @@ Partial Class Formrebackfabcolors
         'Dwidth
         '
         Me.Dwidth.DataPropertyName = "Fwidth"
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Dwidth.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Dwidth.DefaultCellStyle = DataGridViewCellStyle5
         Me.Dwidth.HeaderText = "หน้ากว้าง"
         Me.Dwidth.Name = "Dwidth"
         Me.Dwidth.ReadOnly = True
@@ -929,10 +936,10 @@ Partial Class Formrebackfabcolors
         'Rollwage
         '
         Me.Rollwage.DataPropertyName = "Rollwage"
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle8.Format = "N2"
-        DataGridViewCellStyle8.NullValue = Nothing
-        Me.Rollwage.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle6.Format = "N2"
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.Rollwage.DefaultCellStyle = DataGridViewCellStyle6
         Me.Rollwage.HeaderText = "น้ำหนัก(ก.ก.)"
         Me.Rollwage.Name = "Rollwage"
         Me.Rollwage.ReadOnly = True
@@ -2111,17 +2118,6 @@ Partial Class Formrebackfabcolors
     Friend WithEvents Tscbdate As ToolStripCheckBox
     Friend WithEvents ToolStripLabel3 As ToolStripLabel
     Friend WithEvents TabItem2 As DevComponents.DotNetBar.TabItem
-    Friend WithEvents Status As DataGridViewTextBoxColumn
-    Friend WithEvents LComid As DataGridViewTextBoxColumn
-    Friend WithEvents Rbid As DataGridViewTextBoxColumn
-    Friend WithEvents Docref As DataGridViewTextBoxColumn
-    Friend WithEvents Custid As DataGridViewTextBoxColumn
-    Friend WithEvents Custname As DataGridViewTextBoxColumn
-    Friend WithEvents Sumroll As DataGridViewTextBoxColumn
-    Friend WithEvents Sumwgt As DataGridViewTextBoxColumn
-    Friend WithEvents Sumprice As DataGridViewTextBoxColumn
-    Friend WithEvents Remark As DataGridViewTextBoxColumn
-    Friend WithEvents Indate As DataGridViewTextBoxColumn
     Friend WithEvents Findlistsale As DevComponents.DotNetBar.ButtonX
     Friend WithEvents Tbrollid As Inttextbox.Inttextbox
     Friend WithEvents DemoCode As DevComponents.DotNetBar.LabelX
@@ -2165,4 +2161,15 @@ Partial Class Formrebackfabcolors
     Friend WithEvents LabelX6 As DevComponents.DotNetBar.LabelX
     Friend WithEvents LabelX14 As DevComponents.DotNetBar.LabelX
     Friend WithEvents LabelX20 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents Status As DataGridViewTextBoxColumn
+    Friend WithEvents LComid As DataGridViewTextBoxColumn
+    Friend WithEvents Rbid As DataGridViewTextBoxColumn
+    Friend WithEvents Docref As DataGridViewTextBoxColumn
+    Friend WithEvents Custid As DataGridViewTextBoxColumn
+    Friend WithEvents Custname As DataGridViewTextBoxColumn
+    Friend WithEvents Sumroll As DataGridViewTextBoxColumn
+    Friend WithEvents Sumwgt As DataGridViewTextBoxColumn
+    Friend WithEvents Sumprice As DataGridViewTextBoxColumn
+    Friend WithEvents Remark As DataGridViewTextBoxColumn
+    Friend WithEvents Indate As DataGridViewTextBoxColumn
 End Class

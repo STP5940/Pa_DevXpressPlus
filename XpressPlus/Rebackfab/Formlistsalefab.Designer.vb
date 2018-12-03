@@ -44,8 +44,10 @@ Partial Class Formlistsalefab
         Me.Ftype = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Fwidth = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Shadeid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Wgtkg = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Shadedesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HaveWgtkg = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Wgtkg = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SendWgtkg = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Btmsearch = New System.Windows.Forms.ToolStripButton()
         Me.Tbkeyword = New System.Windows.Forms.ToolStripTextBox()
@@ -130,7 +132,7 @@ Partial Class Formlistsalefab
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.Dgvmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Status, Me.Checked, Me.Comid, Me.Dlvno, Me.Lotno, Me.Kongno, Me.Rollno, Me.Clothid, Me.Clothno, Me.Ftype, Me.Fwidth, Me.Shadeid, Me.Wgtkg, Me.Shadedesc})
+        Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Status, Me.Checked, Me.Comid, Me.Dlvno, Me.Lotno, Me.Kongno, Me.Rollno, Me.Clothid, Me.Clothno, Me.Ftype, Me.Fwidth, Me.Shadeid, Me.Shadedesc, Me.HaveWgtkg, Me.Wgtkg, Me.SendWgtkg})
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
@@ -232,6 +234,18 @@ Partial Class Formlistsalefab
         Me.Shadeid.Name = "Shadeid"
         Me.Shadeid.Visible = False
         '
+        'Shadedesc
+        '
+        Me.Shadedesc.DataPropertyName = "Shadedesc"
+        Me.Shadedesc.HeaderText = "Shaded"
+        Me.Shadedesc.Name = "Shadedesc"
+        '
+        'HaveWgtkg
+        '
+        Me.HaveWgtkg.DataPropertyName = "HaveWgtkg"
+        Me.HaveWgtkg.HeaderText = "น้ำหนัก"
+        Me.HaveWgtkg.Name = "HaveWgtkg"
+        '
         'Wgtkg
         '
         Me.Wgtkg.DataPropertyName = "Wgtkg"
@@ -239,14 +253,16 @@ Partial Class Formlistsalefab
         DataGridViewCellStyle3.Format = "N2"
         DataGridViewCellStyle3.NullValue = Nothing
         Me.Wgtkg.DefaultCellStyle = DataGridViewCellStyle3
-        Me.Wgtkg.HeaderText = "น้ำหนัก"
+        Me.Wgtkg.HeaderText = "Wgtkg"
         Me.Wgtkg.Name = "Wgtkg"
+        Me.Wgtkg.Visible = False
         '
-        'Shadedesc
+        'SendWgtkg
         '
-        Me.Shadedesc.DataPropertyName = "Shadedesc"
-        Me.Shadedesc.HeaderText = "Shaded"
-        Me.Shadedesc.Name = "Shadedesc"
+        Me.SendWgtkg.DataPropertyName = "SendWgtkg"
+        Me.SendWgtkg.HeaderText = "SendWgtkg"
+        Me.SendWgtkg.Name = "SendWgtkg"
+        Me.SendWgtkg.Visible = False
         '
         'ToolStrip1
         '
@@ -388,6 +404,8 @@ Partial Class Formlistsalefab
     Friend WithEvents Ftype As DataGridViewTextBoxColumn
     Friend WithEvents Fwidth As DataGridViewTextBoxColumn
     Friend WithEvents Shadeid As DataGridViewTextBoxColumn
-    Friend WithEvents Wgtkg As DataGridViewTextBoxColumn
     Friend WithEvents Shadedesc As DataGridViewTextBoxColumn
+    Friend WithEvents HaveWgtkg As DataGridViewTextBoxColumn
+    Friend WithEvents Wgtkg As DataGridViewTextBoxColumn
+    Friend WithEvents SendWgtkg As DataGridViewTextBoxColumn
 End Class
