@@ -52,12 +52,12 @@ Partial Class Formaesalefabcolor
         Me.ToolStripTextBox3 = New System.Windows.Forms.ToolStripTextBox()
         Me.ToolStripTextBox1 = New System.Windows.Forms.ToolStripTextBox()
         Me.Tscball = New XpressPlus.ToolStripCheckBox()
+        Me.BoxShadeid = New System.Windows.Forms.ToolStripTextBox()
         Me.Tbclothid = New System.Windows.Forms.ToolStripTextBox()
         Me.Tbcancel = New System.Windows.Forms.ToolStripTextBox()
         Me.Tbkongno = New System.Windows.Forms.ToolStripTextBox()
         Me.RS = New System.Windows.Forms.ToolStripTextBox()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
-        Me.BoxShadeid = New System.Windows.Forms.ToolStripTextBox()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabControlPanel1.SuspendLayout()
@@ -318,6 +318,12 @@ Partial Class Formaesalefabcolor
         Me.Tscball.Text = "ทั้งหมด"
         Me.Tscball.ToolStripCheckBoxEnabled = True
         '
+        'BoxShadeid
+        '
+        Me.BoxShadeid.Name = "BoxShadeid"
+        Me.BoxShadeid.Size = New System.Drawing.Size(50, 49)
+        Me.BoxShadeid.Visible = False
+        '
         'Tbclothid
         '
         Me.Tbclothid.Name = "Tbclothid"
@@ -347,12 +353,6 @@ Partial Class Formaesalefabcolor
         Me.TabItem1.AttachedControl = Me.TabControlPanel1
         Me.TabItem1.Name = "TabItem1"
         Me.TabItem1.Text = "รายละเอียดผ้า"
-        '
-        'BoxShadeid
-        '
-        Me.BoxShadeid.Name = "BoxShadeid"
-        Me.BoxShadeid.Size = New System.Drawing.Size(50, 49)
-        Me.BoxShadeid.Visible = False
         '
         'Formaesalefabcolor
         '

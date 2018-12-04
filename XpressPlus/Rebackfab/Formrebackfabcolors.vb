@@ -79,7 +79,7 @@ Public Class Formrebackfabcolors
             Editdoc()
         End If
         Tsbwsave.Visible = False
-        'Btmreports_Click(sender, e)
+        Btmreports_Click(sender, e)
         Btdcancel_Click(sender, e)
         Tbkongno.Text = ""
         Clrupdet()
@@ -1159,8 +1159,17 @@ Public Class Formrebackfabcolors
             Informmessage("มีการเปลี่ยนแปลงและยังไม่ทำการบันทึก")
             Exit Sub
         End If
-        Dim Frm As New Formrebackfabcolrpt ' เป้
-        Frm.Tbcustname.Text = Tbdhid.Text
+        ''Dim Frm As New Formrebackfabcolrpt ' เป้
+        ''Frm.Tbdhname.Text = Tbdhname.Text
+        ''Frm.Tbdyedbillno.Text = Tbdyedbillno.Text
+        ''Frm.Tbdhname.Text = Tbdhname.Text
+        ''Frm.Tbdyedbillno.Text = Tbdyedbillno.Text
+        ''Frm.Tbkgprice.Text = Tbkgprice.Text
+        ''Frm.Tbsummoney.Text = Tbsummoney.Text
+        ''Frm.Tbdyedcomno.Text = Tbdyedcomno.Text
+        ''Frm.Dtprecdate.Text = Dtprecdate.Text
+        ''Frm.Tbsumwgt.Text = Tbsumwgt.Text
+        ''Frm.Tbremark.Text = Tbremark.Text
         ''For i = 0 To Dgvmas.Rows.Count - 1
 
         ''    Frm.Dgvmas.Rows.Add()
@@ -1180,7 +1189,7 @@ Public Class Formrebackfabcolors
         ''Frm.Tbdate.Text = Dtprecdate.Text
 
         ''Frm.ReportViewer1.Reset()
-        Frm.Show()
+        'Frm.Show()
         Clrtxtbox()
         Clrdgrid()
         BindingNavigator1.Enabled = False

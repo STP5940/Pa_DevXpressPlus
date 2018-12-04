@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Formrebackfabcolrpt
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,11 +20,19 @@ Partial Class Formrebackfabcolrpt
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
+        Me.Dtprecdate = New Normtextbox.Normtextbox()
+        Me.Tbdyedcomno = New Normtextbox.Normtextbox()
+        Me.Tbsummoney = New Dectextbox.Dectextbox()
+        Me.Tbdyedbillno = New Normtextbox.Normtextbox()
+        Me.Tbdhname = New Normtextbox.Normtextbox()
         Me.Tbremark = New Normtextbox.Normtextbox()
         Me.FilterLotarray = New System.Windows.Forms.TextBox()
         Me.FilterKongarray = New System.Windows.Forms.TextBox()
@@ -43,9 +51,31 @@ Partial Class Formrebackfabcolrpt
         Me.Tbcustaddr = New System.Windows.Forms.TextBox()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
+        Me.Tbsumwgt = New Dectextbox.Dectextbox()
+        Me.Dgvmas = New System.Windows.Forms.DataGridView()
+        Me.Mstat = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Ord = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mkong = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Rollno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mcomid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Order = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Dhid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mdyedhdesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Billdyedno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Lotno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Clothid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mclothno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Clothtype = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Dwidth = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Shadeid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Shadedesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Rollwage = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Instk = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.News = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabControlPanel1.SuspendLayout()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
+        CType(Me.Dgvmas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabItem1
@@ -56,6 +86,13 @@ Partial Class Formrebackfabcolrpt
         '
         'TabControlPanel1
         '
+        Me.TabControlPanel1.Controls.Add(Me.Dgvmas)
+        Me.TabControlPanel1.Controls.Add(Me.Tbsumwgt)
+        Me.TabControlPanel1.Controls.Add(Me.Dtprecdate)
+        Me.TabControlPanel1.Controls.Add(Me.Tbdyedcomno)
+        Me.TabControlPanel1.Controls.Add(Me.Tbsummoney)
+        Me.TabControlPanel1.Controls.Add(Me.Tbdyedbillno)
+        Me.TabControlPanel1.Controls.Add(Me.Tbdhname)
         Me.TabControlPanel1.Controls.Add(Me.Tbremark)
         Me.TabControlPanel1.Controls.Add(Me.FilterLotarray)
         Me.TabControlPanel1.Controls.Add(Me.FilterKongarray)
@@ -89,17 +126,78 @@ Partial Class Formrebackfabcolrpt
         Me.TabControlPanel1.TabIndex = 1
         Me.TabControlPanel1.TabItem = Me.TabItem1
         '
+        'Dtprecdate
+        '
+        Me.Dtprecdate.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Dtprecdate.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Dtprecdate.Enabled = False
+        Me.Dtprecdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Dtprecdate.Location = New System.Drawing.Point(24, 205)
+        Me.Dtprecdate.MaxLength = 150
+        Me.Dtprecdate.Name = "Dtprecdate"
+        Me.Dtprecdate.Size = New System.Drawing.Size(109, 24)
+        Me.Dtprecdate.TabIndex = 203
+        '
+        'Tbdyedcomno
+        '
+        Me.Tbdyedcomno.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Tbdyedcomno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbdyedcomno.Enabled = False
+        Me.Tbdyedcomno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tbdyedcomno.Location = New System.Drawing.Point(24, 175)
+        Me.Tbdyedcomno.MaxLength = 150
+        Me.Tbdyedcomno.Name = "Tbdyedcomno"
+        Me.Tbdyedcomno.Size = New System.Drawing.Size(109, 24)
+        Me.Tbdyedcomno.TabIndex = 201
+        '
+        'Tbsummoney
+        '
+        Me.Tbsummoney.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Tbsummoney.Enabled = False
+        Me.Tbsummoney.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tbsummoney.Location = New System.Drawing.Point(24, 143)
+        Me.Tbsummoney.MaxLength = 12
+        Me.Tbsummoney.Name = "Tbsummoney"
+        Me.Tbsummoney.Size = New System.Drawing.Size(109, 24)
+        Me.Tbsummoney.TabIndex = 200
+        Me.Tbsummoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Tbdyedbillno
+        '
+        Me.Tbdyedbillno.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Tbdyedbillno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbdyedbillno.Enabled = False
+        Me.Tbdyedbillno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Tbdyedbillno.Location = New System.Drawing.Point(24, 82)
+        Me.Tbdyedbillno.MaxLength = 150
+        Me.Tbdyedbillno.Name = "Tbdyedbillno"
+        Me.Tbdyedbillno.Size = New System.Drawing.Size(109, 24)
+        Me.Tbdyedbillno.TabIndex = 198
+        '
+        'Tbdhname
+        '
+        Me.Tbdhname.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Tbdhname.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbdhname.Enabled = False
+        Me.Tbdhname.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Tbdhname.Location = New System.Drawing.Point(24, 52)
+        Me.Tbdhname.MaxLength = 150
+        Me.Tbdhname.Name = "Tbdhname"
+        Me.Tbdhname.Size = New System.Drawing.Size(109, 24)
+        Me.Tbdhname.TabIndex = 197
+        '
         'Tbremark
         '
+        Me.Tbremark.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Tbremark.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbremark.Enabled = False
         Me.Tbremark.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbremark.Location = New System.Drawing.Point(788, 231)
+        Me.Tbremark.Location = New System.Drawing.Point(24, 235)
         Me.Tbremark.MaxLength = 150
         Me.Tbremark.Multiline = True
         Me.Tbremark.Name = "Tbremark"
-        Me.Tbremark.Size = New System.Drawing.Size(100, 22)
+        Me.Tbremark.Size = New System.Drawing.Size(109, 22)
         Me.Tbremark.TabIndex = 196
-        Me.Tbremark.Visible = False
         '
         'FilterLotarray
         '
@@ -143,11 +241,12 @@ Partial Class Formrebackfabcolrpt
         '
         'Tbkgprice
         '
-        Me.Tbkgprice.Location = New System.Drawing.Point(788, 147)
+        Me.Tbkgprice.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Tbkgprice.Enabled = False
+        Me.Tbkgprice.Location = New System.Drawing.Point(24, 112)
         Me.Tbkgprice.Name = "Tbkgprice"
-        Me.Tbkgprice.Size = New System.Drawing.Size(100, 22)
+        Me.Tbkgprice.Size = New System.Drawing.Size(109, 22)
         Me.Tbkgprice.TabIndex = 188
-        Me.Tbkgprice.Visible = False
         '
         'Tbsumkg
         '
@@ -211,6 +310,7 @@ Partial Class Formrebackfabcolrpt
         Me.Tbcustname.Name = "Tbcustname"
         Me.Tbcustname.Size = New System.Drawing.Size(100, 22)
         Me.Tbcustname.TabIndex = 180
+        Me.Tbcustname.Visible = False
         '
         'Tbcustaddr
         '
@@ -246,6 +346,196 @@ Partial Class Formrebackfabcolrpt
         Me.TabControl1.Tabs.Add(Me.TabItem1)
         Me.TabControl1.Text = "TabControl1"
         '
+        'Tbsumwgt
+        '
+        Me.Tbsumwgt.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Tbsumwgt.Enabled = False
+        Me.Tbsumwgt.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tbsumwgt.Location = New System.Drawing.Point(24, 263)
+        Me.Tbsumwgt.MaxLength = 12
+        Me.Tbsumwgt.Name = "Tbsumwgt"
+        Me.Tbsumwgt.Size = New System.Drawing.Size(109, 24)
+        Me.Tbsumwgt.TabIndex = 204
+        Me.Tbsumwgt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Dgvmas
+        '
+        Me.Dgvmas.AllowUserToAddRows = False
+        Me.Dgvmas.AllowUserToDeleteRows = False
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.Dgvmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Mstat, Me.Ord, Me.Mkong, Me.Rollno, Me.Mcomid, Me.Order, Me.Dhid, Me.Mdyedhdesc, Me.Billdyedno, Me.Lotno, Me.Clothid, Me.Mclothno, Me.Clothtype, Me.Dwidth, Me.Shadeid, Me.Shadedesc, Me.Rollwage, Me.Instk, Me.News})
+        Me.Dgvmas.Location = New System.Drawing.Point(4, 562)
+        Me.Dgvmas.Name = "Dgvmas"
+        Me.Dgvmas.ReadOnly = True
+        Me.Dgvmas.Size = New System.Drawing.Size(1000, 141)
+        Me.Dgvmas.TabIndex = 205
+        '
+        'Mstat
+        '
+        Me.Mstat.DataPropertyName = "Stat"
+        Me.Mstat.HeaderText = ""
+        Me.Mstat.Name = "Mstat"
+        Me.Mstat.ReadOnly = True
+        Me.Mstat.Width = 20
+        '
+        'Ord
+        '
+        Me.Ord.DataPropertyName = "Ord"
+        Me.Ord.HeaderText = "Ord"
+        Me.Ord.Name = "Ord"
+        Me.Ord.ReadOnly = True
+        Me.Ord.Width = 70
+        '
+        'Mkong
+        '
+        Me.Mkong.DataPropertyName = "Kongno"
+        Me.Mkong.HeaderText = "เบอร์กอง"
+        Me.Mkong.Name = "Mkong"
+        Me.Mkong.ReadOnly = True
+        Me.Mkong.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'Rollno
+        '
+        Me.Rollno.DataPropertyName = "Rollno"
+        Me.Rollno.HeaderText = "เบอร์พับ"
+        Me.Rollno.Name = "Rollno"
+        Me.Rollno.ReadOnly = True
+        '
+        'Mcomid
+        '
+        Me.Mcomid.DataPropertyName = "Comid"
+        Me.Mcomid.HeaderText = "Comid"
+        Me.Mcomid.Name = "Mcomid"
+        Me.Mcomid.ReadOnly = True
+        Me.Mcomid.Visible = False
+        '
+        'Order
+        '
+        Me.Order.DataPropertyName = "Pubno"
+        Me.Order.HeaderText = "ลำดับที่"
+        Me.Order.Name = "Order"
+        Me.Order.ReadOnly = True
+        Me.Order.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.Order.Visible = False
+        '
+        'Dhid
+        '
+        Me.Dhid.DataPropertyName = "Dhid"
+        Me.Dhid.HeaderText = "Dhid"
+        Me.Dhid.Name = "Dhid"
+        Me.Dhid.ReadOnly = True
+        Me.Dhid.Visible = False
+        '
+        'Mdyedhdesc
+        '
+        Me.Mdyedhdesc.DataPropertyName = "Dyedhdesc"
+        Me.Mdyedhdesc.HeaderText = "Dyedhdesc"
+        Me.Mdyedhdesc.Name = "Mdyedhdesc"
+        Me.Mdyedhdesc.ReadOnly = True
+        Me.Mdyedhdesc.Visible = False
+        '
+        'Billdyedno
+        '
+        Me.Billdyedno.DataPropertyName = "Billdyedno"
+        Me.Billdyedno.HeaderText = "Billdyedno"
+        Me.Billdyedno.Name = "Billdyedno"
+        Me.Billdyedno.ReadOnly = True
+        Me.Billdyedno.Visible = False
+        '
+        'Lotno
+        '
+        Me.Lotno.DataPropertyName = "Lotno"
+        Me.Lotno.HeaderText = "Lotno"
+        Me.Lotno.Name = "Lotno"
+        Me.Lotno.ReadOnly = True
+        Me.Lotno.Visible = False
+        '
+        'Clothid
+        '
+        Me.Clothid.DataPropertyName = "Clothid"
+        Me.Clothid.HeaderText = "Clothid"
+        Me.Clothid.Name = "Clothid"
+        Me.Clothid.ReadOnly = True
+        Me.Clothid.Visible = False
+        '
+        'Mclothno
+        '
+        Me.Mclothno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Mclothno.DataPropertyName = "Clothno"
+        Me.Mclothno.HeaderText = "เบอร์ผ้า"
+        Me.Mclothno.Name = "Mclothno"
+        Me.Mclothno.ReadOnly = True
+        Me.Mclothno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'Clothtype
+        '
+        Me.Clothtype.DataPropertyName = "Ftype"
+        Me.Clothtype.HeaderText = "ประเภท"
+        Me.Clothtype.Name = "Clothtype"
+        Me.Clothtype.ReadOnly = True
+        Me.Clothtype.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.Clothtype.Width = 130
+        '
+        'Dwidth
+        '
+        Me.Dwidth.DataPropertyName = "Fwidth"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Dwidth.DefaultCellStyle = DataGridViewCellStyle2
+        Me.Dwidth.HeaderText = "หน้ากว้าง"
+        Me.Dwidth.Name = "Dwidth"
+        Me.Dwidth.ReadOnly = True
+        Me.Dwidth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'Shadeid
+        '
+        Me.Shadeid.DataPropertyName = "Shadeid"
+        Me.Shadeid.HeaderText = "Shadeid"
+        Me.Shadeid.Name = "Shadeid"
+        Me.Shadeid.ReadOnly = True
+        '
+        'Shadedesc
+        '
+        Me.Shadedesc.DataPropertyName = "Shadedesc"
+        Me.Shadedesc.HeaderText = "Shade"
+        Me.Shadedesc.Name = "Shadedesc"
+        Me.Shadedesc.ReadOnly = True
+        Me.Shadedesc.Width = 140
+        '
+        'Rollwage
+        '
+        Me.Rollwage.DataPropertyName = "Rollwage"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "N2"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.Rollwage.DefaultCellStyle = DataGridViewCellStyle3
+        Me.Rollwage.HeaderText = "น้ำหนัก(ก.ก.)"
+        Me.Rollwage.Name = "Rollwage"
+        Me.Rollwage.ReadOnly = True
+        Me.Rollwage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'Instk
+        '
+        Me.Instk.DataPropertyName = "Instk"
+        Me.Instk.HeaderText = "Instk"
+        Me.Instk.Name = "Instk"
+        Me.Instk.ReadOnly = True
+        Me.Instk.Visible = False
+        '
+        'News
+        '
+        Me.News.HeaderText = "News"
+        Me.News.Name = "News"
+        Me.News.ReadOnly = True
+        Me.News.Visible = False
+        '
         'Formrebackfabcolrpt
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -258,6 +548,7 @@ Partial Class Formrebackfabcolrpt
         Me.TabControlPanel1.PerformLayout()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
+        CType(Me.Dgvmas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -282,4 +573,30 @@ Partial Class Formrebackfabcolrpt
     Friend WithEvents Tbcustaddr As TextBox
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents TabControl1 As DevComponents.DotNetBar.TabControl
+    Friend WithEvents Tbdhname As Normtextbox.Normtextbox
+    Friend WithEvents Tbdyedbillno As Normtextbox.Normtextbox
+    Friend WithEvents Tbsummoney As Dectextbox.Dectextbox
+    Friend WithEvents Tbdyedcomno As Normtextbox.Normtextbox
+    Friend WithEvents Dtprecdate As Normtextbox.Normtextbox
+    Friend WithEvents Tbsumwgt As Dectextbox.Dectextbox
+    Friend WithEvents Dgvmas As DataGridView
+    Friend WithEvents Mstat As DataGridViewTextBoxColumn
+    Friend WithEvents Ord As DataGridViewTextBoxColumn
+    Friend WithEvents Mkong As DataGridViewTextBoxColumn
+    Friend WithEvents Rollno As DataGridViewTextBoxColumn
+    Friend WithEvents Mcomid As DataGridViewTextBoxColumn
+    Friend WithEvents Order As DataGridViewTextBoxColumn
+    Friend WithEvents Dhid As DataGridViewTextBoxColumn
+    Friend WithEvents Mdyedhdesc As DataGridViewTextBoxColumn
+    Friend WithEvents Billdyedno As DataGridViewTextBoxColumn
+    Friend WithEvents Lotno As DataGridViewTextBoxColumn
+    Friend WithEvents Clothid As DataGridViewTextBoxColumn
+    Friend WithEvents Mclothno As DataGridViewTextBoxColumn
+    Friend WithEvents Clothtype As DataGridViewTextBoxColumn
+    Friend WithEvents Dwidth As DataGridViewTextBoxColumn
+    Friend WithEvents Shadeid As DataGridViewTextBoxColumn
+    Friend WithEvents Shadedesc As DataGridViewTextBoxColumn
+    Friend WithEvents Rollwage As DataGridViewTextBoxColumn
+    Friend WithEvents Instk As DataGridViewTextBoxColumn
+    Friend WithEvents News As DataGridViewTextBoxColumn
 End Class
