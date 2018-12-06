@@ -198,6 +198,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Rebackfab\Datarebackfab.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Datarebackfab.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Rebackfab\Formbillsalelist.Designer.vb">
       <DependentUpon>Formbillsalelist.vb</DependentUpon>
     </Compile>
@@ -611,6 +616,17 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="Rebackfab\Datarebackfab.xsc">
+      <DependentUpon>Datarebackfab.xsd</DependentUpon>
+    </None>
+    <None Include="Rebackfab\Datarebackfab.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Datarebackfab.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Rebackfab\Datarebackfab.xss">
+      <DependentUpon>Datarebackfab.xsd</DependentUpon>
+    </None>
     <None Include="Receivefab\DataCountreport.xsc">
       <DependentUpon>DataCountreport.xsd</DependentUpon>
     </None>

@@ -94,7 +94,7 @@ Public Class Formrebackfabcolors
         'End If
         If Confirmdelete() = True Then
             Deldetails()
-            SQLCommand($"UPDATE Trebackfab SET Sstatus = '0' WHERE Rbid = '{Trim(Tbdyedcomno.Text)}'") 'Pa comment
+            SQLCommand($"UPDATE Trebackfab SET Sstatus = '0', Updusr = '{Gsuserid}', Uptype = 'D'  WHERE Rbid = '{Trim(Tbdyedcomno.Text)}'") 'Pa comment
             Clrdgrid()
             Clrtxtbox()
             Mainbuttoncancel()
@@ -610,7 +610,7 @@ Public Class Formrebackfabcolors
         Dim Kgprice = New DataTable
         Kgprice = SQLCommand($"SELECT Kgprice FROM Tsalefabcolxp WHERE Dlvno = '{Trim(Tbdyedbillno)}' AND Comid = '{Gscomid}' ")
         If Kgprice.Rows.Count > 0 Then
-            Tbkgprice.Text = Kgprice(0)(0)
+            Tbkgprice.Text = Format(Kgprice(0)(0), "###,###.#0")
             Tbkgprice.Enabled = False
         Else
             Tbkgprice.Enabled = True
@@ -1159,17 +1159,20 @@ Public Class Formrebackfabcolors
             Informmessage("มีการเปลี่ยนแปลงและยังไม่ทำการบันทึก")
             Exit Sub
         End If
-        ''Dim Frm As New Formrebackfabcolrpt ' เป้
-        ''Frm.Tbdhname.Text = Tbdhname.Text
-        ''Frm.Tbdyedbillno.Text = Tbdyedbillno.Text
-        ''Frm.Tbdhname.Text = Tbdhname.Text
-        ''Frm.Tbdyedbillno.Text = Tbdyedbillno.Text
-        ''Frm.Tbkgprice.Text = Tbkgprice.Text
-        ''Frm.Tbsummoney.Text = Tbsummoney.Text
-        ''Frm.Tbdyedcomno.Text = Tbdyedcomno.Text
-        ''Frm.Dtprecdate.Text = Dtprecdate.Text
-        ''Frm.Tbsumwgt.Text = Tbsumwgt.Text
-        ''Frm.Tbremark.Text = Tbremark.Text
+        Dim Frm As New Formrebackfabcolrpt ' เป้
+        Frm.Tbdhname.Text = Tbdhname.Text
+        Frm.Tbdyedbillno.Text = Tbdyedbillno.Text
+        Frm.Tbdhname.Text = Tbdhname.Text
+        Frm.Tbdyedbillno.Text = Tbdyedbillno.Text
+        Frm.Tbkgprice.Text = Tbkgprice.Text
+        Frm.Tbsummoney.Text = Tbsummoney.Text
+        Frm.Tbdyedcomno.Text = Tbdyedcomno.Text
+        Frm.Dtprecdate.Text = Format(Dtprecdate.Value, "dd/MM/yyyy")
+        Frm.Tbsumwgt.Text = Tbsumwgt.Text
+        Frm.Tbremark.Text = Tbremark.Text
+        CountDgvmas.Text = Dgvmas.RowCount
+        Frm.CountDgvmas.Text = CountDgvmas.Text
+
         ''For i = 0 To Dgvmas.Rows.Count - 1
 
         ''    Frm.Dgvmas.Rows.Add()
@@ -1189,7 +1192,7 @@ Public Class Formrebackfabcolors
         ''Frm.Tbdate.Text = Dtprecdate.Text
 
         ''Frm.ReportViewer1.Reset()
-        'Frm.Show()
+        Frm.Show()
         Clrtxtbox()
         Clrdgrid()
         BindingNavigator1.Enabled = False

@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Module Gbclass
     Public Gsusergroupid As String
-    Public Gsuserid As String
+    Public Gsuserid As String = "10001"
     Public Gsusername As String
     Public Gscomname As String 'Company
     Public Gscomid As String = "101"
