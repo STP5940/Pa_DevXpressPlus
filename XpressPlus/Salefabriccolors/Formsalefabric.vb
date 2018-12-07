@@ -721,12 +721,17 @@ Public Class Formsalefabric
         Dim Tlotno, Tkongo, Trollno, SaleClothid, Shadeid As String
         Dim Twgkg As Double
         For I = 0 To Dgvmas.RowCount - 1
-            Tlotno = Trim(Dgvmas.Rows(I).Cells("Dlot").Value)
             Tkongo = Dgvmas.Rows(I).Cells("Mkongno").Value
             Trollno = Dgvmas.Rows(I).Cells("Rollno").Value
             Twgkg = Dgvmas.Rows(I).Cells("Qtykg").Value
             SaleClothid = Dgvmas.Rows(I).Cells("SaleClothid").Value
             Shadeid = Dgvmas.Rows(I).Cells("Shadeid").Value
+            Tlotno = Trim(Dgvmas.Rows(I).Cells("Dlot").Value)
+            If Tlotno = "" Then
+                MsgBox("NO LOT")
+                'UPDATE Trebackfabdet SET Rollstat = 'O' WHERE Rollno = '{Trollno}' AND Rbid = '{Tbdyedcomno.text}' AND Comid = '101'
+                'ขายผ้าที่รับคืนมาจะไม่สามารวมกับการขายผ้าที่รับจากโรงย้อมได้ เพราะผ้าที่จะถูกขายไม่มีการเก็บ Lot NO
+            End If
 
             SQLCommand("INSERT INTO Tsalefabcoldetxp(Comid,Dlvno,Lotno,Kongno,Rollno,
                         Clothid,Shadeid,Wgtkg,Updusr,Uptype,Uptime)
@@ -1751,7 +1756,15 @@ Public Class Formsalefabric
         Btdcancel_Click(sender, e)
         Btmnew_Click(sender, e)
         Tbkongno.Text = InputGrid(Dgvstock.CurrentRow.Cells("SKongno").Value)
+
         Tbdyedcomno.Text = InputGrid(Dgvstock.CurrentRow.Cells("Reid").Value)
+        REData = New DataTable
+        REData = SQLCommand($"SELECT Billdyedno FROM Vrecfabcolmas WHERE Reid = '{Tbdyedcomno.Text}' AND Comid = '{Gscomid}'
+                                    UNION
+                              SELECT Rbid AS Billdyedno FROM Vrebackfabdet WHERE Rollstat = 'I' AND Comid = '{Gscomid}' 
+                                    AND Rbid = '{Tbdyedcomno.Text}' ")
+        RS.Text = REData(0)(0)
+
         Tbclothid.Text = InputGrid(Dgvstock.CurrentRow.Cells("SClothid").Value)
         Tbclothno.Text = InputGrid(Dgvstock.CurrentRow.Cells("SClothno").Value)
         Tbwidth.Text = InputGrid(Dgvstock.CurrentRow.Cells("SFwidth").Value)
@@ -1792,7 +1805,10 @@ Public Class Formsalefabric
         End If
         Tbdyedcomno.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Reid").Value)
         REData = New DataTable
-        REData = SQLCommand($"SELECT Billdyedno FROM Vrecfabcolmas WHERE Reid = '{Tbdyedcomno.Text}' AND Comid = '{Gscomid}'")
+        REData = SQLCommand($"SELECT Billdyedno FROM Vrecfabcolmas WHERE Reid = '{Tbdyedcomno.Text}' AND Comid = '{Gscomid}'
+                                    UNION
+                              SELECT Rbid AS Billdyedno FROM Vrebackfabdet WHERE Rollstat = 'I' AND Comid = '{Gscomid}' 
+                                    AND Rbid = '{Tbdyedcomno.Text}' ")
         RS.Text = REData(0)(0)
     End Sub
 

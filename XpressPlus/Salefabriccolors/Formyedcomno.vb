@@ -5,11 +5,18 @@
     End Sub
     Private Sub Bindingmaster()
         Tmaster = New DataTable
-        Tmaster = SQLCommand($"SELECT DISTINCT Reid,Trecfabcoldetxp.Lotno,Trecfabcoldetxp.Kongno FROM Trecfabcolxp LEFT JOIN Trecfabcoldetxp
-                               ON Trecfabcolxp.Billdyedno = Trecfabcoldetxp.Billdyedno
-                               WHERE Trecfabcoldetxp.Kongno = '{Tbkongno.Text}'")
+        Tmaster = SQLCommand($"SELECT DISTINCT Reid,Trecfabcoldetxp.Lotno,Trecfabcoldetxp.Kongno 
+                                      FROM Trecfabcolxp 
+                                      LEFT JOIN Trecfabcoldetxp
+                                           ON Trecfabcolxp.Billdyedno = Trecfabcoldetxp.Billdyedno
+                                      WHERE Trecfabcoldetxp.Kongno = '{Tbkongno.Text}'
+                               UNION
+                               SELECT Rbid, '' As Lotno, Kongno 
+                                      FROM Vrebackfabdet 
+                                      WHERE Rollstat = 'I' 
+                                      AND Comid = '{Gscomid}' ")
         Dgvmas.DataSource = Tmaster
-        FilterDgvmas()
+        'FilterDgvmas()
     End Sub
     Private Sub FilterDgvmas()
         Countsale = New DataTable
