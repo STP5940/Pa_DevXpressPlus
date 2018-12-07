@@ -50,8 +50,7 @@
     <Reference Include="Dectextbox">
       <HintPath>\\s-pc\VDO\GSC\Dll\Dectextbox.dll</HintPath>
     </Reference>
-    <Reference Include="DevComponents.DotNetBar.Layout, Version=14.1.0.32, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
-    <Reference Include="DevComponents.DotNetBar2, Version=14.1.0.32, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar2, Version=14.1.0.34, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
     <Reference Include="Inttextbox">
       <HintPath>\\s-pc\VDO\GSC\Dll\Inttextbox.dll</HintPath>
     </Reference>
