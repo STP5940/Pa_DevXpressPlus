@@ -134,7 +134,6 @@ C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\XpressPlus.exe
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\XpressPlus.pdb
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\XpressPlus.xml
-C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\DevComponents.DotNetBar2.dll
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\Microsoft.ReportViewer.WinForms.dll
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\DevComponents.DotNetBar2.xml
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formdyedlist.resources
@@ -255,7 +254,6 @@ C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formsaleyarnrpt.resources
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Form2.resources
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formsheadbyfab.resources
-C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\DevComponents.DotNetBar.Layout.dll
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\DevComponents.DotNetBar.Layout.xml
 C:\Users\S\Desktop\181026_GSC\Dyed_DevXpressPlus\XpressPlus\bin\Debug\XpressPlus.exe.config
 C:\Users\S\Desktop\181026_GSC\Dyed_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.exe
