@@ -710,7 +710,7 @@ BypassFilter:
     End Sub
     Private Sub Deldetails()
         SQLCommand("DELETE FROM Trecfabcoldetxp 
-                    WHERE Comid = '" & Gscomid & "' AND Dhid = '" & Trim(Tbdhid.Text) & "' AND Billdyedno = '" & Trim(Tbdyedbillno.Text) & "' AND
+                    WHERE Comid = '" & Gscomid & "' AND Billdyedno = '" & Trim(Tbdyedbillno.Text) & "' AND
                     Lotno = '" & Tbrefablotno.Text & "'")
     End Sub
     Private Sub Upddetails(Etype As String)
