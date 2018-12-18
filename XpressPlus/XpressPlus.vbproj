@@ -298,6 +298,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Datareport.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Salefabriccolors\DatareportSale.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatareportSale.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Salefabriccolors\Formaesalefabcolor.designer.vb">
       <DependentUpon>Formaesalefabcolor.vb</DependentUpon>
     </Compile>
@@ -641,9 +646,9 @@
       <DependentUpon>Datareportfab.xsd</DependentUpon>
     </None>
     <None Include="Receivefab\Datareportfab.xsd">
+      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Datareportfab.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
     <None Include="Receivefab\Datareportfab.xss">
       <DependentUpon>Datareportfab.xsd</DependentUpon>
@@ -658,6 +663,17 @@
     </None>
     <None Include="Salefabriccolors\Datareport.xss">
       <DependentUpon>Datareport.xsd</DependentUpon>
+    </None>
+    <None Include="Salefabriccolors\DatareportSale.xsc">
+      <DependentUpon>DatareportSale.xsd</DependentUpon>
+    </None>
+    <None Include="Salefabriccolors\DatareportSale.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatareportSale.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Salefabriccolors\DatareportSale.xss">
+      <DependentUpon>DatareportSale.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

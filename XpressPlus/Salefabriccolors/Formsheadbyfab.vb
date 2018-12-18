@@ -14,7 +14,7 @@
             Tmaster.DefaultView.RowFilter = String.Empty
             Exit Sub
         End If
-        Tmaster.DefaultView.RowFilter = String.Format("Clothno Like '%{0}%'", Trim(Tbkeyword.Text))
+        Tmaster.DefaultView.RowFilter = String.Format("Shadedesc Like '%{0}%'", Trim(Tbkeyword.Text))
     End Sub
     Private Sub Dgvmas_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Dgvmas.CellClick
         If Dgvmas.RowCount = 0 Then

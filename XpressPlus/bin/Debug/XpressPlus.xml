@@ -227,42 +227,62 @@ Represents strongly named DataRow class.
 Row event argument class
 </summary>
 </member>
+<member name="T:XpressPlus.DataSet1">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:XpressPlus.DataSet1.DatareportfabDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:XpressPlus.DataSet1.DatareportfabRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:XpressPlus.DataSet1.DatareportfabRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
 <member name="T:XpressPlus.Datareport">
 <summary>
 Represents a strongly typed in-memory cache of data.
 </summary>
 </member>
-<member name="T:XpressPlus.Datareport.DatareportfabDataTable">
+<member name="T:XpressPlus.Datareport.DatareportDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:XpressPlus.Datareport.DatareportfabRow">
+<member name="T:XpressPlus.Datareport.DatareportRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:XpressPlus.Datareport.DatareportfabRowChangeEvent">
+<member name="T:XpressPlus.Datareport.DatareportRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
 </member>
-<member name="T:XpressPlus.Datareportfab">
+<member name="T:XpressPlus.DatareportSale">
 <summary>
 Represents a strongly typed in-memory cache of data.
 </summary>
 </member>
-<member name="T:XpressPlus.Datareportfab.DatareportDataTable">
+<member name="T:XpressPlus.DatareportSale.DatareportSaleDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:XpressPlus.Datareportfab.DatareportRow">
+<member name="T:XpressPlus.DatareportSale.DatareportSaleRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:XpressPlus.Datareportfab.DatareportRowChangeEvent">
+<member name="T:XpressPlus.DatareportSale.DatareportSaleRowChangeEvent">
 <summary>
 Row event argument class
 </summary>

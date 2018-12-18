@@ -144,26 +144,26 @@ Public Class Formsalefabric
             Exit Sub
         End If
         Binddetails()
-        Salefab()
-
+        ''Salefab()
+        'Exit Sub
 
         Dim Frm As New Formsalefabcolrpt
         'Frm.ReportViewer1.ShowPrintButton = True
         'Frm.DataReport.Rows(0).Cells("Kg1").Value = DataSalefab.Rows(0).Cells("Kg1").Value
 
-        For i = 0 To DataSalefab.Rows.Count - 1
-            Frm.DataReport.Rows.Add()
-            Frm.DataReport.Rows(i).Cells("No1").Value = DataSalefab.Rows(i).Cells("No1").Value
-            Frm.DataReport.Rows(i).Cells("Kg1").Value = DataSalefab.Rows(i).Cells("Kg1").Value
-            Frm.DataReport.Rows(i).Cells("No2").Value = DataSalefab.Rows(i).Cells("No2").Value
-            Frm.DataReport.Rows(i).Cells("Kg2").Value = DataSalefab.Rows(i).Cells("Kg2").Value
-            Frm.DataReport.Rows(i).Cells("No3").Value = DataSalefab.Rows(i).Cells("No3").Value
-            Frm.DataReport.Rows(i).Cells("Kg3").Value = DataSalefab.Rows(i).Cells("Kg3").Value
-            Frm.DataReport.Rows(i).Cells("No4").Value = DataSalefab.Rows(i).Cells("No4").Value
-            Frm.DataReport.Rows(i).Cells("Kg4").Value = DataSalefab.Rows(i).Cells("Kg4").Value
-        Next
+        ''For i = 0 To DataSalefab.Rows.Count - 1
+        ''    Frm.DataReport.Rows.Add()
+        ''    Frm.DataReport.Rows(i).Cells("No1").Value = DataSalefab.Rows(i).Cells("No1").Value
+        ''    Frm.DataReport.Rows(i).Cells("Kg1").Value = DataSalefab.Rows(i).Cells("Kg1").Value
+        ''    Frm.DataReport.Rows(i).Cells("No2").Value = DataSalefab.Rows(i).Cells("No2").Value
+        ''    Frm.DataReport.Rows(i).Cells("Kg2").Value = DataSalefab.Rows(i).Cells("Kg2").Value
+        ''    Frm.DataReport.Rows(i).Cells("No3").Value = DataSalefab.Rows(i).Cells("No3").Value
+        ''    Frm.DataReport.Rows(i).Cells("Kg3").Value = DataSalefab.Rows(i).Cells("Kg3").Value
+        ''    Frm.DataReport.Rows(i).Cells("No4").Value = DataSalefab.Rows(i).Cells("No4").Value
+        ''    Frm.DataReport.Rows(i).Cells("Kg4").Value = DataSalefab.Rows(i).Cells("Kg4").Value
+        ''Next
 
-        ClearSalefab()
+        ''ClearSalefab()
 
         Frm.ReportViewer1.Reset()
         Frm.Tbcustname.Text = Trim(Tbcustname.Text)
@@ -823,157 +823,157 @@ Public Class Formsalefabric
 
         Dgvmas.DataSource = Tdetails
     End Sub
-    Private Sub Salefab()
-        Dim HeaderOne() As String = {"No1", "No2", "No3", "No4"}
-        Dim Header() As String = {"Kg1", "Kg2", "Kg3", "Kg4"}
+    ''Private Sub Salefab()
+    ''    Dim HeaderOne() As String = {"No1", "No2", "No3", "No4"}
+    ''    Dim Header() As String = {"Kg1", "Kg2", "Kg3", "Kg4"}
 
-        Dim FilterKongarray As New List(Of String)()
-        Dim KongnoListarray As New List(Of String)()
-        Dim TypeListarray As New List(Of String)()
-        Dim ClothnoListarray As New List(Of String)()
-        Dim Rollnoarray As New List(Of String)()
-        Dim Dlotarray As New List(Of String)()
-        'Dim SaleFtypeListarray As New List(Of String)()
+    ''    Dim FilterKongarray As New List(Of String)()
+    ''    Dim KongnoListarray As New List(Of String)()
+    ''    Dim TypeListarray As New List(Of String)()
+    ''    Dim ClothnoListarray As New List(Of String)()
+    ''    Dim Rollnoarray As New List(Of String)()
+    ''    Dim Dlotarray As New List(Of String)()
+    ''    'Dim SaleFtypeListarray As New List(Of String)()
 
-        Dim IndexHeader As Integer = 0
-        Dim Countkongno As Integer = 0
-        Dim FirstGrid As Long = 1
-        Dim CountProduc As Long = 1
-        Dim StartFirstGrid As Long = 1
-        Dim ChashIndex As Long = -1
-        Dim Listrecheck As Integer = 0
+    ''    Dim IndexHeader As Integer = 0
+    ''    Dim Countkongno As Integer = 0
+    ''    Dim FirstGrid As Long = 1
+    ''    Dim CountProduc As Long = 1
+    ''    Dim StartFirstGrid As Long = 1
+    ''    Dim ChashIndex As Long = -1
+    ''    Dim Listrecheck As Integer = 0
 
 
-        FilterKongarray.Add("")
-        TypeListarray.Add("")
-        ClothnoListarray.Add("")
-        Rollnoarray.Add("")
-        Dlotarray.Add("")
-        'SaleFtypeListarray.Add("")
-        For I = 0 To Dgvmas.RowCount - 1
-            For Filters = 0 To FilterKongarray.Count - 1
-                If FilterKongarray(Filters) = Dgvmas.Rows(I).Cells("Mkongno").Value And TypeListarray(Filters) = Dgvmas.Rows(I).Cells("SaleFtype").Value And
-                        Dlotarray(Filters) = Dgvmas.Rows(I).Cells("Dlot").Value Then
-                    Exit For
-                End If
+    ''    FilterKongarray.Add("")
+    ''    TypeListarray.Add("")
+    ''    ClothnoListarray.Add("")
+    ''    Rollnoarray.Add("")
+    ''    Dlotarray.Add("")
+    ''    'SaleFtypeListarray.Add("")
+    ''    For I = 0 To Dgvmas.RowCount - 1
+    ''        For Filters = 0 To FilterKongarray.Count - 1
+    ''            If FilterKongarray(Filters) = Dgvmas.Rows(I).Cells("Mkongno").Value And TypeListarray(Filters) = Dgvmas.Rows(I).Cells("SaleFtype").Value And
+    ''                    Dlotarray(Filters) = Dgvmas.Rows(I).Cells("Dlot").Value Then
+    ''                Exit For
+    ''            End If
 
-                If Filters = FilterKongarray.Count - 1 Then
-                    FilterKongarray.Add(Dgvmas.Rows(I).Cells("Mkongno").Value)
-                    TypeListarray.Add(Dgvmas.Rows(I).Cells("SaleFtype").Value)
-                    ClothnoListarray.Add(Dgvmas.Rows(I).Cells("SaleClothno").Value)
-                    Dlotarray.Add(Dgvmas.Rows(I).Cells("Dlot").Value)
-                    'SaleFtypeListarray.Add(Dgvmas.Rows(I).Cells("SaleFtype").Value)
-                End If
-            Next
-            Rollnoarray.Add(Dgvmas.Rows(I).Cells("Rollno").Value)
-        Next
+    ''            If Filters = FilterKongarray.Count - 1 Then
+    ''                FilterKongarray.Add(Dgvmas.Rows(I).Cells("Mkongno").Value)
+    ''                TypeListarray.Add(Dgvmas.Rows(I).Cells("SaleFtype").Value)
+    ''                ClothnoListarray.Add(Dgvmas.Rows(I).Cells("SaleClothno").Value)
+    ''                Dlotarray.Add(Dgvmas.Rows(I).Cells("Dlot").Value)
+    ''                'SaleFtypeListarray.Add(Dgvmas.Rows(I).Cells("SaleFtype").Value)
+    ''            End If
+    ''        Next
+    ''        Rollnoarray.Add(Dgvmas.Rows(I).Cells("Rollno").Value)
+    ''    Next
 
-        For i = 1 To FilterKongarray.Count - 1
-            If IndexHeader = 0 Then
-                For List = 1 To 26
-                    DataSalefab.Rows.Insert(DataSalefab.RowCount - 1, $"") ' สร้าง 20 แถว
-                Next
-            End If
+    ''    For i = 1 To FilterKongarray.Count - 1
+    ''        If IndexHeader = 0 Then
+    ''            For List = 1 To 26
+    ''                DataSalefab.Rows.Insert(DataSalefab.RowCount - 1, $"") ' สร้าง 20 แถว
+    ''            Next
+    ''        End If
 
-            For x = 1 To Rollnoarray.Count - 1
-                KongnoKg = New DataTable
-                'KongnoKg = SQLCommand($"SELECT Wgtkg FROM Tsalefabcoldetxp WHERE 
-                '                    Kongno = '{FilterKongarray(i)}'")
-                KongnoKg = SQLCommand($"SELECT dbo.Tsalefabcoldetxp.Wgtkg, dbo.Tclothxp.Ftype FROM dbo.Tsalefabcoldetxp 
-        					  LEFT OUTER JOIN dbo.Tclothxp 
-        					  ON dbo.Tsalefabcoldetxp.Comid = dbo.Tclothxp.Comid 
-        						AND dbo.Tsalefabcoldetxp.Clothid = dbo.Tclothxp.Clothid
-        					  WHERE Tsalefabcoldetxp.Comid = '{Gscomid}' 
-        						AND Kongno = '{FilterKongarray(i)}' AND Ftype = '{TypeListarray(i)}' AND Lotno = '{Dlotarray(i)}' AND Rollno = '{Rollnoarray(x)}' ")
-                For KongLoop = 0 To KongnoKg.Rows.Count - 1
-                    KongnoListarray.Add(KongnoKg(KongLoop)(0))
-                Next
-            Next
+    ''        For x = 1 To Rollnoarray.Count - 1
+    ''            KongnoKg = New DataTable
+    ''            'KongnoKg = SQLCommand($"SELECT Wgtkg FROM Tsalefabcoldetxp WHERE 
+    ''            '                    Kongno = '{FilterKongarray(i)}'")
+    ''            KongnoKg = SQLCommand($"SELECT dbo.Tsalefabcoldetxp.Wgtkg, dbo.Tclothxp.Ftype FROM dbo.Tsalefabcoldetxp 
+    ''    					  LEFT OUTER JOIN dbo.Tclothxp 
+    ''    					  ON dbo.Tsalefabcoldetxp.Comid = dbo.Tclothxp.Comid 
+    ''    						AND dbo.Tsalefabcoldetxp.Clothid = dbo.Tclothxp.Clothid
+    ''    					  WHERE Tsalefabcoldetxp.Comid = '{Gscomid}' 
+    ''    						AND Kongno = '{FilterKongarray(i)}' AND Ftype = '{TypeListarray(i)}' AND Lotno = '{Dlotarray(i)}' AND Rollno = '{Rollnoarray(x)}' ")
+    ''            For KongLoop = 0 To KongnoKg.Rows.Count - 1
+    ''                KongnoListarray.Add(KongnoKg(KongLoop)(0))
+    ''            Next
+    ''        Next
 
-            Countkongno = 0
-            If Listrecheck <> 0 Then
+    ''        Countkongno = 0
+    ''        If Listrecheck <> 0 Then
 
-                For List = Listrecheck To KongnoListarray.Count - 1
-                    Listrecheck += 1
+    ''            For List = Listrecheck To KongnoListarray.Count - 1
+    ''                Listrecheck += 1
 
-                    Countkongno += 1
-                    If Countkongno = 25 Then
-                        IndexHeader += 1
-                        Countkongno = 0
-                        FirstGrid = StartFirstGrid
-                    End If
-                    ''''''''''''''Format(Me.DataReport.Rows(i).Cells("Kg1").Value, "###,###.#0")
-                    FirstGrid += 1
-                    DataSalefab.Rows(StartFirstGrid).Cells(Header(IndexHeader)).Value = FilterKongarray(i) ' ใส่หัวเลขที่กอง
-                    DataSalefab.Rows(StartFirstGrid - 1).Cells(Header(IndexHeader)).Value = ClothnoListarray(i)
+    ''                Countkongno += 1
+    ''                If Countkongno = 25 Then
+    ''                    IndexHeader += 1
+    ''                    Countkongno = 0
+    ''                    FirstGrid = StartFirstGrid
+    ''                End If
+    ''                ''''''''''''''Format(Me.DataReport.Rows(i).Cells("Kg1").Value, "###,###.#0")
+    ''                FirstGrid += 1
+    ''                DataSalefab.Rows(StartFirstGrid).Cells(Header(IndexHeader)).Value = FilterKongarray(i) ' ใส่หัวเลขที่กอง
+    ''                DataSalefab.Rows(StartFirstGrid - 1).Cells(Header(IndexHeader)).Value = ClothnoListarray(i)
 
-                    If ChashIndex <> IndexHeader Then
-                        'DataSalefab.Rows(FirstGrid - 2).Cells(HeaderOne(IndexHeader)).Value = ClothnoListarray(i)
-                        DataSalefab.Rows(FirstGrid - 1).Cells(HeaderOne(IndexHeader)).Value = "No."
-                        ChashIndex = IndexHeader
-                    End If
-                    If TypeListarray(i) = "RIB" Then
-                        DataSalefab.Rows(FirstGrid).Cells(HeaderOne(IndexHeader)).Value = CountProduc & "(บุ้ง)"
-                    Else
-                        DataSalefab.Rows(FirstGrid).Cells(HeaderOne(IndexHeader)).Value = CountProduc
-                    End If
-                    DataSalefab.Rows(FirstGrid).Cells(Header(IndexHeader)).Value = Format(CDec(Val(KongnoListarray(List))), "###,###.#0")
+    ''                If ChashIndex <> IndexHeader Then
+    ''                    'DataSalefab.Rows(FirstGrid - 2).Cells(HeaderOne(IndexHeader)).Value = ClothnoListarray(i)
+    ''                    DataSalefab.Rows(FirstGrid - 1).Cells(HeaderOne(IndexHeader)).Value = "No."
+    ''                    ChashIndex = IndexHeader
+    ''                End If
+    ''                If TypeListarray(i) = "RIB" Then
+    ''                    DataSalefab.Rows(FirstGrid).Cells(HeaderOne(IndexHeader)).Value = CountProduc & "(บุ้ง)"
+    ''                Else
+    ''                    DataSalefab.Rows(FirstGrid).Cells(HeaderOne(IndexHeader)).Value = CountProduc
+    ''                End If
+    ''                DataSalefab.Rows(FirstGrid).Cells(Header(IndexHeader)).Value = Format(CDec(Val(KongnoListarray(List))), "###,###.#0")
 
-                    CountProduc += 1
-                    If List = KongnoListarray.Count - 1 Then
-                        FirstGrid = StartFirstGrid
-                    End If
-                Next
-            Else
-                For List = 0 To KongnoListarray.Count - 1
-                    Listrecheck += 1
+    ''                CountProduc += 1
+    ''                If List = KongnoListarray.Count - 1 Then
+    ''                    FirstGrid = StartFirstGrid
+    ''                End If
+    ''            Next
+    ''        Else
+    ''            For List = 0 To KongnoListarray.Count - 1
+    ''                Listrecheck += 1
 
-                    Countkongno += 1
-                    If Countkongno = 25 Then
-                        IndexHeader += 1
-                        Countkongno = 0
-                        FirstGrid = StartFirstGrid
-                    End If
-                    ''''''''''''''Format(Me.DataReport.Rows(i).Cells("Kg1").Value, "###,###.#0")
-                    FirstGrid += 1
-                    DataSalefab.Rows(StartFirstGrid).Cells(Header(IndexHeader)).Value = FilterKongarray(i) ' ใส่หัวเลขที่กอง
-                    DataSalefab.Rows(StartFirstGrid - 1).Cells(Header(IndexHeader)).Value = ClothnoListarray(i)
+    ''                Countkongno += 1
+    ''                If Countkongno = 25 Then
+    ''                    IndexHeader += 1
+    ''                    Countkongno = 0
+    ''                    FirstGrid = StartFirstGrid
+    ''                End If
+    ''                ''''''''''''''Format(Me.DataReport.Rows(i).Cells("Kg1").Value, "###,###.#0")
+    ''                FirstGrid += 1
+    ''                DataSalefab.Rows(StartFirstGrid).Cells(Header(IndexHeader)).Value = FilterKongarray(i) ' ใส่หัวเลขที่กอง
+    ''                DataSalefab.Rows(StartFirstGrid - 1).Cells(Header(IndexHeader)).Value = ClothnoListarray(i)
 
-                    If ChashIndex <> IndexHeader Then
-                        'DataSalefab.Rows(FirstGrid - 2).Cells(HeaderOne(IndexHeader)).Value = ClothnoListarray(i)
-                        DataSalefab.Rows(FirstGrid - 1).Cells(HeaderOne(IndexHeader)).Value = "No."
-                        ChashIndex = IndexHeader
-                    End If
-                    If TypeListarray(i) = "RIB" Then
-                        DataSalefab.Rows(FirstGrid).Cells(HeaderOne(IndexHeader)).Value = CountProduc & "(บุ้ง)"
-                    Else
-                        DataSalefab.Rows(FirstGrid).Cells(HeaderOne(IndexHeader)).Value = CountProduc
-                    End If
-                    DataSalefab.Rows(FirstGrid).Cells(Header(IndexHeader)).Value = Format(CDec(Val(KongnoListarray(List))), "###,###.#0")
+    ''                If ChashIndex <> IndexHeader Then
+    ''                    'DataSalefab.Rows(FirstGrid - 2).Cells(HeaderOne(IndexHeader)).Value = ClothnoListarray(i)
+    ''                    DataSalefab.Rows(FirstGrid - 1).Cells(HeaderOne(IndexHeader)).Value = "No."
+    ''                    ChashIndex = IndexHeader
+    ''                End If
+    ''                If TypeListarray(i) = "RIB" Then
+    ''                    DataSalefab.Rows(FirstGrid).Cells(HeaderOne(IndexHeader)).Value = CountProduc & "(บุ้ง)"
+    ''                Else
+    ''                    DataSalefab.Rows(FirstGrid).Cells(HeaderOne(IndexHeader)).Value = CountProduc
+    ''                End If
+    ''                DataSalefab.Rows(FirstGrid).Cells(Header(IndexHeader)).Value = Format(CDec(Val(KongnoListarray(List))), "###,###.#0")
 
-                    CountProduc += 1
-                    If List = KongnoListarray.Count - 1 Then
-                        FirstGrid = StartFirstGrid
-                    End If
-                Next
-            End If
+    ''                CountProduc += 1
+    ''                If List = KongnoListarray.Count - 1 Then
+    ''                    FirstGrid = StartFirstGrid
+    ''                End If
+    ''            Next
+    ''        End If
 
-            IndexHeader += 1
-            If IndexHeader = 4 Then
-                IndexHeader = 0
-                FirstGrid += 25
-                StartFirstGrid += 25
-            End If
+    ''        IndexHeader += 1
+    ''        If IndexHeader = 4 Then
+    ''            IndexHeader = 0
+    ''            FirstGrid += 25
+    ''            StartFirstGrid += 25
+    ''        End If
 
-            For KongLoop = 0 To KongnoKg.Rows.Count - 1
-                KongnoListarray.RemoveAt(0)
-            Next
-        Next
+    ''        For KongLoop = 0 To KongnoKg.Rows.Count - 1
+    ''            KongnoListarray.RemoveAt(0)
+    ''        Next
+    ''    Next
 
-    End Sub
+    ''End Sub
 
     Private Sub ClearSalefab()
-        DataSalefab.Rows.Clear()
+        ''DataSalefab.Rows.Clear()
         'FilterKong.Rows.Clear()
         'KongnoList.Rows.Clear()
     End Sub
