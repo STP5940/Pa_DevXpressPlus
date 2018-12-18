@@ -1007,13 +1007,13 @@ Public Class Formsalefabric
                                 SELECT Comid,Rbid,Custid,Custname,'' As Lotno,Kongno,Clothid,Clothno,Ftype,Fwidth,
                                        Shadeid, Shadedesc, COUNT(*) As Cunt, SUM(Rollwage) As Rollwage 
 	                            FROM Vrebackfabdet 
-                                WHERE Rollstat = 'I' AND Comid = '101'
+                                WHERE Rollstat = 'I' AND Comid = '{Gscomid}'
                                 GROUP BY Comid, Rbid, Custid, Custname, Custname, Kongno, Clothid, Clothno, Ftype, 
                                          Fwidth, Shadeid, Shadedesc
                                 UNION
                                 SELECT Comid,Rbid,Custid,Custname,'' As Lotno,Kongno,Clothid,Clothno,Ftype,Fwidth,
                                        Shadeid, Shadedesc,COUNT(*) As Cunt,SUM(Rollwage) As Rollwage 
-	                            FROM Vrebackfabdet WHERE Rollstat = 'I' AND Comid = '101' GROUP BY Comid,Rbid,Custid,
+	                            FROM Vrebackfabdet WHERE Rollstat = 'I' AND Comid = '{Gscomid}' GROUP BY Comid,Rbid,Custid,
                                        Custname,Custname,Kongno,Clothid,Clothno,Ftype,Fwidth,Shadeid,Shadedesc")
 
         Dgvstock.DataSource = Stocklist
