@@ -1004,17 +1004,11 @@ Public Class Formsalefabric
                                          dbo.Vsalestock.Ftype, dbo.Vsalestock.Fwidth, dbo.Vsalestock.Shadeid, 
                                          dbo.Vsalestock.Shadedesc, dbo.Trecfabcolxp.Reid, dbo.Vsalestock.Dhid
                                 UNION
-                                SELECT Comid,Rbid,Custid,Custname,'' As Lotno,Kongno,Clothid,Clothno,Ftype,Fwidth,
-                                       Shadeid, Shadedesc, COUNT(*) As Cunt, SUM(Rollwage) As Rollwage 
-	                            FROM Vrebackfabdet 
-                                WHERE Rollstat = 'I' AND Comid = '{Gscomid}'
-                                GROUP BY Comid, Rbid, Custid, Custname, Custname, Kongno, Clothid, Clothno, Ftype, 
-                                         Fwidth, Shadeid, Shadedesc
-                                UNION
-                                SELECT Comid,Rbid,Custid,Custname,'' As Lotno,Kongno,Clothid,Clothno,Ftype,Fwidth,
+                                SELECT Comid,Rbid,Custid,Custname,Lotno,Kongno,Clothid,Clothno,Ftype,Fwidth,
                                        Shadeid, Shadedesc,COUNT(*) As Cunt,SUM(Rollwage) As Rollwage 
-	                            FROM Vrebackfabdet WHERE Rollstat = 'I' AND Comid = '{Gscomid}' GROUP BY Comid,Rbid,Custid,
-                                       Custname,Custname,Kongno,Clothid,Clothno,Ftype,Fwidth,Shadeid,Shadedesc")
+	                            FROM Vrebackfabdet 
+                                WHERE Rollstat = 'I' AND Comid = '{Gscomid}' 
+                                GROUP BY Comid, Rbid, Custid, Custname, Custname, Lotno, Kongno, Clothid, Clothno, Ftype, Fwidth, Shadeid, Shadedesc")
 
         Dgvstock.DataSource = Stocklist
         '    Bs = New BindingSource

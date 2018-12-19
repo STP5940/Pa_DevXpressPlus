@@ -23,13 +23,13 @@ Partial Class Formrebackfabcolors
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Formrebackfabcolors))
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Btmclose = New System.Windows.Forms.ToolStripButton()
         Me.Btmfind = New System.Windows.Forms.ToolStripButton()
@@ -49,6 +49,26 @@ Partial Class Formrebackfabcolors
         Me.Ctdedit = New DevComponents.DotNetBar.ButtonItem()
         Me.Ctddel = New DevComponents.DotNetBar.ButtonItem()
         Me.Dgvmas = New System.Windows.Forms.DataGridView()
+        Me.Mstat = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Ord = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LotNoDetail = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mkong = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Rollno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mcomid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Order = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Dhid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mdyedhdesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Billdyedno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Lotno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Clothid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mclothno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Clothtype = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Dwidth = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Shadeid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Shadedesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Rollwage = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Instk = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.News = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip6 = New System.Windows.Forms.ToolStrip()
         Me.Tstbsumkg = New System.Windows.Forms.ToolStripTextBox()
         Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
@@ -157,33 +177,13 @@ Partial Class Formrebackfabcolors
         Me.Btrefresh = New System.Windows.Forms.ToolStripButton()
         Me.Btlistfind = New System.Windows.Forms.ToolStripButton()
         Me.Tstbkeyword = New System.Windows.Forms.ToolStripTextBox()
+        Me.Tscboth = New XpressPlus.ToolStripCheckBox()
         Me.ToolStripLabel4 = New System.Windows.Forms.ToolStripLabel()
+        Me.Tscbdate = New XpressPlus.ToolStripCheckBox()
         Me.ToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
         Me.TabItem2 = New DevComponents.DotNetBar.TabItem(Me.components)
         Me.Mainmake = New DevComponents.DotNetBar.ButtonItem()
         Me.Maintransaction = New DevComponents.DotNetBar.ButtonItem()
-        Me.Tscboth = New XpressPlus.ToolStripCheckBox()
-        Me.Tscbdate = New XpressPlus.ToolStripCheckBox()
-        Me.Mstat = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Ord = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LotNoDetail = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Mkong = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Rollno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Mcomid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Order = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Dhid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Mdyedhdesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Billdyedno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Lotno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Clothid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Mclothno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Clothtype = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Dwidth = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Shadeid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Shadedesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Rollwage = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Instk = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.News = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -338,8 +338,8 @@ Partial Class Formrebackfabcolors
         '
         Me.TabControl1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TabControl1.CanReorderTabs = True
-        Me.TabControl1.Controls.Add(Me.TabControlPanel1)
         Me.TabControl1.Controls.Add(Me.TabControlPanel2)
+        Me.TabControl1.Controls.Add(Me.TabControlPanel1)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.TabControl1.ForeColor = System.Drawing.Color.Black
@@ -464,14 +464,14 @@ Partial Class Formrebackfabcolors
         '
         Me.Dgvmas.AllowUserToAddRows = False
         Me.Dgvmas.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.Dgvmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Mstat, Me.Ord, Me.LotNoDetail, Me.Mkong, Me.Rollno, Me.Mcomid, Me.Order, Me.Dhid, Me.Mdyedhdesc, Me.Billdyedno, Me.Lotno, Me.Clothid, Me.Mclothno, Me.Clothtype, Me.Dwidth, Me.Shadeid, Me.Shadedesc, Me.Rollwage, Me.Instk, Me.News})
         Me.Dgvmas.Dock = System.Windows.Forms.DockStyle.Fill
@@ -480,6 +480,173 @@ Partial Class Formrebackfabcolors
         Me.Dgvmas.ReadOnly = True
         Me.Dgvmas.Size = New System.Drawing.Size(1000, 203)
         Me.Dgvmas.TabIndex = 98
+        '
+        'Mstat
+        '
+        Me.Mstat.DataPropertyName = "Stat"
+        Me.Mstat.HeaderText = ""
+        Me.Mstat.Name = "Mstat"
+        Me.Mstat.ReadOnly = True
+        Me.Mstat.Width = 20
+        '
+        'Ord
+        '
+        Me.Ord.DataPropertyName = "Ord"
+        Me.Ord.HeaderText = "Ord"
+        Me.Ord.Name = "Ord"
+        Me.Ord.ReadOnly = True
+        Me.Ord.Width = 70
+        '
+        'LotNoDetail
+        '
+        Me.LotNoDetail.DataPropertyName = "Lotno"
+        Me.LotNoDetail.HeaderText = "Lot No"
+        Me.LotNoDetail.Name = "LotNoDetail"
+        Me.LotNoDetail.ReadOnly = True
+        Me.LotNoDetail.Width = 135
+        '
+        'Mkong
+        '
+        Me.Mkong.DataPropertyName = "Kongno"
+        Me.Mkong.HeaderText = "เบอร์กอง"
+        Me.Mkong.Name = "Mkong"
+        Me.Mkong.ReadOnly = True
+        Me.Mkong.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'Rollno
+        '
+        Me.Rollno.DataPropertyName = "Rollno"
+        Me.Rollno.HeaderText = "เบอร์พับ"
+        Me.Rollno.Name = "Rollno"
+        Me.Rollno.ReadOnly = True
+        '
+        'Mcomid
+        '
+        Me.Mcomid.DataPropertyName = "Comid"
+        Me.Mcomid.HeaderText = "Comid"
+        Me.Mcomid.Name = "Mcomid"
+        Me.Mcomid.ReadOnly = True
+        Me.Mcomid.Visible = False
+        '
+        'Order
+        '
+        Me.Order.DataPropertyName = "Pubno"
+        Me.Order.HeaderText = "ลำดับที่"
+        Me.Order.Name = "Order"
+        Me.Order.ReadOnly = True
+        Me.Order.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.Order.Visible = False
+        '
+        'Dhid
+        '
+        Me.Dhid.DataPropertyName = "Dhid"
+        Me.Dhid.HeaderText = "Dhid"
+        Me.Dhid.Name = "Dhid"
+        Me.Dhid.ReadOnly = True
+        Me.Dhid.Visible = False
+        '
+        'Mdyedhdesc
+        '
+        Me.Mdyedhdesc.DataPropertyName = "Dyedhdesc"
+        Me.Mdyedhdesc.HeaderText = "Dyedhdesc"
+        Me.Mdyedhdesc.Name = "Mdyedhdesc"
+        Me.Mdyedhdesc.ReadOnly = True
+        Me.Mdyedhdesc.Visible = False
+        '
+        'Billdyedno
+        '
+        Me.Billdyedno.DataPropertyName = "Billdyedno"
+        Me.Billdyedno.HeaderText = "Billdyedno"
+        Me.Billdyedno.Name = "Billdyedno"
+        Me.Billdyedno.ReadOnly = True
+        Me.Billdyedno.Visible = False
+        '
+        'Lotno
+        '
+        Me.Lotno.DataPropertyName = "Lotno"
+        Me.Lotno.HeaderText = "Lotno"
+        Me.Lotno.Name = "Lotno"
+        Me.Lotno.ReadOnly = True
+        Me.Lotno.Visible = False
+        '
+        'Clothid
+        '
+        Me.Clothid.DataPropertyName = "Clothid"
+        Me.Clothid.HeaderText = "Clothid"
+        Me.Clothid.Name = "Clothid"
+        Me.Clothid.ReadOnly = True
+        Me.Clothid.Visible = False
+        '
+        'Mclothno
+        '
+        Me.Mclothno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Mclothno.DataPropertyName = "Clothno"
+        Me.Mclothno.HeaderText = "เบอร์ผ้า"
+        Me.Mclothno.Name = "Mclothno"
+        Me.Mclothno.ReadOnly = True
+        Me.Mclothno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'Clothtype
+        '
+        Me.Clothtype.DataPropertyName = "Ftype"
+        Me.Clothtype.HeaderText = "ประเภท"
+        Me.Clothtype.Name = "Clothtype"
+        Me.Clothtype.ReadOnly = True
+        Me.Clothtype.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.Clothtype.Width = 130
+        '
+        'Dwidth
+        '
+        Me.Dwidth.DataPropertyName = "Fwidth"
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Dwidth.DefaultCellStyle = DataGridViewCellStyle8
+        Me.Dwidth.HeaderText = "หน้ากว้าง"
+        Me.Dwidth.Name = "Dwidth"
+        Me.Dwidth.ReadOnly = True
+        Me.Dwidth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'Shadeid
+        '
+        Me.Shadeid.DataPropertyName = "Shadeid"
+        Me.Shadeid.HeaderText = "Shadeid"
+        Me.Shadeid.Name = "Shadeid"
+        Me.Shadeid.ReadOnly = True
+        Me.Shadeid.Visible = False
+        '
+        'Shadedesc
+        '
+        Me.Shadedesc.DataPropertyName = "Shadedesc"
+        Me.Shadedesc.HeaderText = "Shade"
+        Me.Shadedesc.Name = "Shadedesc"
+        Me.Shadedesc.ReadOnly = True
+        Me.Shadedesc.Width = 140
+        '
+        'Rollwage
+        '
+        Me.Rollwage.DataPropertyName = "Rollwage"
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle9.Format = "N2"
+        DataGridViewCellStyle9.NullValue = Nothing
+        Me.Rollwage.DefaultCellStyle = DataGridViewCellStyle9
+        Me.Rollwage.HeaderText = "น้ำหนัก(ก.ก.)"
+        Me.Rollwage.Name = "Rollwage"
+        Me.Rollwage.ReadOnly = True
+        Me.Rollwage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'Instk
+        '
+        Me.Instk.DataPropertyName = "Instk"
+        Me.Instk.HeaderText = "Instk"
+        Me.Instk.Name = "Instk"
+        Me.Instk.ReadOnly = True
+        Me.Instk.Visible = False
+        '
+        'News
+        '
+        Me.News.HeaderText = "News"
+        Me.News.Name = "News"
+        Me.News.ReadOnly = True
+        Me.News.Visible = False
         '
         'ToolStrip6
         '
@@ -1597,14 +1764,14 @@ Partial Class Formrebackfabcolors
         '
         Me.Dgvlist.AllowUserToAddRows = False
         Me.Dgvlist.AllowUserToDeleteRows = False
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Dgvlist.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgvlist.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
         Me.Dgvlist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Dgvlist.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Status, Me.LComid, Me.Rbid, Me.Docref, Me.Custid, Me.Custname, Me.Sumroll, Me.Sumwgt, Me.Sumprice, Me.Remark, Me.Indate})
         Me.Dgvlist.Dock = System.Windows.Forms.DockStyle.Fill
@@ -1672,9 +1839,9 @@ Partial Class Formrebackfabcolors
         'Sumwgt
         '
         Me.Sumwgt.DataPropertyName = "Sumwgt"
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle5.Format = "N2"
-        Me.Sumwgt.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle11.Format = "N2"
+        Me.Sumwgt.DefaultCellStyle = DataGridViewCellStyle11
         Me.Sumwgt.HeaderText = "น้ำหนักรวม"
         Me.Sumwgt.Name = "Sumwgt"
         Me.Sumwgt.ReadOnly = True
@@ -1682,9 +1849,9 @@ Partial Class Formrebackfabcolors
         'Sumprice
         '
         Me.Sumprice.DataPropertyName = "Sumprice"
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle6.Format = "N2"
-        Me.Sumprice.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle12.Format = "N2"
+        Me.Sumprice.DefaultCellStyle = DataGridViewCellStyle12
         Me.Sumprice.HeaderText = "ราคารวม"
         Me.Sumprice.Name = "Sumprice"
         Me.Sumprice.ReadOnly = True
@@ -1821,6 +1988,17 @@ Partial Class Formrebackfabcolors
         Me.Tstbkeyword.Name = "Tstbkeyword"
         Me.Tstbkeyword.Size = New System.Drawing.Size(120, 49)
         '
+        'Tscboth
+        '
+        Me.Tscboth.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Tscboth.BackColor = System.Drawing.Color.Transparent
+        Me.Tscboth.Checked = True
+        Me.Tscboth.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tscboth.Name = "Tscboth"
+        Me.Tscboth.Size = New System.Drawing.Size(55, 46)
+        Me.Tscboth.Text = "อื่นๆ"
+        Me.Tscboth.ToolStripCheckBoxEnabled = True
+        '
         'ToolStripLabel4
         '
         Me.ToolStripLabel4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
@@ -1828,6 +2006,17 @@ Partial Class Formrebackfabcolors
         Me.ToolStripLabel4.Name = "ToolStripLabel4"
         Me.ToolStripLabel4.Size = New System.Drawing.Size(24, 46)
         Me.ToolStripLabel4.Text = "ถึง"
+        '
+        'Tscbdate
+        '
+        Me.Tscbdate.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Tscbdate.BackColor = System.Drawing.Color.Transparent
+        Me.Tscbdate.Checked = False
+        Me.Tscbdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tscbdate.Name = "Tscbdate"
+        Me.Tscbdate.Size = New System.Drawing.Size(55, 46)
+        Me.Tscbdate.Text = "วันที่"
+        Me.Tscbdate.ToolStripCheckBoxEnabled = True
         '
         'ToolStripLabel3
         '
@@ -1853,195 +2042,6 @@ Partial Class Formrebackfabcolors
         '
         Me.Maintransaction.Name = "Maintransaction"
         Me.Maintransaction.Text = "ดูใบสั่งย้อม"
-        '
-        'Tscboth
-        '
-        Me.Tscboth.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Tscboth.BackColor = System.Drawing.Color.Transparent
-        Me.Tscboth.Checked = True
-        Me.Tscboth.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tscboth.Name = "Tscboth"
-        Me.Tscboth.Size = New System.Drawing.Size(55, 46)
-        Me.Tscboth.Text = "อื่นๆ"
-        Me.Tscboth.ToolStripCheckBoxEnabled = True
-        '
-        'Tscbdate
-        '
-        Me.Tscbdate.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Tscbdate.BackColor = System.Drawing.Color.Transparent
-        Me.Tscbdate.Checked = False
-        Me.Tscbdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tscbdate.Name = "Tscbdate"
-        Me.Tscbdate.Size = New System.Drawing.Size(55, 46)
-        Me.Tscbdate.Text = "วันที่"
-        Me.Tscbdate.ToolStripCheckBoxEnabled = True
-        '
-        'Mstat
-        '
-        Me.Mstat.DataPropertyName = "Stat"
-        Me.Mstat.HeaderText = ""
-        Me.Mstat.Name = "Mstat"
-        Me.Mstat.ReadOnly = True
-        Me.Mstat.Width = 20
-        '
-        'Ord
-        '
-        Me.Ord.DataPropertyName = "Ord"
-        Me.Ord.HeaderText = "Ord"
-        Me.Ord.Name = "Ord"
-        Me.Ord.ReadOnly = True
-        Me.Ord.Width = 70
-        '
-        'LotNoDetail
-        '
-        Me.LotNoDetail.DataPropertyName = "Lotno"
-        Me.LotNoDetail.HeaderText = "Lot No"
-        Me.LotNoDetail.Name = "LotNoDetail"
-        Me.LotNoDetail.ReadOnly = True
-        Me.LotNoDetail.Width = 135
-        '
-        'Mkong
-        '
-        Me.Mkong.DataPropertyName = "Kongno"
-        Me.Mkong.HeaderText = "เบอร์กอง"
-        Me.Mkong.Name = "Mkong"
-        Me.Mkong.ReadOnly = True
-        Me.Mkong.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'Rollno
-        '
-        Me.Rollno.DataPropertyName = "Rollno"
-        Me.Rollno.HeaderText = "เบอร์พับ"
-        Me.Rollno.Name = "Rollno"
-        Me.Rollno.ReadOnly = True
-        '
-        'Mcomid
-        '
-        Me.Mcomid.DataPropertyName = "Comid"
-        Me.Mcomid.HeaderText = "Comid"
-        Me.Mcomid.Name = "Mcomid"
-        Me.Mcomid.ReadOnly = True
-        Me.Mcomid.Visible = False
-        '
-        'Order
-        '
-        Me.Order.DataPropertyName = "Pubno"
-        Me.Order.HeaderText = "ลำดับที่"
-        Me.Order.Name = "Order"
-        Me.Order.ReadOnly = True
-        Me.Order.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.Order.Visible = False
-        '
-        'Dhid
-        '
-        Me.Dhid.DataPropertyName = "Dhid"
-        Me.Dhid.HeaderText = "Dhid"
-        Me.Dhid.Name = "Dhid"
-        Me.Dhid.ReadOnly = True
-        Me.Dhid.Visible = False
-        '
-        'Mdyedhdesc
-        '
-        Me.Mdyedhdesc.DataPropertyName = "Dyedhdesc"
-        Me.Mdyedhdesc.HeaderText = "Dyedhdesc"
-        Me.Mdyedhdesc.Name = "Mdyedhdesc"
-        Me.Mdyedhdesc.ReadOnly = True
-        Me.Mdyedhdesc.Visible = False
-        '
-        'Billdyedno
-        '
-        Me.Billdyedno.DataPropertyName = "Billdyedno"
-        Me.Billdyedno.HeaderText = "Billdyedno"
-        Me.Billdyedno.Name = "Billdyedno"
-        Me.Billdyedno.ReadOnly = True
-        Me.Billdyedno.Visible = False
-        '
-        'Lotno
-        '
-        Me.Lotno.DataPropertyName = "Lotno"
-        Me.Lotno.HeaderText = "Lotno"
-        Me.Lotno.Name = "Lotno"
-        Me.Lotno.ReadOnly = True
-        Me.Lotno.Visible = False
-        '
-        'Clothid
-        '
-        Me.Clothid.DataPropertyName = "Clothid"
-        Me.Clothid.HeaderText = "Clothid"
-        Me.Clothid.Name = "Clothid"
-        Me.Clothid.ReadOnly = True
-        Me.Clothid.Visible = False
-        '
-        'Mclothno
-        '
-        Me.Mclothno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Mclothno.DataPropertyName = "Clothno"
-        Me.Mclothno.HeaderText = "เบอร์ผ้า"
-        Me.Mclothno.Name = "Mclothno"
-        Me.Mclothno.ReadOnly = True
-        Me.Mclothno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'Clothtype
-        '
-        Me.Clothtype.DataPropertyName = "Ftype"
-        Me.Clothtype.HeaderText = "ประเภท"
-        Me.Clothtype.Name = "Clothtype"
-        Me.Clothtype.ReadOnly = True
-        Me.Clothtype.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.Clothtype.Width = 130
-        '
-        'Dwidth
-        '
-        Me.Dwidth.DataPropertyName = "Fwidth"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Dwidth.DefaultCellStyle = DataGridViewCellStyle2
-        Me.Dwidth.HeaderText = "หน้ากว้าง"
-        Me.Dwidth.Name = "Dwidth"
-        Me.Dwidth.ReadOnly = True
-        Me.Dwidth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'Shadeid
-        '
-        Me.Shadeid.DataPropertyName = "Shadeid"
-        Me.Shadeid.HeaderText = "Shadeid"
-        Me.Shadeid.Name = "Shadeid"
-        Me.Shadeid.ReadOnly = True
-        Me.Shadeid.Visible = False
-        '
-        'Shadedesc
-        '
-        Me.Shadedesc.DataPropertyName = "Shadedesc"
-        Me.Shadedesc.HeaderText = "Shade"
-        Me.Shadedesc.Name = "Shadedesc"
-        Me.Shadedesc.ReadOnly = True
-        Me.Shadedesc.Width = 140
-        '
-        'Rollwage
-        '
-        Me.Rollwage.DataPropertyName = "Rollwage"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "N2"
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.Rollwage.DefaultCellStyle = DataGridViewCellStyle3
-        Me.Rollwage.HeaderText = "น้ำหนัก(ก.ก.)"
-        Me.Rollwage.Name = "Rollwage"
-        Me.Rollwage.ReadOnly = True
-        Me.Rollwage.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'Instk
-        '
-        Me.Instk.DataPropertyName = "Instk"
-        Me.Instk.HeaderText = "Instk"
-        Me.Instk.Name = "Instk"
-        Me.Instk.ReadOnly = True
-        Me.Instk.Visible = False
-        '
-        'News
-        '
-        Me.News.HeaderText = "News"
-        Me.News.Name = "News"
-        Me.News.ReadOnly = True
-        Me.News.Visible = False
         '
         'Formrebackfabcolors
         '
