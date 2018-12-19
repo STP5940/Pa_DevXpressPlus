@@ -323,6 +323,7 @@ Public Class Formrebackfabcolors
                 Dgvmas.CurrentRow.Cells("Mkong").Value = Trim(Tbkongno.Text)
                 Dgvmas.CurrentRow.Cells("Rollno").Value = Trim(Tbrollid.Text)
                 Dgvmas.CurrentRow.Cells("Rollwage").Value = CDbl(Tbkg.Text)
+                Dgvmas.CurrentRow.Cells("LotNoDetail").Value = Trim(Tbrefablotno.Text)
 
                 ClearDetail()
                 DemoCode.BackColor = Color.White
@@ -524,7 +525,7 @@ Public Class Formrebackfabcolors
         ProgressBarX1.Value = 0
         Dim Frm As New Formwaitdialoque
         Frm.Show()
-        Dim Ord, Mkong, Rollno, Clothid, Shadeid, Rollwage, pricekg As String
+        Dim Ord, LotNo, Mkong, Rollno, Clothid, Shadeid, Rollwage, pricekg As String
         'Dim Trollwgt As Double
         For I = 0 To Dgvmas.RowCount - 1
             '    Tkongno = Trim(Dgvmas.Rows(I).Cells("Mkong").Value)
@@ -534,6 +535,7 @@ Public Class Formrebackfabcolors
             '    Tbrollid = Dgvmas.Rows(I).Cells("rollid").Value
 
             Ord = Trim(Dgvmas.Rows(I).Cells("Ord").Value)
+            Lotno = Trim(Dgvmas.Rows(I).Cells("LotNoDetail").Value)
             Mkong = Trim(Dgvmas.Rows(I).Cells("Mkong").Value)
             Rollno = Trim(Dgvmas.Rows(I).Cells("Rollno").Value)
             Clothid = Trim(Dgvmas.Rows(I).Cells("Clothid").Value)
@@ -542,10 +544,10 @@ Public Class Formrebackfabcolors
             pricekg = Tbkgprice.Text
             SQLCommand($"INSERT INTO Trebackfabdet(Comid,Rbid,Ord,Kongno,Rollno,Clothid,
                                                    Shadeid,Rollwage,Unitprice,Unit,Rollstat,
-                                                    Updusr,Uptype,Uptime)
+                                                    Updusr,Uptype,Uptime,Lotno)
                                             VALUES('{Gscomid}','{Trim(Tbdyedcomno.Text)}','{Ord}','{Mkong}','{Rollno}','{Clothid}',
                                                     '{Shadeid}','{Rollwage}','{pricekg}','kg','I',
-                                                    '{Gsuserid}','{Etype}','{Formatdatesave(Now)}')") 'Pa comment
+                                                    '{Gsuserid}','{Etype}','{Formatdatesave(Now)}','{LotNo}')") 'Pa comment
             ProgressBarX1.Value = ((I + 1) / Dgvmas.Rows.Count) * 100
             ProgressBarX1.Text = "Saving ... " & ProgressBarX1.Value & "%"
         Next
@@ -620,7 +622,7 @@ Public Class Formrebackfabcolors
         Tdetails = New DataTable
         Tdetails = SQLCommand($"SELECT fab.Comid,fab.Rbid,fab.Ord,fab.Kongno,fab.Rollno,fab.Clothid, cloth.Clothno, cloth.Ftype, 
 							           cloth.Fwidth, fab.Shadeid, shad.Shadedesc, fab.Rollwage,fab.Unitprice,
-							           fab.Unit,fab.Rollstat,fab.Updusr,fab.Uptype,fab.Uptime
+							           fab.Unit,fab.Rollstat,fab.Updusr,fab.Uptype,fab.Uptime,fab.Lotno
 						            FROM  dbo.Trebackfabdet As fab 
 						            INNER JOIN dbo.Tclothxp As cloth 
 						            ON fab.Comid = cloth.Comid AND fab.Clothid = cloth.Clothid
@@ -898,6 +900,7 @@ Public Class Formrebackfabcolors
             Tbshadename.Text = Trim(InputGrid(Dgvmas.CurrentRow.Cells("Shadedesc").Value))
             Tbkongno.Text = Trim(Dgvmas.CurrentRow.Cells("Mkong").Value)
             Tbkg.Text = Format(Dgvmas.CurrentRow.Cells("Rollwage").Value, "###,###.#0")
+            Tbrefablotno.Text = Trim(Dgvmas.CurrentRow.Cells("LotNoDetail").Value)
             DemoColor(Tbshadeid.Text)
         Else
             ClearDetail()
@@ -1052,6 +1055,7 @@ Public Class Formrebackfabcolors
                         For CheckLot = 0 To Frm.Dgvmas.RowCount - 1
                             If Frm.Dgvmas.Rows(CheckLot).Cells("Checked").Value = True Then
                                 Dgvmas.Rows.Add()
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("LotNoDetail").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Lotno").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkong").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Kongno").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollno").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Rollno").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Clothid").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Clothid").Value
@@ -1067,7 +1071,8 @@ Public Class Formrebackfabcolors
                         Next
                     Else
                         For CheckLot = 0 To Dgvmas.RowCount - 1
-                            If Dgvmas.Rows(CheckLot).Cells("Mkong").Value = Frm.Dgvmas.Rows(i).Cells("Kongno").Value AndAlso 'เบอร์กอง
+                            If Dgvmas.Rows(CheckLot).Cells("LotNoDetail").Value = Frm.Dgvmas.Rows(i).Cells("Lotno").Value AndAlso 'Lot No.
+                                Dgvmas.Rows(CheckLot).Cells("Mkong").Value = Frm.Dgvmas.Rows(i).Cells("Kongno").Value AndAlso 'เบอร์กอง
                                 Dgvmas.Rows(CheckLot).Cells("Rollno").Value = Frm.Dgvmas.Rows(i).Cells("Rollno").Value AndAlso 'พับที่
                                 Dgvmas.Rows(CheckLot).Cells("Shadeid").Value = Frm.Dgvmas.Rows(i).Cells("Shadeid").Value Then 'สีผ้า
                                 If DatainGride = 0 Then
@@ -1078,6 +1083,7 @@ Public Class Formrebackfabcolors
                             Else
                                 If CheckLot = Dgvmas.RowCount - 1 Then
                                     Dgvmas.Rows.Add()
+                                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("LotNoDetail").Value = Frm.Dgvmas.Rows(i).Cells("Lotno").Value
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkong").Value = Frm.Dgvmas.Rows(i).Cells("Kongno").Value
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollno").Value = Frm.Dgvmas.Rows(i).Cells("Rollno").Value
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Clothid").Value = Frm.Dgvmas.Rows(i).Cells("Clothid").Value
@@ -1099,6 +1105,7 @@ Public Class Formrebackfabcolors
                         For CheckLot = 0 To Frm.Dgvmas.RowCount - 1
                             If Frm.Dgvmas.Rows(CheckLot).Cells("Checked").Value = True Then
                                 Tdetails.Rows.Add()
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("LotNoDetail").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Lotno").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkong").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Kongno").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollno").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Rollno").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Clothid").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Clothid").Value
@@ -1115,7 +1122,8 @@ Public Class Formrebackfabcolors
                     End If
 
                     For CheckLot = 0 To Dgvmas.RowCount - 1
-                        If Dgvmas.Rows(CheckLot).Cells("Mkong").Value = Frm.Dgvmas.Rows(i).Cells("Kongno").Value AndAlso 'เบอร์กอง
+                        If Dgvmas.Rows(CheckLot).Cells("LotNoDetail").Value = Frm.Dgvmas.Rows(i).Cells("Lotno").Value AndAlso 'Lot No.
+                            Dgvmas.Rows(CheckLot).Cells("Mkong").Value = Frm.Dgvmas.Rows(i).Cells("Kongno").Value AndAlso 'เบอร์กอง
                             Dgvmas.Rows(CheckLot).Cells("Rollno").Value = Frm.Dgvmas.Rows(i).Cells("Rollno").Value AndAlso 'พับที่
                             Dgvmas.Rows(CheckLot).Cells("Shadeid").Value = Frm.Dgvmas.Rows(i).Cells("Shadeid").Value Then 'สีผ้า
                             If DatainGride = 0 Then
@@ -1126,6 +1134,7 @@ Public Class Formrebackfabcolors
                         Else
                             If CheckLot = Dgvmas.RowCount - 1 Then
                                 Tdetails.Rows.Add()
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("LotNoDetail").Value = Frm.Dgvmas.Rows(i).Cells("Lotno").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkong").Value = Frm.Dgvmas.Rows(i).Cells("Kongno").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollno").Value = Frm.Dgvmas.Rows(i).Cells("Rollno").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Clothid").Value = Frm.Dgvmas.Rows(i).Cells("Clothid").Value

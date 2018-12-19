@@ -34,16 +34,6 @@ Partial Class Formlistsalefab
         Me.Btcancel = New DevComponents.DotNetBar.ButtonX()
         Me.Btok = New DevComponents.DotNetBar.ButtonX()
         Me.Dgvmas = New System.Windows.Forms.DataGridView()
-        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.Btmsearch = New System.Windows.Forms.ToolStripButton()
-        Me.Tbkeyword = New System.Windows.Forms.ToolStripTextBox()
-        Me.ToolStripTextBox2 = New System.Windows.Forms.ToolStripTextBox()
-        Me.ToolStripTextBox3 = New System.Windows.Forms.ToolStripTextBox()
-        Me.ToolStripTextBox1 = New System.Windows.Forms.ToolStripTextBox()
-        Me.Tscball = New XpressPlus.ToolStripCheckBox()
-        Me.Tbdyedbillno = New System.Windows.Forms.ToolStripTextBox()
-        Me.Tbcancel = New System.Windows.Forms.ToolStripTextBox()
-        Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.Status = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Checked = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Comid = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -60,6 +50,16 @@ Partial Class Formlistsalefab
         Me.HaveWgtkg = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Wgtkg = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SendWgtkg = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.Btmsearch = New System.Windows.Forms.ToolStripButton()
+        Me.Tbkeyword = New System.Windows.Forms.ToolStripTextBox()
+        Me.ToolStripTextBox2 = New System.Windows.Forms.ToolStripTextBox()
+        Me.ToolStripTextBox3 = New System.Windows.Forms.ToolStripTextBox()
+        Me.ToolStripTextBox1 = New System.Windows.Forms.ToolStripTextBox()
+        Me.Tscball = New XpressPlus.ToolStripCheckBox()
+        Me.Tbdyedbillno = New System.Windows.Forms.ToolStripTextBox()
+        Me.Tbcancel = New System.Windows.Forms.ToolStripTextBox()
+        Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1.SuspendLayout()
         CType(Me.Dgvmas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip1.SuspendLayout()
@@ -148,99 +148,6 @@ Partial Class Formlistsalefab
         Me.Dgvmas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.Dgvmas.Size = New System.Drawing.Size(1097, 219)
         Me.Dgvmas.TabIndex = 30
-        '
-        'ToolStrip1
-        '
-        Me.ToolStrip1.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btmsearch, Me.Tbkeyword, Me.ToolStripTextBox2, Me.ToolStripTextBox3, Me.ToolStripTextBox1, Me.Tscball, Me.Tbdyedbillno, Me.Tbcancel})
-        Me.ToolStrip1.Location = New System.Drawing.Point(1, 1)
-        Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(1096, 49)
-        Me.ToolStrip1.TabIndex = 29
-        Me.ToolStrip1.Text = "ToolStrip1"
-        '
-        'Btmsearch
-        '
-        Me.Btmsearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Btmsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btmsearch.Image = Global.XpressPlus.My.Resources.Resources.Findicon
-        Me.Btmsearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.Btmsearch.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Btmsearch.Name = "Btmsearch"
-        Me.Btmsearch.Size = New System.Drawing.Size(48, 46)
-        Me.Btmsearch.Text = "ค้นหา"
-        Me.Btmsearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        '
-        'Tbkeyword
-        '
-        Me.Tbkeyword.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Tbkeyword.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Tbkeyword.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbkeyword.Name = "Tbkeyword"
-        Me.Tbkeyword.Size = New System.Drawing.Size(120, 49)
-        '
-        'ToolStripTextBox2
-        '
-        Me.ToolStripTextBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(182, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.ToolStripTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.ToolStripTextBox2.Enabled = False
-        Me.ToolStripTextBox2.Name = "ToolStripTextBox2"
-        Me.ToolStripTextBox2.Size = New System.Drawing.Size(25, 49)
-        '
-        'ToolStripTextBox3
-        '
-        Me.ToolStripTextBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(182, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.ToolStripTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.ToolStripTextBox3.Enabled = False
-        Me.ToolStripTextBox3.Name = "ToolStripTextBox3"
-        Me.ToolStripTextBox3.Size = New System.Drawing.Size(25, 49)
-        '
-        'ToolStripTextBox1
-        '
-        Me.ToolStripTextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(182, Byte), Integer), CType(CType(232, Byte), Integer))
-        Me.ToolStripTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.ToolStripTextBox1.Enabled = False
-        Me.ToolStripTextBox1.Name = "ToolStripTextBox1"
-        Me.ToolStripTextBox1.Size = New System.Drawing.Size(25, 49)
-        '
-        'Tscball
-        '
-        Me.Tscball.BackColor = System.Drawing.Color.Transparent
-        Me.Tscball.Checked = False
-        Me.Tscball.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Tscball.Name = "Tscball"
-        Me.Tscball.Size = New System.Drawing.Size(73, 46)
-        Me.Tscball.Text = "ทั้งหมด"
-        Me.Tscball.ToolStripCheckBoxEnabled = True
-        '
-        'Tbdyedbillno
-        '
-        Me.Tbdyedbillno.Name = "Tbdyedbillno"
-        Me.Tbdyedbillno.Size = New System.Drawing.Size(50, 49)
-        Me.Tbdyedbillno.Visible = False
-        '
-        'Tbcancel
-        '
-        Me.Tbcancel.Name = "Tbcancel"
-        Me.Tbcancel.Size = New System.Drawing.Size(25, 49)
-        Me.Tbcancel.Visible = False
-        '
-        'TabControl1
-        '
-        Me.TabControl1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TabControl1.CanReorderTabs = True
-        Me.TabControl1.Controls.Add(Me.TabControlPanel1)
-        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControl1.ForeColor = System.Drawing.Color.Black
-        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedTabFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.TabControl1.SelectedTabIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1098, 369)
-        Me.TabControl1.TabIndex = 5
-        Me.TabControl1.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox
-        Me.TabControl1.Tabs.Add(Me.TabItem1)
-        Me.TabControl1.Text = "TabControl1"
         '
         'Status
         '
@@ -363,6 +270,99 @@ Partial Class Formlistsalefab
         Me.SendWgtkg.HeaderText = "SendWgtkg"
         Me.SendWgtkg.Name = "SendWgtkg"
         Me.SendWgtkg.Visible = False
+        '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.BackColor = System.Drawing.Color.Transparent
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btmsearch, Me.Tbkeyword, Me.ToolStripTextBox2, Me.ToolStripTextBox3, Me.ToolStripTextBox1, Me.Tscball, Me.Tbdyedbillno, Me.Tbcancel})
+        Me.ToolStrip1.Location = New System.Drawing.Point(1, 1)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(1096, 49)
+        Me.ToolStrip1.TabIndex = 29
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'Btmsearch
+        '
+        Me.Btmsearch.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Btmsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Btmsearch.Image = Global.XpressPlus.My.Resources.Resources.Findicon
+        Me.Btmsearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.Btmsearch.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Btmsearch.Name = "Btmsearch"
+        Me.Btmsearch.Size = New System.Drawing.Size(48, 46)
+        Me.Btmsearch.Text = "ค้นหา"
+        Me.Btmsearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'Tbkeyword
+        '
+        Me.Tbkeyword.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Tbkeyword.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbkeyword.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tbkeyword.Name = "Tbkeyword"
+        Me.Tbkeyword.Size = New System.Drawing.Size(120, 49)
+        '
+        'ToolStripTextBox2
+        '
+        Me.ToolStripTextBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(182, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.ToolStripTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.ToolStripTextBox2.Enabled = False
+        Me.ToolStripTextBox2.Name = "ToolStripTextBox2"
+        Me.ToolStripTextBox2.Size = New System.Drawing.Size(25, 49)
+        '
+        'ToolStripTextBox3
+        '
+        Me.ToolStripTextBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(182, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.ToolStripTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.ToolStripTextBox3.Enabled = False
+        Me.ToolStripTextBox3.Name = "ToolStripTextBox3"
+        Me.ToolStripTextBox3.Size = New System.Drawing.Size(25, 49)
+        '
+        'ToolStripTextBox1
+        '
+        Me.ToolStripTextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(182, Byte), Integer), CType(CType(232, Byte), Integer))
+        Me.ToolStripTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.ToolStripTextBox1.Enabled = False
+        Me.ToolStripTextBox1.Name = "ToolStripTextBox1"
+        Me.ToolStripTextBox1.Size = New System.Drawing.Size(25, 49)
+        '
+        'Tscball
+        '
+        Me.Tscball.BackColor = System.Drawing.Color.Transparent
+        Me.Tscball.Checked = False
+        Me.Tscball.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Tscball.Name = "Tscball"
+        Me.Tscball.Size = New System.Drawing.Size(73, 46)
+        Me.Tscball.Text = "ทั้งหมด"
+        Me.Tscball.ToolStripCheckBoxEnabled = True
+        '
+        'Tbdyedbillno
+        '
+        Me.Tbdyedbillno.Name = "Tbdyedbillno"
+        Me.Tbdyedbillno.Size = New System.Drawing.Size(50, 49)
+        Me.Tbdyedbillno.Visible = False
+        '
+        'Tbcancel
+        '
+        Me.Tbcancel.Name = "Tbcancel"
+        Me.Tbcancel.Size = New System.Drawing.Size(25, 49)
+        Me.Tbcancel.Visible = False
+        '
+        'TabControl1
+        '
+        Me.TabControl1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TabControl1.CanReorderTabs = True
+        Me.TabControl1.Controls.Add(Me.TabControlPanel1)
+        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl1.ForeColor = System.Drawing.Color.Black
+        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedTabFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.TabControl1.SelectedTabIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(1098, 369)
+        Me.TabControl1.TabIndex = 5
+        Me.TabControl1.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox
+        Me.TabControl1.Tabs.Add(Me.TabItem1)
+        Me.TabControl1.Text = "TabControl1"
         '
         'Formlistsalefab
         '
