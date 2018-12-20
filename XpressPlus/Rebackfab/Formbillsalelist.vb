@@ -46,7 +46,13 @@
     End Sub
     Private Sub Bindingmaster()
         Tmaster = New DataTable
-        Tmaster = SQLCommand($"SELECT DISTINCT Dlvno FROM VrebackfabSale WHERE SendWgtkg < Wgtkg AND Comid = '{Gscomid}'")
+        Tmaster = SQLCommand($"SELECT DISTINCT dbo.VrebackfabSale.Dlvno
+                                      FROM dbo.VrebackfabSale 
+                                      RIGHT OUTER JOIN dbo.Tsalefabcolxp 
+                                            ON dbo.VrebackfabSale.Comid = dbo.Tsalefabcolxp.Comid AND 
+                                            dbo.VrebackfabSale.Dlvno = dbo.Tsalefabcolxp.Dlvno
+                                      WHERE (dbo.VrebackfabSale.SendWgtkg < dbo.VrebackfabSale.Wgtkg) AND 
+                                            (dbo.VrebackfabSale.Comid = '{Gscomid}')")
         Dgvmas.DataSource = Tmaster
     End Sub
     Private Sub Filtermastergrid()

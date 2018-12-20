@@ -11,12 +11,12 @@
                                            ON Trecfabcolxp.Billdyedno = Trecfabcoldetxp.Billdyedno
                                       WHERE Trecfabcoldetxp.Kongno = '{Tbkongno.Text}'
                                UNION
-                               SELECT Rbid, '' As Lotno, Kongno 
+                               SELECT Rbid, Lotno, Kongno 
                                       FROM Vrebackfabdet 
                                       WHERE Rollstat = 'I' 
                                       AND Comid = '{Gscomid}' ")
         Dgvmas.DataSource = Tmaster
-        'FilterDgvmas()
+        FilterDgvmas()
     End Sub
     Private Sub FilterDgvmas()
         Countsale = New DataTable

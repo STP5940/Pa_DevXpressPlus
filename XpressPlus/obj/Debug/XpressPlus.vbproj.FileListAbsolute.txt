@@ -378,3 +378,4 @@ C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formlistsalefab.resources
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formrebackfabcolrpt.resources
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\DevComponents.DotNetBar2.dll
+C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.FormMain.resources

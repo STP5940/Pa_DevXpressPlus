@@ -11,13 +11,14 @@
         'Tmaster = SQLCommand($"SELECT Pubno,Lotno,Kongno,Rollwage FROM Vrecfabcoldet where Comid = '{Gscomid}' ")
 
         If Trim(Tbkongno.Text) = "" Then
+            MsgBox(0)
             Tmaster = SQLCommand($"SELECT Pubno,Lotno,Kongno,Rollwage,Clothid,Clothno,Ftype,Fwidth,Shadeid,Shadedesc
                                                From Vrecfabcoldet 
                                                WHERE Comid = '{Gscomid}' 
                                                AND Clothid = '{Trim(Tbclothid.Text)}' 
                                                AND Shadeid = '{Trim(BoxShadeid.Text)}' 
                                    UNION
-                                   SELECT Rollno As Pubno, '' As Lotno, Kongno, Rollwage, Clothid, Clothno, Ftype, 
+                                   SELECT Rollno As Pubno, Lotno, Kongno, Rollwage, Clothid, Clothno, Ftype, 
                                                Fwidth, Shadeid, Shadedesc 
                                                FROM Vrebackfabdet 
                                                WHERE Rollstat = 'I' 
@@ -26,6 +27,7 @@
                                                AND Comid = '{Gscomid}'")
         Else
             If RS.Text = "RS" Then
+                MsgBox(1)
                 Tmaster = SQLCommand($"SELECT Pubno,Lotno,Kongno,Rollwage,Clothid,Clothno,Ftype,Fwidth,Shadeid,Shadedesc
                                                From Vrecfabcoldet 
                                                WHERE Comid = '{Gscomid}' 
@@ -33,7 +35,7 @@
                                                AND Kongno = '{Trim(Tbkongno.Text)}' 
                                                AND Shadeid = '{Trim(BoxShadeid.Text)}' 
                                    UNION
-                                   SELECT Rollno As Pubno, '' As Lotno, Kongno, Rollwage, Clothid, Clothno, Ftype, 
+                                   SELECT Rollno As Pubno, Lotno, Kongno, Rollwage, Clothid, Clothno, Ftype, 
                                                Fwidth, Shadeid, Shadedesc 
                                                FROM Vrebackfabdet 
                                                WHERE Rollstat = 'I' 
@@ -42,6 +44,7 @@
                                                AND Kongno = '{Trim(Tbkongno.Text)}' 
                                                AND Shadeid = '{Trim(BoxShadeid.Text)}' ")
             Else
+                MsgBox(2)
                 Tmaster = SQLCommand($"SELECT Pubno,Lotno,Kongno,Rollwage,Clothid,Clothno,Ftype,Fwidth,Shadeid,Shadedesc
                                                From Vrecfabcoldet 
                                                WHERE Comid = '{Gscomid}' 
@@ -50,13 +53,14 @@
                                                AND Billdyedno = '{Trim(RS.Text)}' 
                                                AND Shadeid = '{Trim(BoxShadeid.Text)}' 
                                    UNION
-                                   SELECT Rollno As Pubno, '' As Lotno, Kongno, Rollwage, Clothid, Clothno, Ftype, 
+                                   SELECT Rollno As Pubno, Lotno, Kongno, Rollwage, Clothid, Clothno, Ftype, 
                                                Fwidth, Shadeid, Shadedesc 
                                                FROM Vrebackfabdet 
                                                WHERE Rollstat = 'I' 
                                                AND Comid = '{Gscomid}'
                                                AND Clothid = '{Trim(Tbclothid.Text)}' 
                                                AND Kongno = '{Trim(Tbkongno.Text)}' 
+                                               AND Rbid = '{Trim(RS.Text)}' 
                                                AND Shadeid = '{Trim(BoxShadeid.Text)}' ")
             End If
         End If
@@ -133,7 +137,11 @@
             If i > Dgvmas.Rows.Count - 1 Then
                 Exit For
             End If
-            FilterFab = SQLCommand($"SELECT * FROM Tsalefabcoldetxp WHERE Lotno = '{Dgvmas.Rows(i).Cells("Mlotno").Value}' AND Kongno = '{Dgvmas.Rows(i).Cells("Kongno").Value}' And Rollno = '{Dgvmas.Rows(i).Cells("Pubno").Value}' And Comid = '{Gscomid}'")
+            FilterFab = SQLCommand($"SELECT * FROM Tsalefabcoldetxp 
+                                              WHERE Lotno = '{Dgvmas.Rows(i).Cells("Mlotno").Value}' AND 
+                                                    Kongno = '{Dgvmas.Rows(i).Cells("Kongno").Value}' AND 
+                                                    Rollno = '{Dgvmas.Rows(i).Cells("Pubno").Value}' AND 
+                                                    Comid = '{Gscomid}'")
             If FilterFab.Rows.Count > 0 Then
                 Dgvmas.Rows.RemoveAt(i)
                 i -= 1

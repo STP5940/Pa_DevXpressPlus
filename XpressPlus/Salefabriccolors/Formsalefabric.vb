@@ -554,17 +554,6 @@ Public Class Formsalefabric
         'Btdcancel_Click(sender, e)
         'Tbremark.Focus()
     End Sub
-    Private Sub Btdcancel_Click(sender As Object, e As EventArgs)
-        Tbaddedit.Text = "เพิ่ม"
-        'Tbclothid.Text = ""
-        'Tbclothno.Text = ""
-        Tblotno.Text = ""
-        'Tbshadeid.Text = ""
-        'Tbkongno.Text = ""
-        'Tbkgprice.Text = ""
-        Rollnobox.Text = ""
-        Qtykgbox.Text = ""
-    End Sub
     Private Sub Btddel_Click(sender As Object, e As EventArgs)
         If Dgvmas.RowCount = 0 Then
             Exit Sub
@@ -1597,12 +1586,14 @@ Public Class Formsalefabric
     End Sub
 
 
-    Private Sub Btdcancel_Click_1(sender As Object, e As EventArgs) Handles Btdcancel.Click
+    Private Sub Btdcancel_Click(sender As Object, e As EventArgs) Handles Btdcancel.Click
+        Tbaddedit.Text = "เพิ่ม"
         Tbdyedcomno.Text = ""
         RS.Text = "RS"
         Qtykgbox.Text = ""
         Rollnobox.Text = ""
         Tbkongno.Text = ""
+        Tblotno.Text = ""
         GroupPanel2.Visible = False
         Btdbadd.Enabled = True
     End Sub
@@ -1616,6 +1607,8 @@ Public Class Formsalefabric
         Tbkongno.Text = ""
         Tbsumwgt.Text = "0.00"
         Tbsummoney.Text = "0.00"
+        Tbdyedcomno.Text = ""
+        RS.Text = "RS"
         'Tbnwpcotkg.Text = ""
         'Tbnwpcotp.Text = ""
         'Tbgrwpcotkg.Text = ""
@@ -1695,6 +1688,26 @@ Public Class Formsalefabric
 
     End Sub
 
+    Private Sub ButtonItem1_Click(sender As Object, e As EventArgs) Handles ButtonItem1.Click
+        If Dgvlist.CurrentRow.Cells("Dlvno").Value = "" Then
+            Exit Sub
+        End If
+        If Confirmdelete() = True Then
+            Deldetails(Trim(Tbdlvno.Text))
+            SQLCommand("DELETE FROM Tsalefabcolxp WHERE Comid = '" & Gscomid & "' AND Dlvno = '" & Dgvlist.CurrentRow.Cells("Dlvno").Value & "'")
+            Clrdgrid()
+            Clrtxtbox()
+            Clrtextmaster()
+            Clrtextdetails()
+            Clrgridmaster()
+            Bindingstock()
+            Bindinglist()
+            TabControl1.SelectedTabIndex = 1
+            BindingNavigator1.Enabled = False
+            Mainbuttoncancel()
+        End If
+    End Sub
+
     Private Sub Btfindcusship_Click_1(sender As Object, e As EventArgs) Handles Btfindcusship.Click
         If Tbcustid.Text = "" Or Tbcustname.Text = "" Then
             Informmessage("กรุณาเลือกลูกค้า")
@@ -1757,7 +1770,11 @@ Public Class Formsalefabric
                                     UNION
                               SELECT Rbid AS Billdyedno FROM Vrebackfabdet WHERE Rollstat = 'I' AND Comid = '{Gscomid}' 
                                     AND Rbid = '{Tbdyedcomno.Text}' ")
-        RS.Text = REData(0)(0)
+        Try
+            RS.Text = REData(0)(0)
+        Catch ex As Exception
+            RS.Text = "RS"
+        End Try
 
         Tbclothid.Text = InputGrid(Dgvstock.CurrentRow.Cells("SClothid").Value)
         Tbclothno.Text = InputGrid(Dgvstock.CurrentRow.Cells("SClothno").Value)

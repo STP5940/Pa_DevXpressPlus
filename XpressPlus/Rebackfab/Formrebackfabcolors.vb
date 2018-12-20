@@ -53,6 +53,7 @@ Public Class Formrebackfabcolors
         Tbkgprice.Enabled = True
         Mainbuttonaddedit()
         Tbrollid.Text = 1
+        Tbrefablotno.Enabled = True
         'FindShade.Visible = False
         'Tbshadeid.Size = New Size(116, 24)
     End Sub
@@ -70,6 +71,10 @@ Public Class Formrebackfabcolors
         End If
         If Validdet() = False Then
             Informmessage("กรุณาตรวจสอบรายละเอียดในการส่งให้ครบถ้วน")
+            Exit Sub
+        End If
+        If Tbrefablotno.Text = "" Then
+            Informmessage("กรุณาใส่ Lot No.")
             Exit Sub
         End If
 
@@ -185,6 +190,7 @@ Public Class Formrebackfabcolors
         Mainbuttoncancel()
         GroupPanel2.Visible = False
         TabControl1.SelectedTabIndex = 1
+        Tbrefablotno.Text = Trim(Dgvlist.CurrentRow.Cells("Lotnomain").Value)
         Tbdyedcomno.Text = Trim(Dgvlist.CurrentRow.Cells("Rbid").Value)
         Tbdhid.Text = Trim(Dgvlist.CurrentRow.Cells("Custid").Value)
         Tbdhname.Text = Trim(Dgvlist.CurrentRow.Cells("Custname").Value)
@@ -634,12 +640,19 @@ Public Class Formrebackfabcolors
     Private Sub Bindinglist()
         Tlist = New DataTable
         Tlist = SQLCommand($"SELECT dbo.Trebackfab.Rbid, dbo.Trebackfab.Custid, dbo.Tcustomersxp.Custname, dbo.Trebackfab.Docref, 
-							dbo.Trebackfab.Sumroll, dbo.Trebackfab.Sumwgt, dbo.Trebackfab.Sumprice,
-							dbo.Trebackfab.Remark, dbo.Trebackfab.Indate
-							FROM dbo.Tcustomersxp INNER JOIN
-							dbo.Trebackfab ON dbo.Tcustomersxp.Comid = dbo.Trebackfab.Comid 
-							AND dbo.Tcustomersxp.Custid = dbo.Trebackfab.Custid
-							WHERE dbo.Trebackfab.Comid = '{Gscomid}' AND dbo.Trebackfab.Sstatus = '1' ")
+                                    dbo.Trebackfab.Sumroll, dbo.Trebackfab.Sumwgt, dbo.Trebackfab.Sumprice, dbo.Trebackfab.Remark, 
+                                    dbo.Trebackfab.Indate, dbo.Trebackfabdet.Lotno
+							 FROM dbo.Tcustomersxp INNER JOIN dbo.Trebackfab 
+                                    ON dbo.Tcustomersxp.Comid = dbo.Trebackfab.Comid AND 
+                                    dbo.Tcustomersxp.Custid = dbo.Trebackfab.Custid 
+                             INNER JOIN dbo.Trebackfabdet 
+                                    ON dbo.Tcustomersxp.Comid = dbo.Trebackfabdet.Comid AND 
+                                    dbo.Trebackfab.Rbid = dbo.Trebackfabdet.Rbid
+                             WHERE (dbo.Trebackfab.Comid = '{Gscomid}') AND 
+                                   (dbo.Trebackfab.Sstatus = '1') 
+                             GROUP BY Trebackfab.Rbid, Trebackfab.Custid, Custname, Docref, Sumroll, 
+                                      Sumwgt, Sumprice, Remark, Indate, Lotno ")
+
         Dgvlist.DataSource = Tlist
         FillGrid()
         ShowRecordDetail()
@@ -707,6 +720,7 @@ Public Class Formrebackfabcolors
         Tbkg.Enabled = True
         Dtprecdate.Enabled = True
         Tbremark.Enabled = True
+        Tbrefablotno.Text = ""
         Tbdhid.Text = ""
         Tbdhname.Text = ""
         Tbkgprice.Text = ""
@@ -842,6 +856,7 @@ Public Class Formrebackfabcolors
     Private Sub Btmcancel_Click(sender As Object, e As EventArgs) Handles Btmcancel.Click
         Clrtxtbox()
         Clrupdet()
+        Tbrefablotno.Text = ""
         Tstbsumroll.Text = ""
         Tstbsumkg.Text = ""
         Tbkongno.Text = ""
@@ -1025,10 +1040,34 @@ Public Class Formrebackfabcolors
         Tbsummoney.Text = Format(Summoney, "###,##0.#0")
     End Sub
 
+    Private Sub ButtonItem1_Click(sender As Object, e As EventArgs) Handles ButtonItem1.Click
+        If Confirmdelete() = True Then
+            Deldetails()
+            SQLCommand($"UPDATE Trebackfab SET Sstatus = '0', Updusr = '{Gsuserid}', Uptype = 'D'  WHERE Rbid = '{Trim(Dgvlist.CurrentRow.Cells("Rbid").Value)}'") 'Pa comment
+            Clrdgrid()
+            Clrtxtbox()
+            Mainbuttoncancel()
+            Tstbsumroll.Text = ""
+            TabControl1.SelectedTabIndex = 0
+            GroupPanel2.Visible = False
+            Bindinglist()
+        End If
+    End Sub
+
     Private Sub Findlistsale_Click(sender As Object, e As EventArgs) Handles Findlistsale.Click
         If Tbdyedbillno.Text = "" Then
             Informmessage("กรุณาเลือกเลขที่ใบขาย")
             Btfindbillno_Click(sender, e)
+            Exit Sub
+        End If
+        If Tbrefablotno.Text = "" Then
+            Informmessage("กรุณาใส่เลข Lot No. ใหม่ที่ต้องการ")
+            Exit Sub
+        End If
+
+        ListLotNo = SQLCommand($"SELECT Lotno FROM Trecfabcoldetxp where Lotno = '{Trim(Tbrefablotno.Text)}'")
+        If ListLotNo.Rows.Count > 0 Then
+            Informmessage("มีเลข Lot No นี้แล้วในระบบ")
             Exit Sub
         End If
 
@@ -1055,7 +1094,7 @@ Public Class Formrebackfabcolors
                         For CheckLot = 0 To Frm.Dgvmas.RowCount - 1
                             If Frm.Dgvmas.Rows(CheckLot).Cells("Checked").Value = True Then
                                 Dgvmas.Rows.Add()
-                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("LotNoDetail").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Lotno").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("LotNoDetail").Value = Trim(Tbrefablotno.Text)
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkong").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Kongno").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollno").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Rollno").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Clothid").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Clothid").Value
@@ -1071,8 +1110,7 @@ Public Class Formrebackfabcolors
                         Next
                     Else
                         For CheckLot = 0 To Dgvmas.RowCount - 1
-                            If Dgvmas.Rows(CheckLot).Cells("LotNoDetail").Value = Frm.Dgvmas.Rows(i).Cells("Lotno").Value AndAlso 'Lot No.
-                                Dgvmas.Rows(CheckLot).Cells("Mkong").Value = Frm.Dgvmas.Rows(i).Cells("Kongno").Value AndAlso 'เบอร์กอง
+                            If Dgvmas.Rows(CheckLot).Cells("Mkong").Value = Frm.Dgvmas.Rows(i).Cells("Kongno").Value AndAlso 'เบอร์กอง
                                 Dgvmas.Rows(CheckLot).Cells("Rollno").Value = Frm.Dgvmas.Rows(i).Cells("Rollno").Value AndAlso 'พับที่
                                 Dgvmas.Rows(CheckLot).Cells("Shadeid").Value = Frm.Dgvmas.Rows(i).Cells("Shadeid").Value Then 'สีผ้า
                                 If DatainGride = 0 Then
@@ -1083,7 +1121,7 @@ Public Class Formrebackfabcolors
                             Else
                                 If CheckLot = Dgvmas.RowCount - 1 Then
                                     Dgvmas.Rows.Add()
-                                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("LotNoDetail").Value = Frm.Dgvmas.Rows(i).Cells("Lotno").Value
+                                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("LotNoDetail").Value = Trim(Tbrefablotno.Text)
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkong").Value = Frm.Dgvmas.Rows(i).Cells("Kongno").Value
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollno").Value = Frm.Dgvmas.Rows(i).Cells("Rollno").Value
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Clothid").Value = Frm.Dgvmas.Rows(i).Cells("Clothid").Value
@@ -1105,7 +1143,7 @@ Public Class Formrebackfabcolors
                         For CheckLot = 0 To Frm.Dgvmas.RowCount - 1
                             If Frm.Dgvmas.Rows(CheckLot).Cells("Checked").Value = True Then
                                 Tdetails.Rows.Add()
-                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("LotNoDetail").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Lotno").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("LotNoDetail").Value = Trim(Tbrefablotno.Text)
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkong").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Kongno").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollno").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Rollno").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Clothid").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Clothid").Value
@@ -1122,8 +1160,7 @@ Public Class Formrebackfabcolors
                     End If
 
                     For CheckLot = 0 To Dgvmas.RowCount - 1
-                        If Dgvmas.Rows(CheckLot).Cells("LotNoDetail").Value = Frm.Dgvmas.Rows(i).Cells("Lotno").Value AndAlso 'Lot No.
-                            Dgvmas.Rows(CheckLot).Cells("Mkong").Value = Frm.Dgvmas.Rows(i).Cells("Kongno").Value AndAlso 'เบอร์กอง
+                        If Dgvmas.Rows(CheckLot).Cells("Mkong").Value = Frm.Dgvmas.Rows(i).Cells("Kongno").Value AndAlso 'เบอร์กอง
                             Dgvmas.Rows(CheckLot).Cells("Rollno").Value = Frm.Dgvmas.Rows(i).Cells("Rollno").Value AndAlso 'พับที่
                             Dgvmas.Rows(CheckLot).Cells("Shadeid").Value = Frm.Dgvmas.Rows(i).Cells("Shadeid").Value Then 'สีผ้า
                             If DatainGride = 0 Then
@@ -1134,7 +1171,7 @@ Public Class Formrebackfabcolors
                         Else
                             If CheckLot = Dgvmas.RowCount - 1 Then
                                 Tdetails.Rows.Add()
-                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("LotNoDetail").Value = Frm.Dgvmas.Rows(i).Cells("Lotno").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("LotNoDetail").Value = Trim(Tbrefablotno.Text)
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkong").Value = Frm.Dgvmas.Rows(i).Cells("Kongno").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollno").Value = Frm.Dgvmas.Rows(i).Cells("Rollno").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Clothid").Value = Frm.Dgvmas.Rows(i).Cells("Clothid").Value
@@ -1154,6 +1191,7 @@ Public Class Formrebackfabcolors
             End If
         Next
 
+        Tbrefablotno.Enabled = False
         If Dgvmas.Rows.Count > 0 Then
             Btfindbillno.Enabled = False
         End If
@@ -1266,6 +1304,7 @@ Public Class Formrebackfabcolors
 
         If Dgvmas.RowCount = 1 Then
             Btfindbillno.Enabled = True
+            Tbrefablotno.Enabled = True
         End If
 
         Dgvmas.Rows.Remove(Dgvmas.CurrentRow)
@@ -1344,6 +1383,7 @@ Public Class Formrebackfabcolors
         'Tbdyedbillno.Size = New Size(99, 24)
         'FindShade.Visible = True
         'Tbshadeid.Size = New Size(72, 24)
+        Tbrefablotno.Enabled = False
         Tbkgprice.Enabled = False
         Btfinddyedh.Enabled = False
         Findlistsale.Enabled = False

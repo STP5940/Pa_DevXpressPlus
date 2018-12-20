@@ -7,9 +7,13 @@
 
     Private Sub Bindingmaster()
         Tmaster = New DataTable
-        Tmaster = SQLCommand($"SELECT DISTINCT Kongno FROM Vrecfabcoldet WHERE Comid = '{Gscomid}' AND Clothid = '{Tbclothid.Text}'
-                               UNION
-                               SELECT DISTINCT Kongno FROM Vrebackfabdet WHERE Rollstat = 'I' AND Comid = '{Gscomid}' AND Clothid = '{Tbclothid.Text}'")
+        Tmaster = SQLCommand($"SELECT DISTINCT Kongno
+                                        FROM Vrecfabcoldet 
+                                        WHERE (Comid = '{Gscomid}') AND (Clothid = '{Tbclothid.Text}')
+                                                UNION
+                                        SELECT DISTINCT Kongno
+                                        FROM dbo.Vrebackfabdet
+                                        WHERE (Rollstat = 'I') AND (Comid = '{Gscomid}') AND (Clothid = '{Tbclothid.Text}')")
         Dgvmas.DataSource = Tmaster
         FilterDgvmas()
     End Sub
@@ -21,7 +25,9 @@
             If i > Dgvmas.Rows.Count - 1 Then
                 Exit For
             End If
-            Countsale = SQLCommand($"SELECT Count(*) As Countsale FROM Tsalefabcoldetxp WHERE Kongno = '{Dgvmas.Rows(i).Cells("Kongno").Value}' AND Comid = '101' -- รายการที่ขายไป")
+            Countsale = SQLCommand($"SELECT Count(*) As Countsale FROM Tsalefabcoldetxp 
+                                         WHERE Kongno = '{Dgvmas.Rows(i).Cells("Kongno").Value}' AND 
+                                               Comid = '{Gscomid}' -- รายการที่ขายไป")
             Counthave = SQLCommand($"SELECT SUM(Counthave) AS Counthave 
                                          FROM ( SELECT Count(*) As Counthave FROM Trecfabcoldetxp 
                                                     WHERE  Kongno = '{Dgvmas.Rows(i).Cells("Kongno").Value}' 
