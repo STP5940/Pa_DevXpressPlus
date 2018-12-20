@@ -165,7 +165,7 @@ BypassFilter:
         '    Exit Sub
         'End If
         If Confirmdelete() = True Then
-            Deldetails()
+            Deldetails(Tbdyedbillno.Text, Tbrefablotno.Text)
             SQLCommand("DELETE FROM Trecfabcolxp WHERE Comid = '" & Gscomid & "' 
                         AND Reid = '" & Trim(Tbdyedcomno.Text) & "'")
             Clrdgrid()
@@ -708,13 +708,15 @@ BypassFilter:
                     Uptype = 'E',Uptime = '" & Formatdatesave(Now) & "'
                     WHERE Comid = '" & Gscomid & "' AND Reid = '" & Trim(Tbdyedcomno.Text) & "'")
     End Sub
-    Private Sub Deldetails()
+    Private Sub Deldetails(billno As String, fablotno As String)
         SQLCommand("DELETE FROM Trecfabcoldetxp 
-                    WHERE Comid = '" & Gscomid & "' AND Billdyedno = '" & Trim(Tbdyedbillno.Text) & "' AND
-                    Lotno = '" & Tbrefablotno.Text & "'")
+                    WHERE Comid = '" & Gscomid & "' AND Billdyedno = '" & Trim(billno) & "' AND
+                    Lotno = '" & Trim(fablotno) & "'")
+        'Tbdyedbillno.Text
+        'Tbrefablotno.Text 
     End Sub
     Private Sub Upddetails(Etype As String)
-        Deldetails()
+        Deldetails(Tbdyedbillno.Text, Tbrefablotno.Text)
         Dim I As Integer
         ProgressBarX1.Value = 0
         Dim Frm As New Formwaitdialoque
@@ -1542,9 +1544,9 @@ BypassFilter:
         Opentransaction(Balance.CurrentRow.Cells("BDyedcomno").Value)
     End Sub
 
-    Private Sub ButtonItem1_Click(sender As Object, e As EventArgs) Handles ButtonItem1.Click
+    Private Sub Ctmldelet_Click(sender As Object, e As EventArgs) Handles Ctmldelet.Click
         If Confirmdelete() = True Then
-            Deldetails()
+            Deldetails(Dgvlist.CurrentRow.Cells("Lbilldyedno").Value, Dgvlist.CurrentRow.Cells("Dlotno").Value)
             SQLCommand("DELETE FROM Trecfabcolxp WHERE Comid = '" & Gscomid & "' 
                         AND Reid = '" & Trim(Dgvlist.CurrentRow.Cells("Reid").Value) & "'")
             Clrdgrid()
