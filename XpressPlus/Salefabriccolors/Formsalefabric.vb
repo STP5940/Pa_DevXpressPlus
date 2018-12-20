@@ -1881,7 +1881,28 @@ Public Class Formsalefabric
             frm.BtmnewOld.Visible = False
             frm.Show()
         Else
-            Informmessage("ไม่พบข้อมูลใบสั่งย้อม")
+
+            Dim frmback As New Formrebackfabcolors
+            Dim Tmasterdyedback = New DataTable
+            Tmasterdyedback = SQLCommand($"SELECT '' AS Stat, * FROM Trebackfab  
+                                           WHERE Comid = '{Gscomid}' AND Rbid = '{Gridrows}' AND Sstatus = '1'")
+
+            If Tmasterdyedback.Rows.Count > 0 Then
+                frmback.Showtransaction($"{Gridrows}")
+                frmback.TabItem2.Visible = False
+                frmback.Btmnew.Visible = False
+                frmback.Btmedit.Visible = False
+                frmback.Btmdel.Visible = False
+                frmback.Btmsave.Visible = False
+                frmback.Btmcancel.Visible = False
+                frmback.Btmreports.Visible = False
+                frmback.Btmfind.Visible = False
+                frmback.TabControl1.SelectedTabIndex = 1
+                frmback.Show()
+            Else
+                Informmessage("ไม่พบข้อมูลใบสั่งย้อม")
+            End If
+
         End If
     End Sub
 

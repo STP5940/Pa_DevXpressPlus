@@ -36,7 +36,7 @@ Public Class Formrebackfabcolors
         Dgvlist.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
         Dgvlist.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
         Bindinglist()
-        TabControl1.SelectedTabIndex = 0
+        'TabControl1.SelectedTabIndex = 0
         Dtplistfm.Visible = False
         Dtplistto.Visible = False
         'BindingSendDyelist()
@@ -190,16 +190,12 @@ Public Class Formrebackfabcolors
         Mainbuttoncancel()
         GroupPanel2.Visible = False
         TabControl1.SelectedTabIndex = 1
-        Tbrefablotno.Text = Trim(Dgvlist.CurrentRow.Cells("Lotnomain").Value)
-        Tbdyedcomno.Text = Trim(Dgvlist.CurrentRow.Cells("Rbid").Value)
-        Tbdhid.Text = Trim(Dgvlist.CurrentRow.Cells("Custid").Value)
-        Tbdhname.Text = Trim(Dgvlist.CurrentRow.Cells("Custname").Value)
-        Tbdyedbillno.Text = Trim(Dgvlist.CurrentRow.Cells("Docref").Value)
         Btmedit.Enabled = True
         Tbdyedbillno.Enabled = False
         Btmnew.Enabled = False
         Btmdel.Enabled = True
         Btmreports.Enabled = True
+        Tbdyedcomno.Text = Trim(Dgvlist.CurrentRow.Cells("Rbid").Value)
         Bindmaster()
 
     End Sub
@@ -590,21 +586,30 @@ Public Class Formrebackfabcolors
     Private Sub Bindmaster()
         Tmaster = New DataTable
         Tmaster = SQLCommand($"SELECT dbo.Trebackfab.Rbid, dbo.Trebackfab.Custid, dbo.Tcustomersxp.Custname, dbo.Trebackfab.Docref, 
-							dbo.Trebackfab.Sumroll, dbo.Trebackfab.Sumwgt, dbo.Trebackfab.Sumprice,
-							dbo.Trebackfab.Remark, dbo.Trebackfab.Indate
-							FROM dbo.Tcustomersxp INNER JOIN
-							dbo.Trebackfab ON dbo.Tcustomersxp.Comid = dbo.Trebackfab.Comid 
-							AND dbo.Tcustomersxp.Custid = dbo.Trebackfab.Custid
-							WHERE dbo.Tcustomersxp.Comid = '101' AND dbo.Tcustomersxp.Sstatus = '1' AND Rbid = '{Trim(Tbdyedcomno.Text)}' ") 'Pa comment
+                                                  dbo.Trebackfab.Sumroll, dbo.Trebackfab.Sumwgt, dbo.Trebackfab.Sumprice, dbo.Trebackfab.Remark, 
+                                                  dbo.Trebackfab.Indate, dbo.Trebackfabdet.Lotno
+							               FROM dbo.Tcustomersxp 
+                                           INNER JOIN dbo.Trebackfab 
+                                                 ON dbo.Tcustomersxp.Comid = dbo.Trebackfab.Comid 
+                                                 AND dbo.Tcustomersxp.Custid = dbo.Trebackfab.Custid 
+                                           INNER JOIN dbo.Trebackfabdet 
+                                                 ON dbo.Tcustomersxp.Comid = dbo.Trebackfabdet.Comid 
+                                                 AND dbo.Trebackfab.Rbid = dbo.Trebackfabdet.Rbid
+                                           WHERE (dbo.Trebackfab.Comid = '{Gscomid}') 
+                                                 AND (dbo.Trebackfab.Sstatus = '1') 
+                                                 AND Trebackfab.Rbid = '{Trim(Tbdyedcomno.Text)}' 
+                                                 AND Trebackfab.Sstatus = '1'
+                                           GROUP BY Trebackfab.Rbid, Trebackfab.Custid, Custname, Docref, Sumroll, 
+                                                    Sumwgt, Sumprice, Remark, Indate, Lotno") 'Pa comment
 
-        Kgprice(Tbdyedbillno.Text)
         If Tmaster.Rows.Count > 0 Then
-            'Tbdhid.Text = Trim(Tmaster.Rows(0)("Dhid"))
-            'Tbdhname.Text = Trim(Tmaster.Rows(0)("Dyedhdesc"))
-            'Tbdyedbillno.Text = Trim(Tmaster.Rows(0)("Billdyedno"))
-            'Tbremark.Text = Trim(Tmaster.Rows(0)("Dremark"))
+            Tbrefablotno.Text = Tmaster.Rows(0)("Lotno")
+            Tbdhid.Text = Tmaster.Rows(0)("Custid")
+            Tbdhname.Text = Tmaster.Rows(0)("Custname")
+            Tbdyedbillno.Text = Tmaster.Rows(0)("Docref")
             Tbremark.Text = Tmaster.Rows(0)("Remark")
             Dtprecdate.Value = Tmaster.Rows(0)("Indate")
+            Kgprice(Tbdyedbillno.Text)
             Binddetails()
             Sumall()
         End If
@@ -1313,6 +1318,29 @@ Public Class Formrebackfabcolors
         Btdadd.Enabled = False
         Btdcancel.Enabled = False
         DemoCode.BackColor = Color.White
+    End Sub
+
+    Friend Sub Showtransaction(transactionRefab As String)
+        Clrdgrid()
+        TabControl1.SelectedTabIndex = 1
+        Tbdyedcomno.Text = Trim(transactionRefab)
+        BindingNavigator1.Enabled = True
+        Btmnew.Enabled = False
+        Btmedit.Enabled = True
+        Btmdel.Enabled = True
+        Btmsave.Enabled = False
+        Btmcancel.Enabled = True
+        Btmreports.Enabled = True
+        Tbremark.Enabled = False
+        Btdedit.Enabled = False
+        Btdadd.Enabled = False
+        Btdcancel.Enabled = False
+        GroupPanel2.Visible = False
+        Btdbadd.Enabled = False
+        Btddel.Enabled = False
+        Dgvmas.Enabled = False
+        Tbremark.Enabled = False
+        Bindmaster()
     End Sub
 
     Private Function Validdet() As Boolean
