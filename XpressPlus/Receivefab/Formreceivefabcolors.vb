@@ -167,7 +167,7 @@ BypassFilter:
         If Confirmdelete() = True Then
             Deldetails()
             SQLCommand("DELETE FROM Trecfabcolxp WHERE Comid = '" & Gscomid & "' 
-                        AND Billdyedno = '" & Trim(Tbdyedbillno.Text) & "' AND Dhid = '" & Trim(Tbdhid.Text) & "' AND Lotno = '" & Tbrefablotno.Text & "'")
+                        AND Reid = '" & Trim(Tbdyedcomno.Text) & "'")
             Clrdgrid()
             Clrtxtbox()
             Mainbuttoncancel()
