@@ -1706,7 +1706,7 @@ Public Class Formsalefabric
             Exit Sub
         End If
         If Confirmdelete() = True Then
-            Deldetails(Trim(Tbdlvno.Text))
+            Deldetails(Trim(Dgvlist.CurrentRow.Cells("Dlvno").Value))
             SQLCommand("DELETE FROM Tsalefabcolxp WHERE Comid = '" & Gscomid & "' AND Dlvno = '" & Dgvlist.CurrentRow.Cells("Dlvno").Value & "'")
             Clrdgrid()
             Clrtxtbox()
