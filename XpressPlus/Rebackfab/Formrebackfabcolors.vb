@@ -98,7 +98,7 @@ Public Class Formrebackfabcolors
         '    Exit Sub
         'End If
         If Confirmdelete() = True Then
-            Deldetails()
+            Deldetails(Tbdyedcomno.Text)
             SQLCommand($"UPDATE Trebackfab SET Sstatus = '0', Updusr = '{Gsuserid}', Uptype = 'D'  WHERE Rbid = '{Trim(Tbdyedcomno.Text)}'") 'Pa comment
             Clrdgrid()
             Clrtxtbox()
@@ -517,18 +517,11 @@ Public Class Formrebackfabcolors
                                            Uptime = '{Formatdatesave(Now)}'
                      WHERE Rbid = '{Trim(Tbdyedcomno.Text)}' AND Comid = '{Gscomid}'")
     End Sub
-    Private Sub Deldetails(Optional Main As String = "")
-        ' Main = M : ลบรายการจากหน้าแรก (Dgvlist) Pa Edit Function
-        If Main = "M" Then
-            SQLCommand($"DELETE From Trebackfabdet Where Comid = '{Gscomid}' AND Rbid = '{Trim(Dgvlist.CurrentRow.Cells("Rbid").Value)}'")
-            Exit Sub
-        End If
-        For i = 0 To Dgvmas.RowCount - 1
-            SQLCommand($"DELETE From Trebackfabdet Where Comid = '{Gscomid}' AND Rbid = '{Trim(Tbdyedcomno.Text)}'")
-        Next
+    Private Sub Deldetails(Tdlvno As String)
+        SQLCommand($"DELETE From Trebackfabdet Where Comid = '{Gscomid}' AND Rbid = '{Trim(Tdlvno)}'")
     End Sub
     Private Sub Upddetails(Etype As String)
-        Deldetails()
+        Deldetails(Tbdyedcomno.Text)
         Dim I As Integer
         ProgressBarX1.Value = 0
         Dim Frm As New Formwaitdialoque
@@ -1044,7 +1037,7 @@ Public Class Formrebackfabcolors
 
     Private Sub ButtonItem1_Click(sender As Object, e As EventArgs) Handles ButtonItem1.Click
         If Confirmdelete() = True Then
-            Deldetails("M")
+            Deldetails(Dgvlist.CurrentRow.Cells("Rbid").Value)
             SQLCommand($"UPDATE Trebackfab SET Sstatus = '0', Updusr = '{Gsuserid}', Uptype = 'D'  WHERE Rbid = '{Trim(Dgvlist.CurrentRow.Cells("Rbid").Value)}'") 'Pa comment
             Clrdgrid()
             Clrtxtbox()
