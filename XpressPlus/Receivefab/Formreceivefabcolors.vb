@@ -1541,6 +1541,23 @@ BypassFilter:
     Private Sub Maintransaction_Click(sender As Object, e As EventArgs) Handles Maintransaction.Click
         Opentransaction(Balance.CurrentRow.Cells("BDyedcomno").Value)
     End Sub
+
+    Private Sub ButtonItem1_Click(sender As Object, e As EventArgs) Handles ButtonItem1.Click
+        If Confirmdelete() = True Then
+            Deldetails()
+            SQLCommand("DELETE FROM Trecfabcolxp WHERE Comid = '" & Gscomid & "' 
+                        AND Reid = '" & Trim(Dgvlist.CurrentRow.Cells("Reid").Value) & "'")
+            Clrdgrid()
+            Clrtxtbox()
+            Mainbuttoncancel()
+            Tstbsumroll.Text = ""
+            TabControl1.SelectedTabIndex = 1
+            GroupPanel2.Visible = False
+            Bindinglist()
+            BindingBalance()
+        End If
+    End Sub
+
     Private Sub Opentransaction(Gridrows As String)
         Dim frm As New Formdyeform
         Dim Tmasterdyed = New DataTable
