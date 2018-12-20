@@ -11,7 +11,6 @@
         'Tmaster = SQLCommand($"SELECT Pubno,Lotno,Kongno,Rollwage FROM Vrecfabcoldet where Comid = '{Gscomid}' ")
 
         If Trim(Tbkongno.Text) = "" Then
-            MsgBox(0)
             Tmaster = SQLCommand($"SELECT Pubno,Lotno,Kongno,Rollwage,Clothid,Clothno,Ftype,Fwidth,Shadeid,Shadedesc
                                                From Vrecfabcoldet 
                                                WHERE Comid = '{Gscomid}' 
@@ -27,7 +26,6 @@
                                                AND Comid = '{Gscomid}'")
         Else
             If RS.Text = "RS" Then
-                MsgBox(1)
                 Tmaster = SQLCommand($"SELECT Pubno,Lotno,Kongno,Rollwage,Clothid,Clothno,Ftype,Fwidth,Shadeid,Shadedesc
                                                From Vrecfabcoldet 
                                                WHERE Comid = '{Gscomid}' 
@@ -44,7 +42,6 @@
                                                AND Kongno = '{Trim(Tbkongno.Text)}' 
                                                AND Shadeid = '{Trim(BoxShadeid.Text)}' ")
             Else
-                MsgBox(2)
                 Tmaster = SQLCommand($"SELECT Pubno,Lotno,Kongno,Rollwage,Clothid,Clothno,Ftype,Fwidth,Shadeid,Shadedesc
                                                From Vrecfabcoldet 
                                                WHERE Comid = '{Gscomid}' 
