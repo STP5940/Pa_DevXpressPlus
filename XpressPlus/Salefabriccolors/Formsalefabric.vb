@@ -1721,6 +1721,10 @@ Public Class Formsalefabric
         End If
     End Sub
 
+    Private Sub Maintransaction_Click_1(sender As Object, e As EventArgs) Handles Maintransaction.Click
+        Opentransaction(Dgvstock.CurrentRow.Cells("Reid").Value)
+    End Sub
+
     Private Sub Btfindcusship_Click_1(sender As Object, e As EventArgs) Handles Btfindcusship.Click
         If Tbcustid.Text = "" Or Tbcustname.Text = "" Then
             Informmessage("กรุณาเลือกลูกค้า")
@@ -1858,6 +1862,28 @@ Public Class Formsalefabric
         End If
     End Sub
 
+    Private Sub Opentransaction(Gridrows As String)
+        Dim frm As New Formreceivefabcolors
+        Dim Tmasterdyed = New DataTable
+        Tmasterdyed = SQLCommand($"SELECT '' AS Stat,* FROM Vrecfabcolmas
+                                           WHERE Comid = '{Gscomid}' AND Reid = '{Gridrows}'")
+        If Tmasterdyed.Rows.Count > 0 Then
+            frm.Showtransaction($"{Gridrows}")
+            frm.TabItem3.Visible = False
+            frm.TabItem2.Visible = False
+            frm.Btmnew.Visible = False
+            frm.Btmedit.Visible = False
+            frm.Btmdel.Visible = False
+            frm.Btmsave.Visible = False
+            frm.Btmcancel.Visible = False
+            frm.Btmreports.Visible = False
+            frm.Btmfind.Visible = False
+            frm.BtmnewOld.Visible = False
+            frm.Show()
+        Else
+            Informmessage("ไม่พบข้อมูลใบสั่งย้อม")
+        End If
+    End Sub
 
     Private Sub Clrgridmaster()
         Dgvmas.AutoGenerateColumns = False

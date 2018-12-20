@@ -22,12 +22,17 @@ Public Class Formreceivefabcolors
         Dtplistfm.Visible = False
         Dtplistto.Visible = False
         GroupPanel2.Visible = False
+        Btfindbillno.Enabled = False
+        Btfinddyedh.Enabled = False
+        Tbrefablotno.Enabled = False
+        Dtprecdate.Enabled = False
+        Tbcolorno.Enabled = False
+        Tbknittno.Enabled = False
+        Tbremark.Enabled = False
         Retdocprefix()
         'Setauthorize()
-        Mainbuttoncancel()
         Tbmycom.Text = Trim(Gscomname)
         BindingBalance()
-
     End Sub
     Private Sub Formreceivefabcolors_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         Dgvmas.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
@@ -775,9 +780,8 @@ BypassFilter:
     End Function
     Private Sub Bindmaster()
         Tmaster = New DataTable
-        Tmaster = SQLCommand("SELECT * FROM Vrecfabcolmas
-                                WHERE Comid = '" & Gscomid & "' AND Dhid = '" & Trim(Tbdhid.Text) & "' AND Billdyedno = '" & Trim(Tbdyedbillno.Text) & "' AND 
-                                Billknitt = '" & Trim(Tbknittno.Text) & "' AND Lotno = '" & Tbrefablotno.Text & "'")
+        Tmaster = SQLCommand($"SELECT * FROM Vrecfabcolmas
+                                WHERE Comid = '{Gscomid}' AND Reid = '{Trim(Tbdyedcomno.Text)}' ")
         If Tmaster.Rows.Count > 0 Then
             Tbdhid.Text = Trim(Tmaster.Rows(0)("Dhid"))
             Tbdhname.Text = Trim(Tmaster.Rows(0)("Dyedhdesc"))
@@ -1580,6 +1584,36 @@ BypassFilter:
             frm.Show()
         Else
             Informmessage("ไม่พบข้อมูลใบสั่งย้อม")
+        End If
+    End Sub
+    Friend Sub Showtransaction(transactionRefab As String)
+        TabControl1.SelectedTabIndex = 2
+        Tbdyedcomno.DataBindings.Clear()
+        Tbdyedcomno.Text = Trim(transactionRefab)
+        Tbdyedcomno.Enabled = False
+        Bindmaster()
+        Btmreports.Enabled = True
+        BindingNavigator1.Enabled = True
+        Btmnew.Enabled = False
+        Btmedit.Enabled = True
+        Btmdel.Enabled = True
+        Btmsave.Enabled = False
+        Btmcancel.Enabled = False
+        Btmreports.Enabled = True
+        Btdbadd.Enabled = False
+        Btdedit.Enabled = False
+        Btddel.Enabled = False
+        Ctdedit.Enabled = False
+        Ctddel.Enabled = False
+        Dgvmas.Enabled = True
+
+        Dim Tlistnew As New DataTable
+        Tlistnew = SQLCommand($"SELECT Dyecomno FROM Vdyedcommas WHERE Comid = '{Gscomid}' AND Dyecomno = '{Trim(Tbdyedbillno.Text)}'")
+        If Tlistnew.Rows.Count > 0 Then
+            Different("Btmnew")
+        Else
+            Different("BtmnewOld")
+            Tbdyedbillno.Enabled = False
         End If
     End Sub
     Private Sub Bindingnamebill()
