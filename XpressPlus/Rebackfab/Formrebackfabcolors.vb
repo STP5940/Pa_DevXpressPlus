@@ -517,13 +517,15 @@ Public Class Formrebackfabcolors
                                            Uptime = '{Formatdatesave(Now)}'
                      WHERE Rbid = '{Trim(Tbdyedcomno.Text)}' AND Comid = '{Gscomid}'")
     End Sub
-    Private Sub Deldetails()
+    Private Sub Deldetails(Optional Main As String = "")
+        ' Main = M : ลบรายการจากหน้าแรก (Dgvlist) Pa Edit Function
+        If Main = "M" Then
+            SQLCommand($"DELETE From Trebackfabdet Where Comid = '{Gscomid}' AND Rbid = '{Trim(Dgvlist.CurrentRow.Cells("Rbid").Value)}'")
+            Exit Sub
+        End If
         For i = 0 To Dgvmas.RowCount - 1
-            SQLCommand($"DELETE From Trebackfabdet Where Comid = '{Gscomid}' AND Rbid = '{Trim(Tbdyedcomno.Text)}'") 'Pa comment
+            SQLCommand($"DELETE From Trebackfabdet Where Comid = '{Gscomid}' AND Rbid = '{Trim(Tbdyedcomno.Text)}'")
         Next
-        'SQLCommand("DELETE FROM Trecfabcoldetxp 
-        '            WHERE Comid = '" & Gscomid & "' AND Dhid = '" & Trim(Tbdhid.Text) & "' AND Billdyedno = '" & Trim(Tbdyedbillno.Text) & "' AND
-        '            Lotno = '" & Tbrefablotno.Text & "'") 'Pa comment
     End Sub
     Private Sub Upddetails(Etype As String)
         Deldetails()
@@ -1042,7 +1044,7 @@ Public Class Formrebackfabcolors
 
     Private Sub ButtonItem1_Click(sender As Object, e As EventArgs) Handles ButtonItem1.Click
         If Confirmdelete() = True Then
-            Deldetails()
+            Deldetails("M")
             SQLCommand($"UPDATE Trebackfab SET Sstatus = '0', Updusr = '{Gsuserid}', Uptype = 'D'  WHERE Rbid = '{Trim(Dgvlist.CurrentRow.Cells("Rbid").Value)}'") 'Pa comment
             Clrdgrid()
             Clrtxtbox()
