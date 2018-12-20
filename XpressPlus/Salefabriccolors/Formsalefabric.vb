@@ -979,25 +979,38 @@ Public Class Formsalefabric
     End Sub
     Private Sub Bindingstock()
         Stocklist = New DataTable
-        Stocklist = SQLCommand($"SELECT dbo.Vsalestock.Comid, dbo.Trecfabcolxp.Reid, dbo.Vsalestock.Dhid, 
+        Stocklist = SQLCommand($"-- รายการผ้าในสต๊อกที่มาจากการรับผ้าจากโรงย้อม 
+                                SELECT dbo.Vsalestock.Comid, dbo.Trecfabcolxp.Reid, dbo.Vsalestock.Dhid, 
                                         dbo.Vsalestock.Dyedhdesc, dbo.Vsalestock.Lotno, dbo.Vsalestock.Kongno, 
                                         dbo.Vsalestock.Clothid, dbo.Vsalestock.Clothno, dbo.Vsalestock.Ftype, 
                                         dbo.Vsalestock.Fwidth, dbo.Vsalestock.Shadeid, dbo.Vsalestock.Shadedesc, 
                                         COUNT(*) AS Cunt, SUM(dbo.Vsalestock.Rollwage) AS Rollwage
-                                 FROM dbo.Vsalestock INNER JOIN dbo.Trecfabcolxp 
-                                        ON dbo.Vsalestock.Comid = dbo.Trecfabcolxp.Comid 
-                                        AND dbo.Vsalestock.Lotno = dbo.Trecfabcolxp.Lotno
+                                FROM dbo.Vsalestock INNER JOIN dbo.Trecfabcolxp 
+                                         ON dbo.Vsalestock.Comid = dbo.Trecfabcolxp.Comid 
+                                         AND dbo.Vsalestock.Lotno = dbo.Trecfabcolxp.Lotno
                                 WHERE (dbo.Vsalestock.Comid = '{Gscomid}')
                                 GROUP BY dbo.Vsalestock.Comid, dbo.Vsalestock.Dyedhdesc, dbo.Vsalestock.Lotno, 
                                          dbo.Vsalestock.Kongno, dbo.Vsalestock.Clothid, dbo.Vsalestock.Clothno, 
                                          dbo.Vsalestock.Ftype, dbo.Vsalestock.Fwidth, dbo.Vsalestock.Shadeid, 
                                          dbo.Vsalestock.Shadedesc, dbo.Trecfabcolxp.Reid, dbo.Vsalestock.Dhid
                                 UNION
-                                SELECT Comid,Rbid,Custid,Custname,Lotno,Kongno,Clothid,Clothno,Ftype,Fwidth,
-                                       Shadeid, Shadedesc,COUNT(*) As Cunt,SUM(Rollwage) As Rollwage 
-	                            FROM Vrebackfabdet 
-                                WHERE Rollstat = 'I' AND Comid = '{Gscomid}' 
-                                GROUP BY Comid, Rbid, Custid, Custname, Custname, Lotno, Kongno, Clothid, Clothno, Ftype, Fwidth, Shadeid, Shadedesc")
+                                -- รายการผ้าในสต๊อกที่มาจากการรับคืนผ้าจากลูกค้า
+                                SELECT Vrebackfabdet.Comid, Vrebackfabdet.Rbid, Vrebackfabdet.Custid, Vrebackfabdet.Custname,
+                                       Vrebackfabdet.Lotno, Vrebackfabdet.Kongno, Vrebackfabdet.Clothid, Vrebackfabdet.Clothno,
+                                       Vrebackfabdet.Ftype, Vrebackfabdet.Fwidth, Vrebackfabdet.Shadeid, Vrebackfabdet.Shadedesc,
+                                       COUNT(*) As Cunt, SUM(Vrebackfabdet.Rollwage) As Rollwage 
+	                            FROM dbo.Vrebackfabdet 
+	                            LEFT JOIN dbo.Tsalefabcoldetxp 
+	                                 ON dbo.Vrebackfabdet.Comid = dbo.Tsalefabcoldetxp.Comid 
+	                                 AND dbo.Vrebackfabdet.Lotno = dbo.Tsalefabcoldetxp.Lotno
+		                             AND dbo.Vrebackfabdet.Rollno = dbo.Tsalefabcoldetxp.Rollno
+	                            WHERE dbo.Tsalefabcoldetxp.Lotno IS NULL 
+                                     AND Tsalefabcoldetxp.Rollno IS NULL 
+                                     AND dbo.Vrebackfabdet.Comid = '{Gscomid}'
+	                            GROUP BY Vrebackfabdet.Comid, Vrebackfabdet.Rbid, Vrebackfabdet.Custid, Vrebackfabdet.Custname, 
+                                         Vrebackfabdet.Custname, Vrebackfabdet.Lotno, Vrebackfabdet.Kongno, Vrebackfabdet.Clothid, 
+                                         Vrebackfabdet.Clothno, Vrebackfabdet.Ftype, Vrebackfabdet.Fwidth, Vrebackfabdet.Shadeid, 
+                                         Vrebackfabdet.Shadedesc")
 
         Dgvstock.DataSource = Stocklist
         '    Bs = New BindingSource
