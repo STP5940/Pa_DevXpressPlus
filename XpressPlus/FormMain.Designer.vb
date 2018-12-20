@@ -32,7 +32,7 @@ Partial Class FormMain
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button1.Location = New System.Drawing.Point(39, 65)
+        Me.Button1.Location = New System.Drawing.Point(176, 65)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(116, 47)
         Me.Button1.TabIndex = 0
@@ -42,7 +42,7 @@ Partial Class FormMain
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button2.Location = New System.Drawing.Point(174, 65)
+        Me.Button2.Location = New System.Drawing.Point(39, 65)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(116, 47)
         Me.Button2.TabIndex = 1
