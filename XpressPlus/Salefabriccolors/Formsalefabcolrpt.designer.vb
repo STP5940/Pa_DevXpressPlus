@@ -25,6 +25,7 @@ Partial Class Formsalefabcolrpt
         Me.components = New System.ComponentModel.Container()
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
+        Me.TbBagwgt = New Normtextbox.Normtextbox()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -66,7 +67,7 @@ Partial Class Formsalefabcolrpt
         Me.Tbcustaddr = New System.Windows.Forms.TextBox()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
-        Me.TbBagwgt = New Normtextbox.Normtextbox()
+        Me.Tbsumnetkg = New Normtextbox.Normtextbox()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabControlPanel1.SuspendLayout()
@@ -94,6 +95,7 @@ Partial Class Formsalefabcolrpt
         '
         'TabControlPanel1
         '
+        Me.TabControlPanel1.Controls.Add(Me.Tbsumnetkg)
         Me.TabControlPanel1.Controls.Add(Me.TbBagwgt)
         Me.TabControlPanel1.Controls.Add(Me.DataGridView2)
         Me.TabControlPanel1.Controls.Add(Me.DataGridView1)
@@ -129,6 +131,19 @@ Partial Class Formsalefabcolrpt
         Me.TabControlPanel1.Style.GradientAngle = 90
         Me.TabControlPanel1.TabIndex = 1
         Me.TabControlPanel1.TabItem = Me.TabItem1
+        '
+        'TbBagwgt
+        '
+        Me.TbBagwgt.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TbBagwgt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TbBagwgt.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbBagwgt.Location = New System.Drawing.Point(896, 259)
+        Me.TbBagwgt.MaxLength = 150
+        Me.TbBagwgt.Multiline = True
+        Me.TbBagwgt.Name = "TbBagwgt"
+        Me.TbBagwgt.Size = New System.Drawing.Size(100, 22)
+        Me.TbBagwgt.TabIndex = 200
+        Me.TbBagwgt.Visible = False
         '
         'DataGridView2
         '
@@ -447,18 +462,18 @@ Partial Class Formsalefabcolrpt
         Me.TabItem1.Name = "TabItem1"
         Me.TabItem1.Text = "ใบส่งผ้าสี(ขาย)"
         '
-        'TbBagwgt
+        'Tbsumnetkg
         '
-        Me.TbBagwgt.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TbBagwgt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TbBagwgt.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbBagwgt.Location = New System.Drawing.Point(896, 259)
-        Me.TbBagwgt.MaxLength = 150
-        Me.TbBagwgt.Multiline = True
-        Me.TbBagwgt.Name = "TbBagwgt"
-        Me.TbBagwgt.Size = New System.Drawing.Size(100, 22)
-        Me.TbBagwgt.TabIndex = 200
-        Me.TbBagwgt.Visible = False
+        Me.Tbsumnetkg.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Tbsumnetkg.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbsumnetkg.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tbsumnetkg.Location = New System.Drawing.Point(788, 259)
+        Me.Tbsumnetkg.MaxLength = 150
+        Me.Tbsumnetkg.Multiline = True
+        Me.Tbsumnetkg.Name = "Tbsumnetkg"
+        Me.Tbsumnetkg.Size = New System.Drawing.Size(100, 22)
+        Me.Tbsumnetkg.TabIndex = 202
+        Me.Tbsumnetkg.Visible = False
         '
         'Formsalefabcolrpt
         '
@@ -523,4 +538,5 @@ Partial Class Formsalefabcolrpt
     Friend WithEvents Column16 As DataGridViewTextBoxColumn
     Friend WithEvents Column17 As DataGridViewTextBoxColumn
     Friend WithEvents TbBagwgt As Normtextbox.Normtextbox
+    Friend WithEvents Tbsumnetkg As Normtextbox.Normtextbox
 End Class

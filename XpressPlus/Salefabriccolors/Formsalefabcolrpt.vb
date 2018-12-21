@@ -197,6 +197,8 @@ Public Class Formsalefabcolrpt
         'Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {Par10})
         'Par11 = New ReportParameter("Psumprice", Trim(Tbsumprice.Text), True)
         'Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {Par11})
+        Par11 = New ReportParameter("Sumnetkg", Trim(Tbsumnetkg.Text), True)
+        Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {Par11})
         Par12 = New ReportParameter("Kgsum", Trim(Tstbsumkg.Text), True)
         Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {Par12})
         Par13 = New ReportParameter("Pricesum", Trim(Tbsumprice.Text), True)

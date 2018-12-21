@@ -179,6 +179,7 @@ Public Class Formsalefabric
         Frm.Tbshade.Text = Trim(Tbshadename.Text)
         Frm.Tbcolor.Text = Trim(Tbcolorno.Text)
         Frm.Tbsumkg.Text = Trim(Tbsumwgt.Text)
+        Frm.Tbsumnetkg.Text = Trim(Tbsumnetwgt.Text)
         Frm.Tbkgprice.Text = Trim(Tbkgprice.Text)
         Frm.Tbsumprice.Text = Trim(Tbsummoney.Text)
         Frm.TbBagwgt.Text = Format(CDbl(TbBagwgt.Text), "###,##0.#0")
@@ -346,16 +347,17 @@ Public Class Formsalefabric
         Tbdlvno.Text = Trim(Dgvlist.CurrentRow.Cells("Dlvno").Value)
         Tbdlvno.DataBindings.Clear()
         Tbdlvno.Text = ""
-        TbBagwgt.Text = "0.00"
         Bs.Position = Bs.Find("Dlvno", Trim(Dgvlist.CurrentRow.Cells("Dlvno").Value))
         Tbdlvno.DataBindings.Add("Text", Bs, "Dlvno")
-        Cbfromgsc.Enabled = False
-        Cbfromgsc.Checked = False
-        TbBagwgt.Enabled = False
         Tbdlvno.Enabled = False
+        Cbfromgsc.Enabled = False
+        TbBagwgt.Enabled = False
+        Cbfromgsc.Checked = False
+        TbBagwgt.Text = "0.00"
         Bindmaster()
         CheckBagwgt()
         BindingNavigator1.Enabled = True
+
         'Btmnew.Enabled = False
         Btmnew.Enabled = False
         Btmedit.Enabled = True
@@ -1620,8 +1622,6 @@ Public Class Formsalefabric
 
     End Sub
     Friend Sub CalcSummoney()
-
-        '-------------
         Dim DelBagwgt As Double
         If Tbkgprice.Text = "" OrElse Tbkgprice.Text = "." Then
             Tbsummoney.Text = "0.00"
@@ -1641,11 +1641,20 @@ Public Class Formsalefabric
             End If
             DelBagwgt = CDbl(Tstbsumroll.Text * TbBagwgt.Text)
         Else
+            If Tstbsumroll.Text = "" Then
+                Tstbsumroll.Text = "0"
+            End If
+            If TbBagwgt.Text = "" Then
+                TbBagwgt.Text = "0.00"
+            End If
+            TbBagwgt.Text = "0.00"
             DelBagwgt = 0
         End If
 
         Dim Summoney As Double = CDbl(Tbkgprice.Text) * (CDbl(Tbsumwgt.Text) - DelBagwgt)
+        Dim Sumwgt As Double = CDbl(Tbsumwgt.Text) - (CDbl(TbBagwgt.Text) * CDbl(Tstbsumroll.Text))
         Tbsummoney.Text = Format(Summoney, "###,##0.#0")
+        Tbsumnetwgt.Text = Format(Sumwgt, "###,##0.#0")
     End Sub
 
     Private Sub Clrmaster()
