@@ -702,7 +702,7 @@
       <Width>207.05013mm</Width>
       <Page>
         <PageHeader>
-          <Height>2.37791in</Height>
+          <Height>2.68625in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -792,7 +792,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>0.90915in</Top>
-              <Left>0.38542in</Left>
+              <Left>0.375in</Left>
               <Height>0.25in</Height>
               <Width>1.0543in</Width>
               <ZIndex>2</ZIndex>
@@ -922,7 +922,7 @@
               </Paragraphs>
               <rd:DefaultName>Parfrm</rd:DefaultName>
               <Top>0.91957in</Top>
-              <Left>1.59251in</Left>
+              <Left>1.58209in</Left>
               <Height>0.25in</Height>
               <Width>3.92077in</Width>
               <ZIndex>6</ZIndex>
@@ -1024,7 +1024,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.24597in</Top>
+              <Top>1.37097in</Top>
               <Left>0.37501in</Left>
               <Height>0.25in</Height>
               <Width>1.0543in</Width>
@@ -1058,7 +1058,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Parfrm</rd:DefaultName>
-              <Top>1.24597in</Top>
+              <Top>1.37097in</Top>
               <Left>1.59251in</Left>
               <Height>0.25in</Height>
               <Width>1.40698in</Width>
@@ -1091,7 +1091,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.56541in</Top>
+              <Top>2.00986in</Top>
               <Left>0.375in</Left>
               <Height>0.25in</Height>
               <Width>1.0543in</Width>
@@ -1125,7 +1125,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Parfrm</rd:DefaultName>
-              <Top>1.54803in</Top>
+              <Top>2.00986in</Top>
               <Left>1.59251in</Left>
               <Height>0.25in</Height>
               <Width>1.40698in</Width>
@@ -1158,7 +1158,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.23555in</Top>
+              <Top>1.37097in</Top>
               <Left>3.08281in</Left>
               <Height>0.25in</Height>
               <Width>1.15625in</Width>
@@ -1191,7 +1191,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.54803in</Top>
+              <Top>2.00986in</Top>
               <Left>3.06893in</Left>
               <Height>0.25in</Height>
               <Width>1.15625in</Width>
@@ -1224,7 +1224,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.8779in</Top>
+              <Top>2.33626in</Top>
               <Left>0.375in</Left>
               <Height>0.25in</Height>
               <Width>1.05431in</Width>
@@ -1258,7 +1258,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Parfrm</rd:DefaultName>
-              <Top>1.86748in</Top>
+              <Top>2.33626in</Top>
               <Left>1.59252in</Left>
               <Height>0.25in</Height>
               <Width>1.40697in</Width>
@@ -1291,11 +1291,111 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>1.86748in</Top>
+              <Top>2.33626in</Top>
               <Left>3.06893in</Left>
               <Height>0.25in</Height>
               <Width>1.15625in</Width>
               <ZIndex>17</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox5">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=IIF(cdbl(Parameters!Bagwgt.Value) &gt; 0 , Parameters!Bagwgt.Value, "0.00")</Value>
+                      <Style>
+                        <FontSize>12pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox5</rd:DefaultName>
+              <Top>1.69042in</Top>
+              <Left>1.59252in</Left>
+              <Height>0.25in</Height>
+              <Width>1.40697in</Width>
+              <ZIndex>18</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox6">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>น้ำหนักถุง</Value>
+                      <Style>
+                        <FontSize>12pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox5</rd:DefaultName>
+              <Top>1.69041in</Top>
+              <Left>0.375in</Left>
+              <Height>0.25in</Height>
+              <Width>1.0543in</Width>
+              <ZIndex>19</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox7">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>กก./พับ</Value>
+                      <Style>
+                        <FontSize>12pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox5</rd:DefaultName>
+              <Top>1.69041in</Top>
+              <Left>3.06893in</Left>
+              <Height>0.25in</Height>
+              <Width>1.15625in</Width>
+              <ZIndex>20</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1546,6 +1646,10 @@
     <ReportParameter Name="Tbremark">
       <DataType>String</DataType>
       <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Bagwgt">
+      <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
   </ReportParameters>

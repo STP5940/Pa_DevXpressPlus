@@ -79,6 +79,8 @@ Public Class Formsalefabric
             Informmessage("กรุณาตรวจสอบรายละเอียดในการขายผ้าสีให้ครบถ้วน")
             Exit Sub
         End If
+
+        Btdbadd_Click(sender, e)
         If Tbdlvno.Text = "NEW" Then
             Newdoc()
         Else
@@ -88,6 +90,7 @@ Public Class Formsalefabric
         Btmreports_Click(sender, e)
         Btdcancel_Click(sender, e)
         Tsbwsave.Visible = False
+        Cbfromgsc.Checked = False
         Clrtextmaster()
         Clrtextdetails()
         Clrgridmaster()
@@ -178,6 +181,7 @@ Public Class Formsalefabric
         Frm.Tbsumkg.Text = Trim(Tbsumwgt.Text)
         Frm.Tbkgprice.Text = Trim(Tbkgprice.Text)
         Frm.Tbsumprice.Text = Trim(Tbsummoney.Text)
+        Frm.TbBagwgt.Text = Format(CDbl(TbBagwgt.Text), "###,##0.#0")
         Frm.Tstbsumkg.Text = Trim(Tstbsumkg.Text)
         Frm.Tbremark.Text = Trim(Tbremark.Text)
 
@@ -342,10 +346,15 @@ Public Class Formsalefabric
         Tbdlvno.Text = Trim(Dgvlist.CurrentRow.Cells("Dlvno").Value)
         Tbdlvno.DataBindings.Clear()
         Tbdlvno.Text = ""
+        TbBagwgt.Text = "0.00"
         Bs.Position = Bs.Find("Dlvno", Trim(Dgvlist.CurrentRow.Cells("Dlvno").Value))
         Tbdlvno.DataBindings.Add("Text", Bs, "Dlvno")
+        Cbfromgsc.Enabled = False
+        Cbfromgsc.Checked = False
+        TbBagwgt.Enabled = False
         Tbdlvno.Enabled = False
         Bindmaster()
+        CheckBagwgt()
         BindingNavigator1.Enabled = True
         'Btmnew.Enabled = False
         Btmnew.Enabled = False
@@ -364,14 +373,35 @@ Public Class Formsalefabric
         Dtpdate.Enabled = False
         Btdbadd.Enabled = False
         Btddel.Enabled = False
-        Cbfromgsc.Enabled = False
-        Cbfromgsc.Checked = False
         'Btdadd.Enabled = False
         'Btdedit.Enabled = False
         'Btddel.Enabled = False
         'Ctdedit.Enabled = False
         'Ctddel.Enabled = False
         'Dgvmas.Enabled = True
+    End Sub
+
+    Friend Sub CheckBagwgt()
+        Dim Deductible As New DataTable
+        Deductible = SQLCommand($"SELECT '' AS Stat, A.Comid, A.Dlvno, Kgprice, Sumkg, Sumprice, Bagwgt, COUNT(*) AS Counts 
+                                           FROM Tsalefabcolxp A
+		                                   LEFT JOIN Tsalefabcoldetxp B
+		                                        ON  (A.Dlvno = B.Dlvno )
+			                                    AND (A.Comid = B.Comid)
+	                                       WHERE (A.Comid = '{Gscomid}') AND A.Dlvno = '{Tbdlvno.Text}'
+		                                   GROUP BY A.Comid,A.Dlvno,Kgprice,Sumkg,Sumprice,Bagwgt")
+
+        Try
+            If Deductible(0)("Bagwgt") > 0 Then ' Bagwgt มากกว่า 0 แสดง TbBagwgt.Text
+                Cbfromgsc.Checked = True
+                TbBagwgt.Text = Format(Deductible(0)("Bagwgt"), "###,###.#0")
+            Else
+                Cbfromgsc.Checked = False
+            End If
+        Catch ex As Exception ' ไม่พบค่า Bagwgt ใน Database ไม่ต้องแสดง TbBagwgt.Text
+            TbBagwgt.Text = 0
+            Cbfromgsc.Checked = False
+        End Try
     End Sub
     Friend Sub Showtransaction(transactionRefab As String)
         Clrdgrid()
@@ -684,19 +714,25 @@ Public Class Formsalefabric
         End If
     End Sub
     Private Sub Insertmaster()
+        If Cbfromgsc.Checked = False Then
+            TbBagwgt.Text = "0"
+        End If
         SQLCommand("INSERT INTO Tsalefabcolxp(Comid,Dfabdate,Dlvno,Clothid,
                     Custid,Custadd,Shadid,Colorno,
                     Kgprice,Sumkg,Sumprice,Dremark,
-                    Sremark,Updusr,Uptype,Uptime)
+                    Sremark,Updusr,Uptype,Uptime,Bagwgt)
                     VALUES('" & Gscomid & "','" & Formatshortdatesave(Dtpdate.Value) & "','" & Trim(Tbdlvno.Text) & "','" & Trim(Tbclothid.Text) & "',
                     '" & Trim(Tbcustid.Text) & "'," & Trim(Tbcusadd.Text) & ",'" & Trim(Tbshadeid.Text) & "','" & Trim(Tbcolorno.Text) & "',
                     " & CDbl(Tbkgprice.Text) & "," & CDbl(Tbsumwgt.Text) & "," & CDbl(Tbsummoney.Text) & ",'" & Trim(Tbremark.Text) & "',
-                    'ขายผ้าสี','" & Gsuserid & "','A','" & Formatdatesave(Now) & "')")
+                    'ขายผ้าสี','" & Gsuserid & "','A','" & Formatdatesave(Now) & "','" & Trim(TbBagwgt.Text) & "')")
     End Sub
     Private Sub Editmaster()
+        If Cbfromgsc.Checked = False Then
+            TbBagwgt.Text = "0"
+        End If
         SQLCommand("UPDATE Tsalefabcolxp SET Dfabdate = '" & Formatdatesave(Dtpdate.Value) & "',Clothid = '" & Tbclothid.Text & "',Custid = '" & Trim(Tbcustid.Text) & "',
                     Custadd = " & Trim(Tbcusadd.Text) & ",Shadid = '" & Trim(Tbshadeid.Text) & "',Colorno = '" & Trim(Tbcolorno.Text) & "',Kgprice = " & Trim(Tbkgprice.Text) & ",Sumkg = " & CDbl(Tbsumwgt.Text) & ",
-                    Sumprice = " & CDbl(Tbsummoney.Text) & ",Dremark = '" & Trim(Tbremark.Text) & "',Updusr = '" & Gsuserid & "',Uptype = 'E',Uptime = '" & Formatdatesave(Now) & "'
+                    Sumprice = " & CDbl(Tbsummoney.Text) & ",Dremark = '" & Trim(Tbremark.Text) & "',Updusr = '" & Gsuserid & "',Uptype = 'E',Uptime = '" & Formatdatesave(Now) & "',Bagwgt = '" & Trim(TbBagwgt.Text) & "'
                     WHERE Comid = '" & Gscomid & "' AND Dlvno = '" & Tbdlvno.Text & "'")
     End Sub
     Private Sub Deldetails(Tdlvno As String)
@@ -1314,6 +1350,7 @@ Public Class Formsalefabric
         Btfindclothno.Enabled = True
         Btfindshade.Enabled = True
         Cbfromgsc.Enabled = True
+        TbBagwgt.Enabled = True
         'Btdadd.Enabled = True
         BindingNavigator1.Enabled = False
         Mainbuttonaddedit()
@@ -1569,10 +1606,11 @@ Public Class Formsalefabric
 
         'MessageBox.Show(CDbl(Tbkgprice.Text))
         'Dim Coverprice As Long = CDbl(Tbkgprice.Text)
-        Dim Summoney As Double = CDbl(Tbkgprice.Text) * CDbl(Tbsumwgt.Text)
+        ''Dim Summoney As Double = CDbl(Tbkgprice.Text) * CDbl(Tbsumwgt.Text)
         'MessageBox.Show(Summoney)
-        Tbsummoney.Text = Format(Summoney, "###,###.#0")
+        ''Tbsummoney.Text = Format(Summoney, "###,###.#0")
 
+        CalcSummoney()
         'Dgvmas.Rows(0).Cells("Dlot").Value = 0
 
 
@@ -1580,6 +1618,34 @@ Public Class Formsalefabric
         'Tbkongno.Text = Trim(Frm.Normtextbox1.Text)
         'Btdadd.Focus()
 
+    End Sub
+    Friend Sub CalcSummoney()
+
+        '-------------
+        Dim DelBagwgt As Double
+        If Tbkgprice.Text = "" OrElse Tbkgprice.Text = "." Then
+            Tbsummoney.Text = "0.00"
+            Exit Sub
+        End If
+        If CDbl(Tbkgprice.Text) = 0 Then
+            Tbsummoney.Text = "0.00"
+        End If
+
+        If Cbfromgsc.Checked = True Then
+            If Tstbsumroll.Text = "" Then
+                Exit Sub
+            End If
+            If TbBagwgt.Text = "" OrElse TbBagwgt.Text = "." Then
+                TbBagwgt.Text = "0.00"
+                Exit Sub
+            End If
+            DelBagwgt = CDbl(Tstbsumroll.Text * TbBagwgt.Text)
+        Else
+            DelBagwgt = 0
+        End If
+
+        Dim Summoney As Double = CDbl(Tbkgprice.Text) * (CDbl(Tbsumwgt.Text) - DelBagwgt)
+        Tbsummoney.Text = Format(Summoney, "###,##0.#0")
     End Sub
 
     Private Sub Clrmaster()
@@ -1639,15 +1705,7 @@ Public Class Formsalefabric
         GroupPanel2.Visible = True
         Tbaddedit.Text = "เพิ่ม"
 
-        If Tbkgprice.Text = "" OrElse Tbkgprice.Text = "." Then
-            Tbsummoney.Text = "0.00"
-            Exit Sub
-        ElseIf CDbl(Tbkgprice.Text) = 0 Then
-            Tbsummoney.Text = "0.00"
-        End If
-
-        Dim Summoney As Double = CDbl(Tbkgprice.Text) * CDbl(Tbsumwgt.Text)
-        Tbsummoney.Text = Format(Summoney, "###,##0.#0")
+        CalcSummoney()
         Btdbadd.Enabled = False
     End Sub
 
@@ -1659,19 +1717,7 @@ Public Class Formsalefabric
         Tsbwsave.Visible = True
         Dgvmas.Rows.Remove(Dgvmas.CurrentRow)
         Sumall()
-
-        If Tbkgprice.Text = "" OrElse Tbkgprice.Text = "." Then
-            Tbsummoney.Text = "0.00"
-            Exit Sub
-        End If
-
-        If CDbl(Tbkgprice.Text) = 0 Then
-            Tbsummoney.Text = "0.00"
-        End If
-
-        Dim Summoney As Double = CDbl(Tbkgprice.Text) * CDbl(Tbsumwgt.Text)
-        Tbsummoney.Text = Format(Summoney, "###,##0.#0")
-
+        CalcSummoney()
         'For i = 0 To Dgvmas.RowCount - 1
         '    Dim Rows As Integer = i + 1
         '    Dgvmas.Rows(i).Cells("ord").Value = Rows
@@ -1746,13 +1792,20 @@ Public Class Formsalefabric
     End Sub
 
     Private Sub Cbfromgsc_CheckedChanged(sender As Object, e As EventArgs) Handles Cbfromgsc.CheckedChanged
+
         If Cbfromgsc.Checked = True Then
             TbBagwgt.Visible = True
             LabelBagwgt.Visible = True
+            CalcSummoney()
         Else
             TbBagwgt.Visible = False
             LabelBagwgt.Visible = False
+            CalcSummoney()
         End If
+    End Sub
+
+    Private Sub TbBagwgt_TextChanged(sender As Object, e As EventArgs) Handles TbBagwgt.TextChanged
+        CalcSummoney()
     End Sub
 
     Private Sub Btliststockfind_Click(sender As Object, e As EventArgs) Handles Btliststockfind.Click
@@ -1792,6 +1845,7 @@ Public Class Formsalefabric
         Clrdgrid()
         Clrtxtbox()
         Cbfromgsc.Checked = False
+        TbBagwgt.Text = "0.00"
         Btdcancel_Click(sender, e)
         Btmnew_Click(sender, e)
         Tbkongno.Text = InputGrid(Dgvstock.CurrentRow.Cells("SKongno").Value)
@@ -1856,17 +1910,7 @@ Public Class Formsalefabric
     End Sub
 
     Private Sub Tbkgprice_TextChanged(sender As Object, e As EventArgs) Handles Tbkgprice.TextChanged
-        If Tbkgprice.Text = "" OrElse Tbkgprice.Text = "." Then
-            Tbsummoney.Text = "0.00"
-            Exit Sub
-        End If
-
-        If CDbl(Tbkgprice.Text) = 0 Then
-            Tbsummoney.Text = "0.00"
-        End If
-
-        Dim Summoney As Double = CDbl(Tbkgprice.Text) * CDbl(Tbsumwgt.Text)
-        Tbsummoney.Text = Format(Summoney, "###,##0.#0")
+        CalcSummoney()
     End Sub
 
     Private Sub BindingNavigator1_RefreshItems(sender As Object, e As EventArgs) Handles BindingNavigator1.RefreshItems
@@ -1874,6 +1918,7 @@ Public Class Formsalefabric
         Tbdlvno.Enabled = False
         If Btmedit.Enabled = True Then
             Bindmaster()
+            CheckBagwgt()
         End If
     End Sub
 
@@ -1974,6 +2019,7 @@ Public Class Formsalefabric
         Tbremark.Enabled = False
         Dtpdate.Enabled = False
         Cbfromgsc.Enabled = False
+        TbBagwgt.Enabled = False
         'Btdadd.Enabled = False
         Btdedit.Enabled = False
         Btddel.Enabled = False
