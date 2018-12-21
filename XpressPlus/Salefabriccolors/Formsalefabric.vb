@@ -364,6 +364,8 @@ Public Class Formsalefabric
         Dtpdate.Enabled = False
         Btdbadd.Enabled = False
         Btddel.Enabled = False
+        Cbfromgsc.Enabled = False
+        Cbfromgsc.Checked = False
         'Btdadd.Enabled = False
         'Btdedit.Enabled = False
         'Btddel.Enabled = False
@@ -1311,6 +1313,7 @@ Public Class Formsalefabric
         Btfindcusship.Enabled = True
         Btfindclothno.Enabled = True
         Btfindshade.Enabled = True
+        Cbfromgsc.Enabled = True
         'Btdadd.Enabled = True
         BindingNavigator1.Enabled = False
         Mainbuttonaddedit()
@@ -1323,6 +1326,7 @@ Public Class Formsalefabric
         TabControl1.SelectedTabIndex = 0
         BindingNavigator1.Enabled = False
         Mainbuttoncancel()
+        Cbfromgsc.Checked = False
     End Sub
 
     Private Sub ShowRecordDetail()
@@ -1741,6 +1745,16 @@ Public Class Formsalefabric
 
     End Sub
 
+    Private Sub Cbfromgsc_CheckedChanged(sender As Object, e As EventArgs) Handles Cbfromgsc.CheckedChanged
+        If Cbfromgsc.Checked = True Then
+            TbBagwgt.Visible = True
+            LabelBagwgt.Visible = True
+        Else
+            TbBagwgt.Visible = False
+            LabelBagwgt.Visible = False
+        End If
+    End Sub
+
     Private Sub Btliststockfind_Click(sender As Object, e As EventArgs) Handles Btliststockfind.Click
         Searchstocklistbyoth(Trim(Tstbstockkeyword.Text))
     End Sub
@@ -1777,6 +1791,7 @@ Public Class Formsalefabric
     Private Sub ButtonItem2_Click(sender As Object, e As EventArgs) Handles Ctmstockedit.Click
         Clrdgrid()
         Clrtxtbox()
+        Cbfromgsc.Checked = False
         Btdcancel_Click(sender, e)
         Btmnew_Click(sender, e)
         Tbkongno.Text = InputGrid(Dgvstock.CurrentRow.Cells("SKongno").Value)
@@ -1958,6 +1973,7 @@ Public Class Formsalefabric
         Tbcolorno.Enabled = False
         Tbremark.Enabled = False
         Dtpdate.Enabled = False
+        Cbfromgsc.Enabled = False
         'Btdadd.Enabled = False
         Btdedit.Enabled = False
         Btddel.Enabled = False
