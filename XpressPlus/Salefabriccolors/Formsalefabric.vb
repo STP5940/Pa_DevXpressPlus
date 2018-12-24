@@ -494,7 +494,7 @@ Public Class Formsalefabric
     '---------------------- End footer Stock -------------------'
 
     Private Sub Btfindcustid_Click(sender As Object, e As EventArgs)
-        Dim Frm As New Formcustomerslist
+        Dim Frm As New FormcustomerslistforSale
         Showdiaformcenter(Frm, Me)
         If Frm.Tbcancel.Text = "C" Then
             Exit Sub

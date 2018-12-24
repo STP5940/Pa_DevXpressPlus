@@ -212,7 +212,7 @@ Public Class Formrebackfabcolors
         Belast()
     End Sub
     Private Sub Btfinddyedh_Click(sender As Object, e As EventArgs) Handles Btfinddyedh.Click
-        Dim Frm As New Formcustomerslist
+        Dim Frm As New FormcustomerslistforSale
         Showdiaformcenter(Frm, Me)
         If Frm.Tbcancel.Text = "C" Then
             Exit Sub
