@@ -321,6 +321,12 @@
     <Compile Include="Salefabriccolors\Formcustomerslist.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Salefabriccolors\FormcustomerslistforSale.Designer.vb">
+      <DependentUpon>FormcustomerslistforSale.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Salefabriccolors\FormcustomerslistforSale.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Salefabriccolors\Formcustshiplist.designer.vb">
       <DependentUpon>Formcustshiplist.vb</DependentUpon>
     </Compile>
@@ -527,6 +533,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Salefabriccolors\Formcustomerslist.resx">
       <DependentUpon>Formcustomerslist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salefabriccolors\FormcustomerslistforSale.resx">
+      <DependentUpon>FormcustomerslistforSale.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Salefabriccolors\Formcustshiplist.resx">
       <DependentUpon>Formcustshiplist.vb</DependentUpon>

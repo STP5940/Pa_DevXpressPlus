@@ -27,6 +27,11 @@ Partial Class Formcustomerslist
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
         Me.Dgvmas = New System.Windows.Forms.DataGridView()
+        Me.Status = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mcomid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Mname = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Bagval = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Btmsearch = New System.Windows.Forms.ToolStripButton()
         Me.Tbkeyword = New System.Windows.Forms.ToolStripTextBox()
@@ -34,11 +39,6 @@ Partial Class Formcustomerslist
         Me.Btcancel = New DevComponents.DotNetBar.ButtonX()
         Me.Btok = New DevComponents.DotNetBar.ButtonX()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
-        Me.Status = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Mcomid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Mid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Mname = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Bagval = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabControlPanel1.SuspendLayout()
@@ -107,6 +107,46 @@ Partial Class Formcustomerslist
         Me.Dgvmas.Size = New System.Drawing.Size(382, 181)
         Me.Dgvmas.TabIndex = 29
         '
+        'Status
+        '
+        Me.Status.DataPropertyName = "Stat"
+        Me.Status.HeaderText = ""
+        Me.Status.Name = "Status"
+        Me.Status.ReadOnly = True
+        Me.Status.Width = 20
+        '
+        'Mcomid
+        '
+        Me.Mcomid.DataPropertyName = "Comid"
+        Me.Mcomid.HeaderText = "Comid"
+        Me.Mcomid.Name = "Mcomid"
+        Me.Mcomid.ReadOnly = True
+        Me.Mcomid.Visible = False
+        '
+        'Mid
+        '
+        Me.Mid.DataPropertyName = "Custid"
+        Me.Mid.HeaderText = "รหัส"
+        Me.Mid.Name = "Mid"
+        Me.Mid.ReadOnly = True
+        Me.Mid.Width = 80
+        '
+        'Mname
+        '
+        Me.Mname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Mname.DataPropertyName = "Custname"
+        Me.Mname.HeaderText = "ชื่อ"
+        Me.Mname.Name = "Mname"
+        Me.Mname.ReadOnly = True
+        '
+        'Bagval
+        '
+        Me.Bagval.DataPropertyName = "Bagval"
+        Me.Bagval.HeaderText = "Bagval"
+        Me.Bagval.Name = "Bagval"
+        Me.Bagval.ReadOnly = True
+        Me.Bagval.Visible = False
+        '
         'ToolStrip1
         '
         Me.ToolStrip1.BackColor = System.Drawing.Color.Transparent
@@ -172,46 +212,6 @@ Partial Class Formcustomerslist
         Me.TabItem1.AttachedControl = Me.TabControlPanel1
         Me.TabItem1.Name = "TabItem1"
         Me.TabItem1.Text = "ลูกค้า"
-        '
-        'Status
-        '
-        Me.Status.DataPropertyName = "Stat"
-        Me.Status.HeaderText = ""
-        Me.Status.Name = "Status"
-        Me.Status.ReadOnly = True
-        Me.Status.Width = 20
-        '
-        'Mcomid
-        '
-        Me.Mcomid.DataPropertyName = "Comid"
-        Me.Mcomid.HeaderText = "Comid"
-        Me.Mcomid.Name = "Mcomid"
-        Me.Mcomid.ReadOnly = True
-        Me.Mcomid.Visible = False
-        '
-        'Mid
-        '
-        Me.Mid.DataPropertyName = "Custid"
-        Me.Mid.HeaderText = "รหัส"
-        Me.Mid.Name = "Mid"
-        Me.Mid.ReadOnly = True
-        Me.Mid.Width = 80
-        '
-        'Mname
-        '
-        Me.Mname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Mname.DataPropertyName = "Custname"
-        Me.Mname.HeaderText = "ชื่อ"
-        Me.Mname.Name = "Mname"
-        Me.Mname.ReadOnly = True
-        '
-        'Bagval
-        '
-        Me.Bagval.DataPropertyName = "Bagval"
-        Me.Bagval.HeaderText = "Bagval"
-        Me.Bagval.Name = "Bagval"
-        Me.Bagval.ReadOnly = True
-        Me.Bagval.Visible = False
         '
         'Formcustomerslist
         '
