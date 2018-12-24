@@ -603,7 +603,9 @@ Public Class Formrebackfabcolors
                                                     Sumwgt, Sumprice, Remark, Indate, Lotno") 'Pa comment
 
         If Tmaster.Rows.Count > 0 Then
-            Tbrefablotno.Text = Tmaster.Rows(0)("Lotno")
+            If Not IsDBNull(Tmaster.Rows(0)("Lotno")) Then
+                Tbrefablotno.Text = Tmaster.Rows(0)("Lotno")
+            End If
             Tbdhid.Text = Tmaster.Rows(0)("Custid")
             Tbdhname.Text = Tmaster.Rows(0)("Custname")
             Tbdyedbillno.Text = Tmaster.Rows(0)("Docref")
