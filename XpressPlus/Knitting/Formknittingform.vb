@@ -132,10 +132,15 @@ Public Class Formknittingform
             Informmessage("กรุณาตรวจสอบข้อมูลในการสั่งทอให้ครบถ้วน")
             Exit Sub
         End If
+        If TbfactoryID.Text = "" OrElse TbfactoryName.Text = "" Then
+            Informmessage("กรุณาเลือกโรงงานเส้นด้าย")
+            Exit Sub
+        End If
         If Validdet() = False Then
             Informmessage("กรุณาตรวจสอบรายละเอียดในการสั่งทอให้ครบถ้วน")
             Exit Sub
         End If
+
         If Trim(Tbknitcomno.Text) = "NEW" Then
             Newdoc()
             If CDbl(WgtKgStore.Text) > CDbl(Tstbsumkg.Text) AndAlso Cbfromgsc.Checked = False Then
@@ -1008,7 +1013,11 @@ Checkloop:
             If IsDBNull(Tmasterknit.Rows(0)("Yarnfrom")) Then
                 TbfactoryName.Text = "GSC"
             Else
-                TbfactoryID.Text = Trim(Tmasterknit.Rows(0)("Yarnfactid"))
+                If IsDBNull(Tmasterknit.Rows(0)("Yarnfactid")) Then
+                    Informmessage("ไม่พบข้อมูลโรงงานเส้นด้าย")
+                Else
+                    TbfactoryID.Text = Trim(Tmasterknit.Rows(0)("Yarnfactid"))
+                End If
                 TbfactoryName.Text = Trim(Tmasterknit.Rows(0)("Yarnfrom"))
                 Tbknitid.Text = Trim(Tmasterknit.Rows(0)("Knitid"))
             End If
