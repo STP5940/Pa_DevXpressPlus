@@ -962,7 +962,7 @@ Public Class Formrebackfabcolors
     End Sub
 
     Private Sub BtEdit()
-        If Not IsDBNull(Tbrefablotno.Text) Then
+        If Tbrefablotno.Text = "" Then
             Tbrefablotno.Enabled = True
         Else
             Tbrefablotno.Enabled = False
