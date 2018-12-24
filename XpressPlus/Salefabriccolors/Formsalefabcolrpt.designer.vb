@@ -23,6 +23,8 @@ Partial Class Formsalefabcolrpt
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.Btmclose = New System.Windows.Forms.ToolStripButton()
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
         Me.Tbsumnetkg = New Normtextbox.Normtextbox()
@@ -68,12 +70,35 @@ Partial Class Formsalefabcolrpt
         Me.Tbcustaddr = New System.Windows.Forms.TextBox()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
+        Me.ToolStrip1.SuspendLayout()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabControlPanel1.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.BackColor = System.Drawing.Color.Transparent
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btmclose})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(1008, 47)
+        Me.ToolStrip1.TabIndex = 71
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'Btmclose
+        '
+        Me.Btmclose.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Btmclose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btmclose.Image = Global.XpressPlus.My.Resources.Resources.Closewin
+        Me.Btmclose.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.Btmclose.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Btmclose.Name = "Btmclose"
+        Me.Btmclose.Size = New System.Drawing.Size(28, 44)
+        Me.Btmclose.Text = "ปิด"
+        Me.Btmclose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'TabControl1
         '
@@ -83,12 +108,12 @@ Partial Class Formsalefabcolrpt
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.TabControl1.ForeColor = System.Drawing.Color.Black
-        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
+        Me.TabControl1.Location = New System.Drawing.Point(0, 47)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedTabFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
         Me.TabControl1.SelectedTabIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1008, 729)
-        Me.TabControl1.TabIndex = 24
+        Me.TabControl1.Size = New System.Drawing.Size(1008, 682)
+        Me.TabControl1.TabIndex = 72
         Me.TabControl1.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox
         Me.TabControl1.Tabs.Add(Me.TabItem1)
         Me.TabControl1.Text = "TabControl1"
@@ -121,7 +146,7 @@ Partial Class Formsalefabcolrpt
         Me.TabControlPanel1.Location = New System.Drawing.Point(0, 26)
         Me.TabControlPanel1.Name = "TabControlPanel1"
         Me.TabControlPanel1.Padding = New System.Windows.Forms.Padding(1)
-        Me.TabControlPanel1.Size = New System.Drawing.Size(1008, 703)
+        Me.TabControlPanel1.Size = New System.Drawing.Size(1008, 656)
         Me.TabControlPanel1.Style.BackColor1.Color = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(179, Byte), Integer), CType(CType(231, Byte), Integer))
         Me.TabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(CType(CType(223, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(254, Byte), Integer))
         Me.TabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -181,7 +206,7 @@ Partial Class Formsalefabcolrpt
         Me.DataGridView1.Location = New System.Drawing.Point(47, 522)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(916, 166)
+        Me.DataGridView1.Size = New System.Drawing.Size(916, 254)
         Me.DataGridView1.TabIndex = 197
         Me.DataGridView1.Visible = False
         '
@@ -466,7 +491,7 @@ Partial Class Formsalefabcolrpt
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ReportViewer1.Location = New System.Drawing.Point(1, 1)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(1006, 701)
+        Me.ReportViewer1.Size = New System.Drawing.Size(1006, 654)
         Me.ReportViewer1.TabIndex = 0
         '
         'TabItem1
@@ -481,9 +506,12 @@ Partial Class Formsalefabcolrpt
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1008, 729)
         Me.Controls.Add(Me.TabControl1)
+        Me.Controls.Add(Me.ToolStrip1)
         Me.Name = "Formsalefabcolrpt"
         Me.Text = "ใบส่งผ้าสี"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
         Me.TabControlPanel1.ResumeLayout(False)
@@ -491,31 +519,18 @@ Partial Class Formsalefabcolrpt
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
+    Friend WithEvents ToolStrip1 As ToolStrip
+    Friend WithEvents Btmclose As ToolStripButton
     Friend WithEvents TabControl1 As DevComponents.DotNetBar.TabControl
     Friend WithEvents TabControlPanel1 As DevComponents.DotNetBar.TabControlPanel
-    Friend WithEvents TabItem1 As DevComponents.DotNetBar.TabItem
-    Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
-    Friend WithEvents Tbclothno As TextBox
-    Friend WithEvents Tbshade As TextBox
-    Friend WithEvents Tbwidth As TextBox
-    Friend WithEvents Tbcolor As TextBox
-    Friend WithEvents Tbdlvno As TextBox
-    Friend WithEvents Tbdate As TextBox
-    Friend WithEvents Tbcustname As TextBox
-    Friend WithEvents Tbcustaddr As TextBox
-    Friend WithEvents Tbsumprice As TextBox
-    Friend WithEvents Tbkgprice As TextBox
-    Friend WithEvents Tbsumkg As TextBox
-    Friend WithEvents Tstbsumkg As TextBox
-    Friend WithEvents Pricesum As TextBox
-    Friend WithEvents FilterKongarray As TextBox
-    Friend WithEvents FilterLotarray As TextBox
-    Friend WithEvents Tbremark As Normtextbox.Normtextbox
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Tbsumnetkg As Normtextbox.Normtextbox
+    Friend WithEvents TbBagwgt As Normtextbox.Normtextbox
     Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Lotno As DataGridViewTextBoxColumn
     Friend WithEvents Kongno As DataGridViewTextBoxColumn
@@ -537,6 +552,22 @@ Partial Class Formsalefabcolrpt
     Friend WithEvents Column15 As DataGridViewTextBoxColumn
     Friend WithEvents Column16 As DataGridViewTextBoxColumn
     Friend WithEvents Column17 As DataGridViewTextBoxColumn
-    Friend WithEvents TbBagwgt As Normtextbox.Normtextbox
-    Friend WithEvents Tbsumnetkg As Normtextbox.Normtextbox
+    Friend WithEvents Tbremark As Normtextbox.Normtextbox
+    Friend WithEvents FilterLotarray As TextBox
+    Friend WithEvents FilterKongarray As TextBox
+    Friend WithEvents Pricesum As TextBox
+    Friend WithEvents Tstbsumkg As TextBox
+    Friend WithEvents Tbsumprice As TextBox
+    Friend WithEvents Tbkgprice As TextBox
+    Friend WithEvents Tbsumkg As TextBox
+    Friend WithEvents Tbclothno As TextBox
+    Friend WithEvents Tbshade As TextBox
+    Friend WithEvents Tbwidth As TextBox
+    Friend WithEvents Tbcolor As TextBox
+    Friend WithEvents Tbdlvno As TextBox
+    Friend WithEvents Tbdate As TextBox
+    Friend WithEvents Tbcustname As TextBox
+    Friend WithEvents Tbcustaddr As TextBox
+    Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
+    Friend WithEvents TabItem1 As DevComponents.DotNetBar.TabItem
 End Class

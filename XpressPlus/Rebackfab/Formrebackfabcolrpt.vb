@@ -61,4 +61,8 @@ Public Class Formrebackfabcolrpt
 
         Me.ReportViewer1.RefreshReport()
     End Sub
+
+    Private Sub Btmclose_Click(sender As Object, e As EventArgs) Handles Btmclose.Click
+        Me.Close()
+    End Sub
 End Class

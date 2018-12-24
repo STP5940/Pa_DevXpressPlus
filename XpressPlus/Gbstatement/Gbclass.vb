@@ -130,8 +130,8 @@ Module Gbclass
         Dim ObjConn As New SqlConnection
         Dim DT As New DataTable
         'ObjConn.ConnectionString = "Data Source = 192.168.100.223;Initial Catalog = EXPRESSPLUS;Persist Security Info=True;User ID = SA;Password = Ecs@1234"
-        ObjConn.ConnectionString = "Data Source = S-PC;Initial Catalog = EXPRESSPLUS;Persist Security Info=True;User ID = SA;Password = !password#"
-        'ObjConn.ConnectionString = "Data Source = localhost;Initial Catalog = EXPRESSPLUS_SERVER;Persist Security Info=True;User ID = SA;Password = 1234"
+        'ObjConn.ConnectionString = "Data Source = S-PC;Initial Catalog = EXPRESSPLUS;Persist Security Info=True;User ID = SA;Password = !password#"
+        ObjConn.ConnectionString = "Data Source = localhost;Initial Catalog = EXPRESSPLUS_SERVER;Persist Security Info=True;User ID = SA;Password = 1234"
         ObjConn.Open()
         Try
             DTadapter = New SqlDataAdapter(Sqltext, ObjConn)

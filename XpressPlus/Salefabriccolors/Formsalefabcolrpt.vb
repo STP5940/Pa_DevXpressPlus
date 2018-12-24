@@ -107,6 +107,10 @@ Public Class Formsalefabcolrpt
 
     End Sub
 
+    Private Sub Btmclose_Click(sender As Object, e As EventArgs) Handles Btmclose.Click
+        Me.Close()
+    End Sub
+
     Private Sub Createrptdt()
         Dim C1, Lotno, Kongno, Sumvol, Shadedesc, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17 As String
         Dim Dtrpt As New DataTable
