@@ -170,7 +170,12 @@ Public Class Formsalefabcolrpt
         ReportViewer1.Reset()
         ReportViewer1.LocalReport.DataSources.Add(Rds)
 
-        ReportViewer1.LocalReport.ReportEmbeddedResource = "XpressPlus.Rptsalefabric.rdlc"
+        If TbBagwgt.Text > 0 Then
+            ReportViewer1.LocalReport.ReportEmbeddedResource = "XpressPlus.RptsalefabricBagwgt.rdlc"
+        Else
+            ReportViewer1.LocalReport.ReportEmbeddedResource = "XpressPlus.Rptsalefabric.rdlc"
+        End If
+
         ReportViewer1.SetDisplayMode(DisplayMode.PrintLayout)
         ReportViewer1.ZoomMode = ZoomMode.Percent
         ReportViewer1.ZoomPercent = 100

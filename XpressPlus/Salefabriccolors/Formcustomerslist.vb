@@ -2,7 +2,7 @@
     Private Tmaster As DataTable
     Private Sub Bindingmaster()
         Tmaster = New DataTable
-        Tmaster = SQLCommand("SELECT '' AS Stat,Comid,Custid,Custname FROM Tcustomersxp
+        Tmaster = SQLCommand("SELECT '' AS Stat,Comid,Custid,Custname,Bagval FROM Tcustomersxp
                                 WHERE Comid = '" & Gscomid & "' AND Sstatus = 1 AND Sactive = '1'")
         Dgvmas.DataSource = Tmaster
     End Sub

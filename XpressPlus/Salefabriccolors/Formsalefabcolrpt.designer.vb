@@ -25,6 +25,7 @@ Partial Class Formsalefabcolrpt
         Me.components = New System.ComponentModel.Container()
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
+        Me.Tbsumnetkg = New Normtextbox.Normtextbox()
         Me.TbBagwgt = New Normtextbox.Normtextbox()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -67,7 +68,6 @@ Partial Class Formsalefabcolrpt
         Me.Tbcustaddr = New System.Windows.Forms.TextBox()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
-        Me.Tbsumnetkg = New Normtextbox.Normtextbox()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabControlPanel1.SuspendLayout()
@@ -131,6 +131,19 @@ Partial Class Formsalefabcolrpt
         Me.TabControlPanel1.Style.GradientAngle = 90
         Me.TabControlPanel1.TabIndex = 1
         Me.TabControlPanel1.TabItem = Me.TabItem1
+        '
+        'Tbsumnetkg
+        '
+        Me.Tbsumnetkg.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Tbsumnetkg.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbsumnetkg.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tbsumnetkg.Location = New System.Drawing.Point(788, 259)
+        Me.Tbsumnetkg.MaxLength = 150
+        Me.Tbsumnetkg.Multiline = True
+        Me.Tbsumnetkg.Name = "Tbsumnetkg"
+        Me.Tbsumnetkg.Size = New System.Drawing.Size(100, 22)
+        Me.Tbsumnetkg.TabIndex = 202
+        Me.Tbsumnetkg.Visible = False
         '
         'TbBagwgt
         '
@@ -461,19 +474,6 @@ Partial Class Formsalefabcolrpt
         Me.TabItem1.AttachedControl = Me.TabControlPanel1
         Me.TabItem1.Name = "TabItem1"
         Me.TabItem1.Text = "ใบส่งผ้าสี(ขาย)"
-        '
-        'Tbsumnetkg
-        '
-        Me.Tbsumnetkg.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Tbsumnetkg.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Tbsumnetkg.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbsumnetkg.Location = New System.Drawing.Point(788, 259)
-        Me.Tbsumnetkg.MaxLength = 150
-        Me.Tbsumnetkg.Multiline = True
-        Me.Tbsumnetkg.Name = "Tbsumnetkg"
-        Me.Tbsumnetkg.Size = New System.Drawing.Size(100, 22)
-        Me.Tbsumnetkg.TabIndex = 202
-        Me.Tbsumnetkg.Visible = False
         '
         'Formsalefabcolrpt
         '

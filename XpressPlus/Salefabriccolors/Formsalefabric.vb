@@ -147,6 +147,7 @@ Public Class Formsalefabric
             Exit Sub
         End If
         Binddetails()
+        Btdbadd_Click(sender, e)
         ''Salefab()
         'Exit Sub
 
@@ -355,7 +356,7 @@ Public Class Formsalefabric
         Cbfromgsc.Checked = False
         TbBagwgt.Text = "0.00"
         Bindmaster()
-        CheckBagwgt()
+        'CheckBagwgt()
         BindingNavigator1.Enabled = True
 
         'Btmnew.Enabled = False
@@ -733,7 +734,7 @@ Public Class Formsalefabric
             TbBagwgt.Text = "0"
         End If
         SQLCommand("UPDATE Tsalefabcolxp SET Dfabdate = '" & Formatdatesave(Dtpdate.Value) & "',Clothid = '" & Tbclothid.Text & "',Custid = '" & Trim(Tbcustid.Text) & "',
-                    Custadd = " & Trim(Tbcusadd.Text) & ",Shadid = '" & Trim(Tbshadeid.Text) & "',Colorno = '" & Trim(Tbcolorno.Text) & "',Kgprice = " & Trim(Tbkgprice.Text) & ",Sumkg = " & CDbl(Tbsumwgt.Text) & ",
+                    Custadd = " & Trim(Tbcusadd.Text) & ",Shadid = '" & Trim(Tbshadeid.Text) & "',Colorno = '" & Trim(Tbcolorno.Text) & "',Kgprice = " & Trim(CDbl(Tbkgprice.Text)) & ",Sumkg = " & CDbl(Tbsumwgt.Text) & ",
                     Sumprice = " & CDbl(Tbsummoney.Text) & ",Dremark = '" & Trim(Tbremark.Text) & "',Updusr = '" & Gsuserid & "',Uptype = 'E',Uptime = '" & Formatdatesave(Now) & "',Bagwgt = '" & Trim(TbBagwgt.Text) & "'
                     WHERE Comid = '" & Gscomid & "' AND Dlvno = '" & Tbdlvno.Text & "'")
     End Sub
@@ -809,6 +810,14 @@ Public Class Formsalefabric
         Tmaster = SQLCommand("SELECT * FROM Vsalefabcolmas 
                                 WHERE Comid = '" & Gscomid & "' AND Dlvno = '" & Trim(Tbdlvno.Text) & "'")
         If Tmaster.Rows.Count > 0 Then
+            If Tmaster.Rows(0)("Bagval") > 0 Then
+                Cbfromgsc.Visible = True
+                Cbfromgsc.Checked = True
+                TbBagwgt.Text = Format(Tmaster.Rows(0)("Bagval"), "###,##0.#0")
+            Else
+                Cbfromgsc.Checked = False
+                Cbfromgsc.Visible = False
+            End If
             Tbcustid.Text = Tmaster.Rows(0)("Custid")
             Tbcustname.Text = Tmaster.Rows(0)("Custname")
             Tbcusadd.Text = Tmaster.Rows(0)("Custadd")
@@ -818,7 +827,6 @@ Public Class Formsalefabric
             Tbwidth.Text = Tmaster.Rows(0)("Fwidth")
             Tbshadeid.Text = Tmaster.Rows(0)("Shadid")
             Tbshadename.Text = InputGrid(Tmaster.Rows(0)("Shadedesc"))
-            'Tbshadename.Text = Tmaster.Rows(0)("Shadedesc") ' เป้
             Dtpdate.Value = Tmaster.Rows(0)("Dfabdate")
             Tbcolorno.Text = Tmaster.Rows(0)("Colorno")
             Tbkgprice.Text = Format(Tmaster.Rows(0)("Kgprice"), "###,###.#0")
@@ -1351,8 +1359,8 @@ Public Class Formsalefabric
         Btfindcusship.Enabled = True
         Btfindclothno.Enabled = True
         Btfindshade.Enabled = True
-        Cbfromgsc.Enabled = True
-        TbBagwgt.Enabled = True
+        'Cbfromgsc.Enabled = True ' เปิดให้แก้ไขได้
+        'TbBagwgt.Enabled = True ' เปิดให้แก้ไขได้
         'Btdadd.Enabled = True
         BindingNavigator1.Enabled = False
         Mainbuttonaddedit()
@@ -1755,9 +1763,19 @@ Public Class Formsalefabric
         End If
         Tbcustid.Text = CLng(Frm.Dgvmas.CurrentRow.Cells("Mid").Value)
         Tbcustname.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Mname").Value)
+
+        If CDbl(Frm.Dgvmas.CurrentRow.Cells("Bagval").Value) > 0 Then
+            Cbfromgsc.Visible = True
+            Cbfromgsc.Checked = True
+            Cbfromgsc.Enabled = False
+            TbBagwgt.Text = Format(Frm.Dgvmas.CurrentRow.Cells("Bagval").Value, "###,##0.#0")
+            TbBagwgt.Enabled = False
+        Else
+            Cbfromgsc.Visible = False
+            Cbfromgsc.Checked = False
+        End If
         Tbcusadd.Text = ""
         Tbcustship.Text = ""
-
     End Sub
 
     Private Sub ButtonItem1_Click(sender As Object, e As EventArgs) Handles ButtonItem1.Click
@@ -1767,7 +1785,7 @@ Public Class Formsalefabric
         If Confirmdelete() = True Then
             Deldetails(Trim(Dgvlist.CurrentRow.Cells("Dlvno").Value))
             SQLCommand("DELETE FROM Tsalefabcolxp WHERE Comid = '" & Gscomid & "' AND Dlvno = '" & Dgvlist.CurrentRow.Cells("Dlvno").Value & "'")
-            Clrdgrid()
+        Clrdgrid()
             Clrtxtbox()
             Clrtextmaster()
             Clrtextdetails()
@@ -1854,6 +1872,7 @@ Public Class Formsalefabric
         Clrdgrid()
         Clrtxtbox()
         Cbfromgsc.Checked = False
+        Cbfromgsc.Visible = False
         TbBagwgt.Text = "0.00"
         Btdcancel_Click(sender, e)
         Btmnew_Click(sender, e)
@@ -1927,7 +1946,7 @@ Public Class Formsalefabric
         Tbdlvno.Enabled = False
         If Btmedit.Enabled = True Then
             Bindmaster()
-            CheckBagwgt()
+            'CheckBagwgt()
         End If
     End Sub
 
@@ -2034,6 +2053,7 @@ Public Class Formsalefabric
         Btddel.Enabled = False
         Btdbadd.Enabled = False
         GroupPanel2.Visible = False
+        Cbfromgsc.Visible = False
     End Sub
     Private Sub Mainbuttonaddedit()
         Btmnew.Enabled = False
