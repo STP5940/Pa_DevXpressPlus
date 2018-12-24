@@ -73,9 +73,12 @@ Public Class Formrebackfabcolors
             Informmessage("กรุณาตรวจสอบรายละเอียดในการส่งให้ครบถ้วน")
             Exit Sub
         End If
-        If Tbrefablotno.Text = "" Then
-            Informmessage("กรุณาใส่ Lot No.")
-            Exit Sub
+
+        If Tbrefablotno.Enabled = True Then
+            If Tbrefablotno.Text = "" Then
+                Informmessage("กรุณาใส่ Lot No.")
+                Exit Sub
+            End If
         End If
 
         If Tbdyedcomno.Text = "NEW" Then
@@ -532,7 +535,11 @@ Public Class Formrebackfabcolors
             '    Tbrollid = Dgvmas.Rows(I).Cells("rollid").Value
 
             Ord = Trim(Dgvmas.Rows(I).Cells("Ord").Value)
-            Lotno = Trim(Dgvmas.Rows(I).Cells("LotNoDetail").Value)
+            If IsDBNull(Dgvmas.Rows(I).Cells("LotNoDetail").Value) Then
+                LotNo = Trim(Tbrefablotno.Text)
+            Else
+                LotNo = Trim(Dgvmas.Rows(I).Cells("LotNoDetail").Value)
+            End If
             Mkong = Trim(Dgvmas.Rows(I).Cells("Mkong").Value)
             Rollno = Trim(Dgvmas.Rows(I).Cells("Rollno").Value)
             Clothid = Trim(Dgvmas.Rows(I).Cells("Clothid").Value)
@@ -868,6 +875,7 @@ Public Class Formrebackfabcolors
         TabControl1.SelectedTabIndex = 0
 
         Mainbuttoncancel()
+        Tbrefablotno.Enabled = False
         GroupPanel2.Visible = False
         Tbkgprice.Enabled = False
         Tbsumwgt.Text = "0.00"
@@ -954,6 +962,11 @@ Public Class Formrebackfabcolors
     End Sub
 
     Private Sub BtEdit()
+        If Not IsDBNull(Tbrefablotno.Text) Then
+            Tbrefablotno.Enabled = True
+        Else
+            Tbrefablotno.Enabled = False
+        End If
         Btmcancel.Enabled = True
         Btmedit.Enabled = False
         'Tbdyedbillno.Enabled = True
