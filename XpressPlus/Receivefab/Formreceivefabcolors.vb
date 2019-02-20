@@ -340,6 +340,7 @@ BypassFilter:
     Private Sub Tbrefablotno_KeyDown(sender As Object, e As KeyEventArgs)
 
     End Sub
+
     Private Sub Btfindknitid_Click(sender As Object, e As EventArgs) Handles Btfindknitid.Click
         If Trim(Tbdyedbillno.Text) = "" And RestatusBtmnew = 1 Then
             Informmessage("กรุณาเลือกเลขที่ใบสั่งย้อม")
@@ -419,6 +420,12 @@ BypassFilter:
         End If
     End Sub
 
+    Private Sub Tbhavedoz_KeyDown(sender As Object, e As KeyEventArgs) Handles Tbdozen.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Btdadd_Click(sender, e)
+        End If
+    End Sub
+
     Private Sub Btdadd_Click(sender As Object, e As EventArgs) Handles Btdadd.Click
 
         If Trim(Tbdhid.Text) = "" OrElse Trim(Tbdhname.Text) = "" Then
@@ -464,6 +471,11 @@ BypassFilter:
             Tbkg.Focus()
             Exit Sub
         End If
+        If Trim(Tbdozen.Text) = "" Then
+            Informmessage("กรุณาใส่จำนวนโหล")
+            Tbdozen.Focus()
+            Exit Sub
+        End If
 
 
 
@@ -504,8 +516,10 @@ BypassFilter:
                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Trim(Tbshadename.Text)
                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkong").Value = Trim(Tbkongno.Text)
                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollwage").Value = CDbl(Tbkg.Text)
+                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dozen").Value = Trim(Tbdozen.Text)
                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("News").Value = 1
                 Tbkongno.Enabled = False
+                Tbdozen.Text = "0"
                 Tbkg.Text = ""
                 Tbkg.Focus()
             Case "แก้ไข"
@@ -543,6 +557,7 @@ BypassFilter:
                     Dgvmas.Rows(i).Cells("Mkong").Value = Trim(Tbkongno.Text)
                 Next
                 Dgvmas.CurrentRow.Cells("Rollwage").Value = CDbl(Tbkg.Text)
+                Dgvmas.CurrentRow.Cells("Dozen").Value = Trim(Tbdozen.Text)
                 ClearDetail()
                 DemoCode.BackColor = Color.White
         End Select
@@ -726,19 +741,20 @@ BypassFilter:
         ProgressBarX1.Value = 0
         Dim Frm As New Formwaitdialoque
         Frm.Show()
-        Dim Tkongno, Tclothid, Tshadeid, Tbrollid As String
+        Dim Tkongno, Tclothid, Tshadeid, Tbrollid, Tdozen As String
         Dim Trollwgt As Double
         For I = 0 To Dgvmas.RowCount - 1
             Tkongno = Trim(Dgvmas.Rows(I).Cells("Mkong").Value)
             Tclothid = Trim(Dgvmas.Rows(I).Cells("Clothid").Value)
             Tshadeid = Dgvmas.Rows(I).Cells("Shadeid").Value
             Trollwgt = Dgvmas.Rows(I).Cells("Rollwage").Value
+            Tdozen = Dgvmas.Rows(I).Cells("Dozen").Value
             Tbrollid = Dgvmas.Rows(I).Cells("rollid").Value
             SQLCommand("INSERT INTO Trecfabcoldetxp(Comid,Dhid,Billdyedno,Lotno,Kongno,
-                        Pubno,Clothid,Shadeid,Rollwage,
+                        Pubno,Clothid,Shadeid,Rollwage,Dozen,
                         Instk,Updusr,Uptype,Uptime)
                         VALUES('" & Gscomid & "','" & Trim(Tbdhid.Text) & "','" & Trim(Tbdyedbillno.Text) & "','" & Trim(Tbrefablotno.Text) & "','" & Tkongno & "',
-                        '" & Trim(Tbrollid) & "','" & Tclothid & "','" & Tshadeid & "'," & Trollwgt & ",
+                        '" & Trim(Tbrollid) & "','" & Tclothid & "','" & Tshadeid & "','" & Trollwgt & "','" & Tdozen & "',
                         '1','" & Gsuserid & "','" & Etype & "','" & Formatdatesave(Now) & "')")
             ProgressBarX1.Value = ((I + 1) / Dgvmas.Rows.Count) * 100
             ProgressBarX1.Text = "Saving ... " & ProgressBarX1.Value & "%"
@@ -822,8 +838,10 @@ BypassFilter:
     ''End Sub
     Private Sub Sumall()
         Dim Sumkg As Double
+        Dim Sumdoz As Integer
         Dim Sumroll As Long
         Sumkg = 0.0
+        Sumdoz = 0
         Sumroll = 0
         If Dgvmas.RowCount = 0 Then
             Tstbsumkg.Text = Sumkg
@@ -835,7 +853,8 @@ BypassFilter:
         Frm.Show()
         Dim I As Integer
         For I = 0 To Dgvmas.RowCount - 1
-            Sumkg = Sumkg + CDbl(Dgvmas.Rows(I).Cells("Rollwage").Value)
+            Sumkg += CDbl(Dgvmas.Rows(I).Cells("Rollwage").Value)
+            Sumdoz += CDbl(Dgvmas.Rows(I).Cells("Dozen").Value)
             ProgressBarX1.Value = ((I + 1) / Dgvmas.Rows.Count) * 100
             ProgressBarX1.Text = "Caculating sum ... " & ProgressBarX1.Value & "%"
         Next
@@ -844,6 +863,7 @@ BypassFilter:
         ProgressBarX1.Text = "Ready"
         ProgressBarX1.Value = 0
         Tstbsumkg.Text = Format(Sumkg, "###,###.#0")
+        Tstbsumdoz.Text = Format(Sumdoz, "###,###")
         Tstbsumroll.Text = Format(Sumroll, "###,###")
     End Sub
     Private Sub Clrdgrid()
@@ -1057,6 +1077,7 @@ BypassFilter:
             Tbshadename.Text = Trim(InputGrid(Dgvmas.CurrentRow.Cells("Shadedesc").Value))
             Tbkongno.Text = Trim(Dgvmas.CurrentRow.Cells("Mkong").Value)
             Tbkg.Text = Format(Dgvmas.CurrentRow.Cells("Rollwage").Value, "###,###.#0")
+            Tbdozen.Text = Trim(Dgvmas.CurrentRow.Cells("Dozen").Value)
             DemoColor(Tbshadeid.Text)
         Else
             ClearDetail()
@@ -1211,6 +1232,7 @@ BypassFilter:
             Frm.Countfabric.Rows(i).Cells("CShadedesc").Value = Countfabric.Rows(i).Cells("CShadedesc").Value '---
             Frm.Countfabric.Rows(i).Cells("Count").Value = Countfabric.Rows(i).Cells("Count").Value
             Frm.Countfabric.Rows(i).Cells("CRollwage").Value = Countfabric.Rows(i).Cells("CRollwage").Value
+            Frm.Countfabric.Rows(i).Cells("CDozen").Value = Countfabric.Rows(i).Cells("CDozen").Value
         Next
 
         Frm.ReportViewer1.Reset()
@@ -1260,6 +1282,7 @@ BypassFilter:
                    Countfabric.Rows(Filters).Cells("CDwidth").Value.ToString.ToUpper = Dgvmas.Rows(I).Cells("Dwidth").Value.ToString.ToUpper Then
                     Countfabric.Rows(Filters).Cells("Count").Value += 1
                     Countfabric.Rows(Filters).Cells("CRollwage").Value += Dgvmas.Rows(I).Cells("Rollwage").Value
+                    Countfabric.Rows(Filters).Cells("CDozen").Value += Dgvmas.Rows(I).Cells("Dozen").Value
                     Exit For
                 End If
 
@@ -1275,6 +1298,7 @@ BypassFilter:
                     Countfabric.Rows(CountSum).Cells("CShadedesc").Value = Dgvmas.Rows(I).Cells("Shadedesc").Value
                     Countfabric.Rows(CountSum).Cells("Count").Value = Count
                     Countfabric.Rows(CountSum).Cells("CRollwage").Value = Dgvmas.Rows(I).Cells("Rollwage").Value
+                    Countfabric.Rows(CountSum).Cells("CDozen").Value = Dgvmas.Rows(I).Cells("Dozen").Value
                     CountSum += 1
                 End If
             Next
@@ -1312,7 +1336,7 @@ BypassFilter:
         ClothnoArray.Add("")
         FtypeArray.Add("")
         FwidthArray.Add("")
-        shadeidArray.add("")
+        shadeidArray.Add("")
         RollwageArray.Add("")
         QtyrollArray.Add("")
         QtyrollfabArray.Add("")
@@ -1586,6 +1610,20 @@ BypassFilter:
             Informmessage("ไม่พบข้อมูลใบสั่งย้อม")
         End If
     End Sub
+
+    Private Sub Tbclothid_TextChanged(sender As Object, e As EventArgs) Handles Tbclothid.TextChanged
+        If Checkhavedoz(Trim(Tbclothid.Text)) > 0 Then
+            LabelX20.Visible = True
+            Tbdozen.Visible = True
+            LabelX6.Visible = True
+        Else
+            LabelX20.Visible = False
+            Tbdozen.Visible = False
+            LabelX6.Visible = False
+            Tbdozen.Text = "0"
+        End If
+    End Sub
+
     Friend Sub Showtransaction(transactionRefab As String)
         TabControl1.SelectedTabIndex = 2
         Tbdyedcomno.DataBindings.Clear()
@@ -1764,5 +1802,18 @@ BypassFilter:
         Ctdedit.Enabled = False
         Ctddel.Enabled = False
     End Sub
+
+    Private Function Checkhavedoz(Clothid As String)
+        Dim TDoz = SQLCommand($"SELECT Havedoz FROM Tclothxp WHERE Clothid = '{Clothid}' AND Comid = '{Gscomid}'")
+        Try
+            If TDoz(0)(0) = True Then
+                Return 1
+            Else
+                Return 0
+            End If
+        Catch ex As Exception
+            Return 0
+        End Try
+    End Function
 
 End Class

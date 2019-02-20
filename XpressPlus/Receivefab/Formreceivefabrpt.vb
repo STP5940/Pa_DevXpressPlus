@@ -56,7 +56,7 @@ Public Class Formreceivefabrpt
         Rds.Value = Datareportfab
         ReportViewer1.LocalReport.DataSources.Add(Rds)
 
-        Dim Cclothno, Cclothtype, CDwidth, CShadedesc, Count, CRollwage As String
+        Dim Cclothno, Cclothtype, CDwidth, CShadedesc, Count, CRollwage, CDozen As String
         Dim DataCountreport As New DataTable
         With DataCountreport
             .Columns.Add("Cclothno")
@@ -65,6 +65,7 @@ Public Class Formreceivefabrpt
             .Columns.Add("CShadedesc")
             .Columns.Add("Count")
             .Columns.Add("CRollwage")
+            .Columns.Add("CDozen")
         End With
         DataCountreport.Rows.Clear()
         For i = 0 To Me.Countfabric.RowCount - 1
@@ -74,7 +75,8 @@ Public Class Formreceivefabrpt
             CShadedesc = InputGrid(Me.Countfabric.Rows(i).Cells("CShadedesc").Value)
             Count = Me.Countfabric.Rows(i).Cells("Count").Value
             CRollwage = Format(Me.Countfabric.Rows(i).Cells("CRollwage").Value, "###,###.#0")
-            DataCountreport.Rows.Add(Cclothno, Cclothtype, CDwidth, CShadedesc, Count, CRollwage)
+            CDozen = Format(Me.Countfabric.Rows(i).Cells("CDozen").Value, "###,###")
+            DataCountreport.Rows.Add(Cclothno, Cclothtype, CDwidth, CShadedesc, Count, CRollwage, CDozen)
         Next
 
         Dim CRds As New ReportDataSource()

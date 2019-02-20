@@ -295,6 +295,8 @@ Partial Public Class DataCountreport
         
         Private columnCRollwage As Global.System.Data.DataColumn
         
+        Private columnCDozen As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -379,6 +381,14 @@ Partial Public Class DataCountreport
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CDozenColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCDozen
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -415,9 +425,9 @@ Partial Public Class DataCountreport
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddDataCountreportRow(ByVal Cclothno As String, ByVal Cclothtype As String, ByVal CDwidth As String, ByVal CShadedesc As String, ByVal Count As String, ByVal CRollwage As String) As DataCountreportRow
+        Public Overloads Function AddDataCountreportRow(ByVal Cclothno As String, ByVal Cclothtype As String, ByVal CDwidth As String, ByVal CShadedesc As String, ByVal Count As String, ByVal CRollwage As String, ByVal CDozen As String) As DataCountreportRow
             Dim rowDataCountreportRow As DataCountreportRow = CType(Me.NewRow,DataCountreportRow)
-            Dim columnValuesArray() As Object = New Object() {Cclothno, Cclothtype, CDwidth, CShadedesc, Count, CRollwage}
+            Dim columnValuesArray() As Object = New Object() {Cclothno, Cclothtype, CDwidth, CShadedesc, Count, CRollwage, CDozen}
             rowDataCountreportRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDataCountreportRow)
             Return rowDataCountreportRow
@@ -446,6 +456,7 @@ Partial Public Class DataCountreport
             Me.columnCShadedesc = MyBase.Columns("CShadedesc")
             Me.columnCount = MyBase.Columns("Count")
             Me.columnCRollwage = MyBase.Columns("CRollwage")
+            Me.columnCDozen = MyBase.Columns("CDozen")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -463,6 +474,8 @@ Partial Public Class DataCountreport
             MyBase.Columns.Add(Me.columnCount)
             Me.columnCRollwage = New Global.System.Data.DataColumn("CRollwage", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCRollwage)
+            Me.columnCDozen = New Global.System.Data.DataColumn("CDozen", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCDozen)
             Me.ExtendedProperties.Add("Generator_TablePropName", "_DataCountreport")
             Me.ExtendedProperties.Add("Generator_UserTableName", "DataCountreport")
         End Sub
@@ -701,6 +714,21 @@ Partial Public Class DataCountreport
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CDozen() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataCountreport.CDozenColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CDozen' in table 'DataCountreport' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataCountreport.CDozenColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsCclothnoNull() As Boolean
             Return Me.IsNull(Me.tableDataCountreport.CclothnoColumn)
         End Function
@@ -769,6 +797,18 @@ Partial Public Class DataCountreport
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetCRollwageNull()
             Me(Me.tableDataCountreport.CRollwageColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCDozenNull() As Boolean
+            Return Me.IsNull(Me.tableDataCountreport.CDozenColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCDozenNull()
+            Me(Me.tableDataCountreport.CDozenColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
