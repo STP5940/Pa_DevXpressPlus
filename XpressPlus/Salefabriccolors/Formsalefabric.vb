@@ -2041,7 +2041,9 @@ Public Class Formsalefabric
         Tsbwsave.Visible = False
         Tbdlvno.Enabled = False
         If Btmedit.Enabled = True Then
+            Settypeyend("Clear")
             Bindmaster()
+            Settypeyend(Tbclothid.Text) 'กำหนดค่าให้ Typeyend
             'CheckBagwgt()
         End If
     End Sub
