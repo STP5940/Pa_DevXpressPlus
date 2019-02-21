@@ -1,6 +1,7 @@
 ﻿Imports Microsoft.Reporting.WinForms
 Public Class Formsalefabcolrpt
     Private Tmaster, Tdetails As DataTable
+    Friend Typeyend As String = ""
     Public Sub VersionReport()
         Informmessage("Report: 27/11/2018 15:00")
     End Sub
@@ -34,7 +35,7 @@ Public Class Formsalefabcolrpt
                 Ord = Ord + 1
 
                 Tdetails = New DataTable
-                Tdetails = SQLCommand($"SELECT Tsalefabcoldetxp.Wgtkg FROM Tsalefabcoldetxp 
+                Tdetails = SQLCommand($"SELECT Tsalefabcoldetxp.Wgtkg , Tsalefabcoldetxp.Wgtdozen FROM Tsalefabcoldetxp 
                                               INNER JOIN Tclothxp 
 	                                          ON Tsalefabcoldetxp.Comid = Tclothxp.Comid 
                                                  AND Tsalefabcoldetxp.Clothid = Tclothxp.Clothid
@@ -47,8 +48,10 @@ Public Class Formsalefabcolrpt
                                                  AND Tsalefabcoldetxp.Comid = '{Gscomid}'")
 
                 Dim Sumvol As Double = 0
+                Dim Sumdoz As Long = 0
                 For J = 0 To Tdetails.Rows.Count - 1
                     Sumvol = Sumvol + Tdetails.Rows(J)("Wgtkg")
+                    Sumdoz += Tdetails.Rows(J)("Wgtdozen")
                 Next
 
                 For Toprow = 0 To Tdetails.Rows.Count - 1
@@ -62,6 +65,7 @@ Public Class Formsalefabcolrpt
                             DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Lotno").Value = Tmaster.Rows(I)("Lotno")
                             DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Kongno").Value = Tmaster.Rows(I)("Kongno")
                             DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Sumvol").Value = Sumvol
+                            DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Sumdoz").Value = Sumdoz
                             DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Shadedesc").Value = Tmaster.Rows(I)("Shadedesc")
                             DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column2").Value = Tmaster.Rows(I)("Clothid")
                             DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column3").Value = Tmaster.Rows(I)("Clothno")
@@ -69,24 +73,24 @@ Public Class Formsalefabcolrpt
                             DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column5").Value = Tmaster.Rows(I)("Fwidth")
                             DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column6").Value = Tbkgprice.Text
                             DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column7").Value = Tmaster.Rows(I)("Counts")
-                            DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column8").Value = Tdetails.Rows(Toprow)("Wgtkg")
+                            DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column8").Value = IIf(Typeyend = "Dozen", Tdetails.Rows(Toprow)("Wgtdozen"), Tdetails.Rows(Toprow)("Wgtkg"))
                         Case 1
-                            DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column9").Value = Tdetails.Rows(Toprow)("Wgtkg")
+                            DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column9").Value = IIf(Typeyend = "Dozen", Tdetails.Rows(Toprow)("Wgtdozen"), Tdetails.Rows(Toprow)("Wgtkg"))
                             'DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column7").Value += 1
                         Case 2
-                            DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column10").Value = Tdetails.Rows(Toprow)("Wgtkg")
+                            DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column10").Value = IIf(Typeyend = "Dozen", Tdetails.Rows(Toprow)("Wgtdozen"), Tdetails.Rows(Toprow)("Wgtkg"))
                             'DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column7").Value += 1
                         Case 3
-                            DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column11").Value = Tdetails.Rows(Toprow)("Wgtkg")
+                            DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column11").Value = IIf(Typeyend = "Dozen", Tdetails.Rows(Toprow)("Wgtdozen"), Tdetails.Rows(Toprow)("Wgtkg"))
                             'DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column7").Value += 1
                         Case 4
-                            DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column12").Value = Tdetails.Rows(Toprow)("Wgtkg")
+                            DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column12").Value = IIf(Typeyend = "Dozen", Tdetails.Rows(Toprow)("Wgtdozen"), Tdetails.Rows(Toprow)("Wgtkg"))
                             'DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column7").Value += 1
                         Case 5
-                            DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column13").Value = Tdetails.Rows(Toprow)("Wgtkg")
+                            DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column13").Value = IIf(Typeyend = "Dozen", Tdetails.Rows(Toprow)("Wgtdozen"), Tdetails.Rows(Toprow)("Wgtkg"))
                             'DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column7").Value += 1
                         Case 6
-                            DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column14").Value = Tdetails.Rows(Toprow)("Wgtkg")
+                            DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column14").Value = IIf(Typeyend = "Dozen", Tdetails.Rows(Toprow)("Wgtdozen"), Tdetails.Rows(Toprow)("Wgtkg"))
                             'DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column7").Value += 1
                             ''Case 7
                             ''    DataGridView1.Rows(DataGridView1.RowCount - 1).Cells("Column15").Value = Tdetails.Rows(Toprow)("Wgtkg")
@@ -112,13 +116,14 @@ Public Class Formsalefabcolrpt
     End Sub
 
     Private Sub Createrptdt()
-        Dim C1, Lotno, Kongno, Sumvol, Shadedesc, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17 As String
+        Dim C1, Lotno, Kongno, Sumvol, Sumdoz, Shadedesc, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14, C15, C16, C17 As String
         Dim Dtrpt As New DataTable
         With Dtrpt
             .Columns.Add("Column1")
             .Columns.Add("Lotno")
             .Columns.Add("Kongno")
             .Columns.Add("Sumvol")
+            .Columns.Add("Sumdoz")
             .Columns.Add("Shadedesc")
             .Columns.Add("Column2")
             .Columns.Add("Column3")
@@ -143,6 +148,7 @@ Public Class Formsalefabcolrpt
             Lotno = DataGridView1.Rows(I).Cells("Lotno").Value
             Kongno = DataGridView1.Rows(I).Cells("Kongno").Value
             Sumvol = DataGridView1.Rows(I).Cells("Sumvol").Value
+            Sumdoz = DataGridView1.Rows(I).Cells("Sumdoz").Value
             Shadedesc = DataGridView1.Rows(I).Cells("Shadedesc").Value
             C2 = DataGridView1.Rows(I).Cells("Column2").Value
             C3 = DataGridView1.Rows(I).Cells("Column3").Value
@@ -160,7 +166,7 @@ Public Class Formsalefabcolrpt
             ''C15 = DataGridView1.Rows(I).Cells("Column15").Value
             ''C16 = DataGridView1.Rows(I).Cells("Column16").Value
             ''C17 = DataGridView1.Rows(I).Cells("Column17").Value
-            Dtrpt.Rows.Add(C1, Lotno, Kongno, Sumvol, Shadedesc, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14)
+            Dtrpt.Rows.Add(C1, Lotno, Kongno, Sumvol, Sumdoz, Shadedesc, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14)
         Next
         'If Gsexpau = False Then
         '    ReportViewer1.ShowExportButton = False
@@ -174,16 +180,21 @@ Public Class Formsalefabcolrpt
         ReportViewer1.Reset()
         ReportViewer1.LocalReport.DataSources.Add(Rds)
 
-        If TbBagwgt.Text > 0 Then
-            ReportViewer1.LocalReport.ReportEmbeddedResource = "XpressPlus.RptsalefabricBagwgt.rdlc"
+        If Typeyend = "Dozen" Then
+            ReportViewer1.LocalReport.ReportEmbeddedResource = "XpressPlus.Rptsalefabricdozen.rdlc"
         Else
-            ReportViewer1.LocalReport.ReportEmbeddedResource = "XpressPlus.Rptsalefabric.rdlc"
+            If TbBagwgt.Text > 0 Then
+                ReportViewer1.LocalReport.ReportEmbeddedResource = "XpressPlus.RptsalefabricBagwgt.rdlc"
+            Else
+                ReportViewer1.LocalReport.ReportEmbeddedResource = "XpressPlus.Rptsalefabric.rdlc"
+            End If
         End If
+
 
         ReportViewer1.SetDisplayMode(DisplayMode.PrintLayout)
         ReportViewer1.ZoomMode = ZoomMode.Percent
         ReportViewer1.ZoomPercent = 100
-        Dim Par1, Par2, Par3, Par4, Par5, Par6, Par7, Par8, Par9, Par10, Par11, Par12, Par13, Par14, Tbremark As ReportParameter
+        Dim Par1, Par2, Par3, Par4, Par5, Par6, Par7, Par8, Par9, Par10, Par11, Par12, Par13, Par14, Par15, Tbremark As ReportParameter
         Par1 = New ReportParameter("Pcustname", Trim(Tbcustname.Text), True)
         Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {Par1})
         Par2 = New ReportParameter("Pdlvno", Trim(Tbdlvno.Text), True)
@@ -215,6 +226,9 @@ Public Class Formsalefabcolrpt
 
         Par14 = New ReportParameter("Bagwgt", Trim(TbBagwgt.Text), True)
         Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {Par14})
+
+        Par15 = New ReportParameter("Sumdoz", Trim(IIf(Trim(Tstbsumdoz.Text) = "", 0, Tstbsumdoz.Text)), True)
+        Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {Par15})
 
         Tbremark = New ReportParameter("Tbremark", Trim(Me.Tbremark.Text), True)
         Me.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {Tbremark})

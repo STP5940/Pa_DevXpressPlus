@@ -11,14 +11,14 @@
         'Tmaster = SQLCommand($"SELECT Pubno,Lotno,Kongno,Rollwage FROM Vrecfabcoldet where Comid = '{Gscomid}' ")
 
         If Trim(Tbkongno.Text) = "" Then
-            Tmaster = SQLCommand($"SELECT Pubno,Lotno,Kongno,Rollwage,Clothid,Clothno,Ftype,Fwidth,Shadeid,Shadedesc
+            Tmaster = SQLCommand($"SELECT Pubno, Lotno, Kongno, Rollwage, Clothid, Clothno, Ftype, Fwidth, Shadeid, Shadedesc, Dozen
                                                From Vrecfabcoldet 
                                                WHERE Comid = '{Gscomid}' 
                                                AND Clothid = '{Trim(Tbclothid.Text)}' 
                                                AND Shadeid = '{Trim(BoxShadeid.Text)}' 
                                    UNION
                                    SELECT Rollno As Pubno, Lotno, Kongno, Rollwage, Clothid, Clothno, Ftype, 
-                                               Fwidth, Shadeid, Shadedesc 
+                                               Fwidth, Shadeid, Shadedesc , '0' AS Dozen
                                                FROM Vrebackfabdet 
                                                WHERE Rollstat = 'I' 
                                                AND Clothid = '{Trim(Tbclothid.Text)}' 
@@ -26,7 +26,7 @@
                                                AND Comid = '{Gscomid}'")
         Else
             If RS.Text = "RS" Then
-                Tmaster = SQLCommand($"SELECT Pubno,Lotno,Kongno,Rollwage,Clothid,Clothno,Ftype,Fwidth,Shadeid,Shadedesc
+                Tmaster = SQLCommand($"SELECT Pubno, Lotno, Kongno, Rollwage, Clothid, Clothno, Ftype, Fwidth, Shadeid, Shadedesc, Dozen
                                                From Vrecfabcoldet 
                                                WHERE Comid = '{Gscomid}' 
                                                AND Clothid = '{Trim(Tbclothid.Text)}'
@@ -34,7 +34,7 @@
                                                AND Shadeid = '{Trim(BoxShadeid.Text)}' 
                                    UNION
                                    SELECT Rollno As Pubno, Lotno, Kongno, Rollwage, Clothid, Clothno, Ftype, 
-                                               Fwidth, Shadeid, Shadedesc 
+                                               Fwidth, Shadeid, Shadedesc , Ftype, '0' AS Dozen
                                                FROM Vrebackfabdet 
                                                WHERE Rollstat = 'I' 
                                                AND Comid = '{Gscomid}'
@@ -42,7 +42,7 @@
                                                AND Kongno = '{Trim(Tbkongno.Text)}' 
                                                AND Shadeid = '{Trim(BoxShadeid.Text)}' ")
             Else
-                Tmaster = SQLCommand($"SELECT Pubno,Lotno,Kongno,Rollwage,Clothid,Clothno,Ftype,Fwidth,Shadeid,Shadedesc
+                Tmaster = SQLCommand($"SELECT Pubno, Lotno, Kongno, Rollwage, Clothid, Clothno, Ftype, Fwidth, Shadeid, Shadedesc, Dozen
                                                From Vrecfabcoldet 
                                                WHERE Comid = '{Gscomid}' 
                                                AND Clothid = '{Trim(Tbclothid.Text)}' 
@@ -50,8 +50,8 @@
                                                AND Billdyedno = '{Trim(RS.Text)}' 
                                                AND Shadeid = '{Trim(BoxShadeid.Text)}' 
                                    UNION
-                                   SELECT Rollno As Pubno, Lotno, Kongno, Rollwage, Clothid, Clothno, Ftype, 
-                                               Fwidth, Shadeid, Shadedesc 
+                                   SELECT Rollno As Pubno, Lotno, Kongno, Rollwage, Clothid, Clothno,
+                                               Fwidth, Shadeid, Shadedesc, Ftype, '0' AS Dozen
                                                FROM Vrebackfabdet 
                                                WHERE Rollstat = 'I' 
                                                AND Comid = '{Gscomid}'

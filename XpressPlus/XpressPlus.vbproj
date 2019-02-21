@@ -558,6 +558,7 @@
     <EmbeddedResource Include="Salefabriccolors\Formyedcomno.resx">
       <DependentUpon>Formyedcomno.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Salefabriccolors\Rptsalefabricdozen.rdlc" />
     <EmbeddedResource Include="Salefabriccolors\RptsalefabricBagwgt.rdlc" />
     <EmbeddedResource Include="Salefabriccolors\Rptsalefabric.rdlc" />
     <EmbeddedResource Include="Salefabriccolors\Rptsalefabric_temp.rdlc" />

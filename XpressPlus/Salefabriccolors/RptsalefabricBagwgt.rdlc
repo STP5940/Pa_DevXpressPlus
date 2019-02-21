@@ -1756,6 +1756,10 @@
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="Sumdoz">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <Language>th-TH</Language>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>

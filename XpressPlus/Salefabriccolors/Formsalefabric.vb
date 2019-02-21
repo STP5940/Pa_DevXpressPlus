@@ -6,6 +6,7 @@ Public Class Formsalefabric
     Private WithEvents Dtplistfm As New DateTimePicker
     Private WithEvents Dtplistto As New DateTimePicker
     Private Bs As BindingSource
+    Private Typeyend As String = "" ' "" = ยังไม่เลือก ' Single = Single jersey or not havedoz ' Dozen = Rib
 
     Private Sub Formsalefabric_Load(sender As Object, e As EventArgs) Handles Me.Load
         Mainbuttoncancel()
@@ -38,8 +39,8 @@ Public Class Formsalefabric
     Private Sub Btmnew_Click(sender As Object, e As EventArgs) Handles Btmnew.Click
         Clrdgrid()
         Clrtxtbox()
+        Settypeyend("Clear")
         TabControl1.SelectedTabIndex = 2
-
         Clrtextmaster()
         Clrtextdetails()
         Clrgridmaster()
@@ -99,6 +100,7 @@ Public Class Formsalefabric
         TabControl1.SelectedTabIndex = 0
         BindingNavigator1.Enabled = False
         Mainbuttoncancel()
+        Settypeyend("Clear")
     End Sub
     Private Sub Btmdel_Click(sender As Object, e As EventArgs) Handles Btmdel.Click
         If Trim(Tbdlvno.Text) = "NEW" Then
@@ -108,6 +110,7 @@ Public Class Formsalefabric
             Exit Sub
         End If
         If Confirmdelete() = True Then
+            Settypeyend("Clear")
             Deldetails(Trim(Tbdlvno.Text))
             SQLCommand("DELETE FROM Tsalefabcolxp WHERE Comid = '" & Gscomid & "' AND Dlvno = '" & Trim(Tbdlvno.Text) & "'")
             Clrdgrid()
@@ -170,6 +173,7 @@ Public Class Formsalefabric
         ''ClearSalefab()
 
         Frm.ReportViewer1.Reset()
+        Frm.Typeyend = Typeyend
         Frm.Tbcustname.Text = Trim(Tbcustname.Text)
         Frm.Tbcustaddr.Text = Trim(Tbcustship.Text)
         Frm.Tbclothno.Text = Trim(Tbclothno.Text)
@@ -185,6 +189,7 @@ Public Class Formsalefabric
         Frm.Tbsumprice.Text = Trim(Tbsummoney.Text)
         Frm.TbBagwgt.Text = Format(CDbl(TbBagwgt.Text), "###,##0.#0")
         Frm.Tstbsumkg.Text = Trim(Tstbsumkg.Text)
+        Frm.Tstbsumdoz.Text = Trim(Tstbsumdoz.Text)
         Frm.Tbremark.Text = Trim(Tbremark.Text)
 
         '--------'
@@ -260,6 +265,7 @@ Public Class Formsalefabric
         Clrtextmaster()
         Clrtextdetails()
         Clrgridmaster()
+        Settypeyend("Clear")
         BindingNavigator1.Enabled = False
         Mainbuttoncancel()
         TabControl1.SelectedTabIndex = 1
@@ -355,7 +361,9 @@ Public Class Formsalefabric
         TbBagwgt.Enabled = False
         Cbfromgsc.Checked = False
         TbBagwgt.Text = "0.00"
+        Settypeyend("Clear")
         Bindmaster()
+        Settypeyend(Tbclothid.Text) 'กำหนดค่าให้ Typeyend
         'CheckBagwgt()
         BindingNavigator1.Enabled = True
 
@@ -748,12 +756,13 @@ Public Class Formsalefabric
         ProgressBarX1.Value = 0
         Dim Frm As New Formwaitdialoque
         Frm.Show()
-        Dim Tlotno, Tkongo, Trollno, SaleClothid, Shadeid As String
+        Dim Tlotno, Tkongo, Trollno, SaleClothid, Shadeid, Wgtdozen As String
         Dim Twgkg As Double
         For I = 0 To Dgvmas.RowCount - 1
             Tkongo = Dgvmas.Rows(I).Cells("Mkongno").Value
             Trollno = Dgvmas.Rows(I).Cells("Rollno").Value
             Twgkg = Dgvmas.Rows(I).Cells("Qtykg").Value
+            Wgtdozen = Dgvmas.Rows(I).Cells("Dozen").Value
             SaleClothid = Dgvmas.Rows(I).Cells("SaleClothid").Value
             Shadeid = Dgvmas.Rows(I).Cells("Shadeid").Value
             Tlotno = Trim(Dgvmas.Rows(I).Cells("Dlot").Value)
@@ -764,9 +773,9 @@ Public Class Formsalefabric
             End If
 
             SQLCommand("INSERT INTO Tsalefabcoldetxp(Comid,Dlvno,Lotno,Kongno,Rollno,
-                        Clothid,Shadeid,Wgtkg,Updusr,Uptype,Uptime)
+                        Clothid,Shadeid,Wgtkg,Wgtdozen,Updusr,Uptype,Uptime)
                         VALUES('" & Gscomid & "','" & Trim(Tbdlvno.Text) & "','" & Tlotno & "','" & Tkongo & "','" & Trollno & "'
-                        ,'" & SaleClothid & "','" & Shadeid & "'," & Twgkg & ",'" & Gsuserid & "','" & Etype & "','" & Formatdatesave(Now) & "')")
+                        ,'" & SaleClothid & "','" & Shadeid & "'," & Twgkg & ",'" & Wgtdozen & "','" & Gsuserid & "','" & Etype & "','" & Formatdatesave(Now) & "')")
             ProgressBarX1.Value = ((I + 1) / Dgvmas.Rows.Count) * 100
             ProgressBarX1.Text = "Saving ... " & ProgressBarX1.Value & "%"
         Next
@@ -848,7 +857,8 @@ Public Class Formsalefabric
                                        dbo.Tsalefabcoldetxp.Uptime, dbo.Tsalefabcoldetxp.Shadeid, 
                                        dbo.Tshadexp.Shadedesc, dbo.Tshadexp.Rcolor, dbo.Tshadexp.Gcolor, 
                                        dbo.Tshadexp.Bcolor, dbo.Tsalefabcoldetxp.Clothid, dbo.Tclothxp.Clothno, 
-                                       dbo.Tclothxp.Ftype, dbo.Tclothxp.Fwidth FROM dbo.Tsalefabcoldetxp 
+                                       dbo.Tclothxp.Ftype, dbo.Tclothxp.Fwidth, Tsalefabcoldetxp.Wgtdozen As Dozen
+                               FROM dbo.Tsalefabcoldetxp 
                                LEFT OUTER JOIN dbo.Tclothxp
                                        ON dbo.Tsalefabcoldetxp.Clothid = dbo.Tclothxp.Clothid 
                                        AND dbo.Tsalefabcoldetxp.Comid = dbo.Tclothxp.Comid 
@@ -1032,7 +1042,7 @@ Public Class Formsalefabric
                                         dbo.Vsalestock.Dyedhdesc, dbo.Vsalestock.Lotno, dbo.Vsalestock.Kongno, 
                                         dbo.Vsalestock.Clothid, dbo.Vsalestock.Clothno, dbo.Vsalestock.Ftype, 
                                         dbo.Vsalestock.Fwidth, dbo.Vsalestock.Shadeid, dbo.Vsalestock.Shadedesc, 
-                                        COUNT(*) AS Cunt, SUM(dbo.Vsalestock.Rollwage) AS Rollwage
+                                        COUNT(*) AS Cunt, SUM(dbo.Vsalestock.Rollwage) AS Rollwage, SUM(dbo.Vsalestock.Dozen) AS Dozen
                                 FROM dbo.Vsalestock INNER JOIN dbo.Trecfabcolxp 
                                          ON dbo.Vsalestock.Comid = dbo.Trecfabcolxp.Comid 
                                          AND dbo.Vsalestock.Lotno = dbo.Trecfabcolxp.Lotno
@@ -1040,13 +1050,14 @@ Public Class Formsalefabric
                                 GROUP BY dbo.Vsalestock.Comid, dbo.Vsalestock.Dyedhdesc, dbo.Vsalestock.Lotno, 
                                          dbo.Vsalestock.Kongno, dbo.Vsalestock.Clothid, dbo.Vsalestock.Clothno, 
                                          dbo.Vsalestock.Ftype, dbo.Vsalestock.Fwidth, dbo.Vsalestock.Shadeid, 
-                                         dbo.Vsalestock.Shadedesc, dbo.Trecfabcolxp.Reid, dbo.Vsalestock.Dhid
+                                         dbo.Vsalestock.Shadedesc, dbo.Trecfabcolxp.Reid, dbo.Vsalestock.Dhid,
+                                         dbo.Vsalestock.Dozen
                                 UNION
                                 -- รายการผ้าในสต๊อกที่มาจากการรับคืนผ้าจากลูกค้า
                                 SELECT Vrebackfabdet.Comid, Vrebackfabdet.Rbid, Vrebackfabdet.Custid, Vrebackfabdet.Custname,
                                        Vrebackfabdet.Lotno, Vrebackfabdet.Kongno, Vrebackfabdet.Clothid, Vrebackfabdet.Clothno,
                                        Vrebackfabdet.Ftype, Vrebackfabdet.Fwidth, Vrebackfabdet.Shadeid, Vrebackfabdet.Shadedesc,
-                                       COUNT(*) As Cunt, SUM(Vrebackfabdet.Rollwage) As Rollwage 
+                                       COUNT(*) As Cunt, SUM(Vrebackfabdet.Rollwage) As Rollwage , '0' AS Dozen
 	                            FROM dbo.Vrebackfabdet 
 	                            LEFT JOIN dbo.Tsalefabcoldetxp 
 	                                 ON dbo.Vrebackfabdet.Comid = dbo.Tsalefabcoldetxp.Comid 
@@ -1081,10 +1092,12 @@ Public Class Formsalefabric
     End Function
     Private Sub Sumall()
         Dim Sumkg, Sumprice As Double
+        Dim Sumdoz As Integer
         Sumkg = 0.0
         Sumprice = 0.0
         If Dgvmas.RowCount = 0 Then
             Tstbsumkg.Text = Format(Sumkg, "###,###.#0")
+            Tstbsumdoz.Text = Format(Sumdoz, "###,###")
             Tbsumwgt.Text = Format(Sumkg, "0.#0")
             Tbsummoney.Text = Format(Sumprice, "0.#0")
             Tstbsumroll.Text = 0
@@ -1095,7 +1108,8 @@ Public Class Formsalefabric
         Frm.Show()
         Dim I As Integer
         For I = 0 To Dgvmas.RowCount - 1
-            Sumkg = Sumkg + CDbl(Dgvmas.Rows(I).Cells("Qtykg").Value)
+            Sumkg += CDbl(Dgvmas.Rows(I).Cells("Qtykg").Value)
+            Sumdoz += CDbl(Dgvmas.Rows(I).Cells("Dozen").Value)
             ProgressBarX1.Value = ((I + 1) / Dgvmas.Rows.Count) * 100
             ProgressBarX1.Text = "Caculating sum ... " & ProgressBarX1.Value & "%"
         Next
@@ -1103,6 +1117,7 @@ Public Class Formsalefabric
         ProgressBarX1.Text = "Ready"
         ProgressBarX1.Value = 0
         Tstbsumkg.Text = Format(Sumkg, "###,###.#0")
+        Tstbsumdoz.Text = Format(Sumdoz, "###,###")
         Tbsumwgt.Text = Format(Sumkg, "###,###.#0")
         Tstbsumroll.Text = Dgvmas.RowCount
         'Tbsummoney.Text = Format(Sumkg * CDbl(Tbkgprice.Text), "###,###.#0")
@@ -1502,6 +1517,7 @@ Public Class Formsalefabric
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothid").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Clothid").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadeid").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Shadeid").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Shadedesc").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dozen").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Dozen").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothno").Value = Trim(Tbclothno.Text)
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleFwidth").Value = Trim(Tbwidth.Text)
                                 DatainGride = 1
@@ -1538,6 +1554,7 @@ Public Class Formsalefabric
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothid").Value = Frm.Dgvmas.Rows(i).Cells("Clothid").Value
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadeid").Value = Frm.Dgvmas.Rows(i).Cells("Shadeid").Value
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Frm.Dgvmas.Rows(i).Cells("Shadedesc").Value
+                                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dozen").Value = Frm.Dgvmas.Rows(i).Cells("Dozen").Value
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothno").Value = Trim(Tbclothno.Text)
                                     Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleFwidth").Value = Trim(Tbwidth.Text)
                                 End If
@@ -1563,6 +1580,7 @@ Public Class Formsalefabric
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothid").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Clothid").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadeid").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Shadeid").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Shadedesc").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dozen").Value = Frm.Dgvmas.Rows(CheckLot).Cells("Dozen").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothno").Value = Trim(Tbclothno.Text)
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleFwidth").Value = Trim(Tbwidth.Text)
                                 DatainGride = 1
@@ -1597,6 +1615,7 @@ Public Class Formsalefabric
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothid").Value = Frm.Dgvmas.Rows(i).Cells("Clothid").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadeid").Value = Frm.Dgvmas.Rows(i).Cells("Shadeid").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Frm.Dgvmas.Rows(i).Cells("Shadedesc").Value
+                                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dozen").Value = Frm.Dgvmas.Rows(i).Cells("Dozen").Value
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleClothno").Value = Trim(Tbclothno.Text)
                                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("SaleFwidth").Value = Trim(Tbwidth.Text)
                             End If
@@ -1659,10 +1678,18 @@ Public Class Formsalefabric
             DelBagwgt = 0
         End If
 
-        Dim Summoney As Double = CDbl(Tbkgprice.Text) * (CDbl(Tbsumwgt.Text) - DelBagwgt)
-        Dim Sumwgt As Double = CDbl(Tbsumwgt.Text) - (CDbl(TbBagwgt.Text) * CDbl(Tstbsumroll.Text))
-        Tbsummoney.Text = Format(Summoney, "###,##0.#0")
-        Tbsumnetwgt.Text = Format(Sumwgt, "###,##0.#0")
+        Select Case Typeyend
+            Case "Single"
+                Dim Summoney As Double = CDbl(Tbkgprice.Text) * (CDbl(Tbsumwgt.Text) - DelBagwgt)
+                Dim Sumwgt As Double = CDbl(Tbsumwgt.Text) - (CDbl(TbBagwgt.Text) * CDbl(Tstbsumroll.Text))
+                Tbsummoney.Text = Format(Summoney, "###,##0.#0")
+                Tbsumnetwgt.Text = Format(Sumwgt, "###,##0.#0")
+            Case "Dozen"
+                Dim Summoney As Double = CDbl(Tbkgprice.Text) * CDbl(Tstbsumdoz.Text)
+                Dim Sumwgt As Double = CDbl(Tstbsumdoz.Text)
+                Tbsummoney.Text = Format(Summoney, "###,##0.#0")
+                Tbsumnetwgt.Text = Format(Sumwgt, "###,##0.#0")
+        End Select
     End Sub
 
     Private Sub Clrmaster()
@@ -1683,6 +1710,7 @@ Public Class Formsalefabric
         Tbmycom.Text = ""
         Tbwidth.Text = ""
         Tbcolorno.Text = ""
+        Settypeyend("Clear")
     End Sub
 
 
@@ -1835,9 +1863,11 @@ Public Class Formsalefabric
         CalcSummoney()
     End Sub
 
+
     Private Sub Btliststockfind_Click(sender As Object, e As EventArgs) Handles Btliststockfind.Click
         Searchstocklistbyoth(Trim(Tstbstockkeyword.Text))
     End Sub
+
 
     Private Sub Btfindclothno_Click_1(sender As Object, e As EventArgs) Handles Btfindclothno.Click
         Dim Frm As New Formfabrictypelist
@@ -1845,12 +1875,76 @@ Public Class Formsalefabric
         If Frm.Tbcancel.Text = "C" Then
             Exit Sub
         End If
+
+        Select Case Typeyend
+            Case "Single"
+                If Checkhavedoz(Trim(CLng(Frm.Dgvmas.CurrentRow.Cells("Mid").Value))) > 0 Then
+                    Informmessage("ไม่สามารถผสมผ้าต่างประเภทได้")
+                    Exit Sub
+                End If
+            Case "Dozen"
+                If Checkhavedoz(Trim(CLng(Frm.Dgvmas.CurrentRow.Cells("Mid").Value))) = 0 Then
+                    Informmessage("ไม่สามารถผสมผ้าต่างประเภทได้")
+                    Exit Sub
+                End If
+            Case Else
+                Settypeyend(CLng(Frm.Dgvmas.CurrentRow.Cells("Mid").Value)) 'กำหนดค่าให้ Typeyend
+        End Select
+
+
+
+
         Tbclothid.Text = CLng(Frm.Dgvmas.CurrentRow.Cells("Mid").Value)
         Tbclothno.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Mname").Value)
         Tbwidth.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Fwidth").Value)
         Tbkongno.Text = ""
         Tbdyedcomno.Text = ""
         RS.Text = "RS"
+    End Sub
+
+
+    Private Function Checkhavedoz(Clothid As String) 'Havedoz return 1
+        Dim TDoz = SQLCommand($"SELECT Havedoz FROM Tclothxp WHERE Clothid = '{Clothid}' AND Comid = '{Gscomid}'")
+        Try
+            If TDoz(0)(0) = True Then
+                Return 1
+            Else
+                Return 0
+            End If
+        Catch ex As Exception
+            Return 0
+        End Try
+    End Function
+
+    Private Sub Settypeyend(Clothid As String)
+        If Checkhavedoz(Trim(Clothid)) = 0 AndAlso Typeyend = "" Then
+            Typeyend = "Single"
+            LabelX8.Text = "น้ำหนักรวม"
+            LabelX15.Text = "ราคา/ก.ก."
+            Tstbsumkg.Visible = True
+            Tstbsumdoz.Visible = False
+            Dgvmas.Columns("Dozen").Visible = False
+        Else
+            Typeyend = "Dozen"
+            LabelX8.Text = "จำนวนโหล"
+            LabelX15.Text = "ราคา/โหล"
+            Tstbsumkg.Visible = False
+            Tstbsumdoz.Visible = True
+            Cbfromgsc.Visible = False
+            TbBagwgt.Visible = False
+            LabelBagwgt.Visible = False
+            Dgvmas.Columns("Qtykg").Visible = False
+        End If
+
+        If Clothid = "Clear" Then
+            Typeyend = ""
+            LabelX8.Text = "น้ำหนักรวม"
+            LabelX15.Text = "ราคา/ก.ก."
+            Tstbsumkg.Visible = True
+            Tstbsumdoz.Visible = False
+            Dgvmas.Columns("Qtykg").Visible = True
+            Dgvmas.Columns("Dozen").Visible = True
+        End If
     End Sub
 
     Private Sub Btfindshade_Click(sender As Object, e As EventArgs) Handles Btfindshade.Click
@@ -1871,6 +1965,7 @@ Public Class Formsalefabric
     Private Sub ButtonItem2_Click(sender As Object, e As EventArgs) Handles Ctmstockedit.Click
         Clrdgrid()
         Clrtxtbox()
+        Settypeyend("Clear")
         Cbfromgsc.Checked = False
         Cbfromgsc.Visible = False
         TbBagwgt.Text = "0.00"
@@ -1895,6 +1990,7 @@ Public Class Formsalefabric
         Tbwidth.Text = InputGrid(Dgvstock.CurrentRow.Cells("SFwidth").Value)
         Tbshadeid.Text = InputGrid(Dgvstock.CurrentRow.Cells("SShadeid").Value)
         Tbshadename.Text = InputGrid(Dgvstock.CurrentRow.Cells("SShadedesc").Value)
+        Settypeyend(Tbclothid.Text) 'กำหนดค่าให้ Typeyend
         Btmedit_Click(sender, e)
         Btdbadd_Click(sender, e)
     End Sub

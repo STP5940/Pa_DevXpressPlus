@@ -27,31 +27,11 @@ Partial Class Formsalefabcolrpt
         Me.Btmclose = New System.Windows.Forms.ToolStripButton()
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
+        Me.Tstbsumdoz = New Normtextbox.Normtextbox()
         Me.Tbsumnetkg = New Normtextbox.Normtextbox()
         Me.TbBagwgt = New Normtextbox.Normtextbox()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Lotno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Kongno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Sumvol = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Shadedesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Tbremark = New Normtextbox.Normtextbox()
         Me.FilterLotarray = New System.Windows.Forms.TextBox()
         Me.FilterKongarray = New System.Windows.Forms.TextBox()
@@ -70,6 +50,28 @@ Partial Class Formsalefabcolrpt
         Me.Tbcustaddr = New System.Windows.Forms.TextBox()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Lotno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Kongno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Sumvol = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Sumdoz = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Shadedesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -120,6 +122,7 @@ Partial Class Formsalefabcolrpt
         '
         'TabControlPanel1
         '
+        Me.TabControlPanel1.Controls.Add(Me.Tstbsumdoz)
         Me.TabControlPanel1.Controls.Add(Me.Tbsumnetkg)
         Me.TabControlPanel1.Controls.Add(Me.TbBagwgt)
         Me.TabControlPanel1.Controls.Add(Me.DataGridView2)
@@ -157,6 +160,19 @@ Partial Class Formsalefabcolrpt
         Me.TabControlPanel1.TabIndex = 1
         Me.TabControlPanel1.TabItem = Me.TabItem1
         '
+        'Tstbsumdoz
+        '
+        Me.Tstbsumdoz.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Tstbsumdoz.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tstbsumdoz.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tstbsumdoz.Location = New System.Drawing.Point(894, 287)
+        Me.Tstbsumdoz.MaxLength = 150
+        Me.Tstbsumdoz.Multiline = True
+        Me.Tstbsumdoz.Name = "Tstbsumdoz"
+        Me.Tstbsumdoz.Size = New System.Drawing.Size(100, 22)
+        Me.Tstbsumdoz.TabIndex = 203
+        Me.Tstbsumdoz.Visible = False
+        '
         'Tbsumnetkg
         '
         Me.Tbsumnetkg.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -175,7 +191,7 @@ Partial Class Formsalefabcolrpt
         Me.TbBagwgt.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TbBagwgt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TbBagwgt.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbBagwgt.Location = New System.Drawing.Point(896, 259)
+        Me.TbBagwgt.Location = New System.Drawing.Point(894, 259)
         Me.TbBagwgt.MaxLength = 150
         Me.TbBagwgt.Multiline = True
         Me.TbBagwgt.Name = "TbBagwgt"
@@ -202,141 +218,13 @@ Partial Class Formsalefabcolrpt
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Lotno, Me.Kongno, Me.Sumvol, Me.Shadedesc, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10, Me.Column11, Me.Column12, Me.Column13, Me.Column14, Me.Column15, Me.Column16, Me.Column17})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Lotno, Me.Kongno, Me.Sumvol, Me.Sumdoz, Me.Shadedesc, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10, Me.Column11, Me.Column12, Me.Column13, Me.Column14, Me.Column15, Me.Column16, Me.Column17})
         Me.DataGridView1.Location = New System.Drawing.Point(47, 522)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.Size = New System.Drawing.Size(916, 254)
         Me.DataGridView1.TabIndex = 197
         Me.DataGridView1.Visible = False
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Ord"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
-        'Lotno
-        '
-        Me.Lotno.DataPropertyName = "(none)"
-        Me.Lotno.HeaderText = "Lotno"
-        Me.Lotno.Name = "Lotno"
-        Me.Lotno.ReadOnly = True
-        '
-        'Kongno
-        '
-        Me.Kongno.DataPropertyName = "(none)"
-        Me.Kongno.HeaderText = "Kongno"
-        Me.Kongno.Name = "Kongno"
-        Me.Kongno.ReadOnly = True
-        '
-        'Sumvol
-        '
-        Me.Sumvol.HeaderText = "Sumvol"
-        Me.Sumvol.Name = "Sumvol"
-        Me.Sumvol.ReadOnly = True
-        '
-        'Shadedesc
-        '
-        Me.Shadedesc.HeaderText = "Shadedesc"
-        Me.Shadedesc.Name = "Shadedesc"
-        Me.Shadedesc.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Column2"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Column3"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Column4"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Column5"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "Unitprice"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "Rollcount"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "Column8"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "Column9"
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        '
-        'Column10
-        '
-        Me.Column10.HeaderText = "Column10"
-        Me.Column10.Name = "Column10"
-        Me.Column10.ReadOnly = True
-        '
-        'Column11
-        '
-        Me.Column11.HeaderText = "Column11"
-        Me.Column11.Name = "Column11"
-        Me.Column11.ReadOnly = True
-        '
-        'Column12
-        '
-        Me.Column12.HeaderText = "Column12"
-        Me.Column12.Name = "Column12"
-        Me.Column12.ReadOnly = True
-        '
-        'Column13
-        '
-        Me.Column13.HeaderText = "Column13"
-        Me.Column13.Name = "Column13"
-        Me.Column13.ReadOnly = True
-        '
-        'Column14
-        '
-        Me.Column14.HeaderText = "Column14"
-        Me.Column14.Name = "Column14"
-        Me.Column14.ReadOnly = True
-        '
-        'Column15
-        '
-        Me.Column15.HeaderText = "Column15"
-        Me.Column15.Name = "Column15"
-        Me.Column15.ReadOnly = True
-        '
-        'Column16
-        '
-        Me.Column16.HeaderText = "Column16"
-        Me.Column16.Name = "Column16"
-        Me.Column16.ReadOnly = True
-        '
-        'Column17
-        '
-        Me.Column17.HeaderText = "Column17"
-        Me.Column17.Name = "Column17"
-        Me.Column17.ReadOnly = True
         '
         'Tbremark
         '
@@ -500,6 +388,140 @@ Partial Class Formsalefabcolrpt
         Me.TabItem1.Name = "TabItem1"
         Me.TabItem1.Text = "ใบส่งผ้าสี(ขาย)"
         '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Ord"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Lotno
+        '
+        Me.Lotno.DataPropertyName = "(none)"
+        Me.Lotno.HeaderText = "Lotno"
+        Me.Lotno.Name = "Lotno"
+        Me.Lotno.ReadOnly = True
+        '
+        'Kongno
+        '
+        Me.Kongno.DataPropertyName = "(none)"
+        Me.Kongno.HeaderText = "Kongno"
+        Me.Kongno.Name = "Kongno"
+        Me.Kongno.ReadOnly = True
+        '
+        'Sumvol
+        '
+        Me.Sumvol.HeaderText = "Sumvol"
+        Me.Sumvol.Name = "Sumvol"
+        Me.Sumvol.ReadOnly = True
+        '
+        'Sumdoz
+        '
+        Me.Sumdoz.HeaderText = "Sumdoz"
+        Me.Sumdoz.Name = "Sumdoz"
+        Me.Sumdoz.ReadOnly = True
+        '
+        'Shadedesc
+        '
+        Me.Shadedesc.HeaderText = "Shadedesc"
+        Me.Shadedesc.Name = "Shadedesc"
+        Me.Shadedesc.ReadOnly = True
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Column2"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Column3"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Column4"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Column5"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "Unitprice"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "Rollcount"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        '
+        'Column8
+        '
+        Me.Column8.HeaderText = "Column8"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "Column9"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        '
+        'Column10
+        '
+        Me.Column10.HeaderText = "Column10"
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        '
+        'Column11
+        '
+        Me.Column11.HeaderText = "Column11"
+        Me.Column11.Name = "Column11"
+        Me.Column11.ReadOnly = True
+        '
+        'Column12
+        '
+        Me.Column12.HeaderText = "Column12"
+        Me.Column12.Name = "Column12"
+        Me.Column12.ReadOnly = True
+        '
+        'Column13
+        '
+        Me.Column13.HeaderText = "Column13"
+        Me.Column13.Name = "Column13"
+        Me.Column13.ReadOnly = True
+        '
+        'Column14
+        '
+        Me.Column14.HeaderText = "Column14"
+        Me.Column14.Name = "Column14"
+        Me.Column14.ReadOnly = True
+        '
+        'Column15
+        '
+        Me.Column15.HeaderText = "Column15"
+        Me.Column15.Name = "Column15"
+        Me.Column15.ReadOnly = True
+        '
+        'Column16
+        '
+        Me.Column16.HeaderText = "Column16"
+        Me.Column16.Name = "Column16"
+        Me.Column16.ReadOnly = True
+        '
+        'Column17
+        '
+        Me.Column17.HeaderText = "Column17"
+        Me.Column17.Name = "Column17"
+        Me.Column17.ReadOnly = True
+        '
         'Formsalefabcolrpt
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -531,27 +553,6 @@ Partial Class Formsalefabcolrpt
     Friend WithEvents TbBagwgt As Normtextbox.Normtextbox
     Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Lotno As DataGridViewTextBoxColumn
-    Friend WithEvents Kongno As DataGridViewTextBoxColumn
-    Friend WithEvents Sumvol As DataGridViewTextBoxColumn
-    Friend WithEvents Shadedesc As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As DataGridViewTextBoxColumn
-    Friend WithEvents Column9 As DataGridViewTextBoxColumn
-    Friend WithEvents Column10 As DataGridViewTextBoxColumn
-    Friend WithEvents Column11 As DataGridViewTextBoxColumn
-    Friend WithEvents Column12 As DataGridViewTextBoxColumn
-    Friend WithEvents Column13 As DataGridViewTextBoxColumn
-    Friend WithEvents Column14 As DataGridViewTextBoxColumn
-    Friend WithEvents Column15 As DataGridViewTextBoxColumn
-    Friend WithEvents Column16 As DataGridViewTextBoxColumn
-    Friend WithEvents Column17 As DataGridViewTextBoxColumn
     Friend WithEvents Tbremark As Normtextbox.Normtextbox
     Friend WithEvents FilterLotarray As TextBox
     Friend WithEvents FilterKongarray As TextBox
@@ -570,4 +571,27 @@ Partial Class Formsalefabcolrpt
     Friend WithEvents Tbcustaddr As TextBox
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents TabItem1 As DevComponents.DotNetBar.TabItem
+    Friend WithEvents Tstbsumdoz As Normtextbox.Normtextbox
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Lotno As DataGridViewTextBoxColumn
+    Friend WithEvents Kongno As DataGridViewTextBoxColumn
+    Friend WithEvents Sumvol As DataGridViewTextBoxColumn
+    Friend WithEvents Sumdoz As DataGridViewTextBoxColumn
+    Friend WithEvents Shadedesc As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents Column11 As DataGridViewTextBoxColumn
+    Friend WithEvents Column12 As DataGridViewTextBoxColumn
+    Friend WithEvents Column13 As DataGridViewTextBoxColumn
+    Friend WithEvents Column14 As DataGridViewTextBoxColumn
+    Friend WithEvents Column15 As DataGridViewTextBoxColumn
+    Friend WithEvents Column16 As DataGridViewTextBoxColumn
+    Friend WithEvents Column17 As DataGridViewTextBoxColumn
 End Class

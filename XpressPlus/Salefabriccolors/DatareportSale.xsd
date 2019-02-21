@@ -12,7 +12,7 @@
   <xs:element name="DatareportSale" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DatareportSale" msprop:Generator_UserDSName="DatareportSale">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DatareportSale" msprop:Generator_TableClassName="DatareportSaleDataTable" msprop:Generator_TableVarName="tableDatareportSale" msprop:Generator_TablePropName="_DatareportSale" msprop:Generator_RowDeletingName="DatareportSaleRowDeleting" msprop:Generator_RowChangingName="DatareportSaleRowChanging" msprop:Generator_RowEvHandlerName="DatareportSaleRowChangeEventHandler" msprop:Generator_RowDeletedName="DatareportSaleRowDeleted" msprop:Generator_UserTableName="DatareportSale" msprop:Generator_RowChangedName="DatareportSaleRowChanged" msprop:Generator_RowEvArgName="DatareportSaleRowChangeEvent" msprop:Generator_RowClassName="DatareportSaleRow">
+        <xs:element name="DatareportSale" msprop:Generator_TableClassName="DatareportSaleDataTable" msprop:Generator_TableVarName="tableDatareportSale" msprop:Generator_RowChangedName="DatareportSaleRowChanged" msprop:Generator_TablePropName="_DatareportSale" msprop:Generator_RowDeletingName="DatareportSaleRowDeleting" msprop:Generator_RowChangingName="DatareportSaleRowChanging" msprop:Generator_RowEvHandlerName="DatareportSaleRowChangeEventHandler" msprop:Generator_RowDeletedName="DatareportSaleRowDeleted" msprop:Generator_RowClassName="DatareportSaleRow" msprop:Generator_UserTableName="DatareportSale" msprop:Generator_RowEvArgName="DatareportSaleRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Column1" msprop:Generator_ColumnVarNameInTable="columnColumn1" msprop:Generator_ColumnPropNameInRow="Column1" msprop:Generator_ColumnPropNameInTable="Column1Column" msprop:Generator_UserColumnName="Column1" type="xs:string" minOccurs="0" />
@@ -36,6 +36,7 @@
               <xs:element name="Column17" msprop:Generator_ColumnVarNameInTable="columnColumn17" msprop:Generator_ColumnPropNameInRow="Column17" msprop:Generator_ColumnPropNameInTable="Column17Column" msprop:Generator_UserColumnName="Column17" type="xs:string" minOccurs="0" />
               <xs:element name="Sumvol" msprop:Generator_ColumnVarNameInTable="columnSumvol" msprop:Generator_ColumnPropNameInRow="Sumvol" msprop:Generator_ColumnPropNameInTable="SumvolColumn" msprop:Generator_UserColumnName="Sumvol" type="xs:string" minOccurs="0" />
               <xs:element name="Shadedesc" msprop:Generator_ColumnVarNameInTable="columnShadedesc" msprop:Generator_ColumnPropNameInRow="Shadedesc" msprop:Generator_ColumnPropNameInTable="ShadedescColumn" msprop:Generator_UserColumnName="Shadedesc" type="xs:string" minOccurs="0" />
+              <xs:element name="Sumdoz" msprop:Generator_ColumnVarNameInTable="columnSumdoz" msprop:Generator_ColumnPropNameInRow="Sumdoz" msprop:Generator_ColumnPropNameInTable="SumdozColumn" msprop:Generator_UserColumnName="Sumdoz" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

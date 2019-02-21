@@ -325,6 +325,8 @@ Partial Public Class DatareportSale
         
         Private columnShadedesc As Global.System.Data.DataColumn
         
+        Private columnSumdoz As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -529,6 +531,14 @@ Partial Public Class DatareportSale
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property SumdozColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSumdoz
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -586,9 +596,10 @@ Partial Public Class DatareportSale
                     ByVal Column16 As String,  _
                     ByVal Column17 As String,  _
                     ByVal Sumvol As String,  _
-                    ByVal Shadedesc As String) As DatareportSaleRow
+                    ByVal Shadedesc As String,  _
+                    ByVal Sumdoz As String) As DatareportSaleRow
             Dim rowDatareportSaleRow As DatareportSaleRow = CType(Me.NewRow,DatareportSaleRow)
-            Dim columnValuesArray() As Object = New Object() {Column1, Lotno, Kongno, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9, Column10, Column11, Column12, Column13, Column14, Column15, Column16, Column17, Sumvol, Shadedesc}
+            Dim columnValuesArray() As Object = New Object() {Column1, Lotno, Kongno, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9, Column10, Column11, Column12, Column13, Column14, Column15, Column16, Column17, Sumvol, Shadedesc, Sumdoz}
             rowDatareportSaleRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDatareportSaleRow)
             Return rowDatareportSaleRow
@@ -632,6 +643,7 @@ Partial Public Class DatareportSale
             Me.columnColumn17 = MyBase.Columns("Column17")
             Me.columnSumvol = MyBase.Columns("Sumvol")
             Me.columnShadedesc = MyBase.Columns("Shadedesc")
+            Me.columnSumdoz = MyBase.Columns("Sumdoz")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -679,6 +691,8 @@ Partial Public Class DatareportSale
             MyBase.Columns.Add(Me.columnSumvol)
             Me.columnShadedesc = New Global.System.Data.DataColumn("Shadedesc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnShadedesc)
+            Me.columnSumdoz = New Global.System.Data.DataColumn("Sumdoz", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSumdoz)
             Me.ExtendedProperties.Add("Generator_TablePropName", "_DatareportSale")
             Me.ExtendedProperties.Add("Generator_UserTableName", "DatareportSale")
         End Sub
@@ -1142,6 +1156,21 @@ Partial Public Class DatareportSale
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Sumdoz() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDatareportSale.SumdozColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Sumdoz' in table 'DatareportSale' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDatareportSale.SumdozColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsColumn1Null() As Boolean
             Return Me.IsNull(Me.tableDatareportSale.Column1Column)
         End Function
@@ -1390,6 +1419,18 @@ Partial Public Class DatareportSale
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetShadedescNull()
             Me(Me.tableDatareportSale.ShadedescColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsSumdozNull() As Boolean
+            Return Me.IsNull(Me.tableDatareportSale.SumdozColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetSumdozNull()
+            Me(Me.tableDatareportSale.SumdozColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
