@@ -32,24 +32,6 @@ Partial Class Formsalefabcolrpt
         Me.TbBagwgt = New Normtextbox.Normtextbox()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Tbremark = New Normtextbox.Normtextbox()
-        Me.FilterLotarray = New System.Windows.Forms.TextBox()
-        Me.FilterKongarray = New System.Windows.Forms.TextBox()
-        Me.Pricesum = New System.Windows.Forms.TextBox()
-        Me.Tstbsumkg = New System.Windows.Forms.TextBox()
-        Me.Tbsumprice = New System.Windows.Forms.TextBox()
-        Me.Tbkgprice = New System.Windows.Forms.TextBox()
-        Me.Tbsumkg = New System.Windows.Forms.TextBox()
-        Me.Tbclothno = New System.Windows.Forms.TextBox()
-        Me.Tbshade = New System.Windows.Forms.TextBox()
-        Me.Tbwidth = New System.Windows.Forms.TextBox()
-        Me.Tbcolor = New System.Windows.Forms.TextBox()
-        Me.Tbdlvno = New System.Windows.Forms.TextBox()
-        Me.Tbdate = New System.Windows.Forms.TextBox()
-        Me.Tbcustname = New System.Windows.Forms.TextBox()
-        Me.Tbcustaddr = New System.Windows.Forms.TextBox()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Lotno = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Kongno = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -72,6 +54,24 @@ Partial Class Formsalefabcolrpt
         Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Tbremark = New Normtextbox.Normtextbox()
+        Me.FilterLotarray = New System.Windows.Forms.TextBox()
+        Me.FilterKongarray = New System.Windows.Forms.TextBox()
+        Me.Pricesum = New System.Windows.Forms.TextBox()
+        Me.Tstbsumkg = New System.Windows.Forms.TextBox()
+        Me.Tbsumprice = New System.Windows.Forms.TextBox()
+        Me.Tbkgprice = New System.Windows.Forms.TextBox()
+        Me.Tbsumkg = New System.Windows.Forms.TextBox()
+        Me.Tbclothno = New System.Windows.Forms.TextBox()
+        Me.Tbshade = New System.Windows.Forms.TextBox()
+        Me.Tbwidth = New System.Windows.Forms.TextBox()
+        Me.Tbcolor = New System.Windows.Forms.TextBox()
+        Me.Tbdlvno = New System.Windows.Forms.TextBox()
+        Me.Tbdate = New System.Windows.Forms.TextBox()
+        Me.Tbcustname = New System.Windows.Forms.TextBox()
+        Me.Tbcustaddr = New System.Windows.Forms.TextBox()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
         Me.ToolStrip1.SuspendLayout()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -225,6 +225,140 @@ Partial Class Formsalefabcolrpt
         Me.DataGridView1.Size = New System.Drawing.Size(916, 254)
         Me.DataGridView1.TabIndex = 197
         Me.DataGridView1.Visible = False
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Ord"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Lotno
+        '
+        Me.Lotno.DataPropertyName = "(none)"
+        Me.Lotno.HeaderText = "Lotno"
+        Me.Lotno.Name = "Lotno"
+        Me.Lotno.ReadOnly = True
+        '
+        'Kongno
+        '
+        Me.Kongno.DataPropertyName = "(none)"
+        Me.Kongno.HeaderText = "Kongno"
+        Me.Kongno.Name = "Kongno"
+        Me.Kongno.ReadOnly = True
+        '
+        'Sumvol
+        '
+        Me.Sumvol.HeaderText = "Sumvol"
+        Me.Sumvol.Name = "Sumvol"
+        Me.Sumvol.ReadOnly = True
+        '
+        'Sumdoz
+        '
+        Me.Sumdoz.HeaderText = "Sumdoz"
+        Me.Sumdoz.Name = "Sumdoz"
+        Me.Sumdoz.ReadOnly = True
+        '
+        'Shadedesc
+        '
+        Me.Shadedesc.HeaderText = "Shadedesc"
+        Me.Shadedesc.Name = "Shadedesc"
+        Me.Shadedesc.ReadOnly = True
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Column2"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Column3"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Column4"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Column5"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "Unitprice"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        '
+        'Column7
+        '
+        Me.Column7.HeaderText = "Rollcount"
+        Me.Column7.Name = "Column7"
+        Me.Column7.ReadOnly = True
+        '
+        'Column8
+        '
+        Me.Column8.HeaderText = "Column8"
+        Me.Column8.Name = "Column8"
+        Me.Column8.ReadOnly = True
+        '
+        'Column9
+        '
+        Me.Column9.HeaderText = "Column9"
+        Me.Column9.Name = "Column9"
+        Me.Column9.ReadOnly = True
+        '
+        'Column10
+        '
+        Me.Column10.HeaderText = "Column10"
+        Me.Column10.Name = "Column10"
+        Me.Column10.ReadOnly = True
+        '
+        'Column11
+        '
+        Me.Column11.HeaderText = "Column11"
+        Me.Column11.Name = "Column11"
+        Me.Column11.ReadOnly = True
+        '
+        'Column12
+        '
+        Me.Column12.HeaderText = "Column12"
+        Me.Column12.Name = "Column12"
+        Me.Column12.ReadOnly = True
+        '
+        'Column13
+        '
+        Me.Column13.HeaderText = "Column13"
+        Me.Column13.Name = "Column13"
+        Me.Column13.ReadOnly = True
+        '
+        'Column14
+        '
+        Me.Column14.HeaderText = "Column14"
+        Me.Column14.Name = "Column14"
+        Me.Column14.ReadOnly = True
+        '
+        'Column15
+        '
+        Me.Column15.HeaderText = "Column15"
+        Me.Column15.Name = "Column15"
+        Me.Column15.ReadOnly = True
+        '
+        'Column16
+        '
+        Me.Column16.HeaderText = "Column16"
+        Me.Column16.Name = "Column16"
+        Me.Column16.ReadOnly = True
+        '
+        'Column17
+        '
+        Me.Column17.HeaderText = "Column17"
+        Me.Column17.Name = "Column17"
+        Me.Column17.ReadOnly = True
         '
         'Tbremark
         '
@@ -387,140 +521,6 @@ Partial Class Formsalefabcolrpt
         Me.TabItem1.AttachedControl = Me.TabControlPanel1
         Me.TabItem1.Name = "TabItem1"
         Me.TabItem1.Text = "ใบส่งผ้าสี(ขาย)"
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Ord"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
-        'Lotno
-        '
-        Me.Lotno.DataPropertyName = "(none)"
-        Me.Lotno.HeaderText = "Lotno"
-        Me.Lotno.Name = "Lotno"
-        Me.Lotno.ReadOnly = True
-        '
-        'Kongno
-        '
-        Me.Kongno.DataPropertyName = "(none)"
-        Me.Kongno.HeaderText = "Kongno"
-        Me.Kongno.Name = "Kongno"
-        Me.Kongno.ReadOnly = True
-        '
-        'Sumvol
-        '
-        Me.Sumvol.HeaderText = "Sumvol"
-        Me.Sumvol.Name = "Sumvol"
-        Me.Sumvol.ReadOnly = True
-        '
-        'Sumdoz
-        '
-        Me.Sumdoz.HeaderText = "Sumdoz"
-        Me.Sumdoz.Name = "Sumdoz"
-        Me.Sumdoz.ReadOnly = True
-        '
-        'Shadedesc
-        '
-        Me.Shadedesc.HeaderText = "Shadedesc"
-        Me.Shadedesc.Name = "Shadedesc"
-        Me.Shadedesc.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Column2"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Column3"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Column4"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Column5"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "Unitprice"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "Rollcount"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        '
-        'Column8
-        '
-        Me.Column8.HeaderText = "Column8"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "Column9"
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        '
-        'Column10
-        '
-        Me.Column10.HeaderText = "Column10"
-        Me.Column10.Name = "Column10"
-        Me.Column10.ReadOnly = True
-        '
-        'Column11
-        '
-        Me.Column11.HeaderText = "Column11"
-        Me.Column11.Name = "Column11"
-        Me.Column11.ReadOnly = True
-        '
-        'Column12
-        '
-        Me.Column12.HeaderText = "Column12"
-        Me.Column12.Name = "Column12"
-        Me.Column12.ReadOnly = True
-        '
-        'Column13
-        '
-        Me.Column13.HeaderText = "Column13"
-        Me.Column13.Name = "Column13"
-        Me.Column13.ReadOnly = True
-        '
-        'Column14
-        '
-        Me.Column14.HeaderText = "Column14"
-        Me.Column14.Name = "Column14"
-        Me.Column14.ReadOnly = True
-        '
-        'Column15
-        '
-        Me.Column15.HeaderText = "Column15"
-        Me.Column15.Name = "Column15"
-        Me.Column15.ReadOnly = True
-        '
-        'Column16
-        '
-        Me.Column16.HeaderText = "Column16"
-        Me.Column16.Name = "Column16"
-        Me.Column16.ReadOnly = True
-        '
-        'Column17
-        '
-        Me.Column17.HeaderText = "Column17"
-        Me.Column17.Name = "Column17"
-        Me.Column17.ReadOnly = True
         '
         'Formsalefabcolrpt
         '
