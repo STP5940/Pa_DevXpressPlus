@@ -622,6 +622,7 @@ Partial Class Formreceivefabcolors
         Me.Dgvmas.Location = New System.Drawing.Point(0, 49)
         Me.Dgvmas.Name = "Dgvmas"
         Me.Dgvmas.ReadOnly = True
+        Me.Dgvmas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.Dgvmas.Size = New System.Drawing.Size(1000, 202)
         Me.Dgvmas.TabIndex = 98
         '
@@ -1932,6 +1933,7 @@ Partial Class Formreceivefabcolors
         Me.Balance.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Balance.Location = New System.Drawing.Point(1, 50)
         Me.Balance.Name = "Balance"
+        Me.Balance.ReadOnly = True
         Me.Balance.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.Balance.Size = New System.Drawing.Size(1006, 603)
         Me.Balance.TabIndex = 75
@@ -1940,6 +1942,7 @@ Partial Class Formreceivefabcolors
         '
         Me.Stat.HeaderText = ""
         Me.Stat.Name = "Stat"
+        Me.Stat.ReadOnly = True
         Me.Stat.Width = 20
         '
         'BDyedcomno
@@ -1947,12 +1950,14 @@ Partial Class Formreceivefabcolors
         Me.BDyedcomno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.BDyedcomno.HeaderText = "เลขที่ใบสั่งย้อม"
         Me.BDyedcomno.Name = "BDyedcomno"
+        Me.BDyedcomno.ReadOnly = True
         '
         'BClothidyed
         '
         Me.BClothidyed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.BClothidyed.HeaderText = "Clothidyed"
         Me.BClothidyed.Name = "BClothidyed"
+        Me.BClothidyed.ReadOnly = True
         Me.BClothidyed.Visible = False
         '
         'BClothnoyed
@@ -1960,12 +1965,14 @@ Partial Class Formreceivefabcolors
         Me.BClothnoyed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.BClothnoyed.HeaderText = "เบอร์ผ้า"
         Me.BClothnoyed.Name = "BClothnoyed"
+        Me.BClothnoyed.ReadOnly = True
         '
         'BFtypeyed
         '
         Me.BFtypeyed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.BFtypeyed.HeaderText = "ประเภท"
         Me.BFtypeyed.Name = "BFtypeyed"
+        Me.BFtypeyed.ReadOnly = True
         '
         'BFwidthyed
         '
@@ -1974,12 +1981,14 @@ Partial Class Formreceivefabcolors
         Me.BFwidthyed.DefaultCellStyle = DataGridViewCellStyle6
         Me.BFwidthyed.HeaderText = "หน้ากว้าง"
         Me.BFwidthyed.Name = "BFwidthyed"
+        Me.BFwidthyed.ReadOnly = True
         '
         'BQtykg
         '
         Me.BQtykg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.BQtykg.HeaderText = "น้ำหนักคงเหลือ"
         Me.BQtykg.Name = "BQtykg"
+        Me.BQtykg.ReadOnly = True
         Me.BQtykg.Visible = False
         '
         'BShadedesc
@@ -1988,6 +1997,7 @@ Partial Class Formreceivefabcolors
         Me.BShadedesc.DefaultCellStyle = DataGridViewCellStyle7
         Me.BShadedesc.HeaderText = "Shade"
         Me.BShadedesc.Name = "BShadedesc"
+        Me.BShadedesc.ReadOnly = True
         Me.BShadedesc.Width = 130
         '
         'BQtyroll
@@ -1999,11 +2009,13 @@ Partial Class Formreceivefabcolors
         Me.BQtyroll.DefaultCellStyle = DataGridViewCellStyle8
         Me.BQtyroll.HeaderText = "จำนวนพับคงเหลือ"
         Me.BQtyroll.Name = "BQtyroll"
+        Me.BQtyroll.ReadOnly = True
         '
         'BShadeid
         '
         Me.BShadeid.HeaderText = "BShadeid"
         Me.BShadeid.Name = "BShadeid"
+        Me.BShadeid.ReadOnly = True
         Me.BShadeid.Visible = False
         '
         'FilterAllyed
