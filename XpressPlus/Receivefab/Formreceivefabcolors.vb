@@ -516,7 +516,7 @@ BypassFilter:
                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Trim(Tbshadename.Text)
                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkong").Value = Trim(Tbkongno.Text)
                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Rollwage").Value = CDbl(Tbkg.Text)
-                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dozen").Value = Trim(Tbdozen.Text)
+                Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dozen").Value = CDbl(Tbdozen.Text)
                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("News").Value = 1
                 Tbkongno.Enabled = False
                 Tbdozen.Text = "0"
@@ -557,7 +557,7 @@ BypassFilter:
                     Dgvmas.Rows(i).Cells("Mkong").Value = Trim(Tbkongno.Text)
                 Next
                 Dgvmas.CurrentRow.Cells("Rollwage").Value = CDbl(Tbkg.Text)
-                Dgvmas.CurrentRow.Cells("Dozen").Value = Trim(Tbdozen.Text)
+                Dgvmas.CurrentRow.Cells("Dozen").Value = CDbl(Tbdozen.Text)
                 ClearDetail()
                 DemoCode.BackColor = Color.White
         End Select
@@ -837,8 +837,7 @@ BypassFilter:
     ''    'ShowRecordDetail()
     ''End Sub
     Private Sub Sumall()
-        Dim Sumkg As Double
-        Dim Sumdoz As Integer
+        Dim Sumkg, Sumdoz As Double
         Dim Sumroll As Long
         Sumkg = 0.0
         Sumdoz = 0
@@ -864,7 +863,7 @@ BypassFilter:
         ProgressBarX1.Text = "Ready"
         ProgressBarX1.Value = 0
         Tstbsumkg.Text = Format(Sumkg, "###,###.#0")
-        Tstbsumdoz.Text = Format(Sumdoz, "###,##0")
+        Tstbsumdoz.Text = Format(Sumdoz, "###,##0.#0")
         Tstbsumroll.Text = Format(Sumroll, "###,###")
     End Sub
     Private Sub Clrdgrid()
@@ -874,7 +873,7 @@ BypassFilter:
     End Sub
     Private Sub Clrtxtbox()
         'Tbdyedbillno.Enabled = True
-        Tbdyedcomno.Text = "NEW"
+        Tbdyedcomno.Text = "New"
         Tbknittno.Enabled = True
         Tbcolorno.Enabled = True
         Tbkongno.Enabled = True
@@ -961,7 +960,7 @@ BypassFilter:
         Try
             If Not Checkfillbutton() Then Return
             If Pagesize = 0 Then
-                Informmessage("Set the Page Size, and then click the ""Fill Grid"" button!")
+                Informmessage("Set the Page Size, And then click the ""Fill Grid"" button!")
                 Return
             End If
             Currentpage = Currentpage + 1
@@ -1078,7 +1077,7 @@ BypassFilter:
             Tbshadename.Text = Trim(InputGrid(Dgvmas.CurrentRow.Cells("Shadedesc").Value))
             Tbkongno.Text = Trim(Dgvmas.CurrentRow.Cells("Mkong").Value)
             Tbkg.Text = Format(Dgvmas.CurrentRow.Cells("Rollwage").Value, "###,###.#0")
-            Tbdozen.Text = Trim(Dgvmas.CurrentRow.Cells("Dozen").Value)
+            Tbdozen.Text = Format(Dgvmas.CurrentRow.Cells("Dozen").Value, "###,###.#0")
             DemoColor(Tbshadeid.Text)
         Else
             ClearDetail()

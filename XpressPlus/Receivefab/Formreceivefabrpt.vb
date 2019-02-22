@@ -75,7 +75,7 @@ Public Class Formreceivefabrpt
             CShadedesc = InputGrid(Me.Countfabric.Rows(i).Cells("CShadedesc").Value)
             Count = Me.Countfabric.Rows(i).Cells("Count").Value
             CRollwage = Format(Me.Countfabric.Rows(i).Cells("CRollwage").Value, "###,###.#0")
-            CDozen = Format(Me.Countfabric.Rows(i).Cells("CDozen").Value, "###,###")
+            CDozen = Format(CDbl(Me.Countfabric.Rows(i).Cells("CDozen").Value), "###,##0.#0")
             DataCountreport.Rows.Add(Cclothno, Cclothtype, CDwidth, CShadedesc, Count, CRollwage, CDozen)
         Next
 

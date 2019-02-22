@@ -800,7 +800,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Cint(IIf(Fields!CDozen.Value = "",0,Fields!CDozen.Value)))</Value>
+                                  <Value>=format(Sum(Cdbl(IIf(Fields!CDozen.Value = "",0,Fields!CDozen.Value))),"###,##0.#0")</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
                                   </Style>
