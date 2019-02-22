@@ -845,6 +845,7 @@ BypassFilter:
         Sumroll = 0
         If Dgvmas.RowCount = 0 Then
             Tstbsumkg.Text = Sumkg
+            Tstbsumdoz.Text = Sumdoz
             Tstbsumroll.Text = Sumroll
             Exit Sub
         End If
@@ -863,7 +864,7 @@ BypassFilter:
         ProgressBarX1.Text = "Ready"
         ProgressBarX1.Value = 0
         Tstbsumkg.Text = Format(Sumkg, "###,###.#0")
-        Tstbsumdoz.Text = Format(Sumdoz, "###,###")
+        Tstbsumdoz.Text = Format(Sumdoz, "###,##0")
         Tstbsumroll.Text = Format(Sumroll, "###,###")
     End Sub
     Private Sub Clrdgrid()
