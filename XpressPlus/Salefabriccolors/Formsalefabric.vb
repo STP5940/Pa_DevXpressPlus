@@ -189,7 +189,7 @@ Public Class Formsalefabric
         Frm.Tbsumprice.Text = Trim(Tbsummoney.Text)
         Frm.TbBagwgt.Text = Format(CDbl(TbBagwgt.Text), "###,##0.#0")
         Frm.Tstbsumkg.Text = Trim(Tstbsumkg.Text)
-        Frm.Tstbsumdoz.Text = Trim(Tstbsumdoz.Text)
+        Frm.Tstbsumdoz.Text = Format(CDbl(Tstbsumdoz.Text), "###,##0.#0")
         Frm.Tbremark.Text = Trim(Tbremark.Text)
 
         '--------'
@@ -1091,13 +1091,12 @@ Public Class Formsalefabric
         Return Haveform
     End Function
     Private Sub Sumall()
-        Dim Sumkg, Sumprice As Double
-        Dim Sumdoz As Integer
+        Dim Sumdoz, Sumkg, Sumprice As Double
         Sumkg = 0.0
         Sumprice = 0.0
         If Dgvmas.RowCount = 0 Then
             Tstbsumkg.Text = Format(Sumkg, "###,###.#0")
-            Tstbsumdoz.Text = Format(Sumdoz, "###,###")
+            Tstbsumdoz.Text = Format(Sumdoz, "###,##0.#0")
             Tbsumwgt.Text = Format(Sumkg, "0.#0")
             Tbsummoney.Text = Format(Sumprice, "0.#0")
             Tstbsumroll.Text = 0
@@ -1117,7 +1116,7 @@ Public Class Formsalefabric
         ProgressBarX1.Text = "Ready"
         ProgressBarX1.Value = 0
         Tstbsumkg.Text = Format(Sumkg, "###,###.#0")
-        Tstbsumdoz.Text = Format(Sumdoz, "###,###")
+        Tstbsumdoz.Text = Format(Sumdoz, "###,##0.#0")
         Tbsumwgt.Text = Format(Sumkg, "###,###.#0")
         Tstbsumroll.Text = Dgvmas.RowCount
         'Tbsummoney.Text = Format(Sumkg * CDbl(Tbkgprice.Text), "###,###.#0")

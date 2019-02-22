@@ -48,7 +48,7 @@ Public Class Formsalefabcolrpt
                                                  AND Tsalefabcoldetxp.Comid = '{Gscomid}'")
 
                 Dim Sumvol As Double = 0
-                Dim Sumdoz As Long = 0
+                Dim Sumdoz As Double = 0
                 For J = 0 To Tdetails.Rows.Count - 1
                     Sumvol = Sumvol + Tdetails.Rows(J)("Wgtkg")
                     Sumdoz += Tdetails.Rows(J)("Wgtdozen")

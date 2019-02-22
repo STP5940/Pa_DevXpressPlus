@@ -240,7 +240,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=IIf(Fields!Sumdoz.Value = 0,"0",format(cdbl(Fields!Sumdoz.Value),"###,###"))</Value>
+                                  <Value>=IIf(Fields!Sumdoz.Value = 0,"0",format(cdbl(Fields!Sumdoz.Value),"###,##0.#0"))</Value>
                                   <Style>
                                     <TextDecoration>Underline</TextDecoration>
                                   </Style>
@@ -359,7 +359,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(format(cdbl(Fields!Column8.Value),"###,###.#0") &gt; 0 , format(cdbl(Fields!Column8.Value),"###,###"), "")</Value>
+                                  <Value>=IIF(format(cdbl(Fields!Column8.Value),"###,##0.#0") &gt; 0 , format(cdbl(Fields!Column8.Value),"###,##0.#0"), "")</Value>
                                   <Style>
                                     <FontSize>14pt</FontSize>
                                   </Style>
@@ -392,7 +392,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(format(cdbl(Fields!Column9.Value),"###,###.#0") &gt; 0 , format(cdbl(Fields!Column9.Value),"###,###"), "")</Value>
+                                  <Value>=IIF(format(cdbl(Fields!Column9.Value),"###,##0.#0") &gt; 0 , format(cdbl(Fields!Column9.Value),"###,##0.#0"), "")</Value>
                                   <Style>
                                     <FontSize>14pt</FontSize>
                                   </Style>
@@ -425,7 +425,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(format(cdbl(Fields!Column10.Value),"###,###.#0") &gt; 0 , format(cdbl(Fields!Column10.Value),"###,###"), "")</Value>
+                                  <Value>=IIF(format(cdbl(Fields!Column10.Value),"###,##0.#0") &gt; 0 , format(cdbl(Fields!Column10.Value),"###,##0.#0"), "")</Value>
                                   <Style>
                                     <FontSize>14pt</FontSize>
                                   </Style>
@@ -458,7 +458,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(format(cdbl(Fields!Column11.Value),"###,###.#0") &gt; 0 , format(cdbl(Fields!Column11.Value),"###,###"), "")</Value>
+                                  <Value>=IIF(format(cdbl(Fields!Column11.Value),"###,##0.#0") &gt; 0 , format(cdbl(Fields!Column11.Value),"###,##0.#0"), "")</Value>
                                   <Style>
                                     <FontSize>14pt</FontSize>
                                   </Style>
@@ -491,7 +491,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(format(cdbl(Fields!Column12.Value),"###,###.#0") &gt; 0 , format(cdbl(Fields!Column12.Value),"###,###"), "")</Value>
+                                  <Value>=IIF(format(cdbl(Fields!Column12.Value),"###,##0.#0") &gt; 0 , format(cdbl(Fields!Column12.Value),"###,##0.#0"), "")</Value>
                                   <Style>
                                     <FontSize>14pt</FontSize>
                                   </Style>
@@ -524,7 +524,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(format(cdbl(Fields!Column13.Value),"###,###.#0") &gt; 0 , format(cdbl(Fields!Column13.Value),"###,###"), "")</Value>
+                                  <Value>=IIF(format(cdbl(Fields!Column13.Value),"###,##0.#0") &gt; 0 , format(cdbl(Fields!Column13.Value),"###,##0.#0"), "")</Value>
                                   <Style>
                                     <FontSize>14pt</FontSize>
                                   </Style>
@@ -557,7 +557,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(format(cdbl(Fields!Column14.Value),"###,###.#0") &gt; 0 , format(cdbl(Fields!Column14.Value),"###,###"), "")</Value>
+                                  <Value>=IIF(format(cdbl(Fields!Column14.Value),"###,##0.#0") &gt; 0 , format(cdbl(Fields!Column14.Value),"###,##0.#0"), "")</Value>
                                   <Style>
                                     <FontSize>14pt</FontSize>
                                   </Style>
