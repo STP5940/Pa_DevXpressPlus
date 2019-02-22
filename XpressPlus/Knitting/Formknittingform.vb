@@ -349,7 +349,7 @@ Public Class Formknittingform
         If e.Button = Windows.Forms.MouseButtons.Right Then
             If Me.YanList.Rows.Count < 1 Then Exit Sub
             If e.RowIndex < 0 Then Exit Sub
-            'YanList.CurrentCell = YanList(2, e.RowIndex)
+            YanList.CurrentCell = YanList(2, e.RowIndex)
             Me.YanList.Rows(e.RowIndex).Selected = True
             EditcontextYanList()
         End If

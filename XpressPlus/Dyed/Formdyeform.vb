@@ -1188,6 +1188,7 @@ Public Class Formdyeform
         If e.Button = Windows.Forms.MouseButtons.Right Then
             If Me.FabricList.Rows.Count < 1 Then Exit Sub
             If e.RowIndex < 0 Then Exit Sub
+            FabricList.CurrentCell = FabricList(2, e.RowIndex)
             Me.FabricList.Rows(e.RowIndex).Selected = True
             EditcontextFabricList()
         End If

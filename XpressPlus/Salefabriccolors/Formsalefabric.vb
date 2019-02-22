@@ -466,6 +466,7 @@ Public Class Formsalefabric
         If e.Button = Windows.Forms.MouseButtons.Right Then
             If Me.Dgvstock.Rows.Count < 1 Then Exit Sub
             If e.RowIndex < 0 Then Exit Sub
+            Dgvstock.CurrentCell = Dgvstock(3, e.RowIndex)
             Me.Dgvstock.Rows(e.RowIndex).Selected = True
             Editcontextstockmenu()
         End If

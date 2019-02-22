@@ -182,6 +182,7 @@ Public Class Formrebackfabcolors
         If e.Button = Windows.Forms.MouseButtons.Right Then
             If Me.Dgvlist.Rows.Count < 1 Then Exit Sub
             If e.RowIndex < 0 Then Exit Sub
+            Dgvlist.CurrentCell = Dgvlist(2, e.RowIndex)
             Me.Dgvlist.Rows(e.RowIndex).Selected = True
             Editcontextlistmenu()
         End If
