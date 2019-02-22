@@ -610,9 +610,7 @@ Public Class Formrebackfabcolors
                                                     Sumwgt, Sumprice, Remark, Indate, Lotno") 'Pa comment
 
         If Tmaster.Rows.Count > 0 Then
-            If Not IsDBNull(Tmaster.Rows(0)("Lotno")) Then
-                Tbrefablotno.Text = Tmaster.Rows(0)("Lotno")
-            End If
+            Tbrefablotno.Text = IIf(Not IsDBNull(Tmaster.Rows(0)("Lotno")), Tmaster.Rows(0)("Lotno"), "")
             Tbdhid.Text = Tmaster.Rows(0)("Custid")
             Tbdhname.Text = Tmaster.Rows(0)("Custname")
             Tbdyedbillno.Text = Tmaster.Rows(0)("Docref")
@@ -626,7 +624,7 @@ Public Class Formrebackfabcolors
     Private Sub Kgprice(Tbdyedbillno As String)
         Dim Kgprice = New DataTable
         Kgprice = SQLCommand($"SELECT Kgprice FROM Tsalefabcolxp WHERE Dlvno = '{Trim(Tbdyedbillno)}' AND Comid = '{Gscomid}' ")
-        If Kgprice.Rows.Count > 0 Then
+                If Kgprice.Rows.Count > 0 Then
             Tbkgprice.Text = Format(Kgprice(0)(0), "###,###.#0")
             Tbkgprice.Enabled = False
         Else
@@ -925,7 +923,7 @@ Public Class Formrebackfabcolors
             Tbshadename.Text = Trim(InputGrid(Dgvmas.CurrentRow.Cells("Shadedesc").Value))
             Tbkongno.Text = Trim(Dgvmas.CurrentRow.Cells("Mkong").Value)
             Tbkg.Text = Format(Dgvmas.CurrentRow.Cells("Rollwage").Value, "###,###.#0")
-            Tbrefablotno.Text = Trim(Dgvmas.CurrentRow.Cells("LotNoDetail").Value)
+            Tbrefablotno.Text = Trim(Dgvmas.CurrentRow.Cells("LotNoDetail").Value.ToString)
             DemoColor(Tbshadeid.Text)
         Else
             ClearDetail()
