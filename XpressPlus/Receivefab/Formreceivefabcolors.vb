@@ -1,8 +1,8 @@
 ﻿Imports System.ComponentModel
 Imports Microsoft.Reporting.WinForms
 Public Class Formreceivefabcolors
-    Private Tmaster, Tdetails, Tlist, TSendDyelist, Dttemp, tlistfab, tlistyed, tlistnittno, tlistnamebill, ListLotNo, billnoLotNo As DataTable
-    Private Pagecount, Maxrec, Pagesize, Currentpage, Recno As Integer
+    Private Tmaster, Tdetails, Tlist, TSendDyelist, Dttemp, tlistfab, tlistyed, tlistnittno, tlistnamebill, ListLotNo, billnoLotNo, DttempBalance, Tinstock As DataTable
+    Private Pagecount, Maxrec, Pagesize, Currentpage, Recno, MaxrecBalance, PagesizeBalance, PagecountBalance, CurrentpageBalance, RecnoBalance As Integer
     Private WithEvents Dtplistfm As New DateTimePicker
     Private WithEvents Dtplistto As New DateTimePicker
     Private RestatusBtmnew As Byte = 0
@@ -928,6 +928,14 @@ BypassFilter:
             Checkfillbutton = True
         End If
     End Function
+    Private Function CheckfillbuttonBalance() As Boolean
+        If PagesizeBalance = 0 Then
+            Informmessage("Set the Page Size, And Then click the ""Fill Grid"" button!")
+            CheckfillbuttonBalance = False
+        Else
+            CheckfillbuttonBalance = True
+        End If
+    End Function
     Private Sub Befirst()
         Try
             If Not Checkfillbutton() Then Return
@@ -938,6 +946,19 @@ BypassFilter:
             Currentpage = 1
             Recno = 0
             LoadPage()
+        Catch ex As Exception
+        End Try
+    End Sub
+    Private Sub BefirstBalance()
+        Try
+            If Not CheckfillbuttonBalance() Then Return
+            If CurrentpageBalance = 1 Then
+                Informmessage("You are at the First Page!")
+                Return
+            End If
+            CurrentpageBalance = 1
+            RecnoBalance = 0
+            LoadPageBalance()
         Catch ex As Exception
         End Try
     End Sub
@@ -953,6 +974,21 @@ BypassFilter:
                 Recno = Pagesize * (Currentpage - 1)
             End If
             LoadPage()
+        Catch ex As Exception
+        End Try
+    End Sub
+    Private Sub BeprevBalance()
+        Try
+            If Not CheckfillbuttonBalance() Then Return
+            CurrentpageBalance = CurrentpageBalance - 1
+            If CurrentpageBalance < 1 Then
+                Informmessage("You are at the First Page!")
+                CurrentpageBalance = 1
+                Return
+            Else
+                RecnoBalance = PagesizeBalance * (CurrentpageBalance - 1)
+            End If
+            LoadPageBalance()
         Catch ex As Exception
         End Try
     End Sub
@@ -975,6 +1011,25 @@ BypassFilter:
         Catch ex As Exception
         End Try
     End Sub
+    Private Sub BenextBalance()
+        Try
+            If Not CheckfillbuttonBalance() Then Return
+            If PagesizeBalance = 0 Then
+                Informmessage("Set the Page Size, And then click the ""Fill Grid"" button!")
+                Return
+            End If
+            CurrentpageBalance = CurrentpageBalance + 1
+            If CurrentpageBalance > PagecountBalance Then
+                CurrentpageBalance = PagecountBalance
+                If RecnoBalance = MaxrecBalance Then
+                    Informmessage("You are at the Last Page!")
+                    Return
+                End If
+            End If
+            LoadPageBalance()
+        Catch ex As Exception
+        End Try
+    End Sub
     Private Sub Belast()
         Try
             If Not Checkfillbutton() Then Return
@@ -985,6 +1040,19 @@ BypassFilter:
             Currentpage = Pagecount
             Recno = Pagesize * (Currentpage - 1)
             LoadPage()
+        Catch ex As Exception
+        End Try
+    End Sub
+    Private Sub BelastBalance()
+        Try
+            If Not CheckfillbuttonBalance() Then Return
+            If RecnoBalance = MaxrecBalance Then
+                Informmessage("You are at the Last Page!")
+                Return
+            End If
+            CurrentpageBalance = PagecountBalance
+            RecnoBalance = PagesizeBalance * (CurrentpageBalance - 1)
+            LoadPageBalance()
         Catch ex As Exception
         End Try
     End Sub
@@ -1007,6 +1075,25 @@ BypassFilter:
         DisplayPageInfo()
         ShowRecordDetail()
     End Sub
+    Private Sub LoadPageBalance()
+        Dim I, Startrec, Endrec As Integer
+        DttempBalance = Tinstock.Clone
+        If CurrentpageBalance = PagecountBalance Then
+            Endrec = MaxrecBalance
+        Else
+            Endrec = PagesizeBalance * CurrentpageBalance
+        End If
+        Startrec = RecnoBalance
+        If Tinstock.Rows.Count > 0 Then
+            For I = Startrec To Endrec - 1
+                DttempBalance.ImportRow(Tinstock.Rows(I))
+                RecnoBalance = RecnoBalance + 1
+            Next
+        End If
+        Balance.DataSource = DttempBalance
+        DisplayPageInfoBalance()
+        ShowRecordDetailBalance()
+    End Sub
     Private Sub FillGrid()
         Pagesize = (CInt(Dgvlist.Height) \ CInt(Dgvlist.RowTemplate.Height)) - 2
         Maxrec = Tlist.Rows.Count
@@ -1017,6 +1104,17 @@ BypassFilter:
         Currentpage = 1
         Recno = 0
         LoadPage()
+    End Sub
+    Private Sub FillGridBalance()
+        PagesizeBalance = (CInt(Balance.Height) \ CInt(Balance.RowTemplate.Height)) - 2
+        MaxrecBalance = Tinstock.Rows.Count
+        PagecountBalance = MaxrecBalance \ PagesizeBalance
+        If (MaxrecBalance Mod PagesizeBalance) > 0 Then
+            PagecountBalance = PagecountBalance + 1
+        End If
+        CurrentpageBalance = 1
+        RecnoBalance = 0
+        LoadPageBalance()
     End Sub
     'Test
     Private Sub Btmcancel_Click(sender As Object, e As EventArgs) Handles Btmcancel.Click
@@ -1039,8 +1137,14 @@ BypassFilter:
     Private Sub DisplayPageInfo()
         Tbpage.Text = "หน้า " & Currentpage.ToString & "/" & Pagecount.ToString
     End Sub
+    Private Sub DisplayPageInfoBalance()
+        TbpageBalance.Text = "หน้า " & CurrentpageBalance.ToString & "/" & PagecountBalance.ToString
+    End Sub
     Private Sub ShowRecordDetail()
         Tbrecord.Text = "แสดง " & (Dgvlist.RowCount) & " รายการ จาก " & Tlist.Rows.Count & " รายการ"
+    End Sub
+    Private Sub ShowRecordDetailBalance()
+        TbrecordBalance.Text = "แสดง " & (Balance.RowCount) & " รายการ จาก " & Tinstock.Rows.Count & " รายการ"
     End Sub
     Private Function Findpoud(Tkg As String) As Double
         Dim Rpound As Double = 0.0
@@ -1488,14 +1592,33 @@ BypassFilter:
     End Sub
 
     Private Sub BindingBalance()
-        Filterfab.Rows.Clear()
-        FilterAllyed.Rows.Clear()
-        Balance.Rows.Clear()
-        Bindinglistfab()
-        Bindinglistyed()
-        FilterfabGrid()
-        FilteryedGrid()
-        FilterMaster()
+
+        Tinstock = New DataTable
+        Tinstock = SQLCommand($"SELECT * FROM(
+				                SELECT Vdyedcomdet.Dyedcomno, Vdyedcomdet.Clothid, Vdyedcomdet.Clothno, Vdyedcomdet.Ftype, 
+					                   Vdyedcomdet.Fwidth, Vdyedcomdet.Shadeid, Vdyedcomdet.Shadedesc, 
+					                   IIF(Vsumrecfabcoldet.Qtyroll IS NULL , Vdyedcomdet.Qtyroll, Vdyedcomdet.Qtyroll - Vsumrecfabcoldet.Qtyroll) AS Qtyroll, 
+					                   IIF(Vsumrecfabcoldet.Qtykg IS NULL , Vdyedcomdet.Qtykg, Vdyedcomdet.Qtykg - Vsumrecfabcoldet.Qtykg) AS Qtykg
+					                   FROM  Vdyedcomdet 
+					                   LEFT OUTER JOIN dbo.Vsumrecfabcoldet 
+					                   ON Vdyedcomdet.Comid = Vsumrecfabcoldet.Comid AND
+					                      Vdyedcomdet.Dyedcomno = Vsumrecfabcoldet.Dyedcomno AND Vdyedcomdet.Clothid = Vsumrecfabcoldet.Clothid AND 
+						                  Vdyedcomdet.Clothno = Vsumrecfabcoldet.Clothno AND Vdyedcomdet.Ftype = Vsumrecfabcoldet.Ftype AND 
+						                  Vdyedcomdet.Shadeid = Vsumrecfabcoldet.Shadeid AND Vdyedcomdet.Fwidth =Vsumrecfabcoldet.Fwidth AND 
+						                  Vdyedcomdet.Shadedesc = Vsumrecfabcoldet.Shadedesc WHERE Vdyedcomdet.comid = '{Gscomid}'
+                                  ) AS AAA WHERE Qtyroll > 0 ")
+        Balance.DataSource = Tinstock
+        FillGridBalance()
+        ShowRecordDetailBalance()
+
+        'Filterfab.Rows.Clear()
+        'FilterAllyed.Rows.Clear()
+        'Balance.Rows.Clear()
+        'Bindinglistfab()
+        'Bindinglistyed()
+        'FilterfabGrid()
+        'FilteryedGrid()
+        'FilterMaster()
     End Sub
 
     Private Sub Filtermastergrid()
@@ -1552,6 +1675,22 @@ BypassFilter:
         Tbrollid.Text = 1
         Different("BtmnewOld")
         Btmnew.Enabled = True
+    End Sub
+
+    Private Sub BtfirstBalance_Click(sender As Object, e As EventArgs) Handles BtfirstBalance.Click
+        BefirstBalance()
+    End Sub
+
+    Private Sub BtprevBalance_Click(sender As Object, e As EventArgs) Handles BtprevBalance.Click
+        BeprevBalance()
+    End Sub
+
+    Private Sub BtnextBalance_Click(sender As Object, e As EventArgs) Handles BtnextBalance.Click
+        BenextBalance()
+    End Sub
+
+    Private Sub BtlastBalance_Click(sender As Object, e As EventArgs) Handles BtlastBalance.Click
+        BelastBalance()
     End Sub
 
     Private Sub FindShade_Click(sender As Object, e As EventArgs) Handles FindShade.Click
