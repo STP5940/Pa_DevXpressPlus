@@ -1594,31 +1594,31 @@ BypassFilter:
     Private Sub BindingBalance()
 
         Tinstock = New DataTable
-        Tinstock = SQLCommand($"SELECT * FROM(
-				                SELECT Vdyedcomdet.Dyedcomno, Vdyedcomdet.Clothid, Vdyedcomdet.Clothno, Vdyedcomdet.Ftype, 
-					                   Vdyedcomdet.Fwidth, Vdyedcomdet.Shadeid, Vdyedcomdet.Shadedesc, 
-					                   IIF(Vsumrecfabcoldet.Qtyroll IS NULL , Vdyedcomdet.Qtyroll, Vdyedcomdet.Qtyroll - Vsumrecfabcoldet.Qtyroll) AS Qtyroll, 
-					                   IIF(Vsumrecfabcoldet.Qtykg IS NULL , Vdyedcomdet.Qtykg, Vdyedcomdet.Qtykg - Vsumrecfabcoldet.Qtykg) AS Qtykg
-					                   FROM  Vdyedcomdet 
-					                   LEFT OUTER JOIN dbo.Vsumrecfabcoldet 
-					                   ON Vdyedcomdet.Comid = Vsumrecfabcoldet.Comid AND
-					                      Vdyedcomdet.Dyedcomno = Vsumrecfabcoldet.Dyedcomno AND Vdyedcomdet.Clothid = Vsumrecfabcoldet.Clothid AND 
-						                  Vdyedcomdet.Clothno = Vsumrecfabcoldet.Clothno AND Vdyedcomdet.Ftype = Vsumrecfabcoldet.Ftype AND 
-						                  Vdyedcomdet.Shadeid = Vsumrecfabcoldet.Shadeid AND Vdyedcomdet.Fwidth =Vsumrecfabcoldet.Fwidth AND 
-						                  Vdyedcomdet.Shadedesc = Vsumrecfabcoldet.Shadedesc WHERE Vdyedcomdet.comid = '{Gscomid}'
-                                  ) AS AAA WHERE Qtyroll > 0 ")
+        Tinstock = SQLCommand($"SELECT Dyedcomno, Clothid,Clothno, Ftype, Fwidth, Shadeid, Shadedesc, SUM(Qtyroll) AS Qtyroll, SUM(Qtykg) AS Qtykg FROM(
+				                        SELECT Vdyedcomdet.Dyedcomno, Vdyedcomdet.Clothid, Vdyedcomdet.Clothno, Vdyedcomdet.Ftype, 
+					                           Vdyedcomdet.Fwidth, Vdyedcomdet.Shadeid, Vdyedcomdet.Shadedesc, 
+					                           IIF(Vsumrecfabcoldet.Qtyroll IS NULL , Vdyedcomdet.Qtyroll, Vdyedcomdet.Qtyroll - Vsumrecfabcoldet.Qtyroll) AS Qtyroll, 
+					                           IIF(Vsumrecfabcoldet.Qtykg IS NULL , Vdyedcomdet.Qtykg, Vdyedcomdet.Qtykg - Vsumrecfabcoldet.Qtykg) AS Qtykg
+					                           FROM  Vdyedcomdet 
+					                           LEFT OUTER JOIN dbo.Vsumrecfabcoldet 
+					                           ON Vdyedcomdet.Comid = Vsumrecfabcoldet.Comid AND
+					                              Vdyedcomdet.Dyedcomno = Vsumrecfabcoldet.Dyedcomno AND Vdyedcomdet.Clothid = Vsumrecfabcoldet.Clothid AND 
+						                          Vdyedcomdet.Clothno = Vsumrecfabcoldet.Clothno AND Vdyedcomdet.Ftype = Vsumrecfabcoldet.Ftype AND 
+						                          Vdyedcomdet.Shadeid = Vsumrecfabcoldet.Shadeid AND Vdyedcomdet.Fwidth =Vsumrecfabcoldet.Fwidth AND 
+						                          Vdyedcomdet.Shadedesc = Vsumrecfabcoldet.Shadedesc WHERE Vdyedcomdet.comid = '{Gscomid}'
+                                ) AS AAA WHERE Qtyroll > 0 GROUP BY  Dyedcomno, Clothid,Clothno, Ftype, Fwidth, Shadeid, Shadedesc")
         Balance.DataSource = Tinstock
         FillGridBalance()
         ShowRecordDetailBalance()
 
-        'Filterfab.Rows.Clear()
-        'FilterAllyed.Rows.Clear()
-        'Balance.Rows.Clear()
-        'Bindinglistfab()
-        'Bindinglistyed()
-        'FilterfabGrid()
-        'FilteryedGrid()
-        'FilterMaster()
+        'Filterfab.Rows.Clear() 'ยกเลิกแล้ว 28/02/2019
+        'FilterAllyed.Rows.Clear() 'ยกเลิกแล้ว 28/02/2019
+        'Balance.Rows.Clear() 'ยกเลิกแล้ว 28/02/2019
+        'Bindinglistfab() 'ยกเลิกแล้ว 28/02/2019
+        'Bindinglistyed() 'ยกเลิกแล้ว 28/02/2019
+        'FilterfabGrid() 'ยกเลิกแล้ว 28/02/2019
+        'FilteryedGrid() 'ยกเลิกแล้ว 28/02/2019
+        'FilterMaster() 'ยกเลิกแล้ว 28/02/2019
     End Sub
 
     Private Sub Filtermastergrid()
@@ -1626,11 +1626,12 @@ BypassFilter:
             BindingBalance()
             Exit Sub
         End If
-        FilterAllyed.Rows.Clear()
-        Balance.Rows.Clear()
-        tlistyed.DefaultView.RowFilter = String.Format("Dyedcomno Like '%{0}%' or Clothno Like '%{0}%' or Ftype Like '%{0}%' or Fwidth Like '%{0}%'", Trim(ToolStripTextBox3.Text))
-        FilteryedGrid()
-        FilterMaster()
+        'FilterAllyed.Rows.Clear() 'ยกเลิกแล้ว 28/02/2019
+        'Balance.Rows.Clear() 'ยกเลิกแล้ว 28/02/2019
+        Tinstock.DefaultView.RowFilter = String.Format("Dyedcomno Like '%{0}%' or Clothno Like '%{0}%' or Ftype Like '%{0}%' or Fwidth Like '%{0}%'", Trim(ToolStripTextBox3.Text))
+        Balance.DataSource = Tinstock
+        'FilteryedGrid() 'ยกเลิกแล้ว 28/02/2019
+        'FilterMaster() 'ยกเลิกแล้ว 28/02/2019
     End Sub
 
 
