@@ -63,11 +63,11 @@ Public Class Formfabjobcontrol
             Exit Sub
         End If
         If Confirmdelete() = True Then
-            SQLCommand("DELETE FROM Tjobcontroldetxp
+            'SQLCommand("DELETE FROM Tjobcontroldetxp
+            '            WHERE Comid = '" & Gscomid & "' AND Jobno = '" & Trim(Tbjobno.Text) & "'") ' ถ้าลบไม่ลบรายละเอียด
+            SQLCommand("UPDATE Tjobcontrolxp SET Sstatus = '0',Updusr = '" & Gsuserid & "',Uptype = 'D',Uptime = '" & Formatdatesave(Now) & "'
                         WHERE Comid = '" & Gscomid & "' AND Jobno = '" & Trim(Tbjobno.Text) & "'")
-            SQLCommand("UPDATE Tjobcontrolxp SET Sstatus = '0',Updusr = '" & Gsuserid & "',Uptype = 'E',Uptime = '" & Formatdatesave(Now) & "'
-                        WHERE Comid = '" & Gscomid & "' AND Jobno = '" & Trim(Tbjobno.Text) & "'")
-            Insertlog(Gscomid, Gsusergroupid, Gsuserid, Gsusername, "F144", Trim(Tbjobno.Text), "D", "ลบรายการ job control ", Formatdatesave(Now), Computername, Usrproname)
+            Insertlog(Gscomid, Gsusergroupid, Gsuserid, Gsusername, $"{Me.Tag}", Trim(Tbjobno.Text), "D", "ลบรายการ job control ", Formatdatesave(Now), Computername, Usrproname)
             Clrtextmaster()
             Clrgridmaster()
             Bindinglist()
@@ -297,7 +297,7 @@ Public Class Formfabjobcontrol
         Updlist("A")
         If Gsusername = "SUPHATS" Then
         Else
-            Insertlog(Gscomid, Gsusergroupid, Gsuserid, Gsusername, "F144", Trim(Tbjobno.Text), "A", "สร้างรายการ Job Control", Formatdatesave(Now), Computername, Usrproname)
+            Insertlog(Gscomid, Gsusergroupid, Gsuserid, Gsusername, $"{Me.Tag}", Trim(Tbjobno.Text), "A", "สร้างรายการ Job Control", Formatdatesave(Now), Computername, Usrproname)
         End If
     End Sub
     Private Sub Editdoc()
@@ -308,7 +308,7 @@ Public Class Formfabjobcontrol
         Updlist("E")
         If Gsusername = "SUPHATS" Then
         Else
-            Insertlog(Gscomid, Gsusergroupid, Gsuserid, Gsusername, "F144", Trim(Tbjobno.Text), "E", "แก้ไขรายการ Job Control", Formatdatesave(Now), Computername, Usrproname)
+            Insertlog(Gscomid, Gsusergroupid, Gsuserid, Gsusername, $"{Me.Tag}", Trim(Tbjobno.Text), "E", "แก้ไขรายการ Job Control", Formatdatesave(Now), Computername, Usrproname)
         End If
     End Sub
     Private Sub Insertmaster()
@@ -322,14 +322,22 @@ Public Class Formfabjobcontrol
         End If
         Tmpaprd = Tmpyear & Tmpmonth
         SQLCommand($"INSERT INTO Tjobcontrolxp(Comid,Jobno,Jobdate,Custid,Jobremark,
-                    Atperiod,Jobclose,Sstatus,Updusr,Uptype,Uptime)
+                                 Atperiod,Jobclose,Sstatus,Updusr,Uptype,Uptime)
                     VALUES('{Gscomid}','{Trim(Tbjobno.Text)}','{Formatshortdatesave(Dtpdate.Value)}','{Trim(Tbcustid.Text)}','{Trim(Tbremark.Text)}',
-                    '{Tmpaprd}','0','1','{Gsuserid}','A','{Formatdatesave(Now)}')")
+                           '{Tmpaprd}','0','1','{Gsuserid}','A','{Formatdatesave(Now)}')")
     End Sub
     Private Sub Editmaster()
-        SQLCommand("UPDATE Tjobcontrolxp SET Jobdate = '" & Formatshortdatesave(Dtpdate.Value) & "',Custid = '" & Trim(Tbcustid.Text) & "',
-                    Jobremark = '" & Tbremark.Text & "',Updusr = '" & Gsuserid & "',Uptype = 'E',Uptime = '" & Formatdatesave(Now) & "'
-                    WHERE Comid = '" & Gscomid & "' AND Jobno = '" & Trim(Tbjobno.Text) & "'")
+        Dim Tmpyear, Tmpmonth, Tmpaprd As String
+        Tmpyear = Dtpgenid.Value.Year - 2000
+        If Dtpgenid.Value.Month < 10 Then
+            Tmpmonth = "0" & Dtpgenid.Value.Month
+        Else
+            Tmpmonth = Dtpgenid.Value.Month
+        End If
+        Tmpaprd = Tmpyear & Tmpmonth
+        SQLCommand($"UPDATE Tjobcontrolxp SET Jobdate = '{Formatshortdatesave(Dtpdate.Value)}', Custid = '{Trim(Tbcustid.Text)}',
+                     Jobremark = '{Trim(Tbremark.Text)}', Atperiod = '{Tmpaprd}', Jobclose = '0', Sstatus = '1', Updusr = '{Gsuserid}',
+                     Uptype = 'E', Uptime = '{Formatdatesave(Now)}' WHERE Comid = '{Gscomid}' AND Jobno = '{Trim(Tbjobno.Text)}' ")
     End Sub
     Private Sub Updlist(Etype As String)
         SQLCommand("DELETE FROM Tjobcontroldetxp
@@ -366,8 +374,8 @@ Public Class Formfabjobcontrol
     End Sub
     Private Sub Bindinglist()
         Tlist = New DataTable
-        Tlist = SQLCommand("SELECT '' AS Stat,* FROM Vjobcontrol
-                                WHERE Comid = '" & Gscomid & "'")
+        Tlist = SQLCommand($"SELECT '' AS Stat,* FROM Vjobcontrol
+                                WHERE Comid = '{Gscomid}' AND Sstatus = '1' ")
         Dgvlist.DataSource = Tlist
         Bs = New BindingSource
         Bs.DataSource = Tlist
@@ -514,7 +522,7 @@ Public Class Formfabjobcontrol
         Dim Tsumamt As Double
         Tsumamt = 0
         For I = 0 To Dgvmas.RowCount - 1
-            Tsumamt = Tsumamt + CLng(CDbl(Dgvmas.Rows(I).Cells("Wgtkg").Value))
+            Tsumamt = Tsumamt + CDbl(Dgvmas.Rows(I).Cells("Wgtkg").Value)
         Next
         Tstbsumamt.Text = Format(Tsumamt, "###,###.#0")
     End Sub
@@ -545,6 +553,7 @@ Public Class Formfabjobcontrol
         Dgvmas.Enabled = True
         Btfindcustid.Enabled = True
         Tbremark.Enabled = True
+        Dtpdate.Enabled = True
     End Sub
     Private Sub Enabledbuttondetail(Enbool As Boolean)
         Btdbadd.Enabled = Enbool
