@@ -131,6 +131,30 @@
     <Compile Include="Gbstatement\ToolStripCheckBox.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Jobcontrol\Formaddeditjoblist.designer.vb">
+      <DependentUpon>Formaddeditjoblist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Jobcontrol\Formaddeditjoblist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jobcontrol\Formcustlistforjob.designer.vb">
+      <DependentUpon>Formcustlistforjob.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Jobcontrol\Formcustlistforjob.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jobcontrol\Formfabjobcontrol.designer.vb">
+      <DependentUpon>Formfabjobcontrol.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Jobcontrol\Formfabjobcontrol.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jobcontrol\Formfabrictypelistforjob.Designer.vb">
+      <DependentUpon>Formfabrictypelistforjob.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Jobcontrol\Formfabrictypelistforjob.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Knitting\Dsknittdet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -452,6 +476,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jobcontrol\Formaddeditjoblist.resx">
+      <DependentUpon>Formaddeditjoblist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jobcontrol\Formcustlistforjob.resx">
+      <DependentUpon>Formcustlistforjob.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jobcontrol\Formfabjobcontrol.resx">
+      <DependentUpon>Formfabjobcontrol.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jobcontrol\Formfabrictypelistforjob.resx">
+      <DependentUpon>Formfabrictypelistforjob.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Knitting\Formbillnolist.resx">
       <DependentUpon>Formbillnolist.vb</DependentUpon>

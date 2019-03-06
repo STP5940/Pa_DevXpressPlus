@@ -23,4 +23,9 @@
         Dim Frm As New Formrebackfabcolors
         Frm.Show()
     End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim Frm As New Formfabjobcontrol
+        Frm.Show()
+    End Sub
 End Class
