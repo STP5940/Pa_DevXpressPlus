@@ -353,7 +353,7 @@ Public Class Formfabjobcontrol
         For I = 0 To Dgvmas.RowCount - 1
             Tmord = I + 1
             Tclothid = Trim(Dgvmas.Rows(I).Cells("Clothid").Value)
-            Tqtyroll = Dgvmas.RowCount
+            Tqtyroll = Trim(Dgvmas.Rows(I).Cells("Qtyroll").Value)
             Twgtkg = Trim(Dgvmas.Rows(I).Cells("Wgtkg").Value)
             TFinwgt = Trim(Dgvmas.Rows(I).Cells("Finwgt").Value)
             TDozen = Trim(Dgvmas.Rows(I).Cells("Dozen").Value)
@@ -515,16 +515,27 @@ Public Class Formfabjobcontrol
     End Sub
     Private Sub Findsumamt()
         If Dgvmas.RowCount = 0 Then
-            Tstbsumamt.Text = 0
+            Tstbsumqtyroll.Text = 0
+            Tstbsumwgtkg.Text = 0
+            Tstbsumdlvroll.Text = 0
             Exit Sub
         End If
         Dim I As Integer
-        Dim Tsumamt As Double
-        Tsumamt = 0
+        Dim Tsumwgtkg As Double
+        Dim Tsumqtyroll, Tsumdlvroll As UInteger
+
+        Tsumqtyroll = 0
+        Tsumwgtkg = 0
+        Tsumdlvroll = 0
+
         For I = 0 To Dgvmas.RowCount - 1
-            Tsumamt = Tsumamt + CDbl(Dgvmas.Rows(I).Cells("Wgtkg").Value)
+            Tsumqtyroll += CDbl(Dgvmas.Rows(I).Cells("qtyroll").Value)
+            Tsumwgtkg += CDbl(Dgvmas.Rows(I).Cells("Wgtkg").Value)
+            Tsumdlvroll += CDbl(Dgvmas.Rows(I).Cells("dlvroll").Value)
         Next
-        Tstbsumamt.Text = Format(Tsumamt, "###,###.#0")
+        Tstbsumqtyroll.Text = Format(Tsumqtyroll, "###,##0")
+        Tstbsumwgtkg.Text = Format(Tsumwgtkg, "###,##0.#0")
+        Tstbsumdlvroll.Text = Format(Tsumdlvroll, "###,##0")
     End Sub
     Private Sub Clrtextmaster()
         Tbcustid.Text = ""
@@ -537,7 +548,7 @@ Public Class Formfabjobcontrol
         Dgvmas.AutoGenerateColumns = False
         Dgvmas.DataSource = Nothing
         Dgvmas.Rows.Clear()
-        Tstbsumamt.Text = ""
+        Tstbsumwgtkg.Text = ""
         Tbremark.Text = ""
     End Sub
     Private Sub Mainbuttonaddedit()
@@ -643,6 +654,7 @@ Public Class Formfabjobcontrol
         Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Qtyroll").Value = CLng(frm.Tbqtyroll.Text)
         Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Wgtkg").Value = CDbl(frm.TbwgtKg.Text)
         Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Havedoz").Value = CLng(frm.Havedoz)
+        Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dlvroll").Value = 0
         Countrows()
     End Sub
 

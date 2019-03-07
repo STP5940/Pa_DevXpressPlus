@@ -54,7 +54,9 @@ Partial Class Formfabjobcontrol
         Me.Btdbadd = New System.Windows.Forms.ToolStripButton()
         Me.Tsbwsave = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStrip3 = New System.Windows.Forms.ToolStrip()
-        Me.Tstbsumamt = New System.Windows.Forms.ToolStripTextBox()
+        Me.Tstbsumdlvroll = New System.Windows.Forms.ToolStripTextBox()
+        Me.Tstbsumwgtkg = New System.Windows.Forms.ToolStripTextBox()
+        Me.Tstbsumqtyroll = New System.Windows.Forms.ToolStripTextBox()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
@@ -126,8 +128,8 @@ Partial Class Formfabjobcontrol
         Me.Finwgt = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.finwidth = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Qtyroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Dlvroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Wgtkg = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Dlvroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Havedoz = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -386,7 +388,7 @@ Partial Class Formfabjobcontrol
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.Dgvmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Ord, Me.Clothid, Me.Clothno, Me.Ftype, Me.Dozen, Me.Finwgt, Me.finwidth, Me.Qtyroll, Me.Dlvroll, Me.Wgtkg, Me.Havedoz})
+        Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Ord, Me.Clothid, Me.Clothno, Me.Ftype, Me.Dozen, Me.Finwgt, Me.finwidth, Me.Qtyroll, Me.Wgtkg, Me.Dlvroll, Me.Havedoz})
         Me.Dgvmas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Dgvmas.Location = New System.Drawing.Point(0, 47)
         Me.Dgvmas.Name = "Dgvmas"
@@ -457,22 +459,42 @@ Partial Class Formfabjobcontrol
         '
         Me.ToolStrip3.BackColor = System.Drawing.Color.Transparent
         Me.ToolStrip3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.ToolStrip3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Tstbsumamt, Me.ToolStripLabel1})
+        Me.ToolStrip3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Tstbsumdlvroll, Me.Tstbsumwgtkg, Me.Tstbsumqtyroll, Me.ToolStripLabel1})
         Me.ToolStrip3.Location = New System.Drawing.Point(0, 409)
         Me.ToolStrip3.Name = "ToolStrip3"
         Me.ToolStrip3.Size = New System.Drawing.Size(1000, 25)
         Me.ToolStrip3.TabIndex = 95
         Me.ToolStrip3.Text = "ToolStrip3"
         '
-        'Tstbsumamt
+        'Tstbsumdlvroll
         '
-        Me.Tstbsumamt.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Tstbsumamt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Tstbsumamt.Enabled = False
-        Me.Tstbsumamt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tstbsumamt.Name = "Tstbsumamt"
-        Me.Tstbsumamt.Size = New System.Drawing.Size(100, 25)
-        Me.Tstbsumamt.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.Tstbsumdlvroll.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Tstbsumdlvroll.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Tstbsumdlvroll.Enabled = False
+        Me.Tstbsumdlvroll.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tstbsumdlvroll.Name = "Tstbsumdlvroll"
+        Me.Tstbsumdlvroll.Size = New System.Drawing.Size(115, 25)
+        Me.Tstbsumdlvroll.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Tstbsumwgtkg
+        '
+        Me.Tstbsumwgtkg.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Tstbsumwgtkg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Tstbsumwgtkg.Enabled = False
+        Me.Tstbsumwgtkg.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tstbsumwgtkg.Name = "Tstbsumwgtkg"
+        Me.Tstbsumwgtkg.Size = New System.Drawing.Size(100, 25)
+        Me.Tstbsumwgtkg.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Tstbsumqtyroll
+        '
+        Me.Tstbsumqtyroll.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Tstbsumqtyroll.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Tstbsumqtyroll.Enabled = False
+        Me.Tstbsumqtyroll.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tstbsumqtyroll.Name = "Tstbsumqtyroll"
+        Me.Tstbsumqtyroll.Size = New System.Drawing.Size(110, 25)
+        Me.Tstbsumqtyroll.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'ToolStripLabel1
         '
@@ -1185,7 +1207,7 @@ Partial Class Formfabjobcontrol
         Me.Ord.HeaderText = "ลำดับที่"
         Me.Ord.Name = "Ord"
         Me.Ord.ReadOnly = True
-        Me.Ord.Width = 70
+        Me.Ord.Width = 75
         '
         'Clothid
         '
@@ -1254,25 +1276,25 @@ Partial Class Formfabjobcontrol
         Me.Qtyroll.ReadOnly = True
         Me.Qtyroll.Width = 110
         '
+        'Wgtkg
+        '
+        Me.Wgtkg.DataPropertyName = "Wgtkg"
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.Format = "N2"
+        Me.Wgtkg.DefaultCellStyle = DataGridViewCellStyle5
+        Me.Wgtkg.HeaderText = "QTY(KG)"
+        Me.Wgtkg.Name = "Wgtkg"
+        Me.Wgtkg.ReadOnly = True
+        '
         'Dlvroll
         '
         Me.Dlvroll.DataPropertyName = "Dlvroll"
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Dlvroll.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Dlvroll.DefaultCellStyle = DataGridViewCellStyle6
         Me.Dlvroll.HeaderText = "ยอดส่งแล้ว/พับ"
         Me.Dlvroll.Name = "Dlvroll"
         Me.Dlvroll.ReadOnly = True
         Me.Dlvroll.Width = 120
-        '
-        'Wgtkg
-        '
-        Me.Wgtkg.DataPropertyName = "Wgtkg"
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.Format = "N2"
-        Me.Wgtkg.DefaultCellStyle = DataGridViewCellStyle6
-        Me.Wgtkg.HeaderText = "QTY(KG)"
-        Me.Wgtkg.Name = "Wgtkg"
-        Me.Wgtkg.ReadOnly = True
         '
         'Havedoz
         '
@@ -1368,7 +1390,7 @@ Partial Class Formfabjobcontrol
     Friend WithEvents Panel1 As Panel
     Friend WithEvents GroupPanel3 As DevComponents.DotNetBar.Controls.GroupPanel
     Friend WithEvents ToolStrip3 As ToolStrip
-    Friend WithEvents Tstbsumamt As ToolStripTextBox
+    Friend WithEvents Tstbsumwgtkg As ToolStripTextBox
     Friend WithEvents ToolStripLabel1 As ToolStripLabel
     Friend WithEvents GroupPanel1 As DevComponents.DotNetBar.Controls.GroupPanel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
@@ -1417,6 +1439,8 @@ Partial Class Formfabjobcontrol
     Friend WithEvents Atperiod As DataGridViewTextBoxColumn
     Friend WithEvents Jobremark As DataGridViewTextBoxColumn
     Friend WithEvents Jobclose As DataGridViewTextBoxColumn
+    Friend WithEvents Tstbsumdlvroll As ToolStripTextBox
+    Friend WithEvents Tstbsumqtyroll As ToolStripTextBox
     Friend WithEvents Ord As DataGridViewTextBoxColumn
     Friend WithEvents Clothid As DataGridViewTextBoxColumn
     Friend WithEvents Clothno As DataGridViewTextBoxColumn
@@ -1425,7 +1449,7 @@ Partial Class Formfabjobcontrol
     Friend WithEvents Finwgt As DataGridViewTextBoxColumn
     Friend WithEvents finwidth As DataGridViewTextBoxColumn
     Friend WithEvents Qtyroll As DataGridViewTextBoxColumn
-    Friend WithEvents Dlvroll As DataGridViewTextBoxColumn
     Friend WithEvents Wgtkg As DataGridViewTextBoxColumn
+    Friend WithEvents Dlvroll As DataGridViewTextBoxColumn
     Friend WithEvents Havedoz As DataGridViewTextBoxColumn
 End Class
