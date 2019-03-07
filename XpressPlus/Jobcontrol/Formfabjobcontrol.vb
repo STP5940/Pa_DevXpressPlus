@@ -659,7 +659,11 @@ Public Class Formfabjobcontrol
     End Sub
 
     Private Sub Countrows()
-        Btdbadd.Enabled = True
+        If Tbcustid.Text = "" Then
+            Btdbadd.Enabled = False
+        Else
+            Btdbadd.Enabled = True
+        End If
         If Dgvmas.RowCount - 1 < 0 Then
             Btdedit.Enabled = False
             Btddel.Enabled = False

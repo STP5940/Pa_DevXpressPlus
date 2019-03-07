@@ -55,6 +55,7 @@ Public Class Formknittingform
         Btfinddlvno.Enabled = False
         Dtprecdate.Enabled = True
         ButtonX1.Enabled = True
+        ButtonX2.Enabled = True
         Tbknitid.Text = "10000"
         Tbknitname.Text = "เซียงเฮง"
         TbfactoryName.Enabled = False
@@ -66,6 +67,7 @@ Public Class Formknittingform
     End Sub
     Private Sub Btmedit_Click(sender As Object, e As EventArgs) Handles Btmedit.Click
         ButtonX1.Enabled = True
+        ButtonX2.Enabled = True
         Tbremark.Enabled = True
         Dtpknitcomdate.Enabled = True
         Btfinddlvno.Enabled = True
@@ -737,6 +739,7 @@ Public Class Formknittingform
         Paneloth.Visible = False
         Cbfromgsc.Checked = True
         ButtonX1.Enabled = True
+        ButtonX2.Enabled = True
     End Sub
     Private Sub YanKeyword_KeyPress(sender As Object, e As KeyPressEventArgs) Handles YanKeyword.KeyPress
         e.Handled = (Asc(e.KeyChar) = 39)
@@ -830,6 +833,7 @@ Public Class Formknittingform
 
     Private Sub CloseMaster()
         ButtonX1.Enabled = False
+        ButtonX2.Enabled = False
         BindingNavigator1.Enabled = False
         Dtprecdate.Enabled = False
         Dtpknitcomdate.Enabled = False

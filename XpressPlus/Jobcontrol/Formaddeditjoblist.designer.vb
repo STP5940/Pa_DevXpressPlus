@@ -219,9 +219,9 @@ Partial Class Formaddeditjoblist
         Me.LabelX10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
         Me.LabelX10.Location = New System.Drawing.Point(18, 80)
         Me.LabelX10.Name = "LabelX10"
-        Me.LabelX10.Size = New System.Drawing.Size(85, 23)
+        Me.LabelX10.Size = New System.Drawing.Size(107, 23)
         Me.LabelX10.TabIndex = 163
-        Me.LabelX10.Text = "จำนวน (Roll)"
+        Me.LabelX10.Text = "จำนวนพับ (Roll)"
         '
         'LabelX15
         '
