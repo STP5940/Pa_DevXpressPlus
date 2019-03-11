@@ -67,7 +67,6 @@ Public Class Formknittingform
     End Sub
     Private Sub Btmedit_Click(sender As Object, e As EventArgs) Handles Btmedit.Click
         ButtonX1.Enabled = True
-        ButtonX2.Enabled = True
         Tbremark.Enabled = True
         Dtpknitcomdate.Enabled = True
         Btfinddlvno.Enabled = True
@@ -357,6 +356,8 @@ Public Class Formknittingform
         End If
     End Sub
     Private Sub Ctmledit_Click(sender As Object, e As EventArgs) Handles Ctmledit.Click
+        CloseMaster()
+        Clrtxtbox()
         Clrdgrid()
         Clrdetails()
         TabControl1.SelectedTabIndex = 2
@@ -828,7 +829,39 @@ Public Class Formknittingform
             Btdadd.Focus()
         End If
     End Sub
+    Private Sub ButtonX2_Click(sender As Object, e As EventArgs) Handles ButtonX2.Click
+        Dim frm As New Formjobcontrollist
+        Showdiaformcenter(frm, Me)
+        If frm.Tbcancel.Text = "C" Then
+            Exit Sub
+        End If
+        If Dgvmas.RowCount > 0 Then
+            If (MessageBox.Show("คุณต้องลบรายการเก่าหรือไม่?", "โปรดยืนยัน", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation)) = Windows.Forms.DialogResult.Cancel Then
+                Exit Sub
+            End If
+        End If
 
+        Tbjobcontrol.Text = frm.Dgvmas.CurrentRow.Cells("Jobno").Value
+        Dgvmas.AutoGenerateColumns = False
+        Dgvmas.DataSource = Nothing
+        Dgvmas.Rows.Clear()
+
+        For i = 0 To frm.Dgvlist.RowCount - 1
+            Dgvmas.Rows.Add()
+            Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mcomid").Value = Gscomid
+            Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mclothid").Value = frm.Dgvlist.Rows(i).Cells("Clothid").Value
+            Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mclothno").Value = frm.Dgvlist.Rows(i).Cells("Clothno").Value
+            Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mftypename").Value = frm.Dgvlist.Rows(i).Cells("Ftype").Value
+            Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mdozen").Value = frm.Dgvlist.Rows(i).Cells("Dozen").Value
+            Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mfinwgt").Value = frm.Dgvlist.Rows(i).Cells("Finwgt").Value
+            Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mfinwidth").Value = frm.Dgvlist.Rows(i).Cells("Fwidth").Value
+            Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mqty").Value = frm.Dgvlist.Rows(i).Cells("Qtyroll").Value
+            Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkg").Value = frm.Dgvlist.Rows(i).Cells("Wgtkg").Value
+            Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Havedoz").Value = frm.Dgvlist.Rows(i).Cells("Havedoz").Value
+        Next
+        Btdbadd_Click(sender, e)
+        Sumall()
+    End Sub
 
 
     Private Sub CloseMaster()
@@ -843,6 +876,7 @@ Public Class Formknittingform
         Tblbs.Enabled = False
         Listfactory.Enabled = False
         Btfindyarn.Enabled = False
+        Tbjobcontrol.Text = ""
         TbfactoryID.Text = ""
         Tbqtyroll.Text = ""
         Tbwgtkg.Text = ""
@@ -1028,6 +1062,7 @@ Checkloop:
             Dtpknitcomdate.Value = Tmasterknit.Rows(0)("Knitcomdate")
             Dtprecdate.Value = Tmasterknit.Rows(0)("Rcdate")
             Tbdlvyarnno.Text = Trim(Tmasterknit.Rows(0)("Dlvno"))
+            Tbjobcontrol.Text = Trim(Tmasterknit.Rows(0)("jobno"))
             Tbremark.Text = Trim(Tmasterknit.Rows(0)("Dremark"))
             If IsDBNull(Tmasterknit.Rows(0)("Dlvlbs")) Then
                 Cbfromgsc.Checked = True
@@ -1193,11 +1228,11 @@ Checkloop:
         SQLCommand("INSERT INTO Tknittcomxp(Comid,Knitcomdate,Knitcomno,Rcdate,Dlvno,
                     Dremark,WgtKgOrder,WgtKgStore,QtyrollOrder,QtyrollStore,
                     Updusr,Uptype,Uptime,Knitid,Yarnfactid,Yarnfrom,
-                    Dlvlbs,Dlvkg,Yarnid)
+                    Dlvlbs,Dlvkg,Yarnid,jobno)
                     VALUES('" & Gscomid & "','" & Formatshortdatesave(Dtpknitcomdate.Value) & "','" & Trim(Tbknitcomno.Text) & "','" & Formatshortdatesave(Dtprecdate.Value) & "','" & Trim(Tbdlvyarnno.Text) & "',
                     '" & Trim(Tbremark.Text) & "'," & CDbl(Tstbsumkg.Text) & ",0," & CDbl(Tstbsumroll.Text) & ",0,
                     '" & Gsuserid & "','A','" & Formatdatesave(Now) & "','" & Trim(Tbknitid.Text) & "','" & TbfactoryID.Text & "','" & Trim(TbfactoryName.Text) & "',
-                    " & Sumlbs & "," & Sumkg & ",'" & Tyarnid & "')")
+                    " & Sumlbs & "," & Sumkg & ",'" & Tyarnid & "','" & Trim(Tbjobcontrol.Text) & "')")
     End Sub
     Private Sub InsertmasterOther()
         Dim COUNTS As New DataTable

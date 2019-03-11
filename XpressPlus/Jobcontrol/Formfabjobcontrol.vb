@@ -347,7 +347,7 @@ Public Class Formfabjobcontrol
         Dim Frm As New Formwaitdialoque
         Frm.Show()
         Dim Tmord As Integer
-        Dim Tclothid, TFinwgt, TDozen As String
+        Dim Tclothid, TFinwgt, TDozen, Tshade As String
         Dim Tqtyroll As Integer
         Dim Twgtkg As Double
         For I = 0 To Dgvmas.RowCount - 1
@@ -357,12 +357,13 @@ Public Class Formfabjobcontrol
             Twgtkg = Trim(Dgvmas.Rows(I).Cells("Wgtkg").Value)
             TFinwgt = Trim(Dgvmas.Rows(I).Cells("Finwgt").Value)
             TDozen = Trim(Dgvmas.Rows(I).Cells("Dozen").Value)
+            Tshade = Trim(Dgvmas.Rows(I).Cells("Shadeid").Value)
 
             SQLCommand($"INSERT INTO Tjobcontroldetxp(Comid,Jobno,Ord,Clothid,
-                        Qtyroll,Wgtkg,Finwgt,Dozen,Dlvroll,Remainroll,
+                        Shadeid,Qtyroll,Wgtkg,Finwgt,Dozen,Dlvroll,Remainroll,
                     Updusr,Uptype,Uptime)
                     VALUES('{Gscomid}','{Trim(Tbjobno.Text)}','{Tmord}','{Tclothid}',
-                            '{Tqtyroll}','{Twgtkg}','{TFinwgt}','{TDozen}','0','{Tqtyroll}',
+                            '{Tshade}','{Tqtyroll}','{Twgtkg}','{TFinwgt}','{TDozen}','0','{Tqtyroll}',
                             '{Gsuserid}','{Etype}', '{ Formatdatesave(Now)}' )")
 
             ProgressBarX1.Value = ((I + 1) / Dgvmas.Rows.Count) * 100
@@ -411,10 +412,12 @@ Public Class Formfabjobcontrol
                                        Tjobcontroldetxp.Clothid, Tclothxp.Clothno, Tjobcontroldetxp.Qtyroll, 
                                        Tjobcontroldetxp.Wgtkg, Tjobcontroldetxp.Finwgt, Tjobcontroldetxp.Dozen, 
                                        Tjobcontroldetxp.Dlvroll, Tjobcontroldetxp.Remainroll, Tclothxp.Ftype, 
-                                       Tclothxp.Fwidth, Tclothxp.Havedoz
+                                       Tclothxp.Fwidth, Tjobcontroldetxp.Shadeid, Shadedesc, Tclothxp.Havedoz
 					            FROM dbo.Tjobcontroldetxp 
 					            LEFT OUTER JOIN dbo.Tclothxp 
 					                 ON dbo.Tjobcontroldetxp.Clothid = dbo.Tclothxp.Clothid AND dbo.Tjobcontroldetxp.Comid = dbo.Tclothxp.Comid
+							    LEFT OUTER JOIN dbo.Tshadexp
+									 ON dbo.Tshadexp.Shadeid = dbo.Tjobcontroldetxp.Shadeid AND dbo.Tjobcontroldetxp.Comid = dbo.Tclothxp.Comid
 					            WHERE Tjobcontroldetxp.Comid = '{Gscomid}' AND Tjobcontroldetxp.Jobno = '{Trim(Tbjobno.Text)}' ")
         Dgvmas.DataSource = Tdetails
         Findsumamt()
@@ -651,6 +654,8 @@ Public Class Formfabjobcontrol
         Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dozen").Value = Trim(frm.Tbdozen.Text)
         Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Finwgt").Value = Trim(frm.Tbfinwgt.Text)
         Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("finwidth").Value = Trim(frm.Tbfinwidth.Text)
+        Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadeid").Value = Trim(frm.Tbshadeid.Text)
+        Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Shadedesc").Value = Trim(frm.Tbshadename.Text)
         Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Qtyroll").Value = CLng(frm.Tbqtyroll.Text)
         Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Wgtkg").Value = CDbl(frm.TbwgtKg.Text)
         Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Havedoz").Value = CLng(frm.Havedoz)
@@ -677,13 +682,15 @@ Public Class Formfabjobcontrol
     Private Sub Btdedit_Click(sender As Object, e As EventArgs) Handles Btdedit.Click
         Dim frm As New Formaddeditjoblist
 
-        frm.Tbclothid.Text = Dgvmas.CurrentRow.Cells("Clothid").Value
-        frm.Tbclothno.Text = Dgvmas.CurrentRow.Cells("Clothno").Value
-        frm.Tbtype.Text = Dgvmas.CurrentRow.Cells("Ftype").Value
-        frm.Tbdozen.Text = Dgvmas.CurrentRow.Cells("Dozen").Value
-        frm.Tbfinwgt.Text = Dgvmas.CurrentRow.Cells("Finwgt").Value
-        frm.Tbfinwidth.Text = Dgvmas.CurrentRow.Cells("finwidth").Value
-        frm.Tbqtyroll.Text = Dgvmas.CurrentRow.Cells("Qtyroll").Value
+        frm.Tbclothid.Text = Dgvmas.CurrentRow.Cells("Clothid").Value.ToString
+        frm.Tbclothno.Text = Dgvmas.CurrentRow.Cells("Clothno").Value.ToString
+        frm.Tbtype.Text = Dgvmas.CurrentRow.Cells("Ftype").Value.ToString
+        frm.Tbdozen.Text = Dgvmas.CurrentRow.Cells("Dozen").Value.ToString
+        frm.Tbfinwgt.Text = Dgvmas.CurrentRow.Cells("Finwgt").Value.ToString
+        frm.Tbfinwidth.Text = Dgvmas.CurrentRow.Cells("finwidth").Value.ToString
+        frm.Tbshadeid.Text = Dgvmas.CurrentRow.Cells("Shadeid").Value.ToString
+        frm.Tbshadename.Text = Dgvmas.CurrentRow.Cells("Shadedesc").Value.ToString
+        frm.Tbqtyroll.Text = Dgvmas.CurrentRow.Cells("Qtyroll").Value.ToString
         frm.TbwgtKg.Text = Format(CDbl(Dgvmas.CurrentRow.Cells("Wgtkg").Value), "###,###.#0")
 
         If Dgvmas.CurrentRow.Cells("Havedoz").Value = True Then
@@ -704,6 +711,8 @@ Public Class Formfabjobcontrol
         Dgvmas.CurrentRow.Cells("Ftype").Value = Trim(frm.Tbtype.Text)
         Dgvmas.CurrentRow.Cells("Dozen").Value = Trim(frm.Tbdozen.Text)
         Dgvmas.CurrentRow.Cells("Finwgt").Value = Trim(frm.Tbfinwgt.Text)
+        Dgvmas.CurrentRow.Cells("Shadeid").Value = Trim(frm.Tbshadeid.Text)
+        Dgvmas.CurrentRow.Cells("Shadedesc").Value = Trim(frm.Tbshadename.Text)
         Dgvmas.CurrentRow.Cells("Qtyroll").Value = CLng(frm.Tbqtyroll.Text)
         Dgvmas.CurrentRow.Cells("Wgtkg").Value = CDbl(frm.TbwgtKg.Text)
         Dgvmas.CurrentRow.Cells("Havedoz").Value = CLng(frm.Havedoz)

@@ -26,6 +26,11 @@ Partial Class Formaddeditjoblist
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel1 = New DevComponents.DotNetBar.TabControlPanel()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.DemoCode = New DevComponents.DotNetBar.LabelX()
+        Me.Tbshadename = New Normtextbox.Normtextbox()
+        Me.LabelX3 = New DevComponents.DotNetBar.LabelX()
+        Me.Btfindshade = New DevComponents.DotNetBar.ButtonX()
+        Me.Tbshadeid = New Normtextbox.Normtextbox()
         Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
         Me.Tbord = New Normtextbox.Normtextbox()
         Me.TbwgtKg = New Dectextbox.Dectextbox()
@@ -67,7 +72,7 @@ Partial Class Formaddeditjoblist
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedTabFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
         Me.TabControl1.SelectedTabIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(539, 261)
+        Me.TabControl1.Size = New System.Drawing.Size(539, 301)
         Me.TabControl1.TabIndex = 9
         Me.TabControl1.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox
         Me.TabControl1.Tabs.Add(Me.TabItem1)
@@ -82,7 +87,7 @@ Partial Class Formaddeditjoblist
         Me.TabControlPanel1.Location = New System.Drawing.Point(0, 26)
         Me.TabControlPanel1.Name = "TabControlPanel1"
         Me.TabControlPanel1.Padding = New System.Windows.Forms.Padding(1)
-        Me.TabControlPanel1.Size = New System.Drawing.Size(539, 235)
+        Me.TabControlPanel1.Size = New System.Drawing.Size(539, 275)
         Me.TabControlPanel1.Style.BackColor1.Color = System.Drawing.Color.FromArgb(CType(CType(142, Byte), Integer), CType(CType(179, Byte), Integer), CType(CType(231, Byte), Integer))
         Me.TabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(CType(CType(223, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(254, Byte), Integer))
         Me.TabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
@@ -96,6 +101,11 @@ Partial Class Formaddeditjoblist
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.Color.Transparent
+        Me.Panel4.Controls.Add(Me.DemoCode)
+        Me.Panel4.Controls.Add(Me.Tbshadename)
+        Me.Panel4.Controls.Add(Me.LabelX3)
+        Me.Panel4.Controls.Add(Me.Btfindshade)
+        Me.Panel4.Controls.Add(Me.Tbshadeid)
         Me.Panel4.Controls.Add(Me.LabelX2)
         Me.Panel4.Controls.Add(Me.Tbord)
         Me.Panel4.Controls.Add(Me.TbwgtKg)
@@ -119,8 +129,77 @@ Partial Class Formaddeditjoblist
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(1, 26)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(537, 208)
+        Me.Panel4.Size = New System.Drawing.Size(537, 248)
         Me.Panel4.TabIndex = 90
+        '
+        'DemoCode
+        '
+        Me.DemoCode.BackColor = System.Drawing.Color.White
+        '
+        '
+        '
+        Me.DemoCode.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.DemoCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.DemoCode.ForeColor = System.Drawing.Color.Gray
+        Me.DemoCode.Location = New System.Drawing.Point(442, 18)
+        Me.DemoCode.Name = "DemoCode"
+        Me.DemoCode.SingleLineColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.DemoCode.Size = New System.Drawing.Size(67, 23)
+        Me.DemoCode.SymbolColor = System.Drawing.Color.Black
+        Me.DemoCode.SymbolSet = DevComponents.DotNetBar.eSymbolSet.Material
+        Me.DemoCode.TabIndex = 179
+        Me.DemoCode.Text = "สีตัวอย่าง"
+        Me.DemoCode.TextAlignment = System.Drawing.StringAlignment.Center
+        '
+        'Tbshadename
+        '
+        Me.Tbshadename.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbshadename.Enabled = False
+        Me.Tbshadename.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tbshadename.Location = New System.Drawing.Point(292, 18)
+        Me.Tbshadename.MaxLength = 120
+        Me.Tbshadename.Name = "Tbshadename"
+        Me.Tbshadename.Size = New System.Drawing.Size(144, 24)
+        Me.Tbshadename.TabIndex = 178
+        '
+        'LabelX3
+        '
+        Me.LabelX3.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.LabelX3.Location = New System.Drawing.Point(18, 19)
+        Me.LabelX3.Name = "LabelX3"
+        Me.LabelX3.Size = New System.Drawing.Size(58, 23)
+        Me.LabelX3.TabIndex = 177
+        Me.LabelX3.Text = "Shade"
+        '
+        'Btfindshade
+        '
+        Me.Btfindshade.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.Btfindshade.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.Btfindshade.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Btfindshade.Image = Global.XpressPlus.My.Resources.Resources.Find16
+        Me.Btfindshade.Location = New System.Drawing.Point(236, 18)
+        Me.Btfindshade.Name = "Btfindshade"
+        Me.Btfindshade.Size = New System.Drawing.Size(36, 24)
+        Me.Btfindshade.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
+        Me.Btfindshade.TabIndex = 176
+        Me.Btfindshade.Tooltip = "ค้นหา Shade"
+        '
+        'Tbshadeid
+        '
+        Me.Tbshadeid.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbshadeid.Enabled = False
+        Me.Tbshadeid.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tbshadeid.Location = New System.Drawing.Point(139, 18)
+        Me.Tbshadeid.MaxLength = 120
+        Me.Tbshadeid.Name = "Tbshadeid"
+        Me.Tbshadeid.Size = New System.Drawing.Size(91, 24)
+        Me.Tbshadeid.TabIndex = 175
+        Me.Tbshadeid.Tag = "เลือก Shade"
         '
         'LabelX2
         '
@@ -130,7 +209,7 @@ Partial Class Formaddeditjoblist
         '
         Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
-        Me.LabelX2.Location = New System.Drawing.Point(410, 140)
+        Me.LabelX2.Location = New System.Drawing.Point(410, 181)
         Me.LabelX2.Name = "LabelX2"
         Me.LabelX2.Size = New System.Drawing.Size(29, 23)
         Me.LabelX2.TabIndex = 174
@@ -140,7 +219,7 @@ Partial Class Formaddeditjoblist
         'Tbord
         '
         Me.Tbord.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
-        Me.Tbord.Location = New System.Drawing.Point(445, 140)
+        Me.Tbord.Location = New System.Drawing.Point(445, 182)
         Me.Tbord.MaxLength = 120
         Me.Tbord.Name = "Tbord"
         Me.Tbord.Size = New System.Drawing.Size(64, 24)
@@ -151,7 +230,7 @@ Partial Class Formaddeditjoblist
         'TbwgtKg
         '
         Me.TbwgtKg.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.TbwgtKg.Location = New System.Drawing.Point(379, 77)
+        Me.TbwgtKg.Location = New System.Drawing.Point(379, 114)
         Me.TbwgtKg.MaxLength = 12
         Me.TbwgtKg.Name = "TbwgtKg"
         Me.TbwgtKg.Size = New System.Drawing.Size(130, 24)
@@ -162,7 +241,7 @@ Partial Class Formaddeditjoblist
         'Tbqtyroll
         '
         Me.Tbqtyroll.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Tbqtyroll.Location = New System.Drawing.Point(139, 77)
+        Me.Tbqtyroll.Location = New System.Drawing.Point(139, 114)
         Me.Tbqtyroll.MaxLength = 10
         Me.Tbqtyroll.Name = "Tbqtyroll"
         Me.Tbqtyroll.Size = New System.Drawing.Size(133, 24)
@@ -178,7 +257,7 @@ Partial Class Formaddeditjoblist
         '
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
-        Me.LabelX1.Location = New System.Drawing.Point(292, 110)
+        Me.LabelX1.Location = New System.Drawing.Point(292, 147)
         Me.LabelX1.Name = "LabelX1"
         Me.LabelX1.Size = New System.Drawing.Size(55, 23)
         Me.LabelX1.TabIndex = 170
@@ -187,7 +266,7 @@ Partial Class Formaddeditjoblist
         'Tbfinwgt
         '
         Me.Tbfinwgt.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
-        Me.Tbfinwgt.Location = New System.Drawing.Point(139, 110)
+        Me.Tbfinwgt.Location = New System.Drawing.Point(139, 147)
         Me.Tbfinwgt.MaxLength = 50
         Me.Tbfinwgt.Name = "Tbfinwgt"
         Me.Tbfinwgt.Size = New System.Drawing.Size(133, 24)
@@ -203,7 +282,7 @@ Partial Class Formaddeditjoblist
         '
         Me.LabelX16.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX16.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
-        Me.LabelX16.Location = New System.Drawing.Point(18, 110)
+        Me.LabelX16.Location = New System.Drawing.Point(18, 147)
         Me.LabelX16.Name = "LabelX16"
         Me.LabelX16.Size = New System.Drawing.Size(123, 23)
         Me.LabelX16.TabIndex = 168
@@ -217,7 +296,7 @@ Partial Class Formaddeditjoblist
         '
         Me.LabelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
-        Me.LabelX10.Location = New System.Drawing.Point(18, 80)
+        Me.LabelX10.Location = New System.Drawing.Point(18, 117)
         Me.LabelX10.Name = "LabelX10"
         Me.LabelX10.Size = New System.Drawing.Size(107, 23)
         Me.LabelX10.TabIndex = 163
@@ -231,7 +310,7 @@ Partial Class Formaddeditjoblist
         '
         Me.LabelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX15.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
-        Me.LabelX15.Location = New System.Drawing.Point(292, 81)
+        Me.LabelX15.Location = New System.Drawing.Point(292, 118)
         Me.LabelX15.Name = "LabelX15"
         Me.LabelX15.Size = New System.Drawing.Size(86, 23)
         Me.LabelX15.TabIndex = 160
@@ -240,7 +319,7 @@ Partial Class Formaddeditjoblist
         'Tbdozen
         '
         Me.Tbdozen.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
-        Me.Tbdozen.Location = New System.Drawing.Point(379, 110)
+        Me.Tbdozen.Location = New System.Drawing.Point(379, 147)
         Me.Tbdozen.MaxLength = 120
         Me.Tbdozen.Name = "Tbdozen"
         Me.Tbdozen.Size = New System.Drawing.Size(130, 24)
@@ -253,7 +332,7 @@ Partial Class Formaddeditjoblist
         Me.Tbfinwidth.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbfinwidth.Enabled = False
         Me.Tbfinwidth.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
-        Me.Tbfinwidth.Location = New System.Drawing.Point(139, 47)
+        Me.Tbfinwidth.Location = New System.Drawing.Point(139, 82)
         Me.Tbfinwidth.MaxLength = 120
         Me.Tbfinwidth.Name = "Tbfinwidth"
         Me.Tbfinwidth.Size = New System.Drawing.Size(133, 24)
@@ -268,7 +347,7 @@ Partial Class Formaddeditjoblist
         '
         Me.LabelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
-        Me.LabelX8.Location = New System.Drawing.Point(292, 48)
+        Me.LabelX8.Location = New System.Drawing.Point(292, 83)
         Me.LabelX8.Name = "LabelX8"
         Me.LabelX8.Size = New System.Drawing.Size(71, 23)
         Me.LabelX8.TabIndex = 153
@@ -279,7 +358,7 @@ Partial Class Formaddeditjoblist
         Me.Tbtype.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbtype.Enabled = False
         Me.Tbtype.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
-        Me.Tbtype.Location = New System.Drawing.Point(379, 47)
+        Me.Tbtype.Location = New System.Drawing.Point(379, 82)
         Me.Tbtype.MaxLength = 120
         Me.Tbtype.Name = "Tbtype"
         Me.Tbtype.Size = New System.Drawing.Size(130, 24)
@@ -291,7 +370,7 @@ Partial Class Formaddeditjoblist
         Me.Btfindfabtypeid.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btfindfabtypeid.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.Btfindfabtypeid.Image = Global.XpressPlus.My.Resources.Resources.Find16
-        Me.Btfindfabtypeid.Location = New System.Drawing.Point(236, 16)
+        Me.Btfindfabtypeid.Location = New System.Drawing.Point(236, 51)
         Me.Btfindfabtypeid.Name = "Btfindfabtypeid"
         Me.Btfindfabtypeid.Size = New System.Drawing.Size(36, 24)
         Me.Btfindfabtypeid.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
@@ -306,7 +385,7 @@ Partial Class Formaddeditjoblist
         '
         Me.LabelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
-        Me.LabelX9.Location = New System.Drawing.Point(18, 48)
+        Me.LabelX9.Location = New System.Drawing.Point(18, 83)
         Me.LabelX9.Name = "LabelX9"
         Me.LabelX9.Size = New System.Drawing.Size(115, 23)
         Me.LabelX9.TabIndex = 150
@@ -317,10 +396,10 @@ Partial Class Formaddeditjoblist
         Me.Tbclothid.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbclothid.Enabled = False
         Me.Tbclothid.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
-        Me.Tbclothid.Location = New System.Drawing.Point(90, 16)
+        Me.Tbclothid.Location = New System.Drawing.Point(139, 51)
         Me.Tbclothid.MaxLength = 200
         Me.Tbclothid.Name = "Tbclothid"
-        Me.Tbclothid.Size = New System.Drawing.Size(140, 24)
+        Me.Tbclothid.Size = New System.Drawing.Size(91, 24)
         Me.Tbclothid.TabIndex = 149
         Me.Tbclothid.Tag = "เลือกเบอร์ผ้า"
         '
@@ -329,7 +408,7 @@ Partial Class Formaddeditjoblist
         Me.Tbclothno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbclothno.Enabled = False
         Me.Tbclothno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
-        Me.Tbclothno.Location = New System.Drawing.Point(292, 16)
+        Me.Tbclothno.Location = New System.Drawing.Point(292, 51)
         Me.Tbclothno.MaxLength = 120
         Me.Tbclothno.Name = "Tbclothno"
         Me.Tbclothno.Size = New System.Drawing.Size(217, 24)
@@ -343,7 +422,7 @@ Partial Class Formaddeditjoblist
         '
         Me.LabelX14.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX14.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
-        Me.LabelX14.Location = New System.Drawing.Point(18, 17)
+        Me.LabelX14.Location = New System.Drawing.Point(18, 52)
         Me.LabelX14.Name = "LabelX14"
         Me.LabelX14.Size = New System.Drawing.Size(63, 23)
         Me.LabelX14.TabIndex = 147
@@ -354,7 +433,7 @@ Partial Class Formaddeditjoblist
         Me.Btcancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
         Me.Btcancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btcancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btcancel.Location = New System.Drawing.Point(292, 157)
+        Me.Btcancel.Location = New System.Drawing.Point(292, 198)
         Me.Btcancel.Name = "Btcancel"
         Me.Btcancel.Size = New System.Drawing.Size(73, 34)
         Me.Btcancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
@@ -366,7 +445,7 @@ Partial Class Formaddeditjoblist
         Me.Btok.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
         Me.Btok.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
         Me.Btok.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Btok.Location = New System.Drawing.Point(157, 157)
+        Me.Btok.Location = New System.Drawing.Point(157, 198)
         Me.Btok.Name = "Btok"
         Me.Btok.Size = New System.Drawing.Size(73, 34)
         Me.Btok.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2003
@@ -399,7 +478,7 @@ Partial Class Formaddeditjoblist
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(539, 261)
+        Me.ClientSize = New System.Drawing.Size(539, 301)
         Me.ControlBox = False
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "Formaddeditjoblist"
@@ -443,4 +522,9 @@ Partial Class Formaddeditjoblist
     Friend WithEvents TbwgtKg As Dectextbox.Dectextbox
     Friend WithEvents LabelX2 As DevComponents.DotNetBar.LabelX
     Friend WithEvents Tbord As Normtextbox.Normtextbox
+    Friend WithEvents DemoCode As DevComponents.DotNetBar.LabelX
+    Friend WithEvents Tbshadename As Normtextbox.Normtextbox
+    Friend WithEvents LabelX3 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents Btfindshade As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents Tbshadeid As Normtextbox.Normtextbox
 End Class

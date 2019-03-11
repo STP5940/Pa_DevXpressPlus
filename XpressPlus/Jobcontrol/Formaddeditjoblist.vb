@@ -42,7 +42,7 @@
     End Sub
 
     Private Sub Btok_Click(sender As Object, e As EventArgs) Handles Btok.Click
-        If Validatebox(Tbclothid, Tbqtyroll, TbwgtKg, Tbfinwgt, Tbdozen) = False Then
+        If Validatebox(Tbshadeid, Tbclothid, Tbqtyroll, TbwgtKg, Tbfinwgt, Tbdozen) = False Then
             Exit Sub
         End If
         Close()
@@ -58,4 +58,31 @@
         Next i
         Return True
     End Function
+
+    Private Sub Btfindshade_Click(sender As Object, e As EventArgs) Handles Btfindshade.Click
+        Dim Frm As New Formshadelist
+        Showdiaformcenter(Frm, Me)
+        If Frm.Tbcancel.Text = "C" Then
+            Exit Sub
+        End If
+        Tbshadeid.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Mid").Value)
+        Tbshadename.Text = Trim(Frm.Dgvmas.CurrentRow.Cells("Mname").Value)
+        DemoColor(Tbshadeid.Text)
+    End Sub
+
+    Private Sub DemoColor(RBGColor As Object)
+        Try
+            Dim EBGColor As New DataTable
+            EBGColor = SQLCommand($"SELECT Rcolor,Gcolor,Bcolor FROM Tshadexp WHERE Shadeid = '{RBGColor}' AND Comid = '{Gscomid}' ")
+            If IsDBNull(EBGColor(0)(0)) OrElse IsDBNull(EBGColor(0)(1)) OrElse IsDBNull(EBGColor(0)(2)) Then
+                Informmessage("Shade นี้ยังไม่มีสีตัวอย่าง")
+                DemoCode.BackColor = Color.White
+                Exit Sub
+            End If
+            DemoCode.BackColor = Color.FromArgb(EBGColor(0)(0), EBGColor(0)(1), EBGColor(0)(2))
+        Catch ex As Exception
+            Informmessage("เกิดข้อผิดพลาดในการเปลี่ยนสีตัวอย่าง")
+            DemoCode.BackColor = Color.White
+        End Try
+    End Sub
 End Class
