@@ -1659,6 +1659,10 @@ BypassFilter:
             If i > 0 Then
                 Tbknittno.Text += ","
             End If
+            If Tbknittno.Text.Length + tlistnittno(i)(0).Length > 397 Then ' จำนวนข้อความเลขที่บินผ้าดิบ 400 ตัวอักษร
+                Tbknittno.Text += "..."
+                Exit Sub
+            End If
             Tbknittno.Text += tlistnittno(i)(0)
         Next
     End Sub
