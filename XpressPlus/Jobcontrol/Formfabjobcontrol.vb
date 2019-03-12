@@ -726,6 +726,15 @@ Public Class Formfabjobcontrol
         Countrows()
     End Sub
 
+    Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
+        If Tbjobno.Text = "NEW" Then
+            Exit Sub
+        End If
+        Dim Frm As New Formfabfollow
+        Frm.Tbjobno.Text = Tbjobno.Text
+        Frm.Show()
+    End Sub
+
     Private Sub Beprev()
         Try
             If Not Checkfillbutton() Then Return
