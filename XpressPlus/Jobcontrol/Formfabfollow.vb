@@ -26,4 +26,8 @@ Public Class Formfabfollow
             Dgvmas.Rows(i).Cells("Ord").Value = Ords
         Next
     End Sub
+
+    Private Sub Btmclose_Click(sender As Object, e As EventArgs) Handles Btmclose.Click
+        Close()
+    End Sub
 End Class

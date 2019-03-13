@@ -58,6 +58,10 @@
             Tmaster.DefaultView.RowFilter = String.Empty
             Exit Sub
         End If
-        Tmaster.DefaultView.RowFilter = String.Format("Shadeid Like '%{0}%' OR Shadedesc LIKE '%{1}%'", Trim(Tbkeyword.Text), Trim(Tbkeyword.Text))
+        Try
+            Tmaster.DefaultView.RowFilter = String.Format("Shadeid Like '%{0}%' OR Shadedesc LIKE '%{1}%'", Trim(Tbkeyword.Text), Trim(Tbkeyword.Text))
+        Catch ex As Exception
+            Tbkeyword.Text = ""
+        End Try
     End Sub
 End Class

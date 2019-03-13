@@ -352,12 +352,12 @@ Public Class Formfabjobcontrol
         Dim Twgtkg As Double
         For I = 0 To Dgvmas.RowCount - 1
             Tmord = I + 1
-            Tclothid = Trim(Dgvmas.Rows(I).Cells("Clothid").Value)
-            Tqtyroll = Trim(Dgvmas.Rows(I).Cells("Qtyroll").Value)
-            Twgtkg = Trim(Dgvmas.Rows(I).Cells("Wgtkg").Value)
-            TFinwgt = Trim(Dgvmas.Rows(I).Cells("Finwgt").Value)
-            TDozen = Trim(Dgvmas.Rows(I).Cells("Dozen").Value)
-            Tshade = Trim(Dgvmas.Rows(I).Cells("Shadeid").Value)
+            Tclothid = Trim(Dgvmas.Rows(I).Cells("Clothid").Value.ToString)
+            Tqtyroll = Trim(Dgvmas.Rows(I).Cells("Qtyroll").Value.ToString)
+            Twgtkg = Trim(Dgvmas.Rows(I).Cells("Wgtkg").Value.ToString)
+            TFinwgt = Trim(Dgvmas.Rows(I).Cells("Finwgt").Value.ToString)
+            TDozen = Trim(Dgvmas.Rows(I).Cells("Dozen").Value.ToString)
+            Tshade = Trim(Dgvmas.Rows(I).Cells("Shadeid").Value.ToString)
 
             SQLCommand($"INSERT INTO Tjobcontroldetxp(Comid,Jobno,Ord,Clothid,
                         Shadeid,Qtyroll,Wgtkg,Finwgt,Dozen,Dlvroll,Remainroll,
@@ -416,8 +416,8 @@ Public Class Formfabjobcontrol
 					            FROM dbo.Tjobcontroldetxp 
 					            LEFT OUTER JOIN dbo.Tclothxp 
 					                 ON dbo.Tjobcontroldetxp.Clothid = dbo.Tclothxp.Clothid AND dbo.Tjobcontroldetxp.Comid = dbo.Tclothxp.Comid
-							    LEFT OUTER JOIN dbo.Tshadexp
-									 ON dbo.Tshadexp.Shadeid = dbo.Tjobcontroldetxp.Shadeid AND dbo.Tjobcontroldetxp.Comid = dbo.Tclothxp.Comid
+							    LEFT OUTER JOIN dbo.Tshadexp 
+									 ON dbo.Tjobcontroldetxp.Comid = dbo.Tshadexp.Comid AND dbo.Tshadexp.Shadeid = dbo.Tjobcontroldetxp.Shadeid
 					            WHERE Tjobcontroldetxp.Comid = '{Gscomid}' AND Tjobcontroldetxp.Jobno = '{Trim(Tbjobno.Text)}' ")
         Dgvmas.DataSource = Tdetails
         Findsumamt()
@@ -637,9 +637,15 @@ Public Class Formfabjobcontrol
         Else
             frm.Tbord.Text = Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Ord").Value + 1
         End If
+Showformadd:
         Showdiaformcenter(frm, Me)
         If frm.Tbcancel.Text = "C" Then
             Exit Sub
+        End If
+
+        If Countdatagrid(Dgvmas, "Clothid", Trim(frm.Tbclothid.Text)) = 1 AndAlso Countdatagrid(Dgvmas, "Shadeid", Trim(frm.Tbshadeid.Text)) = 1 Then
+            Informmessage("ไม่สามารถเพิ่มรายการผ้าที่มีประเภทและสีเดียวกันได้")
+            GoTo Showformadd
         End If
 
         If Tbjobno.Text = "NEW" Then
@@ -692,6 +698,7 @@ Public Class Formfabjobcontrol
         frm.Tbshadename.Text = Dgvmas.CurrentRow.Cells("Shadedesc").Value.ToString
         frm.Tbqtyroll.Text = Dgvmas.CurrentRow.Cells("Qtyroll").Value.ToString
         frm.TbwgtKg.Text = Format(CDbl(Dgvmas.CurrentRow.Cells("Wgtkg").Value), "###,###.#0")
+        frm.Tbaddedit.Text = "แก้ไข"
 
         If Dgvmas.CurrentRow.Cells("Havedoz").Value = True Then
             frm.Havedoz = True
@@ -700,10 +707,15 @@ Public Class Formfabjobcontrol
             frm.Havedoz = False
             frm.Tbdozen.Text = "0"
         End If
-
+Showformedit:
         Showdiaformcenter(frm, Me)
         If frm.Tbcancel.Text = "C" Then
             Exit Sub
+        End If
+
+        If Countdatagrid(Dgvmas, "Clothid", Trim(frm.Tbclothid.Text), "Edit") = 1 AndAlso Countdatagrid(Dgvmas, "Shadeid", Trim(frm.Tbshadeid.Text), "Edit") = 1 Then
+            Informmessage("ไม่สามารถเพิ่มรายการผ้าที่มีประเภทและสีเดียวกันได้")
+            GoTo Showformedit
         End If
 
         Dgvmas.CurrentRow.Cells("Clothid").Value = Trim(frm.Tbclothid.Text)
@@ -818,5 +830,25 @@ Public Class Formfabjobcontrol
     Private Sub ShowRecordDetail()
         Tbrecord.Text = "แสดง " & (Dgvlist.RowCount) & " รายการ จาก " & Tlist.Rows.Count & " รายการ"
     End Sub
+
+    Private Function Countdatagrid(Grid As Object, Cells As String, Value As String, Optional Status As String = "Add")
+        Dim Valuereturn = 0
+        If Grid.RowCount = 0 Then
+            Return Valuereturn
+            Exit Function
+        End If
+        Dim iRowIndex As Integer = Grid.CurrentRow.Index.ToString()
+        For i = 0 To Grid.RowCount - 1
+            If Grid.rows(i).cells(Cells).value = Value Then
+                If Status = "Edit" And iRowIndex = i Then
+                    Valuereturn = 0
+                    Continue For
+                End If
+                Valuereturn = 1
+                Exit For
+            End If
+        Next
+        Return Valuereturn
+    End Function
 
 End Class

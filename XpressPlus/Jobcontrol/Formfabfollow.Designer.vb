@@ -189,9 +189,9 @@ Partial Class Formfabfollow
         Me.GroupPanel3.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.GroupPanel3.Location = New System.Drawing.Point(1, 109)
+        Me.GroupPanel3.Location = New System.Drawing.Point(1, 80)
         Me.GroupPanel3.Name = "GroupPanel3"
-        Me.GroupPanel3.Size = New System.Drawing.Size(1006, 544)
+        Me.GroupPanel3.Size = New System.Drawing.Size(1006, 573)
         '
         '
         '
@@ -242,14 +242,14 @@ Partial Class Formfabfollow
         Me.Dgvmas.Name = "Dgvmas"
         Me.Dgvmas.ReadOnly = True
         Me.Dgvmas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Dgvmas.Size = New System.Drawing.Size(1000, 471)
+        Me.Dgvmas.Size = New System.Drawing.Size(1000, 500)
         Me.Dgvmas.TabIndex = 129
         '
         'ToolStrip3
         '
         Me.ToolStrip3.BackColor = System.Drawing.Color.Transparent
         Me.ToolStrip3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.ToolStrip3.Location = New System.Drawing.Point(0, 496)
+        Me.ToolStrip3.Location = New System.Drawing.Point(0, 525)
         Me.ToolStrip3.Name = "ToolStrip3"
         Me.ToolStrip3.Size = New System.Drawing.Size(1000, 25)
         Me.ToolStrip3.TabIndex = 128
@@ -275,7 +275,7 @@ Partial Class Formfabfollow
         Me.GroupPanel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.GroupPanel1.Location = New System.Drawing.Point(1, 1)
         Me.GroupPanel1.Name = "GroupPanel1"
-        Me.GroupPanel1.Size = New System.Drawing.Size(1006, 108)
+        Me.GroupPanel1.Size = New System.Drawing.Size(1006, 79)
         '
         '
         '
@@ -315,7 +315,7 @@ Partial Class Formfabfollow
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel5.Location = New System.Drawing.Point(0, 0)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(1000, 85)
+        Me.Panel5.Size = New System.Drawing.Size(1000, 56)
         Me.Panel5.TabIndex = 89
         '
         'LabelX2
@@ -327,7 +327,7 @@ Partial Class Formfabfollow
         '
         Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX2.Location = New System.Drawing.Point(758, 7)
+        Me.LabelX2.Location = New System.Drawing.Point(749, 14)
         Me.LabelX2.Name = "LabelX2"
         Me.LabelX2.Size = New System.Drawing.Size(81, 23)
         Me.LabelX2.TabIndex = 41
@@ -339,7 +339,7 @@ Partial Class Formfabfollow
         Me.Tbjobno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Tbjobno.Enabled = False
         Me.Tbjobno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Tbjobno.Location = New System.Drawing.Point(843, 8)
+        Me.Tbjobno.Location = New System.Drawing.Point(834, 15)
         Me.Tbjobno.MaxLength = 150
         Me.Tbjobno.Name = "Tbjobno"
         Me.Tbjobno.Size = New System.Drawing.Size(149, 24)
@@ -374,7 +374,7 @@ Partial Class Formfabfollow
         Me.Jobno.HeaderText = "เลขที่ใบ Job Control"
         Me.Jobno.Name = "Jobno"
         Me.Jobno.ReadOnly = True
-        Me.Jobno.Width = 150
+        Me.Jobno.Width = 200
         '
         'Clothid
         '
@@ -387,16 +387,18 @@ Partial Class Formfabfollow
         'Clothno
         '
         Me.Clothno.DataPropertyName = "Clothno"
-        Me.Clothno.HeaderText = "Clothno"
+        Me.Clothno.HeaderText = "Description"
         Me.Clothno.Name = "Clothno"
         Me.Clothno.ReadOnly = True
+        Me.Clothno.Width = 180
         '
         'Ftype
         '
         Me.Ftype.DataPropertyName = "Ftype"
-        Me.Ftype.HeaderText = "Ftype"
+        Me.Ftype.HeaderText = "Fabric type"
         Me.Ftype.Name = "Ftype"
         Me.Ftype.ReadOnly = True
+        Me.Ftype.Width = 150
         '
         'Dozen
         '
@@ -408,30 +410,34 @@ Partial Class Formfabfollow
         'Dlvno
         '
         Me.Dlvno.DataPropertyName = "Dlvno"
-        Me.Dlvno.HeaderText = "Dlvno"
+        Me.Dlvno.HeaderText = "เลขที่ใบส่งด้าย"
         Me.Dlvno.Name = "Dlvno"
         Me.Dlvno.ReadOnly = True
+        Me.Dlvno.Width = 200
         '
         'Knitcomno
         '
         Me.Knitcomno.DataPropertyName = "Knitcomno"
-        Me.Knitcomno.HeaderText = "Knitcomno"
+        Me.Knitcomno.HeaderText = "เลขที่ใบสั่งทอ"
         Me.Knitcomno.Name = "Knitcomno"
         Me.Knitcomno.ReadOnly = True
+        Me.Knitcomno.Width = 200
         '
         'Qtyroll
         '
         Me.Qtyroll.DataPropertyName = "Qtyroll"
-        Me.Qtyroll.HeaderText = "Qtyroll"
+        Me.Qtyroll.HeaderText = "QTY(Rolls/พับ)"
         Me.Qtyroll.Name = "Qtyroll"
         Me.Qtyroll.ReadOnly = True
+        Me.Qtyroll.Width = 150
         '
         'Dyedcomno
         '
         Me.Dyedcomno.DataPropertyName = "Dyedcomno"
-        Me.Dyedcomno.HeaderText = "Dyedcomno"
+        Me.Dyedcomno.HeaderText = "เลขที่ใบสั่งย้อม"
         Me.Dyedcomno.Name = "Dyedcomno"
         Me.Dyedcomno.ReadOnly = True
+        Me.Dyedcomno.Width = 200
         '
         'Shadeid
         '
@@ -444,70 +450,77 @@ Partial Class Formfabfollow
         'Shadedesc
         '
         Me.Shadedesc.DataPropertyName = "Shadedesc"
-        Me.Shadedesc.HeaderText = "Shadedesc"
+        Me.Shadedesc.HeaderText = "Shade"
         Me.Shadedesc.Name = "Shadedesc"
         Me.Shadedesc.ReadOnly = True
+        Me.Shadedesc.Width = 150
         '
         'Qtyrollsum
         '
         Me.Qtyrollsum.DataPropertyName = "Qtyrollsum"
-        Me.Qtyrollsum.HeaderText = "Qtyrollsum"
+        Me.Qtyrollsum.HeaderText = "QTY(Rolls/พับ)"
         Me.Qtyrollsum.Name = "Qtyrollsum"
         Me.Qtyrollsum.ReadOnly = True
+        Me.Qtyrollsum.Width = 150
         '
         'Reid
         '
         Me.Reid.DataPropertyName = "Reid"
-        Me.Reid.HeaderText = "Reid"
+        Me.Reid.HeaderText = "เลขที่ใบรับเส้นด้าย"
         Me.Reid.Name = "Reid"
         Me.Reid.ReadOnly = True
+        Me.Reid.Width = 200
         '
         'Lotno
         '
         Me.Lotno.DataPropertyName = "Lotno"
-        Me.Lotno.HeaderText = "Lotno"
+        Me.Lotno.HeaderText = "Lot No."
         Me.Lotno.Name = "Lotno"
         Me.Lotno.ReadOnly = True
+        Me.Lotno.Width = 150
         '
         'Kongno
         '
         Me.Kongno.DataPropertyName = "Kongno"
-        Me.Kongno.HeaderText = "Kongno"
+        Me.Kongno.HeaderText = "เบอร์กอง"
         Me.Kongno.Name = "Kongno"
         Me.Kongno.ReadOnly = True
         '
         'Qtyrollresum
         '
         Me.Qtyrollresum.DataPropertyName = "Qtyrollresum"
-        Me.Qtyrollresum.HeaderText = "Qtyrollresum"
+        Me.Qtyrollresum.HeaderText = "จำนวนพับรวม"
         Me.Qtyrollresum.Name = "Qtyrollresum"
         Me.Qtyrollresum.ReadOnly = True
+        Me.Qtyrollresum.Width = 150
         '
         'Salewgtkgsum
         '
         Me.Salewgtkgsum.DataPropertyName = "Salewgtkgsum"
-        Me.Salewgtkgsum.HeaderText = "Salewgtkgsum"
+        Me.Salewgtkgsum.HeaderText = "น้ำหนักรวม(กก.)"
         Me.Salewgtkgsum.Name = "Salewgtkgsum"
         Me.Salewgtkgsum.ReadOnly = True
+        Me.Salewgtkgsum.Width = 150
         '
         'Dlvnosale
         '
         Me.Dlvnosale.DataPropertyName = "Dlvnosale"
-        Me.Dlvnosale.HeaderText = "Dlvnosale"
+        Me.Dlvnosale.HeaderText = "เลขที่ใบส่งผ้าสี"
         Me.Dlvnosale.Name = "Dlvnosale"
         Me.Dlvnosale.ReadOnly = True
+        Me.Dlvnosale.Width = 150
         '
         'Wgtkgsale
         '
         Me.Wgtkgsale.DataPropertyName = "Wgtkgsale"
-        Me.Wgtkgsale.HeaderText = "Wgtkgsale"
+        Me.Wgtkgsale.HeaderText = "น้ำหนักรวม"
         Me.Wgtkgsale.Name = "Wgtkgsale"
         Me.Wgtkgsale.ReadOnly = True
         '
         'Dlvnocount
         '
         Me.Dlvnocount.DataPropertyName = "Dlvnocount"
-        Me.Dlvnocount.HeaderText = "Dlvnocount"
+        Me.Dlvnocount.HeaderText = "ขายผ้ารวม"
         Me.Dlvnocount.Name = "Dlvnocount"
         Me.Dlvnocount.ReadOnly = True
         '
