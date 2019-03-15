@@ -65,6 +65,7 @@ Partial Class Formfabfollow
         Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
         Me.Tbjobno = New Normtextbox.Normtextbox()
         Me.TabItem2 = New DevComponents.DotNetBar.TabItem(Me.components)
+        Me.Btrefresh = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.miniToolStrip, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -72,6 +73,7 @@ Partial Class Formfabfollow
         Me.TabControlPanel2.SuspendLayout()
         Me.GroupPanel3.SuspendLayout()
         CType(Me.Dgvmas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ToolStrip8.SuspendLayout()
         Me.GroupPanel1.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.SuspendLayout()
@@ -238,11 +240,11 @@ Partial Class Formfabfollow
         Me.Dgvmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Ord, Me.Comid, Me.Jobno, Me.Clothid, Me.Clothno, Me.Ftype, Me.Dozen, Me.Dlvno, Me.Knitcomno, Me.Qtyroll, Me.Dyedcomno, Me.Shadeid, Me.Shadedesc, Me.Qtyrollsum, Me.Reid, Me.Lotno, Me.Kongno, Me.Qtyrollresum, Me.Salewgtkgsum, Me.Dlvnosale, Me.Wgtkgsale, Me.Dlvnocount})
         Me.Dgvmas.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Dgvmas.Location = New System.Drawing.Point(0, 25)
+        Me.Dgvmas.Location = New System.Drawing.Point(0, 49)
         Me.Dgvmas.Name = "Dgvmas"
         Me.Dgvmas.ReadOnly = True
         Me.Dgvmas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.Dgvmas.Size = New System.Drawing.Size(1000, 500)
+        Me.Dgvmas.Size = New System.Drawing.Size(1000, 476)
         Me.Dgvmas.TabIndex = 129
         '
         'Ord
@@ -430,9 +432,10 @@ Partial Class Formfabfollow
         'ToolStrip8
         '
         Me.ToolStrip8.BackColor = System.Drawing.Color.Transparent
+        Me.ToolStrip8.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btrefresh})
         Me.ToolStrip8.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip8.Name = "ToolStrip8"
-        Me.ToolStrip8.Size = New System.Drawing.Size(1000, 25)
+        Me.ToolStrip8.Size = New System.Drawing.Size(1000, 49)
         Me.ToolStrip8.TabIndex = 126
         Me.ToolStrip8.Text = "ToolStrip8"
         '
@@ -524,6 +527,18 @@ Partial Class Formfabfollow
         Me.TabItem2.Name = "TabItem2"
         Me.TabItem2.Text = "รายการทั้งหมด"
         '
+        'Btrefresh
+        '
+        Me.Btrefresh.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Btrefresh.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btrefresh.Image = CType(resources.GetObject("Btrefresh.Image"), System.Drawing.Image)
+        Me.Btrefresh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.Btrefresh.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Btrefresh.Name = "Btrefresh"
+        Me.Btrefresh.Size = New System.Drawing.Size(71, 46)
+        Me.Btrefresh.Text = "Refresh"
+        Me.Btrefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
         'Formfabfollow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -542,6 +557,8 @@ Partial Class Formfabfollow
         Me.GroupPanel3.ResumeLayout(False)
         Me.GroupPanel3.PerformLayout()
         CType(Me.Dgvmas, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ToolStrip8.ResumeLayout(False)
+        Me.ToolStrip8.PerformLayout()
         Me.GroupPanel1.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
@@ -589,4 +606,5 @@ Partial Class Formfabfollow
     Friend WithEvents Dlvnosale As DataGridViewTextBoxColumn
     Friend WithEvents Wgtkgsale As DataGridViewTextBoxColumn
     Friend WithEvents Dlvnocount As DataGridViewTextBoxColumn
+    Friend WithEvents Btrefresh As ToolStripButton
 End Class

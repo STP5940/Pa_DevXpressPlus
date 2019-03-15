@@ -25,13 +25,13 @@ Partial Class Formfabjobcontrol
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Formfabjobcontrol))
         Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Btmclose = New System.Windows.Forms.ToolStripButton()
         Me.Btmfind = New System.Windows.Forms.ToolStripButton()
@@ -48,6 +48,20 @@ Partial Class Formfabjobcontrol
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GroupPanel3 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Dgvmas = New System.Windows.Forms.DataGridView()
+        Me.Ord = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Clothid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Clothno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Ftype = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Dozen = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Finwgt = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.finwidth = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Shadeid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Shadedesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Qtyroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Wgtkg = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Dlvroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Havedoz = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Knitcomno = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip8 = New System.Windows.Forms.ToolStrip()
         Me.Btddel = New System.Windows.Forms.ToolStripButton()
         Me.Btdedit = New System.Windows.Forms.ToolStripButton()
@@ -122,20 +136,6 @@ Partial Class Formfabjobcontrol
         Me.Btlast = New System.Windows.Forms.ToolStripButton()
         Me.Tbrecord = New System.Windows.Forms.ToolStripTextBox()
         Me.TabItem2 = New DevComponents.DotNetBar.TabItem(Me.components)
-        Me.Ord = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Clothid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Clothno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Ftype = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Dozen = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Finwgt = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.finwidth = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Shadeid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Shadedesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Qtyroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Wgtkg = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Dlvroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Havedoz = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Knitcomno = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -287,8 +287,8 @@ Partial Class Formfabjobcontrol
         '
         Me.TabControl1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TabControl1.CanReorderTabs = True
-        Me.TabControl1.Controls.Add(Me.TabControlPanel1)
         Me.TabControl1.Controls.Add(Me.TabControlPanel2)
+        Me.TabControl1.Controls.Add(Me.TabControlPanel1)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.TabControl1.ForeColor = System.Drawing.Color.Black
@@ -403,6 +403,137 @@ Partial Class Formfabjobcontrol
         Me.Dgvmas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.Dgvmas.Size = New System.Drawing.Size(1000, 360)
         Me.Dgvmas.TabIndex = 127
+        '
+        'Ord
+        '
+        Me.Ord.DataPropertyName = "Ord"
+        Me.Ord.HeaderText = "ลำดับที่"
+        Me.Ord.Name = "Ord"
+        Me.Ord.ReadOnly = True
+        Me.Ord.Width = 75
+        '
+        'Clothid
+        '
+        Me.Clothid.DataPropertyName = "Clothid"
+        Me.Clothid.HeaderText = "Clothid"
+        Me.Clothid.Name = "Clothid"
+        Me.Clothid.ReadOnly = True
+        Me.Clothid.Visible = False
+        '
+        'Clothno
+        '
+        Me.Clothno.DataPropertyName = "Clothno"
+        Me.Clothno.FillWeight = 17.7665!
+        Me.Clothno.HeaderText = "Description"
+        Me.Clothno.Name = "Clothno"
+        Me.Clothno.ReadOnly = True
+        '
+        'Ftype
+        '
+        Me.Ftype.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Ftype.DataPropertyName = "Ftype"
+        Me.Ftype.FillWeight = 17.7665!
+        Me.Ftype.HeaderText = "Fabric Type"
+        Me.Ftype.MinimumWidth = 110
+        Me.Ftype.Name = "Ftype"
+        Me.Ftype.ReadOnly = True
+        '
+        'Dozen
+        '
+        Me.Dozen.DataPropertyName = "Dozen"
+        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Dozen.DefaultCellStyle = DataGridViewCellStyle18
+        Me.Dozen.FillWeight = 17.7665!
+        Me.Dozen.HeaderText = "Dozen"
+        Me.Dozen.Name = "Dozen"
+        Me.Dozen.ReadOnly = True
+        Me.Dozen.Width = 70
+        '
+        'Finwgt
+        '
+        Me.Finwgt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Finwgt.DataPropertyName = "Finwgt"
+        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Finwgt.DefaultCellStyle = DataGridViewCellStyle19
+        Me.Finwgt.FillWeight = 17.7665!
+        Me.Finwgt.HeaderText = "Finished Weight"
+        Me.Finwgt.MinimumWidth = 130
+        Me.Finwgt.Name = "Finwgt"
+        Me.Finwgt.ReadOnly = True
+        '
+        'finwidth
+        '
+        Me.finwidth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.finwidth.DataPropertyName = "Fwidth"
+        Me.finwidth.HeaderText = "Finished Width"
+        Me.finwidth.MinimumWidth = 130
+        Me.finwidth.Name = "finwidth"
+        Me.finwidth.ReadOnly = True
+        '
+        'Shadeid
+        '
+        Me.Shadeid.DataPropertyName = "Shadeid"
+        Me.Shadeid.HeaderText = "Shadeid"
+        Me.Shadeid.Name = "Shadeid"
+        Me.Shadeid.ReadOnly = True
+        Me.Shadeid.Visible = False
+        '
+        'Shadedesc
+        '
+        Me.Shadedesc.DataPropertyName = "Shadedesc"
+        Me.Shadedesc.HeaderText = "Shadede"
+        Me.Shadedesc.Name = "Shadedesc"
+        Me.Shadedesc.ReadOnly = True
+        Me.Shadedesc.Width = 140
+        '
+        'Qtyroll
+        '
+        Me.Qtyroll.DataPropertyName = "Qtyroll"
+        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Qtyroll.DefaultCellStyle = DataGridViewCellStyle20
+        Me.Qtyroll.FillWeight = 255.8376!
+        Me.Qtyroll.HeaderText = "QTY(Rolls/พับ)"
+        Me.Qtyroll.Name = "Qtyroll"
+        Me.Qtyroll.ReadOnly = True
+        Me.Qtyroll.Width = 110
+        '
+        'Wgtkg
+        '
+        Me.Wgtkg.DataPropertyName = "Wgtkg"
+        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle21.Format = "N2"
+        Me.Wgtkg.DefaultCellStyle = DataGridViewCellStyle21
+        Me.Wgtkg.HeaderText = "QTY(KG)"
+        Me.Wgtkg.Name = "Wgtkg"
+        Me.Wgtkg.ReadOnly = True
+        '
+        'Dlvroll
+        '
+        Me.Dlvroll.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Dlvroll.DataPropertyName = "Dlvroll"
+        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Dlvroll.DefaultCellStyle = DataGridViewCellStyle22
+        Me.Dlvroll.HeaderText = "ยอดส่ง/พับ"
+        Me.Dlvroll.MinimumWidth = 100
+        Me.Dlvroll.Name = "Dlvroll"
+        Me.Dlvroll.ReadOnly = True
+        '
+        'Havedoz
+        '
+        Me.Havedoz.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Havedoz.DataPropertyName = "Havedoz"
+        Me.Havedoz.HeaderText = "สถานะ"
+        Me.Havedoz.Name = "Havedoz"
+        Me.Havedoz.ReadOnly = True
+        Me.Havedoz.Visible = False
+        '
+        'Knitcomno
+        '
+        Me.Knitcomno.DataPropertyName = "Knitcomno"
+        Me.Knitcomno.HeaderText = "Knitcomno"
+        Me.Knitcomno.Name = "Knitcomno"
+        Me.Knitcomno.ReadOnly = True
+        Me.Knitcomno.Visible = False
         '
         'ToolStrip8
         '
@@ -1227,137 +1358,6 @@ Partial Class Formfabjobcontrol
         Me.TabItem2.AttachedControl = Me.TabControlPanel2
         Me.TabItem2.Name = "TabItem2"
         Me.TabItem2.Text = "รายการทั้งหมด"
-        '
-        'Ord
-        '
-        Me.Ord.DataPropertyName = "Ord"
-        Me.Ord.HeaderText = "ลำดับที่"
-        Me.Ord.Name = "Ord"
-        Me.Ord.ReadOnly = True
-        Me.Ord.Width = 75
-        '
-        'Clothid
-        '
-        Me.Clothid.DataPropertyName = "Clothid"
-        Me.Clothid.HeaderText = "Clothid"
-        Me.Clothid.Name = "Clothid"
-        Me.Clothid.ReadOnly = True
-        Me.Clothid.Visible = False
-        '
-        'Clothno
-        '
-        Me.Clothno.DataPropertyName = "Clothno"
-        Me.Clothno.FillWeight = 17.7665!
-        Me.Clothno.HeaderText = "Description"
-        Me.Clothno.Name = "Clothno"
-        Me.Clothno.ReadOnly = True
-        '
-        'Ftype
-        '
-        Me.Ftype.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Ftype.DataPropertyName = "Ftype"
-        Me.Ftype.FillWeight = 17.7665!
-        Me.Ftype.HeaderText = "Fabric Type"
-        Me.Ftype.MinimumWidth = 110
-        Me.Ftype.Name = "Ftype"
-        Me.Ftype.ReadOnly = True
-        '
-        'Dozen
-        '
-        Me.Dozen.DataPropertyName = "Dozen"
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Dozen.DefaultCellStyle = DataGridViewCellStyle18
-        Me.Dozen.FillWeight = 17.7665!
-        Me.Dozen.HeaderText = "Dozen"
-        Me.Dozen.Name = "Dozen"
-        Me.Dozen.ReadOnly = True
-        Me.Dozen.Width = 70
-        '
-        'Finwgt
-        '
-        Me.Finwgt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Finwgt.DataPropertyName = "Finwgt"
-        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Finwgt.DefaultCellStyle = DataGridViewCellStyle19
-        Me.Finwgt.FillWeight = 17.7665!
-        Me.Finwgt.HeaderText = "Finished Weight"
-        Me.Finwgt.MinimumWidth = 130
-        Me.Finwgt.Name = "Finwgt"
-        Me.Finwgt.ReadOnly = True
-        '
-        'finwidth
-        '
-        Me.finwidth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.finwidth.DataPropertyName = "Fwidth"
-        Me.finwidth.HeaderText = "Finished Width"
-        Me.finwidth.MinimumWidth = 130
-        Me.finwidth.Name = "finwidth"
-        Me.finwidth.ReadOnly = True
-        '
-        'Shadeid
-        '
-        Me.Shadeid.DataPropertyName = "Shadeid"
-        Me.Shadeid.HeaderText = "Shadeid"
-        Me.Shadeid.Name = "Shadeid"
-        Me.Shadeid.ReadOnly = True
-        Me.Shadeid.Visible = False
-        '
-        'Shadedesc
-        '
-        Me.Shadedesc.DataPropertyName = "Shadedesc"
-        Me.Shadedesc.HeaderText = "Shadede"
-        Me.Shadedesc.Name = "Shadedesc"
-        Me.Shadedesc.ReadOnly = True
-        Me.Shadedesc.Width = 140
-        '
-        'Qtyroll
-        '
-        Me.Qtyroll.DataPropertyName = "Qtyroll"
-        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Qtyroll.DefaultCellStyle = DataGridViewCellStyle20
-        Me.Qtyroll.FillWeight = 255.8376!
-        Me.Qtyroll.HeaderText = "QTY(Rolls/พับ)"
-        Me.Qtyroll.Name = "Qtyroll"
-        Me.Qtyroll.ReadOnly = True
-        Me.Qtyroll.Width = 110
-        '
-        'Wgtkg
-        '
-        Me.Wgtkg.DataPropertyName = "Wgtkg"
-        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle21.Format = "N2"
-        Me.Wgtkg.DefaultCellStyle = DataGridViewCellStyle21
-        Me.Wgtkg.HeaderText = "QTY(KG)"
-        Me.Wgtkg.Name = "Wgtkg"
-        Me.Wgtkg.ReadOnly = True
-        '
-        'Dlvroll
-        '
-        Me.Dlvroll.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Dlvroll.DataPropertyName = "Dlvroll"
-        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Dlvroll.DefaultCellStyle = DataGridViewCellStyle22
-        Me.Dlvroll.HeaderText = "ยอดส่ง/พับ"
-        Me.Dlvroll.MinimumWidth = 100
-        Me.Dlvroll.Name = "Dlvroll"
-        Me.Dlvroll.ReadOnly = True
-        '
-        'Havedoz
-        '
-        Me.Havedoz.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Havedoz.DataPropertyName = "Havedoz"
-        Me.Havedoz.HeaderText = "สถานะ"
-        Me.Havedoz.Name = "Havedoz"
-        Me.Havedoz.ReadOnly = True
-        Me.Havedoz.Visible = False
-        '
-        'Knitcomno
-        '
-        Me.Knitcomno.DataPropertyName = "Knitcomno"
-        Me.Knitcomno.HeaderText = "Knitcomno"
-        Me.Knitcomno.Name = "Knitcomno"
-        Me.Knitcomno.ReadOnly = True
-        Me.Knitcomno.Visible = False
         '
         'Formfabjobcontrol
         '
