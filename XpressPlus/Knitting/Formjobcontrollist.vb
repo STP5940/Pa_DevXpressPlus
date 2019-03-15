@@ -46,11 +46,15 @@
     End Sub
     Private Sub Bindingmaster()
         Tmaster = New DataTable
-        Tmaster = SQLCommand($"SELECT Jobno,Custname
-                                      FROM Tjobcontrolxp
-                                      LEFT OUTER JOIN Tcustomersxp
-	                                       ON Tjobcontrolxp.Custid = Tcustomersxp.Custid AND Tjobcontrolxp.Comid = Tcustomersxp.Comid
-                                      WHERE Tjobcontrolxp.Comid = '{Gscomid}' AND Tjobcontrolxp.Sstatus = '1'")
+        Tmaster = SQLCommand($"SELECT DISTINCT Tjobcontroldetxp.Jobno, Tcustomersxp.Custname
+                                      FROM Tjobcontrolxp 
+                               LEFT OUTER JOIN Tcustomersxp 
+                                      ON Tjobcontrolxp.Custid = Tcustomersxp.Custid AND Tjobcontrolxp.Comid = Tcustomersxp.Comid 
+                               LEFT OUTER JOIN Tjobcontroldetxp 
+                                      ON Tjobcontrolxp.Jobno = Tjobcontroldetxp.Jobno AND Tjobcontrolxp.Comid = Tjobcontroldetxp.Comid 
+                               LEFT OUTER JOIN Tknittcomdetxp 
+                                      ON Tjobcontroldetxp.Comid = Tknittcomdetxp.Comid AND Tjobcontroldetxp.Knitcomno = Tknittcomdetxp.Knitcomno
+                               WHERE (dbo.Tjobcontroldetxp.Knitcomno = '') AND (Tjobcontrolxp.Comid = '{Gscomid}') AND (Tjobcontrolxp.Sstatus = '1')")
         Dgvmas.DataSource = Tmaster
         Bindingdetails()
     End Sub
@@ -59,15 +63,17 @@
             Exit Sub
         End If
         Tdetails = New DataTable
-        Tdetails = SQLCommand($"SELECT Tjobcontroldetxp.Comid, Tjobcontroldetxp.Jobno, Tjobcontroldetxp.Ord, 
-                                       Tjobcontroldetxp.Clothid, Tclothxp.Clothno, Tjobcontroldetxp.Qtyroll, 
-                                       Tjobcontroldetxp.Wgtkg, Tjobcontroldetxp.Finwgt, Tjobcontroldetxp.Dozen, 
-                                       Tjobcontroldetxp.Dlvroll, Tjobcontroldetxp.Remainroll, Tclothxp.Ftype, 
-                                       Tclothxp.Fwidth, Tclothxp.Havedoz
-					            FROM dbo.Tjobcontroldetxp 
-					            LEFT OUTER JOIN dbo.Tclothxp 
-					                 ON dbo.Tjobcontroldetxp.Clothid = dbo.Tclothxp.Clothid AND dbo.Tjobcontroldetxp.Comid = dbo.Tclothxp.Comid
-					            WHERE Tjobcontroldetxp.Comid = '{Gscomid}' AND Tjobcontroldetxp.Jobno = '{Dgvmas.CurrentRow.Cells("Jobno").Value}'")
+        Tdetails = SQLCommand($"SELECT Tjobcontroldetxp.Comid, Tjobcontroldetxp.Jobno, Tjobcontroldetxp.Clothid, Tclothxp.Clothno, SUM(Tjobcontroldetxp.Qtyroll) AS Qtyroll, 
+                                       SUM(Tjobcontroldetxp.Wgtkg) As Wgtkg, Tjobcontroldetxp.Finwgt, Tjobcontroldetxp.Dozen, 
+                                       Tjobcontroldetxp.Dlvroll, SUM(Tjobcontroldetxp.Remainroll) AS Remainroll, Tclothxp.Ftype, 
+                                       Tclothxp.Fwidth, Tclothxp.Havedoz, Tjobcontroldetxp.Knitcomno
+                                FROM dbo.Tjobcontroldetxp 
+                                LEFT OUTER JOIN dbo.Tclothxp 
+                                      ON dbo.Tjobcontroldetxp.Clothid = dbo.Tclothxp.Clothid AND dbo.Tjobcontroldetxp.Comid = dbo.Tclothxp.Comid
+                                      WHERE Tjobcontroldetxp.Comid = '{Gscomid}' AND Tjobcontroldetxp.Jobno = '{Dgvmas.CurrentRow.Cells("Jobno").Value}' AND Knitcomno = ''
+                                GROUP BY Tjobcontroldetxp.Comid, Tjobcontroldetxp.Jobno, Tjobcontroldetxp.Clothid, Tclothxp.Clothno,
+        	                             Tjobcontroldetxp.Finwgt, Tjobcontroldetxp.Dozen, Tjobcontroldetxp.Dlvroll, Tclothxp.Ftype, 
+        	                             Tclothxp.Fwidth, Tclothxp.Havedoz, Tjobcontroldetxp.Knitcomno")
         Dgvlist.DataSource = Tdetails
     End Sub
     Private Sub Filtermastergrid()

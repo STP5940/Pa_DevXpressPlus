@@ -35,6 +35,8 @@ Partial Class Formshadelist
         Me.Btmsearch = New System.Windows.Forms.ToolStripButton()
         Me.Tbkeyword = New System.Windows.Forms.ToolStripTextBox()
         Me.Tbcancel = New System.Windows.Forms.ToolStripTextBox()
+        Me.Tbknitcomno = New System.Windows.Forms.ToolStripTextBox()
+        Me.Tbclothid = New System.Windows.Forms.ToolStripTextBox()
         Me.Btcancel = New DevComponents.DotNetBar.ButtonX()
         Me.Btok = New DevComponents.DotNetBar.ButtonX()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
@@ -140,7 +142,7 @@ Partial Class Formshadelist
         'ToolStrip1
         '
         Me.ToolStrip1.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btmsearch, Me.Tbkeyword, Me.Tbcancel})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Btmsearch, Me.Tbkeyword, Me.Tbcancel, Me.Tbknitcomno, Me.Tbclothid})
         Me.ToolStrip1.Location = New System.Drawing.Point(1, 1)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(382, 49)
@@ -172,6 +174,18 @@ Partial Class Formshadelist
         Me.Tbcancel.Name = "Tbcancel"
         Me.Tbcancel.Size = New System.Drawing.Size(25, 49)
         Me.Tbcancel.Visible = False
+        '
+        'Tbknitcomno
+        '
+        Me.Tbknitcomno.Name = "Tbknitcomno"
+        Me.Tbknitcomno.Size = New System.Drawing.Size(25, 49)
+        Me.Tbknitcomno.Visible = False
+        '
+        'Tbclothid
+        '
+        Me.Tbclothid.Name = "Tbclothid"
+        Me.Tbclothid.Size = New System.Drawing.Size(25, 49)
+        Me.Tbclothid.Visible = False
         '
         'Btcancel
         '
@@ -237,4 +251,6 @@ Partial Class Formshadelist
     Friend WithEvents Mcomid As DataGridViewTextBoxColumn
     Friend WithEvents Mid As DataGridViewTextBoxColumn
     Friend WithEvents Mname As DataGridViewTextBoxColumn
+    Friend WithEvents Tbknitcomno As ToolStripTextBox
+    Friend WithEvents Tbclothid As ToolStripTextBox
 End Class

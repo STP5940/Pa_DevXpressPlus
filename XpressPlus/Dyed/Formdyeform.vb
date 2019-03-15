@@ -448,6 +448,8 @@ Public Class Formdyeform
     End Sub
     Private Sub Btfindshade_Click(sender As Object, e As EventArgs) Handles Btfindshade.Click
         Dim Frm As New Formshadelist
+        Frm.Tbknitcomno.Text = Tbknitcomno.Text
+        Frm.Tbclothid.Text = Tbclothid.Text
         Showdiaformcenter(Frm, Me)
         If Frm.Tbcancel.Text = "C" Then
             Exit Sub

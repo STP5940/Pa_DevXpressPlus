@@ -81,8 +81,13 @@ Public Class Formknittingform
         Tbfinwgt.Enabled = True
         QtyrollOrder.Enabled = True
         WgtKgOrder.Enabled = True
-        Btdadd.Enabled = True
-        Btdcancel.Enabled = True
+        If Tbjobcontrol.Text = "" Then
+            Btdadd.Enabled = True
+            Btdcancel.Enabled = True
+        Else
+            Btdadd.Enabled = False
+            Btdcancel.Enabled = False
+        End If
         BindingNavigator1.Enabled = False
         Mainbuttonaddedit()
         If Cbfromgsc.Checked = True Then
@@ -100,6 +105,7 @@ Public Class Formknittingform
         If Confirmdelete() = True Then
             Deldetails(Trim(Tbknitcomno.Text))
             SQLCommand("DELETE FROM Tknittcomxp WHERE Comid = '" & Gscomid & "' AND Knitcomno = '" & Trim(Tbknitcomno.Text) & "'")
+            Upddetailsjob("D", Trim(Tbjobcontrol.Text))
             Clrdgrid()
             Clrtxtbox()
             BindingYanlist()
@@ -860,6 +866,10 @@ Public Class Formknittingform
             Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Havedoz").Value = frm.Dgvlist.Rows(i).Cells("Havedoz").Value
         Next
         Btdbadd_Click(sender, e)
+        Btdbadd.Enabled = False
+        Btdedit.Enabled = False
+        Btddel.Enabled = False
+        GroupPanel2.Visible = False
         Sumall()
     End Sub
 
@@ -1193,6 +1203,7 @@ Checkloop:
         SQLCommand("UPDATE Tdocprexp SET Lvalue = '" & Trim(Tbknitcomno.Text).Remove(0, 2) & "',Updusr = '" & Gsuserid & "',Uptype = 'E',Uptime = '" & Formatdatesave(Now) & "' 
                         WHERE  Comid = '" & Gscomid & "' AND Docid = '" & Tstbdocpreid.Text & "' AND Prefix = '" & Trim(Tstbdocpre.Text) & "'")
         Upddetails("A")
+        Upddetailsjob("A", Trim(Tbjobcontrol.Text))
         If Gsusername = "SUPHATS" Then
         Else
             Insertlog(Gscomid, Gsusergroupid, Gsuserid, Gsusername, "F121", Trim(Tbknitcomno.Text), "A", "สร้างรายการ ใบสั่งทอ", Formatdatesave(Now), Computername, Usrproname)
@@ -1293,6 +1304,27 @@ Checkloop:
         Frm.Close()
         ProgressBarX1.Text = "Ready"
         ProgressBarX1.Value = 0
+    End Sub
+    Private Sub Upddetailsjob(Etype As String, Jobno As String)
+        If Jobno <> "" Then
+            Dim Tclothid As String
+
+            Select Case Etype
+                Case "A"
+                    For I = 0 To Dgvmas.RowCount - 1
+                        Tclothid = Trim(Dgvmas.Rows(I).Cells("Mclothid").Value)
+                        SQLCommand($"UPDATE Tjobcontroldetxp SET Knitcomno = '{Tbknitcomno.Text}' WHERE Jobno = '{Jobno}' AND Knitcomno = '' AND Clothid = '{Tclothid}' ")
+                    Next
+                Case "D"
+                    For I = 0 To Dgvmas.RowCount - 1
+                        Tclothid = Trim(Dgvmas.Rows(I).Cells("Mclothid").Value)
+                        SQLCommand($"UPDATE Tjobcontroldetxp SET Knitcomno = '' WHERE Jobno = '{Jobno}' AND Knitcomno = '{Tbknitcomno.Text}' AND Clothid = '{Tclothid}' ")
+                    Next
+                Case Else
+                    Informmessage("เกิดข้อผิดพลาดในการ Update Detail Job โปรดติดต่อ Admin")
+            End Select
+
+        End If
     End Sub
     Private Sub UpddetailsOther(Etype As String)
         'MsgBox(Trim(Tbyarnid.Text))
@@ -1582,11 +1614,19 @@ Checkloop:
         Dgvmas.Enabled = True
     End Sub
     Private Sub Enabledbutton()
-        Btdedit.Enabled = True
-        Btddel.Enabled = True
         Ctdedit.Enabled = True
         Ctddel.Enabled = True
-        Btdbadd.Enabled = True
+
+        If Tbjobcontrol.Text = "" Then
+            Btdedit.Enabled = True
+            Btddel.Enabled = True
+            Btdbadd.Enabled = True
+        Else
+            Btdedit.Enabled = False
+            Btddel.Enabled = False
+            Btdbadd.Enabled = False
+        End If
+
     End Sub
 
     Private Sub NewBtn()

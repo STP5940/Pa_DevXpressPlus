@@ -36,13 +36,6 @@ Partial Class Formfabfollow
         Me.TabControlPanel2 = New DevComponents.DotNetBar.TabControlPanel()
         Me.GroupPanel3 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Dgvmas = New System.Windows.Forms.DataGridView()
-        Me.ToolStrip3 = New System.Windows.Forms.ToolStrip()
-        Me.ToolStrip8 = New System.Windows.Forms.ToolStrip()
-        Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
-        Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
-        Me.Tbjobno = New Normtextbox.Normtextbox()
-        Me.TabItem2 = New DevComponents.DotNetBar.TabItem(Me.components)
         Me.Ord = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Comid = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Jobno = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -65,6 +58,13 @@ Partial Class Formfabfollow
         Me.Dlvnosale = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Wgtkgsale = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Dlvnocount = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ToolStrip3 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStrip8 = New System.Windows.Forms.ToolStrip()
+        Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
+        Me.Tbjobno = New Normtextbox.Normtextbox()
+        Me.TabItem2 = New DevComponents.DotNetBar.TabItem(Me.components)
         Me.ToolStrip1.SuspendLayout()
         CType(Me.miniToolStrip, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -245,113 +245,6 @@ Partial Class Formfabfollow
         Me.Dgvmas.Size = New System.Drawing.Size(1000, 500)
         Me.Dgvmas.TabIndex = 129
         '
-        'ToolStrip3
-        '
-        Me.ToolStrip3.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStrip3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.ToolStrip3.Location = New System.Drawing.Point(0, 525)
-        Me.ToolStrip3.Name = "ToolStrip3"
-        Me.ToolStrip3.Size = New System.Drawing.Size(1000, 25)
-        Me.ToolStrip3.TabIndex = 128
-        Me.ToolStrip3.Text = "ToolStrip3"
-        '
-        'ToolStrip8
-        '
-        Me.ToolStrip8.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStrip8.Location = New System.Drawing.Point(0, 0)
-        Me.ToolStrip8.Name = "ToolStrip8"
-        Me.ToolStrip8.Size = New System.Drawing.Size(1000, 25)
-        Me.ToolStrip8.TabIndex = 126
-        Me.ToolStrip8.Text = "ToolStrip8"
-        '
-        'GroupPanel1
-        '
-        Me.GroupPanel1.BackColor = System.Drawing.Color.Transparent
-        Me.GroupPanel1.CanvasColor = System.Drawing.Color.Transparent
-        Me.GroupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2013
-        Me.GroupPanel1.Controls.Add(Me.Panel5)
-        Me.GroupPanel1.DisabledBackColor = System.Drawing.Color.Empty
-        Me.GroupPanel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GroupPanel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.GroupPanel1.Location = New System.Drawing.Point(1, 1)
-        Me.GroupPanel1.Name = "GroupPanel1"
-        Me.GroupPanel1.Size = New System.Drawing.Size(1006, 79)
-        '
-        '
-        '
-        Me.GroupPanel1.Style.BackColor = System.Drawing.Color.Transparent
-        Me.GroupPanel1.Style.BackColor2 = System.Drawing.Color.Transparent
-        Me.GroupPanel1.Style.BackColorGradientAngle = 90
-        Me.GroupPanel1.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanel1.Style.BorderBottomWidth = 1
-        Me.GroupPanel1.Style.BorderColor = System.Drawing.Color.Black
-        Me.GroupPanel1.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanel1.Style.BorderLeftWidth = 1
-        Me.GroupPanel1.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanel1.Style.BorderRightWidth = 1
-        Me.GroupPanel1.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanel1.Style.BorderTopWidth = 1
-        Me.GroupPanel1.Style.CornerDiameter = 4
-        Me.GroupPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
-        Me.GroupPanel1.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
-        Me.GroupPanel1.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
-        Me.GroupPanel1.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
-        '
-        '
-        '
-        Me.GroupPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.GroupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.GroupPanel1.TabIndex = 175
-        Me.GroupPanel1.Text = "ข้อมูล job controls"
-        '
-        'Panel5
-        '
-        Me.Panel5.BackColor = System.Drawing.Color.Transparent
-        Me.Panel5.Controls.Add(Me.LabelX2)
-        Me.Panel5.Controls.Add(Me.Tbjobno)
-        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel5.Location = New System.Drawing.Point(0, 0)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(1000, 56)
-        Me.Panel5.TabIndex = 89
-        '
-        'LabelX2
-        '
-        Me.LabelX2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.LabelX2.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.LabelX2.Location = New System.Drawing.Point(749, 14)
-        Me.LabelX2.Name = "LabelX2"
-        Me.LabelX2.Size = New System.Drawing.Size(81, 23)
-        Me.LabelX2.TabIndex = 41
-        Me.LabelX2.Text = "เลขที่เอกสาร"
-        '
-        'Tbjobno
-        '
-        Me.Tbjobno.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Tbjobno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Tbjobno.Enabled = False
-        Me.Tbjobno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Tbjobno.Location = New System.Drawing.Point(834, 15)
-        Me.Tbjobno.MaxLength = 150
-        Me.Tbjobno.Name = "Tbjobno"
-        Me.Tbjobno.Size = New System.Drawing.Size(149, 24)
-        Me.Tbjobno.TabIndex = 40
-        Me.Tbjobno.Text = "NEW"
-        '
-        'TabItem2
-        '
-        Me.TabItem2.AttachedControl = Me.TabControlPanel2
-        Me.TabItem2.Name = "TabItem2"
-        Me.TabItem2.Text = "รายการทั้งหมด"
-        '
         'Ord
         '
         Me.Ord.DataPropertyName = "Ord"
@@ -523,6 +416,113 @@ Partial Class Formfabfollow
         Me.Dlvnocount.HeaderText = "ขายผ้ารวม"
         Me.Dlvnocount.Name = "Dlvnocount"
         Me.Dlvnocount.ReadOnly = True
+        '
+        'ToolStrip3
+        '
+        Me.ToolStrip3.BackColor = System.Drawing.Color.Transparent
+        Me.ToolStrip3.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.ToolStrip3.Location = New System.Drawing.Point(0, 525)
+        Me.ToolStrip3.Name = "ToolStrip3"
+        Me.ToolStrip3.Size = New System.Drawing.Size(1000, 25)
+        Me.ToolStrip3.TabIndex = 128
+        Me.ToolStrip3.Text = "ToolStrip3"
+        '
+        'ToolStrip8
+        '
+        Me.ToolStrip8.BackColor = System.Drawing.Color.Transparent
+        Me.ToolStrip8.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip8.Name = "ToolStrip8"
+        Me.ToolStrip8.Size = New System.Drawing.Size(1000, 25)
+        Me.ToolStrip8.TabIndex = 126
+        Me.ToolStrip8.Text = "ToolStrip8"
+        '
+        'GroupPanel1
+        '
+        Me.GroupPanel1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupPanel1.CanvasColor = System.Drawing.Color.Transparent
+        Me.GroupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2013
+        Me.GroupPanel1.Controls.Add(Me.Panel5)
+        Me.GroupPanel1.DisabledBackColor = System.Drawing.Color.Empty
+        Me.GroupPanel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GroupPanel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.GroupPanel1.Location = New System.Drawing.Point(1, 1)
+        Me.GroupPanel1.Name = "GroupPanel1"
+        Me.GroupPanel1.Size = New System.Drawing.Size(1006, 79)
+        '
+        '
+        '
+        Me.GroupPanel1.Style.BackColor = System.Drawing.Color.Transparent
+        Me.GroupPanel1.Style.BackColor2 = System.Drawing.Color.Transparent
+        Me.GroupPanel1.Style.BackColorGradientAngle = 90
+        Me.GroupPanel1.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel1.Style.BorderBottomWidth = 1
+        Me.GroupPanel1.Style.BorderColor = System.Drawing.Color.Black
+        Me.GroupPanel1.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel1.Style.BorderLeftWidth = 1
+        Me.GroupPanel1.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel1.Style.BorderRightWidth = 1
+        Me.GroupPanel1.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel1.Style.BorderTopWidth = 1
+        Me.GroupPanel1.Style.CornerDiameter = 4
+        Me.GroupPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
+        Me.GroupPanel1.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
+        Me.GroupPanel1.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
+        Me.GroupPanel1.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
+        '
+        '
+        '
+        Me.GroupPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.GroupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.GroupPanel1.TabIndex = 175
+        Me.GroupPanel1.Text = "ข้อมูล job controls"
+        '
+        'Panel5
+        '
+        Me.Panel5.BackColor = System.Drawing.Color.Transparent
+        Me.Panel5.Controls.Add(Me.LabelX2)
+        Me.Panel5.Controls.Add(Me.Tbjobno)
+        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel5.Location = New System.Drawing.Point(0, 0)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(1000, 56)
+        Me.Panel5.TabIndex = 89
+        '
+        'LabelX2
+        '
+        Me.LabelX2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LabelX2.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.LabelX2.Location = New System.Drawing.Point(749, 14)
+        Me.LabelX2.Name = "LabelX2"
+        Me.LabelX2.Size = New System.Drawing.Size(81, 23)
+        Me.LabelX2.TabIndex = 41
+        Me.LabelX2.Text = "เลขที่เอกสาร"
+        '
+        'Tbjobno
+        '
+        Me.Tbjobno.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Tbjobno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Tbjobno.Enabled = False
+        Me.Tbjobno.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Tbjobno.Location = New System.Drawing.Point(834, 15)
+        Me.Tbjobno.MaxLength = 150
+        Me.Tbjobno.Name = "Tbjobno"
+        Me.Tbjobno.Size = New System.Drawing.Size(149, 24)
+        Me.Tbjobno.TabIndex = 40
+        Me.Tbjobno.Text = "NEW"
+        '
+        'TabItem2
+        '
+        Me.TabItem2.AttachedControl = Me.TabControlPanel2
+        Me.TabItem2.Name = "TabItem2"
+        Me.TabItem2.Text = "รายการทั้งหมด"
         '
         'Formfabfollow
         '

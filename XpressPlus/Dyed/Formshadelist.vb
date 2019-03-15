@@ -46,6 +46,24 @@
     End Sub
     Private Sub Bindingmaster()
         Tmaster = New DataTable
+
+        If Tbknitcomno.Text <> "" Then
+            Dim shadeinjob = SQLCommand($"SELECT DISTINCT '' AS Stat,dbo.Tjobcontroldetxp.Shadeid, dbo.Tshadexp.Shadedesc
+	                                             FROM dbo.Tshadexp 
+				                                 RIGHT OUTER JOIN Tjobcontroldetxp 
+				                                    ON Tshadexp.Shadeid = Tjobcontroldetxp.Shadeid AND Tshadexp.Comid = Tjobcontroldetxp.Comid 
+			                                     RIGHT OUTER JOIN dbo.Vsumsale 
+				                                    ON dbo.Tjobcontroldetxp.Comid = dbo.Vsumsale.Comid AND dbo.Tjobcontroldetxp.Jobno = dbo.Vsumsale.Jobno AND 
+				                                    dbo.Tjobcontroldetxp.Clothid = dbo.Vsumsale.Clothid
+                                             WHERE (dbo.Vsumsale.Knitcomno = '{Tbknitcomno.Text}') AND (dbo.Vsumsale.Comid = '{Gscomid}') 
+                                                   AND (dbo.Vsumsale.Jobno <> '') AND (Vsumsale.Clothid = '{Tbclothid.Text}') AND Tjobcontroldetxp.Knitcomno = '{Tbknitcomno.Text}' ")
+
+            If shadeinjob.Rows.Count > 0 AndAlso shadeinjob(0)("Shadeid").ToString <> "" Then
+                Dgvmas.DataSource = shadeinjob
+                Exit Sub
+            End If
+        End If
+
         Tmaster = SQLCommand("SELECT '' AS Stat,Comid,Shadeid,Shadedesc FROM Tshadexp
                                 WHERE Comid = '" & Gscomid & "' AND Sstatus = '1' AND Sactive = '1'")
         Dgvmas.DataSource = Tmaster

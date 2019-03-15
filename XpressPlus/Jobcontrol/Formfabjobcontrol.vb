@@ -63,10 +63,10 @@ Public Class Formfabjobcontrol
             Exit Sub
         End If
         If Confirmdelete() = True Then
-            'SQLCommand("DELETE FROM Tjobcontroldetxp
-            '            WHERE Comid = '" & Gscomid & "' AND Jobno = '" & Trim(Tbjobno.Text) & "'") ' ถ้าลบไม่ลบรายละเอียด
-            SQLCommand("UPDATE Tjobcontrolxp SET Sstatus = '0',Updusr = '" & Gsuserid & "',Uptype = 'D',Uptime = '" & Formatdatesave(Now) & "'
-                        WHERE Comid = '" & Gscomid & "' AND Jobno = '" & Trim(Tbjobno.Text) & "'")
+            SQLCommand("DELETE FROM Tjobcontrolxp
+                        WHERE Comid = '" & Gscomid & "' AND Jobno = '" & Trim(Tbjobno.Text) & "'") ' ลบหัว
+            'SQLCommand("UPDATE Tjobcontrolxp SET Sstatus = '0',Updusr = '" & Gsuserid & "',Uptype = 'D',Uptime = '" & Formatdatesave(Now) & "'
+            '            WHERE Comid = '" & Gscomid & "' AND Jobno = '" & Trim(Tbjobno.Text) & "'")
             Insertlog(Gscomid, Gsusergroupid, Gsuserid, Gsusername, $"{Me.Tag}", Trim(Tbjobno.Text), "D", "ลบรายการ job control ", Formatdatesave(Now), Computername, Usrproname)
             Clrtextmaster()
             Clrgridmaster()
@@ -347,7 +347,7 @@ Public Class Formfabjobcontrol
         Dim Frm As New Formwaitdialoque
         Frm.Show()
         Dim Tmord As Integer
-        Dim Tclothid, TFinwgt, TDozen, Tshade As String
+        Dim Tclothid, TFinwgt, TDozen, Tshade, TKnitcomno As String
         Dim Tqtyroll As Integer
         Dim Twgtkg As Double
         For I = 0 To Dgvmas.RowCount - 1
@@ -358,13 +358,14 @@ Public Class Formfabjobcontrol
             TFinwgt = Trim(Dgvmas.Rows(I).Cells("Finwgt").Value.ToString)
             TDozen = Trim(Dgvmas.Rows(I).Cells("Dozen").Value.ToString)
             Tshade = Trim(Dgvmas.Rows(I).Cells("Shadeid").Value.ToString)
+            TKnitcomno = Trim(Dgvmas.Rows(I).Cells("Knitcomno").Value.ToString)
 
-            SQLCommand($"INSERT INTO Tjobcontroldetxp(Comid,Jobno,Ord,Clothid,
-                        Shadeid,Qtyroll,Wgtkg,Finwgt,Dozen,Dlvroll,Remainroll,
-                    Updusr,Uptype,Uptime)
+            SQLCommand($"INSERT INTO Tjobcontroldetxp(Comid, Jobno, Ord, Clothid,
+                        Shadeid, Qtyroll, Wgtkg, Finwgt, Dozen, Dlvroll, Remainroll,
+                    Updusr, Uptype, Uptime, Knitcomno)
                     VALUES('{Gscomid}','{Trim(Tbjobno.Text)}','{Tmord}','{Tclothid}',
                             '{Tshade}','{Tqtyroll}','{Twgtkg}','{TFinwgt}','{TDozen}','0','{Tqtyroll}',
-                            '{Gsuserid}','{Etype}', '{ Formatdatesave(Now)}' )")
+                            '{Gsuserid}','{Etype}', '{Formatdatesave(Now)}', '{TKnitcomno}' )")
 
             ProgressBarX1.Value = ((I + 1) / Dgvmas.Rows.Count) * 100
             ProgressBarX1.Text = "Saving ... " & ProgressBarX1.Value & "%"
@@ -412,7 +413,8 @@ Public Class Formfabjobcontrol
                                        Tjobcontroldetxp.Clothid, Tclothxp.Clothno, Tjobcontroldetxp.Qtyroll, 
                                        Tjobcontroldetxp.Wgtkg, Tjobcontroldetxp.Finwgt, Tjobcontroldetxp.Dozen, 
                                        Tjobcontroldetxp.Dlvroll, Tjobcontroldetxp.Remainroll, Tclothxp.Ftype, 
-                                       Tclothxp.Fwidth, Tjobcontroldetxp.Shadeid, Shadedesc, Tclothxp.Havedoz
+                                       Tclothxp.Fwidth, Tjobcontroldetxp.Shadeid, Shadedesc, Tclothxp.Havedoz, 
+                                       Tjobcontroldetxp.Knitcomno
 					            FROM dbo.Tjobcontroldetxp 
 					            LEFT OUTER JOIN dbo.Tclothxp 
 					                 ON dbo.Tjobcontroldetxp.Clothid = dbo.Tclothxp.Clothid AND dbo.Tjobcontroldetxp.Comid = dbo.Tclothxp.Comid
@@ -643,10 +645,16 @@ Showformadd:
             Exit Sub
         End If
 
+        If Countdatagrid(Dgvmas, "Clothid", Trim(frm.Tbclothid.Text)) = 1 AndAlso Countdatagrid(Dgvmas, "Finwgt", Trim(frm.Tbfinwgt.Text)) = 0 Then
+            Informmessage("ผ้าประเภทเดียวกันต้องมี Finished Weigth เหมือนกัน")
+            GoTo Showformadd
+        End If
+
         If Countdatagrid(Dgvmas, "Clothid", Trim(frm.Tbclothid.Text)) = 1 AndAlso Countdatagrid(Dgvmas, "Shadeid", Trim(frm.Tbshadeid.Text)) = 1 Then
             Informmessage("ไม่สามารถเพิ่มรายการผ้าที่มีประเภทและสีเดียวกันได้")
             GoTo Showformadd
         End If
+
 
         If Tbjobno.Text = "NEW" Then
             Dgvmas.Rows.Add()
@@ -665,6 +673,7 @@ Showformadd:
         Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Qtyroll").Value = CLng(frm.Tbqtyroll.Text)
         Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Wgtkg").Value = CDbl(frm.TbwgtKg.Text)
         Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Havedoz").Value = CLng(frm.Havedoz)
+        Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Knitcomno").Value = ""
         Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dlvroll").Value = 0
         Countrows()
     End Sub
@@ -711,6 +720,11 @@ Showformedit:
         Showdiaformcenter(frm, Me)
         If frm.Tbcancel.Text = "C" Then
             Exit Sub
+        End If
+
+        If Countdatagrid(Dgvmas, "Clothid", Trim(frm.Tbclothid.Text), "Edit") = 1 AndAlso Countdatagrid(Dgvmas, "Finwgt", Trim(frm.Tbfinwgt.Text), "Edit") = 0 Then
+            Informmessage("ผ้าประเภทเดียวกันต้องมี Finished Weigth เหมือนกัน")
+            GoTo Showformedit
         End If
 
         If Countdatagrid(Dgvmas, "Clothid", Trim(frm.Tbclothid.Text), "Edit") = 1 AndAlso Countdatagrid(Dgvmas, "Shadeid", Trim(frm.Tbshadeid.Text), "Edit") = 1 Then
