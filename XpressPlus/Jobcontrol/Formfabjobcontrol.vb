@@ -26,7 +26,7 @@ Public Class Formfabjobcontrol
         Dgvmas.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
         Dgvlist.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
         Dgvlist.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
-        Setauthorize()
+        'Setauthorize()
         Retdocprefix()
         Bindinglist()
         Disbaledbutton()
@@ -45,9 +45,14 @@ Public Class Formfabjobcontrol
         Countrows()
     End Sub
     Private Sub Btmedit_Click(sender As Object, e As EventArgs) Handles Btmedit.Click
+        If Trim(Tbjobclose.Text) Then
+            Informmessage("รายการถูกปิดการแก้ไขเนื้องจากส่งของครบแล้ว")
+            Exit Sub
+        End If
         If TabControl1.SelectedTabIndex = 0 Then
             Exit Sub
         End If
+
         BindingNavigator1.Enabled = False
         Mainbuttonaddedit()
         Countrows()
@@ -63,10 +68,13 @@ Public Class Formfabjobcontrol
             Exit Sub
         End If
         If Confirmdelete() = True Then
-            SQLCommand("DELETE FROM Tjobcontrolxp
-                        WHERE Comid = '" & Gscomid & "' AND Jobno = '" & Trim(Tbjobno.Text) & "'") ' ลบหัว
-            'SQLCommand("UPDATE Tjobcontrolxp SET Sstatus = '0',Updusr = '" & Gsuserid & "',Uptype = 'D',Uptime = '" & Formatdatesave(Now) & "'
-            '            WHERE Comid = '" & Gscomid & "' AND Jobno = '" & Trim(Tbjobno.Text) & "'")
+            SQLCommand("-- Delete detail
+                        DELETE FROM Tjobcontroldetxp
+                               WHERE Comid = '" & Gscomid & "' AND Jobno = '" & Trim(Tbjobno.Text) & "'
+                        -- Update header status to 0
+                        UPDATE Tjobcontrolxp SET Sstatus = '0',Updusr = '" & Gsuserid & "',
+                               Uptype = 'D',Uptime = '" & Formatdatesave(Now) & "'
+                               WHERE Comid = '" & Gscomid & "' AND Jobno = '" & Trim(Tbjobno.Text) & "'")
             Insertlog(Gscomid, Gsusergroupid, Gsuserid, Gsusername, $"{Me.Tag}", Trim(Tbjobno.Text), "D", "ลบรายการ job control ", Formatdatesave(Now), Computername, Usrproname)
             Clrtextmaster()
             Clrgridmaster()
@@ -394,6 +402,8 @@ Public Class Formfabjobcontrol
             Tbcustid.Text = Tmaster.Rows(0)("Custid")
             Tbcustname.Text = Tmaster.Rows(0)("Custname")
             Dtpdate.Value = Tmaster.Rows(0)("Jobdate")
+            Tbjobclose.Text = Tmaster.Rows(0)("Jobclose")
+
             Dim Tyear, Tmonth As Integer
             Dim Tmontstr As String
             Tyear = CInt(Trim(Tmaster.Rows(0)("Atperiod")).ToString.Substring(0, 2)) + 2000
@@ -409,7 +419,6 @@ Public Class Formfabjobcontrol
         End If
     End Sub
     Private Sub Bindjobdetailslist()
-        Updatesale(Trim(Tbjobno.Text))
         Tdetails = New DataTable
         Tdetails = SQLCommand($"SELECT Tjobcontroldetxp.Comid, Tjobcontroldetxp.Jobno, Tjobcontroldetxp.Ord, 
                                        Tjobcontroldetxp.Clothid, Tclothxp.Clothno, Tjobcontroldetxp.Qtyroll, 
@@ -427,11 +436,12 @@ Public Class Formfabjobcontrol
         Findsumamt()
     End Sub
 
-    Private Sub Updatesale(Tbjobno As String)
+    Friend Sub Updatesale(Tbjobno As String)
 
-        Dim CahsUpdate As DataTable
+        Dim CahsUpdate, Updateclosejob As DataTable
+        Dim Sumremainroll As Integer = 0
         CahsUpdate = SQLCommand($"SELECT Tjobcontroldetxp.Comid, Tjobcontroldetxp.Jobno, Tjobcontroldetxp.Clothid, Tjobcontroldetxp.Shadeid, 
-                                         Tjobcontroldetxp.Knitcomno
+                                         Tjobcontroldetxp.Knitcomno, Tjobcontroldetxp.Remainroll
                                   FROM dbo.Tjobcontroldetxp 
 					              LEFT OUTER JOIN dbo.Tclothxp 
 					                   ON dbo.Tjobcontroldetxp.Clothid = dbo.Tclothxp.Clothid AND dbo.Tjobcontroldetxp.Comid = dbo.Tclothxp.Comid
@@ -441,9 +451,9 @@ Public Class Formfabjobcontrol
 
         For i = 0 To CahsUpdate.Rows.Count - 1
             Dim TKnitcomno, TShadeid, TClothid As String
-            TKnitcomno = CahsUpdate(i)("Knitcomno")
-            TShadeid = CahsUpdate(i)("Shadeid")
-            TClothid = CahsUpdate(i)("Clothid")
+            TKnitcomno = CahsUpdate(i)("Knitcomno").ToString
+            TShadeid = CahsUpdate(i)("Shadeid").ToString
+            TClothid = CahsUpdate(i)("Clothid").ToString
 
             SQLCommand($"UPDATE Tjobcontroldetxp SET Dlvroll = ( 
 
@@ -467,6 +477,15 @@ Public Class Formfabjobcontrol
                       )  WHERE  Comid = '{Gscomid}' AND Knitcomno = '{TKnitcomno}' AND Clothid = '{TClothid}' AND Shadeid = '{TShadeid}'")
         Next
 
+        Updateclosejob = SQLCommand($"SELECT Remainroll FROM Tjobcontroldetxp WHERE Comid = '{Gscomid}' AND Jobno = '{Tbjobno}' ")
+        For i = 0 To Updateclosejob.Rows.Count - 1
+            Sumremainroll += Updateclosejob(i)("Remainroll").ToString
+        Next
+        If Sumremainroll = 0 Then
+            SQLCommand($"UPDATE Tjobcontrolxp SET Jobclose = '1' WHERE Comid = '{Gscomid}' AND Jobno = '{Tbjobno}' ")
+        Else
+            SQLCommand($"UPDATE Tjobcontrolxp SET Jobclose = '0' WHERE Comid = '{Gscomid}' AND Jobno = '{Tbjobno}' ")
+        End If
     End Sub
     Private Sub Retdocprefix()
         Dim Tdocpre = New DataTable
@@ -593,6 +612,7 @@ Public Class Formfabjobcontrol
     Private Sub Clrtextmaster()
         Tbcustid.Text = ""
         Tbcustname.Text = ""
+        Tbjobclose.Text = ""
         Tbjobno.Text = "NEW"
         Dtpdate.Value = Now
         Dtpgenid.Value = Now
@@ -726,6 +746,7 @@ Showformadd:
         Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Havedoz").Value = CLng(frm.Havedoz)
         Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Knitcomno").Value = ""
         Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Dlvroll").Value = 0
+        Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Remainroll").Value = 0
         Countrows()
     End Sub
 

@@ -87,6 +87,7 @@ Public Class Formsalefabric
         Else
             Editdoc()
         End If
+        Updatejobcontrol() ' Save sale
         Tsbwsave.Visible = False
         Btmreports_Click(sender, e)
         Btdcancel_Click(sender, e)
@@ -102,6 +103,7 @@ Public Class Formsalefabric
         Mainbuttoncancel()
         Settypeyend("Clear")
     End Sub
+
     Private Sub Btmdel_Click(sender As Object, e As EventArgs) Handles Btmdel.Click
         If Trim(Tbdlvno.Text) = "NEW" Then
             Exit Sub
@@ -112,6 +114,7 @@ Public Class Formsalefabric
         If Confirmdelete() = True Then
             Settypeyend("Clear")
             Deldetails(Trim(Tbdlvno.Text))
+            Updatejobcontrol() ' Delet sale
             SQLCommand("DELETE FROM Tsalefabcolxp WHERE Comid = '" & Gscomid & "' AND Dlvno = '" & Trim(Tbdlvno.Text) & "'")
             Clrdgrid()
             Clrtxtbox()
@@ -1091,6 +1094,14 @@ Public Class Formsalefabric
         End If
         Return Haveform
     End Function
+    Private Sub Updatejobcontrol()
+        Dim formjob As New Formfabjobcontrol
+        Dim Updatejobcontrol = New DataTable
+        Updatejobcontrol = SQLCommand($"SELECT '' AS Stat,* FROM Vjobcontrol WHERE Comid = '{Gscomid}' AND Sstatus = '1' ")
+        For i = 0 To Updatejobcontrol.Rows.Count - 1
+            formjob.Updatesale(Trim(Updatejobcontrol.Rows(i)("Jobno").ToString))
+        Next
+    End Sub
     Private Sub Sumall()
         Dim Sumdoz, Sumkg, Sumprice As Double
         Sumkg = 0.0
