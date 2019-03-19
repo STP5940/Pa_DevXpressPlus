@@ -21,23 +21,7 @@ Public Class Formfabfollow
 	                               Salewgtkgsum, Dlvnosale, Wgtkgsale, Dlvnocount
                              FROM Vsumsale WHERE (Jobno = '{Tbjobno.Text}') AND (Comid = '{Gscomid}') ")
         Dgvmas.DataSource = Tlist
-
-        Dim Btndel() As Object = {Color.LightSkyBlue, Color.Green, Color.GreenYellow}
-        Dim Knitcomno As String = ""
-        Dim Colors As Integer = 0
-
-        For i = 0 To Dgvmas.RowCount - 1
-            If Colors = 2 Then
-                Colors = 0
-            End If
-            If Dgvmas.Rows(i).Cells("Knitcomno").Value <> Knitcomno Then
-                Colors += 1
-                Knitcomno = Dgvmas.Rows(i).Cells("Knitcomno").Value
-                Dgvmas.Rows(i).DefaultCellStyle.BackColor = Btndel(Colors)
-            Else
-                Dgvmas.Rows(i).DefaultCellStyle.BackColor = Btndel(Colors)
-            End If
-        Next
+        Changecolor()
 
         Dim Ords As Integer = 0
         For i = 0 To Dgvmas.RowCount - 1
@@ -47,11 +31,33 @@ Public Class Formfabfollow
         Frm.Close()
     End Sub
 
+    Private Sub Changecolor()
+        Dim Btndel() As Object = {Color.FromArgb(239, 228, 176), Color.FromArgb(198, 255, 226),
+                                  Color.FromArgb(255, 255, 196), Color.FromArgb(255, 187, 187)}
+
+        Dim Knitcomno As String = ""
+        Dim Colors As Integer = 0
+
+        For i = 0 To Dgvmas.RowCount - 1
+            If Dgvmas.Rows(i).Cells("Knitcomno").Value <> Knitcomno Then
+                Knitcomno = Dgvmas.Rows(i).Cells("Knitcomno").Value
+                Colors += IIf(Colors = Btndel.Count - 1, -(Btndel.Count - 1), 1)
+                Dgvmas.Rows(i).DefaultCellStyle.BackColor = Btndel(Colors)
+            Else
+                Dgvmas.Rows(i).DefaultCellStyle.BackColor = Btndel(Colors)
+            End If
+        Next
+    End Sub
+
     Private Sub Btmclose_Click(sender As Object, e As EventArgs) Handles Btmclose.Click
         Close()
     End Sub
 
     Private Sub Btrefresh_Click(sender As Object, e As EventArgs) Handles Btrefresh.Click
         Bindinglist()
+    End Sub
+
+    Private Sub Dgvmas_ColumnHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles Dgvmas.ColumnHeaderMouseClick
+        Changecolor()
     End Sub
 End Class

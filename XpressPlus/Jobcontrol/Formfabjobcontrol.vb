@@ -26,7 +26,7 @@ Public Class Formfabjobcontrol
         Dgvmas.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
         Dgvlist.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
         Dgvlist.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
-        'Setauthorize()
+        Setauthorize()
         Retdocprefix()
         Bindinglist()
         Disbaledbutton()
@@ -347,7 +347,7 @@ Public Class Formfabjobcontrol
         Dim Frm As New Formwaitdialoque
         Frm.Show()
         Dim Tmord As Integer
-        Dim Tclothid, TFinwgt, TDozen, Tshade, TKnitcomno As String
+        Dim Tclothid, TFinwgt, TDozen, Tshade, TKnitcomno, TDlvroll As String
         Dim Tqtyroll As Integer
         Dim Twgtkg As Double
         For I = 0 To Dgvmas.RowCount - 1
@@ -357,6 +357,7 @@ Public Class Formfabjobcontrol
             Twgtkg = Trim(Dgvmas.Rows(I).Cells("Wgtkg").Value.ToString)
             TFinwgt = Trim(Dgvmas.Rows(I).Cells("Finwgt").Value.ToString)
             TDozen = Trim(Dgvmas.Rows(I).Cells("Dozen").Value.ToString)
+            TDlvroll = Trim(Dgvmas.Rows(I).Cells("Dlvroll").Value.ToString)
             Tshade = Trim(Dgvmas.Rows(I).Cells("Shadeid").Value.ToString)
             TKnitcomno = Trim(Dgvmas.Rows(I).Cells("Knitcomno").Value.ToString)
 
@@ -364,7 +365,7 @@ Public Class Formfabjobcontrol
                         Shadeid, Qtyroll, Wgtkg, Finwgt, Dozen, Dlvroll, Remainroll,
                     Updusr, Uptype, Uptime, Knitcomno)
                     VALUES('{Gscomid}','{Trim(Tbjobno.Text)}','{Tmord}','{Tclothid}',
-                            '{Tshade}','{Tqtyroll}','{Twgtkg}','{TFinwgt}','{TDozen}','0','{Tqtyroll}',
+                            '{Tshade}','{Tqtyroll}','{Twgtkg}','{TFinwgt}','{TDozen}','{TDlvroll}','{Tqtyroll}',
                             '{Gsuserid}','{Etype}', '{Formatdatesave(Now)}', '{TKnitcomno}' )")
 
             ProgressBarX1.Value = ((I + 1) / Dgvmas.Rows.Count) * 100
@@ -408,6 +409,7 @@ Public Class Formfabjobcontrol
         End If
     End Sub
     Private Sub Bindjobdetailslist()
+        Updatesale(Trim(Tbjobno.Text))
         Tdetails = New DataTable
         Tdetails = SQLCommand($"SELECT Tjobcontroldetxp.Comid, Tjobcontroldetxp.Jobno, Tjobcontroldetxp.Ord, 
                                        Tjobcontroldetxp.Clothid, Tclothxp.Clothno, Tjobcontroldetxp.Qtyroll, 
@@ -424,10 +426,52 @@ Public Class Formfabjobcontrol
         Dgvmas.DataSource = Tdetails
         Findsumamt()
     End Sub
+
+    Private Sub Updatesale(Tbjobno As String)
+
+        Dim CahsUpdate As DataTable
+        CahsUpdate = SQLCommand($"SELECT Tjobcontroldetxp.Comid, Tjobcontroldetxp.Jobno, Tjobcontroldetxp.Clothid, Tjobcontroldetxp.Shadeid, 
+                                         Tjobcontroldetxp.Knitcomno
+                                  FROM dbo.Tjobcontroldetxp 
+					              LEFT OUTER JOIN dbo.Tclothxp 
+					                   ON dbo.Tjobcontroldetxp.Clothid = dbo.Tclothxp.Clothid AND dbo.Tjobcontroldetxp.Comid = dbo.Tclothxp.Comid
+							      LEFT OUTER JOIN dbo.Tshadexp 
+									   ON dbo.Tjobcontroldetxp.Comid = dbo.Tshadexp.Comid AND dbo.Tshadexp.Shadeid = dbo.Tjobcontroldetxp.Shadeid
+					              WHERE Tjobcontroldetxp.Comid = '{Gscomid}' AND Tjobcontroldetxp.Jobno = '{Tbjobno}'")
+
+        For i = 0 To CahsUpdate.Rows.Count - 1
+            Dim TKnitcomno, TShadeid, TClothid As String
+            TKnitcomno = CahsUpdate(i)("Knitcomno")
+            TShadeid = CahsUpdate(i)("Shadeid")
+            TClothid = CahsUpdate(i)("Clothid")
+
+            SQLCommand($"UPDATE Tjobcontroldetxp SET Dlvroll = ( 
+
+	                    SELECT IIF(SUM(Dlvnocount) IS NULL,0, SUM(Dlvnocount)) AS Dlvnocount FROM Vsumsale 
+		                      WHERE (Jobno = '{Tbjobno}') AND (Comid = '{Gscomid}') AND  Knitcomno = '{TKnitcomno}' AND
+                              Clothid = '{TClothid}' AND Shadeid = '{TShadeid}'
+		                      --GROUP BY  Comid, Jobno, Clothid, Clothno, Ftype, Dozen, Dlvno, Shadeid, Knitcomno, Qtyroll
+  
+                      ),Remainroll = (
+
+                              (
+                              SELECT Qtyroll FROM Tjobcontroldetxp 
+                                     WHERE (Jobno = '{Tbjobno}') AND (Comid = '{Gscomid}') AND  Knitcomno = '{TKnitcomno}' AND
+                                     Clothid = '{TClothid}' AND Shadeid = '{TShadeid}'
+                              )-(
+                              SELECT IIF(SUM(Dlvnocount) IS NULL,0, SUM(Dlvnocount)) AS Dlvnocount FROM Vsumsale 
+		                             WHERE (Jobno = '{Tbjobno}') AND (Comid = '{Gscomid}') AND  Knitcomno = '{TKnitcomno}' AND
+                                     Clothid = '{TClothid}' AND Shadeid = '{TShadeid}'
+                              )
+  
+                      )  WHERE  Comid = '{Gscomid}' AND Knitcomno = '{TKnitcomno}' AND Clothid = '{TClothid}' AND Shadeid = '{TShadeid}'")
+        Next
+
+    End Sub
     Private Sub Retdocprefix()
         Dim Tdocpre = New DataTable
-        Tdocpre = SQLCommand("SELECT Docid,Prefix FROM Tdocprexp WHERE Comid = '" & Gscomid & "' AND 
-                            Docid = (SELECT Docid FROM Tdocpredetxp WHERE Comid = '" & Gscomid & "' AND Mid = '" & Trim(Me.Tag) & "')")
+        Tdocpre = SQLCommand("Select Docid, Prefix FROM Tdocprexp WHERE Comid = '" & Gscomid & "' AND 
+        Docid = (SELECT Docid FROM Tdocpredetxp WHERE Comid = '" & Gscomid & "' AND Mid = '" & Trim(Me.Tag) & "')")
         If Tdocpre.Rows.Count > 0 Then
             Tstbdocpreid.Text = Trim(Tdocpre.Rows(0)("Docid"))
             Tstbdocpre.Text = Trim(Tdocpre.Rows(0)("Prefix"))
@@ -523,24 +567,28 @@ Public Class Formfabjobcontrol
             Tstbsumqtyroll.Text = 0
             Tstbsumwgtkg.Text = 0
             Tstbsumdlvroll.Text = 0
+            Tstbsumremainroll.Text = 0
             Exit Sub
         End If
         Dim I As Integer
         Dim Tsumwgtkg As Double
-        Dim Tsumqtyroll, Tsumdlvroll As UInteger
+        Dim Tsumqtyroll, Tsumdlvroll, Tsumremainroll As UInteger
 
         Tsumqtyroll = 0
         Tsumwgtkg = 0
         Tsumdlvroll = 0
+        Tsumremainroll = 0
 
         For I = 0 To Dgvmas.RowCount - 1
             Tsumqtyroll += CDbl(Dgvmas.Rows(I).Cells("qtyroll").Value)
             Tsumwgtkg += CDbl(Dgvmas.Rows(I).Cells("Wgtkg").Value)
             Tsumdlvroll += CDbl(Dgvmas.Rows(I).Cells("dlvroll").Value)
+            Tsumremainroll += CDbl(Dgvmas.Rows(I).Cells("Remainroll").Value)
         Next
         Tstbsumqtyroll.Text = Format(Tsumqtyroll, "###,##0")
         Tstbsumwgtkg.Text = Format(Tsumwgtkg, "###,##0.#0")
         Tstbsumdlvroll.Text = Format(Tsumdlvroll, "###,##0")
+        Tstbsumremainroll.Text = Format(Tsumremainroll, "###,##0")
     End Sub
     Private Sub Clrtextmaster()
         Tbcustid.Text = ""
@@ -554,6 +602,9 @@ Public Class Formfabjobcontrol
         Dgvmas.DataSource = Nothing
         Dgvmas.Rows.Clear()
         Tstbsumwgtkg.Text = ""
+        Tstbsumqtyroll.Text = ""
+        Tstbsumdlvroll.Text = ""
+        Tstbsumremainroll.Text = ""
         Tbremark.Text = ""
     End Sub
     Private Sub Mainbuttonaddedit()
@@ -776,6 +827,7 @@ Showformedit:
         Catch ex As Exception
         End Try
     End Sub
+
     Private Sub Benext()
         Try
             If Not Checkfillbutton() Then Return

@@ -24,14 +24,14 @@ Partial Class Formfabjobcontrol
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Formfabjobcontrol))
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Btmclose = New System.Windows.Forms.ToolStripButton()
         Me.Btmfind = New System.Windows.Forms.ToolStripButton()
@@ -62,6 +62,7 @@ Partial Class Formfabjobcontrol
         Me.Dlvroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Havedoz = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Knitcomno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Remainroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip8 = New System.Windows.Forms.ToolStrip()
         Me.Btddel = New System.Windows.Forms.ToolStripButton()
         Me.Btdedit = New System.Windows.Forms.ToolStripButton()
@@ -69,6 +70,7 @@ Partial Class Formfabjobcontrol
         Me.Tsbwsave = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip3 = New System.Windows.Forms.ToolStrip()
+        Me.Tstbsumremainroll = New System.Windows.Forms.ToolStripTextBox()
         Me.Tstbsumdlvroll = New System.Windows.Forms.ToolStripTextBox()
         Me.Tstbsumwgtkg = New System.Windows.Forms.ToolStripTextBox()
         Me.Tstbsumqtyroll = New System.Windows.Forms.ToolStripTextBox()
@@ -124,9 +126,7 @@ Partial Class Formfabjobcontrol
         Me.Btrefresh = New System.Windows.Forms.ToolStripButton()
         Me.Btlistfind = New System.Windows.Forms.ToolStripButton()
         Me.Tstbkeyword = New System.Windows.Forms.ToolStripTextBox()
-        Me.Tscboth = New XpressPlus.ToolStripCheckBox()
         Me.ToolStripLabel4 = New System.Windows.Forms.ToolStripLabel()
-        Me.Tscbdate = New XpressPlus.ToolStripCheckBox()
         Me.ToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStrip5 = New System.Windows.Forms.ToolStrip()
         Me.Btfirst = New System.Windows.Forms.ToolStripButton()
@@ -136,6 +136,8 @@ Partial Class Formfabjobcontrol
         Me.Btlast = New System.Windows.Forms.ToolStripButton()
         Me.Tbrecord = New System.Windows.Forms.ToolStripTextBox()
         Me.TabItem2 = New DevComponents.DotNetBar.TabItem(Me.components)
+        Me.Tscboth = New XpressPlus.ToolStripCheckBox()
+        Me.Tscbdate = New XpressPlus.ToolStripCheckBox()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -206,6 +208,7 @@ Partial Class Formfabjobcontrol
         Me.Btmreports.Size = New System.Drawing.Size(41, 46)
         Me.Btmreports.Text = "พิมพ์"
         Me.Btmreports.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.Btmreports.Visible = False
         '
         'Btmcancel
         '
@@ -287,8 +290,8 @@ Partial Class Formfabjobcontrol
         '
         Me.TabControl1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TabControl1.CanReorderTabs = True
-        Me.TabControl1.Controls.Add(Me.TabControlPanel2)
         Me.TabControl1.Controls.Add(Me.TabControlPanel1)
+        Me.TabControl1.Controls.Add(Me.TabControlPanel2)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
         Me.TabControl1.ForeColor = System.Drawing.Color.Black
@@ -386,16 +389,16 @@ Partial Class Formfabjobcontrol
         '
         Me.Dgvmas.AllowUserToAddRows = False
         Me.Dgvmas.AllowUserToDeleteRows = False
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle17.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        DataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgvmas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.Dgvmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Ord, Me.Clothid, Me.Clothno, Me.Ftype, Me.Dozen, Me.Finwgt, Me.finwidth, Me.Shadeid, Me.Shadedesc, Me.Qtyroll, Me.Wgtkg, Me.Dlvroll, Me.Havedoz, Me.Knitcomno})
+        Me.Dgvmas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Ord, Me.Clothid, Me.Clothno, Me.Ftype, Me.Dozen, Me.Finwgt, Me.finwidth, Me.Shadeid, Me.Shadedesc, Me.Qtyroll, Me.Wgtkg, Me.Dlvroll, Me.Havedoz, Me.Knitcomno, Me.Remainroll})
         Me.Dgvmas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Dgvmas.Location = New System.Drawing.Point(0, 49)
         Me.Dgvmas.Name = "Dgvmas"
@@ -427,6 +430,7 @@ Partial Class Formfabjobcontrol
         Me.Clothno.HeaderText = "Description"
         Me.Clothno.Name = "Clothno"
         Me.Clothno.ReadOnly = True
+        Me.Clothno.Width = 180
         '
         'Ftype
         '
@@ -441,8 +445,8 @@ Partial Class Formfabjobcontrol
         'Dozen
         '
         Me.Dozen.DataPropertyName = "Dozen"
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Dozen.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Dozen.DefaultCellStyle = DataGridViewCellStyle2
         Me.Dozen.FillWeight = 17.7665!
         Me.Dozen.HeaderText = "Dozen"
         Me.Dozen.Name = "Dozen"
@@ -453,8 +457,8 @@ Partial Class Formfabjobcontrol
         '
         Me.Finwgt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Finwgt.DataPropertyName = "Finwgt"
-        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Finwgt.DefaultCellStyle = DataGridViewCellStyle19
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Finwgt.DefaultCellStyle = DataGridViewCellStyle3
         Me.Finwgt.FillWeight = 17.7665!
         Me.Finwgt.HeaderText = "Finished Weight"
         Me.Finwgt.MinimumWidth = 130
@@ -489,8 +493,8 @@ Partial Class Formfabjobcontrol
         'Qtyroll
         '
         Me.Qtyroll.DataPropertyName = "Qtyroll"
-        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Qtyroll.DefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Qtyroll.DefaultCellStyle = DataGridViewCellStyle4
         Me.Qtyroll.FillWeight = 255.8376!
         Me.Qtyroll.HeaderText = "QTY(Rolls/พับ)"
         Me.Qtyroll.Name = "Qtyroll"
@@ -500,23 +504,24 @@ Partial Class Formfabjobcontrol
         'Wgtkg
         '
         Me.Wgtkg.DataPropertyName = "Wgtkg"
-        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle21.Format = "N2"
-        Me.Wgtkg.DefaultCellStyle = DataGridViewCellStyle21
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.Format = "N2"
+        Me.Wgtkg.DefaultCellStyle = DataGridViewCellStyle5
         Me.Wgtkg.HeaderText = "QTY(KG)"
         Me.Wgtkg.Name = "Wgtkg"
         Me.Wgtkg.ReadOnly = True
+        Me.Wgtkg.Width = 110
         '
         'Dlvroll
         '
-        Me.Dlvroll.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Dlvroll.DataPropertyName = "Dlvroll"
-        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Dlvroll.DefaultCellStyle = DataGridViewCellStyle22
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Dlvroll.DefaultCellStyle = DataGridViewCellStyle6
         Me.Dlvroll.HeaderText = "ยอดส่ง/พับ"
-        Me.Dlvroll.MinimumWidth = 100
+        Me.Dlvroll.MinimumWidth = 150
         Me.Dlvroll.Name = "Dlvroll"
         Me.Dlvroll.ReadOnly = True
+        Me.Dlvroll.Width = 150
         '
         'Havedoz
         '
@@ -534,6 +539,15 @@ Partial Class Formfabjobcontrol
         Me.Knitcomno.Name = "Knitcomno"
         Me.Knitcomno.ReadOnly = True
         Me.Knitcomno.Visible = False
+        '
+        'Remainroll
+        '
+        Me.Remainroll.DataPropertyName = "Remainroll"
+        Me.Remainroll.HeaderText = "ยอดคงเหลือ"
+        Me.Remainroll.MinimumWidth = 130
+        Me.Remainroll.Name = "Remainroll"
+        Me.Remainroll.ReadOnly = True
+        Me.Remainroll.Width = 130
         '
         'ToolStrip8
         '
@@ -609,12 +623,22 @@ Partial Class Formfabjobcontrol
         '
         Me.ToolStrip3.BackColor = System.Drawing.Color.Transparent
         Me.ToolStrip3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.ToolStrip3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Tstbsumdlvroll, Me.Tstbsumwgtkg, Me.Tstbsumqtyroll, Me.ToolStripLabel1})
+        Me.ToolStrip3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Tstbsumremainroll, Me.Tstbsumdlvroll, Me.Tstbsumwgtkg, Me.Tstbsumqtyroll, Me.ToolStripLabel1})
         Me.ToolStrip3.Location = New System.Drawing.Point(0, 409)
         Me.ToolStrip3.Name = "ToolStrip3"
         Me.ToolStrip3.Size = New System.Drawing.Size(1000, 25)
         Me.ToolStrip3.TabIndex = 95
         Me.ToolStrip3.Text = "ToolStrip3"
+        '
+        'Tstbsumremainroll
+        '
+        Me.Tstbsumremainroll.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Tstbsumremainroll.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Tstbsumremainroll.Enabled = False
+        Me.Tstbsumremainroll.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tstbsumremainroll.Name = "Tstbsumremainroll"
+        Me.Tstbsumremainroll.Size = New System.Drawing.Size(130, 25)
+        Me.Tstbsumremainroll.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Tstbsumdlvroll
         '
@@ -623,7 +647,7 @@ Partial Class Formfabjobcontrol
         Me.Tstbsumdlvroll.Enabled = False
         Me.Tstbsumdlvroll.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Tstbsumdlvroll.Name = "Tstbsumdlvroll"
-        Me.Tstbsumdlvroll.Size = New System.Drawing.Size(115, 25)
+        Me.Tstbsumdlvroll.Size = New System.Drawing.Size(150, 25)
         Me.Tstbsumdlvroll.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Tstbsumwgtkg
@@ -1097,14 +1121,14 @@ Partial Class Formfabjobcontrol
         '
         Me.Dgvlist.AllowUserToAddRows = False
         Me.Dgvlist.AllowUserToDeleteRows = False
-        DataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        DataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Dgvlist.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle23
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgvlist.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.Dgvlist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Dgvlist.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Status, Me.Comid, Me.Jobno, Me.Jobdate, Me.Custid, Me.Custname, Me.Atperiod, Me.Jobremark, Me.Jobclose, Me.Sstatus})
         Me.Dgvlist.Dock = System.Windows.Forms.DockStyle.Fill
@@ -1144,8 +1168,8 @@ Partial Class Formfabjobcontrol
         'Jobdate
         '
         Me.Jobdate.DataPropertyName = "Jobdate"
-        DataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Jobdate.DefaultCellStyle = DataGridViewCellStyle24
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Jobdate.DefaultCellStyle = DataGridViewCellStyle8
         Me.Jobdate.HeaderText = "วันที่"
         Me.Jobdate.Name = "Jobdate"
         Me.Jobdate.ReadOnly = True
@@ -1242,17 +1266,6 @@ Partial Class Formfabjobcontrol
         Me.Tstbkeyword.Name = "Tstbkeyword"
         Me.Tstbkeyword.Size = New System.Drawing.Size(120, 49)
         '
-        'Tscboth
-        '
-        Me.Tscboth.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Tscboth.BackColor = System.Drawing.Color.Transparent
-        Me.Tscboth.Checked = True
-        Me.Tscboth.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tscboth.Name = "Tscboth"
-        Me.Tscboth.Size = New System.Drawing.Size(55, 46)
-        Me.Tscboth.Text = "อื่นๆ"
-        Me.Tscboth.ToolStripCheckBoxEnabled = True
-        '
         'ToolStripLabel4
         '
         Me.ToolStripLabel4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
@@ -1260,17 +1273,6 @@ Partial Class Formfabjobcontrol
         Me.ToolStripLabel4.Name = "ToolStripLabel4"
         Me.ToolStripLabel4.Size = New System.Drawing.Size(24, 46)
         Me.ToolStripLabel4.Text = "ถึง"
-        '
-        'Tscbdate
-        '
-        Me.Tscbdate.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Tscbdate.BackColor = System.Drawing.Color.Transparent
-        Me.Tscbdate.Checked = False
-        Me.Tscbdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tscbdate.Name = "Tscbdate"
-        Me.Tscbdate.Size = New System.Drawing.Size(55, 46)
-        Me.Tscbdate.Text = "วันที่"
-        Me.Tscbdate.ToolStripCheckBoxEnabled = True
         '
         'ToolStripLabel3
         '
@@ -1358,6 +1360,28 @@ Partial Class Formfabjobcontrol
         Me.TabItem2.AttachedControl = Me.TabControlPanel2
         Me.TabItem2.Name = "TabItem2"
         Me.TabItem2.Text = "รายการทั้งหมด"
+        '
+        'Tscboth
+        '
+        Me.Tscboth.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Tscboth.BackColor = System.Drawing.Color.Transparent
+        Me.Tscboth.Checked = True
+        Me.Tscboth.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tscboth.Name = "Tscboth"
+        Me.Tscboth.Size = New System.Drawing.Size(55, 46)
+        Me.Tscboth.Text = "อื่นๆ"
+        Me.Tscboth.ToolStripCheckBoxEnabled = True
+        '
+        'Tscbdate
+        '
+        Me.Tscbdate.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Tscbdate.BackColor = System.Drawing.Color.Transparent
+        Me.Tscbdate.Checked = False
+        Me.Tscbdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tscbdate.Name = "Tscbdate"
+        Me.Tscbdate.Size = New System.Drawing.Size(55, 46)
+        Me.Tscbdate.Text = "วันที่"
+        Me.Tscbdate.ToolStripCheckBoxEnabled = True
         '
         'Formfabjobcontrol
         '
@@ -1498,6 +1522,7 @@ Partial Class Formfabjobcontrol
     Friend WithEvents Jobclose As DataGridViewTextBoxColumn
     Friend WithEvents Sstatus As DataGridViewTextBoxColumn
     Friend WithEvents ToolStripButton1 As ToolStripButton
+    Friend WithEvents Tstbsumremainroll As ToolStripTextBox
     Friend WithEvents Ord As DataGridViewTextBoxColumn
     Friend WithEvents Clothid As DataGridViewTextBoxColumn
     Friend WithEvents Clothno As DataGridViewTextBoxColumn
@@ -1512,4 +1537,5 @@ Partial Class Formfabjobcontrol
     Friend WithEvents Dlvroll As DataGridViewTextBoxColumn
     Friend WithEvents Havedoz As DataGridViewTextBoxColumn
     Friend WithEvents Knitcomno As DataGridViewTextBoxColumn
+    Friend WithEvents Remainroll As DataGridViewTextBoxColumn
 End Class

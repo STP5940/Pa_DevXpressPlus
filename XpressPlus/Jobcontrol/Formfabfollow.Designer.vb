@@ -60,12 +60,12 @@ Partial Class Formfabfollow
         Me.Dlvnocount = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip3 = New System.Windows.Forms.ToolStrip()
         Me.ToolStrip8 = New System.Windows.Forms.ToolStrip()
+        Me.Btrefresh = New System.Windows.Forms.ToolStripButton()
         Me.GroupPanel1 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
         Me.Tbjobno = New Normtextbox.Normtextbox()
         Me.TabItem2 = New DevComponents.DotNetBar.TabItem(Me.components)
-        Me.Btrefresh = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.miniToolStrip, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -439,6 +439,18 @@ Partial Class Formfabfollow
         Me.ToolStrip8.TabIndex = 126
         Me.ToolStrip8.Text = "ToolStrip8"
         '
+        'Btrefresh
+        '
+        Me.Btrefresh.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Btrefresh.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btrefresh.Image = CType(resources.GetObject("Btrefresh.Image"), System.Drawing.Image)
+        Me.Btrefresh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.Btrefresh.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.Btrefresh.Name = "Btrefresh"
+        Me.Btrefresh.Size = New System.Drawing.Size(71, 46)
+        Me.Btrefresh.Text = "Refresh"
+        Me.Btrefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
         'GroupPanel1
         '
         Me.GroupPanel1.BackColor = System.Drawing.Color.Transparent
@@ -526,18 +538,6 @@ Partial Class Formfabfollow
         Me.TabItem2.AttachedControl = Me.TabControlPanel2
         Me.TabItem2.Name = "TabItem2"
         Me.TabItem2.Text = "รายการทั้งหมด"
-        '
-        'Btrefresh
-        '
-        Me.Btrefresh.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.Btrefresh.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btrefresh.Image = CType(resources.GetObject("Btrefresh.Image"), System.Drawing.Image)
-        Me.Btrefresh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.Btrefresh.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.Btrefresh.Name = "Btrefresh"
-        Me.Btrefresh.Size = New System.Drawing.Size(71, 46)
-        Me.Btrefresh.Text = "Refresh"
-        Me.Btrefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'Formfabfollow
         '
