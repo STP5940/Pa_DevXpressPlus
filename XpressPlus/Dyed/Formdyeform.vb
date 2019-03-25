@@ -1,8 +1,8 @@
 ﻿Imports System.ComponentModel
 Imports Microsoft.Reporting.WinForms
 Public Class Formdyeform
-    Private Tmaster, Tdetails, Tlist, TFablist, TbFabric, FabricTlist, Dttemp As DataTable
-    Private Pagecount, Maxrec, Pagesize, Currentpage, Recno As Integer
+    Private Tmaster, Tdetails, Tlist, TFablist, TbFabric, FabricTlist, Dttemp, Dttempfab As DataTable
+    Private Pagecount, Maxrec, Pagesize, Currentpage, Recno, Pagecountfab, Maxrecfab, Pagesizefab, Currentpagefab, Recnofab As Integer
     Private WithEvents Dtplistfm As New DateTimePicker
     Private WithEvents Dtplistto As New DateTimePicker
     Private WithEvents DtplistFabricfm As New DateTimePicker
@@ -368,16 +368,16 @@ Public Class Formdyeform
         Dgvmas.Enabled = True
     End Sub
     Private Sub Btfirst_Click(sender As Object, e As EventArgs) Handles Btfirst.Click
-        Befirst()
+        Befirst(Dgvlist, Tlist, Tbpage, Tbrecord)
     End Sub
     Private Sub Btprev_Click(sender As Object, e As EventArgs) Handles Btprev.Click
-        Beprev()
+        Beprev(Dgvlist, Tlist, Tbpage, Tbrecord)
     End Sub
     Private Sub Btnext_Click(sender As Object, e As EventArgs) Handles Btnext.Click
-        Benext()
+        Benext(Dgvlist, Tlist, Tbpage, Tbrecord)
     End Sub
     Private Sub Btlast_Click(sender As Object, e As EventArgs) Handles Btlast.Click
-        Belast()
+        Belast(Dgvlist, Tlist, Tbpage, Tbrecord)
     End Sub
     Private Sub BindingNavigator1_RefreshItems(sender As Object, e As EventArgs) Handles BindingNavigator1.RefreshItems
         Tsbwsave.Visible = False
@@ -798,24 +798,34 @@ Public Class Formdyeform
         End If
         Tlist = SQLCommand("SELECT '' AS Stat,* FROM Vdyedcommas
                                 WHERE Comid = '" & Gscomid & "' AND (Dyecomno LIKE '%' + '" & Sval & "' + '%' OR Dyedhdesc LIKE '%' + '" & Sval & "' + '%')")
-        FillGrid()
-        ShowRecordDetail()
+        FillGrid(Dgvlist, Tlist, Tbpage, Tbrecord)
+        'ShowRecordDetail()
     End Sub
     Private Sub SearchlistFabric(Sval As String)
         If Sval = "" Then
             BindingFabriclist()
             Exit Sub
         End If
-        TFablist = SQLCommand("SELECT '' AS Stat,* FROM Vknitcomdet
-                                WHERE Comid = '" & Gscomid & "' AND (Knitcomno LIKE '%' + '" & Sval & "' + '%' OR Clothno LIKE '%' + '" & Sval & "' + '%' OR Ftype LIKE '%' + '" & Sval & "' + '%' OR Qtyroll LIKE '%' + '" & Sval & "' + '%')")
+        TFablist = SQLCommand($"SELECT * FROM (
+					                                SELECT '' AS Stat,A.*, IIF(B.Qtyroll IS NULL,0,B.Qtyroll) AS Dye, IIF(B.Qtykg IS NULL,0,B.Qtykg) AS Qtykg, 
+							                                A.Qtyroll- IIF(B.Qtyroll IS NULL,0,B.Qtyroll) AS Balance FROM Vknitcomdet AS A
+					                                LEFT OUTER JOIN (
+							                                SELECT Knittcomid, Clothid, SUM(Qtyroll) AS Qtyroll, SUM(Qtykg) AS Qtykg, Finwgt 
+							                                FROM Tdyedcomdetxp 
+							                                WHERE Comid = '{Gscomid}'
+							                                GROUP BY Knittcomid, Clothid, Finwgt
+					                                ) AS B
+					                                ON A.Knitcomno = B.Knittcomid AND A.Clothid = B.Clothid
+					                                WHERE Comid = '{Gscomid}'
+                                ) AS C WHERE Balance > 0 AND (Knitcomno LIKE '%' + '" & Sval & "' + '%' OR Clothno LIKE '%' + '" & Sval & "' + '%' OR Ftype LIKE '%' + '" & Sval & "' + '%' OR Qtyroll LIKE '%' + '" & Sval & "' + '%')")
         FabricList.DataSource = TFablist
-        InsertDataFab()
+        FillGridFab(FabricList, TFablist, Tbpagefabric, Tbrecordfabric)
     End Sub
     Private Sub Searchlistbydate()
         Tlist = SQLCommand("SELECT '' AS Stat,* FROM Vdyedcommas
                                 WHERE Comid = '" & Gscomid & "' AND (Dyeddate BETWEEN '" & Formatshortdatesave(Dtplistfm.Value) & "' AND '" & Formatshortdatesave(Dtplistto.Value) & "')")
-        FillGrid()
-        ShowRecordDetail()
+        FillGrid(Dgvlist, Tlist, Tbpage, Tbrecord)
+        'ShowRecordDetail()
     End Sub
     Private Sub Retdocprefix()
         Dim Tdocpre = New DataTable
@@ -957,31 +967,27 @@ Public Class Formdyeform
         Bs = New BindingSource
         Bs.DataSource = Tlist
         BindingNavigator1.BindingSource = Bs
-        FillGrid()
-        ShowRecordDetail()
+        FillGrid(Dgvlist, Tlist, Tbpage, Tbrecord)
+        'ShowRecordDetail()
     End Sub
     Private Sub BindingFabriclist()
         TFablist = New DataTable
-        TFablist = SQLCommand("SELECT '' AS Stat,* FROM Vknitcomdet 
-                            WHERE Comid = '" & Gscomid & "'")
+        TFablist = SQLCommand($"SELECT * FROM (
+					                                SELECT '' AS Stat,A.*, IIF(B.Qtyroll IS NULL,0,B.Qtyroll) AS Dye, IIF(B.Qtykg IS NULL,0,B.Qtykg) AS Qtykg, 
+							                                A.Qtyroll- IIF(B.Qtyroll IS NULL,0,B.Qtyroll) AS Balance FROM Vknitcomdet AS A
+					                                LEFT OUTER JOIN (
+							                                SELECT Knittcomid, Clothid, SUM(Qtyroll) AS Qtyroll, SUM(Qtykg) AS Qtykg, Finwgt 
+							                                FROM Tdyedcomdetxp 
+							                                WHERE Comid = '{Gscomid}'
+							                                GROUP BY Knittcomid, Clothid, Finwgt
+					                                ) AS B
+					                                ON A.Knitcomno = B.Knittcomid AND A.Clothid = B.Clothid
+					                                WHERE Comid = '{Gscomid}'
+                                ) AS C WHERE Balance > 0 AND Comid = '{Gscomid}'")
         FabricList.DataSource = TFablist
-        InsertDataFab()
+        FillGridFab(FabricList, TFablist, Tbpagefabric, Tbrecordfabric)
     End Sub
 
-    Private Sub InsertDataFab()
-        Dim SumQtyroll As New DataTable
-        For I = 0 To FabricList.RowCount - 1
-            SumQtyroll = SQLCommand($"SELECT '' AS Stat, SUM(Qtyroll) AS SUM FROM Tdyedcomdetxp WHERE Knittcomid ='{FabricList.Rows(I).Cells("Knitcomno").Value}' AND Clothid = '{FabricList.Rows(I).Cells("Clothids").Value}' --ส่งไปย้อม แล้วนับจำนวน")
-            SumQtyrolls.DataSource = SumQtyroll
-            FabricList.Rows(I).Cells("Dye").Value = IIf((IsDBNull(SumQtyrolls.Rows(0).Cells("Sum").Value) = True), 0, SumQtyrolls.Rows(0).Cells("Sum").Value)
-            FabricList.Rows(I).Cells("Balance").Value = FabricList.Rows(I).Cells("Qtyroll").Value - FabricList.Rows(I).Cells("Dye").Value
-        Next
-        For I = FabricList.RowCount - 1 To 0 Step -1
-            If FabricList.Rows(I).Cells("Balance").Value <= 0 Then
-                FabricList.Rows.Remove(FabricList.Rows(I))
-            End If
-        Next
-    End Sub
     Private Sub Sumall()
         Dim Sumkg As Double
         Dim Sumroll As Long
@@ -1051,110 +1057,110 @@ Public Class Formdyeform
         End If
         Return Valid
     End Function
-    Private Function Checkfillbutton() As Boolean
-        If Pagesize = 0 Then
-            Informmessage("Set the Page Size, And Then click the ""Fill Grid"" button!")
-            Checkfillbutton = False
-        Else
-            Checkfillbutton = True
-        End If
-    End Function
-    Private Sub Befirst()
-        Try
-            If Not Checkfillbutton() Then Return
-            If Currentpage = 1 Then
-                Informmessage("You are at the First Page!")
-                Return
-            End If
-            Currentpage = 1
-            Recno = 0
-            LoadPage()
-        Catch ex As Exception
-        End Try
-    End Sub
-    Private Sub Beprev()
-        Try
-            If Not Checkfillbutton() Then Return
-            Currentpage = Currentpage - 1
-            If Currentpage < 1 Then
-                Informmessage("You are at the First Page!")
-                Currentpage = 1
-                Return
-            Else
-                Recno = Pagesize * (Currentpage - 1)
-            End If
-            LoadPage()
-        Catch ex As Exception
-        End Try
-    End Sub
-    Private Sub Benext()
-        Try
-            If Not Checkfillbutton() Then Return
-            If Pagesize = 0 Then
-                Informmessage("Set the Page Size, and then click the ""Fill Grid"" button!")
-                Return
-            End If
-            Currentpage = Currentpage + 1
-            If Currentpage > Pagecount Then
-                Currentpage = Pagecount
-                If Recno = Maxrec Then
-                    Informmessage("You are at the Last Page!")
-                    Return
-                End If
-            End If
-            LoadPage()
-        Catch ex As Exception
-        End Try
-    End Sub
-    Private Sub Belast()
-        Try
-            If Not Checkfillbutton() Then Return
-            If Recno = Maxrec Then
-                Informmessage("You are at the Last Page!")
-                Return
-            End If
-            Currentpage = Pagecount
-            Recno = Pagesize * (Currentpage - 1)
-            LoadPage()
-        Catch ex As Exception
-        End Try
-    End Sub
-    Private Sub LoadPage()
-        Dim I, Startrec, Endrec As Integer
-        Dttemp = Tlist.Clone
-        If Currentpage = Pagecount Then
-            Endrec = Maxrec
-        Else
-            Endrec = Pagesize * Currentpage
-        End If
-        Startrec = Recno
-        If Tlist.Rows.Count > 0 Then
-            For I = Startrec To Endrec - 1
-                Dttemp.ImportRow(Tlist.Rows(I))
-                Recno = Recno + 1
-            Next
-        End If
-        Dgvlist.DataSource = Dttemp
-        DisplayPageInfo()
-        ShowRecordDetail()
-    End Sub
-    Private Sub FillGrid()
-        Pagesize = (CInt(Dgvlist.Height) \ CInt(Dgvlist.RowTemplate.Height)) - 2
-        Maxrec = Tlist.Rows.Count
-        Pagecount = Maxrec \ Pagesize
-        If (Maxrec Mod Pagesize) > 0 Then
-            Pagecount = Pagecount + 1
-        End If
-        Currentpage = 1
-        Recno = 0
-        LoadPage()
-    End Sub
-    Private Sub DisplayPageInfo()
-        Tbpage.Text = "หน้า " & Currentpage.ToString & "/" & Pagecount.ToString
-    End Sub
-    Private Sub ShowRecordDetail()
-        Tbrecord.Text = "แสดง " & (Dgvlist.RowCount) & " รายการ จาก " & Tlist.Rows.Count & " รายการ"
-    End Sub
+    'Private Function Checkfillbutton() As Boolean
+    '    If Pagesize = 0 Then
+    '        Informmessage("Set the Page Size, And Then click the ""Fill Grid"" button!")
+    '        Checkfillbutton = False
+    '    Else
+    '        Checkfillbutton = True
+    '    End If
+    'End Function
+    'Private Sub Befirst()
+    '    Try
+    '        If Not Checkfillbutton() Then Return
+    '        If Currentpage = 1 Then
+    '            Informmessage("You are at the First Page!")
+    '            Return
+    '        End If
+    '        Currentpage = 1
+    '        Recno = 0
+    '        LoadPage()
+    '    Catch ex As Exception
+    '    End Try
+    'End Sub
+    'Private Sub Beprev()
+    '    Try
+    '        If Not Checkfillbutton() Then Return
+    '        Currentpage = Currentpage - 1
+    '        If Currentpage < 1 Then
+    '            Informmessage("You are at the First Page!")
+    '            Currentpage = 1
+    '            Return
+    '        Else
+    '            Recno = Pagesize * (Currentpage - 1)
+    '        End If
+    '        LoadPage()
+    '    Catch ex As Exception
+    '    End Try
+    'End Sub
+    'Private Sub Benext()
+    '    Try
+    '        If Not Checkfillbutton() Then Return
+    '        If Pagesize = 0 Then
+    '            Informmessage("Set the Page Size, and then click the ""Fill Grid"" button!")
+    '            Return
+    '        End If
+    '        Currentpage = Currentpage + 1
+    '        If Currentpage > Pagecount Then
+    '            Currentpage = Pagecount
+    '            If Recno = Maxrec Then
+    '                Informmessage("You are at the Last Page!")
+    '                Return
+    '            End If
+    '        End If
+    '        LoadPage()
+    '    Catch ex As Exception
+    '    End Try
+    'End Sub
+    'Private Sub Belast()
+    '    Try
+    '        If Not Checkfillbutton() Then Return
+    '        If Recno = Maxrec Then
+    '            Informmessage("You are at the Last Page!")
+    '            Return
+    '        End If
+    '        Currentpage = Pagecount
+    '        Recno = Pagesize * (Currentpage - 1)
+    '        LoadPage()
+    '    Catch ex As Exception
+    '    End Try
+    'End Sub
+    'Private Sub LoadPage()
+    '    Dim I, Startrec, Endrec As Integer
+    '    Dttemp = Tlist.Clone
+    '    If Currentpage = Pagecount Then
+    '        Endrec = Maxrec
+    '    Else
+    '        Endrec = Pagesize * Currentpage
+    '    End If
+    '    Startrec = Recno
+    '    If Tlist.Rows.Count > 0 Then
+    '        For I = Startrec To Endrec - 1
+    '            Dttemp.ImportRow(Tlist.Rows(I))
+    '            Recno = Recno + 1
+    '        Next
+    '    End If
+    '    Dgvlist.DataSource = Dttemp
+    '    DisplayPageInfo()
+    '    ShowRecordDetail()
+    'End Sub
+    'Private Sub FillGrid()
+    '    Pagesize = (CInt(Dgvlist.Height) \ CInt(Dgvlist.RowTemplate.Height)) - 2
+    '    Maxrec = Tlist.Rows.Count
+    '    Pagecount = Maxrec \ Pagesize
+    '    If (Maxrec Mod Pagesize) > 0 Then
+    '        Pagecount = Pagecount + 1
+    '    End If
+    '    Currentpage = 1
+    '    Recno = 0
+    '    LoadPage()
+    'End Sub
+    'Private Sub DisplayPageInfo()
+    '    Tbpage.Text = "หน้า " & Currentpage.ToString & "/" & Pagecount.ToString
+    'End Sub
+    'Private Sub ShowRecordDetail()
+    '    Tbrecord.Text = "แสดง " & (Dgvlist.RowCount) & " รายการ จาก " & Tlist.Rows.Count & " รายการ"
+    'End Sub
     Private Function Findpoud(Tkg As String) As Double
         Dim Rpound As Double = 0.0
         If Tkg = "" Then
@@ -1314,6 +1320,23 @@ Public Class Formdyeform
         Btdedit.Enabled = False
         Btddel.Enabled = False
     End Sub
+
+    Private Sub Btfirstfabric_Click(sender As Object, e As EventArgs) Handles Btfirstfabric.Click
+        BefirstFab(FabricList, TFablist, Tbpagefabric, Tbrecordfabric)  'หน้าแรกสุด
+    End Sub
+
+    Private Sub Btprevfabric_Click(sender As Object, e As EventArgs) Handles Btprevfabric.Click
+        BeprevFab(FabricList, TFablist, Tbpagefabric, Tbrecordfabric)   'ก่อนหน้านี้
+    End Sub
+
+    Private Sub Btnextfabric_Click(sender As Object, e As EventArgs) Handles Btnextfabric.Click
+        BenextFab(FabricList, TFablist, Tbpagefabric, Tbrecordfabric)   'หลังหน้านี้
+    End Sub
+
+    Private Sub Btlastfabric_Click(sender As Object, e As EventArgs) Handles Btlastfabric.Click
+        BelastFab(FabricList, TFablist, Tbpagefabric, Tbrecordfabric)   'หน้าสุดท้าย
+    End Sub
+
     Private Sub Mainbuttonaddedit()
         Btmnew.Enabled = False
         Btmedit.Enabled = False
@@ -1323,6 +1346,7 @@ Public Class Formdyeform
         Btmreports.Enabled = False
         Enabledbutton()
     End Sub
+
     Private Sub Mainbuttoncancel()
         Btmnew.Enabled = True
         Btmedit.Enabled = False
@@ -1340,4 +1364,222 @@ Public Class Formdyeform
             Tbwgtkg.Text = Format(CDbl(CalOneroll.Text) * CDbl(Tbqtyroll.Text), "###,###.#0")
         End If
     End Sub
+
+    '----------------- Start Fill grid Dgvlist ------------
+
+    Friend Sub FillGrid(Dgvmember As DataGridView, Tlist As DataTable, Tbpage As ToolStripTextBox, Tbrecord As ToolStripTextBox)
+        Pagesize = (CInt(Dgvmember.Height) \ CInt(Dgvmember.RowTemplate.Height)) - 2
+        Maxrec = Tlist.Rows.Count
+        Pagecount = Maxrec \ Pagesize
+        If (Maxrec Mod Pagesize) > 0 Then
+            Pagecount = Pagecount + 1
+        End If
+        Currentpage = 1
+        Recno = 0
+        LoadPage(Dgvmember, Tlist, Tbpage, Tbrecord)
+    End Sub
+
+    Friend Sub LoadPage(Dgvmember As DataGridView, Tlist As DataTable, Tbpage As ToolStripTextBox, Tbrecord As ToolStripTextBox)
+        Dim I, Startrec, Endrec As Integer
+        Dttemp = Tlist.Clone
+        If Currentpage = Pagecount Then
+            Endrec = Maxrec
+        Else
+            Endrec = Pagesize * Currentpage
+        End If
+        Startrec = Recno
+        If Tlist.Rows.Count > 0 Then
+            For I = Startrec To Endrec - 1
+                Dttemp.ImportRow(Tlist.Rows(I))
+                Recno = Recno + 1
+            Next
+        End If
+        Dgvmember.DataSource = Dttemp
+        Tbpage.Text = "หน้า " & Currentpage.ToString & "/" & Pagecount.ToString
+        Tbrecord.Text = "แสดง " & (Dgvmember.RowCount) & " รายการ จาก " & Tlist.Rows.Count & " รายการ"
+    End Sub
+
+    Friend Sub Befirst(Dgvmember As DataGridView, Tlist As DataTable, Tbpage As ToolStripTextBox, Tbrecord As ToolStripTextBox)
+        Try
+            If Not Checkfillbutton() Then Return
+            If Currentpage = 1 Then
+                Informmessage("You are at the First Page!")
+                Return
+            End If
+            Currentpage = 1
+            Recno = 0
+            LoadPage(Dgvmember, Tlist, Tbpage, Tbrecord)
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Friend Sub Beprev(Dgvmember As DataGridView, Tlist As DataTable, Tbpage As ToolStripTextBox, Tbrecord As ToolStripTextBox)
+        Try
+            If Not Checkfillbutton() Then Return
+            Currentpage = Currentpage - 1
+            If Currentpage < 1 Then
+                Informmessage("You are at the First Page!")
+                Currentpage = 1
+                Return
+            Else
+                Recno = Pagesize * (Currentpage - 1)
+            End If
+            LoadPage(Dgvmember, Tlist, Tbpage, Tbrecord)
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Friend Sub Benext(Dgvmember As DataGridView, Tlist As DataTable, Tbpage As ToolStripTextBox, Tbrecord As ToolStripTextBox)
+        Try
+            If Not Checkfillbutton() Then Return
+            If Pagesize = 0 Then
+                Informmessage("Set the Page Size, And then click the ""Fill Grid"" button!")
+                Return
+            End If
+            Currentpage = Currentpage + 1
+            If Currentpage > Pagecount Then
+                Currentpage = Pagecount
+                If Recno = Maxrec Then
+                    Informmessage("You are at the Last Page!")
+                    Return
+                End If
+            End If
+            LoadPage(Dgvmember, Tlist, Tbpage, Tbrecord)
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Friend Sub Belast(Dgvmember As DataGridView, Tlist As DataTable, Tbpage As ToolStripTextBox, Tbrecord As ToolStripTextBox)
+        Try
+            If Not Checkfillbutton() Then Return
+            If Recno = Maxrec Then
+                Informmessage("You are at the Last Page!")
+                Return
+            End If
+            Currentpage = Pagecount
+            Recno = Pagesize * (Currentpage - 1)
+            LoadPage(Dgvmember, Tlist, Tbpage, Tbrecord)
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Friend Function Checkfillbutton() As Boolean
+        If Pagesize = 0 Then
+            Informmessage("Set the Page Size, And Then click the ""Fill Grid"" button!")
+            Checkfillbutton = False
+        Else
+            Checkfillbutton = True
+        End If
+    End Function
+
+    '----------------- End Fill grid Dgvlist ------------
+
+    '----------------- Start Fill grid FabricList ------------
+
+    Friend Sub FillGridFab(Dgvmember As DataGridView, Tlist As DataTable, Tbpage As ToolStripTextBox, Tbrecord As ToolStripTextBox)
+        Pagesizefab = (CInt(Dgvmember.Height) \ CInt(Dgvmember.RowTemplate.Height)) - 2
+        Maxrecfab = Tlist.Rows.Count
+        Pagecountfab = Maxrecfab \ Pagesizefab
+        If (Maxrecfab Mod Pagesizefab) > 0 Then
+            Pagecountfab = Pagecountfab + 1
+        End If
+        Currentpagefab = 1
+        Recnofab = 0
+        LoadPageFab(Dgvmember, Tlist, Tbpage, Tbrecord)
+    End Sub
+
+    Friend Sub LoadPageFab(Dgvmember As DataGridView, Tlist As DataTable, Tbpage As ToolStripTextBox, Tbrecord As ToolStripTextBox)
+        Dim I, Startrec, Endrec As Integer
+        Dttempfab = Tlist.Clone
+        If Currentpagefab = Pagecountfab Then
+            Endrec = Maxrecfab
+        Else
+            Endrec = Pagesizefab * Currentpagefab
+        End If
+        Startrec = Recnofab
+        If Tlist.Rows.Count > 0 Then
+            For I = Startrec To Endrec - 1
+                Dttempfab.ImportRow(Tlist.Rows(I))
+                Recnofab = Recnofab + 1
+            Next
+        End If
+        Dgvmember.DataSource = Dttempfab
+        Tbpage.Text = "หน้า " & Currentpagefab.ToString & "/" & Pagecountfab.ToString
+        Tbrecord.Text = "แสดง " & (Dgvmember.RowCount) & " รายการ จาก " & Tlist.Rows.Count & " รายการ"
+    End Sub
+
+    Friend Sub BefirstFab(Dgvmember As DataGridView, Tlist As DataTable, Tbpage As ToolStripTextBox, Tbrecord As ToolStripTextBox)
+        Try
+            If Not CheckfillbuttonFab() Then Return
+            If Currentpagefab = 1 Then
+                Informmessage("You are at the First Page!")
+                Return
+            End If
+            Currentpagefab = 1
+            Recnofab = 0
+            LoadPageFab(Dgvmember, Tlist, Tbpage, Tbrecord)
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Friend Sub BeprevFab(Dgvmember As DataGridView, Tlist As DataTable, Tbpage As ToolStripTextBox, Tbrecord As ToolStripTextBox)
+        Try
+            If Not CheckfillbuttonFab() Then Return
+            Currentpagefab = Currentpagefab - 1
+            If Currentpagefab < 1 Then
+                Informmessage("You are at the First Page!")
+                Currentpagefab = 1
+                Return
+            Else
+                Recnofab = Pagesizefab * (Currentpagefab - 1)
+            End If
+            LoadPageFab(Dgvmember, Tlist, Tbpage, Tbrecord)
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Friend Sub BenextFab(Dgvmember As DataGridView, Tlist As DataTable, Tbpage As ToolStripTextBox, Tbrecord As ToolStripTextBox)
+        Try
+            If Not CheckfillbuttonFab() Then Return
+            If Pagesizefab = 0 Then
+                Informmessage("Set the Page Size, And then click the ""Fill Grid"" button!")
+                Return
+            End If
+            Currentpagefab = Currentpagefab + 1
+            If Currentpagefab > Pagecountfab Then
+                Currentpagefab = Pagecountfab
+                If Recnofab = Maxrecfab Then
+                    Informmessage("You are at the Last Page!")
+                    Return
+                End If
+            End If
+            LoadPageFab(Dgvmember, Tlist, Tbpage, Tbrecord)
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Friend Sub BelastFab(Dgvmember As DataGridView, Tlist As DataTable, Tbpage As ToolStripTextBox, Tbrecord As ToolStripTextBox)
+        Try
+            If Not CheckfillbuttonFab() Then Return
+            If Recnofab = Maxrecfab Then
+                Informmessage("You are at the Last Page!")
+                Return
+            End If
+            Currentpagefab = Pagecountfab
+            Recnofab = Pagesizefab * (Currentpagefab - 1)
+            LoadPageFab(Dgvmember, Tlist, Tbpage, Tbrecord)
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Friend Function CheckfillbuttonFab() As Boolean
+        If Pagesizefab = 0 Then
+            Informmessage("Set the Page Size, And Then click the ""Fill Grid"" button!")
+            Return False
+        Else
+            Return True
+        End If
+    End Function
+
+    '----------------- End Fill grid FabricList ------------
 End Class
