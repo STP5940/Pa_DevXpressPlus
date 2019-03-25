@@ -8,6 +8,7 @@ Public Class Formrebackfabcolors
     Private RestatusBtmnew As Byte = 0
     Private Bs As BindingSource
     Private Sub Formreceivefabcolors_Load(sender As Object, e As EventArgs) Handles Me.Load
+        BindingNavigator1.Enabled = False
         Controls.Add(Dtplistfm)
         Dtplistfm.Value = Now
         Dtplistfm.Width = 130
@@ -93,13 +94,11 @@ Public Class Formrebackfabcolors
         Clrupdet()
         Mainbuttoncancel()
         Bindinglist()
+        BindingNavigator1.Enabled = False
         Btmcancel_Click(sender, e)
     End Sub
 
     Private Sub Btmdel_Click(sender As Object, e As EventArgs) Handles Btmdel.Click
-        'If Trim(Tbknittno.Text) = "" Then
-        '    Exit Sub
-        'End If
         If Confirmdelete() = True Then
             Deldetails(Tbdyedcomno.Text)
             SQLCommand($"UPDATE Trebackfab SET Sstatus = '0', Updusr = '{Gsuserid}', Uptype = 'D'  WHERE Rbid = '{Trim(Tbdyedcomno.Text)}'") 'Pa comment
@@ -108,6 +107,7 @@ Public Class Formrebackfabcolors
             Mainbuttoncancel()
             Tstbsumroll.Text = ""
             TabControl1.SelectedTabIndex = 0
+            BindingNavigator1.Enabled = False
             GroupPanel2.Visible = False
             Bindinglist()
         End If
@@ -115,6 +115,7 @@ Public Class Formrebackfabcolors
 
     Private Sub Btmfind_Click(sender As Object, e As EventArgs) Handles Btmfind.Click
         TabControl1.SelectedTabIndex = 0
+        BindingNavigator1.Enabled = False
         Tscboth.Checked = True
         Tstbkeyword.Select()
         Tstbkeyword.Focus()
@@ -199,7 +200,12 @@ Public Class Formrebackfabcolors
         Btmnew.Enabled = False
         Btmdel.Enabled = True
         Btmreports.Enabled = True
-        Tbdyedcomno.Text = Trim(Dgvlist.CurrentRow.Cells("Rbid").Value)
+        Tbdyedcomno.DataBindings.Clear()
+        Tbdyedcomno.Text = ""
+        Bs.Position = Bs.Find("Rbid", Trim(Dgvlist.CurrentRow.Cells("Rbid").Value))
+        Tbdyedcomno.DataBindings.Add("Text", Bs, "Rbid")
+        Tbdyedcomno.Enabled = False
+        BindingNavigator1.Enabled = True
         Bindmaster()
 
     End Sub
@@ -662,32 +668,13 @@ Public Class Formrebackfabcolors
                                       Sumwgt, Sumprice, Remark, Indate, Lotno ")
 
         Dgvlist.DataSource = Tlist
+        Bs = New BindingSource
+        Bs.DataSource = Tlist
+        BindingNavigator1.BindingSource = Bs
         FillGrid()
         ShowRecordDetail()
     End Sub
-    'Private Sub Filterdocpre(Docpre As String)
-    '    RemoveCount = 0
-    '    For i = 0 To Dgvlist.Rows.Count - 1
-    '        If i > Dgvlist.Rows.Count - 1 Then
-    '            Exit For
-    '        End If
-    '        If Dgvlist.Rows(i).Cells("Reid").Value.Substring(0, Trim(Docpre.Length)) <> Trim(Docpre) Then
-    '            Dgvlist.Rows.RemoveAt(i)
-    '            RemoveCount += 1
-    '            i = 0
-    '        End If
-    '    Next
-    'End Sub
-    ''Private Sub BindingSendDyelist()
-    ''    TSendDyelist = New DataTable
-    ''    TSendDyelist = SQLCommand("SELECT '' AS Stat,* FROM Vdyedcommas WHERE Comid = '" & Gscomid & "'")
-    ''    SendDyelist.DataSource = TSendDyelist
-    ''    Bs = New BindingSource
-    ''    Bs.DataSource = TSendDyelist
-    ''    BindingNavigator1.BindingSource = Bs
-    ''    'FillGrid()
-    ''    'ShowRecordDetail()
-    ''End Sub
+
     Private Sub Sumall()
         Dim Sumkg As Double
         Dim Sumroll As Long
@@ -864,6 +851,7 @@ Public Class Formrebackfabcolors
     Private Sub Btmcancel_Click(sender As Object, e As EventArgs) Handles Btmcancel.Click
         Clrtxtbox()
         Clrupdet()
+        BindingNavigator1.Enabled = False
         Tbrefablotno.Text = ""
         Tstbsumroll.Text = ""
         Tstbsumkg.Text = ""
@@ -989,6 +977,7 @@ Public Class Formrebackfabcolors
         Btdedit.Enabled = True
         Btddel.Enabled = True
         Btdbadd.Enabled = True
+        BindingNavigator1.Enabled = False
     End Sub
 
     Private Sub Btdbadd_Click(sender As Object, e As EventArgs) Handles Btdbadd.Click
@@ -1212,6 +1201,14 @@ Public Class Formrebackfabcolors
         Sumall()
     End Sub
 
+    Private Sub BindingNavigator1_RefreshItems(sender As Object, e As EventArgs) Handles BindingNavigator1.RefreshItems
+        Tsbwsave.Visible = False
+        Tbdyedcomno.Enabled = False
+        If Btmedit.Enabled = True Then
+            Bindmaster()
+        End If
+    End Sub
+
     Private Sub Btmreports_Click(sender As Object, e As EventArgs) Handles Btmreports.Click
         If Dgvmas.RowCount = 0 Then
             Exit Sub
@@ -1233,32 +1230,13 @@ Public Class Formrebackfabcolors
         Frm.Tbremark.Text = Tbremark.Text
         CountDgvmas.Text = Dgvmas.RowCount
         Frm.CountDgvmas.Text = CountDgvmas.Text
-
-        ''For i = 0 To Dgvmas.Rows.Count - 1
-
-        ''    Frm.Dgvmas.Rows.Add()
-        ''    Frm.Dgvmas.Rows(i).Cells("rollid").Value = Dgvmas.Rows(i).Cells("rollid").Value
-        ''    Frm.Dgvmas.Rows(i).Cells("Mclothno").Value = Dgvmas.Rows(i).Cells("Mclothno").Value
-        ''    Frm.Dgvmas.Rows(i).Cells("Clothtype").Value = Dgvmas.Rows(i).Cells("Clothtype").Value
-        ''    Frm.Dgvmas.Rows(i).Cells("Dwidth").Value = Dgvmas.Rows(i).Cells("Dwidth").Value
-        ''    Frm.Dgvmas.Rows(i).Cells("Mkong").Value = Dgvmas.Rows(i).Cells("Mkong").Value
-        ''    Frm.Dgvmas.Rows(i).Cells("Rollwage").Value = Dgvmas.Rows(i).Cells("Rollwage").Value
-        ''Next
-        ''Frm.Tbdhid.Text = Tbdhid.Text
-        ''Frm.Tbdhname.Text = Tbdhname.Text
-        ''Frm.Tbdyedbillno.Text = Tbdyedbillno.Text
-
-        ''Frm.Tbdyedcomno.Text = Tbdyedcomno.Text
-        ''Frm.Tbremark.Text = Tbremark.Text
-        ''Frm.Tbdate.Text = Dtprecdate.Text
-
-        ''Frm.ReportViewer1.Reset()
         Frm.Show()
         Clrtxtbox()
         Clrdgrid()
         BindingNavigator1.Enabled = False
         Mainbuttoncancel()
         TabControl1.SelectedTabIndex = 0
+        BindingNavigator1.Enabled = False
         Btmcancel_Click(sender, e)
     End Sub
 
