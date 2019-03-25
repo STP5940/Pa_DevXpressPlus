@@ -8,6 +8,7 @@ Public Class Formreceivefabcolors
     Private RestatusBtmnew As Byte = 0
     Private Bs As BindingSource
     Private Sub Formreceivefabcolors_Load(sender As Object, e As EventArgs) Handles Me.Load
+        BindingNavigator1.Enabled = False
         Controls.Add(Dtplistfm)
         Dtplistfm.Value = Now
         Dtplistfm.Width = 130
@@ -155,6 +156,7 @@ BypassFilter:
             Editdoc()
         End If
         Tsbwsave.Visible = False
+        BindingNavigator1.Enabled = False
         Btmreports_Click(sender, e)
         Btdcancel_Click(sender, e)
         Tbkongno.Text = ""
@@ -166,9 +168,6 @@ BypassFilter:
     End Sub
 
     Private Sub Btmdel_Click(sender As Object, e As EventArgs) Handles Btmdel.Click
-        'If Trim(Tbknittno.Text) = "" Then
-        '    Exit Sub
-        'End If
         If Confirmdelete() = True Then
             Deldetails(Tbdyedbillno.Text, Tbrefablotno.Text)
             SQLCommand("DELETE FROM Trecfabcolxp WHERE Comid = '" & Gscomid & "' 
@@ -179,6 +178,7 @@ BypassFilter:
             Tstbsumroll.Text = ""
             TabControl1.SelectedTabIndex = 0
             GroupPanel2.Visible = False
+            BindingNavigator1.Enabled = False
             Bindinglist()
             BindingBalance()
         End If
@@ -186,6 +186,7 @@ BypassFilter:
 
     Private Sub Btmfind_Click(sender As Object, e As EventArgs) Handles Btmfind.Click
         TabControl1.SelectedTabIndex = 0
+        BindingNavigator1.Enabled = False
         Tscboth.Checked = True
         Tstbkeyword.Select()
         Tstbkeyword.Focus()
@@ -278,7 +279,12 @@ BypassFilter:
         Tbdyedbillno.Text = Trim(Dgvlist.CurrentRow.Cells("Lbilldyedno").Value)
         Tbknittno.Text = Trim(Dgvlist.CurrentRow.Cells("Lbillknitt").Value)
         Tbrefablotno.Text = Trim(Dgvlist.CurrentRow.Cells("Dlotno").Value)
-        Tbdyedcomno.Text = Trim(Dgvlist.CurrentRow.Cells("Reid").Value)
+        Tbdyedcomno.DataBindings.Clear()
+        Tbdyedcomno.Text = ""
+        Bs.Position = Bs.Find("Reid", Trim(Dgvlist.CurrentRow.Cells("Reid").Value))
+        Tbdyedcomno.DataBindings.Add("Text", Bs, "Reid")
+        Tbdyedcomno.Enabled = False
+        BindingNavigator1.Enabled = True
         Btmedit.Enabled = True
         Tbdyedbillno.Enabled = False
         Tbknittno.Enabled = False
@@ -823,19 +829,13 @@ BypassFilter:
         Tlist = SQLCommand("SELECT '' AS Stat,* FROM Vrecfabcolmas
                                 WHERE Comid = '" & Gscomid & "'")
         Dgvlist.DataSource = Tlist
+        Bs = New BindingSource
+        Bs.DataSource = Tlist
+        BindingNavigator1.BindingSource = Bs
         FillGrid()
         ShowRecordDetail()
     End Sub
-    ''Private Sub BindingSendDyelist()
-    ''    TSendDyelist = New DataTable
-    ''    TSendDyelist = SQLCommand("SELECT '' AS Stat,* FROM Vdyedcommas WHERE Comid = '" & Gscomid & "'")
-    ''    SendDyelist.DataSource = TSendDyelist
-    ''    Bs = New BindingSource
-    ''    Bs.DataSource = TSendDyelist
-    ''    BindingNavigator1.BindingSource = Bs
-    ''    'FillGrid()
-    ''    'ShowRecordDetail()
-    ''End Sub
+
     Private Sub Sumall()
         Dim Sumkg, Sumdoz As Double
         Dim Sumroll As Long
@@ -1127,6 +1127,7 @@ BypassFilter:
         Tbkg.Text = ""
         Clrdgrid()
         TabControl1.SelectedTabIndex = 0
+        BindingNavigator1.Enabled = False
 
         Mainbuttoncancel()
         GroupPanel2.Visible = False
@@ -1260,6 +1261,7 @@ BypassFilter:
         Btdedit.Enabled = True
         Btddel.Enabled = True
         Btdbadd.Enabled = True
+        BindingNavigator1.Enabled = False
     End Sub
 
     Private Sub Btdbadd_Click(sender As Object, e As EventArgs) Handles Btdbadd.Click
@@ -1696,6 +1698,14 @@ BypassFilter:
 
     Private Sub BtlastBalance_Click(sender As Object, e As EventArgs) Handles BtlastBalance.Click
         BelastBalance()
+    End Sub
+
+    Private Sub BindingNavigator1_RefreshItems(sender As Object, e As EventArgs) Handles BindingNavigator1.RefreshItems
+        Tsbwsave.Visible = False
+        Tbdyedcomno.Enabled = False
+        If Btmedit.Enabled = True Then
+            Bindmaster()
+        End If
     End Sub
 
     Private Sub FindShade_Click(sender As Object, e As EventArgs) Handles FindShade.Click
