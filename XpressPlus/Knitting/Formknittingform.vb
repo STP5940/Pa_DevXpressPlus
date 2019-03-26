@@ -42,10 +42,6 @@ Public Class Formknittingform
         'BYanList.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
 
         BindingYanlist()
-        'BindingBYanlist()
-        For i = 0 To YanList.RowCount - 1
-            YanList.Rows(i).Cells("balanhave").Value = Format(BindingNitSend($"{YanList.Rows(i).Cells("DlvnoDyed").Value}") - FindRekg(BindingNetKG($"{YanList.Rows(i).Cells("DlvnoDyed").Value}")), "###,###.#0")
-        Next
         Bindinglist()
     End Sub
     Private Sub Btmnew_Click(sender As Object, e As EventArgs) Handles Btmnew.Click
@@ -115,10 +111,7 @@ Public Class Formknittingform
             Mainbuttoncancel()
         End If
         Btmcancel_Click(sender, e)
-        'BindingYanlist()
-        For i = 0 To YanList.RowCount - 1
-            YanList.Rows(i).Cells("balanhave").Value = Format(BindingNitSend($"{YanList.Rows(i).Cells("DlvnoDyed").Value}") - FindRekg(BindingNetKG($"{YanList.Rows(i).Cells("DlvnoDyed").Value}")), "###,###.#0")
-        Next
+        BindingYanlist()
         Bindinglist()
     End Sub
     Private Sub Btmsave_Click(sender As Object, e As EventArgs) Handles Btmsave.Click
@@ -179,9 +172,6 @@ Public Class Formknittingform
         BindingNavigator1.Enabled = False
         Mainbuttoncancel()
         Btmcancel_Click(sender, e)
-        For i = 0 To YanList.RowCount - 1
-            YanList.Rows(i).Cells("balanhave").Value = Format(BindingNitSend($"{YanList.Rows(i).Cells("DlvnoDyed").Value}") - FindRekg(BindingNetKG($"{YanList.Rows(i).Cells("DlvnoDyed").Value}")), "###,###.#0")
-        Next
         Bindinglist()
     End Sub
     Private Sub Btmcancel_Click(sender As Object, e As EventArgs) Handles Btmcancel.Click
@@ -213,13 +203,27 @@ Public Class Formknittingform
         Frm.Tbremark.Text = Trim(Tbremark.Text)
         Frm.TextBox1.Text = Trim(TbfactoryName.Text)
         Frm.Tbdlvyarnno.Text = Trim(Tbdlvyarnno.Text)
+        'Tbdlvyarnno.text
+        Dim balanhave = SQLCommand($"SELECT CAST(ROUND(balanhave*2.204622622,2,1) AS decimal(18,2)) AS balanhave FROM (
+			                                    SELECT Tdeliyarndetxp.Comid,Tdeliyarndetxp.Dlvno,Tdeliyarndetxp.Ord,
+											                                    Tdeliyarndetxp.Yarnid,Tdeliyarndetxp.Lotno,
+											                                    Tdeliyarndetxp.Nwppc,Tdeliyarndetxp.NWKGPC * Tdeliyarndetxp.Nofc AS Nwkgpc, A.WgtKgSum,
+											                                    Tdeliyarndetxp.Gwppc,Tdeliyarndetxp.Gwkgpc,
+											                                    Tdeliyarndetxp.Nofc,Tdeliyarndetxp.Updusr,Tdeliyarndetxp.Uptype,
+											                                    Tdeliyarndetxp.Uptime,Vdeliyarnmas.Knitdesc,((Tdeliyarndetxp.NWKGPC * Tdeliyarndetxp.Nofc) - IIF(A.WgtKgSum IS NULL, 0, A.WgtKgSum)) AS balanhave
+											                                    FROM Tdeliyarndetxp 
+											                                    LEFT OUTER JOIN Vdeliyarnmas
+											                                    ON Tdeliyarndetxp.Dlvno = Vdeliyarnmas.Dlvno
+											                                    LEFT OUTER JOIN ( SELECT Dlvno,SUM(WgtKgOrder) As WgtKgSum FROM Tknittcomxp
+																	                                     WHERE Comid = '{Gscomid}'
+																	                                     GROUP BY Dlvno )AS A
+											                                    ON A.Dlvno = Tdeliyarndetxp.Dlvno
+											                                    WHERE Tdeliyarndetxp.Comid = '{Gscomid}'
+							        ) AS AllS WHERE balanhave > 0.2 AND Dlvno = '{Trim(Tbdlvyarnno.Text)}' ")
 
-        If Format(BindingNitSend($"{Trim(Tbdlvyarnno.Text)}") - FindRekg(BindingNetKG($"{Trim(Tbdlvyarnno.Text)}")), "###,##0.#0") > 0.2 Or Format(BindingNitSend($"{Trim(Tbdlvyarnno.Text)}") - FindRekg(BindingNetKG($"{Trim(Tbdlvyarnno.Text)}")), "###,##0.#0") < -0.2 Then
+        If balanhave.Rows.Count > 0 Then
             'MsgBox(Format(BindingNitSend($"{Trim(Tbdlvyarnno.Text)}") - FindRekg(BindingNetKG($"{Trim(Tbdlvyarnno.Text)}")), "###,##0.#0"))
-            Frm.balanhave.Text = Format(BindingNitSend($"{Trim(Tbdlvyarnno.Text)}") - FindRekg(BindingNetKG($"{Trim(Tbdlvyarnno.Text)}")), "###,##0.#0")
-            If BindingNitSend($"{Trim(Tbdlvyarnno.Text)}") = 0 Then
-                Frm.balanhave.Text = 0
-            End If
+            Frm.balanhave.Text = balanhave(0)("balanhave")
         Else
             Frm.balanhave.Text = 0
         End If
@@ -260,9 +264,7 @@ Public Class Formknittingform
         BindingNavigator1.Enabled = False
         Mainbuttoncancel()
         TabControl1.SelectedTabIndex = 0
-        For i = 0 To YanList.RowCount - 1
-            YanList.Rows(i).Cells("balanhave").Value = Format(BindingNitSend($"{YanList.Rows(i).Cells("DlvnoDyed").Value}") - FindRekg(BindingNetKG($"{YanList.Rows(i).Cells("DlvnoDyed").Value}")), "###,###.#0")
-        Next
+        BindingYanlist()
         Bindinglist()
     End Sub
     Private Sub Btmfind_Click(sender As Object, e As EventArgs) Handles Btmfind.Click
@@ -762,9 +764,6 @@ Public Class Formknittingform
     End Sub
     Private Sub BtrefreshYan_Click(sender As Object, e As EventArgs) Handles BtrefreshYan.Click
         BindingYanlist()
-        For i = 0 To YanList.RowCount - 1
-            YanList.Rows(i).Cells("balanhave").Value = Format(BindingNitSend($"{YanList.Rows(i).Cells("DlvnoDyed").Value}") - FindRekg(BindingNetKG($"{YanList.Rows(i).Cells("DlvnoDyed").Value}")), "###,###.#0")
-        Next
         Bindinglist()
     End Sub
     Private Sub BindingNavigator1_RefreshItems(sender As Object, e As EventArgs) Handles BindingNavigator1.RefreshItems
@@ -965,40 +964,6 @@ Public Class Formknittingform
             WgtKgStore.Text = Convert.ToDouble(Tbkg.Text).ToString("N2")
         End If
     End Sub
-    Private Sub YanListFilter()
-
-        FTYanlist = New DataTable
-        FTYanlist = SQLCommand($"SELECT Dlvno,SUM(NWKGPC*Nofc) AS Netpound FROM Tdeliyarndetxp
-	                            WHERE Comid = '{Gscomid}'
-	                            GROUP BY Dlvno")
-
-        FYanList.DataSource = FTYanlist
-    End Sub
-    Private Sub YanListSend()
-        SendYanlist = New DataTable
-        SendYanlist = SQLCommand($"SELECT Dlvno,SUM(WgtKgOrder) As OrderSum FROM Tknittcomxp
-								WHERE Comid = '{Gscomid}'
-								GROUP BY Dlvno")
-
-        SendYan.DataSource = SendYanlist
-    End Sub
-    Private Sub YanCutSend()
-        For FYan = 0 To FYanList.RowCount - 1
-            For SYan = 0 To SendYan.Rows.Count - 1
-                If FYanList.Rows(FYan).Cells("FDlvno").Value = SendYan.Rows(SYan).Cells("SDlvno").Value And
-                   FYanList.Rows(FYan).Cells("Netpound").Value <= SendYan.Rows(SYan).Cells("OrderSum").Value Then
-Checkloop:
-                    For Del = 0 To YanList.Rows.Count - 1
-                        If YanList.Rows(Del).Cells("DlvnoDyed").Value = SendYan.Rows(SYan).Cells("SDlvno").Value Then
-                            YanList.Rows.RemoveAt(Del)
-                            GoTo Checkloop
-                        End If
-                    Next
-
-                End If
-            Next
-        Next
-    End Sub
     Private Sub Retdocprefix()
         Dim Tdocpre = New DataTable
         Tdocpre = SQLCommand("SELECT Docid,Prefix FROM Tdocprexp WHERE Comid = '" & Gscomid & "' AND 
@@ -1023,36 +988,28 @@ Checkloop:
     End Sub
     Private Sub BindingYanlist()
         TYanlist = New DataTable
-        TYanlist = SQLCommand($"SELECT Tdeliyarndetxp.Comid,Tdeliyarndetxp.Dlvno,Tdeliyarndetxp.Ord,
-                                Tdeliyarndetxp.Yarnid,Tdeliyarndetxp.Lotno,
-                                Tdeliyarndetxp.Nwppc,Tdeliyarndetxp.Nwkgpc,
-                                Tdeliyarndetxp.Gwppc,Tdeliyarndetxp.Gwkgpc,
-                                Tdeliyarndetxp.Nofc,Tdeliyarndetxp.Updusr,Tdeliyarndetxp.Uptype,
-                                Tdeliyarndetxp.Uptime,Vdeliyarnmas.Knitdesc,'' AS balanhave
-                                FROM Tdeliyarndetxp LEFT OUTER JOIN Vdeliyarnmas
-                                ON Tdeliyarndetxp.Dlvno = Vdeliyarnmas.Dlvno
-                                WHERE Tdeliyarndetxp.Comid = '{Gscomid}'")
+        TYanlist = SQLCommand($"SELECT Comid, Dlvno, Ord, Yarnid, Lotno, Nwppc, Nwkgpc, WgtKgSum, Gwppc, Gwkgpc, Nofc, Updusr, Uptype, Uptime, Knitdesc, 
+	                                   CAST(ROUND(balanhave*2.204622622,2,1) AS decimal(18,2)) AS balanhave FROM (
+
+			                    SELECT Tdeliyarndetxp.Comid,Tdeliyarndetxp.Dlvno,Tdeliyarndetxp.Ord,
+											                    Tdeliyarndetxp.Yarnid,Tdeliyarndetxp.Lotno,
+											                    Tdeliyarndetxp.Nwppc,Tdeliyarndetxp.NWKGPC * Tdeliyarndetxp.Nofc AS Nwkgpc, A.WgtKgSum,
+											                    Tdeliyarndetxp.Gwppc,Tdeliyarndetxp.Gwkgpc,
+											                    Tdeliyarndetxp.Nofc,Tdeliyarndetxp.Updusr,Tdeliyarndetxp.Uptype,
+											                    Tdeliyarndetxp.Uptime,Vdeliyarnmas.Knitdesc,((Tdeliyarndetxp.NWKGPC * Tdeliyarndetxp.Nofc) - IIF(A.WgtKgSum IS NULL, 0, A.WgtKgSum)) AS balanhave
+											                    FROM Tdeliyarndetxp 
+											                    LEFT OUTER JOIN Vdeliyarnmas
+											                    ON Tdeliyarndetxp.Dlvno = Vdeliyarnmas.Dlvno
+											                    LEFT OUTER JOIN ( SELECT Dlvno,SUM(WgtKgOrder) As WgtKgSum FROM Tknittcomxp
+																	                     WHERE Comid = '{Gscomid}'
+																	                     GROUP BY Dlvno )AS A
+											                    ON A.Dlvno = Tdeliyarndetxp.Dlvno
+											                    WHERE Tdeliyarndetxp.Comid = '{Gscomid}'
+
+								                    ) AS AllS WHERE balanhave > 0.2")
         YanList.DataSource = TYanlist
-        YanListFilter()
-        YanListSend()
-        YanCutSend()
     End Sub
-    'Private Sub BindingBYanlist()
-    '    TBYanlist = New DataTable
-    '    TBYanlist = SQLCommand($"Select Tdeliyarndetxp.Comid,Tdeliyarndetxp.Dlvno,Tdeliyarndetxp.Ord,
-    '                            Tdeliyarndetxp.Yarnid,Tdeliyarndetxp.Lotno,
-    '                            Tdeliyarndetxp.Nwppc,Tdeliyarndetxp.Nwkgpc,
-    '                            Tdeliyarndetxp.Gwppc,Tdeliyarndetxp.Gwkgpc,
-    '                            Tdeliyarndetxp.Nofc,Tdeliyarndetxp.Updusr,Tdeliyarndetxp.Uptype,
-    '                            Tdeliyarndetxp.Uptime,Vdeliyarnmas.Knitdesc
-    '                            FROM Tdeliyarndetxp LEFT OUTER JOIN Vdeliyarnmas
-    '                            ON Tdeliyarndetxp.Dlvno = Vdeliyarnmas.Dlvno
-    '                            WHERE Tdeliyarndetxp.Comid = '{Gscomid}'")
-    '    BYanList.DataSource = TBYanlist
-    '    'BYanListFilter()
-    '    'BYanListSend()
-    '    'BYanCutSend()
-    'End Sub
+
     Private Sub Bindmasterknit()
         Tmasterknit = New DataTable
         Tmasterknit = SQLCommand("SELECT * FROM Tknittcomxp 
@@ -1111,34 +1068,7 @@ Checkloop:
             Binddetailsknit()
         End If
     End Sub
-    Private Function BindingNitSend(So As String)
-        Tlist = New DataTable
-        Tlist = SQLCommand($"SELECT Tdeliyarndetxp.Dlvno,SUM(Tdeliyarndetxp.Nwppc*Tdeliyarndetxp.Nofc) AS NetKG 
-                                FROM Tdeliyarndetxp
-	                            WHERE Tdeliyarndetxp.Comid = '{Gscomid}' 
-                                AND Tdeliyarndetxp.Dlvno = '{So}'
-	                            GROUP BY Tdeliyarndetxp.Dlvno -- ได้เป็นปอนที่มี")
-        If Tlist.Rows.Count = 0 Then
-            Return 0
-            Exit Function
-        End If
-        Return Tlist(0)(1)
-    End Function
-    Private Function BindingNetKG(So As String)
-        Tlist = New DataTable
-        Tlist = SQLCommand($"SELECT dbo.Vknitcommas.Dlvno, SUM(dbo.Vknitcomdet.Wgtkg) AS NitSend
-								FROM dbo.Vknitcommas LEFT OUTER JOIN
-								dbo.Vknitcomdet ON dbo.Vknitcommas.Comid = dbo.Vknitcomdet.Comid
-								AND dbo.Vknitcommas.Knitcomno = dbo.Vknitcomdet.Knitcomno
-								WHERE Vknitcommas.Comid = '{Gscomid}' 
-                                AND Vknitcommas.Dlvno = '{So}' 
-                                GROUP BY Vknitcommas.Dlvno -- ส่งไป")
-        If Tlist.Rows.Count = 0 Then
-            Return 0
-            Exit Function
-        End If
-        Return Tlist(0)(1)
-    End Function
+
     Private Sub Findyarn()
         Dim Tfyarnd As New DataTable
         Tfyarnd = SQLCommand("SELECT Yarnid,Yarndesc FROM Tyarnxp
@@ -1327,9 +1257,6 @@ Checkloop:
         End If
     End Sub
     Private Sub UpddetailsOther(Etype As String)
-        'MsgBox(Trim(Tbyarnid.Text))
-        'MsgBox(CDbl(Tstbsumkg.Text))
-        'MsgBox(Trim(Tbyarnid.Text) - CDbl(Tstbsumkg.Text))
         Dim COUNTS As New DataTable
         COUNTS = SQLCommand($"SELECT COUNT(*) AS COUNTS FROM Tdeliyarndetxp WHERE Dlvno = '{Trim(Tbdlvyarnno.Text)}'")
         If COUNTS(0)(0) >= 1 Then
@@ -1358,14 +1285,29 @@ Checkloop:
     Private Sub SearchlistYan(Sval As String)
         If Sval = "" Then
             BindingYanlist()
-            For i = 0 To YanList.RowCount - 1
-                YanList.Rows(i).Cells("balanhave").Value = Format(BindingNitSend($"{YanList.Rows(i).Cells("DlvnoDyed").Value}") - FindRekg(BindingNetKG($"{YanList.Rows(i).Cells("DlvnoDyed").Value}")), "###,###.#0")
-            Next
             Exit Sub
         End If
-        TYanlist = SQLCommand($"SELECT *  FROM Tdeliyarndetxp WHERE  Dlvno NOT IN (SELECT Dlvno FROM Tknittcomxp)
-                                AND Comid = '{Gscomid}' AND ( Dlvno LIKE '%{Sval}%' OR Yarnid LIKE '%{Sval}%' OR Lotno LIKE '%{Sval}%' OR 
-                                Nwkgpc LIKE '%{Sval}%'OR Nwppc LIKE '%{Sval}%' OR Gwkgpc LIKE '%{Sval}%' OR Gwppc LIKE '%{Sval}%' OR Nofc LIKE '%{Sval}%')")
+        TYanlist = SQLCommand($"SELECT * FROM (
+                                        SELECT Comid, Dlvno, Ord, Yarnid, Lotno, Nwppc, Nwkgpc, WgtKgSum, Gwppc, Gwkgpc, Nofc, Updusr, Uptype, Uptime, Knitdesc, 
+	                                           CAST(ROUND(balanhave*2.204622622,2,1) AS decimal(18,2)) AS balanhave FROM (
+			                                        SELECT Tdeliyarndetxp.Comid,Tdeliyarndetxp.Dlvno,Tdeliyarndetxp.Ord,
+											                                        Tdeliyarndetxp.Yarnid,Tdeliyarndetxp.Lotno,
+											                                        Tdeliyarndetxp.Nwppc,Tdeliyarndetxp.NWKGPC * Tdeliyarndetxp.Nofc AS Nwkgpc, A.WgtKgSum,
+											                                        Tdeliyarndetxp.Gwppc,Tdeliyarndetxp.Gwkgpc,
+											                                        Tdeliyarndetxp.Nofc,Tdeliyarndetxp.Updusr,Tdeliyarndetxp.Uptype,
+											                                        Tdeliyarndetxp.Uptime,Vdeliyarnmas.Knitdesc,((Tdeliyarndetxp.NWKGPC * Tdeliyarndetxp.Nofc) - IIF(A.WgtKgSum IS NULL, 0, A.WgtKgSum)) AS balanhave
+											                                        FROM Tdeliyarndetxp 
+											                                        LEFT OUTER JOIN Vdeliyarnmas
+											                                        ON Tdeliyarndetxp.Dlvno = Vdeliyarnmas.Dlvno
+											                                        LEFT OUTER JOIN ( SELECT Dlvno,SUM(WgtKgOrder) As WgtKgSum FROM Tknittcomxp
+																	                                         WHERE Comid = '{Gscomid}'
+																	                                         GROUP BY Dlvno )AS A
+											                                        ON A.Dlvno = Tdeliyarndetxp.Dlvno
+											                                        WHERE Tdeliyarndetxp.Comid = '{Gscomid}'
+								                                        ) AS AllS WHERE balanhave > 0.2 
+                                        ) AS B WHERE ( Dlvno LIKE '%{Sval}%' OR Yarnid LIKE '%{Sval}%' OR Lotno LIKE '%{Sval}%' OR Nwkgpc LIKE '%{Sval}%' 
+                                    OR Nwppc LIKE '%{Sval}%' OR Gwkgpc LIKE '%{Sval}%' OR Gwppc LIKE '%{Sval}%' OR Nofc LIKE '%{Sval}%' 
+                                    OR balanhave LIKE '%{Sval}%')")
         YanList.DataSource = TYanlist
     End Sub
     Private Sub Searchlistbydate()
