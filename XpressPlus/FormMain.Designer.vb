@@ -28,7 +28,6 @@ Partial Class FormMain
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
@@ -91,23 +90,12 @@ Partial Class FormMain
         Me.Button6.Text = "Jobconrol"
         Me.Button6.UseVisualStyleBackColor = True
         '
-        'Button7
-        '
-        Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
-        Me.Button7.Location = New System.Drawing.Point(41, 82)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(116, 47)
-        Me.Button7.TabIndex = 2
-        Me.Button7.Text = "Jobconrol"
-        Me.Button7.UseVisualStyleBackColor = True
-        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(985, 167)
+        Me.ClientSize = New System.Drawing.Size(976, 99)
         Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button3)
@@ -125,5 +113,4 @@ Partial Class FormMain
     Friend WithEvents Button4 As Button
     Friend WithEvents Button5 As Button
     Friend WithEvents Button6 As Button
-    Friend WithEvents Button7 As Button
 End Class

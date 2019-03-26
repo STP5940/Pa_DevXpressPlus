@@ -2,8 +2,8 @@
 Imports Microsoft.Reporting.WinForms
 Public Class Formknittingform
     Private Tmasterknit, Tdetailsknit, Tmasterdlv, Tdetailsdlv, Tlist, TYanlist, Dttemp, Vdeliyarndet,
-            Tmaster, Trollperkg, FTYanlist, SendYanlist, TdetailsdlvRds, TBYanlist As DataTable
-    Private Pagecount, Maxrec, Pagesize, Currentpage, Recno As Integer
+            Tmaster, Trollperkg, FTYanlist, SendYanlist, TdetailsdlvRds, TBYanlist, DttempYan As DataTable
+    Private Pagecount, Maxrec, Pagesize, Currentpage, Recno, PagecountYan, MaxrecYan, PagesizeYan, CurrentpageYan, RecnoYan As Integer
     Private WithEvents Dtplistfm As New DateTimePicker
     Private WithEvents Dtplistto As New DateTimePicker
     Private Bs As BindingSource
@@ -1008,6 +1008,7 @@ Public Class Formknittingform
 
 								                    ) AS AllS WHERE balanhave > 0.2")
         YanList.DataSource = TYanlist
+        FillGridYan(YanList, TYanlist, Tbpageyan, Tbrecordyan)
     End Sub
 
     Private Sub Bindmasterknit()
@@ -1309,6 +1310,7 @@ Public Class Formknittingform
                                     OR Nwppc LIKE '%{Sval}%' OR Gwkgpc LIKE '%{Sval}%' OR Gwppc LIKE '%{Sval}%' OR Nofc LIKE '%{Sval}%' 
                                     OR balanhave LIKE '%{Sval}%')")
         YanList.DataSource = TYanlist
+        FillGridYan(YanList, TYanlist, Tbpageyan, Tbrecordyan)
     End Sub
     Private Sub Searchlistbydate()
         Tlist = SQLCommand("SELECT '' AS Stat,* FROM Vknitcommas
@@ -1587,6 +1589,23 @@ Public Class Formknittingform
         QtyrollStore.Text = ""
         WgtKgStore.Text = ""
     End Sub
+
+    Private Sub Btfirstyan_Click(sender As Object, e As EventArgs) Handles Btfirstyan.Click
+        BefirstYan(YanList, TYanlist, Tbpageyan, Tbrecordyan)  'หน้าแรกสุด
+    End Sub
+
+    Private Sub Btprevyan_Click(sender As Object, e As EventArgs) Handles Btprevyan.Click
+        BeprevYan(YanList, TYanlist, Tbpageyan, Tbrecordyan)   'ก่อนหน้านี้
+    End Sub
+
+    Private Sub Btnextyan_Click(sender As Object, e As EventArgs) Handles Btnextyan.Click
+        BenextYan(YanList, TYanlist, Tbpageyan, Tbrecordyan)   'หลังหน้านี้
+    End Sub
+
+    Private Sub Btlastyan_Click(sender As Object, e As EventArgs) Handles Btlastyan.Click
+        BelastYan(YanList, TYanlist, Tbpageyan, Tbrecordyan)   'หน้าสุดท้าย
+    End Sub
+
     Private Sub Mainbuttoncancel()
         Btmnew.Enabled = True
         Btmedit.Enabled = False
@@ -1751,4 +1770,114 @@ Public Class Formknittingform
         End If
         Return Sautoid
     End Function
+
+
+    '----------------- Start Fill grid YanList ------------
+
+    Friend Sub FillGridYan(Dgvmember As DataGridView, Tlist As DataTable, Tbpage As ToolStripTextBox, Tbrecord As ToolStripTextBox)
+        PagesizeYan = (CInt(Dgvmember.Height) \ CInt(Dgvmember.RowTemplate.Height)) - 2
+        MaxrecYan = Tlist.Rows.Count
+        PagecountYan = MaxrecYan \ PagesizeYan
+        If (MaxrecYan Mod PagesizeYan) > 0 Then
+            PagecountYan = PagecountYan + 1
+        End If
+        CurrentpageYan = 1
+        RecnoYan = 0
+        LoadPageYan(Dgvmember, Tlist, Tbpage, Tbrecord)
+    End Sub
+
+    Friend Sub LoadPageYan(Dgvmember As DataGridView, Tlist As DataTable, Tbpage As ToolStripTextBox, Tbrecord As ToolStripTextBox)
+        Dim I, Startrec, Endrec As Integer
+        DttempYan = Tlist.Clone
+        If CurrentpageYan = PagecountYan Then
+            Endrec = MaxrecYan
+        Else
+            Endrec = PagesizeYan * CurrentpageYan
+        End If
+        Startrec = RecnoYan
+        If Tlist.Rows.Count > 0 Then
+            For I = Startrec To Endrec - 1
+                DttempYan.ImportRow(Tlist.Rows(I))
+                RecnoYan = RecnoYan + 1
+            Next
+        End If
+        Dgvmember.DataSource = DttempYan
+        Tbpage.Text = "หน้า " & CurrentpageYan.ToString & "/" & PagecountYan.ToString
+        Tbrecord.Text = "แสดง " & (Dgvmember.RowCount) & " รายการ จาก " & Tlist.Rows.Count & " รายการ"
+    End Sub
+
+    Friend Sub BefirstYan(Dgvmember As DataGridView, Tlist As DataTable, Tbpage As ToolStripTextBox, Tbrecord As ToolStripTextBox)
+        Try
+            If Not CheckfillbuttonYan() Then Return
+            If CurrentpageYan = 1 Then
+                Informmessage("You are at the First Page!")
+                Return
+            End If
+            CurrentpageYan = 1
+            RecnoYan = 0
+            LoadPageYan(Dgvmember, Tlist, Tbpage, Tbrecord)
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Friend Sub BeprevYan(Dgvmember As DataGridView, Tlist As DataTable, Tbpage As ToolStripTextBox, Tbrecord As ToolStripTextBox)
+        Try
+            If Not CheckfillbuttonYan() Then Return
+            CurrentpageYan = CurrentpageYan - 1
+            If CurrentpageYan < 1 Then
+                Informmessage("You are at the First Page!")
+                CurrentpageYan = 1
+                Return
+            Else
+                RecnoYan = PagesizeYan * (CurrentpageYan - 1)
+            End If
+            LoadPageYan(Dgvmember, Tlist, Tbpage, Tbrecord)
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Friend Sub BenextYan(Dgvmember As DataGridView, Tlist As DataTable, Tbpage As ToolStripTextBox, Tbrecord As ToolStripTextBox)
+        Try
+            If Not CheckfillbuttonYan() Then Return
+            If PagesizeYan = 0 Then
+                Informmessage("Set the Page Size, And then click the ""Fill Grid"" button!")
+                Return
+            End If
+            CurrentpageYan = CurrentpageYan + 1
+            If CurrentpageYan > PagecountYan Then
+                CurrentpageYan = PagecountYan
+                If RecnoYan = MaxrecYan Then
+                    Informmessage("You are at the Last Page!")
+                    Return
+                End If
+            End If
+            LoadPageYan(Dgvmember, Tlist, Tbpage, Tbrecord)
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Friend Sub BelastYan(Dgvmember As DataGridView, Tlist As DataTable, Tbpage As ToolStripTextBox, Tbrecord As ToolStripTextBox)
+        Try
+            If Not CheckfillbuttonYan() Then Return
+            If RecnoYan = MaxrecYan Then
+                Informmessage("You are at the Last Page!")
+                Return
+            End If
+            CurrentpageYan = PagecountYan
+            RecnoYan = PagesizeYan * (CurrentpageYan - 1)
+            LoadPageYan(Dgvmember, Tlist, Tbpage, Tbrecord)
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Friend Function CheckfillbuttonYan() As Boolean
+        If PagesizeYan = 0 Then
+            Informmessage("Set the Page Size, And Then click the ""Fill Grid"" button!")
+            Return False
+        Else
+            Return True
+        End If
+    End Function
+
+    '----------------- End Fill grid YanList ------------
 End Class
