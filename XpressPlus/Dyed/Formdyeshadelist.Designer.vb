@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Formshadelist
+Partial Class Formdyeshadelist
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -59,7 +59,7 @@ Partial Class Formshadelist
         Me.TabControl1.SelectedTabFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
         Me.TabControl1.SelectedTabIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(384, 331)
-        Me.TabControl1.TabIndex = 7
+        Me.TabControl1.TabIndex = 8
         Me.TabControl1.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox
         Me.TabControl1.Tabs.Add(Me.TabItem1)
         Me.TabControl1.Text = "TabControl1"
@@ -217,14 +217,14 @@ Partial Class Formshadelist
         Me.TabItem1.Name = "TabItem1"
         Me.TabItem1.Text = "Shade"
         '
-        'Formshadelist
+        'Formdyeshadelist
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(384, 331)
         Me.ControlBox = False
         Me.Controls.Add(Me.TabControl1)
-        Me.Name = "Formshadelist"
+        Me.Name = "Formdyeshadelist"
         Me.Text = "รายการ Shade"
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
@@ -240,17 +240,17 @@ Partial Class Formshadelist
     Friend WithEvents TabControl1 As DevComponents.DotNetBar.TabControl
     Friend WithEvents TabControlPanel1 As DevComponents.DotNetBar.TabControlPanel
     Friend WithEvents Dgvmas As DataGridView
-    Friend WithEvents ToolStrip1 As ToolStrip
-    Friend WithEvents Btmsearch As ToolStripButton
-    Friend WithEvents Tbkeyword As ToolStripTextBox
-    Friend WithEvents Tbcancel As ToolStripTextBox
-    Friend WithEvents Btcancel As DevComponents.DotNetBar.ButtonX
-    Friend WithEvents Btok As DevComponents.DotNetBar.ButtonX
-    Friend WithEvents TabItem1 As DevComponents.DotNetBar.TabItem
     Friend WithEvents Status As DataGridViewTextBoxColumn
     Friend WithEvents Mcomid As DataGridViewTextBoxColumn
     Friend WithEvents Mid As DataGridViewTextBoxColumn
     Friend WithEvents Mname As DataGridViewTextBoxColumn
+    Friend WithEvents ToolStrip1 As ToolStrip
+    Friend WithEvents Btmsearch As ToolStripButton
+    Friend WithEvents Tbkeyword As ToolStripTextBox
+    Friend WithEvents Tbcancel As ToolStripTextBox
     Friend WithEvents Tbknitcomno As ToolStripTextBox
     Friend WithEvents Tbclothid As ToolStripTextBox
+    Friend WithEvents Btcancel As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents Btok As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents TabItem1 As DevComponents.DotNetBar.TabItem
 End Class

@@ -447,7 +447,7 @@ Public Class Formdyeform
         End If
     End Sub
     Private Sub Btfindshade_Click(sender As Object, e As EventArgs) Handles Btfindshade.Click
-        Dim Frm As New Formshadelist
+        Dim Frm As New Formdyeshadelist
         Frm.Tbknitcomno.Text = Tbknitcomno.Text
         Frm.Tbclothid.Text = Tbclothid.Text
         Showdiaformcenter(Frm, Me)

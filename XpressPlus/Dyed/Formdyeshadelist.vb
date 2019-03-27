@@ -1,9 +1,9 @@
-﻿Public Class Formshadelist
+﻿Public Class Formdyeshadelist
     Private Tmaster As DataTable
-    Private Sub Formshadelist_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub Formdyeshadelist_Load(sender As Object, e As EventArgs) Handles Me.Load
         Bindingmaster()
     End Sub
-    Private Sub Formshadelist_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+    Private Sub Formdyeshadelist_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         Dgvmas.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
         Dgvmas.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
     End Sub

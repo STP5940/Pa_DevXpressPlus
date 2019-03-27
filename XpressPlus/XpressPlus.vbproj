@@ -110,6 +110,12 @@
     <Compile Include="Dyed\Formdyeform.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dyed\Formdyeshadelist.Designer.vb">
+      <DependentUpon>Formdyeshadelist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dyed\Formdyeshadelist.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dyed\Formknitfordyelist.designer.vb">
       <DependentUpon>Formknitfordyelist.vb</DependentUpon>
     </Compile>
@@ -482,6 +488,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dyed\Formdyeform.resx">
       <DependentUpon>Formdyeform.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dyed\Formdyeshadelist.resx">
+      <DependentUpon>Formdyeshadelist.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dyed\Formknitfordyelist.resx">
       <DependentUpon>Formknitfordyelist.vb</DependentUpon>

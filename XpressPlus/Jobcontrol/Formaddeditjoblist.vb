@@ -60,7 +60,7 @@
     End Function
 
     Private Sub Btfindshade_Click(sender As Object, e As EventArgs) Handles Btfindshade.Click
-        Dim Frm As New Formshadelist
+        Dim Frm As New Formdyeshadelist
         Showdiaformcenter(Frm, Me)
         If Frm.Tbcancel.Text = "C" Then
             Exit Sub
