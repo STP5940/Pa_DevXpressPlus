@@ -505,6 +505,7 @@ Partial Class Formfabjobcontrol
         '
         Me.Tstbkeyword.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
         Me.Tstbkeyword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Tstbkeyword.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
         Me.Tstbkeyword.MaxLength = 100
         Me.Tstbkeyword.Name = "Tstbkeyword"
         Me.Tstbkeyword.Size = New System.Drawing.Size(120, 49)
