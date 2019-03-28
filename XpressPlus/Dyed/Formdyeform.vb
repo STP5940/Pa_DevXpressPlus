@@ -807,7 +807,7 @@ Public Class Formdyeform
             Exit Sub
         End If
         TFablist = SQLCommand($"SELECT * FROM (
-					                                SELECT '' AS Stat,A.*, IIF(B.Qtyroll IS NULL,0,B.Qtyroll) AS Dye, IIF(B.Qtykg IS NULL,0,B.Qtykg) AS Qtykg, 
+					                                SELECT '' AS Stat,A.*,C.Jobno, IIF(B.Qtyroll IS NULL,0,B.Qtyroll) AS Dye, IIF(B.Qtykg IS NULL,0,B.Qtykg) AS Qtykg, 
 							                                A.Qtyroll- IIF(B.Qtyroll IS NULL,0,B.Qtyroll) AS Balance FROM Vknitcomdet AS A
 					                                LEFT OUTER JOIN (
 							                                SELECT Knittcomid, Clothid, SUM(Qtyroll) AS Qtyroll, SUM(Qtykg) AS Qtykg, Finwgt 
@@ -816,8 +816,11 @@ Public Class Formdyeform
 							                                GROUP BY Knittcomid, Clothid, Finwgt
 					                                ) AS B
 					                                ON A.Knitcomno = B.Knittcomid AND A.Clothid = B.Clothid
-					                                WHERE Comid = '{Gscomid}'
-                                ) AS C WHERE Balance > 0 AND (Knitcomno LIKE '%' + '" & Sval & "' + '%' OR Clothno LIKE '%' + '" & Sval & "' + '%' OR Ftype LIKE '%' + '" & Sval & "' + '%' OR Qtyroll LIKE '%' + '" & Sval & "' + '%')")
+													LEFT OUTER JOIN Tknittcomxp AS C
+													ON A.Knitcomno = C.Knitcomno
+					                                WHERE A.Comid = '{Gscomid}'
+                                ) AS C WHERE Balance > 0 AND Comid = '{Gscomid}' AND (Jobno LIKE '%{Sval}%' OR Knitcomno LIKE '%{Sval}%' 
+                                     OR Clothno LIKE '%{Sval}%' OR Ftype LIKE '%{Sval}%' OR Qtyroll LIKE '%{Sval}%')")
         FabricList.DataSource = TFablist
         FillGridFab(FabricList, TFablist, Tbpagefabric, Tbrecordfabric)
     End Sub
@@ -973,7 +976,7 @@ Public Class Formdyeform
     Private Sub BindingFabriclist()
         TFablist = New DataTable
         TFablist = SQLCommand($"SELECT * FROM (
-					                                SELECT '' AS Stat,A.*, IIF(B.Qtyroll IS NULL,0,B.Qtyroll) AS Dye, IIF(B.Qtykg IS NULL,0,B.Qtykg) AS Qtykg, 
+					                                SELECT '' AS Stat,A.*,C.Jobno, IIF(B.Qtyroll IS NULL,0,B.Qtyroll) AS Dye, IIF(B.Qtykg IS NULL,0,B.Qtykg) AS Qtykg, 
 							                                A.Qtyroll- IIF(B.Qtyroll IS NULL,0,B.Qtyroll) AS Balance FROM Vknitcomdet AS A
 					                                LEFT OUTER JOIN (
 							                                SELECT Knittcomid, Clothid, SUM(Qtyroll) AS Qtyroll, SUM(Qtykg) AS Qtykg, Finwgt 
@@ -982,7 +985,9 @@ Public Class Formdyeform
 							                                GROUP BY Knittcomid, Clothid, Finwgt
 					                                ) AS B
 					                                ON A.Knitcomno = B.Knittcomid AND A.Clothid = B.Clothid
-					                                WHERE Comid = '{Gscomid}'
+													LEFT OUTER JOIN Tknittcomxp AS C
+													ON A.Knitcomno = C.Knitcomno
+					                                WHERE A.Comid = '{Gscomid}'
                                 ) AS C WHERE Balance > 0 AND Comid = '{Gscomid}'")
         FabricList.DataSource = TFablist
         FillGridFab(FabricList, TFablist, Tbpagefabric, Tbrecordfabric)
