@@ -40,8 +40,8 @@ Public Class Formreceivefabcolors
         Dgvmas.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
         Balance.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
         Balance.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
-        ''SendDyelist.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
-        ''SendDyelist.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
+        'SendDyelist.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
+        'SendDyelist.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
         Dgvlist.ColumnHeadersDefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
         Dgvlist.DefaultCellStyle.Font = New Font("Microsoft Sans Serif", 11)
         Bindinglist()
@@ -1410,14 +1410,6 @@ BypassFilter:
             Next
         Next
 
-        'If Countfabric.Rows(Countfabric.Rows.Count - 1).Cells("Cclothno").Value = "" Then
-        '    For i = 0 To Countfabric.Rows.Count - 1
-        '        If i = Countfabric.Rows.Count - 1 Then
-        '            'Countfabric.Rows.Remove(Countfabric.SelectedRows(i))
-        '        End If
-        '    Next
-        'End If
-
     End Sub
 
     Private Sub Bindinglistfab()
@@ -1596,31 +1588,25 @@ BypassFilter:
     Private Sub BindingBalance()
 
         Tinstock = New DataTable
-        Tinstock = SQLCommand($"SELECT Dyedcomno, Clothid,Clothno, Ftype, Fwidth, Shadeid, Shadedesc, SUM(Qtyroll) AS Qtyroll, SUM(Qtykg) AS Qtykg FROM(
-				                        SELECT Vdyedcomdet.Dyedcomno, Vdyedcomdet.Clothid, Vdyedcomdet.Clothno, Vdyedcomdet.Ftype, 
+        Tinstock = SQLCommand($"SELECT Dyedcomno, Knittcomid, Jobno, Clothid,Clothno, Ftype, Fwidth, Shadeid, Shadedesc, SUM(Qtyroll) AS Qtyroll, SUM(Qtykg) AS Qtykg FROM(
+				                        SELECT Vdyedcomdet.Dyedcomno,Vdyedcomdet.Knittcomid, Tknittcomxp.Jobno, Vdyedcomdet.Clothid, Vdyedcomdet.Clothno, Vdyedcomdet.Ftype, 
 					                           Vdyedcomdet.Fwidth, Vdyedcomdet.Shadeid, Vdyedcomdet.Shadedesc, 
 					                           IIF(Vsumrecfabcoldet.Qtyroll IS NULL , Vdyedcomdet.Qtyroll, Vdyedcomdet.Qtyroll - Vsumrecfabcoldet.Qtyroll) AS Qtyroll, 
 					                           IIF(Vsumrecfabcoldet.Qtykg IS NULL , Vdyedcomdet.Qtykg, Vdyedcomdet.Qtykg - Vsumrecfabcoldet.Qtykg) AS Qtykg
 					                           FROM  Vdyedcomdet 
 					                           LEFT OUTER JOIN dbo.Vsumrecfabcoldet 
-					                           ON Vdyedcomdet.Comid = Vsumrecfabcoldet.Comid AND
-					                              Vdyedcomdet.Dyedcomno = Vsumrecfabcoldet.Dyedcomno AND Vdyedcomdet.Clothid = Vsumrecfabcoldet.Clothid AND 
-						                          Vdyedcomdet.Clothno = Vsumrecfabcoldet.Clothno AND Vdyedcomdet.Ftype = Vsumrecfabcoldet.Ftype AND 
-						                          Vdyedcomdet.Shadeid = Vsumrecfabcoldet.Shadeid AND Vdyedcomdet.Fwidth =Vsumrecfabcoldet.Fwidth AND 
-						                          Vdyedcomdet.Shadedesc = Vsumrecfabcoldet.Shadedesc WHERE Vdyedcomdet.comid = '{Gscomid}'
-                                ) AS AAA WHERE Qtyroll > 0 GROUP BY  Dyedcomno, Clothid,Clothno, Ftype, Fwidth, Shadeid, Shadedesc")
+												   ON Vdyedcomdet.Comid = Vsumrecfabcoldet.Comid AND
+													  Vdyedcomdet.Dyedcomno = Vsumrecfabcoldet.Dyedcomno AND Vdyedcomdet.Clothid = Vsumrecfabcoldet.Clothid AND 
+													  Vdyedcomdet.Clothno = Vsumrecfabcoldet.Clothno AND Vdyedcomdet.Ftype = Vsumrecfabcoldet.Ftype AND 
+													  Vdyedcomdet.Shadeid = Vsumrecfabcoldet.Shadeid AND Vdyedcomdet.Fwidth =Vsumrecfabcoldet.Fwidth AND 
+													  Vdyedcomdet.Shadedesc = Vsumrecfabcoldet.Shadedesc 
+											  LEFT OUTER JOIN Tknittcomxp
+													ON Vdyedcomdet.Knittcomid = Tknittcomxp.Knitcomno
+											   WHERE Vdyedcomdet.comid = '{Gscomid}'
+                                ) AS AAA WHERE Qtyroll > 0 GROUP BY  Dyedcomno, Clothid,Clothno, Ftype, Fwidth, Shadeid, Shadedesc, Knittcomid, Jobno ")
         Balance.DataSource = Tinstock
         FillGridBalance()
         ShowRecordDetailBalance()
-
-        'Filterfab.Rows.Clear() 'ยกเลิกแล้ว 28/02/2019
-        'FilterAllyed.Rows.Clear() 'ยกเลิกแล้ว 28/02/2019
-        'Balance.Rows.Clear() 'ยกเลิกแล้ว 28/02/2019
-        'Bindinglistfab() 'ยกเลิกแล้ว 28/02/2019
-        'Bindinglistyed() 'ยกเลิกแล้ว 28/02/2019
-        'FilterfabGrid() 'ยกเลิกแล้ว 28/02/2019
-        'FilteryedGrid() 'ยกเลิกแล้ว 28/02/2019
-        'FilterMaster() 'ยกเลิกแล้ว 28/02/2019
     End Sub
 
     Private Sub Filtermastergrid()
@@ -1628,12 +1614,8 @@ BypassFilter:
             BindingBalance()
             Exit Sub
         End If
-        'FilterAllyed.Rows.Clear() 'ยกเลิกแล้ว 28/02/2019
-        'Balance.Rows.Clear() 'ยกเลิกแล้ว 28/02/2019
-        Tinstock.DefaultView.RowFilter = String.Format("Dyedcomno Like '%{0}%' or Clothno Like '%{0}%' or Ftype Like '%{0}%' or Fwidth Like '%{0}%'", Trim(ToolStripTextBox3.Text))
+        Tinstock.DefaultView.RowFilter = String.Format("Dyedcomno Like '%{0}%' or Clothno Like '%{0}%' or Jobno Like '%{0}%' or Ftype Like '%{0}%' or Fwidth Like '%{0}%'", Trim(ToolStripTextBox3.Text))
         Balance.DataSource = Tinstock
-        'FilteryedGrid() 'ยกเลิกแล้ว 28/02/2019
-        'FilterMaster() 'ยกเลิกแล้ว 28/02/2019
     End Sub
 
 
