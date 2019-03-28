@@ -663,28 +663,49 @@ Public Class Formsalefabric
             Bindingstock()
             Exit Sub
         End If
-        Stocklist = SQLCommand($"SELECT dbo.Vsalestock.Comid, dbo.Trecfabcolxp.Reid, dbo.Vsalestock.Dhid, 
-                                    dbo.Vsalestock.Dyedhdesc, dbo.Vsalestock.Lotno, dbo.Vsalestock.Kongno, 
-                                    dbo.Vsalestock.Clothid, dbo.Vsalestock.Clothno, dbo.Vsalestock.Ftype, 
-                                    dbo.Vsalestock.Fwidth, dbo.Vsalestock.Shadeid, dbo.Vsalestock.Shadedesc, 
-                                    COUNT(*) AS Cunt, SUM(dbo.Vsalestock.Rollwage) AS Rollwage
-                            FROM dbo.Vsalestock INNER JOIN dbo.Trecfabcolxp 
-                                    ON dbo.Vsalestock.Comid = dbo.Trecfabcolxp.Comid 
-                                    AND dbo.Vsalestock.Lotno = dbo.Trecfabcolxp.Lotno
-                                    AND (Reid LIKE '%{Sval}%' OR 
-                                         dbo.Vsalestock.Lotno LIKE '%{Sval}%' OR 
-                                         Kongno LIKE '%{Sval}%' OR 
-                                         Ftype LIKE '%{Sval}%' OR 
-                                         Shadedesc LIKE '%{Sval}%' OR 
-                                         Rollwage LIKE '%{Sval}%' OR 
-                                         Clothno LIKE '%{Sval}%')
-                            WHERE (dbo.Vsalestock.Comid = '{Gscomid}')
-                            GROUP BY dbo.Vsalestock.Comid, dbo.Vsalestock.Dyedhdesc, dbo.Vsalestock.Lotno, 
-                                    dbo.Vsalestock.Kongno, dbo.Vsalestock.Clothid, dbo.Vsalestock.Clothno, 
-                                    dbo.Vsalestock.Ftype, dbo.Vsalestock.Fwidth, dbo.Vsalestock.Shadeid, 
-                                    dbo.Vsalestock.Shadedesc, dbo.Trecfabcolxp.Reid, dbo.Vsalestock.Dhid")
+        Stocklist = SQLCommand($"-- รายการผ้าในสต๊อกที่มาจากการรับผ้าจากโรงย้อม
+            SELECT * FROM (
 
-        'Custname LIKE '%' + '" & Sval & "' + '%' OR Dlvno LIKE '%' + '" & Sval & "' + '%' OR Clothno LIKE '%' + '" & Sval & "' + '%' OR Dremark LIKE '%' + '" & Sval & "' + '%'
+			SELECT dbo.Vsalestock.Comid, dbo.Trecfabcolxp.Reid, Tknittcomxp.Jobno, dbo.Vsalestock.Dhid, 
+													dbo.Vsalestock.Dyedhdesc, dbo.Vsalestock.Lotno, dbo.Vsalestock.Kongno, 
+													dbo.Vsalestock.Clothid, dbo.Vsalestock.Clothno, dbo.Vsalestock.Ftype, 
+													dbo.Vsalestock.Fwidth, dbo.Vsalestock.Shadeid, dbo.Vsalestock.Shadedesc, 
+													COUNT(*) AS Cunt, SUM(dbo.Vsalestock.Rollwage) AS Rollwage, SUM(dbo.Vsalestock.Dozen) AS Dozen
+											FROM dbo.Vsalestock 
+											INNER JOIN dbo.Trecfabcolxp 
+													 ON dbo.Vsalestock.Comid = dbo.Trecfabcolxp.Comid 
+													 AND dbo.Vsalestock.Lotno = dbo.Trecfabcolxp.Lotno
+											LEFT OUTER JOIN Vdyedcomdet
+											ON Vsalestock.Billdyedno = Vdyedcomdet.Dyedcomno
+											LEFT OUTER JOIN Tknittcomxp
+											ON Vdyedcomdet.Knittcomid = Tknittcomxp.Knitcomno
+											WHERE (dbo.Vsalestock.Comid = '{Gscomid}')
+											GROUP BY dbo.Vsalestock.Comid, dbo.Vsalestock.Dyedhdesc, dbo.Vsalestock.Lotno, 
+													 dbo.Vsalestock.Kongno, dbo.Vsalestock.Clothid, dbo.Vsalestock.Clothno, 
+													 dbo.Vsalestock.Ftype, dbo.Vsalestock.Fwidth, dbo.Vsalestock.Shadeid, 
+													 dbo.Vsalestock.Shadedesc, dbo.Trecfabcolxp.Reid, dbo.Vsalestock.Dhid,
+													 dbo.Vsalestock.Dozen, dbo.Trecfabcolxp.Billdyedno, Vdyedcomdet.Knittcomid, Tknittcomxp.Jobno
+											UNION
+											-- รายการผ้าในสต๊อกที่มาจากการรับคืนผ้าจากลูกค้า
+											SELECT Vrebackfabdet.Comid, Vrebackfabdet.Rbid, '' AS Jobno ,Vrebackfabdet.Custid, Vrebackfabdet.Custname,
+												   Vrebackfabdet.Lotno, Vrebackfabdet.Kongno, Vrebackfabdet.Clothid, Vrebackfabdet.Clothno,
+												   Vrebackfabdet.Ftype, Vrebackfabdet.Fwidth, Vrebackfabdet.Shadeid, Vrebackfabdet.Shadedesc,
+												   COUNT(*) As Cunt, SUM(Vrebackfabdet.Rollwage) As Rollwage , '0' AS Dozen
+											FROM dbo.Vrebackfabdet 
+											LEFT JOIN dbo.Tsalefabcoldetxp 
+												 ON dbo.Vrebackfabdet.Comid = dbo.Tsalefabcoldetxp.Comid 
+												 AND dbo.Vrebackfabdet.Lotno = dbo.Tsalefabcoldetxp.Lotno
+												 AND dbo.Vrebackfabdet.Rollno = dbo.Tsalefabcoldetxp.Rollno
+											WHERE dbo.Tsalefabcoldetxp.Lotno IS NULL 
+												 AND Tsalefabcoldetxp.Rollno IS NULL 
+												 AND dbo.Vrebackfabdet.Comid = '{Gscomid}'
+											GROUP BY Vrebackfabdet.Comid, Vrebackfabdet.Rbid, Vrebackfabdet.Custid, Vrebackfabdet.Custname, 
+													 Vrebackfabdet.Custname, Vrebackfabdet.Lotno, Vrebackfabdet.Kongno, Vrebackfabdet.Clothid, 
+													 Vrebackfabdet.Clothno, Vrebackfabdet.Ftype, Vrebackfabdet.Fwidth, Vrebackfabdet.Shadeid, 
+													 Vrebackfabdet.Shadedesc
+
+			) AS A WHERE (Reid LIKE '%{Sval}%' OR Jobno LIKE '%{Sval}%' OR Lotno LIKE '%{Sval}%' OR Kongno LIKE '%{Sval}%' OR Clothno LIKE '%{Sval}%' OR Ftype LIKE '%{Sval}%' OR 
+						  Fwidth LIKE '%{Sval}%' OR Shadedesc LIKE '%{Sval}%' OR Rollwage LIKE '%{Sval}%' OR Cunt LIKE '%{Sval}%' OR Dozen LIKE '%{Sval}%')")
         FillstockGrid()
         ShowRecordStockDetail()
     End Sub
@@ -1041,44 +1062,46 @@ Public Class Formsalefabric
     End Sub
     Private Sub Bindingstock()
         Stocklist = New DataTable
-        Stocklist = SQLCommand($"-- รายการผ้าในสต๊อกที่มาจากการรับผ้าจากโรงย้อม 
-                                SELECT dbo.Vsalestock.Comid, dbo.Trecfabcolxp.Reid, dbo.Vsalestock.Dhid, 
-                                        dbo.Vsalestock.Dyedhdesc, dbo.Vsalestock.Lotno, dbo.Vsalestock.Kongno, 
-                                        dbo.Vsalestock.Clothid, dbo.Vsalestock.Clothno, dbo.Vsalestock.Ftype, 
-                                        dbo.Vsalestock.Fwidth, dbo.Vsalestock.Shadeid, dbo.Vsalestock.Shadedesc, 
-                                        COUNT(*) AS Cunt, SUM(dbo.Vsalestock.Rollwage) AS Rollwage, SUM(dbo.Vsalestock.Dozen) AS Dozen
-                                FROM dbo.Vsalestock INNER JOIN dbo.Trecfabcolxp 
-                                         ON dbo.Vsalestock.Comid = dbo.Trecfabcolxp.Comid 
-                                         AND dbo.Vsalestock.Lotno = dbo.Trecfabcolxp.Lotno
-                                WHERE (dbo.Vsalestock.Comid = '{Gscomid}')
-                                GROUP BY dbo.Vsalestock.Comid, dbo.Vsalestock.Dyedhdesc, dbo.Vsalestock.Lotno, 
-                                         dbo.Vsalestock.Kongno, dbo.Vsalestock.Clothid, dbo.Vsalestock.Clothno, 
-                                         dbo.Vsalestock.Ftype, dbo.Vsalestock.Fwidth, dbo.Vsalestock.Shadeid, 
-                                         dbo.Vsalestock.Shadedesc, dbo.Trecfabcolxp.Reid, dbo.Vsalestock.Dhid,
-                                         dbo.Vsalestock.Dozen
-                                UNION
-                                -- รายการผ้าในสต๊อกที่มาจากการรับคืนผ้าจากลูกค้า
-                                SELECT Vrebackfabdet.Comid, Vrebackfabdet.Rbid, Vrebackfabdet.Custid, Vrebackfabdet.Custname,
-                                       Vrebackfabdet.Lotno, Vrebackfabdet.Kongno, Vrebackfabdet.Clothid, Vrebackfabdet.Clothno,
-                                       Vrebackfabdet.Ftype, Vrebackfabdet.Fwidth, Vrebackfabdet.Shadeid, Vrebackfabdet.Shadedesc,
-                                       COUNT(*) As Cunt, SUM(Vrebackfabdet.Rollwage) As Rollwage , '0' AS Dozen
-	                            FROM dbo.Vrebackfabdet 
-	                            LEFT JOIN dbo.Tsalefabcoldetxp 
-	                                 ON dbo.Vrebackfabdet.Comid = dbo.Tsalefabcoldetxp.Comid 
-	                                 AND dbo.Vrebackfabdet.Lotno = dbo.Tsalefabcoldetxp.Lotno
-		                             AND dbo.Vrebackfabdet.Rollno = dbo.Tsalefabcoldetxp.Rollno
-	                            WHERE dbo.Tsalefabcoldetxp.Lotno IS NULL 
-                                     AND Tsalefabcoldetxp.Rollno IS NULL 
-                                     AND dbo.Vrebackfabdet.Comid = '{Gscomid}'
-	                            GROUP BY Vrebackfabdet.Comid, Vrebackfabdet.Rbid, Vrebackfabdet.Custid, Vrebackfabdet.Custname, 
-                                         Vrebackfabdet.Custname, Vrebackfabdet.Lotno, Vrebackfabdet.Kongno, Vrebackfabdet.Clothid, 
-                                         Vrebackfabdet.Clothno, Vrebackfabdet.Ftype, Vrebackfabdet.Fwidth, Vrebackfabdet.Shadeid, 
-                                         Vrebackfabdet.Shadedesc")
+        Stocklist = SQLCommand($"-- รายการผ้าในสต๊อกที่มาจากการรับผ้าจากโรงย้อม
+                                SELECT dbo.Vsalestock.Comid, dbo.Trecfabcolxp.Reid, Tknittcomxp.Jobno, dbo.Vsalestock.Dhid, 
+													dbo.Vsalestock.Dyedhdesc, dbo.Vsalestock.Lotno, dbo.Vsalestock.Kongno, 
+													dbo.Vsalestock.Clothid, dbo.Vsalestock.Clothno, dbo.Vsalestock.Ftype, 
+													dbo.Vsalestock.Fwidth, dbo.Vsalestock.Shadeid, dbo.Vsalestock.Shadedesc, 
+													COUNT(*) AS Cunt, SUM(dbo.Vsalestock.Rollwage) AS Rollwage, SUM(dbo.Vsalestock.Dozen) AS Dozen
+											FROM dbo.Vsalestock 
+											INNER JOIN dbo.Trecfabcolxp 
+													 ON dbo.Vsalestock.Comid = dbo.Trecfabcolxp.Comid 
+													 AND dbo.Vsalestock.Lotno = dbo.Trecfabcolxp.Lotno
+											LEFT OUTER JOIN Vdyedcomdet
+											ON Vsalestock.Billdyedno = Vdyedcomdet.Dyedcomno
+											LEFT OUTER JOIN Tknittcomxp
+											ON Vdyedcomdet.Knittcomid = Tknittcomxp.Knitcomno
+											WHERE (dbo.Vsalestock.Comid = '{Gscomid}')
+											GROUP BY dbo.Vsalestock.Comid, dbo.Vsalestock.Dyedhdesc, dbo.Vsalestock.Lotno, 
+													 dbo.Vsalestock.Kongno, dbo.Vsalestock.Clothid, dbo.Vsalestock.Clothno, 
+													 dbo.Vsalestock.Ftype, dbo.Vsalestock.Fwidth, dbo.Vsalestock.Shadeid, 
+													 dbo.Vsalestock.Shadedesc, dbo.Trecfabcolxp.Reid, dbo.Vsalestock.Dhid,
+													 dbo.Vsalestock.Dozen, dbo.Trecfabcolxp.Billdyedno, Vdyedcomdet.Knittcomid, Tknittcomxp.Jobno
+											UNION
+											-- รายการผ้าในสต๊อกที่มาจากการรับคืนผ้าจากลูกค้า
+											SELECT Vrebackfabdet.Comid, Vrebackfabdet.Rbid, '' AS Jobno ,Vrebackfabdet.Custid, Vrebackfabdet.Custname,
+												   Vrebackfabdet.Lotno, Vrebackfabdet.Kongno, Vrebackfabdet.Clothid, Vrebackfabdet.Clothno,
+												   Vrebackfabdet.Ftype, Vrebackfabdet.Fwidth, Vrebackfabdet.Shadeid, Vrebackfabdet.Shadedesc,
+												   COUNT(*) As Cunt, SUM(Vrebackfabdet.Rollwage) As Rollwage , '0' AS Dozen
+											FROM dbo.Vrebackfabdet 
+											LEFT JOIN dbo.Tsalefabcoldetxp 
+												 ON dbo.Vrebackfabdet.Comid = dbo.Tsalefabcoldetxp.Comid 
+												 AND dbo.Vrebackfabdet.Lotno = dbo.Tsalefabcoldetxp.Lotno
+												 AND dbo.Vrebackfabdet.Rollno = dbo.Tsalefabcoldetxp.Rollno
+											WHERE dbo.Tsalefabcoldetxp.Lotno IS NULL 
+												 AND Tsalefabcoldetxp.Rollno IS NULL 
+												 AND dbo.Vrebackfabdet.Comid = '{Gscomid}'
+											GROUP BY Vrebackfabdet.Comid, Vrebackfabdet.Rbid, Vrebackfabdet.Custid, Vrebackfabdet.Custname, 
+													 Vrebackfabdet.Custname, Vrebackfabdet.Lotno, Vrebackfabdet.Kongno, Vrebackfabdet.Clothid, 
+													 Vrebackfabdet.Clothno, Vrebackfabdet.Ftype, Vrebackfabdet.Fwidth, Vrebackfabdet.Shadeid, 
+													 Vrebackfabdet.Shadedesc")
 
         Dgvstock.DataSource = Stocklist
-        '    Bs = New BindingSource
-        '    Bs.DataSource = Tlist
-        '    BindingNavigator1.BindingSource = Bs
         FillstockGrid()
         ShowRecordStockDetail()
     End Sub
