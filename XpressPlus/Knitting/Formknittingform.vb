@@ -978,7 +978,9 @@ Public Class Formknittingform
     End Sub
     Private Sub Bindinglist()
         Tlist = New DataTable
-        Tlist = SQLCommand("SELECT '' AS Stat,* FROM Vknitcommas WHERE Comid = '" & Gscomid & "'")
+        Tlist = SQLCommand($"SELECT '' AS Stat,Vknitcommas.*,Tknittcomxp.Jobno FROM Vknitcommas
+                                    LEFT JOIN Tknittcomxp
+                                    ON Vknitcommas.Knitcomno = Tknittcomxp.Knitcomno WHERE Vknitcommas.Comid = '{Gscomid}'")
         Dgvlist.DataSource = Tlist
         Bs = New BindingSource
         Bs.DataSource = Tlist
