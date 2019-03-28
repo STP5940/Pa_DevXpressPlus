@@ -24,15 +24,15 @@ Partial Class Formreceivefabcolors
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Formreceivefabcolors))
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.Btmclose = New System.Windows.Forms.ToolStripButton()
         Me.Btmfind = New System.Windows.Forms.ToolStripButton()
@@ -48,6 +48,18 @@ Partial Class Formreceivefabcolors
         Me.TabControl1 = New DevComponents.DotNetBar.TabControl()
         Me.TabControlPanel3 = New DevComponents.DotNetBar.TabControlPanel()
         Me.Balance = New System.Windows.Forms.DataGridView()
+        Me.Stat = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BDyedcomno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BKnittcomid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Jobno = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BClothidyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BClothnoyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BFtypeyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BFwidthyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BQtykg = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BShadedesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BQtyroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BShadeid = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip8 = New System.Windows.Forms.ToolStrip()
         Me.BtfirstBalance = New System.Windows.Forms.ToolStripButton()
         Me.BtprevBalance = New System.Windows.Forms.ToolStripButton()
@@ -92,7 +104,7 @@ Partial Class Formreceivefabcolors
         Me.ToolStrip7 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
         Me.Balancefind = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripTextBox3 = New System.Windows.Forms.ToolStripTextBox()
+        Me.Tstbbalancekeyword = New System.Windows.Forms.ToolStripTextBox()
         Me.ToolStripLabel6 = New System.Windows.Forms.ToolStripLabel()
         Me.TabItem3 = New DevComponents.DotNetBar.TabItem(Me.components)
         Me.TabControlPanel2 = New DevComponents.DotNetBar.TabControlPanel()
@@ -246,18 +258,6 @@ Partial Class Formreceivefabcolors
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.TabItem1 = New DevComponents.DotNetBar.TabItem(Me.components)
-        Me.Stat = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BDyedcomno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BKnittcomid = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Jobno = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BClothidyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BClothnoyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BFtypeyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BFwidthyed = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BQtykg = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BShadedesc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BQtyroll = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BShadeid = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.TabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
@@ -501,6 +501,112 @@ Partial Class Formreceivefabcolors
         Me.Balance.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.Balance.Size = New System.Drawing.Size(1006, 562)
         Me.Balance.TabIndex = 78
+        '
+        'Stat
+        '
+        Me.Stat.HeaderText = ""
+        Me.Stat.Name = "Stat"
+        Me.Stat.ReadOnly = True
+        Me.Stat.Width = 20
+        '
+        'BDyedcomno
+        '
+        Me.BDyedcomno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.BDyedcomno.DataPropertyName = "Dyedcomno"
+        Me.BDyedcomno.HeaderText = "เลขที่ใบสั่งย้อม"
+        Me.BDyedcomno.Name = "BDyedcomno"
+        Me.BDyedcomno.ReadOnly = True
+        '
+        'BKnittcomid
+        '
+        Me.BKnittcomid.DataPropertyName = "Knittcomid"
+        Me.BKnittcomid.HeaderText = "Knittcomid"
+        Me.BKnittcomid.Name = "BKnittcomid"
+        Me.BKnittcomid.ReadOnly = True
+        Me.BKnittcomid.Visible = False
+        '
+        'Jobno
+        '
+        Me.Jobno.DataPropertyName = "Jobno"
+        Me.Jobno.HeaderText = "เลขที่ Job"
+        Me.Jobno.MinimumWidth = 120
+        Me.Jobno.Name = "Jobno"
+        Me.Jobno.ReadOnly = True
+        Me.Jobno.Width = 120
+        '
+        'BClothidyed
+        '
+        Me.BClothidyed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.BClothidyed.DataPropertyName = "Clothid"
+        Me.BClothidyed.HeaderText = "Clothidyed"
+        Me.BClothidyed.Name = "BClothidyed"
+        Me.BClothidyed.ReadOnly = True
+        Me.BClothidyed.Visible = False
+        '
+        'BClothnoyed
+        '
+        Me.BClothnoyed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.BClothnoyed.DataPropertyName = "Clothno"
+        Me.BClothnoyed.HeaderText = "เบอร์ผ้า"
+        Me.BClothnoyed.Name = "BClothnoyed"
+        Me.BClothnoyed.ReadOnly = True
+        '
+        'BFtypeyed
+        '
+        Me.BFtypeyed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.BFtypeyed.DataPropertyName = "Ftype"
+        Me.BFtypeyed.HeaderText = "ประเภท"
+        Me.BFtypeyed.Name = "BFtypeyed"
+        Me.BFtypeyed.ReadOnly = True
+        '
+        'BFwidthyed
+        '
+        Me.BFwidthyed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.BFwidthyed.DataPropertyName = "Fwidth"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.BFwidthyed.DefaultCellStyle = DataGridViewCellStyle2
+        Me.BFwidthyed.HeaderText = "หน้ากว้าง"
+        Me.BFwidthyed.Name = "BFwidthyed"
+        Me.BFwidthyed.ReadOnly = True
+        '
+        'BQtykg
+        '
+        Me.BQtykg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.BQtykg.DataPropertyName = "Qtykg"
+        Me.BQtykg.HeaderText = "น้ำหนักคงเหลือ"
+        Me.BQtykg.Name = "BQtykg"
+        Me.BQtykg.ReadOnly = True
+        Me.BQtykg.Visible = False
+        '
+        'BShadedesc
+        '
+        Me.BShadedesc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.BShadedesc.DataPropertyName = "Shadedesc"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.BShadedesc.DefaultCellStyle = DataGridViewCellStyle3
+        Me.BShadedesc.HeaderText = "Shade"
+        Me.BShadedesc.Name = "BShadedesc"
+        Me.BShadedesc.ReadOnly = True
+        '
+        'BQtyroll
+        '
+        Me.BQtyroll.DataPropertyName = "Qtyroll"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.Format = "N0"
+        DataGridViewCellStyle4.NullValue = Nothing
+        Me.BQtyroll.DefaultCellStyle = DataGridViewCellStyle4
+        Me.BQtyroll.HeaderText = "จำนวนพับคงเหลือ"
+        Me.BQtyroll.Name = "BQtyroll"
+        Me.BQtyroll.ReadOnly = True
+        Me.BQtyroll.Width = 150
+        '
+        'BShadeid
+        '
+        Me.BShadeid.DataPropertyName = "Shadeid"
+        Me.BShadeid.HeaderText = "BShadeid"
+        Me.BShadeid.Name = "BShadeid"
+        Me.BShadeid.ReadOnly = True
+        Me.BShadeid.Visible = False
         '
         'ToolStrip8
         '
@@ -826,7 +932,7 @@ Partial Class Formreceivefabcolors
         'ToolStrip7
         '
         Me.ToolStrip7.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStrip7.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton5, Me.Balancefind, Me.ToolStripTextBox3, Me.ToolStripLabel6})
+        Me.ToolStrip7.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton5, Me.Balancefind, Me.Tstbbalancekeyword, Me.ToolStripLabel6})
         Me.ToolStrip7.Location = New System.Drawing.Point(1, 1)
         Me.ToolStrip7.Name = "ToolStrip7"
         Me.ToolStrip7.Size = New System.Drawing.Size(1006, 49)
@@ -857,13 +963,13 @@ Partial Class Formreceivefabcolors
         Me.Balancefind.Text = "ค้นหา"
         Me.Balancefind.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
-        'ToolStripTextBox3
+        'Tstbbalancekeyword
         '
-        Me.ToolStripTextBox3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.ToolStripTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ToolStripTextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripTextBox3.Name = "ToolStripTextBox3"
-        Me.ToolStripTextBox3.Size = New System.Drawing.Size(120, 49)
+        Me.Tstbbalancekeyword.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.Tstbbalancekeyword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Tstbbalancekeyword.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tstbbalancekeyword.Name = "Tstbbalancekeyword"
+        Me.Tstbbalancekeyword.Size = New System.Drawing.Size(120, 49)
         '
         'ToolStripLabel6
         '
@@ -2621,112 +2727,6 @@ Partial Class Formreceivefabcolors
         Me.TabItem1.Name = "TabItem1"
         Me.TabItem1.Text = "รายละเอียด"
         '
-        'Stat
-        '
-        Me.Stat.HeaderText = ""
-        Me.Stat.Name = "Stat"
-        Me.Stat.ReadOnly = True
-        Me.Stat.Width = 20
-        '
-        'BDyedcomno
-        '
-        Me.BDyedcomno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.BDyedcomno.DataPropertyName = "Dyedcomno"
-        Me.BDyedcomno.HeaderText = "เลขที่ใบสั่งย้อม"
-        Me.BDyedcomno.Name = "BDyedcomno"
-        Me.BDyedcomno.ReadOnly = True
-        '
-        'BKnittcomid
-        '
-        Me.BKnittcomid.DataPropertyName = "Knittcomid"
-        Me.BKnittcomid.HeaderText = "Knittcomid"
-        Me.BKnittcomid.Name = "BKnittcomid"
-        Me.BKnittcomid.ReadOnly = True
-        Me.BKnittcomid.Visible = False
-        '
-        'Jobno
-        '
-        Me.Jobno.DataPropertyName = "Jobno"
-        Me.Jobno.HeaderText = "เลขที่ Job"
-        Me.Jobno.MinimumWidth = 120
-        Me.Jobno.Name = "Jobno"
-        Me.Jobno.ReadOnly = True
-        Me.Jobno.Width = 120
-        '
-        'BClothidyed
-        '
-        Me.BClothidyed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.BClothidyed.DataPropertyName = "Clothid"
-        Me.BClothidyed.HeaderText = "Clothidyed"
-        Me.BClothidyed.Name = "BClothidyed"
-        Me.BClothidyed.ReadOnly = True
-        Me.BClothidyed.Visible = False
-        '
-        'BClothnoyed
-        '
-        Me.BClothnoyed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.BClothnoyed.DataPropertyName = "Clothno"
-        Me.BClothnoyed.HeaderText = "เบอร์ผ้า"
-        Me.BClothnoyed.Name = "BClothnoyed"
-        Me.BClothnoyed.ReadOnly = True
-        '
-        'BFtypeyed
-        '
-        Me.BFtypeyed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.BFtypeyed.DataPropertyName = "Ftype"
-        Me.BFtypeyed.HeaderText = "ประเภท"
-        Me.BFtypeyed.Name = "BFtypeyed"
-        Me.BFtypeyed.ReadOnly = True
-        '
-        'BFwidthyed
-        '
-        Me.BFwidthyed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.BFwidthyed.DataPropertyName = "Fwidth"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.BFwidthyed.DefaultCellStyle = DataGridViewCellStyle2
-        Me.BFwidthyed.HeaderText = "หน้ากว้าง"
-        Me.BFwidthyed.Name = "BFwidthyed"
-        Me.BFwidthyed.ReadOnly = True
-        '
-        'BQtykg
-        '
-        Me.BQtykg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.BQtykg.DataPropertyName = "Qtykg"
-        Me.BQtykg.HeaderText = "น้ำหนักคงเหลือ"
-        Me.BQtykg.Name = "BQtykg"
-        Me.BQtykg.ReadOnly = True
-        Me.BQtykg.Visible = False
-        '
-        'BShadedesc
-        '
-        Me.BShadedesc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.BShadedesc.DataPropertyName = "Shadedesc"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.BShadedesc.DefaultCellStyle = DataGridViewCellStyle3
-        Me.BShadedesc.HeaderText = "Shade"
-        Me.BShadedesc.Name = "BShadedesc"
-        Me.BShadedesc.ReadOnly = True
-        '
-        'BQtyroll
-        '
-        Me.BQtyroll.DataPropertyName = "Qtyroll"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.Format = "N0"
-        DataGridViewCellStyle4.NullValue = Nothing
-        Me.BQtyroll.DefaultCellStyle = DataGridViewCellStyle4
-        Me.BQtyroll.HeaderText = "จำนวนพับคงเหลือ"
-        Me.BQtyroll.Name = "BQtyroll"
-        Me.BQtyroll.ReadOnly = True
-        Me.BQtyroll.Width = 150
-        '
-        'BShadeid
-        '
-        Me.BShadeid.DataPropertyName = "Shadeid"
-        Me.BShadeid.HeaderText = "BShadeid"
-        Me.BShadeid.Name = "BShadeid"
-        Me.BShadeid.ReadOnly = True
-        Me.BShadeid.Visible = False
-        '
         'Formreceivefabcolors
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2921,7 +2921,7 @@ Partial Class Formreceivefabcolors
     Friend WithEvents ToolStrip7 As ToolStrip
     Friend WithEvents ToolStripButton5 As ToolStripButton
     Friend WithEvents Balancefind As ToolStripButton
-    Friend WithEvents ToolStripTextBox3 As ToolStripTextBox
+    Friend WithEvents Tstbbalancekeyword As ToolStripTextBox
     Friend WithEvents ToolStripLabel6 As ToolStripLabel
     Friend WithEvents FilterAllyed As DataGridView
     Friend WithEvents Filterfab As DataGridView

@@ -1610,11 +1610,11 @@ BypassFilter:
     End Sub
 
     Private Sub Filtermastergrid()
-        If Trim(ToolStripTextBox3.Text) = "" Then
+        If Trim(Tstbbalancekeyword.Text) = "" Then
             BindingBalance()
             Exit Sub
         End If
-        Tinstock.DefaultView.RowFilter = String.Format("Dyedcomno Like '%{0}%' or Clothno Like '%{0}%' or Jobno Like '%{0}%' or Ftype Like '%{0}%' or Fwidth Like '%{0}%'", Trim(ToolStripTextBox3.Text))
+        Tinstock.DefaultView.RowFilter = String.Format("Dyedcomno Like '%{0}%' or Clothno Like '%{0}%' or Jobno Like '%{0}%' or Ftype Like '%{0}%' or Fwidth Like '%{0}%'", Trim(Tstbbalancekeyword.Text))
         Balance.DataSource = Tinstock
     End Sub
 
@@ -1801,19 +1801,19 @@ BypassFilter:
         Tbdhname.Text = tlistnamebill(0)(1)
     End Sub
 
-    Private Sub ToolStripTextBox3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ToolStripTextBox3.KeyPress
+    Private Sub Tstbbalancekeyword_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Tstbbalancekeyword.KeyPress
         e.Handled = (Asc(e.KeyChar) = 39)
     End Sub
     Private Sub ToolStripButton5_Click(sender As Object, e As EventArgs) Handles ToolStripButton5.Click
         BindingBalance()
     End Sub
 
-    Private Sub ToolStripTextBox3_TextChanged(sender As Object, e As EventArgs) Handles ToolStripTextBox3.TextChanged
+    Private Sub Tstbbalancekeyword_TextChanged(sender As Object, e As EventArgs) Handles Tstbbalancekeyword.TextChanged
         Balancefind_Click(sender, e)
-        If ToolStripTextBox3.Text = "--version" Or ToolStripTextBox3.Text = "-V" Then
+        If Tstbbalancekeyword.Text = "--version" Or Tstbbalancekeyword.Text = "-V" Then
             Informmessage("26/11/2018 17:00")
         End If
-        If ToolStripTextBox3.Text = "--report" Then
+        If Tstbbalancekeyword.Text = "--report" Then
             Dim frm As New Formreceivefabrpt
             frm.VersionReport()
         End If
