@@ -124,10 +124,10 @@ Partial Class Formjobcontrollist
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.Dgvlist.DefaultCellStyle = DataGridViewCellStyle2
         Me.Dgvlist.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Dgvlist.Location = New System.Drawing.Point(1, 209)
+        Me.Dgvlist.Location = New System.Drawing.Point(1, 203)
         Me.Dgvlist.Name = "Dgvlist"
         Me.Dgvlist.ReadOnly = True
-        Me.Dgvlist.Size = New System.Drawing.Size(382, 10)
+        Me.Dgvlist.Size = New System.Drawing.Size(382, 28)
         Me.Dgvlist.TabIndex = 30
         Me.Dgvlist.Visible = False
         '
@@ -236,7 +236,7 @@ Partial Class Formjobcontrollist
         Me.Dgvmas.Location = New System.Drawing.Point(1, 50)
         Me.Dgvmas.Name = "Dgvmas"
         Me.Dgvmas.ReadOnly = True
-        Me.Dgvmas.Size = New System.Drawing.Size(382, 159)
+        Me.Dgvmas.Size = New System.Drawing.Size(382, 153)
         Me.Dgvmas.TabIndex = 29
         '
         'Status

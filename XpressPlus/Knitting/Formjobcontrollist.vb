@@ -46,15 +46,34 @@
     End Sub
     Private Sub Bindingmaster()
         Tmaster = New DataTable
-        Tmaster = SQLCommand($"SELECT DISTINCT Tjobcontroldetxp.Jobno, Tcustomersxp.Custname
-                                      FROM Tjobcontrolxp 
-                               LEFT OUTER JOIN Tcustomersxp 
-                                      ON Tjobcontrolxp.Custid = Tcustomersxp.Custid AND Tjobcontrolxp.Comid = Tcustomersxp.Comid 
-                               LEFT OUTER JOIN Tjobcontroldetxp 
-                                      ON Tjobcontrolxp.Jobno = Tjobcontroldetxp.Jobno AND Tjobcontrolxp.Comid = Tjobcontroldetxp.Comid 
-                               LEFT OUTER JOIN Tknittcomdetxp 
-                                      ON Tjobcontroldetxp.Comid = Tknittcomdetxp.Comid AND Tjobcontroldetxp.Knitcomno = Tknittcomdetxp.Knitcomno
-                               WHERE (dbo.Tjobcontroldetxp.Knitcomno = '') AND (Tjobcontrolxp.Comid = '{Gscomid}') AND (Tjobcontrolxp.Sstatus = '1')")
+        Tmaster = SQLCommand($"/* รายการทั้งหมด Join รายการรับไปแล้ว (Master) */
+                                SELECT DISTINCT Jobno, Custname FROM (
+					                                SELECT jobxp.Comid, jobxp.Jobno, jobxp.Ord, jobxp.Clothid, Tclothxp.Clothno, 
+                                                           Tclothxp.Ftype, Tclothxp.Fwidth, Tclothxp.Havedoz, 
+                                                           jobxp.Qtyroll - IIF(joblog.Knitcomroll IS NULL , 0, joblog.Knitcomroll) AS Qtyroll, 
+						                                   jobxp.Wgtkg - IIF(joblog.Wgtkg IS NULL , 0, joblog.Wgtkg) AS Wgtkg, jobxp.Finwgt, 
+						                                   jobxp.Dozen, jobxp.Dlvroll, jobxp.Remainroll, jobxp.Shadeid, jobxp.Knitcomno, 
+                                                           jobmasxp.Sstatus, Tcustomersxp.Custname
+					                                FROM Tjobcontroldetxp AS jobxp
+					                                LEFT OUTER JOIN (
+
+							                                SELECT Tjobcontroldetlogxp.Comid, Tjobcontroldetlogxp.Jobno,
+								                                   SUM(Tjobcontroldetlogxp.Knitcomroll) AS Knitcomroll, SUM(Tknittcomdetxp.Wgtkg) AS Wgtkg,Tjobcontroldetlogxp.Ord
+							                                FROM Tjobcontroldetlogxp
+							                                LEFT JOIN Tknittcomdetxp
+							                                ON Tjobcontroldetlogxp.Knitcomno = Tknittcomdetxp.Knitcomno AND Tjobcontroldetlogxp.KnitOrd = Tknittcomdetxp.Ord AND
+							                                Tjobcontroldetlogxp.Comid = Tknittcomdetxp.Comid
+							                                GROUP BY Tjobcontroldetlogxp.Comid, Tjobcontroldetlogxp.Jobno, Tjobcontroldetlogxp.Ord
+
+					                                ) AS joblog
+					                                ON jobxp.Jobno = joblog.Jobno AND jobxp.Ord = joblog.Ord AND jobxp.Comid = joblog.Comid
+					                                LEFT OUTER JOIN Tclothxp
+						                                ON jobxp.Clothid = Tclothxp.Clothid AND jobxp.Comid = Tclothxp.Comid
+					                                LEFT OUTER JOIN Tjobcontrolxp AS jobmasxp
+						                                ON jobmasxp.Jobno = jobxp.Jobno AND jobmasxp.Comid = jobxp.Comid
+					                                LEFT OUTER JOIN Tcustomersxp 
+						                                ON jobmasxp.Custid = Tcustomersxp.Custid AND jobmasxp.Comid = Tcustomersxp.Comid 
+			                                  )AS A WHERE Qtyroll > 0 AND Comid = '{Gscomid}' AND Sstatus = '1'")
         Dgvmas.DataSource = Tmaster
         Bindingdetails()
     End Sub
@@ -63,17 +82,34 @@
             Exit Sub
         End If
         Tdetails = New DataTable
-        Tdetails = SQLCommand($"SELECT Tjobcontroldetxp.Comid, Tjobcontroldetxp.Jobno, Tjobcontroldetxp.Clothid, Tclothxp.Clothno, SUM(Tjobcontroldetxp.Qtyroll) AS Qtyroll, 
-                                       SUM(Tjobcontroldetxp.Wgtkg) As Wgtkg, Tjobcontroldetxp.Finwgt, Tjobcontroldetxp.Dozen, 
-                                       Tjobcontroldetxp.Dlvroll, SUM(Tjobcontroldetxp.Remainroll) AS Remainroll, Tclothxp.Ftype, 
-                                       Tclothxp.Fwidth, Tclothxp.Havedoz, Tjobcontroldetxp.Knitcomno
-                                FROM dbo.Tjobcontroldetxp 
-                                LEFT OUTER JOIN dbo.Tclothxp 
-                                      ON dbo.Tjobcontroldetxp.Clothid = dbo.Tclothxp.Clothid AND dbo.Tjobcontroldetxp.Comid = dbo.Tclothxp.Comid
-                                      WHERE Tjobcontroldetxp.Comid = '{Gscomid}' AND Tjobcontroldetxp.Jobno = '{Dgvmas.CurrentRow.Cells("Jobno").Value}' AND Knitcomno = ''
-                                GROUP BY Tjobcontroldetxp.Comid, Tjobcontroldetxp.Jobno, Tjobcontroldetxp.Clothid, Tclothxp.Clothno,
-        	                             Tjobcontroldetxp.Finwgt, Tjobcontroldetxp.Dozen, Tjobcontroldetxp.Dlvroll, Tclothxp.Ftype, 
-        	                             Tclothxp.Fwidth, Tclothxp.Havedoz, Tjobcontroldetxp.Knitcomno")
+        Tdetails = SQLCommand($"/* รายการทั้งหมด Join รายการรับไปแล้ว (Detail) */
+                                SELECT Comid, Jobno, Ord, Clothid, Clothno, Ftype, Fwidth, Havedoz, Qtyroll, Wgtkg, Finwgt, Dozen, 
+                                       Dlvroll, Remainroll, Knitcomno 
+                                FROM (
+
+					                                SELECT jobxp.Comid, jobxp.Jobno, jobxp.Ord, jobxp.Clothid, Tclothxp.Clothno, Tclothxp.Ftype, Tclothxp.Fwidth, 
+						                                   Tclothxp.Havedoz, jobxp.Qtyroll - IIF(joblog.Knitcomroll IS NULL , 0, joblog.Knitcomroll) AS Qtyroll, 
+						                                   jobxp.Wgtkg - IIF(joblog.Wgtkg IS NULL , 0, joblog.Wgtkg) AS Wgtkg, jobxp.Finwgt, 
+						                                   jobxp.Dozen, jobxp.Dlvroll, jobxp.Remainroll, jobxp.Shadeid, jobxp.Knitcomno, jobmasxp.Sstatus
+					                                FROM Tjobcontroldetxp AS jobxp
+					                                LEFT OUTER JOIN (
+
+							                                SELECT Tjobcontroldetlogxp.Comid, Tjobcontroldetlogxp.Jobno,
+								                                   SUM(Tjobcontroldetlogxp.Knitcomroll) AS Knitcomroll, SUM(Tknittcomdetxp.Wgtkg) AS Wgtkg,Tjobcontroldetlogxp.Ord
+							                                FROM Tjobcontroldetlogxp
+							                                LEFT JOIN Tknittcomdetxp
+							                                ON Tjobcontroldetlogxp.Knitcomno = Tknittcomdetxp.Knitcomno AND Tjobcontroldetlogxp.KnitOrd = Tknittcomdetxp.Ord AND
+							                                Tjobcontroldetlogxp.Comid = Tknittcomdetxp.Comid
+							                                GROUP BY Tjobcontroldetlogxp.Comid, Tjobcontroldetlogxp.Jobno, Tjobcontroldetlogxp.Ord
+
+					                                ) AS joblog
+					                                ON jobxp.Jobno = joblog.Jobno AND jobxp.Ord = joblog.Ord AND jobxp.Comid = joblog.Comid
+					                                LEFT OUTER JOIN Tclothxp
+					                                ON jobxp.Clothid = Tclothxp.Clothid AND jobxp.Comid = Tclothxp.Comid
+					                                LEFT OUTER JOIN Tjobcontrolxp AS jobmasxp
+					                                ON jobmasxp.Jobno = jobxp.Jobno AND jobmasxp.Comid = jobxp.Comid
+
+			                      )AS A WHERE Qtyroll > 0 AND Comid = '{Gscomid}' AND Sstatus = '1' AND Jobno = '{Dgvmas.CurrentRow.Cells("Jobno").Value}'")
         Dgvlist.DataSource = Tdetails
     End Sub
     Private Sub Filtermastergrid()

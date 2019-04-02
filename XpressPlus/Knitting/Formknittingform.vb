@@ -4,6 +4,7 @@ Public Class Formknittingform
     Private Tmasterknit, Tdetailsknit, Tmasterdlv, Tdetailsdlv, Tlist, TYanlist, Dttemp, Vdeliyarndet,
             Tmaster, Trollperkg, FTYanlist, SendYanlist, TdetailsdlvRds, TBYanlist, DttempYan As DataTable
     Private Pagecount, Maxrec, Pagesize, Currentpage, Recno, PagecountYan, MaxrecYan, PagesizeYan, CurrentpageYan, RecnoYan As Integer
+    Private TbMJobno, TbJobord As String
     Private WithEvents Dtplistfm As New DateTimePicker
     Private WithEvents Dtplistto As New DateTimePicker
     Private Bs As BindingSource
@@ -81,8 +82,11 @@ Public Class Formknittingform
             Btdadd.Enabled = True
             Btdcancel.Enabled = True
         Else
-            Btdadd.Enabled = False
-            Btdcancel.Enabled = False
+            Btdadd.Enabled = True
+            Btdcancel.Enabled = True
+            ButtonX2.Enabled = True
+            'Btdadd.Enabled = False 'เป้ยกเลิกชั่วคราว
+            'Btdcancel.Enabled = False 'เป้ยกเลิกชั่วคราว
         End If
         BindingNavigator1.Enabled = False
         Mainbuttonaddedit()
@@ -590,6 +594,11 @@ Public Class Formknittingform
                     Tdetailsknit.Rows.Add()
                 End If
                 'Tsbwsave.Visible = True
+
+                If Not TbMJobno = Nothing Then
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("MJobno").Value = TbMJobno
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("JobOrd").Value = TbJobord
+                End If
                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mcomid").Value = Gscomid
                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mclothid").Value = Trim(Tbclothid.Text)
                 Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mclothno").Value = Trim(Tbclothno.Text)
@@ -606,6 +615,11 @@ Public Class Formknittingform
                 End If
             Case "แก้ไข"
                 Tsbwsave.Visible = True
+
+                If Not TbMJobno = Nothing Then
+                    Dgvmas.CurrentRow.Cells("MJobno").Value = TbMJobno
+                    Dgvmas.CurrentRow.Cells("JobOrd").Value = TbJobord
+                End If
                 Dgvmas.CurrentRow.Cells("Mcomid").Value = Gscomid
                 Dgvmas.CurrentRow.Cells("Mclothid").Value = Trim(Tbclothid.Text)
                 Dgvmas.CurrentRow.Cells("Mclothno").Value = Trim(Tbclothno.Text)
@@ -670,6 +684,10 @@ Public Class Formknittingform
         GroupPanel2.Visible = True
         Tbaddedit.Text = "แก้ไข"
         SelectData()
+        If Not TbMJobno = Nothing Then
+            TbMJobno = Trim(Dgvmas.CurrentRow.Cells("MJobno").Value.ToString)
+            TbJobord = Trim(Dgvmas.CurrentRow.Cells("JobOrd").Value.ToString)
+        End If
         Tbclothid.Text = Trim(Dgvmas.CurrentRow.Cells("Mclothid").Value)
         Tbclothno.Text = Trim(Dgvmas.CurrentRow.Cells("Mclothno").Value)
         Tbtypename.Text = Trim(Dgvmas.CurrentRow.Cells("Mftypename").Value)
@@ -840,34 +858,58 @@ Public Class Formknittingform
         If frm.Tbcancel.Text = "C" Then
             Exit Sub
         End If
-        If Dgvmas.RowCount > 0 Then
-            If (MessageBox.Show("คุณต้องลบรายการเก่าหรือไม่?", "โปรดยืนยัน", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation)) = Windows.Forms.DialogResult.Cancel Then
-                Exit Sub
-            End If
-        End If
+        'If Dgvmas.RowCount > 0 Then
+        '    If (MessageBox.Show("คุณต้องลบรายการเก่าหรือไม่?", "โปรดยืนยัน", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation)) = Windows.Forms.DialogResult.Cancel Then
+        '        Exit Sub
+        '    End If
+        'End If
 
         Tbjobcontrol.Text = frm.Dgvmas.CurrentRow.Cells("Jobno").Value
-        Dgvmas.AutoGenerateColumns = False
-        Dgvmas.DataSource = Nothing
-        Dgvmas.Rows.Clear()
+        'Dgvmas.AutoGenerateColumns = False
+        'Dgvmas.DataSource = Nothing
+        'Dgvmas.Rows.Clear()
 
-        For i = 0 To frm.Dgvlist.RowCount - 1
-            Dgvmas.Rows.Add()
-            Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mcomid").Value = Gscomid
-            Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mclothid").Value = frm.Dgvlist.Rows(i).Cells("Clothid").Value
-            Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mclothno").Value = frm.Dgvlist.Rows(i).Cells("Clothno").Value
-            Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mftypename").Value = frm.Dgvlist.Rows(i).Cells("Ftype").Value
-            Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mdozen").Value = frm.Dgvlist.Rows(i).Cells("Dozen").Value
-            Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mfinwgt").Value = frm.Dgvlist.Rows(i).Cells("Finwgt").Value
-            Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mfinwidth").Value = frm.Dgvlist.Rows(i).Cells("Fwidth").Value
-            Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mqty").Value = frm.Dgvlist.Rows(i).Cells("Qtyroll").Value
-            Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkg").Value = frm.Dgvlist.Rows(i).Cells("Wgtkg").Value
-            Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Havedoz").Value = frm.Dgvlist.Rows(i).Cells("Havedoz").Value
-        Next
+
+
+        Select Case Trim(Tbknitcomno.Text)
+            Case "NEW"
+                For i = 0 To frm.Dgvlist.RowCount - 1
+                    Dgvmas.Rows.Add()
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mcomid").Value = Gscomid
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("MJobno").Value = frm.Dgvlist.Rows(i).Cells("Jobno").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("JobOrd").Value = frm.Dgvlist.Rows(i).Cells("Ord").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mclothid").Value = frm.Dgvlist.Rows(i).Cells("Clothid").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mclothno").Value = frm.Dgvlist.Rows(i).Cells("Clothno").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mftypename").Value = frm.Dgvlist.Rows(i).Cells("Ftype").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mdozen").Value = frm.Dgvlist.Rows(i).Cells("Dozen").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mfinwgt").Value = frm.Dgvlist.Rows(i).Cells("Finwgt").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mfinwidth").Value = frm.Dgvlist.Rows(i).Cells("Fwidth").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mqty").Value = frm.Dgvlist.Rows(i).Cells("Qtyroll").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkg").Value = frm.Dgvlist.Rows(i).Cells("Wgtkg").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Havedoz").Value = frm.Dgvlist.Rows(i).Cells("Havedoz").Value
+                Next
+            Case Else
+                For i = 0 To frm.Dgvlist.RowCount - 1
+                    Tdetailsknit.Rows.Add()
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mcomid").Value = Gscomid
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("MJobno").Value = frm.Dgvlist.Rows(i).Cells("Jobno").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("JobOrd").Value = frm.Dgvlist.Rows(i).Cells("Ord").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mclothid").Value = frm.Dgvlist.Rows(i).Cells("Clothid").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mclothno").Value = frm.Dgvlist.Rows(i).Cells("Clothno").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mftypename").Value = frm.Dgvlist.Rows(i).Cells("Ftype").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mdozen").Value = frm.Dgvlist.Rows(i).Cells("Dozen").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mfinwgt").Value = frm.Dgvlist.Rows(i).Cells("Finwgt").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mfinwidth").Value = frm.Dgvlist.Rows(i).Cells("Fwidth").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mqty").Value = frm.Dgvlist.Rows(i).Cells("Qtyroll").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Mkg").Value = frm.Dgvlist.Rows(i).Cells("Wgtkg").Value
+                    Dgvmas.Rows(Dgvmas.RowCount - 1).Cells("Havedoz").Value = frm.Dgvlist.Rows(i).Cells("Havedoz").Value
+                Next
+        End Select
+
         Btdbadd_Click(sender, e)
-        Btdbadd.Enabled = False
-        Btdedit.Enabled = False
-        Btddel.Enabled = False
+        'Btdbadd.Enabled = False 'เป้ยกเลิกชั่วคราว
+        'Btdedit.Enabled = False 'เป้ยกเลิกชั่วคราว
+        'Btddel.Enabled = False 'เป้ยกเลิกชั่วคราว
         GroupPanel2.Visible = False
         Sumall()
     End Sub
@@ -1121,14 +1163,21 @@ Public Class Formknittingform
     End Sub
     Private Sub Binddetailsknit()
         Tdetailsknit = New DataTable
-        Tdetailsknit = SQLCommand("SELECT * FROM Vknitcomdet
-                                WHERE Comid = '" & Gscomid & "' AND Knitcomno = '" & Trim(Tbknitcomno.Text) & "'")
+        Tdetailsknit = SQLCommand($"SELECT Vknitcomdet.Comid, Vknitcomdet.Knitcomno, Vknitcomdet.Clothid, Vknitcomdet.Clothno, 
+                                           Vknitcomdet.Ftype, Vknitcomdet.Fwidth, Vknitcomdet.Qtyroll, Vknitcomdet.Wgtkg, 
+                                           Vknitcomdet.Finwgt, Vknitcomdet.Dozen, Vknitcomdet.Havedoz, Vjobcontroldetlog.Ord ,
+                                           Vjobcontroldetlog.Jobno 
+	                                 FROM Vknitcomdet 
+                                     LEFT OUTER JOIN Vjobcontroldetlog
+                                          ON Vknitcomdet.Knitcomno = Vjobcontroldetlog.Knitcomno AND Vknitcomdet.Comid = Vjobcontroldetlog.Comid AND 
+                                             Vknitcomdet.Clothid = Vjobcontroldetlog.Clothid
+                                     WHERE Vknitcomdet.Comid = '{Gscomid}' AND Vknitcomdet.Knitcomno = '{Trim(Tbknitcomno.Text)}'")
         Dgvmas.DataSource = Tdetailsknit
         Sumall()
     End Sub
     Private Sub Deldetails(Tdlvno As String)
-        SQLCommand("DELETE FROM Tknittcomdetxp
-                    WHERE Comid = '" & Gscomid & "' AND Knitcomno = '" & Tdlvno & "'")
+        SQLCommand("DELETE FROM Tknittcomdetxp WHERE Comid = '" & Gscomid & "' AND Knitcomno = '" & Tdlvno & "'")
+        SQLCommand("DELETE FROM Tjobcontroldetlogxp WHERE Comid = '" & Gscomid & "' AND Knitcomno = '" & Tdlvno & "'") ' Delete joblog
     End Sub
     Private Sub Newdoc()
         Tbknitcomno.Text = Trim(Tstbdocpre.Text) & Genid()
@@ -1218,10 +1267,20 @@ Public Class Formknittingform
         ProgressBarX1.Value = 0
         Dim Frm As New Formwaitdialoque
         Frm.Show()
-        Dim Tclothid, Tfinwgt, Tdozen As String
+        Dim Tclothid, Tfinwgt, Tdozen, TMJobno, TJobOrd As String
         Dim Tqtyroll As Long
         Dim Twgkg As Double
         For I = 0 To Dgvmas.RowCount - 1
+            Try
+                TbMJobno = Trim(Dgvmas.Rows(I).Cells("MJobno").Value.ToString)
+                TbJobord = Trim(Dgvmas.Rows(I).Cells("JobOrd").Value.ToString)
+                TMJobno = TbMJobno
+                TJobOrd = TbJobord
+            Catch ex As Exception
+                TMJobno = ""
+                TJobOrd = ""
+            End Try
+
             Tclothid = Trim(Dgvmas.Rows(I).Cells("Mclothid").Value)
             Tqtyroll = Dgvmas.Rows(I).Cells("Mqty").Value
             Twgkg = Dgvmas.Rows(I).Cells("Mkg").Value
@@ -1231,6 +1290,12 @@ Public Class Formknittingform
                         Finwgt,Dozen,Updusr,Uptype,Uptime)
                         VALUES ('" & Gscomid & "','" & Trim(Tbknitcomno.Text) & "'," & I + 1 & ",'" & Tclothid & "'," & Tqtyroll & "," & Twgkg & ",
             '" & Tfinwgt & "','" & Tdozen & "','" & Gsuserid & "','" & Etype & "','" & Formatdatesave(Now) & "')")
+
+            If TMJobno <> "" Then ' Insert joblog
+                SQLCommand($"INSERT INTO Tjobcontroldetlogxp(Comid, Jobno , Ord, Knitcomno ,KnitOrd ,Knitcomroll) VALUES('{Gscomid}', '{TMJobno}', '{TJobOrd}', '{Tbknitcomno.Text}', '{I + 1}', '{Tqtyroll}') ")
+                TbMJobno = ""
+                TbJobord = ""
+            End If
             ProgressBarX1.Value = ((I + 1) / Dgvmas.Rows.Count) * 100
             ProgressBarX1.Text = "Saving ... " & ProgressBarX1.Value & "%"
         Next
@@ -1274,12 +1339,35 @@ Public Class Formknittingform
         SQLCommand($"INSERT INTO Tdeliyarndetxp(Comid,Dlvno,Ord,Yarnid,Lotno,Nwkgpc,Nwppc,Gwkgpc,Gwppc,Nofc,Updusr,Uptype,Uptime)
                         VALUES ('{Gscomid}','{Trim(Tbdlvyarnno.Text)}','1','{Trim(Tbyarnid.Text)}','-','{Trim(Tbkg.Text)}','{Trim(Tblbs.Text)}','0','0','1','10001','{Etype}','{Formatdatesave(Now)}')")
     End Sub
+    'Private Sub Upddetailsjoblogs(Etype As String, Jobno As String)
+    '    Dim I As Integer
+    '    ProgressBarX1.Value = 0
+    '    Dim Frm As New Formwaitdialoque
+    '    Frm.Show()
+    '    Dim Tclothid, Tfinwgt, Tdozen As String
+    '    Dim Tqtyroll As Long
+    '    Dim Twgkg As Double
+    '    For I = 0 To Dgvmas.RowCount - 1
+    '        Tclothid = Trim(Dgvmas.Rows(I).Cells("Mclothid").Value)
+    '        Tqtyroll = Dgvmas.Rows(I).Cells("Mqty").Value
+    '        Twgkg = Dgvmas.Rows(I).Cells("Mkg").Value
+    '        Tfinwgt = Trim(Dgvmas.Rows(I).Cells("Mfinwgt").Value)
+    '        Tdozen = Trim(Dgvmas.Rows(I).Cells("Mdozen").Value)
+    '        SQLCommand($"INSERT INTO Tjobcontroldetlogxp(Comid,Jobno,Ord,Knitcomno,Knitcomroll)
+    '                    VALUES ('{Gscomid}','{Jobno}','{}','{}','{}')")
+    '        ProgressBarX1.Value = ((I + 1) / Dgvmas.Rows.Count) * 100
+    '        ProgressBarX1.Text = "Saving ... " & ProgressBarX1.Value & "%"
+    '    Next
+    '    Frm.Close()
+    '    ProgressBarX1.Text = "Ready"
+    '    ProgressBarX1.Value = 0
+    'End Sub
     Private Sub Searchlistbyoth(Sval As String)
         If Sval = "" Then
             Bindinglist()
             Exit Sub
         End If
-        Tlist = SQLCommand("SELECT '' AS Stat,* FROM Vknitcommas
+        Tlist = SQLCommand("Select '' AS Stat,* FROM Vknitcommas
                                 WHERE Comid = '" & Gscomid & "' AND  
                                 (Knitcomno LIKE '%' + '" & Sval & "' + '%' OR Knitdesc LIKE '%' + '" & Sval & "' + '%' OR Dremark LIKE '%' + '" & Sval & "' + '%')")
         FillGrid()
@@ -1568,9 +1656,12 @@ Public Class Formknittingform
             Btddel.Enabled = True
             Btdbadd.Enabled = True
         Else
-            Btdedit.Enabled = False
-            Btddel.Enabled = False
-            Btdbadd.Enabled = False
+            Btdedit.Enabled = True
+            Btddel.Enabled = True
+            Btdbadd.Enabled = True
+            'Btdedit.Enabled = False 'เป้ยกเลิกชั่วคราว
+            'Btddel.Enabled = False 'เป้ยกเลิกชั่วคราว
+            'Btdbadd.Enabled = False 'เป้ยกเลิกชั่วคราว
         End If
 
     End Sub

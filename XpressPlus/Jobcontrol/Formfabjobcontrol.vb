@@ -52,6 +52,9 @@ Public Class Formfabjobcontrol
         If TabControl1.SelectedTabIndex = 0 Then
             Exit Sub
         End If
+        For i = 0 To Dgvmas.ColumnCount - 1
+            Dgvmas.Columns(i).SortMode = DataGridViewColumnSortMode.NotSortable ' ไม่ให้เปลียนลำดับได้เพราะจะมีผลกับการตัดจำนวนกับสั่งย้อม (เลข joblog ไม่ Update ตามเพราะ)
+        Next
 
         BindingNavigator1.Enabled = False
         Mainbuttonaddedit()
