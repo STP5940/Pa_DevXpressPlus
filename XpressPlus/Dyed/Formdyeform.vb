@@ -816,11 +816,18 @@ Public Class Formdyeform
 							                                GROUP BY Knittcomid, Clothid, Finwgt
 					                                ) AS B
 					                                ON A.Knitcomno = B.Knittcomid AND A.Clothid = B.Clothid
-													LEFT OUTER JOIN Tknittcomxp AS C
-													ON A.Knitcomno = C.Knitcomno
+													LEFT OUTER JOIN (
+													
+													SELECT Tknittcomdetxp.*,Tjobcontroldetlogxp.Jobno FROM Tknittcomdetxp
+													LEFT JOIN Tjobcontroldetlogxp
+														 ON Tknittcomdetxp.Comid = Tjobcontroldetlogxp.Comid AND Tknittcomdetxp.Knitcomno = Tjobcontroldetlogxp.Knitcomno AND 
+														    Tknittcomdetxp.Ord = Tjobcontroldetlogxp.KnitOrd
+													
+													) AS C
+													ON  A.Comid = C.Comid AND A.Knitcomno = C.Knitcomno AND A.Ord = C.Ord
 					                                WHERE A.Comid = '{Gscomid}'
                                 ) AS C WHERE Balance > 0 AND Comid = '{Gscomid}' AND (Jobno LIKE '%{Sval}%' OR Knitcomno LIKE '%{Sval}%' 
-                                     OR Clothno LIKE '%{Sval}%' OR Ftype LIKE '%{Sval}%' OR Qtyroll LIKE '%{Sval}%')")
+                                     OR Clothno LIKE '%{Sval}%' OR Ftype LIKE '%{Sval}%' OR Qtyroll LIKE '%{Sval}%') ")
         FabricList.DataSource = TFablist
         FillGridFab(FabricList, TFablist, Tbpagefabric, Tbrecordfabric)
     End Sub
@@ -985,8 +992,15 @@ Public Class Formdyeform
 							                                GROUP BY Knittcomid, Clothid, Finwgt
 					                                ) AS B
 					                                ON A.Knitcomno = B.Knittcomid AND A.Clothid = B.Clothid
-													LEFT OUTER JOIN Tknittcomxp AS C
-													ON A.Knitcomno = C.Knitcomno
+													LEFT OUTER JOIN (
+													
+													SELECT Tknittcomdetxp.*,Tjobcontroldetlogxp.Jobno FROM Tknittcomdetxp
+													LEFT JOIN Tjobcontroldetlogxp
+														 ON Tknittcomdetxp.Comid = Tjobcontroldetlogxp.Comid AND Tknittcomdetxp.Knitcomno = Tjobcontroldetlogxp.Knitcomno AND 
+														    Tknittcomdetxp.Ord = Tjobcontroldetlogxp.KnitOrd
+													
+													) AS C
+													ON  A.Comid = C.Comid AND A.Knitcomno = C.Knitcomno AND A.Ord = C.Ord
 					                                WHERE A.Comid = '{Gscomid}'
                                 ) AS C WHERE Balance > 0 AND Comid = '{Gscomid}'")
         FabricList.DataSource = TFablist
