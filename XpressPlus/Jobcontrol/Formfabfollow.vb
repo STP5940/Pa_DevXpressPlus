@@ -15,8 +15,7 @@ Public Class Formfabfollow
         Dim Frm As New Formwaitdialoque
         Frm.Show()
         Tlist = New DataTable
-        Try
-            Tlist = SQLCommand($"SELECT Vsumsale.Comid, Vsumsale.Jobno, Vsumsale.Ord, Vsumsale.Clothid, Vsumsale.Clothno, 
+        Tlist = SQLCommand($"SELECT Vsumsale.Comid, Vsumsale.Jobno, Vsumsale.Ord, Vsumsale.Clothid, Vsumsale.Clothno, 
                                     Vsumsale.Ftype, Vsumsale.Dozen, Vsumsale.Dlvno, Vsumsale.Knitcomno, Vsumsale.Qtyroll, 
                                     Vsumsale.Dyedcomno, Vsumsale.Shadeid, Vsumsale.Shadedesc, Vsumsale.Qtyrollsum, 
                                     Vsumsale.Reid, Vsumsale.Lotno, Vsumsale.Kongno, Vsumsale.Qtyrollresum, 
@@ -29,15 +28,11 @@ Public Class Formfabfollow
         Dgvmas.DataSource = Tlist
         Changecolor()
 
-            Dim Ords As Integer = 0
-            For i = 0 To Dgvmas.RowCount - 1
-                Ords = i + 1
-                Dgvmas.Rows(i).Cells("Ord").Value = Ords
-            Next
-
-        Catch ex As Exception
-            Informmessage("ใช้เวลาดึงข้อมูลนานเกินไป โปรดลองอีกครั้ง")
-        End Try
+        Dim Ords As Integer = 0
+        For i = 0 To Dgvmas.RowCount - 1
+            Ords = i + 1
+            Dgvmas.Rows(i).Cells("Ord").Value = Ords
+        Next
         Frm.Close()
     End Sub
 
