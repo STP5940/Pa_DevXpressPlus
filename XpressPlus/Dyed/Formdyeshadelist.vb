@@ -48,15 +48,24 @@
         Tmaster = New DataTable
 
         If Tbknitcomno.Text <> "" Then
-            Dim shadeinjob = SQLCommand($"SELECT DISTINCT '' AS Stat,dbo.Tjobcontroldetxp.Shadeid, dbo.Tshadexp.Shadedesc
+            Dim shadeinjob = SQLCommand($"SELECT DISTINCT '' AS Stat, Tjobcontroldetxp.Shadeid, dbo.Tshadexp.Shadedesc
 	                                             FROM dbo.Tshadexp 
-				                                 RIGHT OUTER JOIN Tjobcontroldetxp 
+				                                 RIGHT OUTER JOIN (
+
+														SELECT A.Comid , A.Jobno , A.Ord , A.Clothid , A.Qtyroll , A.Wgtkg , A.Finwgt , 
+															   A.Dozen , A.Dlvroll , A.Remainroll , A.Shadeid ,B.Knitcomno 
+													    FROM Tjobcontroldetxp AS A
+														LEFT JOIN Tjobcontroldetlogxp AS B
+														ON A.Comid = B.Comid AND A.Jobno = B.Jobno AND 
+														A.Ord = B.Ord
+
+												 ) AS Tjobcontroldetxp
 				                                    ON Tshadexp.Shadeid = Tjobcontroldetxp.Shadeid AND Tshadexp.Comid = Tjobcontroldetxp.Comid 
 			                                     RIGHT OUTER JOIN dbo.Vsumsale 
-				                                    ON dbo.Tjobcontroldetxp.Comid = dbo.Vsumsale.Comid AND dbo.Tjobcontroldetxp.Jobno = dbo.Vsumsale.Jobno AND 
-				                                    dbo.Tjobcontroldetxp.Clothid = dbo.Vsumsale.Clothid
+				                                    ON Tjobcontroldetxp.Comid = dbo.Vsumsale.Comid AND Tjobcontroldetxp.Jobno = dbo.Vsumsale.Jobno AND 
+				                                       Tjobcontroldetxp.Clothid = dbo.Vsumsale.Clothid
                                              WHERE (dbo.Vsumsale.Knitcomno = '{Tbknitcomno.Text}') AND (dbo.Vsumsale.Comid = '{Gscomid}') 
-                                                   AND (dbo.Vsumsale.Jobno <> '') AND (Vsumsale.Clothid = '{Tbclothid.Text}') AND Tjobcontroldetxp.Knitcomno = '{Tbknitcomno.Text}' ")
+                                                   AND (dbo.Vsumsale.Jobno <> '') AND (Vsumsale.Clothid = '{Tbclothid.Text}') AND Tjobcontroldetxp.Knitcomno = '{Tbknitcomno.Text}'")
 
             If shadeinjob.Rows.Count > 0 AndAlso shadeinjob(0)("Shadeid").ToString <> "" Then
                 Dgvmas.DataSource = shadeinjob
