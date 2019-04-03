@@ -863,6 +863,14 @@ Public Class Formknittingform
         '        Exit Sub
         '    End If
         'End If
+        For i = 0 To Dgvmas.Rows.Count - 1
+            If frm.Dgvmas.CurrentRow.Cells("Jobno").Value.ToString = Dgvmas.Rows(i).Cells("MJobno").Value.ToString Then
+                If (MessageBox.Show("คำเตือน! มีเลขที่Job ในรายการแล้ว ต้องการเพิ่มหรือไม่?", "โปรดยืนยัน", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation)) = Windows.Forms.DialogResult.Cancel Then
+                    Exit Sub
+                End If
+            End If
+
+        Next
 
         Tbjobcontrol.Text = frm.Dgvmas.CurrentRow.Cells("Jobno").Value
         'Dgvmas.AutoGenerateColumns = False
