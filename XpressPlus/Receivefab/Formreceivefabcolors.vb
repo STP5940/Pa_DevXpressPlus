@@ -1600,8 +1600,17 @@ BypassFilter:
 													  Vdyedcomdet.Clothno = Vsumrecfabcoldet.Clothno AND Vdyedcomdet.Ftype = Vsumrecfabcoldet.Ftype AND 
 													  Vdyedcomdet.Shadeid = Vsumrecfabcoldet.Shadeid AND Vdyedcomdet.Fwidth =Vsumrecfabcoldet.Fwidth AND 
 													  Vdyedcomdet.Shadedesc = Vsumrecfabcoldet.Shadedesc 
-											  LEFT OUTER JOIN Tknittcomxp
-													ON Vdyedcomdet.Knittcomid = Tknittcomxp.Knitcomno
+											  LEFT OUTER JOIN (
+											  
+											  			SELECT A.Comid , A.Jobno , A.Ord , A.Clothid , A.Qtyroll , A.Wgtkg , A.Finwgt , 
+															   A.Dozen , A.Dlvroll , A.Remainroll , A.Shadeid ,B.Knitcomno 
+													    FROM Tjobcontroldetxp AS A
+														LEFT JOIN Tjobcontroldetlogxp AS B
+														ON A.Comid = B.Comid AND A.Jobno = B.Jobno AND 
+														A.Ord = B.Ord
+
+											  ) AS Tknittcomxp
+													ON Vdyedcomdet.Knittcomid = Tknittcomxp.Knitcomno AND Vdyedcomdet.Clothid = Tknittcomxp.Clothid
 											   WHERE Vdyedcomdet.comid = '{Gscomid}'
                                 ) AS AAA WHERE Qtyroll > 0 GROUP BY  Dyedcomno, Clothid,Clothno, Ftype, Fwidth, Shadeid, Shadedesc, Knittcomid, Jobno ")
         Balance.DataSource = Tinstock
