@@ -665,8 +665,7 @@ Public Class Formsalefabric
         End If
         Stocklist = SQLCommand($"-- รายการผ้าในสต๊อกที่มาจากการรับผ้าจากโรงย้อม
             SELECT * FROM (
-
-			SELECT dbo.Vsalestock.Comid, dbo.Trecfabcolxp.Reid, Tknittcomxp.Jobno, dbo.Vsalestock.Dhid, 
+                                SELECT dbo.Vsalestock.Comid, dbo.Trecfabcolxp.Reid, Tknittcomxp.Jobno, dbo.Vsalestock.Dhid, 
 													dbo.Vsalestock.Dyedhdesc, dbo.Vsalestock.Lotno, dbo.Vsalestock.Kongno, 
 													dbo.Vsalestock.Clothid, dbo.Vsalestock.Clothno, dbo.Vsalestock.Ftype, 
 													dbo.Vsalestock.Fwidth, dbo.Vsalestock.Shadeid, dbo.Vsalestock.Shadedesc, 
@@ -677,8 +676,17 @@ Public Class Formsalefabric
 													 AND dbo.Vsalestock.Lotno = dbo.Trecfabcolxp.Lotno
 											LEFT OUTER JOIN Vdyedcomdet
 											ON Vsalestock.Billdyedno = Vdyedcomdet.Dyedcomno
-											LEFT OUTER JOIN Tknittcomxp
-											ON Vdyedcomdet.Knittcomid = Tknittcomxp.Knitcomno
+											LEFT OUTER JOIN (
+
+														SELECT A.Comid , A.Jobno , A.Ord , A.Clothid , A.Qtyroll , A.Wgtkg , A.Finwgt , 
+															   A.Dozen , A.Dlvroll , A.Remainroll , A.Shadeid ,B.Knitcomno 
+													    FROM Tjobcontroldetxp AS A
+														LEFT JOIN Tjobcontroldetlogxp AS B
+														ON A.Comid = B.Comid AND A.Jobno = B.Jobno AND 
+														A.Ord = B.Ord
+
+											) AS Tknittcomxp
+											ON Vdyedcomdet.Knittcomid = Tknittcomxp.Knitcomno AND Vdyedcomdet.Clothid = Tknittcomxp.Clothid
 											WHERE (dbo.Vsalestock.Comid = '{Gscomid}')
 											GROUP BY dbo.Vsalestock.Comid, dbo.Vsalestock.Dyedhdesc, dbo.Vsalestock.Lotno, 
 													 dbo.Vsalestock.Kongno, dbo.Vsalestock.Clothid, dbo.Vsalestock.Clothno, 
@@ -1074,8 +1082,17 @@ Public Class Formsalefabric
 													 AND dbo.Vsalestock.Lotno = dbo.Trecfabcolxp.Lotno
 											LEFT OUTER JOIN Vdyedcomdet
 											ON Vsalestock.Billdyedno = Vdyedcomdet.Dyedcomno
-											LEFT OUTER JOIN Tknittcomxp
-											ON Vdyedcomdet.Knittcomid = Tknittcomxp.Knitcomno
+											LEFT OUTER JOIN (
+
+														SELECT A.Comid , A.Jobno , A.Ord , A.Clothid , A.Qtyroll , A.Wgtkg , A.Finwgt , 
+															   A.Dozen , A.Dlvroll , A.Remainroll , A.Shadeid ,B.Knitcomno 
+													    FROM Tjobcontroldetxp AS A
+														LEFT JOIN Tjobcontroldetlogxp AS B
+														ON A.Comid = B.Comid AND A.Jobno = B.Jobno AND 
+														A.Ord = B.Ord
+
+											) AS Tknittcomxp
+											ON Vdyedcomdet.Knittcomid = Tknittcomxp.Knitcomno AND Vdyedcomdet.Clothid = Tknittcomxp.Clothid
 											WHERE (dbo.Vsalestock.Comid = '{Gscomid}')
 											GROUP BY dbo.Vsalestock.Comid, dbo.Vsalestock.Dyedhdesc, dbo.Vsalestock.Lotno, 
 													 dbo.Vsalestock.Kongno, dbo.Vsalestock.Clothid, dbo.Vsalestock.Clothno, 
@@ -1936,6 +1953,9 @@ Public Class Formsalefabric
         RS.Text = "RS"
     End Sub
 
+    Private Sub ToolStripButton5_Click(sender As Object, e As EventArgs) Handles ToolStripButton5.Click
+        Bindingstock()
+    End Sub
 
     Private Function Checkhavedoz(Clothid As String) 'Havedoz return 1
         Dim TDoz = SQLCommand($"SELECT Havedoz FROM Tclothxp WHERE Clothid = '{Clothid}' AND Comid = '{Gscomid}'")
