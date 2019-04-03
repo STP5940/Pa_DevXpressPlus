@@ -15,11 +15,16 @@ Public Class Formfabfollow
         Dim Frm As New Formwaitdialoque
         Frm.Show()
         Tlist = New DataTable
-        Tlist = SQLCommand($"SELECT Comid, Jobno, Clothid, Clothno, Ftype, Dozen, Dlvno,
-	                               Knitcomno, Qtyroll, Dyedcomno, Shadeid, Shadedesc,
-	                               Qtyrollsum, Reid, Lotno, Kongno, Qtyrollresum,
-	                               Salewgtkgsum, Dlvnosale, Wgtkgsale, Dlvnocount
-                             FROM Vsumsale WHERE (Jobno = '{Tbjobno.Text}') AND (Comid = '{Gscomid}') ")
+        Tlist = SQLCommand($"SELECT Vsumsale.Comid, Vsumsale.Jobno, Vsumsale.Ord, Vsumsale.Clothid, Vsumsale.Clothno, 
+                                    Vsumsale.Ftype, Vsumsale.Dozen, Vsumsale.Dlvno, Vsumsale.Knitcomno, Vsumsale.Qtyroll, 
+                                    Vsumsale.Dyedcomno, Vsumsale.Shadeid, Vsumsale.Shadedesc, Vsumsale.Qtyrollsum, 
+                                    Vsumsale.Reid, Vsumsale.Lotno, Vsumsale.Kongno, Vsumsale.Qtyrollresum, 
+                                    Vsumsale.Salewgtkgsum, Vsumsale.Dlvnosale, Vsumsale.Wgtkgsale, Vsumsale.Dlvnocount
+                             FROM Vsumsale 
+							 INNER JOIN Tjobcontroldetlogxp
+							       ON Vsumsale.Comid = Tjobcontroldetlogxp.Comid AND Vsumsale.Jobno = Tjobcontroldetlogxp.Jobno AND 
+								      Vsumsale.Ord = Tjobcontroldetlogxp.KnitOrd AND Vsumsale.Knitcomno = Tjobcontroldetlogxp.Knitcomno
+							 WHERE (Vsumsale.Jobno = '{Tbjobno.Text}') AND (Vsumsale.Comid = '{Gscomid}')")
         Dgvmas.DataSource = Tlist
         Changecolor()
 
