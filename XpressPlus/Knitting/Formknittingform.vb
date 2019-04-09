@@ -492,6 +492,9 @@ Public Class Formknittingform
     End Sub
     Private Sub Btfindyarn_Click(sender As Object, e As EventArgs) Handles Btfindyarn.Click
         Dim Frm As New Formyarnlist
+        If Cbfromgsc.Checked = False AndAlso Tbjobcontrol.Text <> "" Then
+            Frm.Tbjobcontrol.Text = Tbjobcontrol.Text
+        End If
         Showdiaformcenter(Frm, Me)
         If Frm.Tbcancel.Text = "C" Then
             Exit Sub

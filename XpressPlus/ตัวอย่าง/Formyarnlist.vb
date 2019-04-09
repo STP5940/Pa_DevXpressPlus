@@ -56,7 +56,22 @@
         End If
     End Sub
     Private Sub Formyarnlist_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Bindingmaster()
+        If Tbjobcontrol.Text = "" Then
+            Bindingmaster()
+        Else
+            Tmaster = New DataTable
+            Tmaster = SQLCommand($"SELECT DISTINCT Tjobcontroldetxp.Comid, Tyarnxp.Yarnid, Tyarnxp.Yarndesc 
+										    FROM Tyarnxp 
+											RIGHT OUTER JOIN Tclothxp 
+											ON Tyarnxp.Comid = Tclothxp.Comid AND (Tyarnxp.Yarnid = Tclothxp.Yarnid1  OR Tyarnxp.Yarnid = Tclothxp.Yarnid2)
+											RIGHT OUTER JOIN Tjobcontroldetxp 
+											ON Tclothxp.Clothid = Tjobcontroldetxp.Clothid AND Tclothxp.Comid = Tjobcontroldetxp.Comid 
+											LEFT OUTER JOIN Tshadexp 
+											ON Tjobcontroldetxp.Comid = Tshadexp.Comid AND Tshadexp.Shadeid = Tjobcontroldetxp.Shadeid
+											WHERE (dbo.Tjobcontroldetxp.Comid = '{Gscomid}') AND (dbo.Tjobcontroldetxp.Jobno = '{Trim(Tbjobcontrol.Text)}')  AND 
+												  (Tyarnxp.Sstatus = 1) AND (Tyarnxp.Sactive = '1')")
+            Dgvmas.DataSource = Tmaster
+        End If
     End Sub
     Private Sub Tbkeyword_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Tbkeyword.KeyPress
         e.Handled = (Asc(e.KeyChar) = 39)
