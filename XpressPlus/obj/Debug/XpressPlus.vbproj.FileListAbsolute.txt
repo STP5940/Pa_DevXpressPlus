@@ -393,3 +393,4 @@ C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\DevComponen
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\DevComponents.DotNetBar.SuperGrid.xml
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\bin\Debug\DevComponents.Instrumentation.xml
 C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formdyeshadelist.resources
+C:\Users\this\Documents\GitHub\Pa_DevXpressPlus\XpressPlus\obj\Debug\XpressPlus.Formknityarnlist.resources

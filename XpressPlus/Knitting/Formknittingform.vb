@@ -491,7 +491,7 @@ Public Class Formknittingform
         Tbknitname.Text = Frm.Dgvmas.CurrentRow.Cells("Mname").Value
     End Sub
     Private Sub Btfindyarn_Click(sender As Object, e As EventArgs) Handles Btfindyarn.Click
-        Dim Frm As New Formyarnlist
+        Dim Frm As New Formknityarnlist
         If Cbfromgsc.Checked = False AndAlso Tbjobcontrol.Text <> "" Then
             Frm.Tbjobcontrol.Text = Tbjobcontrol.Text
         End If

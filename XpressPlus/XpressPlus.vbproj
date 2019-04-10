@@ -226,6 +226,12 @@
     <Compile Include="Knitting\Formknittinglist.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Knitting\Formknityarnlist.Designer.vb">
+      <DependentUpon>Formknityarnlist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Knitting\Formknityarnlist.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Knitting\LbSend.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -534,6 +540,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Knitting\Formknittinglist.resx">
       <DependentUpon>Formknittinglist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Knitting\Formknityarnlist.resx">
+      <DependentUpon>Formknityarnlist.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Knitting\Rptknittingform.rdlc" />
     <EmbeddedResource Include="My Project\Resources.resx">
