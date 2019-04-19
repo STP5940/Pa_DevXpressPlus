@@ -1588,19 +1588,27 @@ BypassFilter:
     Private Sub BindingBalance()
 
         Tinstock = New DataTable
-        Tinstock = SQLCommand($"SELECT Dyedcomno, Knittcomid, Jobno, Clothid,Clothno, Ftype, Fwidth, Shadeid, Shadedesc, SUM(Qtyroll) AS Qtyroll, SUM(Qtykg) AS Qtykg FROM(
-				                        SELECT Vdyedcomdet.Dyedcomno,Vdyedcomdet.Knittcomid, Tknittcomxp.Jobno, Vdyedcomdet.Clothid, Vdyedcomdet.Clothno, Vdyedcomdet.Ftype, 
+        Tinstock = SQLCommand($"SELECT Dyedcomno, /*Knittcomid, Jobno,*/ Clothid,Clothno, Ftype, Fwidth, Shadeid, Shadedesc, SUM(Qtyroll) AS Qtyroll, SUM(Qtykg) AS Qtykg FROM(
+				                        SELECT Vdyedcomdet.Dyedcomno, Vdyedcomdet.Clothid, Vdyedcomdet.Clothno, Vdyedcomdet.Ftype, 
 					                           Vdyedcomdet.Fwidth, Vdyedcomdet.Shadeid, Vdyedcomdet.Shadedesc, 
-					                           IIF(Vsumrecfabcoldet.Qtyroll IS NULL , Vdyedcomdet.Qtyroll, Vdyedcomdet.Qtyroll - Vsumrecfabcoldet.Qtyroll) AS Qtyroll, 
-					                           IIF(Vsumrecfabcoldet.Qtykg IS NULL , Vdyedcomdet.Qtykg, Vdyedcomdet.Qtykg - Vsumrecfabcoldet.Qtykg) AS Qtykg
-					                           FROM  Vdyedcomdet 
-					                           LEFT OUTER JOIN dbo.Vsumrecfabcoldet 
-												   ON Vdyedcomdet.Comid = Vsumrecfabcoldet.Comid AND
+					                           SUM(IIF(Vsumrecfabcoldet.Qtyroll IS NULL , Vdyedcomdet.Qtyroll, Vdyedcomdet.Qtyroll - Vsumrecfabcoldet.Qtyroll)) AS Qtyroll, 
+					                           SUM(IIF(Vsumrecfabcoldet.Qtykg IS NULL , Vdyedcomdet.Qtykg, Vdyedcomdet.Qtykg - Vsumrecfabcoldet.Qtykg)) AS Qtykg
+					                           FROM  ( SELECT Comid, Dyedcomno, Clothid, Clothno, Ftype, Shadeid, Fwidth, Shadedesc, SUM(Qtyroll) AS Qtyroll, SUM(Qtykg) AS Qtykg
+															  FROM Vdyedcomdet 
+															  GROUP BY Comid, Dyedcomno, Clothid, Clothno, Ftype, Shadeid, Fwidth, Shadedesc
+													 )  AS Vdyedcomdet
+					                           LEFT OUTER JOIN (
+													  SELECT * FROM dbo.Vsumrecfabcoldet 
+												      GROUP By Vsumrecfabcoldet.Comid, Vsumrecfabcoldet.Dyedcomno, Vsumrecfabcoldet.Clothid, Vsumrecfabcoldet.Clothno,
+																Vsumrecfabcoldet.Ftype, Vsumrecfabcoldet.Shadeid, Vsumrecfabcoldet.Fwidth, Vsumrecfabcoldet.Shadedesc,
+																Vsumrecfabcoldet.Qtyroll,dbo.Vsumrecfabcoldet.Qtykg
+												) AS Vsumrecfabcoldet
+													  ON  Vdyedcomdet.Comid = Vsumrecfabcoldet.Comid AND
 													  Vdyedcomdet.Dyedcomno = Vsumrecfabcoldet.Dyedcomno AND Vdyedcomdet.Clothid = Vsumrecfabcoldet.Clothid AND 
 													  Vdyedcomdet.Clothno = Vsumrecfabcoldet.Clothno AND Vdyedcomdet.Ftype = Vsumrecfabcoldet.Ftype AND 
-													  Vdyedcomdet.Shadeid = Vsumrecfabcoldet.Shadeid AND Vdyedcomdet.Fwidth =Vsumrecfabcoldet.Fwidth AND 
-													  Vdyedcomdet.Shadedesc = Vsumrecfabcoldet.Shadedesc 
-											  LEFT OUTER JOIN (
+													  Vdyedcomdet.Shadeid = Vsumrecfabcoldet.Shadeid AND Vdyedcomdet.Fwidth = Vsumrecfabcoldet.Fwidth AND 
+													  Vdyedcomdet.Shadedesc = Vsumrecfabcoldet.Shadedesc
+											  /*LEFT OUTER JOIN (
 											  
 											  			SELECT A.Comid , A.Jobno , A.Ord , A.Clothid , A.Qtyroll , A.Wgtkg , A.Finwgt , 
 															   A.Dozen , A.Dlvroll , A.Remainroll , A.Shadeid ,B.Knitcomno 
@@ -1610,9 +1618,11 @@ BypassFilter:
 														A.Ord = B.Ord
 
 											  ) AS Tknittcomxp
-													ON Vdyedcomdet.Knittcomid = Tknittcomxp.Knitcomno AND Vdyedcomdet.Clothid = Tknittcomxp.Clothid
+													ON Vdyedcomdet.Knittcomid = Tknittcomxp.Knitcomno AND Vdyedcomdet.Clothid = Tknittcomxp.Clothid */
 											   WHERE Vdyedcomdet.comid = '{Gscomid}'
-                                ) AS AAA WHERE Qtyroll > 0 GROUP BY  Dyedcomno, Clothid,Clothno, Ftype, Fwidth, Shadeid, Shadedesc, Knittcomid, Jobno ")
+											   GROUP BY Vdyedcomdet.Dyedcomno, Vdyedcomdet.Clothid, Vdyedcomdet.Clothno, Vdyedcomdet.Ftype, 
+					                           Vdyedcomdet.Fwidth, Vdyedcomdet.Shadeid, Vdyedcomdet.Shadedesc
+                                ) AS AAA WHERE Qtyroll > 0 GROUP BY  Dyedcomno, Clothid,Clothno, Ftype, Fwidth, Shadeid, Shadedesc/*, Knittcomid, Jobno,*/ ")
         Balance.DataSource = Tinstock
         FillGridBalance()
         ShowRecordDetailBalance()
@@ -1623,7 +1633,7 @@ BypassFilter:
             BindingBalance()
             Exit Sub
         End If
-        Tinstock.DefaultView.RowFilter = String.Format("Dyedcomno Like '%{0}%' or Clothno Like '%{0}%' or Jobno Like '%{0}%' or Ftype Like '%{0}%' or Fwidth Like '%{0}%'", Trim(Tstbbalancekeyword.Text))
+        Tinstock.DefaultView.RowFilter = String.Format("Dyedcomno Like '%{0}%' or Clothno Like '%{0}%' or Ftype Like '%{0}%' or Fwidth Like '%{0}%'", Trim(Tstbbalancekeyword.Text))
         Balance.DataSource = Tinstock
     End Sub
 

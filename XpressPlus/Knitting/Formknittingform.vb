@@ -861,19 +861,18 @@ Public Class Formknittingform
         If frm.Tbcancel.Text = "C" Then
             Exit Sub
         End If
-        'If Dgvmas.RowCount > 0 Then
-        '    If (MessageBox.Show("คุณต้องลบรายการเก่าหรือไม่?", "โปรดยืนยัน", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation)) = Windows.Forms.DialogResult.Cancel Then
-        '        Exit Sub
+        If Dgvmas.RowCount > 0 And Tbjobcontrol.Text <> "" Then
+            Informmessage("ไม่สามารถทำการรวม Job ได้")
+            Exit Sub
+        End If
+        'For i = 0 To Dgvmas.Rows.Count - 1
+        '    If frm.Dgvmas.CurrentRow.Cells("Jobno").Value.ToString = Dgvmas.Rows(i).Cells("MJobno").Value.ToString Then
+        '        If (MessageBox.Show("คำเตือน! มีเลขที่Job ในรายการแล้ว", "โปรดยืนยัน", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation)) = Windows.Forms.DialogResult.Cancel Then
+        '            Exit Sub
+        '        End If
         '    End If
-        'End If
-        For i = 0 To Dgvmas.Rows.Count - 1
-            If frm.Dgvmas.CurrentRow.Cells("Jobno").Value.ToString = Dgvmas.Rows(i).Cells("MJobno").Value.ToString Then
-                If (MessageBox.Show("คำเตือน! มีเลขที่Job ในรายการแล้ว ต้องการเพิ่มหรือไม่?", "โปรดยืนยัน", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation)) = Windows.Forms.DialogResult.Cancel Then
-                    Exit Sub
-                End If
-            End If
 
-        Next
+        'Next
 
         Tbjobcontrol.Text = frm.Dgvmas.CurrentRow.Cells("Jobno").Value
         'Dgvmas.AutoGenerateColumns = False
