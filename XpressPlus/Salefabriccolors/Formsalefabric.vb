@@ -674,8 +674,13 @@ Public Class Formsalefabric
 											INNER JOIN dbo.Trecfabcolxp 
 													 ON dbo.Vsalestock.Comid = dbo.Trecfabcolxp.Comid 
 													 AND dbo.Vsalestock.Lotno = dbo.Trecfabcolxp.Lotno
-											LEFT OUTER JOIN Vdyedcomdet
-											ON Vsalestock.Billdyedno = Vdyedcomdet.Dyedcomno
+											LEFT OUTER JOIN (
+																SELECT Comid, Dyedcomno, Knittcomid, Clothid, Clothno, Ftype, Fwidth, Shadeid, Shadedesc,
+																		SUM(Qtyroll) AS Qtyroll, SUM(Qtykg) AS Qtykg, Finwgt
+																		FROM Vdyedcomdet WHERE Comid = '{Gscomid}'
+																		GROUP BY Comid, Dyedcomno, Knittcomid, Clothid, Clothno, Ftype, Fwidth, Shadeid, Shadedesc, Finwgt
+														) AS Vdyedcomdet
+											ON Vsalestock.Billdyedno = Vdyedcomdet.Dyedcomno AND Vsalestock.Clothid = Vdyedcomdet.Clothid
 											LEFT OUTER JOIN (
 
 														SELECT A.Comid , A.Jobno , A.Ord , A.Clothid , A.Qtyroll , A.Wgtkg , A.Finwgt , 
@@ -687,7 +692,7 @@ Public Class Formsalefabric
 
 											) AS Tknittcomxp
 											ON Vdyedcomdet.Knittcomid = Tknittcomxp.Knitcomno AND Vdyedcomdet.Clothid = Tknittcomxp.Clothid
-											WHERE (dbo.Vsalestock.Comid = '{Gscomid}')
+											WHERE (dbo.Vsalestock.Comid = '101') AND Kongno = '620124237'
 											GROUP BY dbo.Vsalestock.Comid, dbo.Vsalestock.Dyedhdesc, dbo.Vsalestock.Lotno, 
 													 dbo.Vsalestock.Kongno, dbo.Vsalestock.Clothid, dbo.Vsalestock.Clothno, 
 													 dbo.Vsalestock.Ftype, dbo.Vsalestock.Fwidth, dbo.Vsalestock.Shadeid, 
@@ -1080,8 +1085,13 @@ Public Class Formsalefabric
 											INNER JOIN dbo.Trecfabcolxp 
 													 ON dbo.Vsalestock.Comid = dbo.Trecfabcolxp.Comid 
 													 AND dbo.Vsalestock.Lotno = dbo.Trecfabcolxp.Lotno
-											LEFT OUTER JOIN Vdyedcomdet
-											ON Vsalestock.Billdyedno = Vdyedcomdet.Dyedcomno
+											LEFT OUTER JOIN (
+																SELECT Comid, Dyedcomno, Knittcomid, Clothid, Clothno, Ftype, Fwidth, Shadeid, Shadedesc,
+																		SUM(Qtyroll) AS Qtyroll, SUM(Qtykg) AS Qtykg, Finwgt
+																		FROM Vdyedcomdet WHERE Comid = '{Gscomid}'
+																		GROUP BY Comid, Dyedcomno, Knittcomid, Clothid, Clothno, Ftype, Fwidth, Shadeid, Shadedesc, Finwgt
+														) AS Vdyedcomdet
+											ON Vsalestock.Billdyedno = Vdyedcomdet.Dyedcomno AND Vsalestock.Clothid = Vdyedcomdet.Clothid
 											LEFT OUTER JOIN (
 
 														SELECT A.Comid , A.Jobno , A.Ord , A.Clothid , A.Qtyroll , A.Wgtkg , A.Finwgt , 
