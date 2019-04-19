@@ -692,7 +692,7 @@ Public Class Formsalefabric
 
 											) AS Tknittcomxp
 											ON Vdyedcomdet.Knittcomid = Tknittcomxp.Knitcomno AND Vdyedcomdet.Clothid = Tknittcomxp.Clothid
-											WHERE (dbo.Vsalestock.Comid = '101') AND Kongno = '620124237'
+											WHERE (dbo.Vsalestock.Comid = '{Gscomid}')
 											GROUP BY dbo.Vsalestock.Comid, dbo.Vsalestock.Dyedhdesc, dbo.Vsalestock.Lotno, 
 													 dbo.Vsalestock.Kongno, dbo.Vsalestock.Clothid, dbo.Vsalestock.Clothno, 
 													 dbo.Vsalestock.Ftype, dbo.Vsalestock.Fwidth, dbo.Vsalestock.Shadeid, 
