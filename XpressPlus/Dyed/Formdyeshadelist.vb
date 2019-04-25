@@ -65,7 +65,7 @@
 				                                    ON Tjobcontroldetxp.Comid = dbo.Vsumsale.Comid AND Tjobcontroldetxp.Jobno = dbo.Vsumsale.Jobno AND 
 				                                       Tjobcontroldetxp.Clothid = dbo.Vsumsale.Clothid
                                              WHERE (dbo.Vsumsale.Knitcomno = '{Tbknitcomno.Text}') AND (dbo.Vsumsale.Comid = '{Gscomid}') 
-                                                   AND (dbo.Vsumsale.Jobno <> '') AND (Vsumsale.Clothid = '{Tbclothid.Text}') AND Tjobcontroldetxp.Knitcomno = '{Tbknitcomno.Text}'")
+                                                   AND (dbo.Vsumsale.Jobno <> '') AND (Vsumsale.Clothid = '{Tbclothid.Text}') -- AND Tjobcontroldetxp.Knitcomno = '{Tbknitcomno.Text}'")
 
             If shadeinjob.Rows.Count > 0 AndAlso shadeinjob(0)("Shadeid").ToString <> "" Then
                 Dgvmas.DataSource = shadeinjob
