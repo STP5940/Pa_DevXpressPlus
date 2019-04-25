@@ -83,8 +83,8 @@
         End If
         Tdetails = New DataTable
         Tdetails = SQLCommand($"/* รายการทั้งหมด Join รายการรับไปแล้ว (Detail) */
-                                SELECT Comid, Jobno, Ord, Clothid, Clothno, Ftype, Fwidth, Havedoz, Qtyroll, Wgtkg, Finwgt, Dozen, 
-                                       Dlvroll, Remainroll, Knitcomno 
+                                SELECT Comid, Jobno, ROW_NUMBER() OVER (ORDER BY Jobno) AS Ord, Clothid, Clothno, Ftype, Fwidth, Havedoz, SUM(Qtyroll) AS Qtyroll, SUM(Wgtkg) AS Wgtkg, Finwgt, Dozen, 
+                                       Dlvroll, SUM(Remainroll) AS Remainroll, Knitcomno 
                                 FROM (
 
 					                                SELECT jobxp.Comid, jobxp.Jobno, jobxp.Ord, jobxp.Clothid, Tclothxp.Clothno, Tclothxp.Ftype, Tclothxp.Fwidth, 
@@ -109,7 +109,9 @@
 					                                LEFT OUTER JOIN Tjobcontrolxp AS jobmasxp
 					                                ON jobmasxp.Jobno = jobxp.Jobno AND jobmasxp.Comid = jobxp.Comid
 
-			                      )AS A WHERE Qtyroll > 0 AND Comid = '{Gscomid}' AND Sstatus = '1' AND Jobno = '{Dgvmas.CurrentRow.Cells("Jobno").Value}'")
+			                      )AS A WHERE Qtyroll > 0 AND Comid = '{Gscomid}' AND Sstatus = '1' AND Jobno = '{Dgvmas.CurrentRow.Cells("Jobno").Value}'
+								  GROUP BY Comid, Jobno, Clothid, Clothno, Ftype, Fwidth, Havedoz, Qtyroll, Wgtkg, Finwgt, Dozen, 
+                                       Dlvroll, Remainroll, Knitcomno ")
         Dgvlist.DataSource = Tdetails
     End Sub
     Private Sub Filtermastergrid()
