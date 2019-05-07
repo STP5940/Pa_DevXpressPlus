@@ -1173,15 +1173,15 @@ Public Class Formknittingform
     End Sub
     Private Sub Binddetailsknit()
         Tdetailsknit = New DataTable
-        Tdetailsknit = SQLCommand($"SELECT Vknitcomdet.Comid, Vknitcomdet.Knitcomno, Vknitcomdet.Clothid, Vknitcomdet.Clothno, 
-                                           Vknitcomdet.Ftype, Vknitcomdet.Fwidth, Vknitcomdet.Qtyroll, Vknitcomdet.Wgtkg, 
-                                           Vknitcomdet.Finwgt, Vknitcomdet.Dozen, Vknitcomdet.Havedoz, Vjobcontroldetlog.Ord ,
-                                           Vjobcontroldetlog.Jobno 
-	                                 FROM Vknitcomdet 
-                                     LEFT OUTER JOIN Vjobcontroldetlog
-                                          ON Vknitcomdet.Knitcomno = Vjobcontroldetlog.Knitcomno AND Vknitcomdet.Comid = Vjobcontroldetlog.Comid AND 
-                                             Vknitcomdet.Clothid = Vjobcontroldetlog.Clothid
-                                     WHERE Vknitcomdet.Comid = '{Gscomid}' AND Vknitcomdet.Knitcomno = '{Trim(Tbknitcomno.Text)}'")
+        Tdetailsknit = SQLCommand($"SELECT Vknitcomdet.Comid, Vknitcomdet.Knitcomno, Vknitcomdet.Clothid, 
+	                                       Vknitcomdet.Clothno, Vknitcomdet.Ftype, Vknitcomdet.Fwidth, 
+	                                       Vknitcomdet.Qtyroll, Vknitcomdet.Wgtkg, Vknitcomdet.Finwgt, 
+                                           Vknitcomdet.Dozen, Vknitcomdet.Havedoz, Tjobcontroldetlogxp.Ord, Tjobcontroldetlogxp.Jobno
+                                    FROM Vknitcomdet 
+                                    LEFT OUTER JOIN Tjobcontroldetlogxp 
+                                    ON Vknitcomdet.Knitcomno = Tjobcontroldetlogxp.Knitcomno AND Vknitcomdet.Ord = Tjobcontroldetlogxp.Ord 
+                                       AND Vknitcomdet.Comid = Tjobcontroldetlogxp.Comid
+                                    WHERE Tjobcontroldetlogxp.Knitcomno = '{Trim(Tbknitcomno.Text)}' AND Tjobcontroldetlogxp.Comid = '{Gscomid}'")
         Dgvmas.DataSource = Tdetailsknit
         Sumall()
     End Sub
