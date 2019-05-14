@@ -87,7 +87,7 @@ Public Class Formsalefabric
         Else
             Editdoc()
         End If
-        Updatejobcontrol() ' Save sale
+        'Updatejobcontrol() ' Save sale
         Tsbwsave.Visible = False
         Btmreports_Click(sender, e)
         Btdcancel_Click(sender, e)
@@ -114,7 +114,7 @@ Public Class Formsalefabric
         If Confirmdelete() = True Then
             Settypeyend("Clear")
             Deldetails(Trim(Tbdlvno.Text))
-            Updatejobcontrol() ' Delet sale
+            'Updatejobcontrol() ' Delet sale
             SQLCommand("DELETE FROM Tsalefabcolxp WHERE Comid = '" & Gscomid & "' AND Dlvno = '" & Trim(Tbdlvno.Text) & "'")
             Clrdgrid()
             Clrtxtbox()

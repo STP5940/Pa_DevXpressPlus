@@ -1181,7 +1181,7 @@ Public Class Formknittingform
                                     LEFT OUTER JOIN Tjobcontroldetlogxp 
                                     ON Vknitcomdet.Knitcomno = Tjobcontroldetlogxp.Knitcomno AND Vknitcomdet.Ord = Tjobcontroldetlogxp.Ord 
                                        AND Vknitcomdet.Comid = Tjobcontroldetlogxp.Comid
-                                    WHERE Tjobcontroldetlogxp.Knitcomno = '{Trim(Tbknitcomno.Text)}' AND Tjobcontroldetlogxp.Comid = '{Gscomid}'")
+                                    WHERE Vknitcomdet.Knitcomno = '{Trim(Tbknitcomno.Text)}' AND Vknitcomdet.Comid = '{Gscomid}'")
         Dgvmas.DataSource = Tdetailsknit
         Sumall()
     End Sub

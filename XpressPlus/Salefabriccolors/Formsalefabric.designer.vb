@@ -564,6 +564,7 @@ Partial Class Formsalefabric
         Me.Jobno.MinimumWidth = 90
         Me.Jobno.Name = "Jobno"
         Me.Jobno.ReadOnly = True
+        Me.Jobno.Visible = False
         '
         'Lotno
         '
