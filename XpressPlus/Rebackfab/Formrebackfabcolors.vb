@@ -486,7 +486,7 @@ Public Class Formrebackfabcolors
         Upddetails("A")
         If Gsusername = "SUPHATS" Then
         Else
-            Insertlog(Gscomid, Gsusergroupid, Gsuserid, Gsusername, "F123", Trim(Tbdyedbillno.Text), "A", "สร้างรายการ รับผ้าสี", Formatdatesave(Now), Computername, Usrproname)
+            Insertlog(Gscomid, Gsusergroupid, Gsuserid, Gsusername, Me.Tag, Trim(Tbdyedbillno.Text), "A", "สร้างรายการ รับผ้าสี", Formatdatesave(Now), Computername, Usrproname)
         End If
     End Sub
     Private Sub Editdoc()
@@ -497,7 +497,7 @@ Public Class Formrebackfabcolors
         Upddetails("E")
         If Gsusername = "SUPHATS" Then
         Else
-            Insertlog(Gscomid, Gsusergroupid, Gsuserid, Gsusername, "F124", Trim(Tbdyedbillno.Text), "E", "แก้ไขรายการ รับคืนผ้า", Formatdatesave(Now), Computername, Usrproname)
+            Insertlog(Gscomid, Gsusergroupid, Gsuserid, Gsusername, Me.Tag, Trim(Tbdyedbillno.Text), "E", "แก้ไขรายการ รับคืนผ้า", Formatdatesave(Now), Computername, Usrproname)
         End If
     End Sub
     Private Sub Insertmaster()
