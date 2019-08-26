@@ -20466,6 +20466,16 @@
             Resets property to its default value.
             </summary>
         </member>
+        <member name="M:DevComponents.DotNetBar.Controls.CircularProgress.Start">
+            <summary>
+            Starts the progress bar loop for endless type progress bar. Progress bar will continue to run until Stop() method is called.
+            </summary>
+        </member>
+        <member name="M:DevComponents.DotNetBar.Controls.CircularProgress.Stop">
+            <summary>
+            Stops the progress bar loop for endless type progress bar.
+            </summary>
+        </member>
         <member name="E:DevComponents.DotNetBar.Controls.CircularProgress.ValueChanged">
             <summary>
             Occurs when Value property has changed.
